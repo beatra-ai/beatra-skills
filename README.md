@@ -53,6 +53,12 @@ official archive before replacing itself, and leaves your installation untouched
 if anything fails. Turn it off at any time — see
 `references/automatic-updates-and-safety.md` inside any skill.
 
+## License
+
+[MIT-0](LICENSE) — free to use, modify, and redistribute, including
+commercially. No attribution required. Same terms as these skills carry on
+ClawHub.
+
 ## Links
 
 - Beatra — https://beatra.ai
