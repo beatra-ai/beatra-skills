@@ -1,0 +1,65 @@
+{
+  "changelog": "Refresh the Simplified Chinese listing copy so the description carries the common Chinese nickname for YouTube.",
+  "display_name": "YouTube Thumbnail Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/youtube-thumbnail-maker",
+  "icon": "https://beatra.ai/textures/icons/youtube-thumbnail-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create YouTube thumbnails from a video topic, title, script, key frame, portrait, product photo, or channel reference. This AI thumbnail maker compares three directions in text first, then renders the one you pick as a 16:9 image with clear visual hooks, readable hierarchy, and a headline-safe composition for explainers, reviews, tutorials, vlogs, games, podcasts, and long-form creative videos. It pairs the image with title-matching advice and refines an accepted direction into a consistent channel look. Rendering requires a Beatra account at beatra.ai.",
+      "display_name": "YouTube Thumbnail Maker",
+      "summary": "Turn a YouTube topic, title, script, key frame, portrait, product photo, or channel reference into three thumbnail directions described in text, then render the one you pick as a 16:9 image with the headline area kept clear. Leave with a title that matches the image and a channel rule the next video can reuse.",
+      "tags": [
+        "YouTube thumbnail maker",
+        "YouTube thumbnail generator",
+        "YouTube video thumbnail",
+        "YouTube thumbnail design",
+        "long-form video thumbnail",
+        "YouTube title thumbnail match",
+        "YouTube channel branding",
+        "AI thumbnail maker"
+      ],
+      "title": "YouTube Thumbnail Maker: Long-Form Video Covers"
+    },
+    "ja": {
+      "description": "動画の企画、タイトル、台本、キーフレーム、人物写真、商品写真、チャンネル参考から、YouTubeのサムネイルと長編動画カバーをAIで作成します。強い視覚フック、見やすい階層、タイトルとの組み合わせ、文字を置きやすい余白を整え、解説、レビュー、ハウツー、Vlog、ゲーム、ポッドキャスト、長編クリエイティブ動画に活用し、採用した方向はチャンネルの世界観に合わせて磨き込めます。",
+      "display_name": "YouTubeサムネイルメーカー",
+      "summary": "YouTubeの企画、タイトル、台本、キーフレーム、人物・商品写真やチャンネル参考から、主役とタイトルが伝わる長編動画サムネイル案をつくります。",
+      "tags": [
+        "YouTube サムネイル作成",
+        "YouTube 動画サムネイル",
+        "YouTube カバー画像",
+        "長編動画 サムネイル",
+        "YouTube タイトル サムネイル",
+        "YouTube チャンネル デザイン",
+        "AI サムネイル作成",
+        "動画カバー 作成"
+      ],
+      "title": "YouTubeサムネイル作成：長編動画のカバーとタイトル設計"
+    },
+    "zh": {
+      "description": "使用 AI 将 YouTube 选题、标题、脚本、关键帧、人物照、商品图或频道参考制作成 YouTube 缩略图、油管封面、YouTube 视频封面和长视频缩略图。规划醒目的视觉钩子、清晰层级、标题匹配建议与标题安全区，适用于知识讲解、评测、教程、Vlog、游戏、播客和长视频创意内容，并可将已选方向精修为统一的频道视觉。",
+      "display_name": "YouTube视频缩略图制作",
+      "summary": "把 YouTube 选题、标题、脚本、关键帧、人物照、商品图或频道参考，制作成焦点明确、标题匹配并适合长视频浏览的缩略图候选。",
+      "tags": [
+        "YouTube缩略图",
+        "YouTube视频封面",
+        "YouTube缩略图制作",
+        "YouTube缩略图设计",
+        "长视频封面",
+        "YouTube标题封面匹配",
+        "YouTube频道视觉",
+        "AI YouTube缩略图",
+        "油管封面"
+      ],
+      "title": "YouTube 视频缩略图制作：长视频封面与标题匹配"
+    }
+  },
+  "mcp": {
+    "client": "scripts/mcp_client.py",
+    "mode": "bundled-client-only"
+  },
+  "name": "youtube-thumbnail-maker",
+  "schema_version": 1,
+  "version": "0.2.0"
+}

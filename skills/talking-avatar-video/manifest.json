@@ -1,0 +1,77 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "Talking Avatar & AI Presenter Video",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/talking-avatar-video",
+  "icon": "https://beatra.ai/textures/icons/talking-avatar-video-0.1.4.png",
+  "localized": {
+    "en": {
+      "description": "Create a talking avatar from one portrait and a short script or speech track. This AI presenter and digital human video workflow can prepare narration with a selected voice or use a supplied recording, then direct a stable talking-head clip with restrained expression, natural movement, clear delivery, and focused lip-sync review. Use it for AI spokesperson videos, product explainers, training, course lessons, announcements, onboarding, social talking-head content, and photo-to-talking-video messages, with narration-driven facial motion and a focused review of identity, clarity, lip sync, and motion stability.",
+      "display_name": "Talking Avatar & AI Presenter Video",
+      "summary": "Turn one portrait and a short script or speech track into a directed talking-avatar video for explainers, announcements, lessons, and product messages.",
+      "tags": [
+        "talking avatar",
+        "AI presenter",
+        "AI spokesperson video",
+        "digital human video",
+        "talking head video",
+        "talking photo",
+        "photo to talking video",
+        "avatar narration",
+        "lip sync video",
+        "product explainer avatar",
+        "training video presenter",
+        "virtual presenter"
+      ],
+      "title": "Talking Avatar & AI Presenter Video"
+    },
+    "ja": {
+      "description": "ポートレート1枚と、短い台本または音声から、伝える内容が明確なトーキングアバター動画を作ります。用意した録音を使うほか、声を選んで台本からナレーションを作ることもでき、音声に合わせて話す安定した人物映像に仕上げます。AIプレゼンター、AIアバター動画、デジタルヒューマン動画、しゃべる写真、トーキングフォト、商品説明、研修、レッスン、告知、SNS向けのAIアバター動画に適しています。完成後は人物の一貫性、音声の聞きやすさ、口の動き、映像の安定性を確認します。",
+      "display_name": "トーキングアバター・AIプレゼンター動画",
+      "summary": "ポートレート1枚と短い台本または音声から、解説、告知、研修、商品紹介に使えるトーキングアバター動画を作ります。",
+      "tags": [
+        "トーキングアバター",
+        "AIプレゼンター",
+        "AIアバター動画",
+        "デジタルヒューマン動画",
+        "しゃべる写真",
+        "トーキングフォト",
+        "写真をしゃべらせる",
+        "リップシンク動画",
+        "バーチャルプレゼンター",
+        "商品説明動画",
+        "研修動画"
+      ],
+      "title": "トーキングアバター・AIプレゼンター動画"
+    },
+    "zh": {
+      "description": "用一张人像和一段短脚本或语音，制作有明确讲述内容的数字人口播视频。可使用现成录音，也可以先选择音色，把脚本生成旁白，让画面中的人物随声音完成稳定、自然的口播。适合 AI 主播、虚拟主播视频、数字人讲解、让照片说话、照片说话视频、产品讲解视频、数字人培训视频、公告和社交口播，并在交付后检查人物一致性、声音清晰度、口型同步和动作稳定性。",
+      "display_name": "AI数字人口播与虚拟主播视频",
+      "summary": "把一张人像和短脚本或语音，制作成适合讲解、公告、课程和产品介绍的数字人口播视频。",
+      "tags": [
+        "数字人口播",
+        "AI主播",
+        "虚拟主播视频",
+        "数字人视频",
+        "让照片说话",
+        "照片说话",
+        "照片说话视频",
+        "口型同步视频",
+        "数字人讲解",
+        "产品讲解视频",
+        "数字人培训视频"
+      ],
+      "title": "AI 数字人口播与虚拟主播视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "talking-avatar-video",
+  "schema_version": 1,
+  "version": "0.1.6"
+}

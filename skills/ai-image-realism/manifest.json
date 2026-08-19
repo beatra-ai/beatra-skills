@@ -1,0 +1,74 @@
+{
+  "changelog": "Shorten the Simplified Chinese display name to the de-AI-look term itself and close the Latin-CJK spaces in the rest of the Chinese copy.",
+  "display_name": "AI Image Realism Retoucher",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-image-realism",
+  "icon": "https://beatra.ai/textures/icons/ai-image-realism-0.1.4.png",
+  "localized": {
+    "en": {
+      "description": "Improve AI image realism without starting over. This focused AI image editor and humanizer targets visible AI image artifacts—plastic skin, malformed hands or faces, extra fingers, repeated textures, and inconsistent lighting—with focused AI image retouching through a local repair or natural whole-image refinement. Use it to make AI portraits, product images, marketing graphics, and social covers look more realistic, remove the obvious AI look, fix AI hands and extra fingers, or refine product imagery, while aiming to keep identity, product shape, brand details, and composition recognizable where possible.",
+      "display_name": "AI Image Realism & Artifact Fixer",
+      "summary": "Make existing AI portraits, product images, and marketing visuals look more natural by fixing plastic skin, malformed hands and faces, repeated textures, and inconsistent lighting.",
+      "tags": [
+        "AI image realism",
+        "AI image editor",
+        "AI image humanizer",
+        "fix AI image artifacts",
+        "make AI images look realistic",
+        "remove AI look",
+        "AI image retouching",
+        "fix AI hands",
+        "fix extra fingers",
+        "AI product image retouching"
+      ],
+      "title": "AI Image Realism & Artifact Fixer – Natural AI Image Retouching"
+    },
+    "ja": {
+      "description": "気に入ったAI生成画像を作り直さず、破綻や違和感を補正してAIっぽさを軽減し、より自然な仕上がりを目指します。まず、不自然な肌、手や指・顔の崩れ、余分な指、反復模様、光と影の矛盾など、最も目立つ問題を確認。必要な部分だけのAI画像修正、または画像全体のAI画像レタッチを行います。人物の特徴、商品の形、ブランド要素、元の構図をできるだけ保ちながら、ポートレート、商品画像、SNS投稿、サムネイル、広告ビジュアルを使いやすく整えます。",
+      "display_name": "AI画像の破綻修正・自然なレタッチ",
+      "summary": "AI生成画像の不自然な肌、手指・顔の崩れ、反復模様、光と影の矛盾を補正し、人物・商品・販促画像を自然に仕上げます。",
+      "tags": [
+        "AI画像の破綻修正",
+        "AI画像の違和感補正",
+        "AI生成画像を自然に",
+        "AI画像レタッチ",
+        "AI画像修正",
+        "AIっぽさを軽減",
+        "手や指の修正",
+        "余分な指の修正",
+        "顔の崩れ補正",
+        "商品画像レタッチ"
+      ],
+      "title": "AI画像の破綻修正・自然なレタッチ"
+    },
+    "zh": {
+      "description": "已有AI图片整体满意，却被塑料皮肤、畸形手或六指、面部破绽、重复纹理和光影违和暴露生成感？这项AI图片修复会先找出最影响观感的问题，再通过局部AI修图或整体AI图片精修改善真实感。无论是想让图片去AI味、降低AI图片的生成感，还是进行AI人像去塑料感、AI手指与六指修复、商品图去AI感处理，都尽量保留人物特征、商品外形、品牌细节和原有构图，让人像、商品图、营销图和社交封面更自然可信。",
+      "display_name": "去AI味",
+      "summary": "修复AI图片的塑料感、手指与面部破绽、重复纹理和光影违和，尽量保留人物、商品与原有构图，让已选图片更自然可信。",
+      "tags": [
+        "去AI味",
+        "图片去AI味",
+        "AI图片去AI感",
+        "AI图片修复",
+        "AI修图",
+        "AI图片精修",
+        "AI图片真实感修复",
+        "AI人像去塑料感",
+        "AI手指修复",
+        "六指修复",
+        "商品图去AI感"
+      ],
+      "title": "去AI味：AI图片真实感修复与自然精修"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-image-realism",
+  "schema_version": 1,
+  "version": "0.2.5"
+}
