@@ -1,0 +1,56 @@
+{
+  "changelog": "First public release. Turn a category, a note link, or pasted notes into a research memo of title patterns and followable angles.",
+  "display_name": "Note Research Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/xiaohongshu-note-research",
+  "icon": "https://beatra.ai/textures/icons/xiaohongshu-note-research-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a category, a note link, or notes you already copied into a research memo. This note analysis and Xiaohongshu research workflow reads public notes, comments, and a creator's recent notes on Xiaohongshu, or works from the titles, bodies, and comments you paste, then lays out title patterns, structure, verbatim comments, and followable angles. Use it for note analysis, Xiaohongshu research, note research, and competitor notes when you want the patterns a category is already using.",
+      "display_name": "Note Research Studio",
+      "summary": "Give a category, a note link, or notes you already copied, and get title patterns, structure, and followable angles.",
+      "tags": [
+        "note analysis",
+        "Xiaohongshu research",
+        "note research",
+        "competitor notes"
+      ],
+      "title": "Note Analysis: Turn Notes You Can See Into a Research Memo"
+    },
+    "ja": {
+      "description": "カテゴリ、ノートリンク、またはコピー済みのノートをリサーチメモにします。公開ノートとコメントを読むか、貼り付けたタイトルと本文から、タイトルの型、構成、原文コメント、追える切り口を出します。このノート分析とノートリサーチは、小紅書の公開ノートを読むか、貼り付けから競合ノートの型を整理します。ノート分析、小紅書ノート、ノートリサーチ、競合ノートに。",
+      "display_name": "ノート分析ワークスペース",
+      "summary": "カテゴリ、ノートリンク、またはコピー済みのノートから、型と追える切り口を出します。",
+      "tags": [
+        "ノート分析",
+        "小紅書ノート",
+        "ノートリサーチ",
+        "競合ノート"
+      ],
+      "title": "ノート分析：見えているノートをリサーチメモにする"
+    },
+    "zh": {
+      "description": "把品类、一条笔记链接，或你已经复制的笔记，做成调研备忘。给品类、公开笔记，或粘贴的标题和正文，就能拿到标题套路、结构、原话评论和能跟的角度。这个笔记分析工作流会读小红书上的公开笔记、评论和作者近作，也可以直接用你粘贴的内容，做成小红书笔记的笔记调研，整理竞品笔记里的笔记套路。适合笔记分析、小红书笔记、笔记调研、竞品笔记和笔记套路。",
+      "display_name": "笔记分析工作室",
+      "summary": "给品类、笔记链接，或已经复制的笔记，拿到标题套路、结构和能跟的角度。",
+      "tags": [
+        "笔记分析",
+        "小红书笔记",
+        "笔记调研",
+        "竞品笔记",
+        "笔记套路"
+      ],
+      "title": "笔记分析工作室：把能看到的笔记做成调研备忘"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "xiaohongshu-note-research",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

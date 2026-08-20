@@ -1,0 +1,79 @@
+{
+  "changelog": "Add an optional Xiaohongshu lookup. Before drafting, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the venue angle and the copy rest on the platform instead of on guesswork. Optional, priced per read, and confirmed separately; a run that skips it still delivers.",
+  "display_name": "Zhongcao Local Business Note Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/zhongcao-local-business-note-maker",
+  "icon": "https://beatra.ai/textures/icons/zhongcao-local-business-note-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Xiaohongshu local business post or REDnote local business post from storefront photos, service images, a merchant brief, or brand references. This AI local-business content maker creates a coordinated vertical 3:4 Xiaohongshu business note with a store-front cover, store or service highlight, and a closing visual with room for visit details, plus title ideas, caption angles, and tags for Xiaohongshu store promotion, Xiaohongshu local posts, store-visit content, retail shops, beauty studios, gyms, hotels, attractions, and pop-up events. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
+      "display_name": "Zhongcao Local Business Note Maker",
+      "summary": "Turn a storefront photo, service image, merchant brief, or brand reference into a coordinated vertical 3:4 REDnote local-business note with a cover, store or service highlight, and a closing visual with room for visit details.",
+      "tags": [
+        "Xiaohongshu local business",
+        "REDnote local business",
+        "Xiaohongshu store promotion",
+        "Xiaohongshu local post",
+        "Xiaohongshu store-visit content",
+        "Xiaohongshu business note",
+        "vertical 3:4 social post",
+        "competitor note analysis",
+        "comment analysis",
+        "Xiaohongshu research"
+      ],
+      "title": "Zhongcao Local Business Note Maker: Xiaohongshu Store Promotion Posts"
+    },
+    "ja": {
+      "description": "店舗外観、店内やサービスの写真、店舗情報、ブランドの参考画像から、AIで小紅書（REDnote）の店舗集客投稿、店舗紹介画像、店舗PR画像を作成します。表紙、店舗やサービスの見どころ、来店情報を添えやすい締めのビジュアルをそろえた縦型3:4の店舗画像セットに、タイトル案、キャプションの切り口、タグも整えます。ビューティースタジオ、ジム、ホテル、観光地、ポップアップイベントなど、小紅書 店舗紹介投稿で新規のお客さまを呼びたいお店に向いています。任意で小紅書そのものを読み取れます。同じテーマで動いているノート、あるノートの人気コメント1ページ、アカウント自身の直近ノート——ここから競合ノート分析とコメント分析といった小紅書リサーチを、記憶ではなく実データで行えます。",
+      "display_name": "Zhongcao 店舗集客投稿メーカー",
+      "summary": "店舗外観、店内やサービスの写真、店舗情報、ブランドの参考画像から、表紙、店舗やサービスの見どころ、来店情報を添えやすい締めのビジュアルをそろえた縦型3:4の小紅書店舗投稿を作成します。",
+      "tags": [
+        "小紅書 店舗集客",
+        "小紅書 店舗投稿",
+        "RED 店舗紹介",
+        "小紅書 店舗紹介投稿",
+        "店舗紹介画像",
+        "中国SNS 店舗集客",
+        "店舗PR画像",
+        "ショップ紹介投稿",
+        "縦型3:4 店舗画像",
+        "AI 店舗紹介画像",
+        "競合ノート分析",
+        "コメント分析",
+        "小紅書リサーチ"
+      ],
+      "title": "Zhongcao 店舗集客投稿メーカー：RED 店舗紹介画像と中国SNS販促"
+    },
+    "zh": {
+      "description": "把门头照、店内或服务照片、商家信息或品牌参考制作成小红书本地生活笔记、本地生活配图、小红书门店种草图和小红书探店配图。围绕门店外观首图、门店或服务亮点和到店信息展示区，完成风格统一的竖版 3:4 小红书门店推广图，并整理标题灵感、文案角度和标签，适合零售店、美业门店、工作室、健身房、民宿、展览、景点和快闪活动，以及小红书同城笔记。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
+      "display_name": "小红薯·本地生活笔记制作",
+      "summary": "把门头照、店内或服务照片、商家信息或品牌参考，制作成包含首图、门店或服务亮点和到店信息展示区的竖版 3:4 小红书本地生活笔记。",
+      "tags": [
+        "小红书本地生活笔记",
+        "小红书门店种草图",
+        "小红书探店配图",
+        "小红书门店推广",
+        "门店推广图",
+        "小红书门店笔记",
+        "门店宣传图",
+        "本地生活配图",
+        "小红书同城笔记",
+        "竖版3:4门店配图",
+        "竞品笔记分析",
+        "评论区分析",
+        "小红书竞品"
+      ],
+      "title": "小红薯·本地生活笔记制作：门店种草图、探店配图与门店推广图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "zhongcao-local-business-note-maker",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

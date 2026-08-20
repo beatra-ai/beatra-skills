@@ -1,0 +1,79 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "AI Multilingual Dubbing",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-multilingual-dubbing",
+  "icon": "https://beatra.ai/textures/icons/ai-multilingual-dubbing.png",
+  "localized": {
+    "en": {
+      "description": "Create multilingual voice-over audio from prepared scripts for videos, product launches, e-learning, training libraries, creator content, and international campaigns. This AI multilingual dubbing workflow organizes every market and segment, helps choose a locale-ready voice, pilots pronunciation and timing, and delivers reviewable narration by language. Use it for AI video dubbing audio, AI video translation audio, video localization voice-over, training video localization, global marketing narration, text to speech in multiple languages, or Chinese, English, and Japanese dubbing. Receive narration tracks organized by language, market, and segment, ready for localization editing, lip-sync production, training libraries, and campaign assembly.",
+      "display_name": "AI Multilingual Dubbing",
+      "summary": "Create reviewable multilingual voice-over audio from scripts for each language, with deliberate casting, pronunciation and timing pilots, and delivery organized by market and segment.",
+      "tags": [
+        "AI multilingual dubbing",
+        "AI video dubbing",
+        "video dubbing",
+        "multilingual voiceover",
+        "AI voiceover",
+        "AI video translation audio",
+        "video localization voiceover",
+        "training video localization",
+        "global marketing voiceover",
+        "e-learning localization",
+        "multilingual narration",
+        "text to speech multiple languages"
+      ],
+      "title": "AI Multilingual Voice-Over Audio for Videos, Courses & Global Campaigns"
+    },
+    "ja": {
+      "description": "各言語の原稿から、AI多言語吹き替えと多言語ナレーションの音声を制作します。海外向け動画、商品紹介、マーケティング、eラーニング、研修、ショートドラマの音声ローカライゼーションに対応。市場と言語ごとに原稿を整理し、対応する声を選び、代表箇所で発音、話し方、テンポ、尺を確認してから音声を納品します。AI吹き替え、AIダビング、動画吹き替え、多言語ボイスオーバー、AI動画翻訳向け音声、動画ローカライズ、日中英ナレーションに活用できます。音声は市場、言語、セグメント別に整理され、翻訳確認、リップシンク、動画編集、海外向けコンテンツ制作に使いやすく納品されます。",
+      "display_name": "AI多言語吹き替え",
+      "summary": "各言語の原稿から多言語ナレーション音声を制作。市場ごとに声を選び、発音・話し方・尺を試してから、言語とセグメント別に納品します。",
+      "tags": [
+        "AI多言語吹き替え",
+        "AI吹き替え",
+        "AIダビング",
+        "AI動画翻訳向け音声",
+        "動画吹き替え",
+        "多言語ナレーション",
+        "多言語ボイスオーバー",
+        "動画ローカライズ",
+        "音声ローカライゼーション",
+        "海外向け動画制作",
+        "eラーニング多言語化",
+        "日中英ナレーション"
+      ],
+      "title": "AI多言語吹き替え：海外向け動画・講座のナレーション音声"
+    },
+    "zh": {
+      "description": "根据各语言口播稿制作 AI 多语言配音和多语言旁白，适合出海视频、产品发布、海外营销、跨境电商视频、课程培训和短剧译制项目。先按市场和片段整理文案，再为每种语言选择合适声音，用代表片段试听读音、语气、节奏和时长，交付清晰可审听的音频。可用于 AI 视频翻译配音、视频本地化配音、多语种配音、课程多语言配音、多语种语音合成和中英日配音；旁白音频按市场、语言和片段整理，方便继续完成视频翻译、口型同步、成片剪辑与海外营销内容制作。",
+      "display_name": "AI多语言配音",
+      "summary": "根据各语言口播稿制作多语言旁白音频，按市场选声，先试听读音、语气和时长，再按语言与片段清晰交付。",
+      "tags": [
+        "AI多语言配音",
+        "AI视频翻译配音",
+        "多语种配音",
+        "多语言旁白",
+        "出海视频配音",
+        "视频本地化配音",
+        "跨境电商视频配音",
+        "短剧出海",
+        "短剧译制",
+        "海外营销配音",
+        "课程多语言配音",
+        "中英日配音"
+      ],
+      "title": "AI 多语言配音：出海视频、课程与营销旁白音频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-multilingual-dubbing",
+  "schema_version": 1,
+  "version": "0.1.7"
+}

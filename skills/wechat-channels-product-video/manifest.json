@@ -1,0 +1,74 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the Channels product-video term as one contiguous phrase.",
+  "display_name": "WeChat Channels Product Showcase Video Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-channels-product-video",
+  "icon": "https://beatra.ai/textures/icons/wechat-channels-product-video-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a vertical WeChat Channels product-display video from a real product photo and confirmed product information. Shape a clear product opening, one detail or use moment, and a clean ending, then prepare the finished product video with a title and publishing copy for WeChat Channels product content, including a new-product showcase video.",
+      "display_name": "WeChat Channels Product Showcase Video Maker",
+      "summary": "Turn a real product photo and confirmed product details into a clear vertical WeChat Channels product showcase video, title, and publishing copy.",
+      "tags": [
+        "WeChat Channels product showcase video",
+        "WeChat Channels product video",
+        "product photo to WeChat video",
+        "vertical product video",
+        "WeChat Channels product introduction",
+        "product detail video",
+        "product display video",
+        "WeChat Channels product content",
+        "new product showcase video",
+        "product use video"
+      ],
+      "title": "WeChat Channels Product Showcase Video Maker: Product Photo to Vertical Video"
+    },
+    "ja": {
+      "description": "実際の商品写真と確認済みの商品情報から、WeChat Channels向けの縦型商品展示動画を作成します。商品がすぐ伝わる導入、商品の寄りや使用シーン、締めの画面を組み立て、WeChat Channels 商品動画、WeChat視頻号 商品動画、商品紹介動画、商品詳細動画、新商品紹介動画に使えるタイトルと投稿文を整えます。商品写真から動画、縦型商品動画、WeChat Channels 商品コンテンツに活用できます。",
+      "display_name": "WeChat Channels 商品展示動画メーカー",
+      "summary": "実際の商品写真と確認済みの商品情報から、WeChat Channels向けの縦型商品展示動画、タイトル、投稿文を作成します。",
+      "tags": [
+        "WeChat Channels 商品動画",
+        "WeChat視頻号 商品動画",
+        "WeChat商品展示動画",
+        "WeChat商品紹介動画",
+        "商品写真から動画",
+        "縦型商品動画",
+        "商品詳細動画",
+        "新商品紹介動画",
+        "WeChat Channels 商品コンテンツ",
+        "商品使用シーン動画"
+      ],
+      "title": "WeChat Channels 商品展示動画メーカー：商品写真から縦型動画"
+    },
+    "zh": {
+      "description": "把真实商品图和已确认商品信息制作成一条竖版视频号商品展示短视频。围绕清晰的商品开场、一个商品细节或使用瞬间和干净收尾，交付视频号商品视频、商品展示视频、商品介绍视频、商品细节展示和新品展示视频，并整理标题和发布文案，适合商品图转视频、竖版商品视频、视频号带货短视频、视频号商品内容与微信小店商品内容。",
+      "display_name": "视频号商品视频制作",
+      "summary": "把真实商品图和已确认商品信息制作成一条竖版视频号商品展示短视频，并准备标题与发布文案。",
+      "tags": [
+        "视频号商品展示",
+        "视频号商品短视频",
+        "商品展示视频",
+        "商品图转视频",
+        "商品介绍视频",
+        "商品细节展示",
+        "竖版商品视频",
+        "视频号商品内容",
+        "微信小店商品内容",
+        "新品展示视频",
+        "视频号带货"
+      ],
+      "title": "视频号商品视频制作：真实商品图生成竖版视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-channels-product-video",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

@@ -1,0 +1,80 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the product-photo term while the subtitle keeps naming commerce main images.",
+  "display_name": "AI Product Photo Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/product-photo-studio",
+  "icon": "https://beatra.ai/textures/icons/product-photo-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Transform a real product photo into a studio-quality ecommerce image, lifestyle scene, or marketplace-ready hero shot. This AI product photography tool replaces backgrounds, improves lighting, and stages scenes while using the source photo and confirmed product details as the visual anchor. Create clean white-background listings, contextual lifestyle compositions, and premium ad visuals from a single phone snap for Amazon, Taobao, Shopify, and social media. Start from one product photo, combine several references, or refine a selected draft toward a polished listing image.",
+      "display_name": "AI Product Photo Studio",
+      "summary": "Transform a real product photo into a studio-quality ecommerce image, lifestyle scene, or marketplace-ready hero shot with clean backgrounds, professional lighting, and composition guided by confirmed product details.",
+      "tags": [
+        "AI product photography",
+        "product photo editor",
+        "product image background",
+        "ecommerce product photo",
+        "product photo background remover",
+        "AI product shoot",
+        "white background product photo",
+        "lifestyle product photography",
+        "product hero image",
+        "amazon product image",
+        "product photo studio",
+        "product listing photo"
+      ],
+      "title": "AI Product Photo Studio: Ecommerce Product Photography & Background Remover"
+    },
+    "ja": {
+      "description": "実際の製品写真をスタジオ品質のEC画像、ライフスタイルシーン、または販売プラットフォーム向けのヒーローショットに変換します。このAI商品写真ツールは、元写真と確認済みの商品外観を基準に、背景の置換、照明の改善、シーンの演出を行います。スマホで撮った1枚から、白背景のメイン画像、ライフスタイルシーン、上質な広告ビジュアルを作成し、Amazon、楽天、Shopify、SNS向けの商品画像に活用できます。1枚の製品写真、複数の参考画像、または選んだドラフトから、目的に合う商品画像へ仕上げます。",
+      "display_name": "AI 商品写真スタジオ",
+      "summary": "実際の製品写真をスタジオ品質のEC画像、ライフスタイルシーン、または販売プラットフォーム向けのヒーローショットに変換。背景置換、照明改善、シーン演出に対応し、確認済みの商品外観を基準に構成します。",
+      "tags": [
+        "AI商品写真",
+        "商品画像作成",
+        "背景切り抜き",
+        "製品画像編集",
+        "商品写真 白背景",
+        "楽天 商品画像",
+        "EC用画像作成",
+        "商品写真 レタッチ",
+        "メルカリ 写真",
+        "商品ライフスタイル写真",
+        "製品ヒーロー画像",
+        "商品画像 背景"
+      ],
+      "title": "AI 商品写真スタジオ：EC製品画像作成と背景切り抜き"
+    },
+    "zh": {
+      "description": "将真实产品照片转化为影棚级电商主图、场景图或面向市场平台的高清商品图。这款 AI 商品图工具可替换背景、改善光效、搭建场景，并以原图中已确认的商品外观特征为依据——从一张手机随拍制作白底主图、生活场景图和高级广告图。适用于亚马逊白底产品图、淘宝主图、Shopify 产品大图和社交媒体商品图。从一张产品照片出发，组合多张参考图，或在选定草稿上做定向精修，完成适合上架使用的成品。",
+      "display_name": "产品图工作室·AI商品图与电商主图",
+      "summary": "将真实产品照片转化为影棚级电商主图、场景图或面向市场平台的高清商品图，支持换背景、改善光效和搭建场景，并延续已确认的商品外观特征。",
+      "tags": [
+        "AI商品图",
+        "产品图制作",
+        "商品图片处理",
+        "电商产品图",
+        "商品白底图",
+        "产品主图",
+        "淘宝主图制作",
+        "商品场景图",
+        "产品精修图",
+        "商品详情页图片",
+        "电商图片编辑",
+        "产品拍照",
+        "产品图"
+      ],
+      "title": "产品图工作室：AI 商品图、电商主图与背景替换"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "product-photo-studio",
+  "schema_version": 1,
+  "version": "0.1.6"
+}

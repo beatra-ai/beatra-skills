@@ -1,0 +1,79 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "Ai Photo Cleanup Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-photo-cleanup-studio",
+  "icon": "https://beatra.ai/textures/icons/ai-photo-cleanup-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Point at what you want gone and get the photo back without it. This AI object remover clears passers-by from a travel shot, a stranger from the edge of a portrait, a bin or a traffic cone from a street scene, a stray hand or a reflection from a product photo, and clutter from a room, filling the space behind with surroundings that match the rest of the frame. You choose what gets edited, so the people and the subject you care about stay where they are, it works from the photo you already have, and you see the retouched result before you post it.",
+      "display_name": "AI Photo Cleanup Studio",
+      "summary": "Point at what you want gone and get the photo back without it, with the space behind filled to match.",
+      "tags": [
+        "object remover",
+        "remove object from photo",
+        "photo cleanup",
+        "remove people from photo",
+        "remove passersby",
+        "remove unwanted objects",
+        "clean up travel photo",
+        "declutter photo",
+        "ai photo editor",
+        "photo retouching",
+        "image editing",
+        "inpainting"
+      ],
+      "title": "AI Photo Cleanup Studio: Object and Passer-by Remover"
+    },
+    "ja": {
+      "description": "消したいものを指定すれば、それがない写真が戻ってきます。この AI 除去ツールは、旅行写真の後ろの通行人、ポートレートの端に入り込んだ人、街並みのゴミ箱や三角コーン、商品写真に映り込んだ手や反射、部屋の雑多なものを取り除き、空いた場所を画面のほかの部分に合う形で補います。編集する対象はあなたが決めるので、残したい人物や被写体が一緒に消えることはなく、いま手元にある写真から加工でき、投稿する前に仕上がりを確認できます。",
+      "display_name": "AI 写り込み消し",
+      "summary": "消したいものを指定すれば、それがない写真が戻ってきます。空いた部分は周囲に合わせて補われます。",
+      "tags": [
+        "不要な人物 消す",
+        "通行人 消す",
+        "写り込み 除去",
+        "写真 いらないもの 消す",
+        "不要なもの 消す",
+        "オブジェクト 除去",
+        "旅行写真 加工",
+        "商品写真 加工",
+        "AI 写真編集",
+        "写真 加工",
+        "画像 編集",
+        "レタッチ"
+      ],
+      "title": "AI 写り込み消し：不要な人物・モノの除去"
+    },
+    "zh": {
+      "description": "指出要去掉的东西，还你一张没有它的照片。这个 AI 图片消除工具能去掉旅游照背后的路人、人像边上入镜的陌生人、街景里的垃圾桶和路障、产品图里多出来的手和反光，以及房间里的杂物，空出来的地方按画面周围补上，接得住原来的地面、墙面和天空。修哪块你说了算，你在意的人和主体不会被一起去掉；整个修图过程就用手上这张照片，做完先看再发。",
+      "display_name": "AI去路人·照片消除工作室",
+      "summary": "指出要去掉的东西，还你一张没有它的照片，空出来的地方按周围补好。",
+      "tags": [
+        "去路人",
+        "消除路人",
+        "图片消除",
+        "照片消除",
+        "去杂物",
+        "去除多余物体",
+        "旅游照片修图",
+        "产品图修图",
+        "修图",
+        "P图",
+        "AI修图",
+        "图片编辑"
+      ],
+      "title": "照片消除工作室：AI 去路人、去杂物，框住即消失"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-photo-cleanup-studio",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

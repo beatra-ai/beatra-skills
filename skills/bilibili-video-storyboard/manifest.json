@@ -1,0 +1,74 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the video-script term while the subtitle keeps naming Bilibili storyboards and shot lists.",
+  "display_name": "Bilibili Video Storyboard",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/bilibili-video-storyboard",
+  "icon": "https://beatra.ai/textures/icons/bilibili-video-storyboard-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Bilibili video storyboard from a topic, title, outline, or script. This AI Bilibili storyboard maker turns a long-form video idea into a chapter-led shot list, Bilibili video script, camera direction, narration and B-roll cues, and one to four storyboard key frames for explainers, reviews, tutorials, vlogs, gameplay, animation, and creative videos.",
+      "display_name": "Bilibili Video Storyboard",
+      "summary": "Turn a Bilibili topic, title, outline, or script into a chapter-led shot list and one to four key storyboard frames for an explainer, review, tutorial, vlog, gameplay, or creative video.",
+      "tags": [
+        "Bilibili video storyboard",
+        "Bilibili storyboard maker",
+        "Bilibili shot list",
+        "Bilibili video script",
+        "Bilibili video planning",
+        "Bilibili creator storyboard",
+        "AI storyboard generator",
+        "video storyboard generator",
+        "storyboard key frames",
+        "camera shot planning"
+      ],
+      "title": "Bilibili Video Storyboard: Script to Shot List & Key Frames"
+    },
+    "ja": {
+      "description": "動画テーマ、タイトル、構成、台本から、bilibili動画絵コンテ、ショットリスト、動画台本と1〜4枚のキーフレーム画像を作成します。オープニングのフック、章ごとの展開、解説や実演、ナレーション、Bロール、転換、締めの呼びかけを整理し、カメラアングル、構図、カメラワーク、尺、音の指示を整えます。bilibiliの解説、レビュー、チュートリアル、Vlog、ゲーム、アニメ、クリエイティブ動画の制作準備に役立ちます。",
+      "display_name": "bilibili動画絵コンテ作成",
+      "summary": "動画テーマ、タイトル、構成や台本から、章立てのショットリストと1〜4枚のキーフレーム画像を備えたbilibili動画絵コンテをつくります。",
+      "tags": [
+        "bilibili 絵コンテ",
+        "bilibili 動画絵コンテ",
+        "bilibili ショットリスト",
+        "bilibili 動画台本",
+        "bilibili 動画企画",
+        "bilibili クリエイター 動画",
+        "AI 絵コンテ生成",
+        "動画絵コンテ",
+        "キーフレーム画像",
+        "カメラワーク"
+      ],
+      "title": "bilibili動画絵コンテ：ショットリストとキーフレーム"
+    },
+    "zh": {
+      "description": "使用 AI 将 B站选题、标题、视频大纲或完整脚本制作成 B站视频分镜、B站分镜头脚本、B站镜头表和 B站视频脚本。围绕开场钩子、章节推进、讲解与演示、口播、转场、B-roll 和收尾互动，规划镜头、景别、构图、机位、运镜、时长与声音提示，并为知识讲解、评测、教程、Vlog、游戏、动画和创意视频制作一至四张关键分镜图。",
+      "display_name": "视频脚本·B站视频分镜与镜头表",
+      "summary": "将 B 站选题、标题、大纲或脚本，拆成按章节推进的分镜头脚本、镜头表和一至四张关键分镜图。",
+      "tags": [
+        "B站视频分镜",
+        "B站分镜头脚本",
+        "B站镜头表",
+        "B站视频脚本",
+        "哔哩哔哩分镜",
+        "B站UP主分镜",
+        "视频分镜脚本",
+        "B站视频策划",
+        "AI分镜生成器",
+        "B站拍摄脚本",
+        "视频脚本"
+      ],
+      "title": "视频脚本与 B 站分镜：分镜头脚本、镜头表与关键帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "bilibili-video-storyboard",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

@@ -1,0 +1,78 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "Suno Lyrics to Song",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
+  "icon": "https://beatra.ai/textures/icons/suno-lyrics-to-song-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn complete lyrics, a rough lyric draft, loose lines, or an existing hook into a structured, listenable Suno song. This Suno lyrics-to-song workflow works as an AI song generator from lyrics and AI music generator from lyrics: choose Preserve mode to keep every original line or Refine mode to improve rhythm, rhyme, singability, and hook strength. Build the song structure across verses, chorus, bridge, and purposeful repetition, then create a style prompt for music with genre, mood, arrangement, and vocal direction for Suno custom lyrics. Use it to turn lyrics into a song, make a song from lyrics, convert lyrics to music, get help from a lyrics songwriting assistant, or take rough lyrics to song-ready form through a custom lyrics-to-song process.",
+      "display_name": "Suno Lyrics to Song",
+      "summary": "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal direction.",
+      "tags": [
+        "Suno lyrics to song",
+        "turn lyrics into a song",
+        "make a song from lyrics",
+        "lyrics to music",
+        "AI song generator from lyrics",
+        "AI music generator from lyrics",
+        "Suno custom lyrics",
+        "custom lyrics to song",
+        "lyrics songwriting assistant",
+        "song structure",
+        "style prompt for music",
+        "rough lyrics to song"
+      ],
+      "title": "Suno Lyrics to Song: Turn Lyrics into Music with AI"
+    },
+    "ja": {
+      "description": "完成した歌詞、歌詞の下書き、断片的なフレーズ、または既存のフックから、Sunoで歌詞から曲を作ります。保持モードで原文をそのまま残すか、調整モードでリズム、韻、歌いやすさ、フックを整え、ヴァース、コーラス、ブリッジを含む歌詞構成を作成。スタイル、感情、アレンジ、歌唱の方向を決め、Sunoカスタム歌詞で試聴できる楽曲を生成します。自作歌詞を曲にしたい、歌詞に曲をつける、歌詞から楽曲生成を行う、AIで歌詞から曲を作る、または作詞サポートで草稿を完成度の高い曲に仕上げたいときに使えます。",
+      "display_name": "Suno 歌詞から曲",
+      "summary": "完成した歌詞、下書き、断片的なフレーズ、またはフックを構成し、Sunoカスタム歌詞で試聴できる曲に仕上げます。",
+      "tags": [
+        "Suno 歌詞から曲",
+        "歌詞から曲を作る",
+        "歌詞から楽曲生成",
+        "歌詞を曲にする",
+        "自作歌詞を曲に",
+        "Suno 自作歌詞",
+        "AIで歌詞から曲",
+        "歌詞から音楽生成",
+        "歌詞に曲をつける",
+        "Suno カスタム歌詞",
+        "歌詞の構成",
+        "作詞サポート"
+      ],
+      "title": "Suno 歌詞から曲を作る｜自作歌詞をAIで楽曲生成"
+    },
+    "zh": {
+      "description": "输入完整歌词、歌词草稿、零散歌词行或一个 hook，把歌词变成歌。这个 Suno 歌词成曲流程可选择保留模式完整保留原词，也可选择优化模式改善措辞、节奏、押韵、hook 和演唱流畅度；再整理主歌、副歌、桥段与重复结构，确定曲风、情绪、编曲和人声方向，用 Suno 自定义歌词生成可试听歌曲。适合 Suno 歌词生成歌曲、歌词生成歌曲、用歌词生成音乐、中文歌词生成歌曲、歌词草稿成歌、歌词谱曲、歌词配乐与 AI 作曲，把已有歌词一步整理成结构完整的音乐作品。",
+      "display_name": "Suno歌词成曲",
+      "summary": "输入完整歌词、歌词草稿、零散歌词或一个 hook，整理主歌、副歌与桥段，设置曲风、情绪、编曲和人声方向，再用 Suno 自定义歌词生成可试听歌曲。",
+      "tags": [
+        "Suno歌词成曲",
+        "Suno歌词生成歌曲",
+        "把歌词变成歌",
+        "歌词生成歌曲",
+        "用歌词生成音乐",
+        "Suno自定义歌词",
+        "中文歌词生成歌曲",
+        "歌词草稿成歌",
+        "歌词谱曲",
+        "歌词配乐",
+        "AI作曲"
+      ],
+      "title": "Suno 歌词成曲：把歌词变成歌｜AI 歌词谱曲"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "suno-lyrics-to-song",
+  "schema_version": 1,
+  "version": "0.1.7"
+}

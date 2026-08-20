@@ -1,0 +1,79 @@
+{
+  "changelog": "Create a coordinated REDnote food note with a cover, signature dish, food detail, dining-atmosphere images, and a food-post plan.",
+  "display_name": "REDnote Food Note Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/rednote-food-note-maker",
+  "icon": "https://beatra.ai/textures/icons/rednote-food-note-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Xiaohongshu food post or REDnote food post from a dish photo, restaurant visit theme, or dining-atmosphere reference. This REDnote food image maker plans restaurant review images and AI food photography as a vertical 3:4 food-note sequence: a cover, dish close-up, table or restaurant atmosphere image, and a final detail image for a food recommendation post. Shape title ideas, caption angles, and tags for a restaurant review post, cafe-hopping post, new-menu launch post, restaurant visit images, food diary images, and restaurant social media images.",
+      "display_name": "REDnote Food Note Maker",
+      "summary": "Turn a dish photo, restaurant visit theme, or dining-atmosphere reference into a coordinated vertical 3:4 REDnote food note with a cover and supporting restaurant-story images.",
+      "tags": [
+        "Xiaohongshu food post",
+        "REDnote food image maker",
+        "AI food photography",
+        "restaurant review images",
+        "food recommendation post",
+        "restaurant visit images",
+        "dish close-up photo",
+        "cafe-hopping post",
+        "new-menu launch post",
+        "food diary images",
+        "vertical 3:4 food post",
+        "restaurant social media images"
+      ],
+      "title": "REDnote Food Note Maker: Xiaohongshu Food Images and Restaurant Post Visuals"
+    },
+    "ja": {
+      "description": "料理写真、飲食店めぐりのテーマ、または店内の雰囲気を伝える参考画像から、小紅書（REDnote）のグルメ投稿とREDnote グルメ画像を作成します。縦型3:4で、表紙、料理の寄り写真、テーブルや店内の雰囲気、おすすめポイントの画像をそろえ、タイトル案、食レポのキャプション、タグまで整えます。料理写真を作成したい時や、飲食店レビュー投稿、カフェ巡り投稿、メニュー紹介画像、新店紹介、AI フードフォト、グルメ紹介画像、フードダイアリーに活用できます。",
+      "display_name": "REDnote グルメ画像メーカー",
+      "summary": "料理写真、飲食店めぐりのテーマ、または店内の雰囲気を伝える参考画像から、表紙と連続画像をそろえた縦型3:4の小紅書グルメ投稿を作成します。",
+      "tags": [
+        "小紅書 グルメ投稿",
+        "REDnote グルメ画像",
+        "料理写真 作成",
+        "飲食店レビュー投稿",
+        "AI フードフォト",
+        "グルメ紹介画像",
+        "カフェ巡り投稿",
+        "メニュー紹介画像",
+        "料理の寄り写真",
+        "新店紹介",
+        "縦型3:4 グルメ画像",
+        "フードダイアリー"
+      ],
+      "title": "小紅書グルメ投稿画像メーカー：料理写真と飲食店レビュー投稿"
+    },
+    "zh": {
+      "description": "把菜品照片、探店主题或餐厅氛围参考制作成一套小红书美食图、小红书探店配图和小红书菜品图。围绕一道主打菜或一次探店体验，完成竖版 3:4 首图、菜品特写、餐桌氛围图和推荐细节图，并整理标题灵感、食记文案角度和标签，适合餐厅探店、新店探店、美食种草、菜单上新、咖啡甜品和城市美食笔记。",
+      "display_name": "小红书美食图制作器",
+      "summary": "把菜品照片、探店主题或餐厅氛围参考，制作成包含首图与连续配图的 3:4 小红书美食食记。",
+      "tags": [
+        "小红书美食图",
+        "小红书探店配图",
+        "小红书菜品图",
+        "美食种草",
+        "小红书美食笔记",
+        "探店笔记配图",
+        "菜品摄影",
+        "美食推荐图",
+        "餐厅打卡图",
+        "新店探店",
+        "咖啡甜品种草",
+        "竖版3:4美食配图"
+      ],
+      "title": "小红书美食图制作器：探店配图与菜品种草图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "rednote-food-note-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

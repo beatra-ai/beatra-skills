@@ -1,0 +1,79 @@
+{
+  "changelog": "Refresh the Simplified Chinese listing copy so the description carries the Chinese name for Amazon alongside the English one.",
+  "display_name": "Marketplace Main Image Preflight",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/marketplace-main-image-preflight",
+  "icon": "https://beatra.ai/textures/icons/marketplace-main-image-preflight-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Review an existing product main image for Amazon, Shopify, Etsy, or another marketplace and turn target listing requirements into a clear preflight card. This AI marketplace image checker and Amazon main image editor helps ecommerce sellers prepare white-background product photos, sharpen product framing, clean distracting details, and create one polished listing hero image for a specific store, region, and category.",
+      "display_name": "Marketplace Main Image Preflight",
+      "summary": "Review an existing marketplace main image, create a clear preflight card, and make one focused cleanup edit.",
+      "tags": [
+        "marketplace main image check",
+        "Amazon main image checker",
+        "Amazon listing image",
+        "product image preflight",
+        "ecommerce image review",
+        "white background product photo",
+        "Amazon product photo editor",
+        "listing hero image",
+        "product image cleanup",
+        "product photo retouching",
+        "marketplace image requirements",
+        "ecommerce listing preparation"
+      ],
+      "title": "Marketplace Main Image Preflight: Amazon Listing Image Check"
+    },
+    "ja": {
+      "description": "Amazon、Shopify、Etsy など、販売先・地域・カテゴリに合わせて既存の商品メイン画像を出品向けに整えます。このEC商品画像チェックは、指定条件を確認カードにまとめ、白背景の商品写真、商品が見やすい構図、背景の不要物、縁の細部を一度の部分修正で整えます。Amazon メイン画像、商品画像の白背景、出品画像の準備、商品写真のレタッチ、越境ECの商品画像に活用できます。",
+      "display_name": "EC商品メイン画像プリフライト",
+      "summary": "既存の商品メイン画像から、出品準備に役立つ確認カードと一点修正済みの画像をつくります。",
+      "tags": [
+        "EC 商品メイン画像",
+        "Amazon メイン画像",
+        "Amazon 商品画像 チェック",
+        "商品画像 プリフライト",
+        "商品写真 白背景",
+        "出品画像 チェック",
+        "商品画像 レタッチ",
+        "EC 商品画像 作成",
+        "商品画像 背景 修正",
+        "Amazon 出品画像",
+        "越境EC 商品画像",
+        "商品画像 整える"
+      ],
+      "title": "EC商品メイン画像プリフライト｜Amazon白背景画像チェック・部分修正"
+    },
+    "zh": {
+      "description": "为亚马逊（Amazon）、Shopify、Etsy 等目标站点准备一张更干净的商品主图。这个跨境电商主图预检工具会围绕你指定的站点、地区和类目整理上架要求，生成可追溯的主图预检卡，并对背景、边缘、杂物或构图完成一次定点修图。适合亚马逊主图检查与 Amazon 白底图要求核对、主图合规检查、Listing 上架准备、产品图精修和多站点商品图调整。",
+      "display_name": "跨境电商主图预检",
+      "summary": "用一张已有商品主图生成清晰的上架预检卡，并完成一次定点精修。",
+      "tags": [
+        "跨境电商主图",
+        "亚马逊主图",
+        "Amazon主图",
+        "主图合规检查",
+        "主图预检",
+        "亚马逊白底图",
+        "商品白底图",
+        "Listing主图",
+        "商品图片精修",
+        "产品图修图",
+        "电商图片检查",
+        "商品图上架准备"
+      ],
+      "title": "跨境电商主图预检｜Amazon 白底图检查与定点修图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "marketplace-main-image-preflight",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

@@ -1,0 +1,56 @@
+{
+  "changelog": "First public release. Turn a Douyin link or a keyword into a one-page attributed Douyin brief.",
+  "display_name": "Douyin Data Brief",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-data-brief",
+  "icon": "https://beatra.ai/textures/icons/douyin-data-brief-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a Douyin link or a keyword into a one-page Douyin brief. Give a public post URL, a search term, or the caption, counts, and comments you already copied, and get play, like, comment, the hook, a verbatim audience line, and a follow-or-not. This Douyin data and Douyin analytics workflow reads a Douyin post, its comments, the creator, or the hot-search board, or works from what you paste, then writes an attributed same-day brief. Use it for Douyin data, Douyin analytics, Douyin brief, and Douyin post data when you need a clear read of what a clip or keyword is doing.",
+      "display_name": "Douyin Data Brief",
+      "summary": "Give a Douyin link, a keyword, or counts you already copied, and get an attributed one-page brief.",
+      "tags": [
+        "Douyin data",
+        "Douyin analytics",
+        "Douyin brief",
+        "Douyin post data"
+      ],
+      "title": "Douyin Data: A One-Page Brief From a Link or a Keyword"
+    },
+    "ja": {
+      "description": "抖音のリンクまたはキーワードを、出典つきの一枚の抖音ブリーフにします。公開投稿、検索語、またはコピー済みのキャプションと数字から、再生・いいね・コメント、フック、視聴者の一文、追う／追わないを出します。この抖音データと抖音データ分析は、投稿、コメント、作者、ホットサーチを読むか、貼り付けから当日の抖音投稿データを書きます。抖音データ、抖音データ分析、抖音ブリーフ、抖音投稿データに。",
+      "display_name": "抖音データ分析",
+      "summary": "抖音のリンク、キーワード、またはコピー済みの数字から、出典つきの一枚にします。",
+      "tags": [
+        "抖音データ",
+        "抖音データ分析",
+        "抖音ブリーフ",
+        "抖音投稿データ"
+      ],
+      "title": "抖音データ：リンクまたはキーワードから一枚のブリーフへ"
+    },
+    "zh": {
+      "description": "把一条抖音链接或一个关键词做成一页抖音简报。给公开作品链接、搜索词，或你已经复制的文案、播放数和评论，就能拿到播放、点赞、评论、开头钩子、一句观众原话和跟或不跟。这个抖音数据和抖音数据分析工作流会读一条抖音作品、它的评论、作者，或热搜榜，也可以直接用你粘贴的内容，写成带出处的当天抖音作品数据简报，必要时对照抖音热搜。适合抖音数据、抖音数据分析、抖音简报、抖音作品数据和抖音热搜。",
+      "display_name": "抖音数据分析",
+      "summary": "给抖音链接、关键词，或已经复制的数据，拿到带出处的一页简报。",
+      "tags": [
+        "抖音数据",
+        "抖音数据分析",
+        "抖音简报",
+        "抖音作品数据",
+        "抖音热搜"
+      ],
+      "title": "抖音数据分析：一条链接或一个词，写成一页简报"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-data-brief",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

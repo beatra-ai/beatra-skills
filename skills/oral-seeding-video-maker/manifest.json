@@ -1,0 +1,80 @@
+{
+  "changelog": "Refresh the Simplified Chinese listing copy so the description covers spoken-script copywriting alongside the shooting script.",
+  "display_name": "Spoken Seeding Video Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/oral-seeding-video-maker",
+  "icon": "https://beatra.ai/textures/icons/oral-seeding-video-maker-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Make a spoken recommendation video from nothing but a topic. This talking-style seeding video maker and short video script generator picks the script pattern that fits your product or subject, writes the hook, the body beats, and the closing ask with the on-screen action and the spoken line written separately, then produces ready-to-edit still beat frames, a narration track in a voice you choose, an optional music bed, and one vertical clip animated from the opening frame with the full narration. Use it for product seeding posts, creator recommendation videos, review-style shorts, service explainers, and account-building content for Douyin, WeChat Channels, Xiaohongshu, TikTok, Reels, and Shorts — with no footage, no camera, and nothing to upload.",
+      "display_name": "Spoken Seeding Video Maker",
+      "summary": "Start from a topic and get a narrated vertical recommendation video — script, ready-to-edit still frames, voice, and a clip animated from the opening frame, with nothing to upload.",
+      "tags": [
+        "seeding video maker",
+        "product recommendation video",
+        "short video script generator",
+        "AI narrated short video",
+        "faceless short video maker",
+        "video from text no footage",
+        "vertical video from a topic",
+        "review style short video",
+        "creator recommendation video",
+        "AI voiceover video maker",
+        "TikTok product video",
+        "content for a new account"
+      ],
+      "title": "Spoken Seeding Video Maker: A Narrated Recommendation Video from Just a Topic"
+    },
+    "ja": {
+      "description": "テーマが一行あるだけで、語り系の紹介動画が作れます。この紹介動画メーカー兼ショート動画台本ジェネレーターは、商品やテーマに合う構成パターンを選び、冒頭フック・本編の各展開・締めの一言を、画面に映すものと語る言葉を別の欄に分けて書き起こします。そのうえで自分の編集に使える静止カット画像、選んだ声によるナレーション音声、任意のインストゥルメンタル、そして冒頭カットを動かしてナレーション全体を載せた縦型動画までを納品します。商品紹介、語り動画、クリエイターのおすすめ動画、レビュー系ショート、サービスや知識の解説、素材なしでの動画作成、アカウント運用の日々のコンテンツに。TikTok・リール・ショート・小紅書・抖音向け——撮影も、顔出しも、素材のアップロードも不要です。",
+      "display_name": "語り系 紹介動画メーカー",
+      "summary": "テーマを一行伝えるだけで、台本・自分の編集に使える静止カット・ナレーション・冒頭カットから動かす縦型動画まで。素材のアップロードは不要です。",
+      "tags": [
+        "紹介動画 作成",
+        "語り動画 作成",
+        "ショート動画 台本 生成",
+        "ナレーション動画 自動生成",
+        "素材なし 動画作成",
+        "顔出しなし 動画",
+        "縦型動画 制作",
+        "レビュー動画 作成",
+        "商品紹介 動画",
+        "AI ナレーション 動画",
+        "TikTok 商品紹介",
+        "アカウント運用 コンテンツ"
+      ],
+      "title": "語り系 紹介動画メーカー：テーマ一行から縦型動画まで"
+    },
+    "zh": {
+      "description": "只有一个选题，也能做出一条口播种草视频。这个口播视频制作与短视频脚本生成工作流，会先按你的产品或主题选定脚本结构，写出钩子、中段和结尾引导，并且把画面和口播分成两栏分别写，再产出方便你剪进自己版本的分镜静图、你选定音色的口播音轨、可选的纯音乐垫底，以及由开场画面动起来、配好整段口播的竖屏短片。适合种草口播、达人推荐、带货口播文案与脚本、测评向短视频、服务与知识类讲解，以及新号起号的日更内容；抖音、视频号、小红书、快手都能用——不用拍摄、不用出镜、不用上传任何素材，真正的无素材出片。",
+      "display_name": "口播种草视频制作",
+      "summary": "只给一个选题，就拿到口播种草竖屏短片、可自行剪进版本的分镜静图和配音，全程零素材。",
+      "tags": [
+        "口播视频制作",
+        "种草视频制作",
+        "口播脚本生成",
+        "短视频脚本生成",
+        "无素材出片",
+        "AI口播视频",
+        "视频号口播",
+        "抖音种草视频",
+        "带货口播脚本",
+        "竖屏短视频制作",
+        "不出镜短视频",
+        "起号内容",
+        "口播文案"
+      ],
+      "title": "口播种草视频制作：一句话选题，出分镜静图与竖屏短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "oral-seeding-video-maker",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

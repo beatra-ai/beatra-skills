@@ -1,0 +1,68 @@
+{
+  "changelog": "Launch the Bilibili video thumbnail creation and refinement workflow.",
+  "display_name": "Bilibili Thumbnail Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/bilibili-thumbnail-maker",
+  "icon": "https://beatra.ai/textures/icons/bilibili-thumbnail-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Bilibili video cover or Bilibili thumbnail from a topic, title, script, key frame, portrait, product photo, or reference image. This AI thumbnail maker builds a strong focal visual, readable hierarchy, and headline-safe space for Bilibili creators, explainers, tech reviews, lifestyle vlogs, games, food, and entertainment videos, then refines an accepted draft into a repeatable channel look.",
+      "display_name": "Bilibili Thumbnail Maker",
+      "summary": "Turn a Bilibili video topic, title, script, clip frame, portrait, product photo, or draft into a clear Bilibili video thumbnail with a strong visual hook and headline-safe space.",
+      "tags": [
+        "Bilibili thumbnail maker",
+        "Bilibili video cover",
+        "Bilibili thumbnail generator",
+        "Bilibili video thumbnail",
+        "Bilibili creator cover",
+        "Bilibili cover design",
+        "AI thumbnail maker"
+      ],
+      "title": "Bilibili Thumbnail Maker: Video Cover & Thumbnail Design"
+    },
+    "ja": {
+      "description": "動画の企画、タイトル、台本、キーフレーム、人物写真、商品写真、参考画像から、bilibiliの動画カバーとサムネイルをAIで作成します。見やすい階層、強い主役、タイトル用の余白を整え、解説、テックレビュー、Vlog、ゲーム、グルメ、エンタメの動画に合わせたAI動画配信向けのサムネイルを作成し、採用した案はチャンネルシリーズの見た目に合わせて磨き込めます。",
+      "display_name": "Bilibiliサムネイルメーカー",
+      "summary": "動画の企画、タイトル、台本、キーフレーム、人物・商品写真や参考画像から、主役が伝わりタイトルを置きやすいbilibili動画サムネイルをつくります。",
+      "tags": [
+        "Bilibiliサムネイル",
+        "bilibili 動画サムネイル",
+        "bilibili 動画カバー",
+        "bilibili サムネイル作成",
+        "中国動画 サムネイル",
+        "AIサムネイル作成",
+        "動画カバー画像",
+        "動画配信 サムネイル"
+      ],
+      "title": "Bilibiliサムネイルメーカー：動画カバー作成"
+    },
+    "zh": {
+      "description": "使用 AI 将视频选题、标题、脚本、关键帧、人物照、商品图或参考图制作成 B站封面、B站视频封面、哔哩哔哩封面和可发布的 B站缩略图。打造主体明确、层级清晰、适合缩略图浏览的封面视觉与标题留白，覆盖知识讲解、数码评测、生活Vlog、游戏、美食、影视与娱乐内容；也可将已选封面精修为账号系列风格。",
+      "display_name": "B站视频封面制作器",
+      "summary": "将视频选题、标题、脚本、关键帧、人物照、商品图或参考图制作成焦点醒目、适合视频缩略图浏览并预留标题空间的 B 站视频封面。",
+      "tags": [
+        "B站封面",
+        "B站视频封面",
+        "B站封面制作",
+        "B站封面设计",
+        "哔哩哔哩封面",
+        "B站缩略图",
+        "UP主封面",
+        "视频缩略图",
+        "AI B站封面",
+        "B站投稿封面"
+      ],
+      "title": "B站视频封面制作器：AI 缩略图设计"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "bilibili-thumbnail-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

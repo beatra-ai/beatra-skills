@@ -1,0 +1,84 @@
+{
+  "changelog": "Drop the brand prefix from the Simplified Chinese display name so the AI-voice term leads.",
+  "display_name": "Beatra AI Voice Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/beatra-ai-voice-studio",
+  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "localized": {
+    "en": {
+      "description": "Use Beatra AI Voice Studio as an AI voice generator, text-to-speech workspace, and AI voiceover generator. Choose from the current voice library, turn scripts into ready-to-edit AI narration and voiceover, or create and reuse a custom brand voice through voice cloning. It supports short-video voiceover, script-to-voiceover, course narration, ordered audiobook narration, supplied multilingual text to speech, Cantonese text to speech, and recurring brand audio, with current price estimates, clear output planning, and delivery organized by chapter, language, and use case.",
+      "display_name": "Beatra AI Voice Studio",
+      "summary": "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice.",
+      "tags": [
+        "AI voice studio",
+        "AI voice generator",
+        "text to speech",
+        "AI voiceover generator",
+        "AI narration",
+        "voice cloning",
+        "multilingual text to speech",
+        "voice library",
+        "script to voiceover",
+        "short video voiceover",
+        "audiobook narration",
+        "course narration",
+        "Cantonese text to speech",
+        "reusable brand voice"
+      ],
+      "title": "Beatra AI Voice Studio – Text to Speech, Narration & Voice Cloning"
+    },
+    "ja": {
+      "description": "Beatra AI音声スタジオは、AI音声生成、テキスト読み上げ、AIナレーション、音声クローンを一つにまとめた制作入口です。現在の音声ライブラリから用途に合う声を選び、原稿から動画ナレーション、教材ナレーション、順番を保ったオーディオブック朗読、外国語ナレーション、多言語音声、広東語の読み上げを制作。カスタム音声やブランド音声も再利用でき、現在の料金目安と出力計画を確認しながら、用途・言語・章ごとに整理された音声を受け取れます。",
+      "display_name": "Beatra AI音声スタジオ",
+      "summary": "用途に合う声を選び、原稿から編集に使えるナレーションを作成。長編や多言語の読み上げ、カスタム音声の作成と再利用も一つの入口で進めます。",
+      "tags": [
+        "AI音声スタジオ",
+        "AIナレーション",
+        "テキスト読み上げ",
+        "AI音声合成",
+        "ナレーション作成",
+        "多言語音声",
+        "音声クローン",
+        "音声作成",
+        "動画ナレーション",
+        "オーディオブック朗読",
+        "教材ナレーション",
+        "読み上げ音声",
+        "外国語ナレーション"
+      ],
+      "title": "Beatra AI音声スタジオ：ナレーション・読み上げ・音声クローン"
+    },
+    "zh": {
+      "description": "用 Beatra AI语音工作室统筹AI配音、文字转语音和AI语音生成：从当前声音库选择合适音色，把文稿制作成可直接剪辑的语音合成音频，或通过声音克隆创建并复用品牌专属声音。适合文稿转语音、短视频配音、有声书旁白、课程配音、多语言配音和粤语配音，也可作为AI语音生成器与品牌声音工作台；制作前查看当前费用，长篇内容按章节、多语言内容按语言清晰交付。",
+      "display_name": "AI语音工作室",
+      "summary": "从同一个入口选声音、把文稿做成可剪辑配音、安排长篇或多语言音频，并创建可复用的品牌音色。",
+      "tags": [
+        "AI语音工作室",
+        "AI配音",
+        "文字转语音",
+        "AI语音生成器",
+        "语音合成",
+        "声音克隆",
+        "多语言配音",
+        "声音库",
+        "短视频配音",
+        "有声书旁白",
+        "课程配音",
+        "粤语配音",
+        "品牌声音",
+        "文稿转语音"
+      ],
+      "title": "AI语音工作室：AI配音、文字转语音与声音克隆"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "beatra-ai-voice-studio",
+  "schema_version": 1,
+  "version": "0.2.1"
+}

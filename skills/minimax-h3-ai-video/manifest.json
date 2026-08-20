@@ -1,0 +1,88 @@
+{
+  "changelog": "Add 720p video, prompt enhancement, last-frame-only generation, and audio-only references.",
+  "display_name": "MiniMax H3 AI Video",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/minimax-h3-ai-video",
+  "icon": "https://beatra.ai/textures/icons/minimax-h3-ai-video-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Create polished 2K AI videos with MiniMax H3. Turn a written idea into text-to-video, animate an image, shape a transition between opening and closing frames, or guide a scene with image, video, and audio references. Make AI advertising videos, ecommerce product videos, brand films, dynamic posters, game UI motion, film titles, and social media clips with cinematic movement and native stereo sound. Start with your Beatra account and keep creative progress and finished videos organized in one place.",
+      "display_name": "MiniMax H3 AI Video Creator",
+      "summary": "Turn ideas, images, opening and closing frames, or multimodal references into polished 2K AI videos for ads, ecommerce, brands, dynamic posters, games, film titles, and social content.",
+      "tags": [
+        "AI video generator",
+        "MiniMax H3",
+        "MiniMax H3 video",
+        "text to video AI",
+        "image to video",
+        "first and last frame video",
+        "reference to video AI",
+        "multimodal video generator",
+        "2K AI video",
+        "AI video generator with sound",
+        "AI advertising video",
+        "ecommerce video maker",
+        "brand video creator",
+        "dynamic poster video",
+        "game UI video"
+      ],
+      "title": "MiniMax H3 AI Video Generator for 2K Commercial Content"
+    },
+    "ja": {
+      "description": "MiniMax H3で高品質な2K AI動画を制作。文章のアイデアを動画にし、静止画に自然な動きを加え、最初と最後のフレームから印象的な変化を描き、画像・動画・音声の参照素材から一つの世界観を組み立てます。AI広告動画、EC商品動画、ブランドムービー、ダイナミックポスター、ゲームUI、映画タイトル、SNS動画に、シネマティックな動きとネイティブステレオサウンドを届けます。Beatraで制作状況と完成動画をまとめて管理できます。",
+      "display_name": "MiniMax H3 AI動画クリエイター",
+      "summary": "アイデア、画像、最初と最後のフレーム、複数の参照素材から、広告、EC、ブランド、ダイナミックポスター、ゲームUI、映画タイトル、SNS向けの高品質な2K AI動画を制作。",
+      "tags": [
+        "AI動画生成",
+        "MiniMax H3",
+        "MiniMax H3動画",
+        "テキストから動画",
+        "画像から動画",
+        "最初と最後のフレームから動画生成",
+        "参照素材から動画生成",
+        "動画を参考にAI動画生成",
+        "2K AI動画",
+        "音声付きAI動画",
+        "AI広告動画",
+        "EC商品動画",
+        "ブランド動画",
+        "ダイナミックポスター動画",
+        "ゲームUI動画"
+      ],
+      "title": "MiniMax H3 AI動画生成｜2K広告動画とマルチモーダル制作"
+    },
+    "zh": {
+      "description": "用 MiniMax H3 创作高质感 2K AI 视频。从文字创意出发完成文生视频，让静态图片自然动起来，用首尾画面设计完整转场，也可以结合图片、视频和音频参考塑造统一场景。适合 AI 广告视频、电商产品视频、品牌宣传视频、动态海报、游戏 UI、电影片头和社交短视频创作，形成电影感画面与同步的原生立体声。使用 Beatra 账号即可开始，创作进度与成片集中管理。",
+      "display_name": "MiniMax H3 AI视频创作",
+      "summary": "把创意、图片、首尾画面和多模态参考转化为高质感 2K AI 视频，覆盖广告、电商、品牌、动态海报、游戏 UI、电影片头和社交内容。",
+      "tags": [
+        "AI视频生成器",
+        "MiniMax H3",
+        "MiniMax H3视频",
+        "文生视频",
+        "图生视频",
+        "首尾帧视频",
+        "参考视频生视频",
+        "多模态视频生成",
+        "2K AI视频",
+        "带声音的AI视频",
+        "AI广告视频",
+        "电商产品视频",
+        "品牌宣传视频",
+        "动态海报视频",
+        "游戏UI视频"
+      ],
+      "title": "MiniMax H3 AI 视频生成器｜2K 商业视频与多模态创作"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "minimax-h3-ai-video",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

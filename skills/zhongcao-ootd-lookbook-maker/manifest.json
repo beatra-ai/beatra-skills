@@ -1,0 +1,89 @@
+{
+  "changelog": "Add an optional Xiaohongshu lookup. Before shooting the lookbook, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the styling and the copy rest on the platform instead of on guesswork. Optional, priced per read, and confirmed separately; a run that skips it still delivers.",
+  "display_name": "Zhongcao OOTD Lookbook Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/zhongcao-ootd-lookbook-maker",
+  "icon": "https://beatra.ai/textures/icons/zhongcao-ootd-lookbook-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a coordinated REDnote (Xiaohongshu) OOTD lookbook from outfit photos or a styling idea. Build a vertical 3:4 fashion carousel with a cover, full-look outfit image, styling-detail image, and lifestyle scene, then shape a ready-to-publish fashion recommendation post with title ideas, caption angles, and tags. Use this AI outfit image maker for Xiaohongshu outfit posts, OOTD photos, fashion lookbooks, clothing recommendation visuals, creator style diaries, and brand collaboration campaigns. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
+      "display_name": "Zhongcao OOTD Lookbook Maker",
+      "summary": "Turn outfit photos and styling ideas into a coordinated vertical 3:4 REDnote OOTD lookbook, with cover, full-look, detail, and lifestyle images plus a ready-to-post fashion story.",
+      "tags": [
+        "Xiaohongshu outfit post",
+        "REDnote OOTD",
+        "OOTD lookbook maker",
+        "AI outfit image maker",
+        "Xiaohongshu fashion images",
+        "fashion recommendation post",
+        "outfit carousel",
+        "fashion campaign images",
+        "style diary photos",
+        "fashion creator content",
+        "vertical 3:4 lookbook",
+        "lookbook carousel",
+        "competitor note analysis",
+        "comment analysis",
+        "Xiaohongshu research"
+      ],
+      "title": "Zhongcao OOTD Lookbook Maker: AI Xiaohongshu Outfit Images & Fashion Posts"
+    },
+    "ja": {
+      "description": "コーデ写真やスタイリングのアイデアから、小紅書（REDnote）のOOTD Lookbook、コーデ画像、ファッションおすすめ投稿を作成します。同じコーデを軸に、縦型3:4のカバー、全身コーデ画像、スタイリングのディテール、ライフスタイルシーンを組み立て、タイトル案、キャプションの切り口、タグも整えます。AIコーデ画像作成として、小紅書コーデ投稿、OOTD写真、ファッションLookbook、服のおすすめビジュアル、スタイル日記、ブランドコラボレーションの企画に活用できます。任意で小紅書そのものを読み取れます。同じテーマで動いているノート、あるノートの人気コメント1ページ、アカウント自身の直近ノート——ここから競合ノート分析とコメント分析といった小紅書リサーチを、記憶ではなく実データで行えます。",
+      "display_name": "Zhongcao OOTD Lookbookメーカー",
+      "summary": "コーデ写真やスタイリングのアイデアから、カバー、全身、ディテール、ライフスタイル画像をそろえた縦型3:4のREDnote OOTD Lookbookと投稿ストーリーを作成します。",
+      "tags": [
+        "小紅書 コーデ投稿",
+        "REDnote OOTD",
+        "OOTD Lookbook 作成",
+        "AI コーデ画像",
+        "小紅書 ファッション画像",
+        "コーデ画像 作成",
+        "ファッション おすすめ投稿",
+        "コーデ カルーセル",
+        "服 おすすめ画像",
+        "スタイル日記 写真",
+        "縦型3:4 Lookbook",
+        "ファッション投稿画像",
+        "競合ノート分析",
+        "コメント分析",
+        "小紅書リサーチ"
+      ],
+      "title": "Zhongcao OOTD Lookbookメーカー：AI小紅書コーデ画像＆ファッション投稿"
+    },
+    "zh": {
+      "description": "把穿搭照片或搭配灵感制作成一套小红书 OOTD Lookbook、穿搭图文和种草图。围绕同一套穿搭，完成竖版 3:4 封面、全身穿搭图、搭配细节图和生活方式场景图，再整理标题灵感、文案角度和标签。这个 AI 穿搭图制作器适合小红书穿搭笔记、小红书 OOTD、穿搭图、OOTD 穿搭、种草图、服装推荐图、穿搭照片、风格日记和品牌种草内容。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
+      "display_name": "小红薯·OOTD穿搭Lookbook制作器",
+      "summary": "把穿搭照片和搭配灵感制作成一套竖版 3:4 小红书 OOTD Lookbook，包含封面、全身穿搭、细节和场景图，并配好可发布的种草图文故事。",
+      "tags": [
+        "小红书穿搭",
+        "小红书OOTD",
+        "OOTD穿搭",
+        "小红书穿搭图",
+        "穿搭图",
+        "种草图",
+        "穿搭图文",
+        "OOTD图文",
+        "穿搭Lookbook",
+        "服装推荐图",
+        "穿搭照片",
+        "竖版3:4配图",
+        "穿搭笔记",
+        "竞品笔记分析",
+        "评论区分析",
+        "小红书竞品"
+      ],
+      "title": "小红薯·OOTD Lookbook 制作器：AI 穿搭图、种草图与图文笔记"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "zhongcao-ootd-lookbook-maker",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

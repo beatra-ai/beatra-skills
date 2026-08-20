@@ -1,0 +1,76 @@
+{
+  "changelog": "Add an optional Xiaohongshu lookup. Before drafting, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the beauty note rests on the platform instead of on guesswork. This is the only step in this Skill that charges, it runs only when the user asks and confirms it, and a run that skips it still delivers the full note.",
+  "display_name": "Zhongcao Beauty Note Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/zhongcao-beauty-note-maker",
+  "icon": "https://beatra.ai/textures/icons/zhongcao-beauty-note-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create Xiaohongshu beauty and skincare content from product facts, routine steps, skin concerns, and audience context. This AI beauty note maker produces a 3:4 post concept, review structure, usage-scene copy, title options, cover wording, relevant hashtags, and a natural comment starter for makeup, skincare, haircare, body care, routines, comparisons, and product recommendations. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
+      "display_name": "Zhongcao Beauty Note Maker",
+      "summary": "Turn beauty or skincare facts into a Xiaohongshu 3:4 note concept with review copy, usage scenes, titles, cover wording, and hashtags.",
+      "tags": [
+        "Xiaohongshu beauty note",
+        "Xiaohongshu skincare post",
+        "beauty product copy",
+        "skincare review copy",
+        "makeup recommendation post",
+        "Xiaohongshu 3:4 beauty images",
+        "Little Red Book beauty post",
+        "skincare routine note",
+        "competitor note analysis",
+        "comment analysis",
+        "Xiaohongshu research"
+      ],
+      "title": "Zhongcao Beauty Note Maker: Skincare and Makeup Post Pack"
+    },
+    "ja": {
+      "description": "美容・スキンケア商品の情報、使用手順、肌悩みや利用シーン、想定読者から、小紅書（REDnote）の美容投稿をAIで作成します。3:4の投稿構成、レビューの流れ、メイクや使用シーンのコピー、タイトル候補、表紙コピー、関連ハッシュタグ、自然なコメント案を整え、メイク、スキンケア、ヘアケア、ボディケア、比較、ルーティン、商品紹介に活用できます。任意で小紅書そのものを読み取れます。同じテーマで動いているノート、あるノートの人気コメント1ページ、アカウント自身の直近ノート——ここから競合ノート分析とコメント分析といった小紅書リサーチを、記憶ではなく実データで行えます。",
+      "display_name": "Zhongcao コスメ投稿ジェネレーター",
+      "summary": "美容・スキンケア商品の情報や使用シーンから、3:4投稿案、レビュー本文、タイトル、表紙コピー、ハッシュタグを整えます。",
+      "tags": [
+        "小紅書 美容投稿",
+        "小紅書 スキンケア",
+        "美容商品 紹介文",
+        "スキンケア レビュー文",
+        "小紅書 3:4画像",
+        "メイク 投稿文",
+        "美容 ハッシュタグ",
+        "REDnote 美容",
+        "競合ノート分析",
+        "コメント分析",
+        "小紅書リサーチ"
+      ],
+      "title": "Zhongcao 美容・スキンケア投稿作成：3:4紹介コンテンツ"
+    },
+    "zh": {
+      "description": "使用 AI 将美妆护肤商品信息、使用步骤、肤质、使用场景和受众信息制作成小红书美妆笔记、小红书护肤笔记和美妆种草文案。生成 3:4 图文方案、测评结构、上妆或使用场景文案、标题备选、首图文字、相关话题和自然的评论互动引导，适用于彩妆、护肤、洗护、身体护理、日常流程、产品对比和好物推荐。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
+      "display_name": "小红薯·美妆护肤笔记制作",
+      "summary": "把美妆护肤商品信息、使用步骤和受众场景整理成 3:4 种草图文方案、测评正文、标题、首图文案和话题。",
+      "tags": [
+        "小红书美妆",
+        "小红书护肤笔记",
+        "美妆种草",
+        "护肤种草",
+        "美妆产品图",
+        "小红书美妆文案",
+        "护肤测评文案",
+        "美妆笔记制作",
+        "竞品笔记分析",
+        "评论区分析",
+        "小红书竞品"
+      ],
+      "title": "小红薯·美妆护肤笔记：3:4 种草图文与发布文案"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "zhongcao-beauty-note-maker",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

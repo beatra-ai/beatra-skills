@@ -1,0 +1,68 @@
+{
+  "changelog": "Refresh the Simplified Chinese listing copy so the description covers cross-border short-video search terms.",
+  "display_name": "TikTok Shop Product Video Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/tiktok-shop-product-video-maker",
+  "icon": "https://beatra.ai/textures/icons/tiktok-shop-product-video-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create TikTok Shop product-video plans from product facts, photos, selling points, and English or Japanese audience context. This AI product video maker produces hooks, a ready-to-film script, shot beats, subtitle cues, localized titles, hashtags, and a product-page-safe CTA for product showcases, demonstrations, unboxings, reviews, and creator-led shopping videos.",
+      "display_name": "TikTok Shop Product Video Maker",
+      "summary": "Turn product facts, photos, and an English or Japanese audience brief into a TikTok Shop product-video script, shot plan, captions, and localized post copy.",
+      "tags": [
+        "TikTok Shop product video",
+        "TikTok Shop video maker",
+        "TikTok Shop product video script",
+        "TikTok Shop UGC video",
+        "TikTok Shop affiliate video",
+        "TikTok Shop product showcase",
+        "product demo video script",
+        "TikTok Shop video hooks"
+      ],
+      "title": "TikTok Shop Product Video Maker: Localized Product Videos"
+    },
+    "ja": {
+      "description": "商品情報、商品写真、訴求点、英語または日本語の想定視聴者から、TikTok Shopの商品動画プランをAIで作成します。冒頭フック、撮影用台本、カットの流れ、字幕、ローカライズしたタイトル、ハッシュタグ、商品ページの内容に沿ったCTAを整え、商品紹介、デモ、開封、レビュー、クリエイター動画に活用できます。",
+      "display_name": "TikTok Shop商品動画台本ジェネレーター",
+      "summary": "商品情報、写真、訴求点、英語・日本語の想定視聴者から、商品動画の台本、カット、字幕、投稿文を整えます。",
+      "tags": [
+        "TikTok Shop 商品動画",
+        "TikTok Shop 動画台本",
+        "商品紹介動画",
+        "EC商品動画",
+        "TikTok Shop UGC動画",
+        "商品動画 作成",
+        "英語 商品動画",
+        "日本語 商品動画"
+      ],
+      "title": "TikTok Shop商品動画作成：英語・日本語向け販売動画"
+    },
+    "zh": {
+      "description": "使用 AI 将商品信息、产品图、卖点和英语或日语受众需求制作成 TikTok Shop 商品视频方案。生成开场钩子、可直接拍摄的脚本、镜头节拍、字幕提示、本地化标题、话题标签和适合商品页事实的行动引导，适用于跨境短视频、商品展示、演示、开箱、测评和达人带货视频。",
+      "display_name": "TikTok Shop商品视频制作",
+      "summary": "把商品信息、产品图和英日受众需求整理成 TikTok Shop 商品视频脚本、镜头节拍、字幕与本地化发布文案。",
+      "tags": [
+        "TikTok Shop商品视频",
+        "TikTok Shop带货视频",
+        "TikTok Shop视频脚本",
+        "TikTok Shop UGC",
+        "商品展示视频",
+        "商品视频脚本",
+        "TikTok Shop商品介绍",
+        "跨境电商视频",
+        "跨境短视频"
+      ],
+      "title": "TikTok Shop 商品视频：英日市场带货视频脚本"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "tiktok-shop-product-video-maker",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

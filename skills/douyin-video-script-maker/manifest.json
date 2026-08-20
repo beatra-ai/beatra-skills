@@ -1,0 +1,72 @@
+{
+  "changelog": "Since the published version: render one vertical Douyin cover from the script's chosen title, and rename the Simplified Chinese listing to 抖音脚本与抖音文案制作.",
+  "display_name": "Douyin Video Script Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-video-script-maker",
+  "icon": "https://beatra.ai/textures/icons/douyin-video-script-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Douyin short-video script, Douyin spoken script, or Douyin product-video script from a topic, product or service facts, audience, and creator voice. This AI Douyin script writer produces three hook options, a ready-to-film short-video script, shot-by-shot beats, natural spoken lines, subtitle cues, title ideas, hashtags, and a comment prompt for knowledge sharing, local business, product demos, reviews, unboxings, shop content, and creator series. The chosen title then becomes a matching vertical 9:16 Douyin cover with a headline-safe composition.",
+      "display_name": "Douyin Video Script Maker",
+      "summary": "Turn a video topic, product, service, or creator idea into three hooks and a ready-to-film Douyin script with spoken lines, shot beats, caption cues, a title, hashtags, and a comment prompt.",
+      "tags": [
+        "Douyin video script maker",
+        "Douyin short video script",
+        "Douyin spoken script",
+        "Douyin product video script",
+        "Douyin copywriting",
+        "Douyin script writer",
+        "short video hook",
+        "video shooting script",
+        "product promotion script"
+      ],
+      "title": "Douyin Video Script Maker: Short Video Hooks and Spoken Scripts"
+    },
+    "ja": {
+      "description": "動画テーマ、商品・サービスの情報、想定視聴者、話し方から、抖音ショート動画の台本、口播台本、商品紹介動画の台本をAIで作成します。3つの冒頭フック、撮影に使える一文ごとの話し言葉、カットごとの流れ、字幕の目安、動画タイトル、ハッシュタグ、コメントの呼びかけを整え、ナレッジ共有、店舗紹介、商品デモ、レビュー、開封、新商品紹介、ライブ配信の切り抜き、アカウントシリーズに活用できます。選んだタイトルに合わせて、タイトル用の余白を確保した縦型9:16の抖音カバーもそのまま作成できます。",
+      "display_name": "抖音ショート動画台本作成",
+      "summary": "動画テーマ、商品やサービスの情報、想定視聴者、話し方から、3つの冒頭フックと、撮影に使える口播台本、カットの流れ、字幕の目安、タイトル、ハッシュタグ、コメントの呼びかけをまとめます。",
+      "tags": [
+        "抖音 ショート動画 台本",
+        "抖音 動画台本",
+        "抖音 口播台本",
+        "抖音 商品紹介動画 台本",
+        "抖音 動画文案",
+        "ショート動画 台本",
+        "動画冒頭 フック",
+        "商品PR 台本",
+        "SNS動画 台本",
+        "AI台本作成"
+      ],
+      "title": "抖音ショート動画台本作成：口播台本と商品紹介動画"
+    },
+    "zh": {
+      "description": "使用 AI 将选题、商品或服务信息、目标人群和出镜风格制作成抖音短视频脚本、抖音口播文案、抖音带货文案和抖音商品视频脚本。生成 3 个抖音爆款开头方向，以及可拍摄的逐句口播、分镜提示、字幕提示、视频标题、话题标签和评论区互动引导，适用于知识分享、门店推广、商品演示、好物测评、开箱、新品种草、店播切片和账号系列内容。还能围绕选定的标题，生成配套的竖版 9:16 抖音封面，并做好标题留白。",
+      "display_name": "抖音脚本与抖音文案制作",
+      "summary": "把选题、商品或服务卖点、目标人群和出镜风格，整理成 3 个开场钩子及一份可直接拍摄的抖音口播脚本、分镜提示、字幕提示、标题、话题和评论互动。",
+      "tags": [
+        "抖音短视频脚本",
+        "抖音口播文案",
+        "抖音带货文案",
+        "抖音商品视频脚本",
+        "抖音文案",
+        "抖音爆款开头",
+        "短视频脚本",
+        "短视频口播文案",
+        "带货视频脚本",
+        "抖音视频标题"
+      ],
+      "title": "抖音脚本与抖音文案制作：口播、分镜与带货视频脚本"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-video-script-maker",
+  "schema_version": 1,
+  "version": "0.1.5"
+}

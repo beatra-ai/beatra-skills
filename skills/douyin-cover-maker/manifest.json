@@ -1,0 +1,70 @@
+{
+  "changelog": "Launch the Douyin short-video cover creation and refinement workflow.",
+  "display_name": "Douyin Cover Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-cover-maker",
+  "icon": "https://beatra.ai/textures/icons/douyin-cover-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Douyin cover or vertical short-video cover from a video topic, hook, script, portrait, product photo, or reference image. This AI cover maker builds a clear focal visual and headline-safe composition for Douyin short-video covers, creator series, product demos, tutorials, food, lifestyle, and knowledge content, then refines an accepted draft into a consistent account-cover direction.",
+      "display_name": "Douyin Video Cover Maker",
+      "summary": "Turn a short-video topic, hook, portrait, product photo, or reference image into a clear vertical Douyin cover with a bold focal visual and a headline-safe composition.",
+      "tags": [
+        "Douyin cover maker",
+        "Douyin video cover",
+        "Douyin short video cover",
+        "vertical video cover",
+        "Douyin cover design",
+        "Douyin thumbnail maker",
+        "AI Douyin cover",
+        "short video thumbnail",
+        "creator cover series"
+      ],
+      "title": "Douyin Video Cover Maker: Vertical Short Video Covers"
+    },
+    "ja": {
+      "description": "ショート動画の企画、台本のフック、人物写真、商品写真、参考画像から、抖音の動画カバーと縦型動画サムネイルをAIで作成します。チュートリアル、商品紹介、グルメ、ライフスタイル、ナレッジ動画向けに、主役が伝わる構図、統一した色、タイトル用の余白を整え、採用したカバーはシリーズの見た目に合わせて磨き込めます。",
+      "display_name": "抖音動画カバー作成",
+      "summary": "ショート動画の企画、フック、人物・商品写真や参考画像から、主役がひと目で伝わりタイトルを載せやすい縦型の抖音動画カバーをつくります。",
+      "tags": [
+        "抖音 サムネイル",
+        "抖音 動画カバー",
+        "縦型動画カバー",
+        "ショート動画サムネイル",
+        "AI サムネイル作成",
+        "動画カバー作成",
+        "抖音 動画表紙",
+        "SNS動画 サムネイル"
+      ],
+      "title": "抖音動画カバー作成：縦型ショート動画カバー"
+    },
+    "zh": {
+      "description": "使用 AI 将短视频选题、脚本钩子、人物照、商品图或参考图制作成抖音封面、抖音短视频封面和竖版视频封面。用醒目主体、统一色彩和标题留白打造适合教程、好物展示、美食、生活方式、知识分享和账号系列的抖音爆款风格封面，也可围绕已选封面继续精修。",
+      "display_name": "抖音视频封面制作",
+      "summary": "把短视频选题、钩子、人物照、商品图或参考图，制作成焦点明确、适合竖版展示并预留标题区域的抖音视频封面。",
+      "tags": [
+        "抖音封面",
+        "抖音视频封面",
+        "抖音短视频封面",
+        "抖音爆款封面",
+        "竖版视频封面",
+        "抖音封面制作",
+        "抖音封面设计",
+        "AI抖音封面",
+        "短视频封面",
+        "抖音账号封面"
+      ],
+      "title": "抖音视频封面制作：竖版短视频封面设计"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-cover-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

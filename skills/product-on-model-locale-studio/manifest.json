@@ -1,0 +1,79 @@
+{
+  "changelog": "Spell the Simplified Chinese on-model terms without an internal space so they match customer queries.",
+  "display_name": "AI Product-on-Model Locale Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/product-on-model-locale-studio",
+  "icon": "https://beatra.ai/textures/icons/product-on-model-locale-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create AI product-on-model images and clothing try-on presentations from apparel and wearable-accessory product photos for localized ecommerce campaigns. Plan one fashion-model visual per market with market-specific casting, styling, pose, and shopping scene, then prepare product-on-model photography for fashion listings, apparel ads, Shopify storefronts, Amazon Fashion pages, and social commerce launches.",
+      "display_name": "AI Product-on-Model Locale Studio",
+      "summary": "Turn apparel and wearable product photos into localized on-model ecommerce images, with one fashion-model visual for each market.",
+      "tags": [
+        "AI fashion model generator",
+        "virtual model clothing images",
+        "on-model product photography",
+        "AI clothing try-on",
+        "localized fashion visuals",
+        "apparel on-model images",
+        "wearable product photography",
+        "fashion listing images",
+        "ecommerce fashion images",
+        "Shopify fashion images",
+        "Amazon Fashion images",
+        "social commerce fashion ads"
+      ],
+      "title": "AI Product-on-Model Images: Localized Fashion Ecommerce Visuals"
+    },
+    "ja": {
+      "description": "アパレル、靴、帽子、バッグ、ジュエリーなど、販売する着用商品の写真から、AIモデル着用画像とEC向けの商品ビジュアルを制作します。市場ごとにモデルの見せ方、スタイリング、ポーズ、購買シーンを組み立て、アパレルの着用画像、AI試着イメージ、ファッション商品ページ用の画像を整えます。Shopifyのファッションストア、Amazon Fashion、ブランド広告、SNSコマースの展開に役立ちます。",
+      "display_name": "AIモデル着用画像・市場別ECスタジオ",
+      "summary": "アパレルやバッグなど、販売する着用商品の写真から、市場ごとにAIモデル着用画像とEC向けビジュアルを制作します。",
+      "tags": [
+        "AIモデル着用画像",
+        "モデル着用画像",
+        "服の着用画像",
+        "AI試着イメージ",
+        "EC向けの商品ビジュアル",
+        "市場ごとのモデル",
+        "アパレルの着用画像",
+        "ファッション商品ページ用の画像",
+        "Shopifyのファッションストア",
+        "Amazon Fashion",
+        "ファッション広告",
+        "着用イメージ作成"
+      ],
+      "title": "AIモデル着用画像：市場別ECアパレルビジュアル"
+    },
+    "zh": {
+      "description": "基于服装、鞋帽、包袋、珠宝等可穿戴商品照片，制作AI模特上身图、服装上身图和电商模特图。为不同销售市场规划独立的模特形象、穿搭、姿势和购物场景，生成多地区模特图、AI模特换装与AI试穿图，适用于服装上架图、品牌广告、Shopify 店铺、亚马逊时尚页面和社交电商推广。",
+      "display_name": "AI多地区模特上身图工作室",
+      "summary": "基于服装与可穿戴商品照片，为每个销售市场制作一张AI模特上身图与地区化电商视觉。",
+      "tags": [
+        "AI模特上身图",
+        "AI模特换装",
+        "服装上身图",
+        "AI试穿图",
+        "电商模特图",
+        "多地区模特图",
+        "服装上架图",
+        "服装广告图",
+        "Shopify服装图片",
+        "亚马逊时尚图片",
+        "服装场景图",
+        "可穿戴商品图"
+      ],
+      "title": "AI模特上身图：多地区电商服装视觉"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "product-on-model-locale-studio",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

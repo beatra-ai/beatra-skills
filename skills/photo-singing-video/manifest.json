@@ -1,0 +1,75 @@
+{
+  "changelog": "Use the selected live video model’s supported duration instead of a fixed request ceiling.",
+  "display_name": "Photo Singing Video",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/photo-singing-video",
+  "icon": "https://beatra.ai/textures/icons/photo-singing-video-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Make a photo sing by animating one clear portrait with a short singing audio excerpt. This photo singing video and AI singing portrait workflow turns a single face into an expressive singing clip from one portrait and a chosen song excerpt, and reviews identity, mouth and facial movement, performance energy, audio presence, and synchronization. Use it for old photo singing, birthday greetings, character art, playful posts, song promos, and memorable messages, with one portrait and one singing audio excerpt per run and honest post-result review.",
+      "display_name": "Photo Singing Video",
+      "summary": "Animate one clear portrait with a short singing audio excerpt to create an expressive singing-photo clip.",
+      "tags": [
+        "make photo sing",
+        "singing photo generator",
+        "AI singing portrait",
+        "photo to singing video",
+        "animate photo with song",
+        "old photo singing",
+        "portrait lip sync music",
+        "singing photo maker",
+        "AI singing video",
+        "photo sings a song"
+      ],
+      "title": "Photo Singing Video: Make a Photo Sing with AI"
+    },
+    "ja": {
+      "description": "鮮明なポートレート1枚と短い歌唱音源から、写真を歌わせる動画を作成します。この写真を歌わせるAI・ポートレート歌唱動画ワークフローは、ポートレート1枚と選んだ楽曲フレーズから、表情豊かな歌唱クリップを生成し、人物の特徴、口と顔の動き、歌唱の表現力、音声の存在と同期を確認します。古い写真を歌わせる、誕生日の挨拶、キャラクターイラスト、楽しい投稿、楽曲PR、記念になるメッセージに適しており、1回の実行でポートレート1枚と承認済みの音源フレーズ1つを使い、正直に結果を確認します。",
+      "display_name": "写真を歌わせるAI",
+      "summary": "鮮明なポートレート1枚と短い楽曲フレーズから、写真が歌う動画を作成します。",
+      "tags": [
+        "写真を歌わせる",
+        "歌う写真 AI",
+        "画像から歌唱動画",
+        "人物写真を歌わせる",
+        "古い写真を歌わせる",
+        "歌うアバター",
+        "写真リップシンク 音楽",
+        "AI唱歌動画",
+        "写真で歌う動画",
+        "ポートレート歌唱"
+      ],
+      "title": "写真を歌わせるAI：写真を歌う動画を作成"
+    },
+    "zh": {
+      "description": "用一张清晰人像照片和一段简短的歌曲片段，让照片开口唱歌。这个 AI 照片唱歌视频和人像唱歌视频工作流可以把单张人像变成一段有表情的唱歌短片，只需要一张照片和一段歌曲片段，并在交付后检查人物特征、嘴型和面部动作、演唱表现力、声音呈现和同步效果。适合老照片唱歌、生日祝福、卡通人物唱歌、趣味分享、歌曲宣传和有纪念意义的留言，每次只用一张照片和一段已确认的音频片段，并如实复盘成片效果。",
+      "display_name": "AI照片唱歌视频",
+      "summary": "用一张清晰人像照片和一段简短歌曲片段，生成一段照片开口唱歌的短片。",
+      "tags": [
+        "照片唱歌",
+        "让照片唱歌",
+        "AI照片唱歌",
+        "AI唱歌视频",
+        "照片唱歌生成器",
+        "人像唱歌视频",
+        "老照片唱歌",
+        "人物照片唱歌",
+        "卡通人物唱歌",
+        "生日祝福唱歌视频",
+        "照片跟着音乐唱歌",
+        "照片唱歌一键制作"
+      ],
+      "title": "AI照片唱歌视频：让一张照片开口唱歌"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "photo-singing-video",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

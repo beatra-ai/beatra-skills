@@ -1,0 +1,79 @@
+{
+  "changelog": "First public release: a compliance read with a replacement for every flagged line, an audience read, the corrected copy as one block, and a cover rendered from the corrected wording.",
+  "display_name": "Publish Preflight Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/publish-preflight-studio",
+  "icon": "https://beatra.ai/textures/icons/publish-preflight-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Check a post before it goes out, then fix what it finds. Paste the caption, title, script, on-screen text, or tags — this pre-publish content check reads the wording against advertising-copy restrictions and regulated-category claim rules and returns a replacement for every phrase it flags, reads the post back through the people you are writing for and names the exact line that loses each of them, scores the hook and the reason to share with the evidence behind each score, then hands back the corrected copy and renders the cover carrying the fixed wording. Use it as a social media copy check and a banned words checker before publishing, for ad-copy review, superlative screening, audience reaction testing, hook strength scoring, and pre-checking brand or client copy before it reaches an approver, for Instagram, TikTok, Facebook, YouTube, and LinkedIn.",
+      "display_name": "Publish Preflight Studio",
+      "summary": "Paste the copy and get a compliance read with a replacement for every flagged phrase, an audience read that names the line losing each reader, a hook and share score, the corrected copy, and a cover rendered from the fixed wording.",
+      "tags": [
+        "pre publish content check",
+        "ad copy compliance check",
+        "banned words checker",
+        "advertising copy review",
+        "social media copy check",
+        "superlative checker",
+        "regulated claims check",
+        "audience reaction test",
+        "hook strength score",
+        "copy review before posting",
+        "marketing copy compliance",
+        "content risk check"
+      ],
+      "title": "Publish Preflight Studio: Check the Copy, Fix It, and Rebuild the Cover"
+    },
+    "ja": {
+      "description": "出す前に見て、見つけたところをそのまま直します。本文・タイトル・台本・画面文字・ハッシュタグを貼るだけ——この投稿前チェックは、景品表示法（景表法）の優良誤認・有利誤認の考え方と、薬機法などカテゴリ別の効能表現ルールに照らして一文ずつ確認し、引っかかった訴求表現には必ず言い換え案を返します。さらに、想定読者ごとに文面を読み直し、誰がどの一文で離脱するかを名指しし、冒頭の引きと共有したくなる理由をそれぞれ根拠つきで採点します。最後に修正済みの文面をお渡しし、直した文言を載せたサムネイルを作成します。投稿前のコンプライアンス確認とSNS投稿の確認、広告コピーの審査、NGワードや誇大表現・最上級表現の洗い出し、訴求表現の見直し、読者反応のテスト、冒頭の強さの採点、ブランドやクライアント原稿の事前整理に。Instagram・TikTok・YouTubeなどのSNS投稿の確認に。",
+      "display_name": "投稿前チェックスタジオ",
+      "summary": "文面を貼るだけで、指摘ごとに言い換え案つきの表現チェック、どの一文で誰が離脱するかを名指しする読者別の反応、根拠つきの到達スコア、修正済みの文面、そして直した文言で作成したサムネイルまで。",
+      "tags": [
+        "投稿前 チェック",
+        "広告表現 チェック",
+        "景表法 チェック",
+        "薬機法 チェック",
+        "NGワード チェック",
+        "誇大表現 チェック",
+        "広告 コンプライアンス",
+        "コピー 審査",
+        "SNS 投稿 確認",
+        "訴求表現 見直し",
+        "読者反応 テスト",
+        "サムネイル 文言 修正"
+      ],
+      "title": "投稿前チェックスタジオ：表現を見て、直して、サムネイルも作り直す"
+    },
+    "zh": {
+      "description": "在发出去之前先查一遍，并且把查出来的问题直接改掉。把正文、标题、口播稿、封面文字或话题标签贴过来——这个发布前内容预检会对照广告法极限词与各监管品类的功效表述规则逐句筛查，每一条命中都给出可直接替换的写法；再按你写给谁把这条内容读一遍，点名是哪一句让哪类读者划走；然后给钩子强度和转发理由打分，并附上打分依据；最后交回改好的文案，并按修正后的文案把封面渲染出来。适合发布前内容质检与文案质检、广告法合规自查、敏感词违禁词检测与极限词筛查、文案风险检测、人群模拟反应测试、爆款预测评分，以及品牌与客户文案过审前的清理；抖音、小红书、微信、快手都能用。",
+      "display_name": "发布前内容预检",
+      "summary": "把文案贴过来，拿回逐条带替换词的合规检查、点名哪句话把哪类读者劝退的人群试读、有依据的爆款评分、改好的文案，以及按新文案渲染的封面。",
+      "tags": [
+        "内容质检",
+        "敏感词检测",
+        "违禁词检测",
+        "广告法检测",
+        "极限词检测",
+        "发布前审核",
+        "文案合规",
+        "文案质检",
+        "爆款预测",
+        "人群模拟",
+        "文案风险检测",
+        "封面文案修正"
+      ],
+      "title": "发布前预检：查文案、给替换、顺手把封面改回来"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "publish-preflight-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

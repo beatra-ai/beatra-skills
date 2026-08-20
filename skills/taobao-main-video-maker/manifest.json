@@ -1,0 +1,75 @@
+{
+  "changelog": "Create product-first Taobao and Tmall main-image videos from product photos, selling points, and brand direction.",
+  "display_name": "Taobao Product Main Image Video Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/taobao-main-video-maker",
+  "icon": "https://beatra.ai/textures/icons/taobao-main-video-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Taobao product main-image video or Tmall product main-image video from product photos, selling points, and brand references. This AI product video maker builds a product-led opening, detail or use moment, and clean finish for Taobao product listings, Tmall product pages, ecommerce product listing videos, new-product launches, and seasonal campaigns.",
+      "display_name": "Taobao Product Main Image Video Maker",
+      "summary": "Turn product photos and selling points into a concise Taobao or Tmall product main-image video with a clear opening, product details, and a clean finish.",
+      "tags": [
+        "Taobao product main image video",
+        "Taobao product video",
+        "Tmall product main image video",
+        "Taobao product main-image video",
+        "ecommerce product listing video",
+        "product listing video",
+        "AI product video maker",
+        "Taobao product listing video",
+        "Tmall product video",
+        "product showcase video"
+      ],
+      "title": "Taobao Product Main Image Video Maker: AI Video for Taobao & Tmall"
+    },
+    "ja": {
+      "description": "商品写真、訴求ポイント、ブランド素材から、Taobao（淘宝）・Tmall（天猫）向けの商品ページ用動画、商品紹介動画、EC商品動画をAIで作成します。Taobao（淘宝）・Tmall（天猫）の商品ページ、新商品、季節キャンペーンに合わせ、商品が伝わる導入、ディテールまたは使用シーン、すっきりした締めを備えた商品紹介動画に仕上げます。",
+      "display_name": "Taobao（淘宝）・Tmall（天猫）商品動画メーカー",
+      "summary": "商品写真、訴求ポイント、ブランド素材から、商品の見せ場、ディテールや使用シーン、すっきりした締めを備えたTaobao（淘宝）・Tmall（天猫）向け商品ページ用動画をつくります。",
+      "tags": [
+        "Taobao 商品動画",
+        "Tmall 商品動画",
+        "商品ページ用動画",
+        "EC商品動画",
+        "商品写真から動画",
+        "AI商品動画",
+        "中国EC 商品動画",
+        "商品紹介動画",
+        "商品訴求動画",
+        "新商品紹介動画"
+      ],
+      "title": "Taobao（淘宝）・Tmall（天猫）商品ページ用動画メーカー"
+    },
+    "zh": {
+      "description": "使用 AI 将商品图、商品卖点和品牌素材制作成淘宝主图视频、天猫主图视频、商品主图视频和宝贝主图视频。围绕淘宝商品详情页、天猫商品页、电商主图视频、新品上架和大促活动，呈现商品主体、细节或使用场景和干净收尾，打造适合商品浏览的电商商品视频。",
+      "display_name": "淘宝天猫主图视频制作器",
+      "summary": "把商品图、卖点和品牌素材制作成淘宝或天猫主图视频，清晰呈现商品开场、细节或使用场景和干净收尾。",
+      "tags": [
+        "淘宝主图视频",
+        "天猫主图视频",
+        "商品主图视频",
+        "宝贝主图视频",
+        "电商主图视频",
+        "淘宝商品视频",
+        "天猫商品视频",
+        "淘宝主图视频制作",
+        "商品图转视频",
+        "商品展示视频",
+        "商品视频制作",
+        "AI商品视频"
+      ],
+      "title": "淘宝主图视频制作：淘宝天猫商品主图视频生成"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "taobao-main-video-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

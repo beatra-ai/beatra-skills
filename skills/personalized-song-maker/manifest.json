@@ -1,0 +1,75 @@
+{
+  "changelog": "Turn a person's story and occasion into approved lyrics and a finished original song.",
+  "display_name": "Personalized Song Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/personalized-song-maker",
+  "icon": "https://beatra.ai/textures/icons/personalized-song-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a person's story and occasion into original lyrics and a newly generated song. This personalized song maker and custom song generator workflow collects the recipient, relationship, occasion, memories, and must-include details, drafts the title, lyrics, section structure, genre, and mood for approval, then generates one finished original song, and reviews story accuracy, name pronunciation, hook, lyric rendering, and vocal result. Use it for custom birthday songs, wedding songs, anniversary songs, proposal songs, family tribute songs, and company or team anthems, with one approved lyric draft and one song generation per run and honest post-result review.",
+      "display_name": "Personalized Song Maker",
+      "summary": "Turn a person's story and occasion into original lyrics and a newly generated song.",
+      "tags": [
+        "personalized song maker",
+        "custom song generator",
+        "AI song from story",
+        "song gift generator",
+        "custom birthday song",
+        "wedding song maker",
+        "anniversary song",
+        "proposal song",
+        "family tribute song",
+        "company anthem generator"
+      ],
+      "title": "Personalized Song Maker: Custom Song Generator from Your Story"
+    },
+    "ja": {
+      "description": "ある人のエピソード、記念日、そして曲に必ず盛り込みたい詳細を、オリジナルの歌詞と新しく生成された曲に変えます。このオリジナルソング作成・カスタムソングジェネレーターワークフローは、贈る相手、関係性、記念日、思い出、必ず含める詳細を集め、タイトル、歌詞、構成、ジャンル、ムードを下書きして承認してもらい、1曲の完成したオリジナルソングを生成し、エピソードの正確さ、名前の発音、サビ、歌詞の表現、ボーカルの結果を確認します。誕生日ソング、結婚式の曲、記念日ソング、プロポーズソング、家族へのトリビュートソング、社歌やチームソングに適しており、1回の実行で承認済みの歌詞ドラフト1つと1回の楽曲生成を使い、正直に結果を確認します。",
+      "display_name": "オリジナルソング作成",
+      "summary": "ある人のエピソードと記念日を、オリジナルの歌詞と新しく生成された曲に変えます。",
+      "tags": [
+        "オリジナルソング作成",
+        "AIで曲を作る",
+        "誕生日ソング 作成",
+        "結婚式オリジナル曲",
+        "記念日ソング",
+        "名前入りの歌",
+        "思い出を歌に",
+        "社歌 作成 AI",
+        "プレゼント用の歌",
+        "カスタムソング"
+      ],
+      "title": "オリジナルソング作成：エピソードからあなただけの曲を作る"
+    },
+    "zh": {
+      "description": "把一个人的故事、场合和必须写进歌里的细节，变成原创歌词和一首全新生成的歌曲。这个 AI 定制歌曲制作和专属歌曲生成器工作流会先收集收件人、关系、场合、回忆和必须包含的细节，起草标题、歌词、段落结构、曲风和情绪供你确认，然后生成一首完整的原创歌曲，并在交付后检查故事准确度、名字发音、副歌、歌词呈现和演唱效果。适合定制生日歌、婚礼歌曲、纪念日歌曲、表白求婚歌曲、家庭纪念歌曲以及企业或团队司歌，每次只用一份已确认的歌词草稿和一次歌曲生成，并如实复盘成曲效果。",
+      "display_name": "AI定制歌曲制作",
+      "summary": "把一个人的故事和场合，变成原创歌词和一首全新生成的歌曲。",
+      "tags": [
+        "AI定制歌曲",
+        "AI专属歌曲",
+        "AI原创歌曲",
+        "定制歌曲",
+        "专属歌曲生成",
+        "AI歌曲制作",
+        "生日歌定制",
+        "婚礼歌曲定制",
+        "纪念日歌曲",
+        "表白歌曲",
+        "送给父母的歌",
+        "企业司歌"
+      ],
+      "title": "AI定制歌曲制作：把故事写成一首原创歌曲"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "personalized-song-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

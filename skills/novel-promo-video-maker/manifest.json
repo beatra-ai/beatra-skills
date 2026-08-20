@@ -1,0 +1,79 @@
+{
+  "changelog": "See clearer image cost ranges before creating cast references and illustrated story shots.",
+  "display_name": "Novel Promo Video Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/novel-promo-video-maker",
+  "icon": "https://beatra.ai/textures/icons/novel-promo-video-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a novel chapter, web-novel excerpt, or story script into narrated vertical short video scenes with illustrated shots that keep every character looking the same from beat to beat. This AI story video maker pulls the hook and the beats out of your text, draws one shot for each, records the narration in a voice you choose, and sets each clip to its own narration, so a chapter arrives as an ordered set of scenes for story channels, book trailers, web-novel promotion, chapter recaps, and faceless storytelling accounts.",
+      "display_name": "Novel Promo Video Maker",
+      "summary": "Turn a novel chapter or story script into narrated vertical short video scenes with illustrated shots that keep every character looking the same from beat to beat.",
+      "tags": [
+        "story to video",
+        "novel to video",
+        "AI story video maker",
+        "script to video",
+        "narrated story video",
+        "book trailer maker",
+        "web novel promo video",
+        "vertical story video",
+        "AI storytelling video",
+        "chapter to video",
+        "character consistent story video",
+        "faceless storytelling channel"
+      ],
+      "title": "Novel Promo Video Maker: Turn a Story Chapter into Narrated Scene Clips"
+    },
+    "ja": {
+      "description": "小説の1章、Web小説の抜粋、ストーリー脚本を、ナレーション付きの縦型ショートに動画化します。本文からフックと場面を切り出し、場面ごとにイラストを1枚ずつ用意し、選んだ声でナレーションを録り、映像をその場面のナレーションに合わせて動かすので、同じキャラクターはどの場面でも同じ見た目でそろいます。あらすじ動画、朗読動画、Web小説のプロモーション動画、物語チャンネルの毎日投稿まで、本文だけから、順番に並んだ縦型動画シーンが、そのまま投稿できる形で仕上がります。",
+      "display_name": "小説動画化ツール",
+      "summary": "小説の1章やストーリー脚本を、ナレーション付きの縦型ショートに動画化します。場面ごとにイラストを用意し、同じキャラクターはどの場面でも同じ見た目でそろいます。",
+      "tags": [
+        "小説 動画化",
+        "ナレーション動画",
+        "ストーリー動画 作成",
+        "縦型ショート動画",
+        "小説 プロモーション動画",
+        "朗読 動画",
+        "物語 動画化",
+        "あらすじ 動画",
+        "章 動画化",
+        "Web小説 動画",
+        "キャラクター 一貫 動画",
+        "脚本 動画化"
+      ],
+      "title": "小説動画化：1章をナレーション付き縦型ショートに動画化"
+    },
+    "zh": {
+      "description": "把一章小说、网文片段或故事脚本改编成一组按顺序排好的带旁白竖屏推文视频片段：自动拆出钩子和分镜、每个分镜配一张插画、用你选的音色录旁白，再让每段画面跟着自己的旁白动起来，同一个角色在每个镜头里长得一样。适合小说推文、网文推文、小说解说、故事号日更、书评短片、图文成片和故事成片，一章文字直接成片，按分镜顺序交付一组可直接发布的竖屏故事视频片段。",
+      "display_name": "小说推文视频生成",
+      "summary": "把一章小说或故事脚本改编成一组按顺序排好的带旁白竖屏推文视频片段，自动拆分镜、配插画、录旁白，同一个角色在每个镜头里长得一样。",
+      "tags": [
+        "小说推文",
+        "推文视频",
+        "小说转视频",
+        "小说解说",
+        "小说分镜",
+        "文转视频",
+        "图文成片",
+        "网文推文",
+        "小说改编视频",
+        "竖屏故事视频",
+        "小说配音视频",
+        "故事成片"
+      ],
+      "title": "小说推文视频生成：一章文字直接出一组竖屏视频片段"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "novel-promo-video-maker",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

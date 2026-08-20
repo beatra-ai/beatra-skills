@@ -1,0 +1,79 @@
+{
+  "changelog": "Updates now state that an install keeps the channel and language it was installed from.",
+  "display_name": "AI Headshot Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-headshot-studio",
+  "icon": "https://beatra.ai/textures/icons/ai-headshot-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Transform a casual selfie into a studio-quality professional headshot for LinkedIn, resume, company website, business card, or social media. This AI headshot generator creates polished professional portraits with new backgrounds, professional attire, and studio lighting while preserving the person's identity. Generate corporate headshots, tech startup portraits, academic profile photos, medical professional images, and creative industry portraits from one selfie. Specify a professional style and industry, pair with a desired background or setting, or refine an accepted headshot toward a publish-ready result.",
+      "display_name": "AI Headshot Studio",
+      "summary": "Turn a casual selfie into a studio-quality professional headshot with new backgrounds, professional attire, and studio lighting for LinkedIn, resume, company website, and social media.",
+      "tags": [
+        "AI headshot generator",
+        "professional headshot AI",
+        "AI portrait",
+        "LinkedIn headshot",
+        "AI professional photo",
+        "headshot maker",
+        "business portrait AI",
+        "resume photo generator",
+        "corporate headshot AI",
+        "AI suit photo",
+        "AI business headshot",
+        "profile picture generator"
+      ],
+      "title": "AI Headshot Studio: AI Professional Headshot & Portrait Generator"
+    },
+    "ja": {
+      "description": "日常のセルフィーをLinkedIn、履歴書、企業ウェブサイト、名刺、SNS向けのスタジオ品質のプロフェッショナルヘッドショットに変換。このAIヘッドショットジェネレーターは、新しい背景、プロフェッショナルな服装、スタジオライティングを適用した洗練されたプロフェッショナルポートレートを作成し、人物の顔の特徴を維持します。1枚のセルフィーから、コーポレートヘッドショット、テクノロジースタートアップのポートレート、アカデミックプロフィール写真、医療専門職の画像、クリエイティブ業界のポートレートを生成。プロフェッショナルスタイルと業界を指定、希望の背景やシーンを組み合わせ、または承認済みのヘッドショットを精密調整して、公開可能な仕上がりにすることができます。",
+      "display_name": "AI ヘッドショットスタジオ",
+      "summary": "日常のセルフィーを、新しい背景、プロフェッショナルな服装、スタジオライティングを備えたスタジオ品質のプロフェッショナルヘッドショットに変換。LinkedIn、履歴書、企業ウェブサイト、SNSに対応。",
+      "tags": [
+        "AI証明写真",
+        "AIビジネス写真",
+        "AIポートレート",
+        "プロフィール写真AI",
+        "AIプロフィール",
+        "ビジネスヘッドショット",
+        "就活写真AI",
+        "証明写真作成",
+        "AIスーツ写真",
+        "企業プロフィール写真",
+        "LinkedIn写真",
+        "AI証明写真背景変更"
+      ],
+      "title": "AI ヘッドショットスタジオ：AI プロフェッショナル証明写真＆ポートレートジェネレーター"
+    },
+    "zh": {
+      "description": "将一张日常自拍转化为影棚级专业形象照，适用于 LinkedIn、简历、公司官网、商务名片或社交媒体。这款 AI 形象照生成器制作精致的专业人像，替换全新背景、职业着装和影棚光效，同时保持人物面部特征不变。从一张自拍生成企业形象照、科技公司人像、学术证件照、医疗专业照片和创意行业形象照。指定职业风格和行业，搭配期望的背景或场景，或在已认可形象照上做定向精修，完成可发布的成品。",
+      "display_name": "AI形象照工作室",
+      "summary": "将一张日常自拍转化为影棚级专业形象照，搭配全新背景、职业着装和影棚光效，适用于 LinkedIn、简历、公司官网和社交媒体。",
+      "tags": [
+        "AI证件照",
+        "AI职业照",
+        "AI形象照",
+        "AI头像生成",
+        "AI专业照片",
+        "职业照制作",
+        "商务形象照",
+        "简历照片生成",
+        "AI西装照",
+        "企业形象照",
+        "LinkedIn头像",
+        "AI证件照换背景"
+      ],
+      "title": "AI 形象照工作室：AI 专业证件照与人像生成器"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-headshot-studio",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

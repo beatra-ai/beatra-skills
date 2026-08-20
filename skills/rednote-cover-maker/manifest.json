@@ -1,0 +1,79 @@
+{
+  "changelog": "Initial public release: AI Xiaohongshu (REDnote) cover and post image generator with vertical 3:4 canvas, category-aware styling, text-safe zones, photo transform, topic concept generation, and cover refinement for beauty, food, fashion, travel, and knowledge content.",
+  "display_name": "REDnote Cover Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/rednote-cover-maker",
+  "icon": "https://beatra.ai/textures/icons/rednote-cover-maker-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a photo, a topic idea, or an accepted draft into a scroll-stopping REDnote (Xiaohongshu) cover and post image. This AI cover generator creates vertical 3:4 Xiaohongshu note covers with clean backgrounds, bold focal composition, and text-safe areas for beauty, food, fashion, travel, and knowledge content. Generate high-click Xiaohongshu note covers, OOTD post images, food photography covers, product recommendation visuals, and lifestyle note illustrations from one photo or a topic description. Start from a real photo, compose from multiple references, or refine an accepted cover toward a publish-ready result.",
+      "display_name": "REDnote Cover Maker",
+      "summary": "Turn a photo or a topic idea into a scroll-stopping vertical 3:4 Xiaohongshu cover with clean backgrounds, bold focal composition, and text-safe areas for beauty, food, fashion, and lifestyle notes.",
+      "tags": [
+        "REDnote cover maker",
+        "Xiaohongshu cover",
+        "AI cover generator",
+        "Xiaohongshu note cover",
+        "REDnote post image",
+        "AI thumbnail maker",
+        "Xiaohongshu image design",
+        "social media cover generator",
+        "REDnote cover template",
+        "Xiaohongshu beauty cover",
+        "food photography cover",
+        "OOTD post image"
+      ],
+      "title": "REDnote Cover Maker: AI Xiaohongshu Cover & Post Image Generator"
+    },
+    "ja": {
+      "description": "写真1枚、テーマのアイデア、または承認済みのドラフトから、スクロールを止めるREDnote（小紅書）カバーと投稿画像を作成。このAIカバー生成ツールは、縦型3:4の小紅書ノートカバーを、クリーンな背景、際立つフォーカル構図、テキストスペースとともに作成し、美容、グルメ、ファッション、旅行、知識コンテンツに対応します。実写写真から高クリック率のカバー、OOTD投稿画像、グルメ写真カバー、商品おすすめビジュアル、ライフスタイルノートのイラストを生成。テーマの説明からカバーを生成したり、承認済みカバーを精密調整して、公開可能な仕上がりにすることも可能です。",
+      "display_name": "REDnote カバーメーカー",
+      "summary": "写真1枚やテーマのアイデアから、スクロールを止める縦型 3:4 の小紅書（REDnote）カバーを作成。クリーンな背景、際立つ構図、テキストスペースを確保し、美容、グルメ、ファッション、ライフスタイル投稿に対応。",
+      "tags": [
+        "REDnote カバー",
+        "小紅書 カバー",
+        "AIカバー作成",
+        "REDnote サムネイル",
+        "小紅書 投稿画像",
+        "AI サムネイルメーカー",
+        "REDnote カバー デザイン",
+        "SNS カバー作成",
+        "REDnote カバー テンプレート",
+        "美容 カバー画像",
+        "グルメ写真 カバー",
+        "OOTD 投稿画像"
+      ],
+      "title": "REDnote カバーメーカー：AI 小紅書 カバー＆投稿画像ジェネレーター"
+    },
+    "zh": {
+      "description": "将一张照片、一个选题想法或已认可的草稿转化为高点击率的小红书封面和配图。这款 AI 封面生成器制作竖版 3:4 小红书图文封面，搭配干净背景、突出焦点构图和预留文字区域，覆盖美妆、美食、穿搭、旅行和知识科普内容。从一张实拍照片生成高点击封面、OOTD 穿搭配图、美食摄影封面、好物推荐视觉和生活笔记插画，也可以从选题描述出发生成封面概念，或在已认可封面上做定向精修，完成可发布的成品。",
+      "display_name": "小红书封面制作器",
+      "summary": "将一张照片或一个选题想法转化为高点击率的竖版 3:4 小红书封面，搭配干净背景、突出焦点构图和预留文字区域，适配美妆、美食、穿搭和生活图文。",
+      "tags": [
+        "小红书封面",
+        "小红书封面制作",
+        "AI封面生成器",
+        "小红书图文封面",
+        "小红书封面设计",
+        "小红书爆款封面",
+        "AI封面制作",
+        "小红书配图制作",
+        "小红书封面模板",
+        "小红书美妆封面",
+        "美食摄影封面",
+        "穿搭图文配图"
+      ],
+      "title": "小红书封面制作器：AI 图文封面生成与排版工具"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "rednote-cover-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

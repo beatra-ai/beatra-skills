@@ -1,0 +1,77 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "AI Video Realism Retoucher",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/video-realism-retoucher",
+  "icon": "https://beatra.ai/textures/icons/video-realism-retoucher-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Polish an existing AI-generated short video with a focused realism retouch. This focused AI video retouch refines artificial lighting, synthetic materials, oversaturated color, and repeated or distracting detail in one selected pass, while carrying forward the shot's subject, camera framing, timing, and intended mood. Use it for AI video cleanup, video retouching, natural-looking video polish, product clips, ad creative, social video, and short-form footage that needs a cleaner, more believable finish.",
+      "display_name": "AI Video Realism Retoucher",
+      "summary": "Polish an existing AI video with a focused realism pass for more natural light, materials, color balance, and less distracting repeated detail.",
+      "tags": [
+        "AI video realism",
+        "focused AI video retouch",
+        "AI video retouching",
+        "AI video cleanup",
+        "natural-looking video polish",
+        "AI video color correction",
+        "AI video lighting fix",
+        "AI video texture refinement",
+        "product video retouching",
+        "ad video polish",
+        "social video cleanup"
+      ],
+      "title": "AI Video Realism Retoucher: Polish Generated Video"
+    },
+    "ja": {
+      "description": "すでに方向性が決まったAI生成ショート動画を、映像レタッチでより自然な仕上がりへ整えます。AI動画のリアル感を高めるため、光の不自然さ、プラスチックのような質感、彩度の強さ、反復するディテールを一つ選んで調整します。AI動画修正、AI動画の違和感補正、AIっぽさを軽減する映像補正として、動画の質感調整、AI動画の色補正、商品動画レタッチ、広告動画レタッチ、SNS動画の映像レタッチに活用できます。",
+      "display_name": "AI動画リアル感レタッチ",
+      "summary": "既存のAI動画をもとに、光、質感、色、繰り返しの違和感を一つに絞って整え、自然な映像の仕上がりに近づけます。",
+      "tags": [
+        "AI動画のリアル感",
+        "AI動画レタッチ",
+        "AI動画修正",
+        "AI動画の違和感補正",
+        "AI動画を自然に",
+        "AIっぽさを軽減",
+        "動画の質感調整",
+        "AI動画の色補正",
+        "商品動画レタッチ",
+        "広告動画レタッチ",
+        "SNS動画の映像レタッチ"
+      ],
+      "title": "AI動画のリアル感レタッチ：質感・光・色を自然に整える"
+    },
+    "zh": {
+      "description": "已有 AI 短视频方向已对，却仍想让光影、材质、色彩或重复细节更自然？视频去AI味·真实感精修围绕一个最影响观感的问题做 AI 视频画面精修和真实感润色，调整显得生硬的光影、塑料质感、过饱和色彩与重复细节。适合商品视频精修、广告视频精修和社交短视频去AI感，让 AI 视频真实感、镜头氛围与主体呈现更统一。",
+      "display_name": "视频去AI味·真实感精修",
+      "summary": "为已有 AI 短视频做一次聚焦真实感精修，调整光影、材质、饱和度和重复细节，让镜头更自然、更耐看。",
+      "tags": [
+        "视频去AI味",
+        "AI视频去AI感",
+        "AI视频画面精修",
+        "AI视频精修",
+        "AI视频真实感",
+        "AI视频润色",
+        "AI视频真实感润色",
+        "AI视频光影润色",
+        "AI视频材质润色",
+        "商品视频精修",
+        "广告视频精修",
+        "短视频去AI感"
+      ],
+      "title": "视频去 AI 味：AI 视频真实感精修与画面润色"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "video-realism-retoucher",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

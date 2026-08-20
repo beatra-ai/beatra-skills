@@ -1,0 +1,68 @@
+{
+  "changelog": "Launch the WeChat Moments poster creation and refinement workflow.",
+  "display_name": "WeChat Moments Poster Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-moments-poster-maker",
+  "icon": "https://beatra.ai/textures/icons/wechat-moments-poster-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create WeChat Moments posters and campaign graphics from a product photo, event brief, promotion, recruitment message, seasonal greeting, brand assets, or accepted draft. Produce square or vertical social visuals with a clear focal point and headline-safe space for WeChat Moments, customer-community updates, launches, invitations, and marketing campaigns; refine the selected image while preserving the brand direction.",
+      "display_name": "WeChat Moments Poster Maker",
+      "summary": "Turn a campaign message, event, offer, product photo, or brand reference into a share-ready WeChat Moments poster with a clear visual hook and text-safe composition.",
+      "tags": [
+        "WeChat Moments poster maker",
+        "WeChat Moments image",
+        "WeChat social poster",
+        "WeChat campaign graphic",
+        "WeChat marketing poster",
+        "WeChat Moments creative",
+        "WeChat promo poster",
+        "Chinese social media poster"
+      ],
+      "title": "WeChat Moments Poster Maker: Social Promo Visuals"
+    },
+    "ja": {
+      "description": "キャンペーン、イベント、販促メッセージ、商品写真、ブランド素材、参考画像から、WeChatモーメンツのポスターと投稿画像をAIで作成します。主役が伝わる構図とタイトル用の余白を整え、新商品、イベント招待、セール、採用、季節の挨拶、コミュニティ告知、ブランド発信に使える正方形・縦型のビジュアルを仕上げ、採用案はブランドの見た目を保ちながら磨き込めます。",
+      "display_name": "WeChatモーメンツポスターメーカー",
+      "summary": "キャンペーン、イベント、オファー、商品写真、ブランド素材から、ひと目で伝わりコピーを置きやすいWeChatモーメンツ用ポスターをつくります。",
+      "tags": [
+        "WeChatモーメンツポスター",
+        "WeChat 朋友圈 ポスター",
+        "WeChat 投稿画像",
+        "WeChat マーケティング画像",
+        "WeChat キャンペーン画像",
+        "中国SNS ポスター",
+        "AIポスター作成",
+        "WeChat 広告クリエイティブ"
+      ],
+      "title": "WeChatモーメンツポスターメーカー：SNS告知ビジュアル"
+    },
+    "zh": {
+      "description": "使用 AI 将活动主题、促销信息、产品图、品牌素材或参考图制作成朋友圈海报、微信朋友圈海报、朋友圈宣传图和朋友圈配图。打造适合朋友圈分享的方图或竖版营销海报，突出活动、产品、优惠或品牌信息，覆盖新品发布、活动邀请、促销、招聘、节日问候、社群通知和客户运营；已选海报还可继续精修并保持品牌视觉方向。",
+      "display_name": "朋友圈海报制作器",
+      "summary": "把活动主题、促销信息、产品图、品牌素材或参考图，制作成主体清晰、适合朋友圈分享并预留文案区域的营销海报。",
+      "tags": [
+        "朋友圈海报",
+        "微信朋友圈海报",
+        "朋友圈宣传图",
+        "朋友圈营销海报",
+        "微信海报制作",
+        "朋友圈活动海报",
+        "朋友圈配图",
+        "朋友圈广告图",
+        "微信社群海报"
+      ],
+      "title": "朋友圈海报制作器：AI 社交推广视觉"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-moments-poster-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

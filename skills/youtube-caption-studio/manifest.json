@@ -1,0 +1,56 @@
+{
+  "changelog": "First public release. Turn a YouTube link or a pasted transcript into a Chinese spoken script and remake structure.",
+  "display_name": "YouTube Caption Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/youtube-caption-studio",
+  "icon": "https://beatra.ai/textures/icons/youtube-caption-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a YouTube link or a pasted transcript into a Chinese spoken script and a remake structure. This video captions and caption extract workflow reads YouTube captions and optional comments, or works from the transcript you already copied, then writes spoken Chinese with the remake beats that follow the original. Use it for video captions, caption extract, YouTube captions, and YouTube transcript work when you need a spoken remake from what the video already said.",
+      "display_name": "YouTube Caption Studio",
+      "summary": "Give a YouTube link or a pasted transcript and get a Chinese spoken script with remake beats.",
+      "tags": [
+        "video captions",
+        "caption extract",
+        "YouTube captions",
+        "YouTube transcript"
+      ],
+      "title": "Video Captions: Turn a Transcript Into a Spoken Remake Script"
+    },
+    "ja": {
+      "description": "YouTubeリンクまたは貼り付けた字幕から、話せる中国語原稿とリメイク構成を作ります。公開キャプションを読むか、コピー済みの文字起こしから、口語中国語と元動画に沿った拍を書きます。この動画字幕と字幕抽出は、YouTube字幕を読むか、貼り付けたYouTube文字起こしから口語リメイクにします。動画字幕、字幕抽出、YouTube字幕、YouTube文字起こしに。",
+      "display_name": "動画字幕抽出",
+      "summary": "YouTubeリンクまたは貼り付けた字幕から、話せる中国語原稿を返します。",
+      "tags": [
+        "動画字幕",
+        "字幕抽出",
+        "YouTube字幕",
+        "YouTube文字起こし"
+      ],
+      "title": "動画字幕：字幕から話せるリメイク原稿へ"
+    },
+    "zh": {
+      "description": "把一条YouTube链接或已复制的字幕，做成能说的中文口播稿和复刻结构。给公开视频或你已经复制的文稿，就能拿到口播中文和顺着原片的复刻节拍。这个视频字幕和字幕提取工作流会读YouTube字幕，也可以按需要读评论，或直接用你粘贴的字幕，写成YouTube字幕和YouTube文稿上的口播复刻。适合视频字幕、字幕提取、YouTube字幕、YouTube文稿和口播复刻。",
+      "display_name": "视频字幕提取",
+      "summary": "给YouTube链接或已复制的字幕，拿到中文口播稿和复刻结构。",
+      "tags": [
+        "视频字幕",
+        "字幕提取",
+        "YouTube字幕",
+        "YouTube文稿",
+        "口播复刻"
+      ],
+      "title": "视频字幕提取：把字幕做成能说的复刻稿"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "youtube-caption-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

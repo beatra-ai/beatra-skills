@@ -1,0 +1,79 @@
+{
+  "changelog": "Simplified Chinese listing wording tidied up.",
+  "display_name": "Poster Design Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/poster-design-studio",
+  "icon": "https://beatra.ai/textures/icons/poster-design-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a topic description, a product photo, or brand references into a scroll-stopping event poster, promotional banner, or social media graphic. This AI poster maker and design generator creates photo-rich posters with strong visual hierarchy, category-matched styling, and text-safe zones for event, music, movie, product launch, and sale campaigns. Use it as an AI flyer maker for sale flyers, an event poster design tool, a movie poster generator, a music festival poster creator, a banner design AI for product launch posters, or a graphic design poster studio. Start from a campaign topic, transform a product or scene photo with style references, or refine an accepted draft toward a print-ready or share-ready result.",
+      "display_name": "Poster Design Studio",
+      "summary": "Turn a topic description, a product photo, or brand references into a scroll-stopping event poster, promotional banner, or social media graphic with strong visual hierarchy, category-matched styling, and text-safe zones.",
+      "tags": [
+        "AI poster maker",
+        "poster design generator",
+        "AI flyer maker",
+        "event poster design",
+        "promotional poster",
+        "poster creator",
+        "banner design AI",
+        "graphic design poster",
+        "music festival poster",
+        "movie poster generator",
+        "product launch poster",
+        "sale flyer maker"
+      ],
+      "title": "Poster Design Studio: AI Poster Maker, Flyer & Banner Generator"
+    },
+    "ja": {
+      "description": "テーマの説明、商品写真、またはブランド参照画像から、スクロールを止めるイベントポスター、プロモーションバナー、SNSグラフィックを作成。このAIポスター作成・デザインツールは、写真リッチなポスターを、強い視覚階層、カテゴリー別スタイリング、テキストスペースとともに生成し、イベント、音楽フェス、映画、商品発表、セールキャンペーンに対応します。セールチラシを作るAIチラシ作成ツール、イベントポスター、映画ポスター、音楽フェスポスター、商品発表ポスターのバナーデザインAI、グラフィックデザインポスターとして活用できます。テーマから始める、スタイル参照で商品やシーン写真を変換する、または承認済みドラフトを精密調整して、印刷可能・シェア可能な仕上がりにすることも可能です。",
+      "display_name": "ポスターデザインスタジオ",
+      "summary": "テーマの説明、商品写真、ブランド参照画像から、スクロールを止めるイベントポスター、プロモーションバナー、SNSグラフィックを作成。強い視覚階層、カテゴリー別スタイリング、テキストスペースを確保。",
+      "tags": [
+        "AIポスター作成",
+        "ポスターデザイン",
+        "チラシ作成",
+        "イベントポスター",
+        "ポスター制作",
+        "バナーデザイン",
+        "宣伝チラシ",
+        "ポスタークリエイター",
+        "音楽フェスポスター",
+        "映画ポスター",
+        "商品発表ポスター",
+        "セールチラシ"
+      ],
+      "title": "ポスターデザインスタジオ：AIポスター作成・チラシ・バナー生成"
+    },
+    "zh": {
+      "description": "将一段活动描述、一张产品照片或品牌参考图，转化为抓人眼球的活动海报、宣传 banner 或社交媒体配图。这款 AI海报设计与制作工具生成图片丰富的海报，搭配清晰视觉层级、按品类匹配的风格和预留文字区域，覆盖活动、音乐节、电影、产品发布和促销场景。你可以把它当作 AI宣传单制作工具来制作促销宣传单，当作活动海报设计工具，当作电影海报生成器，当作音乐节海报设计工具，当作产品发布会海报的 banner设计 AI，或当作平面设计海报工作室。从活动主题出发，用品牌风格参考图变换产品或场景照片，或在已认可草稿上做定向精修，完成可印刷或可分享的成品。",
+      "display_name": "海报设计工作室",
+      "summary": "将一段活动描述、一张产品照片或品牌参考图，转化为抓人眼球的活动海报、宣传 banner 或社交媒体配图，搭配清晰视觉层级、按品类匹配的风格和预留文字区域。",
+      "tags": [
+        "AI海报设计",
+        "海报制作",
+        "宣传海报生成",
+        "活动海报设计",
+        "AI海报制作",
+        "宣传单设计",
+        "banner设计",
+        "海报排版",
+        "音乐节海报",
+        "电影海报设计",
+        "产品发布会海报",
+        "促销海报制作"
+      ],
+      "title": "海报设计工作室：AI海报制作、宣传单与 banner 生成器"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "poster-design-studio",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

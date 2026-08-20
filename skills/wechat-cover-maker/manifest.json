@@ -1,0 +1,81 @@
+{
+  "changelog": "Simplified Chinese listing wording tidied up.",
+  "display_name": "WeChat Official Account Cover Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-cover-maker",
+  "icon": "https://beatra.ai/textures/icons/wechat-cover-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn an article title, topic, summary, or reference image into a WeChat Official Account cover, WeChat article cover, article hero image, post cover, headline image, or supporting article visual. This AI cover generator and article cover maker distills one clear visual hook, then creates either a rendered headline or a text-free headline-safe area. Use logos, portraits, products, and brand references to shape a brand cover image, and refine composition, focal point, color, thumbnail clarity, and crop resilience for a publish-ready WeChat cover design.",
+      "display_name": "WeChat Official Account Cover Maker",
+      "summary": "Turn an article title, topic, or reference image into a WeChat Official Account cover, article hero image, post cover, or supporting article visual with headline-safe space and focused refinement.",
+      "tags": [
+        "WeChat Official Account cover",
+        "WeChat article cover",
+        "WeChat article cover maker",
+        "WeChat article hero image",
+        "WeChat post cover",
+        "WeChat headline image",
+        "article cover maker",
+        "article hero image",
+        "AI cover generator",
+        "brand cover image",
+        "headline-safe area",
+        "WeChat cover design"
+      ],
+      "title": "WeChat Official Account Cover Maker: Article Covers & Hero Images"
+    },
+    "ja": {
+      "description": "記事タイトル、テーマ、要約、参考画像から、WeChat公式アカウントのカバー画像、記事カバー、記事アイキャッチ、見出し画像、記事用の関連画像を作成します。AIカバー画像生成で一つの明確なビジュアルフックを設計し、見出しを画像内に入れるか、文字なしの見出し用の安全領域を残すかを選択。ロゴ、人物、商品、ブランド資料を使ったブランドカバー画像にも対応し、構図、焦点、配色、サムネイルでの見やすさ、トリミング耐性を整えて公開前の仕上げまで進めます。",
+      "display_name": "WeChat公式アカウント カバー画像生成",
+      "summary": "記事タイトル、テーマ、参考画像からWeChat公式アカウント向けのカバー画像、記事アイキャッチ、見出し画像を作成し、見出し用の安全領域やブランド感まで整えます。",
+      "tags": [
+        "WeChat公式アカウント カバー画像",
+        "WeChat記事 カバー画像",
+        "記事カバー作成",
+        "記事アイキャッチ",
+        "見出し画像",
+        "AIカバー画像生成",
+        "見出し安全領域",
+        "ブランドカバー画像",
+        "WeChat投稿画像",
+        "記事ヘッダー画像",
+        "サムネイル画像",
+        "記事用画像"
+      ],
+      "title": "WeChat公式アカウントのカバー画像生成：記事カバー・アイキャッチ作成"
+    },
+    "zh": {
+      "description": "输入文章标题、主题、摘要或参考图，生成公众号封面、微信公众号封面图、微信文章封面、文章首图、公众号头图和公众号推文封面，也可作为公众号图片生成器，为文章制作主题一致的公众号图片与配图。面向公众号运营、自媒体和品牌内容，用 AI封面生成与公众号封面设计把文章重点转成清晰视觉钩子，可制作标题入图的公众号爆款封面，也可生成无字背景并预留标题安全区；支持 Logo、人物、商品和品牌参考，继续精修构图、焦点、配色、缩略图识别度与裁切适配，让封面图更醒目、更贴合文章内容并用于发布前定稿。",
+      "display_name": "公众号爆款封面生成器",
+      "summary": "输入文章标题、主题或参考图，生成微信公众号封面图、文章首图、公众号头图、推文封面和主题配图，并支持标题入图、无字安全区、品牌风格与构图精修。",
+      "tags": [
+        "公众号封面",
+        "公众号爆款封面",
+        "公众号封面生成",
+        "公众号图片生成器",
+        "公众号配图",
+        "微信公众号封面",
+        "微信公众号封面图",
+        "微信文章封面",
+        "公众号首图",
+        "文章首图",
+        "公众号头图",
+        "公众号推文封面",
+        "公众号封面设计",
+        "AI封面生成"
+      ],
+      "title": "公众号爆款封面生成器：微信公众号封面图与文章首图制作"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-cover-maker",
+  "schema_version": 1,
+  "version": "0.1.9"
+}

@@ -1,0 +1,70 @@
+{
+  "changelog": "Write Xiaohongshu note copy with five title options, a structured body, cover text, hashtags, a comment starter, and an advertising-law screen over the finished draft.",
+  "display_name": "REDnote Note Copywriter",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/rednote-note-copywriter",
+  "icon": "https://beatra.ai/textures/icons/rednote-note-copywriter-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create Xiaohongshu or REDnote copy from a product, experience, topic, or audience brief. This AI Xiaohongshu copywriter produces title options, a structured note body, cover wording, relevant hashtags, and a natural comment starter for product discovery, local experiences, beauty, food, fashion, travel, and knowledge posts.",
+      "display_name": "REDnote Note Copywriter",
+      "summary": "Turn a product, experience, topic, or audience brief into Xiaohongshu title options, a readable note body, cover text, hashtags, and a natural comment starter.",
+      "tags": [
+        "Xiaohongshu copywriter",
+        "REDnote note copywriter",
+        "Xiaohongshu title generator",
+        "Xiaohongshu post copy",
+        "Xiaohongshu product copy",
+        "Xiaohongshu recommendation copy",
+        "Xiaohongshu hashtags",
+        "Xiaohongshu cover text",
+        "Xiaohongshu note ideas"
+      ],
+      "title": "REDnote Note Copywriter: Xiaohongshu Titles and Post Copy"
+    },
+    "ja": {
+      "description": "商品、体験、投稿テーマ、想定読者から、小紅書（REDnote）の投稿文案をAIで作成します。タイトル候補、読みやすい本文、表紙に載せる短いコピー、関連ハッシュタグ、自然なコメント案を整え、商品紹介、店舗体験、美容、グルメ、コーデ、旅行、ナレッジ投稿に活用できます。",
+      "display_name": "小紅書投稿文案メーカー",
+      "summary": "商品、体験、投稿テーマ、想定読者から、小紅書のタイトル、本文、表紙コピー、ハッシュタグ、自然なコメント案を整えます。",
+      "tags": [
+        "小紅書 投稿文案",
+        "小紅書 タイトル作成",
+        "REDnote 本文作成",
+        "小紅書 商品紹介文",
+        "小紅書 おすすめ文",
+        "小紅書 ハッシュタグ",
+        "小紅書 表紙コピー",
+        "中国SNS 投稿文",
+        "AI 投稿文作成"
+      ],
+      "title": "小紅書投稿文案作成：タイトル・本文・紹介コピー"
+    },
+    "zh": {
+      "description": "使用 AI 将商品、体验、选题或受众信息制作成小红书文案、小红书标题和小红书笔记正文。生成标题备选、结构清晰的种草文案、首图文字、相关话题标签和自然的评论互动引导，适用于商品推荐、本地体验、美妆、护肤、美食、穿搭、旅行和知识分享。",
+      "display_name": "小红书笔记文案制作",
+      "summary": "把商品、体验、选题或受众信息整理成小红书标题、笔记正文、首图文案、话题标签和自然的评论互动引导。",
+      "tags": [
+        "小红书文案",
+        "小红书标题",
+        "小红书笔记文案",
+        "小红书种草文案",
+        "小红书话题标签",
+        "小红书首图文案",
+        "小红书商品文案",
+        "小红书推荐文案",
+        "小红书笔记生成"
+      ],
+      "title": "小红书文案制作：标题、笔记正文与种草话题"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "rednote-note-copywriter",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

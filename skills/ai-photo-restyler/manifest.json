@@ -1,0 +1,79 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the photo-to-illustration term itself.",
+  "display_name": "AI Photo Restyler",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-photo-restyler",
+  "icon": "https://beatra.ai/textures/icons/ai-photo-restyler-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the person, pet, or product stays recognisable. This AI photo restyler works as a photo-to-anime converter and AI cartoonizer you can steer: apply a style like a filter over your own picture, or add style samples to steer the palette, line weight, and shading. A selfie, portrait, pet photo, product shot, or travel picture becomes illustration-style art for social avatars, profile pictures, sticker sets, posters, merchandise, and content series, with one chosen look repeated across a whole batch.",
+      "display_name": "AI Photo Restyler",
+      "summary": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the subject stays recognisable, and repeat the same look across a whole set.",
+      "tags": [
+        "photo to anime",
+        "AI cartoonizer",
+        "photo to cartoon",
+        "anime filter",
+        "photo to comic",
+        "photo to manga",
+        "AI photo style converter",
+        "cartoon avatar maker",
+        "anime avatar generator",
+        "photo to illustration",
+        "clay style portrait",
+        "watercolor photo art"
+      ],
+      "title": "AI Photo Restyler: Photo to Anime, Cartoon and Comic Art"
+    },
+    "ja": {
+      "description": "写真をアニメ風、漫画風、カートゥーン、水彩、手描き風、クレイ、3Dキャラ風のイラストに加工・変換し、人物・ペット・商品の見分けがつく特徴を残します。この AI 写真イラスト化ツールは手持ちの写真とスタイル参考画像から画風を決めるため、自撮り、ポートレート、ペット写真、商品写真、旅行写真が SNS アイコン、似顔絵風のプロフィール画像、LINEスタンプ素材、ポスター、グッズ、シリーズ投稿向けのイラストになり、決めた画風を複数枚にそろえて使えます。",
+      "display_name": "AI写真イラスト化",
+      "summary": "写真をアニメ風、漫画風、カートゥーン、水彩、クレイ、3Dキャラ風に変換し、人物やペットの特徴を保ったまま同じ画風で複数枚そろえられます。",
+      "tags": [
+        "写真 アニメ化",
+        "写真 イラスト化",
+        "アニメ風 変換",
+        "漫画風 加工",
+        "カートゥーン 変換",
+        "AI イラスト化",
+        "写真 アニメ風",
+        "似顔絵 AI",
+        "LINEスタンプ 作成",
+        "SNS アイコン イラスト",
+        "水彩風 写真",
+        "手描き風"
+      ],
+      "title": "AI写真イラスト化：写真をアニメ風・漫画風・カートゥーンに変換"
+    },
+    "zh": {
+      "description": "把一张照片转成漫画风、动漫风、卡通、水彩、手绘、黏土或 3D 角色画风，同时保住人物、宠物或商品的辨识度。这个 AI 照片转绘、照片转漫画工具从你自己的图出发，加一张画风参考图做风格迁移，配色、线条和上色方式都照着走，让自拍、人像、宠物照、商品图或旅行照变成二次元插画风作品，用在社交头像、朋友圈配图、表情包素材、海报和周边上，第一张满意之后整批照片都按同一画风出。",
+      "display_name": "照片转绘",
+      "summary": "把照片转成漫画风、动漫风、卡通、水彩、黏土或 3D 角色画风，保住人物、宠物和商品的辨识度，同一套画风还能批量复用。",
+      "tags": [
+        "照片转漫画",
+        "照片转绘",
+        "漫画风",
+        "动漫风",
+        "卡通化",
+        "AI转绘",
+        "图片转漫画",
+        "二次元头像",
+        "照片变插画",
+        "表情包",
+        "风格迁移",
+        "手绘风"
+      ],
+      "title": "照片转绘：照片转漫画风、动漫风与卡通头像"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-photo-restyler",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

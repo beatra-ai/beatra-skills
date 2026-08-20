@@ -1,0 +1,67 @@
+{
+  "changelog": "Render one landscape Bilibili thumbnail from the chosen title and thumbnail brief.",
+  "display_name": "Bilibili Publishing Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/bilibili-publishing-pack",
+  "icon": "https://beatra.ai/textures/icons/bilibili-publishing-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create Bilibili upload copy from a video topic, title, outline, or finished script. This AI Bilibili publishing pack produces title options, a readable video description, chapter timestamps when supplied, relevant tags, a pinned-comment prompt, and a thumbnail brief for Bilibili creators publishing explainers, reviews, tutorials, vlogs, games, animation, and creative videos. The chosen title and thumbnail brief then become a matching landscape 16:9 Bilibili thumbnail with a headline-safe composition.",
+      "display_name": "Bilibili Publishing Pack",
+      "summary": "Turn a Bilibili video topic, outline, or script into title options, a clear description, tags, a pinned comment, chapters when you supply timestamps, and a thumbnail brief.",
+      "tags": [
+        "Bilibili publishing pack",
+        "Bilibili video title",
+        "Bilibili video description",
+        "Bilibili tags",
+        "Bilibili upload copy",
+        "Bilibili pinned comment",
+        "Bilibili chapter timestamps",
+        "UP主投稿文案"
+      ],
+      "title": "Bilibili Publishing Pack: Titles, Descriptions & Tags"
+    },
+    "ja": {
+      "description": "動画のテーマ、タイトル、構成、完成した台本から、bilibiliの投稿文をAIで作成します。タイトル候補、読みやすい概要欄、提供されたタイムスタンプから整えたチャプター、関連タグ、固定コメントの呼びかけ、サムネイルの要点を整え、解説、レビュー、ハウツー、Vlog、ゲーム、アニメ、クリエイティブ動画の投稿に活用できます。選んだタイトルとサムネイルの要点に合わせて、タイトル用の余白を確保した16:9のbilibiliサムネイルもそのまま作成できます。",
+      "display_name": "bilibili投稿文パック",
+      "summary": "bilibiliのテーマ、構成、台本から、動画タイトル、概要欄、タグ、固定コメント、サムネイルの要点、そして提供されたタイムスタンプからチャプターを整えます。",
+      "tags": [
+        "Bilibili 投稿文",
+        "Bilibili 動画タイトル",
+        "Bilibili 概要欄",
+        "Bilibili タグ",
+        "動画投稿文",
+        "固定コメント",
+        "チャプター",
+        "サムネイル 要点"
+      ],
+      "title": "bilibili投稿文作成：タイトル・概要欄・タグ"
+    },
+    "zh": {
+      "description": "使用 AI 将 B 站选题、标题、大纲或完整脚本制作成 B站投稿文案、B站视频标题和 B站视频简介。生成标题备选、相关标签、置顶评论互动引导和封面要点，并在你提供时间点时整理成放进简介或置顶评论的章节时间轴，适用于知识讲解、评测、教程、Vlog、游戏、动画和创意视频投稿。还能按选定的标题和封面要点，生成配套的横版 16:9 B站封面，并做好标题留白。",
+      "display_name": "B站投稿文案制作",
+      "summary": "把 B 站选题、标题、大纲或完整脚本整理成投稿标题、视频简介、标签、置顶评论、封面要点，以及在你提供时间点时放进简介或置顶评论的章节时间轴。",
+      "tags": [
+        "B站投稿文案",
+        "B站视频标题",
+        "B站视频简介",
+        "B站标签",
+        "UP主投稿",
+        "B站置顶评论",
+        "B站章节时间轴",
+        "哔哩哔哩投稿"
+      ],
+      "title": "B站投稿文案：标题、简介、标签与互动引导"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "bilibili-publishing-pack",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

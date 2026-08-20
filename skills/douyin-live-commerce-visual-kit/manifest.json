@@ -1,0 +1,73 @@
+{
+  "changelog": "Create a coordinated Douyin live-commerce visual kit with a pre-live cover, product selling-point card, and live-room background or overlay visual.",
+  "display_name": "Douyin Live Commerce Visual Kit",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-live-commerce-visual-kit",
+  "icon": "https://beatra.ai/textures/icons/douyin-live-commerce-visual-kit-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create Douyin live-commerce visuals from a livestream theme, product details, product photos, and brand references. This AI live-commerce design tool makes a Douyin live cover, livestream product card, live-room background, and overlay-ready visual direction for Douyin shop livestreams, creator livestreams, product launches, flash sales, and campaign events, with coordinated title-safe composition and clear selling points.",
+      "display_name": "Douyin Live Commerce Visual Kit",
+      "summary": "Turn a live-selling theme, product details, product photos, and brand references into a coordinated Douyin live-commerce visual kit with a pre-live promo cover, product selling-point card, and live-room background or overlay visual.",
+      "tags": [
+        "Douyin live commerce visual kit",
+        "Douyin live cover",
+        "Douyin livestream background",
+        "Douyin livestream product card",
+        "Douyin live promo image",
+        "Douyin shop livestream design",
+        "livestream overlay design",
+        "live commerce visual design",
+        "livestream product visual",
+        "Chinese livestream design"
+      ],
+      "title": "Douyin Live Commerce Visual Kit: Covers, Product Cards & Live Backgrounds"
+    },
+    "ja": {
+      "description": "ライブ配信のテーマ、商品情報、商品写真、ブランド素材から、抖音ライブ配信のカバー、ライブ配信背景、商品訴求カード、配信告知画像、オーバーレイ用ビジュアルをAIで作成します。抖音のショップ配信、クリエイター配信、新商品発表、セール、キャンペーンに合わせ、商品、出演者、ブランドカラー、タイトルを置く余白を整え、ライブ配信の告知、商品紹介、配信画面に使える統一感のあるビジュアルセットを仕上げます。",
+      "display_name": "抖音ライブコマース用ビジュアルキット",
+      "summary": "ライブ配信のテーマ、商品情報、商品写真、ブランド素材から、抖音の配信告知カバー、商品訴求カード、配信背景・オーバーレイ用ビジュアルをまとめてつくります。",
+      "tags": [
+        "抖音 ライブ配信 カバー",
+        "抖音 ライブ配信 背景",
+        "抖音 ライブコマース",
+        "ライブ配信 商品訴求画像",
+        "配信告知画像",
+        "ライブ配信 オーバーレイ",
+        "中国ライブコマース",
+        "ライブ配信 商品カード",
+        "ライブコマース デザイン",
+        "SNSライブ配信 ビジュアル"
+      ],
+      "title": "抖音ライブコマース用ビジュアルキット作成"
+    },
+    "zh": {
+      "description": "使用 AI 将直播主题、商品信息、商品图和品牌素材制作成抖音直播封面、抖音直播间背景图、抖音直播贴片、直播间商品图和抖音直播预告图。围绕抖音店播、达人直播、新品发布、大促活动和限时福利，统一商品、主播、品牌色和标题留白，交付直播预热、商品讲解和直播间装修可用的一套直播电商视觉素材。",
+      "display_name": "抖音直播电商视觉套装",
+      "summary": "把直播主题、商品信息、商品图和品牌素材，制作成一套抖音直播预告封面、商品卖点卡和直播间背景或贴片视觉。",
+      "tags": [
+        "抖音直播封面",
+        "抖音直播间背景图",
+        "抖音直播贴片",
+        "直播间商品图",
+        "抖音直播预告图",
+        "抖音店播视觉",
+        "抖音达人直播素材",
+        "直播间装修",
+        "直播电商视觉设计",
+        "直播商品卖点卡"
+      ],
+      "title": "抖音直播电商视觉套装：直播封面、背景图与商品卖点卡"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-live-commerce-visual-kit",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

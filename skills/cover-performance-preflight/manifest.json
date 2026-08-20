@@ -1,0 +1,90 @@
+{
+  "changelog": "Add an optional same-topic baseline. A search reads the titles and public counts of what already ranks for the topic on YouTube, TikTok, Douyin, and REDnote; on YouTube only, a further read returns a competitor's actual thumbnail image, and the same kind of read covers your own channel's recent thumbnails once you point it at your channel. The review then has a referent instead of standing alone. The baseline is optional, priced per call, and confirmed separately from the image work, so the preflight card stays free.",
+  "display_name": "Cover Improvement Preflight",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/cover-performance-preflight",
+  "icon": "https://beatra.ai/textures/icons/cover-performance-preflight-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Review an existing YouTube thumbnail, social media cover, article cover, or podcast cover design, then turn the findings into a practical thumbnail-optimization and cover-improvement plan. This AI thumbnail analyzer identifies the visual hook, focal hierarchy, title-to-image fit, text-safe contrast, mobile readability, and crop resilience, then produces targeted edit directions and two or three video cover improvement candidates ready to compare. It can optionally read the field your cover is entering: the titles and public counts of what already ranks for the same topic on YouTube, TikTok, Douyin, and REDnote; on YouTube, a competitor's actual thumbnail image; and your own YouTube channel's recent thumbnails. That turns competitor thumbnail analysis, a thumbnail benchmark, and a cover comparison into evidence sitting beside the review instead of one cover being judged alone. Surfaces with no public data — a WeChat article cover, a podcast cover, and others — simply skip that step.",
+      "display_name": "Cover Improvement Preflight",
+      "summary": "Review an existing thumbnail or cover, optionally against what already ranks for the same topic, receive a practical improvement plan, and create two or three visual candidates ready to compare.",
+      "tags": [
+        "AI thumbnail analyzer",
+        "thumbnail review",
+        "thumbnail optimization",
+        "cover review",
+        "YouTube thumbnail review",
+        "social media cover review",
+        "cover design feedback",
+        "thumbnail improvement",
+        "thumbnail comparison",
+        "video cover improvement",
+        "article cover review",
+        "podcast cover design",
+        "competitor thumbnail analysis",
+        "thumbnail benchmark",
+        "cover comparison"
+      ],
+      "title": "Cover Improvement Preflight: AI Thumbnail Review & Cover Updates"
+    },
+    "ja": {
+      "description": "既存のYouTubeサムネイル、SNSカバー、記事アイキャッチ、ポッドキャストカバーを見直し、実行しやすい改善プランにまとめます。このAIサムネイル診断は、視覚フック、焦点の優先度、タイトルとの連動、文字の安全領域、スマホでの見やすさ、トリミングへの強さを整理し、修正指示と比較用の2〜3案を作成し、サムネイル最適化の判断材料にします。YouTubeサムネイル、SNSカバー、記事、ポッドキャストの公開前チェックとサムネイル比較に活用できます。任意で、そのサムネイルが並ぶ場も読み取れます。YouTube・TikTok・抖音・小紅書で同じテーマの上位投稿のタイトルと公開数値、YouTube なら競合サムネイルの画像そのもの、さらに自分の YouTube チャンネルの直近サムネイル。これらとのサムネイル比較により、主観だけの判断になりません。記事アイキャッチやポッドキャストカバーなどには公開データがないため、この工程は省略します。",
+      "display_name": "サムネイル・カバー公開前チェック",
+      "summary": "既存のサムネイルやカバーを診断し、任意で同じテーマの上位投稿と見比べたうえで、具体的な改善案と比較用の2〜3案を作成します。",
+      "tags": [
+        "AI サムネイル診断",
+        "サムネイル診断",
+        "サムネイル改善",
+        "サムネイル最適化",
+        "YouTube サムネイル",
+        "YouTube サムネイル 診断",
+        "サムネイル公開前チェック",
+        "SNS カバー画像",
+        "アイキャッチ 改善",
+        "動画 カバー画像",
+        "ポッドキャスト カバー",
+        "カバー画像 比較",
+        "競合サムネイル",
+        "サムネイル比較",
+        "カバー 比較"
+      ],
+      "title": "サムネイル・カバー公開前チェック：AI改善案と比較案作成"
+    },
+    "zh": {
+      "description": "上传已有的视频缩略图、社交媒体封面、文章首图或播客封面，获得可执行的封面发布前检查和封面修改建议。AI封面诊断围绕影响点击率的视觉钩子、焦点层级、标题与画面匹配、文字安全区、手机缩略图可读性和裁切适配给出修改方向，并制作两到三版封面候选，适用于抖音封面、视频号封面、B站封面、小红书封面、公众号封面的发布前优化与对比，以及 YouTube 和播客封面发布前检查。还可以选做一步同题材基线：读抖音、小红书、TikTok、YouTube 上同题材正在跑的标题和公开数据，在 YouTube 上还能取到竞品封面图本身，以及你自己 YouTube 频道近期的封面，用来做竞品封面对比和同题材封面对标，让修改建议有参照，而不是只凭主观判断。公众号封面、视频号封面、B站封面和播客封面等没有可读的公开数据，这一步直接跳过。",
+      "display_name": "封面优化预检",
+      "summary": "诊断已有视频或图文封面，可选对照同题材正在跑的作品和公开数据，获得可执行的优化建议，并制作两到三版封面候选用于对比。",
+      "tags": [
+        "封面诊断",
+        "AI封面诊断",
+        "封面优化",
+        "视频封面优化",
+        "缩略图诊断",
+        "缩略图优化",
+        "封面发布前检查",
+        "小红书封面优化",
+        "封面修改建议",
+        "抖音封面",
+        "B站封面",
+        "视频缩略图",
+        "封面点击率",
+        "竞品封面",
+        "封面对标",
+        "封面对比",
+        "同题材封面"
+      ],
+      "title": "封面优化预检：AI 封面发布前检查与多版候选"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "cover-performance-preflight",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

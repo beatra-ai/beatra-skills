@@ -1,0 +1,75 @@
+{
+  "changelog": "Correct a Japanese sentence ending that was left mid-clause when the previous release removed a trailing phrase.",
+  "display_name": "AI Video Continuation",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-video-continuation",
+  "icon": "https://beatra.ai/textures/icons/ai-video-continuation-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Continue one short source clip naturally before or after its existing action from a continuity state and the next visual beat. This AI video continuation and generative extend workflow adds matching footage to the opening or ending of a clip — holding a moment longer, completing a reveal, adding a lead-in, or creating a natural ending — and reviews the seam, motion direction, subject identity, camera and lighting continuity, audio behavior, and final duration. Use it for stronger endings, longer holds, action continuation, product reveals, landscape extensions, and creator iterations.",
+      "display_name": "AI Video Continuation",
+      "summary": "Continue one short clip before or after its action — add matching footage to the opening or ending for a natural continuation, longer hold, or stronger ending.",
+      "tags": [
+        "AI video extender",
+        "extend video with AI",
+        "continue a video",
+        "generative extend video",
+        "AI video continuation",
+        "extend clip ending",
+        "add footage before video",
+        "continue the next scene",
+        "AI video lengthener",
+        "continue video footage"
+      ],
+      "title": "AI Video Continuation: Generative Extend & Continue a Clip"
+    },
+    "ja": {
+      "description": "短い動画1本とつながりの状態・次のビートから、冒頭や末尾に自然な映像を追加します。このAI動画延長・ジェネレーティブ延長ワークフローは、カットの冒頭や末尾に映像を追加し——瞬間を長く引き、サゲを完成し、導入を加え、自然な結末を作り——人物、カメラ、光、雰囲気を保ちながら、つなぎ目、動きの方向、人物の特徴、カメラと光の連続性、音声、最終的な長さを確認します。より強い結末、長いホールド、アクションの継続、商品のお披露目、風景の延長、クリエイターの反復に適しています。",
+      "display_name": "AI動画延長",
+      "summary": "短い動画の冒頭や末尾に自然な映像を追加します——続きを生成、前後に延長、カットを長く、結末を補完します。",
+      "tags": [
+        "AI動画延長",
+        "動画の生成延長",
+        "AIで動画を延長",
+        "動画の続きを生成",
+        "動画を自然に延ばす",
+        "映像の前後を延長",
+        "動画の末尾を生成",
+        "動画を長くする AI",
+        "AI動画続き作成",
+        "カットを延長"
+      ],
+      "title": "AI動画延長：続きを生成・前後に映像を追加"
+    },
+    "zh": {
+      "description": "用一条短视频和一个衔接状态、下一个画面节拍，在开头或结尾自然地补上衔接画面。这个 AI 视频续写与延长工作流可以为片段的开头或结尾补充画面——延长一个瞬间、补全一个揭幕、添加前奏或创造一个自然结尾——同时保留人物、镜头、光影和氛围，并在交付后检查接缝、运动方向、人物特征、镜头和光影连贯性、声音效果和最终时长。适合更强的结尾、视频扩展、更长的镜头延展、动作续写、产品揭晓、风景延长和创作者迭代。",
+      "display_name": "AI视频续写与延长",
+      "summary": "给一条短视频在开头或结尾补上衔接画面——向后续写、向前补长、延长镜头、补全结尾，让画面自然延续。",
+      "tags": [
+        "AI视频续写",
+        "视频续写",
+        "AI视频延长",
+        "视频延长",
+        "视频扩展",
+        "视频补长",
+        "视频向后续写",
+        "视频向前延长",
+        "片尾续写",
+        "补全视频结尾",
+        "继续生成下一段",
+        "视频结尾生成"
+      ],
+      "title": "AI视频续写与延长：续写下一段、补全片头片尾、生成结尾"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-video-continuation",
+  "schema_version": 1,
+  "version": "0.1.5"
+}

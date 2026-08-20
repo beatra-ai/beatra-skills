@@ -1,0 +1,76 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the podcast-voiceover term and spell the AI podcast terms without an internal space.",
+  "display_name": "AI Podcast Voiceover",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
+  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "localized": {
+    "en": {
+      "description": "Turn an article, notes, or a finished script into a listener-ready solo podcast episode with a consistent host voice. This AI podcast voice generator and AI podcast narration service adapts supplied material into a speakable podcast script, sets names and specialist terms for clear pronunciation, and creates MP3 podcast audio with natural pacing. Use this podcast voiceover AI and text-to-speech podcast service for article-to-podcast audio, news briefings, expert commentary, and knowledge shows, then carry the host direction into the next episode.",
+      "display_name": "AI Podcast Voiceover",
+      "summary": "Turn an article, notes, or finished script into a listenable solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and MP3 delivery.",
+      "tags": [
+        "AI podcast voice generator",
+        "podcast voiceover AI",
+        "text to speech podcast",
+        "article to podcast audio",
+        "AI podcast narration",
+        "solo podcast voice",
+        "podcast script to audio",
+        "consistent podcast host voice",
+        "podcast MP3"
+      ],
+      "title": "AI Podcast Voiceover"
+    },
+    "ja": {
+      "description": "記事、メモ、完成台本を、AIポッドキャスト音声制作で、聴きやすい一人語りのエピソードとMP3音声に仕上げます。文章をポッドキャスト台本へ整え、固有名詞・専門用語・数字の読み方、間、話す速さを調整し、番組に合うホストの声を選択。ポッドキャストの音声合成、AIナレーション、記事の音声化、テキスト読み上げとして、ニュース解説、知識番組、個人番組に活用でき、次のエピソードにも同じ声の方向性を生かせます。",
+      "display_name": "AIポッドキャスト音声制作",
+      "summary": "記事・メモ・完成台本を、同じホストの声で続けられる、聴きやすい一人語りポッドキャスト音声に仕上げます。",
+      "tags": [
+        "AIポッドキャスト",
+        "ポッドキャスト 音声合成",
+        "AIナレーション ポッドキャスト",
+        "記事 音声化",
+        "テキスト読み上げ",
+        "ポッドキャスト台本",
+        "ポッドキャスト音声制作",
+        "一人語り ポッドキャスト",
+        "MP3 音声",
+        "AI音声",
+        "ニュース解説 ナレーション",
+        "ホストの声"
+      ],
+      "title": "AIポッドキャスト音声制作｜記事を音声化"
+    },
+    "zh": {
+      "description": "把文章、公众号文章、笔记或定稿，通过AI播客配音和文字转语音，制作成自然流畅的单人播客口播与MP3单集音频。先把书面内容整理成适合聆听的播客脚本，明确人名、术语和数字的读法，再选择主播音色，调整语速、停顿和表达，形成可持续复用的节目声音。适合文字转播客、文章转播客、AI播客生成、AI播客音频生成、公众号文章转音频、知识解说、新闻评论和个人栏目。",
+      "display_name": "播客配音·AI文字转语音",
+      "summary": "把文章、公众号长文、笔记或定稿整理成自然流畅的单人播客口播，固定主播音色，交付可用于发布的MP3单集音频。",
+      "tags": [
+        "AI播客配音",
+        "播客配音",
+        "文字转播客",
+        "AI播客生成",
+        "AI播客音频生成",
+        "文章转播客",
+        "公众号文章转音频",
+        "播客口播",
+        "单人播客",
+        "播客音频制作",
+        "MP3播客音频",
+        "主播音色"
+      ],
+      "title": "AI播客配音｜文章转播客音频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-podcast-voiceover",
+  "schema_version": 1,
+  "version": "0.1.5"
+}

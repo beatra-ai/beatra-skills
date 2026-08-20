@@ -1,0 +1,73 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the character-consistency term.",
+  "display_name": "AI Character Design Sheet & Consistency Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ip-character-consistency-studio",
+  "icon": "https://beatra.ai/textures/icons/ip-character-consistency-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Build a reusable AI character visual pack from one to four ordered reference images or an original character brief. Create character sheets, portraits, full-body poses, expressions, story scenes, and branded mascots with focused character traits, style anchors, and reusable scene references for comics, games, short videos, and content series.",
+      "display_name": "AI Character Design Sheet & Consistency Studio",
+      "summary": "Build a reusable character visual pack from one to four ordered references or an original brief, then create character sheets, poses, expressions, and story scenes.",
+      "tags": [
+        "AI character consistency",
+        "consistent character generator",
+        "AI character design sheet",
+        "character reference sheet",
+        "AI character creator",
+        "character pose generator",
+        "AI mascot generator",
+        "comic character generator",
+        "IP character design",
+        "character pose reference"
+      ],
+      "title": "AI Character Design Sheet & Consistency Studio"
+    },
+    "ja": {
+      "description": "キャラクター設定と1〜4枚の参照画像から、再利用しやすいAIキャラクタービジュアルを制作します。AIキャラクター生成、キャラクター一貫性、キャラクター設定画、立ち絵、全身ポーズ、表情差分、ストーリーシーン、ブランドマスコットの制作に活用でき、漫画、ゲーム企画、ショート動画、絵本、継続コンテンツのための参照素材を整えます。",
+      "display_name": "AIキャラクター一貫性スタジオ",
+      "summary": "キャラクター設定と1〜4枚の参照画像から、立ち絵、表情、ポーズ、物語シーンまで再利用できるビジュアル素材を制作します。",
+      "tags": [
+        "AIキャラクター生成",
+        "キャラクター一貫性",
+        "AIキャラクター設定画",
+        "キャラクターシート",
+        "立ち絵生成",
+        "表情差分",
+        "ポーズ生成",
+        "AIマスコット",
+        "漫画キャラクター",
+        "キャラクターデザイン"
+      ],
+      "title": "AIキャラクター一貫性スタジオ：設定画・立ち絵・シーン素材"
+    },
+    "zh": {
+      "description": "根据角色设定和一至四张有序参考图，制作可持续复用的 AI IP 角色形象包。通过角色设定图、角色参考图、头像、半身、全身、表情、姿势和内容场景，整理角色外貌、服装、配色与标志元素，适合漫画、绘本、游戏概念、短视频、品牌吉祥物和内容系列持续出图。",
+      "display_name": "角色一致性形象包",
+      "summary": "基于角色设定和一至四张有序参考图，建立可复用的 IP 角色视觉资料，制作头像、全身、表情、姿势与内容场景。",
+      "tags": [
+        "角色一致性",
+        "AI角色生成",
+        "AI角色设定图",
+        "角色设定集",
+        "角色参考图",
+        "IP角色设计",
+        "角色立绘",
+        "角色表情设定",
+        "漫画角色生成",
+        "品牌吉祥物"
+      ],
+      "title": "角色一致性形象包：角色设定图与场景素材"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ip-character-consistency-studio",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

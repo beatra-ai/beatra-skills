@@ -1,0 +1,68 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "AI Audiobook Narration",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
+  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "localized": {
+    "en": {
+      "description": "Turn final manuscript or course text into an audiobook with one consistent narrator. This AI audiobook generator and AI audiobook narration workflow organizes chapters, settles names and specialist pronunciations, shapes long-form pacing, helps choose a suitable audiobook narrator, and creates a representative sample before the remaining book. Use it for manuscript-to-audiobook production, chapter-by-chapter audiobooks, course narration, long-text-to-speech, and sample chapters, with up-to-date price estimates, ordered audio delivery, consistent narrator voice, and focused passage refinements.",
+      "display_name": "AI Audiobook Narration",
+      "summary": "Turn final manuscript or course text into ordered chapter audio with one narrator, a representative sample, clear pricing, and focused refinements.",
+      "tags": [
+        "AI audiobook generator",
+        "AI audiobook narration",
+        "audiobook narrator",
+        "manuscript to audiobook",
+        "chapter-by-chapter audiobook",
+        "consistent narrator voice",
+        "audiobook sample chapter"
+      ],
+      "title": "AI Audiobook Narration"
+    },
+    "ja": {
+      "description": "完成した日本語の長編原稿や講座原稿を、AIオーディオブック制作と日本語長文AI音声で、章ごとに聴ける音声へ仕上げます。章の順序と固有名詞・専門用語の読み方を整え、長時間でも聴きやすい声を選び、代表的な一節で声、テンポ、音声形式を試聴してから残りを制作。AI音声生成、日本語の読み上げ、長文日本語コンテンツ、講座音声に活用でき、章ごとの納品、現在の料金目安、読み上げの微調整まで一つの流れで進めます。",
+      "display_name": "AIオーディオブック制作",
+      "summary": "完成した原稿を、同じナレーターによる章ごとの音声にします。まず代表的な一節のサンプルを確認し、読み方やテンポを整えてから残りの制作に進めます。",
+      "tags": [
+        "AIオーディオブック制作",
+        "オーディオブック制作",
+        "日本語長文AI音声制作",
+        "AI音声生成",
+        "日本語の読み上げ",
+        "長文日本語コンテンツ",
+        "読み上げの微調整"
+      ],
+      "title": "AIオーディオブック制作"
+    },
+    "zh": {
+      "description": "把最终长篇书稿或课程讲稿，通过 AI 有声书生成和长文本转语音，按章节制作成有声读物。先整理章节顺序和人名、术语的读法，选择适合长时间聆听的旁白，用一个有代表性的样章试听声音、节奏和音频格式，再按顺序完成其余内容。适合文字转有声书、AI 有声书制作、课程旁白和整本一致播读，并提供当前费用估算、按章节分段交付、音色试听与聚焦片段的读音调整。",
+      "display_name": "AI有声书制作",
+      "summary": "把最终书稿或课程讲稿制作成按章节排列的音频，选择适合长篇聆听的旁白，通过代表性样章校准读音和节奏，再把同一声音延续到整本内容。",
+      "tags": [
+        "AI有声书生成器",
+        "AI有声书制作",
+        "文字转有声书",
+        "有声书制作工具",
+        "长文本转语音",
+        "课程旁白",
+        "有声读物",
+        "整本一致播读",
+        "按章节分段",
+        "音色试听",
+        "读音调整"
+      ],
+      "title": "AI 有声书制作"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-audiobook-narration",
+  "schema_version": 1,
+  "version": "0.1.7"
+}

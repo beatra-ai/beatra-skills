@@ -1,0 +1,75 @@
+{
+  "changelog": "Turn a reference song recording into a newly interpreted cover with a fresh genre, arrangement, and performance direction.",
+  "display_name": "AI Song Cover Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-song-cover-studio",
+  "icon": "https://beatra.ai/textures/icons/ai-song-cover-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a song recording into a newly interpreted cover or rearranged song from a reference performance and a fresh genre, arrangement, and vocal direction. This AI song cover studio and reference-audio cover generator reinterprets a classic song as rock, acoustic, folk, jazz, Chinese-style, ballad, or a new vocal character, and reviews recognizable reference influence, arrangement freshness, vocal delivery, lyrics, pronunciation, and structure. Use it for classic-song reinterpretation, genre swaps, creator demos, tribute performances, and personal practice recordings, with one cover generation per run and honest post-result review.",
+      "display_name": "AI Song Cover Studio",
+      "summary": "Upload a reference song and reimagine it as a new cover — change the genre, arrangement, and vocal direction into rock, acoustic, folk, jazz, or Chinese-style.",
+      "tags": [
+        "AI song cover generator",
+        "AI cover song maker",
+        "song remake generator",
+        "reference audio music generator",
+        "reimagine a song",
+        "genre swap cover",
+        "classic song remake",
+        "acoustic cover maker",
+        "rock cover generator",
+        "AI song arrangement tool"
+      ],
+      "title": "AI Song Cover Studio: Reference-Audio Cover & Song Remake Generator"
+    },
+    "ja": {
+      "description": "参考音源1曲と新しいジャンル・アレンジ・歌唱方向から、原曲を再解釈したカバー曲を作ります。このAIカバー曲作成・参考音源リメイクワークフローは、楽曲をロック、アコースティック、フォーク、ジャズ、和風、バラード、または新しい歌唱スタイルにアレンジし、原曲の面影を残しながら、アレンジの新しさ、歌唱、歌詞、発音、構成、実際の長さを確認します。名曲アレンジ、ジャンル変更、クリエイターのデモ、トリビュート演奏、個人練習用録音に適しており、1回の実行で1つのカバーを生成し、正直に結果を確認します。",
+      "display_name": "AIカバー曲作成",
+      "summary": "参考音源をアップロードして新しいカバーに作り直す——ジャンル、アレンジ、歌唱を変えて、ロック、アコースティック、ジャズ、和風、バラードにアレンジします。",
+      "tags": [
+        "AIカバー曲 作成",
+        "AIカバーソング",
+        "楽曲リメイク AI",
+        "参考音源から曲作成",
+        "名曲アレンジ",
+        "曲を別ジャンルにアレンジ",
+        "歌をリメイク",
+        "AIカバー作成ツール",
+        "楽曲アレンジ AI",
+        "カバー曲ジェネレーター"
+      ],
+      "title": "AIカバー曲作成：参考音源からカバー・アレンジを生成"
+    },
+    "zh": {
+      "description": "用一首参考歌曲录音和一个全新的风格、编曲或唱法方向，把原曲重新演绎成一首翻唱作品。这个 AI 翻唱歌曲制作和参考音频成歌工作流可以把一首歌重新做成摇滚、民谣、爵士、国风、抒情版本，或换上全新的演唱风格，同时保留可辨识的原曲气质，并在交付后检查编曲新意、演唱表现、歌词、咬字、结构和实际时长。适合经典歌曲翻唱、老歌新唱、改风格、创作者样带、致敬翻唱和个人练习录音，每次只生成一个翻唱版本并如实复盘。",
+      "display_name": "AI翻唱歌曲制作",
+      "summary": "上传一首参考歌曲，把它重新演绎成全新翻唱——换风格、改编曲、换唱法，做出摇滚、民谣、爵士、国风或抒情版本。",
+      "tags": [
+        "AI翻唱歌曲",
+        "AI翻唱",
+        "歌曲翻唱",
+        "AI翻唱生成器",
+        "参考音频成歌",
+        "经典歌曲翻唱",
+        "老歌新唱",
+        "歌曲重新演绎",
+        "歌曲改风格",
+        "国风翻唱",
+        "摇滚版翻唱",
+        "民谣版翻唱"
+      ],
+      "title": "AI翻唱歌曲制作：参考音频生成翻唱、改风格、经典老歌新唱"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-song-cover-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

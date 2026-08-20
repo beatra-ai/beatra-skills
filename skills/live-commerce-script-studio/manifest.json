@@ -1,0 +1,79 @@
+{
+  "changelog": "First public release: a minute-level run of show, talking-point cards, and spoken takes for a live selling session.",
+  "display_name": "Live Commerce Script Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/live-commerce-script-studio",
+  "icon": "https://beatra.ai/textures/icons/live-commerce-script-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a product lineup into a live shopping script your host can actually read on air. This live commerce script studio builds the run of show for the whole session as a minute-by-minute live selling schedule, writes a seven-step product demo talk track for every featured product, fills a library of ready-to-read lines for opening, holding, interacting, urgency, and closing, and runs a compliance pass over the wording — then renders the talking-point card and countdown card your host and floor manager work from, plus spoken takes of the lines that have to land on delivery. Reuse it as a live commerce script template session after session. Use it for livestream selling on Douyin, WeChat Channels, Taobao, Kuaishou, and Xiaohongshu, for brand-owned streams, creator collaborations, new-product sessions, clearance runs, and for getting a first-time live host through a session without freezing.",
+      "display_name": "Live Commerce Script Studio",
+      "summary": "Turn a product lineup into a minute-by-minute live selling schedule, a seven-step talk track per product, a library of ready-to-read lines, and the cards and spoken takes the room works from.",
+      "tags": [
+        "live shopping script",
+        "livestream selling run of show",
+        "live commerce script template",
+        "host talk track",
+        "live selling schedule",
+        "livestream product script",
+        "live shopping host script",
+        "live stream sales script",
+        "first time live host script",
+        "product demo talk track",
+        "live selling urgency lines",
+        "livestream lineup planning"
+      ],
+      "title": "Live Commerce Script Studio: A Run of Show Your Host Can Read On Air"
+    },
+    "ja": {
+      "description": "商品ラインナップを、本番でそのまま読める進行台本に変えます。このライブコマース台本スタジオは、配信全体の分単位の進行表、主力商品ごとの七段階トークスクリプト、オープニング・つなぎ・双方向のやりとり・限定訴求・クロージングまで十二カテゴリのそのまま読めるセリフ集、そして表現のチェックを組み立てます。そのうえで、出演者と進行担当が実際に手元に置くトークポイントカードとカウントダウンカードを描き起こし、言い回しではなく言い方で決まるセリフは音声見本にします。次の回でもそのまま使えるライブ配信台本テンプレートとして、また分単位の配信タイムテーブルとして。TikTok・小紅書・楽天のライブ配信販売、実演販売、ブランド自社配信、インフルエンサー起用、新商品回、在庫処分回に。初めて出演する担当者が固まらずに一本やり切るためにも使えます。",
+      "display_name": "ライブコマース台本スタジオ",
+      "summary": "商品ラインナップから、分単位の進行表、商品ごとの七段階トーク、そのまま読める定型セリフ集、そして配信現場で使うカードと音声見本まで。",
+      "tags": [
+        "ライブコマース 台本",
+        "ライブ配信 進行表",
+        "トークスクリプト 作成",
+        "実演販売 台本",
+        "ライブ配信 台本 テンプレート",
+        "商品説明 トーク",
+        "ライブコマース 進行",
+        "配信 タイムテーブル",
+        "ライブ販売 セリフ",
+        "出演者 トーク 台本",
+        "新人 出演者 台本",
+        "商品紹介 進行 台本"
+      ],
+      "title": "ライブコマース台本スタジオ：本番でそのまま読める進行台本"
+    },
+    "zh": {
+      "description": "把一份排品清单，变成主播真的能在镜头前照着念的一整场直播脚本。这个直播带货脚本工作流会排出整场分钟级流程表，为每个主推品写出七步讲解话术，配一套涵盖开场、留人、互动、逼单、催单、收尾的十二类照念话术库，并对所有措辞做一遍合规检查；然后把主播和场控真正拿在手上的话术卡、倒计时卡渲染出来，再把那些靠语气而不是靠文字取胜的句子做成示范音。适合抖音、视频号、淘宝、快手、小红书的直播带货，也可以当成直播脚本模板一场场复用；覆盖品牌自播、达人合作、新品专场、清仓专场，产出主播口播稿与新手主播话术，并在写稿阶段就把直播违禁词挡掉。",
+      "display_name": "直播带货脚本工作台",
+      "summary": "把排品变成分钟级整场流程表、每个主推品的七步讲解话术、十二类照念话术库，以及直播间实际要用的话术卡和示范音。",
+      "tags": [
+        "直播脚本",
+        "直播话术",
+        "直播带货脚本",
+        "直播流程表",
+        "逼单话术",
+        "主播口播稿",
+        "直播脚本模板",
+        "单品讲解话术",
+        "直播间互动话术",
+        "直播排品",
+        "新手主播话术",
+        "直播违禁词"
+      ],
+      "title": "直播带货脚本工作台：主播能照着念的一整场流程"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "live-commerce-script-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,140 @@
+---
+name: "ai-podcast-voiceover"
+description: "Turn an article, notes, or a finished script into a listener-ready solo podcast episode with a consistent host voice. This AI podcast voice generator and AI podcast narration service adapts supplied material into a speakable podcast script, sets names and specialist terms for clear pronunciation, and creates MP3 podcast audio with natural pacing. Use this podcast voiceover AI and text-to-speech podcast service for article-to-podcast audio, news briefings, expert commentary, and knowledge shows, then carry the host direction into the next episode."
+---
+
+# AI Podcast Voiceover
+
+Work as an episode producer for one recurring host: begin with the show
+profile, turn supplied material into a listener-friendly script, freeze the
+host and model path, prove a new direction with a short sample, then create and
+record the episode audio.
+
+## Scope and routes
+
+Use this workflow for supplied articles, notes, outlines, newsletters, or final
+scripts that become a single-host podcast episode, trailer, opener, closer, or
+ordered episode parts. Keep the recurring host direction, pronunciation list,
+and delivery facts together when the show will continue.
+
+Route a manuscript or chapter-led course narration to
+`ai-audiobook-narration`; a standalone short social, ad, or promo read to
+`short-form-voiceover-audio`; supplied approved scripts across several
+languages to `ai-multilingual-dubbing`; and a custom host voice or a mixed
+voice project to `beatra-ai-voice-studio` and its focused cloning route. Keep
+the supplied material, episode order, language, and show direction available
+when changing routes.
+
+When the requested episode requires named speakers, a music bed, a mixed or
+assembled final episode, preserve that production requirement and choose the
+appropriate production or editing route. Offer a solo host narration only when
+the user chooses that smaller audio deliverable.
+
+## Open the show
+
+Look first for `./<show>/show-profile.json`. Reuse the show direction only
+after its frozen host is re-validated against the current voice list and model
+path. For a new show, establish the intended listener, host, language,
+recurring opener and closer, pronunciation list, and delivery convention in a
+user-owned working directory. Follow [the show profile](references/show-profile.md).
+
+## Prepare the episode script
+
+Accept an article, notes, an outline, or final script and adapt it into an
+episode that listeners can follow. Start from the show's intended listener; if
+the supplied material could serve materially different listener goals, ask for
+the intended takeaway before drafting. Otherwise state the inferred episode
+focus in the draft for approval. Keep every fact, opinion, number, and claim
+grounded in the supplied material. When a request supplies only a topic, ask
+for the article, notes, or outline rather than writing the episode's content.
+
+Show the episode focus and spoken draft section by section, including the
+opening, closer, and pronunciation list, then wait for approval before audio
+is proposed. If the user wants only a script, deliver the approved script and
+stop. Use [episode script guidance](references/episode-script.md) for the
+material boundary, listener focus, spoken adaptation, pronunciation, and
+length handling.
+
+## Freeze the host and model path
+
+Use `beatra.voices.list` to compare available previews and freeze one opaque,
+ready `voice_id`; submit that ID, never a display name. Call
+`beatra.models.list` with `capability: "text_to_speech"` before deciding a
+model, language, or price. An explicit model must be current, compatible with
+the frozen voice, and support the target BCP-47 language. For `auto`, retain
+only the live available models in
+`models.list.auto.candidate_order ∩ voice.compatible_models`, preserving the
+catalogue order. Use `auto` only when that set is nonempty and every member supports the
+target language; a compatible live model outside `candidate_order` is an
+explicit choice rather than an auto candidate.
+
+Default to `model: "auto"`, MP3, speed 1.0, volume 1.0, pitch 0, no emotion,
+and no explicit sample rate unless the profile or destination calls for a
+supported change. Follow [voice, delivery, and recovery](references/voice-and-delivery.md)
+for casting, live-card validation, and current price math.
+
+## Price and confirm
+
+Script preparation, voice previews, current model discovery, and price
+estimation are free. Every `beatra.speech.synthesize` request is paid. Present
+a production card with the exact text, frozen voice and settings,
+weighted-character total, live price calculation, expected request count, and
+one new opaque `client_request_id` for each logical request.
+
+On a first episode or after a voice, language, or control change, begin with a
+small paid sample that combines the opener with the most demanding passage.
+When an unchanged profile has re-validated, present the episode card directly.
+The episode has its own approval; a sample approval never authorizes it. A
+script above 50,000 characters uses approved topic or section parts and the
+episode card lists every paid call.
+
+## Create, deliver, and record
+
+On first use or after the package version changes, make a best-effort
+non-billable installation registration. Its failure never blocks the episode
+workflow.
+
+Invoke every remote Beatra tool only through the bundled
+`scripts/mcp_client.py`, with the tool name as the CLI argument and its
+arguments as JSON on standard input. Do not configure or call a host Beatra
+Connector, and do not use REST/OpenAPI as a fallback. Submit each approved
+logical paid request once under its stable request ID, record its returned task
+ID immediately, and poll that task with `beatra.tasks.get` until it is terminal.
+
+Deliver the returned episode audio with its real artifact ID, duration, MIME
+type, sample rate when present, resolved model, usage, and returned billing
+facts. When the host can listen, review the actual pacing, pronunciations, and
+host fit; otherwise make the outstanding listening review explicit. If the host
+has user-approved access to the show's working directory, append the delivered
+episode record there; otherwise hand the same factual record and artifact URL
+to the user for their own show ledger. For a lost task ID, reconcile through
+`beatra.tasks.list` before considering an identical replay. Use the detailed
+recovery route in [voice, delivery, and recovery](references/voice-and-delivery.md).
+
+## References by task
+
+- Making supplied writing natural to hear, approving sections, or capturing
+  pronunciations: [episode script guidance](references/episode-script.md)
+- Starting a show, reusing a host, or recording an accepted episode: [the show
+  profile](references/show-profile.md)
+- Choosing a voice and model, pricing a read, submitting audio, delivery, or
+  recovery: [voice, delivery, and recovery](references/voice-and-delivery.md)
+- First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
+- Non-billable package registration: [installation registration](references/installation-registration.md)
+- Task polling, artifacts, and result fields: [tasks and results](references/tasks-and-results.md)
+- Balance, validation, and structured errors: [billing, errors, and recovery](references/billing-errors-and-recovery.md)
+- When the bundled client cannot connect: [Bundled MCP Client diagnostics](references/mcp-connection.md)
+- Update guarantees and controls: [automatic updates and safety](references/automatic-updates-and-safety.md)
+- Removing the package or shared credentials: [uninstall and disconnect](references/uninstall-and-disconnect.md)
+
+## Runtime and safe automatic updates
+
+The bundled client silently checks for a newer release at most once every 24 hours per installation. When a higher version is available it installs automatically without separate confirmation. It downloads only from the fixed official Beatra discovery and immutable CDN paths for this package, channel, and locale, verifies the discovery data, archive, manifest, and every file's size and checksum before replacement, and replaces only package-owned files. It rejects redirects, downgrades, mismatched package, channel, locale, or version data, unexpected URLs, unsafe archives, and any file outside the owned destination.
+
+Update checks, downloads, verification, replacement, and rollback all fail open: the current installation stays usable and the original command continues. An update failure never authorizes retrying a paid synthesis. The choice persists across later commands for this installation.
+
+```text
+python3 scripts/mcp_client.py update --auto off
+python3 scripts/mcp_client.py update --auto on
+python3 scripts/mcp_client.py update --check
+```

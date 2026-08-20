@@ -1,0 +1,80 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the official-account visual-story term and stop sharing the article-prefix with the image-pack sibling.",
+  "display_name": "WeChat Article Visual Story",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-article-visual-story",
+  "icon": "https://beatra.ai/textures/icons/wechat-article-visual-story-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Write the WeChat article and make its pictures in one pass. Give a topic, what you are promoting, and who it is for — this WeChat Official Account article generator returns title candidates written for the feed, the digest line, a full article body structured for how people actually read on a phone, then renders the 2.35:1 cover and a set of in-body images that hold one look from top to bottom. Use it for WeChat Official Account posts, brand and product articles, promotional long-form, founder and expert columns, case studies, content marketing programmes, and any long-form post where the writing and the pictures have to be produced together rather than handed between two people.",
+      "display_name": "WeChat Article Visual Story",
+      "summary": "Give a topic and get title candidates, the digest line, a full article body written for phone reading, a 2.35:1 cover, and in-body images that answer specific paragraphs.",
+      "tags": [
+        "WeChat Official Account article generator",
+        "WeChat article writer",
+        "WeChat article with images",
+        "long form post generator",
+        "brand article writer",
+        "promotional article generator",
+        "article cover and illustrations",
+        "article title generator",
+        "product story article",
+        "content marketing article maker",
+        "WeChat MP article",
+        "article and images together"
+      ],
+      "title": "WeChat Article Visual Story: Write the Article and Make Its Pictures in One Pass"
+    },
+    "ja": {
+      "description": "記事本文と挿絵を、一度にまとめて仕上げます。テーマ、訴求したいもの、想定読者を渡すだけで、このWeChat公式アカウント（微信公众号）記事制作ワークフローが、フィード表示を前提としたタイトル候補、タップを引き出す要約の一文、そしてスマートフォンでの読まれ方に合わせて構成した本文を返します。本文は中国語読者に向けて中国語で書き起こすので、翻訳工程を挟まずそのまま使えます。そのうえで 2.35:1 のカバー画像（アイキャッチ）と、上から下まで同じ世界観を保つ挿絵一式を生成します。記事の自動生成、長文コンテンツ作成、記事見出しの生成、アイキャッチと挿絵の生成までを一度に。中国向けコンテンツ制作としてのWeChat公式アカウント記事、ブランド・商品紹介記事、長文のプロモーション記事、経営者や専門家のコラム、導入事例、そして「文章と画像を担当者間で受け渡すのではなく、同時に作りたい」すべての長文投稿に。",
+      "display_name": "WeChat記事まるごと制作",
+      "summary": "テーマを渡すだけで、タイトル候補、要約の一文、スマホで読まれる前提の本文、2.35:1 のカバー画像、そして段落に対応した挿絵まで。",
+      "tags": [
+        "WeChat公式アカウント 記事",
+        "微信公众号 記事制作",
+        "中国向け コンテンツ制作",
+        "記事 自動生成",
+        "長文コンテンツ 作成",
+        "記事 見出し 生成",
+        "記事 アイキャッチ 生成",
+        "記事 挿絵 生成",
+        "商品紹介 記事",
+        "ブランド 記事 制作",
+        "導入事例 記事",
+        "中国語 記事 制作"
+      ],
+      "title": "WeChat記事まるごと制作：本文も挿絵も一度に仕上げる"
+    },
+    "zh": {
+      "description": "文章和配图，一次做完。给出选题、要推的东西和写给谁——这个公众号图文工作流会给出为信息流写的候选标题、摘要一句话，以及一篇按人在手机上真实阅读方式组织的完整正文；然后把 2.35:1 封面和一整组内文配图渲染出来，整组从头到尾保持同一套视觉。适合公众号文章创作、公众号爆款图文与推文生产、品牌与产品软文、长图文种草、创始人与专家专栏、客户案例，以及任何「文案和配图必须一起出、不能来回交接」的长图文全案。",
+      "display_name": "公众号图文全案",
+      "summary": "给一个选题，拿回候选标题、摘要、按手机阅读节奏写好的正文，以及 2.35:1 封面和逐段对应的内文配图。",
+      "tags": [
+        "公众号文章生成",
+        "公众号爆款图文",
+        "公众号推文",
+        "公众号软文",
+        "公众号标题生成",
+        "品牌软文",
+        "产品软文",
+        "长图文创作",
+        "公众号内容创作",
+        "图文一起出",
+        "公众号图文全案",
+        "公众号正文配图",
+        "公众号文章"
+      ],
+      "title": "公众号图文全案：文章和配图，一次性一起做出来"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-article-visual-story",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

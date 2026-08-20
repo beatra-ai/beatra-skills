@@ -1,0 +1,76 @@
+{
+  "changelog": "Align the English, Chinese and Japanese listing copy on the same delivery-outcome wording and correct a Japanese sentence ending.",
+  "display_name": "Talking Pet Video",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/talking-pet-video",
+  "icon": "https://beatra.ai/textures/icons/talking-pet-video-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Make a pet talk by animating one clear pet photo with a short message or prepared voice clip. This talking pet video and talking dog and cat generator workflow turns a single pet photo into a shareable talking-pet clip from one pet image and a short spoken line, and reviews breed and face identity, mouth motion, speech clarity, and synchronization. Use it for pet greetings, funny pet dialogue, pet reactions, pet stories, festive pet messages, and pet-creator content.",
+      "display_name": "Talking Pet Video",
+      "summary": "Turn one clear pet photo and a short message or voice clip into a shareable talking-pet clip.",
+      "tags": [
+        "talking pet video",
+        "make my pet talk",
+        "talking dog generator",
+        "talking cat video",
+        "pet voiceover video",
+        "animate pet photo with voice",
+        "pet greeting video",
+        "funny pet talking AI",
+        "talking pet maker",
+        "pet speaks video"
+      ],
+      "title": "Talking Pet Video: Make Your Pet Talk with AI"
+    },
+    "ja": {
+      "description": "鮮明なペットの写真1枚と短いメッセージまたは録音済みの音声から、ペットを喋らせます。このペットを喋らせるAI・ペットおしゃべり動画ワークフローは、ペットの写真1枚と短いセリフから、シェアできるおしゃべりクリップを生成し、犬種や顔の特徴、口の動き、音声の明瞭さと同期を確認します。ペットの挨拶、面白いペットのセリフ、ペットのリアクション、ペットのストーリー、お祝いメッセージ、ペットクリエイター向けコンテンツに適しています。",
+      "display_name": "ペットを喋らせるAI",
+      "summary": "鮮明なペットの写真1枚と短いメッセージや音声から、ペットが喋る動画を作成します。",
+      "tags": [
+        "ペットを喋らせる",
+        "犬を喋らせる動画",
+        "猫を喋らせる AI",
+        "ペットの写真をしゃべる動画に",
+        "ペットメッセージ動画",
+        "ペット面白動画 AI",
+        "犬猫ボイス動画",
+        "ペットおしゃべり動画",
+        "ペットに喋らせる",
+        "動物の口パク動画"
+      ],
+      "title": "ペットを喋らせるAI：ペットの写真をおしゃべり動画に"
+    },
+    "zh": {
+      "description": "用一张清晰的宠物照片和一段简短留言或录好的配音，让宠物开口说话。这个 AI 宠物说话视频和宠物说话生成器工作流可以把单张宠物照片变成一段可分享的、会说话的宠物短片，狗狗、猫咪和异宠都能开口，只需要一张宠物照片和一句简短台词，并在交付后检查品种和面部特征、嘴部动作、语音清晰度和同步效果。适合宠物祝福、宠物搞笑配音、狗狗说话视频、猫咪说话视频、宠物反应、宠物故事、节日宠物留言和萌宠内容创作。",
+      "display_name": "AI宠物说话视频",
+      "summary": "用一张清晰的宠物照片和一段简短留言或配音，生成一段宠物说话视频。",
+      "tags": [
+        "宠物说话视频",
+        "AI宠物说话",
+        "让宠物说话",
+        "宠物说话生成器",
+        "宠物口播视频",
+        "狗狗说话视频",
+        "猫咪说话视频",
+        "让猫咪开口说话",
+        "宠物照片说话",
+        "宠物搞笑配音",
+        "宠物祝福视频",
+        "萌宠口播",
+        "会说话的宠物"
+      ],
+      "title": "AI宠物说话视频：让宠物照片开口说话"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "talking-pet-video",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

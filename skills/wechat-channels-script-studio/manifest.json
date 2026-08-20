@@ -1,0 +1,79 @@
+{
+  "changelog": "First public release: the segment table, the full spoken narration, the product-link conversion beats placed against specific segments, the six-dimension score, and optional storyboard frames and voiced narration.",
+  "display_name": "WeChat Channels Script Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-channels-script-studio",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a product and its confirmed facts into a WeChat Channels short-video script you can film today. This WeChat Channels script writer lays the video out as a segment table second by second, writes the full spoken narration line by line, and places the product-link conversion beats against the exact segments where a viewer decides to tap through — then scores the draft across six dimensions so the weak part is visible before anyone shoots. Hand it a reference video that already sold and it carries that structure onto your own product. Storyboard frames and a voiced narration track are available on request, ready for your edit. Use it for WeChat Channels selling videos, spoken product recommendations, service explainers, private-domain traffic posts, store-link content, and creator accounts shipping a script a day.",
+      "display_name": "WeChat Channels Script Studio",
+      "summary": "Turn a product and its confirmed facts into a WeChat Channels short-video script: a second-by-second segment table, the full spoken narration, the product-link conversion beats placed on named segments, and a six-dimension score on the draft.",
+      "tags": [
+        "WeChat Channels script",
+        "WeChat Channels video script",
+        "short video sales script",
+        "product video script",
+        "short form video script generator",
+        "shoppable video script",
+        "social commerce video script",
+        "spoken product recommendation script",
+        "vertical video script writer",
+        "video script with call to action",
+        "script from a reference video",
+        "video shot list and narration"
+      ],
+      "title": "WeChat Channels Script Studio: A Selling Script You Can Film Today"
+    },
+    "ja": {
+      "description": "商品と、あなたが確認した事実から、WeChat（微信）の動画チャンネル「視頻号」向けショート動画の台本を組み上げます。秒単位の構成表、そのまま読めるナレーション全文、そして商品リンクへの導線をどの一言に置くかまで書き出し、六つの指標で草案を採点して、撮影前に一番弱いところを見えるようにします。すでに売れている参考動画があれば、その構成をあなたの商品に移し替えます。絵コンテ画像とナレーション音声はご希望に応じて用意し、そのまま編集に持ち込めます。中国向け越境ECの商品紹介、サービス説明、店舗アカウントの日常投稿、そして毎日一本ずつ台本を出す運用に。縦型ショート動画の構成づくり、商品紹介動画の台本作成、リンク誘導の設計までを一本の流れでお渡しします。",
+      "display_name": "視頻号ショート動画 台本スタジオ",
+      "summary": "商品と確認済みの事実から、秒単位の構成表、そのまま読めるナレーション全文、商品リンクへの導線を置く具体的な区間、そして撮影前の六指標評価までを組み上げます。",
+      "tags": [
+        "ショート動画 台本",
+        "商品紹介動画 台本",
+        "縦型動画 構成",
+        "動画 台本 作成",
+        "販売動画 スクリプト",
+        "越境EC 動画 台本",
+        "WeChat 視頻号 台本",
+        "ナレーション原稿 作成",
+        "商品リンク 誘導 台本",
+        "秒単位 構成表",
+        "参考動画 構成 再現",
+        "ショート動画 販売 企画"
+      ],
+      "title": "視頻号ショート動画 台本スタジオ：明日撮れる販売台本を一本で"
+    },
+    "zh": {
+      "description": "把一个商品和你确认过的信息，变成一条今天就能开拍的视频号短视频脚本。这套视频号脚本工作台会按秒切出分段表，逐句写出可以直接照着念的口播全文，并把挂车的转化动作精确落到具体段落上——哪一句留人、哪一段把理由给足、哪一秒说链接在下面，都写在表里；再用六个维度给这一版打分，让你在开拍前就看见它最弱的一处。手上有一条已经出单的视频号爆款，就照着它的骨架改写成你自己的挂车脚本。分镜图和口播配音按需产出，拿到手直接进剪辑。视频号带货、口播种草、服务介绍、门店与私域引流都能用：同一份稿子里，视频号文案、视频号口播脚本和带货短视频脚本一起出，当天就能拿去拍。",
+      "display_name": "视频号脚本工作台",
+      "summary": "把一个商品和你确认过的信息，变成秒级分段表、可以照着念的口播全文、精确落在具体段落上的挂车转化动作，以及一版开拍前的六维评分。",
+      "tags": [
+        "视频号脚本",
+        "视频号文案",
+        "视频号爆款文案",
+        "挂车",
+        "挂车脚本",
+        "挂车爆单",
+        "视频号带货脚本",
+        "视频号口播脚本",
+        "带货短视频脚本",
+        "短视频脚本生成",
+        "视频号短视频脚本",
+        "视频号带货文案"
+      ],
+      "title": "视频号脚本工作台：挂车动作落到段落上的带货脚本"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-channels-script-studio",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

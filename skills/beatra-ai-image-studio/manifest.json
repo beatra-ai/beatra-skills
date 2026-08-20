@@ -1,0 +1,80 @@
+{
+  "changelog": "Use the searchable Simplified Chinese term for AI painting alongside illustration in the description.",
+  "display_name": "Beatra AI Image Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/beatra-ai-image-studio",
+  "icon": "https://beatra.ai/textures/icons/beatra-ai-image-studio-1.0.9.png",
+  "localized": {
+    "en": {
+      "description": "Create and refine images from a written brief, one to four ordered reference images, or an existing base image. Beatra AI Image Studio supports text-to-image generation, reference-guided composition, and focused AI image editing for product photos, ad creative, brand visuals, posters, social graphics, illustrations, concept art, and photo background changes. Review each generated image for message, subject fidelity, composition, style, text, and destination fit, then choose the smallest useful edit, new composition, or new generation.",
+      "display_name": "Beatra AI Image Studio",
+      "summary": "Generate, compose, and edit product images, brand visuals, posters, social graphics, illustrations, and photo variations.",
+      "tags": [
+        "AI image generator",
+        "text to image",
+        "AI image editor",
+        "AI product photo",
+        "product image generator",
+        "AI poster maker",
+        "brand visual generator",
+        "social media image generator",
+        "AI illustration generator",
+        "concept art generator",
+        "photo background editor",
+        "AI image studio"
+      ],
+      "title": "AI Image Studio for Product Photos, Ads & Visuals | Beatra"
+    },
+    "ja": {
+      "description": "テキストで指定したイメージ、順番を指定した1〜4枚の参考画像、または編集したい元画像から、新しい画像を作成・調整します。Beatra AI画像スタジオは、テキストから画像、参考画像を使った制作、変更箇所を絞ったAI画像編集に対応し、商品画像、広告クリエイティブ、ブランドビジュアル、ポスター、SNS画像、AIイラスト、コンセプトアート、写真背景の変更に活用できます。結果を見ながら、伝えたい内容、被写体が意図どおりか、構図、スタイル、文字、用途を確認し、必要最小限の部分編集、再構成、再生成を選びます。",
+      "display_name": "Beatra AI画像スタジオ",
+      "summary": "商品画像、ブランドビジュアル、ポスター、SNS画像、イラスト、写真のバリエーションを生成・合成・編集します。",
+      "tags": [
+        "AI画像生成",
+        "テキストから画像",
+        "AI画像編集",
+        "AI商品画像",
+        "商品画像生成",
+        "AIポスター作成",
+        "ブランドビジュアル生成",
+        "SNS画像生成",
+        "AIイラスト生成",
+        "コンセプトアート生成",
+        "写真背景編集",
+        "AI画像スタジオ"
+      ],
+      "title": "AI画像スタジオ｜商品画像・広告・ブランドビジュアル | Beatra"
+    },
+    "zh": {
+      "description": "从文字描述、按顺序提供的一至四张参考图，或一张需要修改的原图出发，生成并完善图像。Beatra AI 图像工作室支持文生图、参考图创作和围绕指定部分进行的 AI 图片编辑，可用于产品图、广告创意、品牌视觉、海报、社交媒体配图、AI绘画、AI插画、概念图和照片背景修改。看到结果后，检查信息表达、主体是否符合要求、构图、风格、文字与发布场景，再选择最小有效的局部修改、重新构图或重新生成。",
+      "display_name": "Beatra AI图像工作室",
+      "summary": "生成、合成并编辑产品图、品牌视觉、海报、社交媒体配图、插画和照片的不同版本。",
+      "tags": [
+        "AI图片生成",
+        "文生图",
+        "AI图片编辑",
+        "AI产品图",
+        "产品图生成",
+        "AI海报制作",
+        "品牌视觉生成",
+        "社交媒体配图",
+        "AI插画生成",
+        "概念图生成",
+        "照片背景编辑",
+        "AI图像工作室",
+        "AI绘画"
+      ],
+      "title": "AI 图像工作室：产品图、海报与品牌视觉 | Beatra"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "beatra-ai-image-studio",
+  "schema_version": 1,
+  "version": "1.1.3"
+}

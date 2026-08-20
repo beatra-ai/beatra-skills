@@ -1,0 +1,56 @@
+{
+  "changelog": "First public release. Build an 8-12 person shortlist memo from a category, budget, and market, or from handles you already have.",
+  "display_name": "Influencer Fit Analyzer",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/influencer-fit-analyzer",
+  "icon": "https://beatra.ai/textures/icons/influencer-fit-analyzer-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Build an influencer shortlist from a category, budget, and market, or from account links and handles you already have. This influencer analysis and creator matching workflow reads public creator profiles and recent posts on TikTok, Douyin, Xiaohongshu, Instagram, YouTube, and X, or works from bios, follower counts, and posts you paste, then writes an 8-12 person memo with followers, recent play, interaction, content pillars, and a talk-or-not call. Use it for influencer analysis, creator matching, influencer shortlist, and creator research when you need who to approach for a campaign or collab.",
+      "display_name": "Influencer Fit Analyzer",
+      "summary": "Give a category, budget, and market, or handles you already have, and get an 8-12 person memo.",
+      "tags": [
+        "influencer analysis",
+        "creator matching",
+        "influencer shortlist",
+        "creator research"
+      ],
+      "title": "Influencer Analysis: Build a Shortlist You Can Approach"
+    },
+    "ja": {
+      "description": "カテゴリ・予算・市場、または手元のアカウントから、アプローチできるショートリストを作ります。公開プロフィールと近作を読むか、貼り付けた自己紹介・フォロワー数・投稿から、8〜12人のメモにフォロワー、直近再生、反応、柱、話す／話さないをまとめます。このインフルエンサー分析とクリエイター選定は、TikTok・抖音・小紅書・Instagram・YouTube・Xの公開ページを読むか、貼り付けから進めます。インフルエンサー分析、クリエイター選定、ショートリスト、インフルエンサー調査に。",
+      "display_name": "インフルエンサー分析ワークスペース",
+      "summary": "カテゴリ・予算・市場、または手元のアカウントから、8〜12人のメモを返します。",
+      "tags": [
+        "インフルエンサー分析",
+        "クリエイター選定",
+        "ショートリスト",
+        "インフルエンサー調査"
+      ],
+      "title": "インフルエンサー分析：アプローチできるショートリストを作る"
+    },
+    "zh": {
+      "description": "把品类、预算和市场，或你已经有的账号，做成一份能谈的达人短名单。给品类和预算，或已有的账号链接和@，就能拿到8到12人的达人分析备忘：粉丝量、近期播放、互动、内容支柱和谈或不谈。这个达人分析与达人匹配工作流会读TikTok、抖音、小红书、Instagram、YouTube和X上的公开主页和近作，也可以直接用你粘贴的简介、粉丝数和作品，做成达人调研和达人筛选备忘。适合达人分析、达人匹配、达人短名单、达人调研和达人筛选。",
+      "display_name": "达人分析与匹配",
+      "summary": "给品类、预算和市场，或已有的账号，拿到8到12人的短名单备忘。",
+      "tags": [
+        "达人分析",
+        "达人匹配",
+        "达人短名单",
+        "达人调研",
+        "达人筛选"
+      ],
+      "title": "达人分析与匹配：按品类和预算排出能谈的短名单"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "influencer-fit-analyzer",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

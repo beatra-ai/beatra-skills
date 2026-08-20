@@ -1,0 +1,75 @@
+{
+  "changelog": "See a clearer cost range before creating an optional transition endpoint image.",
+  "display_name": "First & Last Frame Video",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/first-last-frame-video",
+  "icon": "https://beatra.ai/textures/icons/first-last-frame-video-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Generate one short directed transition from an approved first frame to an approved last frame, turning two images into one clip that begins and ends on those images. This first-and-last-frame video and two-images-to-video generator creates outfit transformations, product reveals, before-and-after stories, day-to-night shifts, and scene teleports, and plans the motion, camera path, subject path, and reveal timing between the endpoints, then reviews that the clip truly starts and ends on the approved frames plus middle motion, direction, duration, and audio. Use it for transformations, product reveals, before-and-after stories, scene changes, and cinematic endpoints, with one transition per run and honest post-result review.",
+      "display_name": "First & Last Frame Video",
+      "summary": "Turn two approved images into one directed clip — generate a smooth transition from a first frame to a last frame for transformations, reveals, and scene changes.",
+      "tags": [
+        "first and last frame video",
+        "start end frame video generator",
+        "two images to video",
+        "keyframe to video AI",
+        "before after transition video",
+        "AI transformation transition",
+        "image transition generator",
+        "first frame last frame video",
+        "two photos to video",
+        "AI start to end frame video"
+      ],
+      "title": "First & Last Frame Video: Two Images to Video Transition Generator"
+    },
+    "ja": {
+      "description": "承認済みの2枚の画像——開始フレームと終了フレーム——から、開始フレームから終了フレームへの短いトランジション動画を1本生成します。この開始・終了フレーム動画・2枚の画像から動画生成ワークフローは、衣装の変身、商品のお披露目、ビフォーアフター、昼夜の切り替え、シーンの転送を作り、2つのフレーム間の動き、カメラの動線、被写体の動き、お披露目のタイミングを計画し、映像が本当に開始フレームから始まり終了フレームで終わることを確認した上で、中間の動き、方向、長さ、音声を確認します。変身、商品のお披露目、ビフォーアフター、シーンの切り替え、シネマティックな結末に適しており、1回の実行で1本のトランジションを生成し、正直に結果を確認します。",
+      "display_name": "開始フレームと終了フレームから動画生成",
+      "summary": "承認済みの2枚の画像から、開始フレームから終了フレームへのトランジション動画を1本生成します——変身、お披露目、ビフォーアフター、昼夜の切り替え。",
+      "tags": [
+        "最初と最後のフレームから動画",
+        "開始終了フレーム 動画",
+        "2枚の画像から動画",
+        "AI画像トランジション",
+        "ビフォーアフター動画生成",
+        "変身動画 AI",
+        "開始フレーム 終了フレーム 動画",
+        "2枚の画像から動画生成",
+        "画像からトランジション動画",
+        "AIフレーム間動画"
+      ],
+      "title": "開始フレームと終了フレームから動画生成：2枚の画像からトランジション動画"
+    },
+    "zh": {
+      "description": "用两张审核好的图片——一个首帧和一个尾帧——生成一条从首帧到尾帧的短转场视频。这个 AI 首尾帧视频生成和两张图生成视频工作流可以制作变装转场、产品揭晓、前后对比、昼夜切换、场景瞬移，并在两帧之间规划运镜、主体路径和揭晓节奏，交付后先确认视频确实从首帧开始、在尾帧结束，再检查中间运动、方向、时长和声音。适合变装转场、产品揭晓、前后对比、场景转换和电影感收尾，每次只做一条转场并如实复盘。",
+      "display_name": "AI首尾帧视频生成",
+      "summary": "用两张审核好的图片生成一条转场视频——从首帧到尾帧做变装、产品揭晓、前后对比、昼夜切换等丝滑转场。",
+      "tags": [
+        "首尾帧视频",
+        "首尾帧视频生成",
+        "AI首尾帧",
+        "首尾帧生成视频",
+        "两张图生成视频",
+        "首尾帧转场",
+        "首尾帧丝滑转场",
+        "变装转场",
+        "产品揭晓视频",
+        "前后对比视频",
+        "白天到夜晚视频",
+        "场景转换视频"
+      ],
+      "title": "AI首尾帧视频生成：两张图生成视频、首尾帧转场、变装揭晓"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "first-last-frame-video",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

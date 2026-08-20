@@ -1,5 +1,5 @@
 {
-  "changelog": "Shorten the Simplified Chinese display name to the de-AI-look term itself and close the Latin-CJK spaces in the rest of the Chinese copy.",
+  "changelog": "Republish the packaged files at the current version so every store listing offers the same download. The instructions and listing copy are unchanged.",
   "display_name": "AI Image Realism Retoucher",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-image-realism",
@@ -70,5 +70,5 @@
   },
   "name": "ai-image-realism",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

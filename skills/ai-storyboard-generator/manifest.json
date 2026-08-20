@@ -1,0 +1,74 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the storyboard term.",
+  "display_name": "AI Storyboard Generator",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-storyboard-generator",
+  "icon": "https://beatra.ai/textures/icons/ai-storyboard-generator-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a script, scene, or ad brief into a structured AI storyboard plan with a practical shot list and one to four storyboard key-frame images. Plan shot types, camera angles and movement, action, timing, dialogue, and sound for short films, ads, animation, social video, motion comics, and creative pitches.",
+      "display_name": "AI Storyboard Generator",
+      "summary": "Turn a script, scene, or ad brief into a practical shot list and one to four storyboard key-frame images.",
+      "tags": [
+        "AI storyboard generator",
+        "script to storyboard",
+        "storyboard shot list",
+        "AI shot list generator",
+        "storyboard key frames",
+        "film storyboard",
+        "ad storyboard",
+        "animation storyboard",
+        "social video storyboard",
+        "camera shot planning"
+      ],
+      "title": "AI Storyboard Generator: Script to Shot List & Key Frames"
+    },
+    "ja": {
+      "description": "台本、シーン、広告ブリーフから、ショットリストと1〜4枚のキーフレーム画像を備えたAI絵コンテ（ストーリーボード）をつくります。絵コンテ台本と動画絵コンテのために、画角、構図、カメラアングル、カメラワーク、アクション、尺、セリフ、音の指示を整理します。短編、広告、アニメ、SNS動画、縦型ドラマ、モーションコミック、企画提案の制作準備に役立ちます。",
+      "display_name": "AI絵コンテ生成",
+      "summary": "台本・シーン・広告ブリーフから、使えるショットリストと1〜4枚のキーフレーム画像を作成します。",
+      "tags": [
+        "AI絵コンテ生成",
+        "台本から絵コンテ",
+        "ショットリスト",
+        "絵コンテ台本",
+        "ストーリーボード",
+        "動画絵コンテ",
+        "広告絵コンテ",
+        "アニメ絵コンテ",
+        "キーフレーム",
+        "カメラワーク"
+      ],
+      "title": "AI絵コンテ生成：台本からショットリストとキーフレーム"
+    },
+    "zh": {
+      "description": "将剧本、场景或广告创意转为可执行的 AI 分镜方案，也就是一份可直接评审的故事板：输出分镜头脚本、镜头表和一至四张关键分镜图。规划景别、构图、机位、运镜、动作、时长、台词和声音提示，适用于短片、广告、动画、短视频、微短剧、动态漫画和创意提案。",
+      "display_name": "分镜生成器",
+      "summary": "将剧本、场景或广告创意说明拆成可执行的分镜表，并制作一至四张关键分镜图。",
+      "tags": [
+        "AI分镜生成器",
+        "剧本转分镜",
+        "分镜头脚本",
+        "分镜表",
+        "镜头表",
+        "关键帧",
+        "广告分镜",
+        "短剧分镜",
+        "动画分镜",
+        "短视频分镜",
+        "故事板"
+      ],
+      "title": "分镜生成器：剧本转分镜表与关键帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-storyboard-generator",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

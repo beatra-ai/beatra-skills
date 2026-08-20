@@ -1,0 +1,79 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the short-video-voiceover term itself.",
+  "display_name": "AI Voiceover for Short Videos",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/short-form-voiceover-audio",
+  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "localized": {
+    "en": {
+      "description": "Turn final short-video scripts into ready-to-edit voiceover audio for TikTok, Reels, YouTube Shorts, product reviews, hook lines, explainers, and ads. This AI voice over generator, AI voice reader, and text-to-speech voiceover workflow makes scripts speakable, helps choose a suitable voice and supported language, and tunes pacing, pauses, names, numbers, brands, and pronunciation. Review the current price estimate, create MP3 voiceover audio, compare the returned duration with the target edit, and place the narration into short-form video, captions, avatar, lip-sync, and publishing workflows.",
+      "display_name": "AI Voiceover for Short Videos",
+      "summary": "Turn a final short-video script into ready-to-edit voiceover audio, with a suitable voice, pronunciation control, current price estimate, and duration review.",
+      "tags": [
+        "AI voice over generator",
+        "short video voiceover",
+        "TikTok AI voice",
+        "script to narration",
+        "AI voice reader",
+        "text-to-speech voiceover",
+        "voiceover for short-form video",
+        "Reels voiceover",
+        "TikTok voiceover",
+        "YouTube Shorts voiceover",
+        "product review voiceover",
+        "voiceover for hook lines",
+        "MP3 voiceover audio"
+      ],
+      "title": "AI Voiceover for Short Videos"
+    },
+    "ja": {
+      "description": "完成した台本から、TikTok、Instagram Reels、YouTube Shorts、商品紹介、解説、広告に使えるAIナレーションとMP3音声を作成します。AI読み上げ、AIボイスオーバー、テキスト読み上げとして、固有名詞や数字の読み方、自然な間、読み上げ速度を整え、対象言語に合う声と現在の料金目安を確認します。生成後は実際の長さを目標尺と比べ、ショート動画編集、字幕、アバター、リップシンク、広告、公開に使える音声へ仕上げます。",
+      "display_name": "AIショート動画ナレーション",
+      "summary": "完成したショート動画台本を編集用のナレーション音声にし、声、現在の料金目安、実際の長さを順に確認できます。",
+      "tags": [
+        "AIナレーション",
+        "AI読み上げ",
+        "AIボイスオーバー",
+        "テキスト読み上げ",
+        "ショート動画ナレーション",
+        "動画ナレーション",
+        "AI音声",
+        "台本から音声生成",
+        "TikTokナレーション",
+        "Instagram Reelsナレーション",
+        "MP3音声",
+        "商品紹介動画のナレーション",
+        "読み上げ速度調整"
+      ],
+      "title": "AIショート動画ナレーション"
+    },
+    "zh": {
+      "description": "通过文字转语音，把最终短视频脚本制作成自然的中文AI配音，并交付可直接剪辑的MP3配音音频；适合 TikTok、Reels、YouTube Shorts 的中文口播、商品介绍、短视频解说、开场钩子和广告旁白。先设置人名、数字和品牌读音，用自然断句调整语速与停顿，再选择支持目标语言的音色并查看当前费用估算。音频返回后按实际时长和听感复查，可直接用于视频配音、字幕、数字人口播、口型同步、广告剪辑和内容发布。",
+      "display_name": "短视频配音",
+      "summary": "把最终短视频脚本做成可直接用于剪辑的口播音频，先选音色、看当前费用估算，再按返回的实际时长复查效果。",
+      "tags": [
+        "短视频配音",
+        "文字转语音",
+        "AI配音",
+        "中文口播",
+        "视频配音",
+        "短视频解说",
+        "广告旁白",
+        "语速与停顿调整",
+        "自然断句",
+        "MP3配音音频"
+      ],
+      "title": "短视频配音"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "short-form-voiceover-audio",
+  "schema_version": 1,
+  "version": "0.1.8"
+}

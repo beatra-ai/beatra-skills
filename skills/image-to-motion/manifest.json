@@ -1,0 +1,76 @@
+{
+  "changelog": "Turn one still into a directed short video with stronger motion planning and preservation review.",
+  "display_name": "Image to Video & Photo Animator",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/image-to-motion",
+  "icon": "https://beatra.ai/textures/icons/image-to-motion-0.1.4.png",
+  "localized": {
+    "en": {
+      "description": "Turn a single photo, product image, portrait, illustration, or AI artwork into a short image-to-video clip. This AI photo animator and picture-to-video workflow helps you bring a still image to life with directed subject motion, camera movement, pacing, duration, and aspect ratio while treating recognizable faces, product shape, logos, and composition as must-keep priorities. Use it for product photo animation, social video hooks, cinematic motion, animated portraits, storyboard shots, and moving artwork, then review the delivered video for visual drift and motion quality.",
+      "display_name": "Image to Video & Photo Animator",
+      "summary": "Animate one product image, portrait, photo, illustration, or AI artwork into a directed short video with purposeful motion and camera movement.",
+      "tags": [
+        "image to video",
+        "AI image to video",
+        "photo animation",
+        "animate photo",
+        "picture to video",
+        "AI photo animator",
+        "product image to video",
+        "product photo animation",
+        "bring image to life",
+        "portrait animation",
+        "cinematic image animation",
+        "storyboard animation"
+      ],
+      "title": "Image to Video & Photo Animator"
+    },
+    "ja": {
+      "description": "1枚の商品画像、ポートレート、写真、イラスト、AI画像から、動きとカメラワークを設計した短い動画を作ります。画像から動画、写真から動画、画像を動かす、写真を動かすといった目的に対応し、主体の動き、カメラ、テンポ、長さ、画角を整理。人物の特徴、商品の形、ロゴ、構図を重要な保持ポイントとして扱います。商品画像の動画化、写真アニメーション、ポートレートアニメーション、SNSの冒頭映像、シネマティックなカメラワーク、イラストを動かす用途に適しています。",
+      "display_name": "画像から動画・写真アニメーション",
+      "summary": "商品画像、ポートレート、写真、イラスト、AI画像を、意図した動きとカメラワークのある短い動画にします。",
+      "tags": [
+        "画像から動画",
+        "写真から動画",
+        "画像を動かす",
+        "写真を動かす",
+        "AIで画像を動画に",
+        "写真アニメーション",
+        "商品画像を動画に",
+        "ポートレートアニメーション",
+        "イラストを動かす",
+        "シネマティックなカメラワーク"
+      ],
+      "title": "画像から動画・写真アニメーション"
+    },
+    "zh": {
+      "description": "把一张产品图、人像、插画、海报或 AI 图片转成有明确动作与运镜的短视频。这项图生视频和照片转视频工作流会先确认主体动作、镜头运动、节奏、时长与画幅，把产品外形、人物特征、Logo 和构图作为重点保留，再生成并复核成片。适合让照片动起来、图片动画、产品图转视频、人物照片动起来、社交短视频开场、电影感运镜和插画动态化。",
+      "display_name": "图生视频与照片动画",
+      "summary": "把产品图、人像、照片、插画或 AI 图片变成有明确动作和运镜的短视频。",
+      "tags": [
+        "图生视频",
+        "图片转视频",
+        "照片转视频",
+        "让照片动起来",
+        "图片动画",
+        "AI 图片转视频",
+        "产品图转视频",
+        "人物照片动起来",
+        "插画动态化",
+        "电影感运镜",
+        "社交短视频开场"
+      ],
+      "title": "图生视频与照片动画｜让图片动起来"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "image-to-motion",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

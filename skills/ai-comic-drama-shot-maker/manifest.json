@@ -1,0 +1,75 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the comic-drama term.",
+  "display_name": "AI Comic Drama Shot Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-comic-drama-shot-maker",
+  "icon": "https://beatra.ai/textures/icons/ai-comic-drama-shot-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a comic panel, character sheet, webtoon frame, or frozen story beat into one dynamic comic-drama shot. This AI comic drama generator and motion comic maker animates an approved comic panel or manga frame into a short live shot, interpolates motion between a first and last comic panel, combines loose character, style, and scene references into a new comic-drama shot, or creates an original comic first frame and brings it to life. Use it for web-novel comic shots, motion comics, webtoon to video, manga panel animation, character entrances, emotional close-ups, action panels, dialogue reactions, and serialized creator workflows, with frozen character identity, approved art direction, and honest review of each independently generated shot.",
+      "display_name": "AI Comic Drama Shot Maker",
+      "summary": "Turn an approved comic panel, character sheet, or story beat into one dynamic comic-drama shot — animate a manga frame, interpolate two comic panels, or combine loose references into a new motion-comic shot.",
+      "tags": [
+        "AI comic drama generator",
+        "animated comic maker",
+        "comic panel to video",
+        "motion comic generator",
+        "manga animation AI",
+        "webtoon to video",
+        "animate a comic character",
+        "comic scene generator",
+        "AI motion comic",
+        "manga panel animation"
+      ],
+      "title": "AI Comic Drama Shot Maker: Motion Comic & Manga to Video Generator"
+    },
+    "ja": {
+      "description": "漫画のコマ、キャラクター設定、Webtoonのコマ、または確定したストーリービートから、1つのダイナミックな漫画動画ショットを作成します。このAI漫画動画メーカーは、承認済みの漫画のコマやマンガのページを短い動くショットにアニメ化し、最初と最後のコマの間の動きを補間し、複数のキャラ・画風・シーンの参考画像を組み合わせて新しい漫画動画ショットを生成し、オリジナルの漫画の最初のコマを作成して動かすこともできます。Web小説の漫画化、モーションコミック、漫画のコマの動画化、キャラクターの登場シーン、感情のクローズアップ、アクションパネル、会話リアクションショット、連載クリエイターのワークフローに適しており、各ショットでキャラクターの特徴を固定し、画風の方向を確認し、独立して生成・確認します。",
+      "display_name": "AI漫画動画メーカー",
+      "summary": "漫画のコマ、キャラクター設定、または物語のワンシーンを1つのダイナミックな漫画動画ショットに変えます。",
+      "tags": [
+        "AI漫画動画",
+        "漫画を動画に",
+        "漫画アニメーション",
+        "モーションコミック AI",
+        "漫画キャラを動かす",
+        "マンガのコマを動画化",
+        "AIコミック動画",
+        "Web小説を漫画動画に",
+        "漫画の登場シーン",
+        "アクションパネル動画"
+      ],
+      "title": "AI漫画動画メーカー：漫画を動画に・モーションコミック生成"
+    },
+    "zh": {
+      "description": "用一张漫画分镜、人物设定或定稿的故事画面，制作一个动态的漫剧镜头。这个 AI 漫剧镜头生成与动态漫制作工作流可以把单张漫画分镜或漫画页变成一段动态镜头，在首尾两张漫画分镜之间生成过渡动作，把多张人物、画风、场景参考组合成全新的漫剧镜头，也可以先生成并确认一张原创漫画起始帧再让它动起来。适合小说转漫剧、动态漫画、漫画分镜转视频、漫画人物出场、情绪特写、打斗镜头、对话反应镜头和连载创作者工作流，每个镜头都冻结人物特征、确认画风方向，并独立生成和如实复盘。",
+      "display_name": "漫剧镜头生成",
+      "summary": "上传一张漫画分镜、人物设定或故事画面，把它变成一个动态的漫剧镜头——单张漫画动起来、首尾分镜过渡，或多张参考组合成全新的漫剧镜头。",
+      "tags": [
+        "AI漫剧",
+        "AI漫剧制作",
+        "动态漫制作",
+        "漫画转视频",
+        "AI漫画动画",
+        "漫剧生成器",
+        "小说转漫剧",
+        "漫画分镜转视频",
+        "漫剧人物出场",
+        "漫剧对话镜头",
+        "国漫镜头生成",
+        "二次元短片生成"
+      ],
+      "title": "漫剧镜头生成：漫画转视频、动态漫制作工具"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-comic-drama-shot-maker",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

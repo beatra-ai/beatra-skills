@@ -1,0 +1,91 @@
+{
+  "changelog": "Read the reference from a link — its caption, metrics, comments, and on YouTube its transcript — instead of only from a file, screenshots, or your own description.",
+  "display_name": "Viral Video Teardown Remake",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
+  "icon": "https://beatra.ai/textures/icons/viral-video-teardown-remake-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn a short video that already worked into your own version. Paste the link and this viral video teardown and short-video remake workflow reads the reference itself on TikTok, Douyin, Xiaohongshu, Instagram, YouTube, or X — caption, author, visible metrics, the comments where the audience says what landed, and on YouTube the full transcript — or work from a file, screenshots, or your own description instead. It breaks the clip into its hook, body beats, and call to action, names the script pattern behind it, scores what carried the performance, then rewrites that structure around your product or topic — delivering a shot list with visuals and narration kept apart, generated shot frames, a voiced narration track, and one vertical clip animated from your opening beat. Use it to study a competitor's viral short, borrow a proven structure for Reels, Shorts, or WeChat Channels, rebuild a benchmark video under your own brand, or turn a saved reference into a content formula you can run again.",
+      "display_name": "Viral Video Teardown Remake",
+      "summary": "Paste the link or bring the file, break a short video that worked into its hook, beats, and call to action, then rebuild that structure around your own subject as a shot list, beat frames, narration, and a vertical clip animated from your opening frame.",
+      "tags": [
+        "viral video teardown",
+        "short video remake",
+        "viral video breakdown",
+        "recreate a viral video",
+        "competitor video analysis",
+        "video hook analysis",
+        "short form video script generator",
+        "TikTok viral video analysis",
+        "video shot list generator",
+        "storyboard from a reference video",
+        "benchmark video rebuild",
+        "short video remake with voiceover",
+        "analyze a video from its link",
+        "video comment analysis",
+        "YouTube transcript to script"
+      ],
+      "title": "Viral Video Teardown Remake: Break Down a Short and Rebuild It as Yours"
+    },
+    "ja": {
+      "description": "すでに伸びた短尺動画を、あなた自身の一本に作り替えます。参考動画はリンクを貼るだけでも構いません。Douyin（抖音）・TikTok・小紅書・Instagram・YouTube・Xの投稿から、キャプション、投稿者、公開数値、そして視聴者の反応が読めるコメントを取得し、YouTubeなら字幕の全文まで取り出せます。手元の動画ファイルやスクリーンショット、ご自身の説明からでも同じように進められます。参考動画を冒頭フック・本編の各展開・締めのCTAへ秒単位で分解し、どの構成パターンに当たるかを判定し、伸びた理由を構造・内容・演出の層に分けて言語化したうえで、その骨格をあなたの商品やテーマへ移し替えます。映像と語りを別々の欄に書き分けた台本兼絵コンテ表、生成済みのカット画像、選んだ声によるナレーション音声、そして冒頭カットを動かしナレーション全編を載せた縦型動画一本を納品します。バズ動画のリメイクを、分解から動画一本まで一つの流れで。競合のショート分析、バズ構成の再現、TikTok・リール・ショート・小紅書向けの企画づくり、保存したままの参考動画を繰り返し使える型に変えたいときに。",
+      "display_name": "バズ動画 分解・リメイク",
+      "summary": "リンクを貼るか手元の素材を渡すだけ。伸びたショート動画を冒頭フック・本編・締めへ分解し、その構成を自分のテーマに移して、絵コンテ・カット画像・ナレーション、そして冒頭カットを動かした縦型動画一本までお渡しします。",
+      "tags": [
+        "バズ動画 分析",
+        "ショート動画 構成 分解",
+        "バズ動画 リメイク",
+        "競合 ショート動画 分析",
+        "動画 フック 分析",
+        "ショート動画 台本 作成",
+        "絵コンテ 自動生成",
+        "TikTok バズ 構成",
+        "縦型動画 制作",
+        "参考動画 再現",
+        "ショート動画 企画",
+        "ナレーション付き ショート動画",
+        "動画 リンク 解析",
+        "コメント 分析",
+        "字幕 抽出"
+      ],
+      "title": "バズ動画の分解とリメイク：構成を読み解き、自分の一本に作り替える"
+    },
+    "zh": {
+      "description": "把一条已经跑出来的短视频，变成你自己的那一条。参考视频可以是文件、截图或你自己的描述，也可以直接粘一个视频链接——抖音、TikTok、小红薯、Instagram、YouTube、X 都能读到标题文案、作者和公开数据，需要时再做评论分析，取评论区里观众的原话；YouTube 还支持字幕提取，拿到整段逐字稿。爆款短视频拆解与复刻工作流：逐段拆出钩子、中段节奏和转化引导，判定它属于哪一类脚本结构，说清它到底靠什么跑起来，再把这套骨架原样套到你的产品或选题上——交付画面与口播分开写的分镜表、生成好的分镜图、选定音色的口播配音，以及一条由开场画面动起来、配好整段口播的竖屏短片。适合对标爆款、抄爆款结构、二创改写、视频号与抖音小红薯快手起号找对标，也适合把收藏夹里存了很久的参考视频，变成一套能反复复用的内容公式。",
+      "display_name": "爆款视频拆解·短视频复刻",
+      "summary": "粘一个视频链接，或者把文件截图交给它：把一条跑出来的短视频拆成钩子、中段和转化引导，再把这套结构套到你自己的选题上，出分镜表、分镜图、口播，以及一条由开场画面动起来的竖屏短片。",
+      "tags": [
+        "爆款视频拆解",
+        "爆款短视频拆解",
+        "短视频复刻",
+        "爆款复刻",
+        "对标爆款",
+        "视频号爆款拆解",
+        "抖音爆款拆解",
+        "二创脚本",
+        "爆款结构分析",
+        "短视频钩子分析",
+        "分镜表生成",
+        "口播脚本生成",
+        "爆款视频",
+        "视频链接",
+        "评论区",
+        "字幕提取",
+        "逐字稿",
+        "评论分析"
+      ],
+      "title": "爆款短视频拆解与复刻：拆到结构，重做成你的"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "viral-video-teardown-remake",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

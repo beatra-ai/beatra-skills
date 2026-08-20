@@ -1,0 +1,75 @@
+{
+  "changelog": "Create a short music-led visual clip guided by a song's mood, rhythm, and visual concept.",
+  "display_name": "AI Music Video Clip Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-music-video-clip-maker",
+  "icon": "https://beatra.ai/textures/icons/ai-music-video-clip-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a short visual clip guided by a song's mood, rhythm, and visual concept. This AI music video clip maker and song-to-video generator turns a music excerpt and visual direction into a cinematic music promo clip, animates approved cover art or a portrait in time with the music, interpolates motion between opening and ending art, or uses audio as a loose mood reference for a new visual concept. Use it for new-song teasers, album promo clips, cover art animation, mood visuals, virtual performer scenes, and social music teasers, with an audio-visual map built from the song's hook, energy, palette, and landing image.",
+      "display_name": "AI Music Video Clip Maker",
+      "summary": "Create a short visual clip guided by a song's mood and rhythm — turn a music excerpt and visual direction into a cinematic promo clip, animate cover art in time with the music, or build a mood visual from loose references.",
+      "tags": [
+        "AI music video generator",
+        "music to video AI",
+        "song to video generator",
+        "music video clip maker",
+        "album promo video",
+        "song teaser video",
+        "audio driven video",
+        "cover art animation",
+        "music visualizer clip",
+        "song promo visual"
+      ],
+      "title": "AI Music Video Clip Maker: Song to Video & Music Promo Generator"
+    },
+    "ja": {
+      "description": "楽曲のムード、リズム、ビジュアルコンセプトで短いビジュアルクリップを作成します。このAIミュージックビデオクリップメーカーは、音楽の抜粋とビジュアル方向を映画風音楽PRクリップに変え、承認済みのジャケット画像やポートレートを音楽に合わせてアニメ化し、厳密な開始・終了アート間の動きを補間し、オーディオを緩いムード参考として使って新しいビジュアルコンセプトを生成します。新曲ティザー、アルバムPRクリップ、ジャケット画像アニメーション、ムードビジュアル、バーチャルパフォーマーシーン、SNS音楽ティザーに適しており、楽曲のフック、エネルギー、カラーパレット、着地画像からオーディオ・ビジュアルマップを構築します。",
+      "display_name": "AIミュージックビデオクリップメーカー",
+      "summary": "楽曲のムードとリズムで短いビジュアルクリップを作成します。音楽の抜粋とビジュアル方向から映画風PRクリップを作り、ジャケット画像を音楽に合わせて動かし、緩い参考からムードビジュアルを構築します。",
+      "tags": [
+        "AIミュージックビデオ",
+        "AI音楽動画",
+        "音楽から動画生成",
+        "曲から動画を作る",
+        "楽曲PR動画",
+        "新曲ティザー動画",
+        "ジャケット画像を動画に",
+        "音楽ビジュアル動画",
+        "AI音楽MV",
+        "アルバムPR動画"
+      ],
+      "title": "AIミュージックビデオクリップメーカー：曲から動画・音楽PR動画生成"
+    },
+    "zh": {
+      "description": "用一首歌的情绪、节奏和视觉概念，制作一个短视觉短片。这个 AI 音乐 MV 短片制作与歌曲生成视频工作流可以把音乐片段和视觉方向变成电影感音乐宣传短片，把确认的封面图或人物肖像随音乐动起来，在严格的首尾画面之间生成过渡动作，或把音频作为松散的氛围参考生成全新的视觉概念。适合新歌预告、专辑宣传短片、封面图动画、氛围视觉、虚拟歌手场景和社交媒体音乐预告，从歌曲的副歌、能量、配色和落幅画面构建音频-视觉映射。",
+      "display_name": "AI音乐MV短片制作",
+      "summary": "用一首歌的情绪和节奏，制作一个短视觉短片——把音乐片段和视觉方向变成电影感宣传短片，让封面图随音乐动起来，或用松散参考构建氛围视觉。",
+      "tags": [
+        "AI音乐MV",
+        "AI音乐视频",
+        "AI音乐MV生成",
+        "AI音乐视频制作",
+        "音乐生成视频",
+        "歌曲生成视频",
+        "新歌预告视频",
+        "歌曲宣传视频",
+        "专辑宣传短片",
+        "单曲概念片",
+        "封面图生成MV",
+        "音乐情绪短片"
+      ],
+      "title": "AI音乐MV短片制作：歌曲生成视频、音乐宣传短片工具"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-music-video-clip-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

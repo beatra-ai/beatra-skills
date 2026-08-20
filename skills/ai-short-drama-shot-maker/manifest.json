@@ -1,0 +1,75 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the short-drama term.",
+  "display_name": "AI Short Drama Shot Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-short-drama-shot-maker",
+  "icon": "https://beatra.ai/textures/icons/ai-short-drama-shot-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Generate one cinematic vertical micro-drama shot from a frozen dramatic beat, actor and scene references, and camera direction. This AI short drama shot maker and vertical micro-drama generator creates a live-action or cinematic shot from text alone, animates an approved opening image, interpolates motion between strict opening and ending images, or combines loose actor, location, and prop references into a new drama shot. Use it for romantic conflict, suspense reveal, reaction shot, dialogue close-up, establishing shot, period drama, emotional confrontation, and cinematic product-story moments, with frozen shot cards, shot-by-shot identity continuity, and honest review of each finished shot.",
+      "display_name": "AI Short Drama Shot Maker",
+      "summary": "Generate one cinematic vertical micro-drama shot from a frozen beat and references — from text alone, an approved opening image, two endpoint images, or loose actor and location references.",
+      "tags": [
+        "AI short drama generator",
+        "AI short drama shot",
+        "vertical micro drama",
+        "cinematic scene generator",
+        "short film shot AI",
+        "character scene to video",
+        "dramatic close-up generator",
+        "vertical story video",
+        "AI micro drama maker",
+        "cinematic drama shot"
+      ],
+      "title": "AI Short Drama Shot Maker: Vertical Micro-Drama & Cinematic Shot Generator"
+    },
+    "ja": {
+      "description": "確定したドラマのビート、俳優やシーンの参考素材、そしてカメラの演出から、1つの映画風縦型ミニドラマショットを生成します。このAIショートドラマメーカーは、テキストだけで実写や映画風のショットを作り、承認済みの開始画像をアニメ化し、厳密な開始・終了画像間の動きを補間し、緩い俳優・ロケ・小道具の参考画像を組み合わせて新しいドラマショットを生成します。恋愛の葛藤、サスペンスの展開、リアクションショット、会話のクローズアップ、確立ショット、時代劇、感情的対決、映画風プロダクトストーリーシーンに適しており、各ショットでショットカードを固定し、ショットごとにキャラクター特徴の連続性を保ち、各完成ショットを正直に確認します。",
+      "display_name": "AIショートドラマメーカー",
+      "summary": "確定したドラマのビートと参考素材から、1つの映画風縦型ショートドラマショットを生成します。テキストのみ、承認済みの開始画像、最初と最後の画像、または緩い俳優・ロケ参考のいずれでも対応します。",
+      "tags": [
+        "AIショートドラマ",
+        "縦型ショートドラマ",
+        "AIミニドラマ",
+        "短編ドラマ生成",
+        "ドラマのワンシーン生成",
+        "映画風動画 AI",
+        "縦型ストーリー動画",
+        "AIドラマショット",
+        "俳優シーン動画生成",
+        "サスペンスショット AI"
+      ],
+      "title": "AIショートドラマメーカー：縦型ミニドラマ・映画風ショット生成"
+    },
+    "zh": {
+      "description": "用一个定稿的戏剧节拍、演员和场景参考以及镜头方向，生成一个电影感的竖屏微短剧镜头。这个 AI 短剧镜头生成与竖屏微短剧制作工作流可以仅凭文本生成真人或电影感镜头，把确认的开场图变成动态镜头，在严格的首尾两张图之间生成过渡动作，或把松散的演员、场景、道具参考组合成全新的短剧镜头。适合情感冲突、悬疑反转、反应镜头、对话特写、建立镜头、古装短剧、情绪对峙和电影感产品故事镜头，每个镜头都冻结镜头卡、逐镜保持人物特征连续性，并如实复盘每个完成的镜头。",
+      "display_name": "短剧镜头生成",
+      "summary": "从一个定稿的戏剧节拍和参考素材，生成一个电影感的竖屏短剧镜头——纯文本、确认的开场图、首尾两张图，或松散的演员和场景参考均可。",
+      "tags": [
+        "AI短剧",
+        "AI短剧生成",
+        "AI短剧镜头",
+        "AI微短剧",
+        "短剧视频生成",
+        "竖屏短剧制作",
+        "短剧分镜成片",
+        "短剧镜头生成",
+        "真人短剧AI",
+        "电影感短剧",
+        "情感短剧镜头",
+        "悬疑短剧镜头"
+      ],
+      "title": "短剧镜头生成：竖屏微短剧、电影感镜头生成工具"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-short-drama-shot-maker",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

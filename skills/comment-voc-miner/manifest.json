@@ -1,0 +1,64 @@
+{
+  "changelog": "First public release. Turn a post link, a category, or comments you already copied into a same-day brief of objections, verbatim lines, FAQ answers, live-commerce replies, and spoken hooks.",
+  "display_name": "Comment VOC Miner",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/comment-voc-miner",
+  "icon": "https://beatra.ai/textures/icons/comment-voc-miner-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn public comments into a usable brief. Give a post link, a category to search, or comments you already copied, and get the objections, verbatim lines, purchase worries, FAQ answers, live-commerce replies, and spoken hooks that come from what viewers actually wrote. This comment analysis workflow reads public comments on Douyin, TikTok, Xiaohongshu, Instagram, YouTube, and X, and reply threads on Douyin, TikTok, Xiaohongshu, Instagram, and YouTube, or works from comments you paste, then groups the real audience language into a same-day brief. Use it for comment analysis, comment-section analysis, comment mining, VOC insight, audience insight, user voice research, FAQ writing, and live-commerce answers that sound like the audience.",
+      "display_name": "Comment VOC Miner",
+      "summary": "Give a post link, a category, or comments you already copied, and get objections, verbatim lines, FAQ answers, and spoken hooks written in the audience's own words.",
+      "tags": [
+        "comment analysis",
+        "comment-section analysis",
+        "comment mining",
+        "VOC insight",
+        "audience insight",
+        "user voice research",
+        "FAQ writing",
+        "live-commerce answers"
+      ],
+      "title": "Comment Analysis: Turn Public Comments Into a Brief You Can Use Today"
+    },
+    "ja": {
+      "description": "公開コメントを、今日使えるブリーフにします。投稿リンク、調べたいカテゴリ、またはすでにコピーしたコメントを渡せば、異論、原文、購入の迷い、FAQ、ライブ配信の返答、話せるフックが揃います。このコメント分析ワークフローは、抖音・TikTok・小紅書・Instagram・YouTube・Xの公開コメントと、抖音・TikTok・小紅書・Instagram・YouTubeの返信スレッドを読むか、貼り付けたコメントから口コミ分析と視聴者の声を整理し、VOC分析として当日使えるFAQ作成とライブ配信返答にまとめます。コメント分析、口コミ分析、視聴者の声、VOC分析、FAQ作成、ライブ配信の返答に。",
+      "display_name": "コメント分析ワークスペース",
+      "summary": "投稿リンク、カテゴリ、またはコピー済みのコメントを渡せば、異論・原文・FAQ・話せるフックが返ってきます。",
+      "tags": [
+        "コメント分析",
+        "口コミ分析",
+        "視聴者の声",
+        "VOC分析",
+        "FAQ作成",
+        "ライブ配信 返答"
+      ],
+      "title": "コメント分析：公開コメントを、今日使えるブリーフに"
+    },
+    "zh": {
+      "description": "把公开评论做成一份当天能用的简报。给一条作品链接、一个要搜的品类，或你已经复制好的评论，就能拿到异议、原话、购买顾虑、常见问答、直播答疑和口播钩子——这些都来自观众真写过的句子。这个评论分析工作流会读抖音、TikTok、小红书、Instagram、YouTube 和 X 上的公开评论，以及抖音、TikTok、小红书、Instagram和YouTube上的楼中楼，也可以直接用你粘贴的评论，做成评论区分析、评论挖需、用户原声整理和受众洞察简报，再写成能照着答的问答和直播答疑。适合评论分析、评论区分析、评论挖需、用户原声、受众洞察、FAQ撰写和直播答疑。",
+      "display_name": "评论分析工作室",
+      "summary": "给一条作品链接、一个品类，或你已经复制的评论，拿到异议、原话、常见问答和能说出口的钩子。",
+      "tags": [
+        "评论分析",
+        "评论区分析",
+        "评论挖需",
+        "用户原声",
+        "受众洞察",
+        "FAQ撰写",
+        "直播答疑"
+      ],
+      "title": "评论分析工作室：把公开评论做成当天能用的简报"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "comment-voc-miner",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

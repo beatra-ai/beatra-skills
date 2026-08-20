@@ -1,0 +1,69 @@
+{
+  "changelog": "Launch the REDnote ordered carousel visual workflow.",
+  "display_name": "REDnote Carousel Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/rednote-carousel-maker",
+  "icon": "https://beatra.ai/textures/icons/rednote-carousel-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Xiaohongshu or REDnote carousel from a post outline, product details, photo set, or style reference. Build an ordered 3:4 image sequence with a hook cover and supporting slides, clear focal imagery, matched visual direction, and headline-safe areas for product recommendations, tutorials, food notes, OOTD, travel guides, knowledge posts, and Xiaohongshu content images for one connected post story.",
+      "display_name": "REDnote Carousel Maker",
+      "summary": "Turn a post outline, product details, photo set, or style reference into an ordered 3:4 Xiaohongshu carousel with a hook cover and coherent supporting slides.",
+      "tags": [
+        "Xiaohongshu carousel",
+        "REDnote carousel maker",
+        "Xiaohongshu post images",
+        "Xiaohongshu carousel generator",
+        "RED image carousel",
+        "Xiaohongshu content images",
+        "Xiaohongshu 3:4 images",
+        "Xiaohongshu swipe post"
+      ],
+      "title": "REDnote Carousel Maker: Xiaohongshu Carousel Posts"
+    },
+    "ja": {
+      "description": "投稿テーマ、構成、商品情報、写真、スタイル参考から、小紅書（REDnote）のカルーセル画像と複数枚の投稿画像をAIで作成します。表紙のフック、読む順番、統一感のあるビジュアル、タイトルを置きやすい余白を整え、商品紹介、ハウツー、グルメ、コーデ、旅行ガイド、知識カードに使えるスライド画像を仕上げます。",
+      "display_name": "小紅書カルーセル画像メーカー",
+      "summary": "投稿テーマ、構成、商品情報、写真やスタイル参考から、表紙と連続スライドを備えた3:4の小紅書カルーセル画像をつくります。",
+      "tags": [
+        "小紅書 カルーセル",
+        "小紅書 投稿画像",
+        "小紅書 スライド画像",
+        "REDnote カルーセル",
+        "中国SNS 画像投稿",
+        "AI カルーセル作成",
+        "縦型SNS画像",
+        "小紅書 3:4"
+      ],
+      "title": "小紅書カルーセルメーカー：連続投稿画像"
+    },
+    "zh": {
+      "description": "使用 AI 将笔记选题、内容大纲、商品信息、照片或风格参考转为小红书轮播图、小红书图文和小红书多图笔记。依照封面钩子、内容顺序和统一视觉方向制作 3:4 图文配图，预留标题区域，适用于种草、教程、好物测评、美食、穿搭、旅行攻略和知识卡片。",
+      "display_name": "小红书轮播图制作",
+      "summary": "把笔记选题、内容大纲、商品信息、照片或风格参考，制作成含首图与连续配图的 3:4 小红书图文轮播。",
+      "tags": [
+        "小红书轮播图",
+        "小红书图文",
+        "小红书图文制作",
+        "小红书配图",
+        "小红书笔记配图",
+        "小红书多图笔记",
+        "小红书种草图",
+        "小红书知识卡片",
+        "AI小红书图文",
+        "REDnote carousel maker"
+      ],
+      "title": "小红书轮播图制作器：图文多图笔记生成"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "rednote-carousel-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

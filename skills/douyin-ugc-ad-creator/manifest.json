@@ -1,0 +1,73 @@
+{
+  "changelog": "Since the published version: video length follows the selected model's live supported range instead of a fixed ceiling.",
+  "display_name": "Douyin UGC Ad Creator",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-ugc-ad-creator",
+  "icon": "https://beatra.ai/textures/icons/douyin-ugc-ad-creator-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a Douyin shopping video, Douyin UGC ad, or AI creator product pitch from a product photo, product details, and an on-camera direction. This AI UGC ad creator composes a vertical presenter frame with the product, shapes a conversational hook and spoken recommendation, and delivers a short Douyin product video for launches, creator-style reviews, demonstrations, unboxings, and paid social creative.",
+      "display_name": "Douyin UGC Ad Creator",
+      "summary": "Turn a product photo, selling point, and creator direction into a short vertical Douyin UGC ad with an AI presenter, natural spoken pitch, and a clear product moment.",
+      "tags": [
+        "Douyin UGC ad creator",
+        "Douyin shopping video",
+        "Douyin product video",
+        "Douyin UGC ad",
+        "UGC ad creator",
+        "AI creator video",
+        "AI influencer ad",
+        "AI spokesperson video",
+        "creator style ad",
+        "vertical product ad"
+      ],
+      "title": "Douyin UGC Ad Creator: AI Product Videos"
+    },
+    "ja": {
+      "description": "商品写真、商品情報、出演するクリエイターのイメージから、抖音の商品紹介動画、抖音UGC広告、AIクリエイターによるインフルエンサー風の商品紹介動画を作成します。開封、日常の使用場面、悩みへの提案、使い方、新商品の紹介に合わせ、商品を見せるクリエイター風の画面、会話調のフック、分かりやすいおすすめを整え、抖音の商品プロモーション、店舗広告、コンテンツテストに使える縦型広告動画を仕上げます。",
+      "display_name": "抖音UGC広告・商品紹介動画作成",
+      "summary": "商品写真、訴求点、出演するクリエイターのイメージから、自然なナレーションと商品が伝わる縦型の抖音UGC広告動画をつくります。",
+      "tags": [
+        "抖音 UGC広告",
+        "抖音 商品紹介動画",
+        "抖音 ショッピング動画",
+        "AIクリエイター 動画",
+        "AIインフルエンサー広告",
+        "UGC動画広告",
+        "商品写真から動画",
+        "縦型広告動画",
+        "商品レビュー動画",
+        "SNS商品プロモーション"
+      ],
+      "title": "抖音UGC広告・商品紹介動画作成"
+    },
+    "zh": {
+      "description": "使用 AI 将商品图、商品卖点和达人出镜方向制作成抖音带货视频、抖音UGC广告、抖音口播带货和 AI达人带货短视频。围绕商品开箱、日常体验分享、痛点解决、上手演示和新品种草，塑造带商品出镜的达人式镜头、口语化钩子和清晰推荐，并交付可用于抖音商品推广、店铺投放和内容测试的竖屏广告视频。",
+      "display_name": "抖音UGC带货视频制作",
+      "summary": "把商品图、卖点和达人出镜方向，制作成带自然口播、突出商品使用场景的抖音UGC带货短视频。",
+      "tags": [
+        "抖音带货视频",
+        "抖音UGC广告",
+        "抖音口播带货",
+        "AI达人带货",
+        "AI带货视频",
+        "抖音商品视频",
+        "达人种草视频",
+        "UGC带货短视频",
+        "商品口播视频",
+        "抖音广告视频"
+      ],
+      "title": "抖音UGC带货视频制作：AI达人口播广告"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-ugc-ad-creator",
+  "schema_version": 1,
+  "version": "0.1.5"
+}

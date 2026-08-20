@@ -1,0 +1,79 @@
+{
+  "changelog": "Lead the Simplified Chinese display name with the video-generation term and spell the AI video terms without an internal space.",
+  "display_name": "Beatra AI Video Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/beatra-ai-video-studio",
+  "icon": "https://beatra.ai/textures/icons/beatra-ai-video-studio-1.1.9.png",
+  "localized": {
+    "en": {
+      "description": "Plan and create short AI videos from a written shot, a supplied image, exact first and last frames, multimodal references, or existing footage. Beatra AI Video Studio supports text-to-video, image-to-video, reference-guided generation, AI video editing, and AI video extension for product videos, ad creative, social clips, b-roll, transitions, reveals, and cinematic concepts. Review each delivered clip for action, subject stability, camera, continuity, audio when requested or returned, and destination fit, then choose the smallest useful edit, extension, or new render.",
+      "display_name": "Beatra AI Video Studio",
+      "summary": "Generate, animate, edit, and extend short AI videos for ads, product stories, social posts, b-roll, transitions, and cinematic concepts.",
+      "tags": [
+        "AI video generator",
+        "text to video",
+        "image to video",
+        "AI video editing",
+        "AI video extender",
+        "product video maker",
+        "AI ad video",
+        "social video generator",
+        "first last frame video",
+        "AI b-roll",
+        "cinematic AI video",
+        "AI video studio"
+      ],
+      "title": "AI Video Studio for Ads, Product & Social Clips | Beatra"
+    },
+    "ja": {
+      "description": "ショットの説明、1枚の画像、最初と最後のフレーム、参考素材、既存映像から、短いAI動画を企画・制作します。Beatra AI動画スタジオは、テキストから動画、画像から動画、参考素材からの生成、フレーム指定、AI動画編集、AI動画延長に対応し、商品動画、広告クリエイティブ、SNS動画、AI Bロール、トランジション、リビール、シネマティックなコンセプト映像に活用できます。完成したクリップの動き、被写体の安定性、カメラ、連続性、用途を確認し、音声を指定した場合や音声付きで生成された場合は、その音声も確認します。そのうえで、必要な編集、延長、再生成を最小限に絞ります。",
+      "display_name": "Beatra AI動画スタジオ",
+      "summary": "テキスト、画像、最初と最後のフレーム、参考素材、既存映像から、広告・商品・SNS向けの短いAI動画を生成、編集、延長します。",
+      "tags": [
+        "AI動画生成",
+        "テキストから動画",
+        "画像から動画",
+        "AI動画編集",
+        "AI動画延長",
+        "商品動画制作",
+        "AI広告動画",
+        "SNS動画生成",
+        "最初と最後のフレーム指定",
+        "AI-Bロール",
+        "シネマティックAI動画",
+        "AI動画スタジオ"
+      ],
+      "title": "AI動画スタジオ｜広告・商品・SNS動画制作 | Beatra"
+    },
+    "zh": {
+      "description": "从一段镜头描述、一张图片、首尾帧、参考素材或已有视频出发，规划并制作短视频。Beatra AI视频工作室支持文生视频、图生视频、参考生视频、首尾帧视频、AI视频编辑和AI视频延长，覆盖产品视频、广告创意、社交短视频、AI空镜素材、转场、揭示和电影感概念镜头。交付后检查动作、主体稳定性、运镜、连续性与发布场景；如果请求或结果包含音频，也一并检查音频，再决定最小有效的修改、延长或重新生成。",
+      "display_name": "视频生成·AI视频与图生视频工作室",
+      "summary": "从文字、图片、首尾帧、参考素材或已有片段出发，生成、编辑和延长广告、产品与社交短视频。",
+      "tags": [
+        "AI视频生成",
+        "文生视频",
+        "图生视频",
+        "AI视频编辑",
+        "AI视频延长",
+        "产品视频制作",
+        "AI广告视频",
+        "社交短视频生成",
+        "首尾帧视频",
+        "AI空镜素材",
+        "电影感AI视频",
+        "AI视频工作室"
+      ],
+      "title": "AI视频工作室：广告、产品与社交短片制作 | Beatra"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "beatra-ai-video-studio",
+  "schema_version": 1,
+  "version": "1.2.3"
+}

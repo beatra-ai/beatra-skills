@@ -1,0 +1,69 @@
+{
+  "changelog": "Launch the WeChat Channels video cover creation and refinement workflow.",
+  "display_name": "WeChat Channels Cover Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-channels-cover-maker",
+  "icon": "https://beatra.ai/textures/icons/wechat-channels-cover-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a WeChat Channels video cover, WeChat Video Account cover, or WeChat Channels thumbnail from a video topic, title, script, key frame, portrait, product photo, or reference image. This AI video cover maker builds a clear focal visual, a text-safe area, and a channel-consistent cover direction for WeChat Channels videos, creator updates, product explainers, local-business posts, and knowledge content.",
+      "display_name": "WeChat Channels Cover Maker",
+      "summary": "Turn a video topic, title, script, key frame, portrait, product photo, or reference image into a clear WeChat Channels cover with a focal visual and text-safe space.",
+      "tags": [
+        "WeChat Channels cover maker",
+        "WeChat Channels video cover",
+        "WeChat video account cover",
+        "WeChat Channels thumbnail",
+        "WeChat Channels cover design",
+        "AI WeChat video cover",
+        "video cover maker",
+        "creator video cover"
+      ],
+      "title": "WeChat Channels Cover Maker: AI Video Cover Design"
+    },
+    "ja": {
+      "description": "動画テーマ、タイトル、台本、キーフレーム、人物写真、商品写真、参考画像から、中国SNS・WeChat動画アカウントの動画カバーと動画配信向けサムネイルをAIで作成します。主役が伝わる構図、タイトル用の余白、チャンネルの世界観に合う見た目を整え、ナレッジ動画、個人クリエイター、店舗紹介、商品解説、ブランド発信向けのカバーを仕上げます。",
+      "display_name": "WeChat動画アカウント用カバーメーカー",
+      "summary": "動画テーマ、タイトル、台本、キーフレーム、人物・商品写真や参考画像から、主役が伝わりタイトルを置きやすいWeChat動画アカウント用カバーをつくります。",
+      "tags": [
+        "WeChat動画アカウント カバー",
+        "WeChat動画 サムネイル",
+        "WeChat動画カバー",
+        "中国SNS 動画カバー",
+        "AIサムネイル作成",
+        "動画カバー作成",
+        "動画配信 サムネイル",
+        "WeChat動画アカウント カバー作成"
+      ],
+      "title": "WeChat動画アカウント用カバー作成：AIサムネイル"
+    },
+    "zh": {
+      "description": "使用 AI 将视频号选题、标题、脚本、关键帧、人物照、商品图或参考图制作成视频号封面、视频号视频封面、微信视频号封面和视频号缩略图。突出主体、封面钩子和标题安全区，适用于知识分享、个人IP、门店推广、商品讲解和品牌内容；也可将已选封面精修为统一的视频号账号风格。",
+      "display_name": "微信视频号封面制作",
+      "summary": "把视频号选题、标题、脚本、关键帧、人物照、商品图或参考图，制作成主体清晰并预留标题区域的微信视频号封面。",
+      "tags": [
+        "视频号封面",
+        "视频号视频封面",
+        "微信视频号封面",
+        "视频号封面图",
+        "视频号标题封面",
+        "视频号封面制作",
+        "视频号封面设计",
+        "AI视频号封面",
+        "视频号缩略图",
+        "微信视频号封面制作"
+      ],
+      "title": "微信视频号封面制作：AI 视频号封面设计"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-channels-cover-maker",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

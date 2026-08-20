@@ -1,0 +1,69 @@
+{
+  "changelog": "Launch the WeChat Official Account article visual-pack workflow.",
+  "display_name": "WeChat Article Visual Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wechat-article-visual-pack",
+  "icon": "https://beatra.ai/textures/icons/wechat-article-visual-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create a WeChat Official Account visual pack from a finished article, outline, brand assets, photos, or visual references. Produce a lead cover plus coordinated in-article illustrations with clear section focus and consistent visual direction for WeChat articles, WeChat post images, brand stories, product explainers, event recaps, and knowledge content.",
+      "display_name": "WeChat Article Visual Pack",
+      "summary": "Turn a WeChat Official Account article, outline, or brand imagery into a coordinated lead cover and supporting article-image set.",
+      "tags": [
+        "WeChat article images",
+        "WeChat Official Account images",
+        "WeChat article illustration",
+        "WeChat article visual pack",
+        "WeChat post images",
+        "WeChat article cover",
+        "Weixin article images",
+        "Chinese social media article visuals"
+      ],
+      "title": "WeChat Article Visual Pack: Article Images & Illustrations"
+    },
+    "ja": {
+      "description": "完成した記事、構成、ブランド素材、写真、ビジュアル参考から、WeChat公式アカウントの記事画像、アイキャッチ、記事内挿絵をAIで作成します。各セクションの要点が伝わる構図と統一したビジュアル方向で、ブランドストーリー、商品解説、イベントレポート、ナレッジ記事、長文配信向けの画像セットを仕上げます。",
+      "display_name": "WeChat公式アカウント記事ビジュアルセット",
+      "summary": "WeChat公式アカウントの記事、構成、ブランド画像や参考素材から、アイキャッチと統一感のある記事内画像セットをつくります。",
+      "tags": [
+        "WeChat公式アカウント 記事画像",
+        "WeChat 記事 アイキャッチ",
+        "WeChat 記事 挿絵",
+        "WeChat公式アカウント 配信画像",
+        "微信 記事 画像",
+        "WeChat 記事ビジュアル",
+        "中国SNS 記事画像",
+        "AI 挿絵 作成"
+      ],
+      "title": "WeChat記事ビジュアルパック：アイキャッチと挿絵"
+    },
+    "zh": {
+      "description": "使用 AI 将完整文章、内容提纲、品牌素材、照片或视觉参考转为公众号配图、微信公众号配图和微信推文配图。制作一张公众号封面图与多张文章插图，以清晰的章节焦点和统一的视觉方向呈现品牌故事、产品解读、活动回顾、知识内容和长文推送。",
+      "display_name": "公众号文章配图套装",
+      "summary": "把公众号文章、提纲、品牌图片或参考素材，制作成一张头图与一组主题统一的文章配图。",
+      "tags": [
+        "公众号配图",
+        "微信公众号配图",
+        "微信推文配图",
+        "公众号文章配图",
+        "公众号插图",
+        "公众号头图",
+        "公众号封面图",
+        "公众号图文素材",
+        "AI公众号配图",
+        "公众号文章插图"
+      ],
+      "title": "公众号文章配图包：头图与正文插图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wechat-article-visual-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

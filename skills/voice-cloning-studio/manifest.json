@@ -1,0 +1,75 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "AI Voice Cloning Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/voice-cloning-studio",
+  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "localized": {
+    "en": {
+      "description": "Create a reusable personal or brand voice from a clean audio sample with this AI voice cloning studio and voice cloning software. Clone my voice, build a custom AI voice, or create an AI voice clone from a short single-speaker sample; give the custom voice a memorable name and reuse it for narration, courses, product stories, customer updates, series, and brand content. Compare sample quality, review the current estimate, and hear the reusable voice in a short test reading before expanding it into longer spoken projects.",
+      "display_name": "AI Voice Cloning Studio",
+      "summary": "Create a reusable personal or brand voice from a clean audio sample, give it a memorable name, and hear it in a short test reading.",
+      "tags": [
+        "AI voice cloning",
+        "voice cloning studio",
+        "clone my voice",
+        "custom AI voice",
+        "voice cloning software",
+        "AI voice clone",
+        "custom voice",
+        "voice clone from sample",
+        "reusable voice",
+        "voice cloning for narration",
+        "brand voice cloning"
+      ],
+      "title": "AI Voice Cloning Studio – Create a Reusable Brand Voice"
+    },
+    "ja": {
+      "description": "一人が自然に話すクリアな音声サンプルから、自分の声をクローンし、ブランド向けのカスタム音声や再利用できるAI音声を作るAI音声クローンスタジオです。ボイスクローニング、音声クローンソフト、カスタム音声として、短いサンプルから名前のある声を作り、ナレーション、講座、製品ストーリー、お知らせ、連載、ブランド音声に再利用。現在の料金目安を確認し、短い読み上げで明瞭さ、発音、テンポ、語調を試せます。",
+      "display_name": "AI音声クローンスタジオ",
+      "summary": "クリアな音声サンプルから再利用できる自分やブランドの声を作り、名前を付けて短い原稿で明瞭さ、テンポ、語調を試せます。",
+      "tags": [
+        "AI音声クローン",
+        "ボイスクローニング",
+        "自分の声をクローン",
+        "音声クローンソフト",
+        "カスタム音声",
+        "AI音声合成",
+        "短い音声サンプル",
+        "ナレーション用音声",
+        "ブランド音声"
+      ],
+      "title": "AI音声クローン：再利用できる自分やブランドの声を作成"
+    },
+    "zh": {
+      "description": "这是一个 AI 声音克隆工作室和声音克隆工具，可用单人清晰语音样本完成 AI 声音克隆、语音克隆和自定义 AI 声音制作，创建可反复使用的个人专属音色或品牌声音。适合克隆自己的声音、从样本制作音色，并用于旁白、课程、产品故事、客户通知、系列内容和品牌声音；创建前查看样本质量、音色名称与当前费用，成功后用短句完成声音克隆试听。",
+      "display_name": "AI声音克隆工作室",
+      "summary": "用干净语音样本创建可复用的个人或品牌声音，为音色命名，并通过短句试听清晰度、节奏与语气。",
+      "tags": [
+        "AI声音克隆",
+        "声音克隆",
+        "克隆自己的声音",
+        "语音克隆",
+        "自定义AI声音",
+        "专属音色",
+        "声音克隆工具",
+        "清晰语音样本",
+        "旁白声音克隆",
+        "个人声音克隆",
+        "品牌声音克隆",
+        "声音克隆试听"
+      ],
+      "title": "AI 声音克隆工作室：创建可复用的个人与品牌声音"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "voice-cloning-studio",
+  "schema_version": 1,
+  "version": "0.1.7"
+}

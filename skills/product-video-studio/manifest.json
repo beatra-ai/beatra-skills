@@ -1,0 +1,79 @@
+{
+  "changelog": "Create narrated vertical product videos from one product photo.",
+  "display_name": "Product Video Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/product-video-studio",
+  "icon": "https://beatra.ai/textures/icons/product-video-studio-0.1.0.png",
+  "localized": {
+    "en": {
+      "description": "Turn one product photo into a vertical product video that speaks. This AI product video generator and product video maker builds ecommerce product videos, product ads, and commerce short videos from a single photo — composing a 9:16 opening frame, writing a short script from what the photo shows and the details you supply, voicing it with a selected narrator, and directing one finished clip ready to post. Use it for product launches, listing videos, shoppable social posts, storefront promos, and turning a phone snap of merchandise into a video that sells, with no shoot, no crew, and no editing.",
+      "display_name": "Product Video Studio",
+      "summary": "Turn one product photo into a vertical product video with spoken narration, ready to post.",
+      "tags": [
+        "AI product video generator",
+        "product video maker",
+        "ecommerce product video",
+        "product photo to video",
+        "product ad video",
+        "image to video product",
+        "commerce video AI",
+        "vertical product video",
+        "product video with voiceover",
+        "AI video for online sellers",
+        "shoppable video maker",
+        "product launch video"
+      ],
+      "title": "Product Video Studio: AI Product Video Generator from a Photo"
+    },
+    "ja": {
+      "description": "AIで、商品写真1枚からナレーション付きの縦型商品動画をつくります。EC の商品動画・商品広告・ショート動画を、いま手元にある写真から組み立てます。まず 9:16 の縦型ファーストフレームを整え、写真から読み取れる特徴とあなたが提供する商品情報をもとに短い台本を書き、選んだ声でナレーションを載せて、そのまま投稿できる1本に仕上げます。新商品の告知、商品ページ用の動画、SNS の販売投稿、店舗プロモーション、スマホで撮った商品写真の動画化に。撮影も、スタッフも、編集も要りません。",
+      "display_name": "商品動画スタジオ",
+      "summary": "商品写真1枚から、ナレーション付きの縦型商品動画をつくります。",
+      "tags": [
+        "商品動画 AI",
+        "EC 商品動画 作成",
+        "商品画像 動画化",
+        "商品写真 動画 生成",
+        "縦型 商品動画",
+        "ナレーション付き商品動画",
+        "商品紹介動画 AI",
+        "EC 動画制作",
+        "ショート動画 商品",
+        "商品動画 自動生成",
+        "新商品 動画",
+        "販促動画 AI"
+      ],
+      "title": "商品動画スタジオ：商品写真1枚からナレーション付き縦型動画"
+    },
+    "zh": {
+      "description": "上传一张商品图，生成一条会说话的竖屏带货视频。这个商品视频生成与带货短视频制作工具，从你手里那张图出发——先做成 9:16 的竖屏首帧，再根据图上看得见的细节和你提供的商品信息写好口播文案，选一个合适的声音配上，直接出一条可以发布的成片。适合新品上架、商品主图视频、种草短视频、门店推广，以及把随手拍的商品照片变成一条能带货的视频——不用拍摄、不用请人、不用剪辑。",
+      "display_name": "商品视频工作室",
+      "summary": "上传一张商品图，生成带口播的竖屏带货视频，拿到就能发。",
+      "tags": [
+        "商品视频生成",
+        "带货短视频制作",
+        "商品图转视频",
+        "图生带货视频",
+        "电商短视频",
+        "商品口播视频",
+        "竖屏商品视频",
+        "商品视频配音",
+        "一键出片",
+        "电商视频工具",
+        "新品视频",
+        "商品主图视频"
+      ],
+      "title": "商品视频工作室：一张商品图生成带口播的带货短视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "product-video-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

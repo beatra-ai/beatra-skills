@@ -1,0 +1,80 @@
+{
+  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "display_name": "AI Ecommerce Listing Image Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ecommerce-listing-image-set",
+  "icon": "https://beatra.ai/textures/icons/ecommerce-listing-image-set-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn verified SKU facts and product photos into AI product listing images: a coordinated ecommerce image set for Amazon listing images, Shopify product images, Etsy listing photos, and online marketplaces. Build a product image set with a hero image, feature and detail visuals, lifestyle product photography, size and fit views, and packaging or in-box images for new launches, storefronts, and product pages.",
+      "display_name": "AI Ecommerce Listing Image Set",
+      "summary": "Turn verified SKU facts and product photos into a cohesive ecommerce image set with a hero image, feature visuals, lifestyle scenes, size views, and in-box images.",
+      "tags": [
+        "AI product listing images",
+        "ecommerce image set",
+        "product image set",
+        "product gallery generator",
+        "Amazon listing images",
+        "product hero image",
+        "product feature images",
+        "lifestyle product photography",
+        "product detail images",
+        "size and fit image",
+        "in-box image",
+        "Shopify product images",
+        "Etsy listing photos"
+      ],
+      "title": "AI Ecommerce Listing Image Set: Product Gallery, Hero & Lifestyle Images"
+    },
+    "ja": {
+      "description": "実商品写真と確定済みSKU情報から、統一感のあるAI EC出品画像セットと商品ページ画像を制作します。ストアフロントや新商品発売向けに、メイン画像、商品訴求画像、商品詳細画像、使用シーン画像、サイズ・フィット画像、パッケージ・同梱内容画像を整えます。Amazon 商品画像、楽天 商品画像、Shopify 商品画像、Etsy 出品画像、オンラインストアの商品ギャラリーに活用できます。",
+      "display_name": "AI EC出品画像セット",
+      "summary": "実商品写真と確定済みSKU情報から、メイン画像、訴求画像、使用シーン、サイズ、同梱内容まで統一して制作します。",
+      "tags": [
+        "EC商品画像セット",
+        "商品画像作成",
+        "商品ページ画像",
+        "メイン画像",
+        "商品訴求画像",
+        "使用シーン画像",
+        "サイズ画像",
+        "同梱内容画像",
+        "Amazon 商品画像",
+        "楽天 商品画像",
+        "Shopify 商品画像",
+        "Etsy 出品画像"
+      ],
+      "title": "AI EC出品画像セット：メイン・訴求・シーン画像"
+    },
+    "zh": {
+      "description": "基于真实商品照片和已确认 SKU 信息，制作一套统一的 AI 电商上架套图。为新品上架、商品详情页、店铺首页和跨境电商 Listing 准备商品主图、卖点图、商品详情图、商品场景图、尺寸展示图和包装清单图；适合亚马逊Listing图片、淘宝商品图、Shopify产品图、Etsy商品图片和独立站商品展示。",
+      "display_name": "AI电商上架套图",
+      "summary": "基于真实商品照片和已确认 SKU 信息，一次规划并制作主图、卖点图、场景图、尺寸展示和包装清单图。",
+      "tags": [
+        "AI商品套图",
+        "电商上架套图",
+        "商品主图",
+        "商品卖点图",
+        "商品场景图",
+        "商品详情图",
+        "商品尺寸图",
+        "商品包装图",
+        "亚马逊Listing图片",
+        "淘宝商品图",
+        "Shopify产品图",
+        "Etsy商品图片"
+      ],
+      "title": "AI 电商上架套图：主图、卖点图与场景图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ecommerce-listing-image-set",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

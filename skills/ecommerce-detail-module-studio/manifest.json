@@ -1,0 +1,82 @@
+{
+  "changelog": "Say detail-page design in the Simplified Chinese description so the term is searchable.",
+  "display_name": "Ecommerce Detail Module Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ecommerce-detail-module-studio",
+  "icon": "https://beatra.ai/textures/icons/ecommerce-detail-module-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn confirmed SKU facts and product photos into three to six AI ecommerce detail modules with a visual story and layout guide for Amazon A+ Content, product detail pages, brand storefronts, Shopify product pages, and launch campaigns. Create product feature visuals, material details, use scenes, size or comparison modules, packaging images, and brand-story imagery for a clear, scrollable product experience.",
+      "display_name": "Ecommerce Detail Module Studio",
+      "summary": "Create three to six coordinated ecommerce detail modules with a product story and layout guide.",
+      "tags": [
+        "ecommerce detail modules",
+        "product detail page images",
+        "A+ Content visuals",
+        "Amazon A+ Content",
+        "product page visual design",
+        "product feature images",
+        "product materials images",
+        "product use case images",
+        "size comparison images",
+        "packaging images",
+        "brand story images",
+        "Shopify product page"
+      ],
+      "title": "Ecommerce Detail Module Studio: A+ Content Visuals"
+    },
+    "ja": {
+      "description": "確定済みのSKU情報と商品写真から、3〜6枚の統一したAI EC商品詳細ページ用ビジュアルモジュールと、ページ構成・レイアウト指示をつくります。Amazon A+コンテンツ、商品詳細ページ、ブランドストア、Shopifyの商品ページ、新商品キャンペーン向けに、商品訴求、素材、使用シーン、サイズ・比較、同梱内容、ブランドストーリーの画像を順番に整理します。",
+      "display_name": "AI EC商品詳細モジュール",
+      "summary": "確定済みのSKU情報から、3〜6枚の統一したEC商品詳細ビジュアルとページ構成・レイアウト指示をつくります。",
+      "tags": [
+        "AI商品詳細ページ",
+        "EC商品詳細モジュール",
+        "商品詳細ページ画像",
+        "A+コンテンツ画像",
+        "Amazon A+コンテンツ",
+        "商品ページビジュアルデザイン",
+        "商品訴求画像",
+        "商品素材画像",
+        "商品使用シーン画像",
+        "サイズ比較画像",
+        "同梱内容画像",
+        "ブランドストーリー画像",
+        "Shopify 商品ページ"
+      ],
+      "title": "AI EC商品詳細モジュール：A+コンテンツ用ビジュアル"
+    },
+    "zh": {
+      "description": "将已确认的 SKU 信息和商品照片，制作成三至六张统一的 AI 电商详情页视觉模块，并输出清晰的叙事与版式说明。适用于 Amazon A+ 页面、商品详情页、品牌旗舰店、Shopify 商品页和新品活动的详情页设计：可安排商品卖点图、材质细节、使用场景、尺寸或对比展示、包装信息与品牌故事图片，让用户顺着页面理解商品。",
+      "display_name": "AI电商详情页模块",
+      "summary": "围绕已确认 SKU 信息制作三至六张统一的详情页视觉模块，并交付清晰的叙事与版式说明。",
+      "tags": [
+        "AI电商详情页",
+        "电商详情页模块",
+        "商品详情页图片",
+        "A+页面",
+        "Amazon A+页面",
+        "详情页视觉设计",
+        "商品卖点图",
+        "商品材质图",
+        "商品场景图",
+        "商品尺寸对比图",
+        "商品包装图",
+        "品牌故事图片",
+        "Shopify商品页",
+        "详情页设计"
+      ],
+      "title": "AI 电商详情页模块：A+ 页面视觉与版式交接"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ecommerce-detail-module-studio",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

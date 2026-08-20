@@ -1,0 +1,79 @@
+{
+  "changelog": "Simplified Chinese listing wording tidied up.",
+  "display_name": "Short Video BGM Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/short-video-bgm-studio",
+  "icon": "https://beatra.ai/textures/icons/short-video-bgm-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Describe the footage and get an original instrumental track written for it, yours to keep and use commercially. This AI background music generator turns a scene, mood, and tempo feel into royalty-free BGM for short videos, vlogs, product clips, tutorials, livestream and store loops, podcast intros, and slideshow recaps, with an energy arc you choose — a calm or immediate opening, a lift at the moment that matters, a clean ending — room left for narration, and a result you can listen to before you publish.",
+      "display_name": "Short Video BGM Studio",
+      "summary": "Describe the footage and get an original instrumental track written for it, yours to keep and use commercially.",
+      "tags": [
+        "background music generator",
+        "AI background music",
+        "royalty-free background music",
+        "video background music",
+        "instrumental music generator",
+        "BGM for video",
+        "vlog background music",
+        "podcast intro music",
+        "livestream background music",
+        "commercial use background music",
+        "music for short videos",
+        "original background music"
+      ],
+      "title": "Short Video BGM Studio: AI Background Music for Video"
+    },
+    "ja": {
+      "description": "映像の内容を伝えるだけで、その映像のために書かれたオリジナルのインスト曲が届きます。生成した音楽はあなたのもので、商用利用できます。この AI 背景音楽ツールは、場面・雰囲気・テンポ感からショート動画の BGM、vlog BGM、商品動画の音楽、チュートリアル動画の背景音楽、配信や店舗のループ、ポッドキャストのオープニング、スライドショー用の音楽まで、自前のフリーBGM として用意します。盛り上がる位置は指定でき、ナレーションの居場所も残し、仕上がりを聴いてから使えます。",
+      "display_name": "ショート動画BGMスタジオ",
+      "summary": "映像の内容を伝えるだけで、その映像のために書かれたオリジナルのインスト曲が届きます。生成した音楽はあなたのもので、商用利用できます。",
+      "tags": [
+        "BGM 作成",
+        "背景音楽 AI",
+        "動画 BGM",
+        "フリーBGM",
+        "商用利用 BGM",
+        "インスト曲 作成",
+        "ショート動画 BGM",
+        "vlog BGM",
+        "配信 BGM",
+        "ポッドキャスト BGM",
+        "オリジナルBGM",
+        "音楽 生成 AI"
+      ],
+      "title": "ショート動画BGMスタジオ：商用利用できるAIオリジナルBGM"
+    },
+    "zh": {
+      "description": "描述一下画面，就能拿到一条专为它写的原创纯音乐，生成的音乐归你所有、可直接商用。这个 AI 背景音乐生成工具把场景、情绪和节奏感变成短视频配乐、vlog配乐、商品视频 BGM、教程视频背景音乐、直播间和门店循环音乐、播客片头以及相册回顾配乐，都是为你现写的原创免版权音乐，情绪起伏由你定：从哪儿开始、在哪儿抬起来、怎么收，给人声留出位置，做完先听再发。",
+      "display_name": "短视频配乐工作室",
+      "summary": "描述一下画面，就能拿到一条专为它写的原创纯音乐，生成的音乐归你所有、可直接商用。",
+      "tags": [
+        "短视频配乐",
+        "短视频BGM",
+        "视频配乐",
+        "背景音乐",
+        "BGM",
+        "纯音乐",
+        "免版权音乐",
+        "商用背景音乐",
+        "器乐",
+        "直播间背景音乐",
+        "vlog配乐",
+        "原创配乐"
+      ],
+      "title": "短视频配乐工作室：AI 原创背景音乐，可商用"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "short-video-bgm-studio",
+  "schema_version": 1,
+  "version": "0.1.3"
+}
