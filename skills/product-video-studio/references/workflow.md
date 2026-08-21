@@ -119,7 +119,7 @@ Any failure stops here. Shortening an over-long script and synthesizing again co
 
 ## Approval gate 2 — the shoot
 
-Show the exact approved frame and narration artifacts, the motion direction, the selected model, the computed duration, and the paid boundary. Freeze them under a new stable `client_request_id`.
+Show an admission card before any video `client_request_id` or `beatra.videos.animate` / `beatra.videos.interpolate` call: route and MCP tool name, approved frame and narration artifacts, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze the exact payload under a new stable `client_request_id`.
 
 ## The shoot — one paid call
 
@@ -192,7 +192,7 @@ Keep a private ledger per paid stage: what it was for, the complete frozen argum
 
 If a create response is lost, resubmit only the identical frozen payload under the same ID. If a task ID is lost, list tasks for that capability, inspect plausible candidates, and match them against the ledger before considering a retry. A slow task is not a failed task. Never replace a running task with a duplicate.
 
-`insufficient_balance` means the request was not started and nothing was charged. It is not a failed generation. The merchant tops up and the identical request is resubmitted under the same ID.
+On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. It is not a failed generation.
 
 Cancel only when the merchant asks. Call `beatra.tasks.cancel` once and confirm the terminal state with `beatra.tasks.get`. A 409 means cancellation is unconfirmed: keep polling that same task and create no replacement work.
 

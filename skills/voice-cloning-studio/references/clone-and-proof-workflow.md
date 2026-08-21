@@ -18,18 +18,28 @@ Planning or a price lookup creates no clone and no charge.
 
 The card should identify the sample source, readiness state, authorization
 fact, `display_name`, selected `model`, optional BCP-47 `language`, current
-sample limits, exact estimate and the fact that approval covers one billable
-clone. Do not expose unnecessary sample or consent detail.
+sample limits, exact live estimate and the fact that approval covers one
+billable clone. Do not expose unnecessary sample or consent detail.
 
-Only a current approval of this exact card authorizes execution. A consent
-statement alone is not paid approval; paid approval alone does not replace the
-required consent statement. Do not ask again when the current user request
-already clearly approves the unchanged card.
+Before creating `client_request_id` or submitting `beatra.voices.clone`, show
+the clone admission card with every field: route `voice_clone`, tool
+`beatra.voices.clone`, live `beatra.models.list` price for one successful
+activated voice, the provisional estimate, the fact that the 600-credit signup
+gift usually cannot start this clone, the exact URL
+`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+recommend ¥198. Do not submit until the user confirms they have topped up or
+already have enough credits for this estimate. Do not offer a free clone or a
+free sample that replaces the clone.
+
+A consent statement alone is not paid approval; paid approval alone does not
+replace the required consent statement. Planning, comparison, or “clone it
+now” is not approval.
 
 ## Submit one exact request
 
-Create one new, opaque, locally stored `client_request_id`. Invoke the tool by
-name through the bundled client, with the JSON body on standard input:
+After that top-up or balance confirmation, create one new, opaque, locally
+stored `client_request_id`. Invoke the tool by name through the bundled
+client, with the JSON body on standard input:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.voices.clone
@@ -68,8 +78,11 @@ returned request/output facts; never pretend the display name proves identity.
 Only when transport or task creation is still genuinely uncertain may the
 field-for-field identical JSON be replayed with the same local request ID. A
 new sample, name, model or language is different paid work and needs a new
-card, approval and request ID. Do not automatically retry a terminal failed or
-canceled task, even if its error says it may be retryable.
+card, a new admission card, top-up or balance confirmation, and request ID.
+Do not automatically retry a terminal failed or canceled task, even if its
+error says it may be retryable. On `insufficient_balance`, relay the returned
+public message, keep `https://console.beatra.ai/topup` exact, and retry the
+same frozen `client_request_id` only after the user says they have topped up.
 
 ## Preserve the reusable voice result
 

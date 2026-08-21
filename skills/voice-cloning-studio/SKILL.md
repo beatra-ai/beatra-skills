@@ -83,15 +83,24 @@ scale. Build one clone card that freezes:
   activated voice;
 - exactly one billable clone submission and its success-basis billing rule.
 
-Planning, catalog reads, sample advice and naming do not approve a charge. A
-clear current instruction such as “clone it now” approves exactly the frozen
-clone card. Do not ask again when the user's current request already approves
-that exact card.
+Planning, catalog reads, sample advice, naming, or “clone it now” do not
+approve a charge. Before any `client_request_id` or `beatra.voices.clone`
+call, show the clone admission card in the user's language: route
+`voice_clone`, tool `beatra.voices.clone`, live `beatra.models.list` price for
+one successful activated voice, the provisional estimate, the fact that the
+600-credit signup gift usually cannot start this clone, the exact URL
+`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+recommend ¥198. Numeric estimates come only from current model cards; the
+terminal task's `billing.net_charged_credits` is final. Do not create
+`client_request_id` or submit until the user confirms they have topped up or
+already have enough credits for this estimate. Do not offer a free clone or a
+free sample that replaces the clone.
 
 ## Submit the clone once and follow its task
 
-For newly approved work, make a new opaque local `client_request_id`. With the
-clone card unchanged, call `beatra.voices.clone` once with:
+After that top-up or balance confirmation, make a new opaque local
+`client_request_id`. With the clone card unchanged, call `beatra.voices.clone`
+once with:
 
 ```json
 {
@@ -160,8 +169,12 @@ filter or field.
 
 Only when transport or task creation remains genuinely uncertain may the
 identical clone JSON be replayed with the same local request ID. A changed
-sample, name, model or language is new paid work: create a new card, approval
-and ID. Never automatically retry a terminal failed or canceled task.
+sample, name, model or language is new paid work: create a new card, a new
+admission card, top-up or balance confirmation, and ID. Never automatically
+retry a terminal failed or canceled task. On `insufficient_balance`, relay the
+returned public message, keep the URL `https://console.beatra.ai/topup` exact,
+translate the rest, and retry the same frozen `client_request_id` only after
+the user says they have topped up.
 
 For clone and proof delivery, preserve actual task, output, model, usage,
 billing, asset and error fields. Missing billing values are unknown, not zero.

@@ -5,6 +5,12 @@ description: "Turn final manuscript or course text into an audiobook with one co
 
 # AI Audiobook Narration
 
+An audiobook is not a long TTS clip. It is a structured deliverable of many
+chapterized files. Open on one of three scenes: fiction; nonfiction or course;
+or sample-only. Route M4B packaging, translation, and professional mastering
+out. Keep a listing cover and cloning a narrator from a supplied sample in
+this package.
+
 Turn final manuscript or course text into ordered chapter audio. Work as an
 audiobook producer: preserve the manuscript's meaning, direct one
 sustainable narrator performance, prove the direction with a representative
@@ -17,11 +23,13 @@ inputs that are still missing:
 
 - final readable text for at least the pilot;
 - chapter or section order and the target BCP-47 language or dialect;
-- any must-follow pronunciation list; and
-- the purpose, output format, and delivery preference when they affect the
-  result.
+- a pronunciation table extracted from the full manuscript for recurring
+  names and terms, confirmed by the user before it is frozen;
+- a narrator sample when the user wants their own narrator; and
+- title and tone when the user wants a listing cover.
 
-Create a chapter-and-segment ledger. Preserve the intended listening order,
+Ask for a missing hard input rather than inventing it. Create a
+chapter-and-segment ledger. Preserve the intended listening order,
 label every segment, and split at chapter, section, scene, paragraph, or
 sentence boundaries. Never split mid-sentence, and keep each submitted `input`
 at or below 50,000 characters. Remove only page-only material the user does not
@@ -30,7 +38,17 @@ text preparation, casting, and the pilot boundary.
 
 ## Freeze a real voice and a viable model path
 
-Use `beatra.voices.list` when the narrator is not already frozen. A returned
+When the user brought a narrator sample, present a current `beatra.voices.clone`
+admission card first — route `voice_clone`, tool `beatra.voices.clone`, live
+`beatra.models.list` price for one successful activated voice, the provisional
+estimate, the fact that the 600-credit signup gift usually cannot start this
+clone, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 /
+11,000 credits. Do not recommend ¥198. Do not create `client_request_id` or
+submit until the user confirms they have topped up or already have enough
+credits for this estimate. Do not offer a free clone or a free sample that
+replaces the clone. Then freeze the returned `voice_id` so every chapter
+uses the same performer. Without a sample, do not default to cloning: use
+`beatra.voices.list` when the narrator is not already frozen. A returned
 opaque `voice_id` is the only valid value for synthesis `voice`; never substitute
 a display name, a prose preference, or a remembered label. Record the selected
 `voice_id`, its preview, stated language information, and `compatible_models` in
@@ -51,20 +69,47 @@ potential candidates support the language, and price the full candidate set.
 
 Default to `model: "auto"`, `format: "mp3"`, `speed: 1.0`, `volume: 1.0`,
 `pitch: 0`, no emotion, and no explicit sample rate unless the user or
-destination requires another supported value. See [performance, cost, and
+destination requires another supported value. Choose the pilot where the book
+is hardest: for fiction, a passage dense with dialogue and proper names; for
+nonfiction or a course, a passage dense with terms and numbers. Do not generate
+a cover unless the user asked for a listing pack. See [performance, cost, and
 quality](references/performance-and-quality.md) for compatible-model selection,
 live price math, and review criteria.
 
+## Golden path
+
+Build the chapter ledger. Make the text listenable and freeze the confirmed
+pronunciation table. When a narrator sample is present, present the clone
+admission card, wait for top-up or balance confirmation, then freeze the
+returned `voice_id`; otherwise use `beatra.voices.list`. Present the pilot
+synthesis card, then wait for an ear pass. Price the remaining chapters on their own card. When the user wants a
+complete listing pack, present a separate cover confirmation card for
+`beatra.images.generate`. Each new paid tool has its own current production
+card. Do not automatically retry a paid call. A changed argument needs a new
+`client_request_id`.
+
 ## Price and confirm the pilot
 
-Planning is free; `beatra.speech.synthesize` is paid. Count the pilot's billable
+Planning is free; `beatra.speech.synthesize` is paid. `beatra.voices.clone` is
+a separate paid step with its own current admission card when a narrator
+sample is present. That card must include the live `beatra.models.list` price,
+the 600-credit gift fact, `https://console.beatra.ai/topup`, and starter ¥29 /
+11,000 credits. Do not create a clone `client_request_id` or submit until the
+user confirms they have topped up or already have enough credits for this
+estimate. Do not offer a free clone or a free sample that replaces the clone.
+On `insufficient_balance`, relay the returned public message, keep the URL
+exact, translate the rest, and retry the same frozen clone
+`client_request_id` only after the user says they have topped up. `beatra.images.generate` is a separate paid step with its own current
+card when a listing cover is wanted. Count the pilot's billable
 quantity exactly as the live card defines `beatra_weighted_characters`: each Han
 ideograph weighs 2 and every other character weighs 1. Apply the card's current
 `estimate_formula`, `unit_price_credits`, and `scale`. When `auto` can resolve to
 more than one applicable voice-compatible card, show the resulting range or a
 clearly labeled upper bound.
 
-Before paid narration, present one production card containing:
+A clone approval never authorizes the pilot, a pilot approval never authorizes
+remaining chapters or a cover, and a cover approval never authorizes speech or
+clone. Before paid narration, present one production card containing:
 
 - the pilot scope, ordered segment count, and weighted-character total;
 - frozen `voice_id`, model choice or applicable `auto` range, BCP-47 language,
@@ -90,7 +135,12 @@ a fallback. For exact client commands and troubleshooting, use
 [Bundled MCP Client diagnostics](references/mcp-connection.md).
 
 The bundled client performs best-effort non-billable installation registration.
-For each newly approved segment, create a new opaque `client_request_id` and
+When a clone admission card was approved after top-up or balance confirmation,
+submit `beatra.voices.clone` once under that card's identifier and freeze the
+returned `voice_id` before any synthesis.
+When a cover card was approved, submit `beatra.images.generate` once under
+that card's identifier. For each newly approved segment, create a new opaque
+`client_request_id` and
 submit `beatra.speech.synthesize` once. The JSON must explicitly include the
 frozen voice, exact segment text, and request identity, followed by the frozen
 optional controls:

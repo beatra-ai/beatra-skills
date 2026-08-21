@@ -1,5 +1,5 @@
 {
-  "changelog": "See clearer image cost ranges before creating cast references and illustrated story shots.",
+  "changelog": "Show a prepaid admission card before the novel promo video call.",
   "display_name": "Novel Promo Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/novel-promo-video-maker",
@@ -75,5 +75,5 @@
   },
   "name": "novel-promo-video-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

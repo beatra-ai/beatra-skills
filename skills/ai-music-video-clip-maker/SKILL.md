@@ -18,7 +18,7 @@ The hard inputs are:
 - one accessible short music excerpt whose real duration fits a supported video duration;
 - one visual direction: mood, motif, subject, palette, camera, and movement.
 
-Ask only for a missing hard input. Reuse the known genre, energy, opening image, and aspect ratio. For a local audio or image file the host Agent can access, use the bundled upload helper only after inspection:
+Ask only for a missing hard input. Reuse the known genre, energy, opening image, and aspect ratio. A cover or opening still is not a hard input. When the visual direction exists and no usable cover or opening still is present, generate one cover or keyframe with `beatra.images.generate` as its own paid stage. For a local audio or image file the host Agent can access, use the bundled upload helper only after inspection:
 
 ```text
 python3 scripts/mcp_client.py upload ./song-excerpt.mp3 --mime-type audio/mpeg
@@ -34,14 +34,21 @@ Default to one short clip, `model: "auto"`, and a source-appropriate aspect rati
 - strict approved opening and ending art → `beatra.videos.interpolate`;
 - audio used only as loose mood reference → `beatra.videos.generate_from_references`.
 
-Inspect the real audio duration and select the smallest supported integer video duration that contains the excerpt in full.
+After a delivered gift cover, prefer `beatra.videos.animate` with driving audio when that still is the opening frame. Inspect the real audio duration and write the smallest admitted whole-second video `duration` at or above that length. Do not shorten the track to cheapen the clip. If no current card admits a duration that contains the excerpt in full, stop and ask for the smallest compatible excerpt change.
 
 ## Golden path
 
 1. Inspect the music excerpt and every available image. Record the audio's actual MIME type, byte size, and real duration. Record each image's actual MIME type, width, height, aspect ratio, and byte size. Identify the hook, energy, dominant mood, pulse, and the visual direction this clip should deliver.
 2. Build an audio-visual map: hook or energy, dominant mood, pulse, visual motif, subject, movement, palette, camera, opening image, and landing image. Then write one positive prompt that encodes the visual response to the music for this single clip.
-3. Select the route by visual control. Call `beatra.models.list` with the matching capability to confirm a current card admits every actual media fact, the driving-audio combination, and the selected video duration. Keep the model at `auto` unless the user chose a concrete eligible model.
-4. Show the exact route, audio, source images, reference media when used, prompt, selected duration, model behavior, and paid boundary. Freeze them with one opaque stable `client_request_id`; then submit exactly one video call. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, text plus driving audio:
+3. If no usable cover or opening still exists, call `beatra.models.list` with `{"capability":"text_to_image"}`, show that image stage's own card, and submit one `beatra.images.generate` cover or keyframe. Deliver and inspect that still before any video work. This gift-sized stage does not authorize `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, or `beatra.videos.generate_from_references`. For example:
+
+   ```text
+   printf '%s' '{"prompt":"Album-cover keyframe of a neon-soaked night drive through rain, cinematic teal-and-magenta palette.","count":1,"client_request_id":"opaque-mv-cover-id"}' | python3 scripts/mcp_client.py call beatra.images.generate
+   ```
+
+4. Select the route by visual control. Call `beatra.models.list` with the matching capability to confirm a current card admits every actual media fact, the driving-audio combination, and the selected video duration. Keep the model at `auto` unless the user chose a concrete eligible model. Write the smallest admitted whole-second `duration` at or above the real song length. Do not omit `duration` on `model=auto`. Any numeric estimate is provisional; the terminal task's `billing.net_charged_credits` is final.
+5. Show an admission card before any video `client_request_id` or `beatra.videos.generate` / `beatra.videos.animate` / `beatra.videos.interpolate` / `beatra.videos.generate_from_references` call: route and MCP tool name, live-card duration, resolution if set, aspect if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate.
+6. Freeze the exact route, audio, source images, reference media when used, prompt, selected duration, model behavior, and one opaque stable `client_request_id`; then submit exactly one video call. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, text plus driving audio:
 
    ```text
    printf '%s' '{"prompt":"A neon-soaked night drive through a rain-streaked city, reflections shimmering on the windshield, the beat syncing with passing streetlights, cinematic teal-and-magenta palette.","audio":{"type":"artifact","artifact_id":"art_song"},"duration":10,"client_request_id":"opaque-mv-generate-id"}' | python3 scripts/mcp_client.py call beatra.videos.generate
@@ -66,11 +73,11 @@ Inspect the real audio duration and select the smallest supported integer video 
    ```
 
    Do not configure, call, or use a host Beatra Connector. Do not use REST/OpenAPI fallback. Submit the chosen video tool exactly once.
-5. Record the returned task ID immediately and poll the same task with `beatra.tasks.get` until terminal. Deliver every returned video artifact or link. Report only actual returned task status, resolved model, dimensions, duration, usage, and `billing.net_charged_credits`. Review accessible output for visual response to the music, motion, mood, subject stability, presence and handling of the track, ratio, and actual duration. State what the host Agent could and could not inspect.
+7. Record the returned task ID immediately and poll the same task with `beatra.tasks.get` until terminal. Deliver every returned video artifact or link. Report only actual returned task status, resolved model, dimensions, duration, usage, and `billing.net_charged_credits`. Review accessible output for visual response to the music, motion, mood, subject stability, presence and handling of the track, ratio, and actual duration. State what the host Agent could and could not inspect.
 
 ## Paid changes, recovery, and cancellation
 
-Each clip is one paid video stage. A changed music excerpt, visual direction, cover image, prompt, model, selected duration, aspect ratio, or video control is new logical paid work with a new ID and fresh approval.
+The optional cover stage and the video stage are separate paid requests with distinct IDs. A changed music excerpt, visual direction, cover image, prompt, model, selected duration, aspect ratio, or video control is new logical paid work: create a new ID, show the changed admission card, and obtain fresh top-up or balance confirmation. Never reuse an ID across changed arguments. On `insufficient_balance`, relay the returned message, keep the top-up URL exact, and retry the same frozen ID only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 

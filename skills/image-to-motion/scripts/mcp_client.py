@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "image-to-motion"
 PACKAGE_DISPLAY_NAME = "Image to Video & Photo Animator"
-PACKAGE_VERSION = "0.1.4"
+PACKAGE_VERSION = "0.1.6"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/image-to-motion/install.json"

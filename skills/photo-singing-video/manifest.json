@@ -1,5 +1,5 @@
 {
-  "changelog": "Use the selected live video model’s supported duration instead of a fixed request ceiling.",
+  "changelog": "Show a prepaid admission card before the singing-video generate call.",
   "display_name": "Photo Singing Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/photo-singing-video",
@@ -71,5 +71,5 @@
   },
   "name": "photo-singing-video",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

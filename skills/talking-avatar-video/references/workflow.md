@@ -79,7 +79,7 @@ Build a concise performance prompt from one message, steady eye line, restrained
 }
 ```
 
-Show the exact approved image, approved audio, prompt, chosen duration, model behavior, explicit controls, output count, and paid boundary. Freeze all arguments and a new stable video request ID. Submit `beatra.videos.animate` exactly once.
+Before creating a video `client_request_id` or submitting `beatra.videos.animate`, show the admission card with every field: route, tool, audio-led duration, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Approved narration is not video approval. A request to make the clip is not approval. Freeze all arguments and a new stable video request ID. Submit `beatra.videos.animate` exactly once.
 
 ## Poll, recover, and cancel each stage
 

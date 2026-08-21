@@ -5,7 +5,7 @@ description: "Create a talking avatar from one portrait and a short script or sp
 
 # Talking Avatar Video
 
-Turn one portrait and a short script or approved speech track into one directed presenter clip. Use this Skill for explainers, product messages, training, lessons, announcements, onboarding, or social talking-head content when one stable portrait should deliver one clear spoken message.
+Talking-avatar production is an identity and voice-rights task, not only a prompt-writing task. Turn one portrait and a short script or approved speech track into one directed presenter clip. Use this Skill for explainers, product messages, training, lessons, announcements, onboarding, or social talking-head content when one stable portrait should deliver one clear spoken message. Without authorization for the likeness and the voice, stop at confirmation and do not generate.
 
 ## Scope and adjacent routes
 
@@ -16,9 +16,10 @@ The normal route is one portrait, one approved narration track, and one voice-le
 The hard inputs are:
 
 - one accessible portrait the host Agent can inspect;
-- either an accessible, approved speech track or a short script plus an available voice choice.
+- either an accessible, approved speech track or a short script plus an available voice choice;
+- whether the user owns or has been granted rights to the presenter likeness and the narration voice.
 
-Ask only for a missing hard input. Reuse the known language, pronunciation, destination, framing, energy, background, and delivery intent. For a local image or audio file the host Agent can access, use the bundled upload helper only after inspection:
+Ask only for a missing hard input. Missing authorization does not enter paid `beatra.videos.animate` or `beatra.speech.synthesize`. Reuse the known language, pronunciation, destination, framing, energy, background, and delivery intent. For a local image or audio file the host Agent can access, use the bundled upload helper only after inspection:
 
 ```text
 python3 scripts/mcp_client.py upload ./presenter-portrait.png --mime-type image/png
@@ -38,7 +39,7 @@ Default to one presenter clip, `model: "auto"`, the portrait as the strict first
 5. Poll the narration task with `beatra.tasks.get` until terminal. On success, read the returned artifact plus the actual `task.output.audio.mime_type`, `task.output.audio.duration_seconds`, and `task.output.audio.size_bytes` when present. Present or play the real audio when the host can do so, and ask the user to approve it before the dependent video stage. Never treat a script preview, expected duration, requested format, or task metadata as an audio review.
 6. Refresh or re-read the current `image_to_video` cards and admit the actual portrait plus approved speech again. Recheck every image fact and compare the audio's actual MIME, duration, and byte size with the current driving-audio constraints. If terminal audio size is absent, obtain it from trusted artifact metadata; if it remains unavailable, stop before video submission. The audio duration must be at least the live minimum (currently 2 seconds) and must not exceed either the live audio maximum or the longest eligible video duration that can contain the complete speech. Use the smallest supported integer video duration at or above the actual speech length so words are not truncated; do not add silence. A fractional narration may leave the shortest unavoidable tail pause or held frame, so disclose it and inspect the ending. If any media fact is unavailable or incompatible, stop before video submission and propose the smallest narration, recording, or portrait change. Replacing synthesized narration is new paid work with a new ID and approval.
 7. Keep `model: "auto"` unless the user chose a concrete eligible video model. Preserve the portrait-derived aspect ratio by omitting `aspect_ratio`. If the destination needs another frame, ask for a first-frame image already composed for that target or explicitly route through a suitable preprocessing workflow before returning with the new image; `beatra.videos.animate` is not a crop or canvas-override step. Never crop, stretch, or change the canvas silently.
-8. Show the final video route, exact approved image and audio sources, prompt direction, model behavior, duration, explicit controls, and paid boundary. Freeze them with a new opaque stable `client_request_id`. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
+8. Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved portrait and speech, prompt, audio-led duration, resolution if set, output count, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved narration does not authorize the video call. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Freeze them with a new opaque stable `client_request_id`. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
 
    ```text
    printf '%s' '{"image":{"type":"artifact","artifact_id":"art_portrait"},"driving_audio":{"type":"artifact","artifact_id":"art_speech"},"prompt":"A restrained presenter delivery with steady eye line, subtle expression, and a stable camera.","duration":8,"client_request_id":"opaque-video-id"}' | python3 scripts/mcp_client.py call beatra.videos.animate
@@ -49,7 +50,7 @@ Default to one presenter clip, `model: "auto"`, the portrait as the strict first
 
 ## Paid changes, recovery, and cancellation
 
-Narration and video are separate paid stages. Each has its own frozen payload, stable request ID, approval, create response, and task ID. A changed script, voice, language, speech control, image, audio, prompt, model, duration, aspect ratio, resolution, or video control is new logical paid work with a new ID and fresh approval. A revised narration also invalidates any unsubmitted dependent video plan that named the old audio.
+Narration and video are separate paid stages. Each has its own frozen payload, stable request ID, approval, create response, and task ID. A changed script, voice, language, speech control, image, audio, prompt, model, duration, aspect ratio, resolution, or video control is new logical paid work with a new ID and fresh approval. A video-stage change also needs a new admission card and fresh top-up or balance confirmation. A revised narration also invalidates any unsubmitted dependent video plan that named the old audio. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 

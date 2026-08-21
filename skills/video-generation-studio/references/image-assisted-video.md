@@ -1,10 +1,10 @@
 # Image-assisted video
 
-Use one focused still-image stage only when it creates a useful checkpoint for identity, product form, composition, or an exact opening or ending frame. Direct video remains the default when the user's request and available media already support it.
+When there is no usable still, the first paid stage is one keyframe with `beatra.images.generate`. That image card is a gift-sized first win. It does not authorize any later video generate, animate, interpolate, reference, edit, or extend call. Use a further still-image stage only when it creates a useful checkpoint for identity, product form, composition, or an exact opening or ending frame. Direct video remains the default only when the user already supplied a usable still, frames, references, or footage.
 
 ## Choose the smallest still operation
 
-- Use `beatra.images.generate` when a required anchor does not exist and can be designed from text.
+- Use `beatra.images.generate` when no usable still exists. This required keyframe is the gift-sized first win for a text-led request.
 - Use `beatra.images.transform` when one to four ordered supplied images should inform a newly composed shot frame. With `canvas.aspect: "source"`, the last input image anchors the ratio, so order is a real visual and canvas choice.
 - Use `beatra.images.edit` when `images[0]` is the base image and one bounded object, region, background detail, wardrobe element, or defect should change. Later images are references. Optional edit regions use normalized coordinates against their declared input image.
 
@@ -43,9 +43,9 @@ Do not copy a long still prompt unchanged into video. Direct the approved frame 
 
 ## Paid sequence and approval
 
-Image and video generation are separate paid tasks. Before beginning, show what the still controls, the planned image operation, the downstream video route, their order, and the total paid-call count. One confirmation may cover the complete frozen chain if the user explicitly requested or approves it; otherwise obtain stage approval separately.
+Image and video generation are separate paid tasks. Before the keyframe, show its own card: route, tool, what the still controls, canvas if set, output count, and provisional live estimate. Do not put the 600-credit video fact on this image card. After the still is delivered, show the video admission card — route and MCP tool name, shortest admitted duration, resolution, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits — and wait for top-up or balance confirmation. One confirmation of the plan, or a request to make the clip, does not authorize the video call.
 
-Use one stable request ID for the image stage and a different stable ID for the video stage. Submit each once. Poll the image task to terminal, deliver and inspect the actual still, then decide whether the downstream payload still matches the approved plan. If the still changes a material video input or direction, re-plan and obtain approval before video rather than silently continuing.
+Use one stable request ID for the image stage and a different stable ID for the video stage. Submit each once. Poll the image task to terminal, deliver and inspect the actual still, then decide whether the downstream payload still matches the plan. If the still changes a material video input or direction, re-plan and show a new video admission card rather than silently continuing.
 
 ## Review at the cheapest checkpoint
 

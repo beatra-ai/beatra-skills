@@ -1,5 +1,5 @@
 {
-  "changelog": "Drop the brand prefix from the Simplified Chinese display name so the AI-voice term leads.",
+  "changelog": "Correct the voice-casting synthesis-control pitch range to the live normalized -1..1 scale (0 keeps the original pitch).",
   "display_name": "Beatra AI Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-voice-studio",
@@ -80,5 +80,5 @@
   },
   "name": "beatra-ai-voice-studio",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.3"
 }

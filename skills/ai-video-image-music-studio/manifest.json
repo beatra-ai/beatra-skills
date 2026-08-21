@@ -1,5 +1,5 @@
 {
-  "changelog": "Rewrite the store change note so it describes the listing update without naming billing mechanics.",
+  "changelog": "Require a gift-sized first win when text-led, then a prepaid video admission card.",
   "display_name": "AI Video, Image & Music Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-image-music-studio",
@@ -76,5 +76,5 @@
   },
   "name": "ai-video-image-music-studio",
   "schema_version": 1,
-  "version": "0.1.6"
+  "version": "0.1.7"
 }

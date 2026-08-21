@@ -21,17 +21,17 @@ python3 scripts/mcp_client.py upload ./selected-image.png --mime-type image/png
 
 Upload is transport, not diagnosis. Inspect the visible source before upload, retain the returned artifact reference, and never pass a local path to a remote tool.
 
-Default to one clip, `model: "auto"`, and the supplied image as the strict first frame. Omit duration, aspect ratio, resolution, audio, and every optional control unless the destination or an explicit user choice requires one. Build the direction around one readable subject action and one primary camera movement. Treat requested faces, product shape, logos, typography, and composition as must-keeps; do not require the user to weaken those priorities in advance. Review the delivered clip for drift because generative motion cannot guarantee pixel-perfect later frames.
+Default to one clip, `model: "auto"`, and the supplied image as the strict first frame. After the live `image_to_video` card is read, write the shortest integer `duration` that card admits. Omit aspect ratio, resolution, audio, and every other optional control unless the destination or an explicit user choice requires one; when resolution is required, use the lowest admitted tier unless the user named a higher one. Build the direction around one readable subject action and one primary camera movement. Treat requested faces, product shape, logos, typography, and composition as must-keeps; do not require the user to weaken those priorities in advance. Review the delivered clip for drift because generative motion cannot guarantee pixel-perfect later frames.
 
 ## Golden path
 
-1. Inspect the visible image. Identify the subject, framing, protected details, destination, one subject action, one camera move, and pacing. Express them as a compact motion brief.
-2. Use `model: "auto"` and omit optional controls unless a user choice or destination requires otherwise. Query `beatra.models.list` with `{"capability":"image_to_video"}` only when model compatibility, a requested control, or price affects the decision. Any numeric estimate is provisional and always requires this live lookup; never quote a remembered price. The terminal task's `billing.net_charged_credits` is final.
-3. Show the user the final route, source, brief, output count, explicit controls, and paid boundary. A clear instruction to execute the exact prepared clip can count as approval; planning, comparison, or an unresolved choice does not. Otherwise ask for confirmation before the billable call.
+1. Inspect the visible image. Identify the subject, framing, protected details, destination, one subject action, one camera move, and pacing. Express them as a compact motion brief. Do not replace the supplied still with `beatra.images.generate` or `beatra.videos.enhance_prompt`.
+2. Call `beatra.models.list` with `{"capability":"image_to_video"}` before naming compatibility, duration, resolution, or a numeric estimate. Keep `model: "auto"` unless the user chose a concrete eligible model. Admit the complete payload against one current card. Write the shortest admitted integer `duration`. Omit aspect ratio and other optional controls unless a user choice or destination requires them. Any numeric estimate is provisional; never quote a remembered price. The terminal task's `billing.net_charged_credits` is final.
+3. Show an admission card before any `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, source, brief, duration, resolution if set, output count, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate.
 4. Freeze the image reference, prompt if used, model, duration, aspect ratio, resolution, audio, every optional control, and one opaque stable `client_request_id` in a private execution ledger. Invoke the bundled `scripts/mcp_client.py` only: the MCP tool name is the CLI argument and its tool arguments are JSON on standard input. For example:
 
    ```text
-   printf '%s' '{"image":{"type":"artifact","artifact_id":"art_opening"},"prompt":"A restrained camera push while the product remains centered.","client_request_id":"opaque-stable-id"}' | python3 scripts/mcp_client.py call beatra.videos.animate
+   printf '%s' '{"image":{"type":"artifact","artifact_id":"art_opening"},"prompt":"A restrained camera push while the product remains centered.","duration":5,"client_request_id":"opaque-stable-id"}' | python3 scripts/mcp_client.py call beatra.videos.animate
    ```
 
    Do not configure, call, or use a host Beatra Connector. Do not use REST/OpenAPI fallback. Submit `beatra.videos.animate` exactly once.
@@ -40,7 +40,7 @@ Default to one clip, `model: "auto"`, and the supplied image as the strict first
 
 ## Paid changes, recovery, and cancellation
 
-A changed source, prompt, model, duration, aspect ratio, resolution, audio, or other control is new logical paid work: create a new ID, show the changed paid boundary, and obtain fresh approval. Never reuse an ID across changed arguments.
+A changed source, prompt, model, duration, aspect ratio, resolution, audio, or other control is new logical paid work: create a new ID, show the changed admission card, and obtain fresh top-up or balance confirmation. Never reuse an ID across changed arguments. On `insufficient_balance`, relay the returned message, keep the top-up URL exact, and retry the same frozen ID only after the user says they have topped up.
 
 If the create response is lost, an identical retry is allowed only with the same frozen arguments and same ID. If the task ID is lost, call `beatra.tasks.list` with `{"capability":"image_to_video"}`, call `beatra.tasks.get` for plausible candidates, and match their returned facts against the private ledger before considering that identical retry. Recover the original task before planning changed work. Failures and timeouts do not authorize a duplicate submission or a guessed refund.
 

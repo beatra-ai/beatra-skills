@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "ai-audiobook-narration"
 PACKAGE_DISPLAY_NAME = "AI Audiobook Narration"
-PACKAGE_VERSION = "0.1.7"
+PACKAGE_VERSION = "0.1.9"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/ai-audiobook-narration/install.json"

@@ -1,5 +1,5 @@
 {
-  "changelog": "See a clearer cost range before creating an optional transition endpoint image.",
+  "changelog": "Show a prepaid admission card before interpolating the two frames.",
   "display_name": "First & Last Frame Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/first-last-frame-video",
@@ -71,5 +71,5 @@
   },
   "name": "first-last-frame-video",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

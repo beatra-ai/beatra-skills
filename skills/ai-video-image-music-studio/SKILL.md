@@ -67,7 +67,16 @@ automatic non-billable registration behavior.
   `beatra.videos.generate`, `beatra.videos.animate`,
   `beatra.videos.generate_from_references`,
   `beatra.videos.interpolate`, `beatra.videos.edit`, or
-  `beatra.videos.extend`. Choose with [videos](references/videos.md), then load
+  `beatra.videos.extend`. When the request is text-led and there is no usable
+  still, the first paid stage is `beatra.videos.enhance_prompt` or one
+  `beatra.images.generate` keyframe, each with its own card. That gift-sized
+  first win does not authorize any later video call. Before
+  `beatra.videos.generate`, `beatra.videos.animate`,
+  `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
+  `beatra.videos.edit`, or `beatra.videos.extend`, call `beatra.models.list`,
+  admit the complete payload, write the shortest admitted duration (audio-led
+  and extend rules unchanged), and show the video admission card. Choose with
+  [videos](references/videos.md), then load
   [video controls](references/video-controls.md) or
   [video recipes](references/video-recipes.md) only when needed.
 - For a song, instrumental, or reference-guided track, use
@@ -113,19 +122,29 @@ postpaid exception: it returns text only, never starts video generation, and a
 successful task settles from actual tokens after completion.
 
 A direct, well-specified request to create authorizes that exact paid request
-once. Approval of a complete prepared scope also authorizes it once. Otherwise,
-show the intended result, source media, concrete model or automatic choice,
-important controls, output count, and estimate before execution. Do not ask for
-a second confirmation after the exact scope is already approved. Voice cloning
-always requires the explicit consent attestation described above.
+once for image, music, speech, or a gift-sized video-prompt or keyframe stage.
+It does not authorize `beatra.videos.generate`, `beatra.videos.animate`,
+`beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
+`beatra.videos.edit`, `beatra.videos.extend`, or `beatra.voices.clone`. Before
+those video or clone calls, show the admission card: route and MCP tool name,
+live-card duration, resolution, and aspect (shortest admitted duration and
+lowest admitted resolution unless the user named a higher tier; audio-led and
+extend rules unchanged), provisional live estimate, the fact that the
+600-credit signup gift usually cannot start this video or clone, the exact URL
+`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
+not create `client_request_id` or submit until the user confirms they have
+topped up or already have enough credits for this estimate. Voice cloning
+always also requires the explicit consent attestation described above.
 
 Create one stable 1..128-character `client_request_id` only after the validated
-generation payload is final. It names one logical paid operation. Submit
+generation payload is final and, for a video or clone stage, after that
+admission confirmation. It names one logical paid operation. Submit
 exactly once, save the returned `task_id`, and poll that same task with
 `beatra.tasks.get`. An identical retry keeps the same request ID and the exact
 validated generation payload; the ID itself and transport attribution are not
 part of the payload identity. Any accepted generation-argument change is new
-paid work with a new ID and confirmation.
+paid work with a new ID and, for a video or clone stage, a new admission card.
 
 Honor a returned `deadline_at`. Otherwise stop active polling after 30 minutes,
 report the current task state and resume route, and never duplicate slow work.
@@ -142,12 +161,13 @@ input, so compare each detailed `task.input`, resolved model, media, and options
 with the saved payload before deciding that it is the same work. Never create a
 replacement because a response was lost or a task is still queued or running.
 
-On `insufficient_balance`, preserve the returned top-up URL. State that nothing
-was charged only when the error says so, wait for the user to top up, then use
-the original ID only for an identical retry. The current tool registry exposes
-no account or wallet-management call: do not invent balance reads, top-up
-operations, or account mutations. Connection revocation belongs in the Beatra
-Console.
+On `insufficient_balance`, relay the returned public message, keep
+`https://console.beatra.ai/topup` exact, translate the rest, and retry the same
+frozen `client_request_id` only after the user says they have topped up. State
+that nothing was charged only when the error says so. The current tool registry
+exposes no account or wallet-management call: do not invent balance reads,
+top-up operations, or account mutations. Connection revocation belongs in the
+Beatra Console.
 
 ## Deliver returned truth
 

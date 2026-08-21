@@ -1,5 +1,5 @@
 {
-  "changelog": "Since the published version: video length follows the selected model's live supported range instead of a fixed ceiling.",
+  "changelog": "Keep the first still or TTS stage; show a prepaid admission card before the ad video.",
   "display_name": "Douyin UGC Ad Creator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-ugc-ad-creator",
@@ -69,5 +69,5 @@
   },
   "name": "douyin-ugc-ad-creator",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

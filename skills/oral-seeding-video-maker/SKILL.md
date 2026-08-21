@@ -11,7 +11,7 @@ Start from a topic and end with a spoken recommendation video. Nothing has to be
 
 The route is: a subject, a script pattern, a shot list, generated beat frames, and one narrated vertical clip animated from the opening frame. It fits when someone wants to recommend something on camera-style video and has nothing shot yet.
 
-When material already exists, another workflow fits better. A product photo that should become the video belongs in a product-video workflow. A finished script that only needs a voice belongs in a voiceover workflow. A reference clip to rebuild belongs in a teardown-and-remake workflow. A person or avatar who should appear on screen belongs in a talking-avatar workflow.
+When material already exists, another workflow fits better. A product photo that should become the video belongs in a product-video workflow. A finished script that only needs a voice belongs in a voiceover workflow. A reference clip to rebuild belongs in a teardown-and-remake workflow. A person or avatar who should appear on screen belongs in a talking-avatar workflow. Claims that need experience evidence stay at a labelled draft when that evidence is missing. Work that needs live-action footage or an editor is routed out. This package already has stills, narration, an optional music bed, and opening-frame animation, so a zero-footage short stays here.
 
 ## Inputs and defaults
 
@@ -19,7 +19,7 @@ The one hard input is the subject: the product, service, or topic being recommen
 
 Reuse whatever the conversation already states about the audience, the goal, the account's persona, and the destination platform. When those are absent, choose them from the subject and name the choice in the confirmation rather than asking.
 
-Default to a 9:16 vertical canvas, a 12-second target, the script pattern selected in [choosing the pattern](references/script-patterns.md), an opening frame plus any beats the user marks, and a narration voice matched to short social content. Music is off unless asked for.
+Default to a 9:16 vertical canvas, a 12-second target, the script pattern selected in [choosing the pattern](references/script-patterns.md), an opening frame plus any beats the user marks, and a narration voice matched to short social content. Music is off unless asked for. Default to writing the first 3 seconds as the hook — the reason to keep watching — rather than opening with a self-introduction.
 
 Two facts shape every decision. **The finished clip runs at most 15 seconds**, and only the opening frame is animated into it — the other marked frames are delivered as stills for the user's own edit.
 
@@ -30,13 +30,13 @@ Claims split by source. What the subject is, who it is for, and how it is used a
 Stages 1 to 3 cost nothing. No paid call happens before the user has approved the shot list.
 
 1. **Choose the pattern.** Read the subject and select one of the six script patterns in [choosing the pattern](references/script-patterns.md). The pattern sets the beat count and what each beat does.
-2. **Write the shot list.** Hook, body beats, and closing ask, each with second-level in and out points and two separate fields — what is on screen, and what is said. Screen the copy as described in [writing the spoken lines](references/spoken-lines.md).
+2. **Write the shot list.** The spoken structure is hook → evidence or experience → call to action, each with second-level in and out points and two separate fields — what is on screen, and what is said. Screen the copy as described in [writing the spoken lines](references/spoken-lines.md). If the first 3 seconds do not carry the hook, revise that still-free shot list before any generation confirmation.
 3. **Show the shot list and get it approved.** This is what the rest of the run is built from, and it is free to revise.
 4. Read the live `text_to_image`, `text_to_speech`, and `image_to_video` cards with `beatra.models.list` — plus `text_to_music` when a bed was requested — and check every planned image, speech, video, and music fact against the relevant card.
 5. **Confirm preparation.** Show which beats become frames, the 9:16 canvas and what changing it later would cost, the selected ready voice from `beatra.voices.list`, whether a music bed is included, the current estimate, and a stable request ID for every planned paid call.
 6. Generate the beat frames with `beatra.images.generate`, one call per frame. Synthesize the narration with `beatra.speech.synthesize`, then read the actual returned duration, size, and MIME type. Produce the music bed with `beatra.music.generate` only when it was confirmed.
 7. **Show the real materials.** Display the frames and play the narration whenever the host can access them, and report the true duration. Distinguish returned task facts from media the host could not inspect.
-8. **Confirm the video.** Then call `beatra.videos.animate` once with the approved opening frame, the narration, an explicitly selected model, and a duration equal to the smallest whole second at or above the real narration length.
+8. **Show the video admission card.** Show route `image_to_video`, tool `beatra.videos.animate`, approved opening frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved frames or narration do not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the approved opening frame, the narration, an explicitly selected model, and that audio-led duration.
 9. Poll that task with `beatra.tasks.get` until terminal, deliver the clip, and review what you can actually see.
 
 Select the video model explicitly rather than leaving it to `auto`: only some models on this capability accept supplied narration, and one that does not will discard it.
@@ -73,7 +73,7 @@ When the host can view or play the returned media, check that each frame matches
 
 ## Recovery
 
-Record each task ID immediately and poll only that task. `queued` and `running` mean wait. If a create response is lost, resubmit only the identical frozen payload under the same identifier; if a task ID is lost, list tasks for that capability and match candidates against your own ledger before any retry. Redoing one frame reuses the other artifacts unchanged. `insufficient_balance` means nothing was charged and the identical request can be resubmitted after a top-up.
+Record each task ID immediately and poll only that task. `queued` and `running` mean wait. If a create response is lost, resubmit only the identical frozen payload under the same identifier; if a task ID is lost, list tasks for that capability and match candidates against your own ledger before any retry. Redoing one frame reuses the other artifacts unchanged. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 ## References by task
 

@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "beatra"
 PACKAGE_DISPLAY_NAME = "Beatra"
-PACKAGE_VERSION = "2.7.1"
+PACKAGE_VERSION = "2.7.2"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/install.json"

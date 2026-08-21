@@ -65,11 +65,18 @@ video route.
    artifact reference. Query `beatra.models.list` with `video_edit` before a
    model, source-media compatibility, duration, audio, output, or price choice
    affects the request.
-4. **Freeze one paid edit.** Show the source, one problem cluster, exact
-   instruction, must-keeps, live ratio and duration behavior (including any
-   output limit or approved explicit control), audio choice, the frozen live
-   model behavior, provisional estimate, and one paid `beatra.videos.edit`
-   task. A clear request to proceed authorizes only that frozen edit.
+4. **Show the video admission card.** After `beatra.models.list` admits the
+   complete payload, show route `video_edit`, tool `beatra.videos.edit`,
+   source, one problem cluster, exact instruction, must-keeps, live-card
+   duration and ratio behavior (including any output limit or approved
+   explicit control), resolution if set, provisional live estimate, the fact
+   that the 600-credit signup gift usually cannot start this video, the exact
+   URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits.
+   Do not recommend ¥198. When duration is a sendable control rather than
+   source-derived, write the shortest admitted integer. Planning, comparison,
+   or “make the clip” is not approval. Do not create `client_request_id` or
+   submit until the user confirms they have topped up or already have enough
+   credits for this estimate.
 5. **Execute once through the bundled client.** Use the bundled
    `scripts/mcp_client.py` for every remote Beatra tool: put the MCP tool name
    after `call` and pass
@@ -91,8 +98,11 @@ before accepting any live-card default or output limit that changes source
 ratio or timing, before choosing an explicit ratio or duration, before choosing
 an audio policy, or before accepting weaker preservation for the selected
 repair. One changed source, instruction, model, duration, ratio, audio policy,
-or optional control is new paid work and receives a new request ID and
-confirmation.
+or optional control is new paid work and receives a new request ID, a new
+admission card, and fresh top-up or balance confirmation. On
+`insufficient_balance`, relay the returned message, keep
+`https://console.beatra.ai/topup` exact, and retry the same frozen
+`client_request_id` only after the user says they have topped up.
 
 ## Recovery and next step
 

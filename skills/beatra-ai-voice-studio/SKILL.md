@@ -141,8 +141,20 @@ estimates are non-billable. `beatra.speech.synthesize` and
   separately approved remainder.
 - Multilingual work uses one supplied and approved pilot for every distinct
   voice/language/model route before a separately approved remainder.
-- A clone is one paid operation. Any spoken proof is a separate synthesis
-  operation with its own approved text, card, approval, and request identity.
+- A clone is one paid operation. Before any `client_request_id` or
+  `beatra.voices.clone` call, show the clone admission card: route
+  `voice_clone`, tool `beatra.voices.clone`, live `beatra.models.list` price
+  for one successful activated voice, the provisional estimate, the fact that
+  the 600-credit signup gift usually cannot start this clone, the exact URL
+  `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+  recommend ¥198. Do not create `client_request_id` or submit until the user
+  confirms they have topped up or already have enough credits for this
+  estimate. Do not offer a free clone or a free sample that replaces the
+  clone. On `insufficient_balance`, relay the returned public message, keep
+  the URL exact, translate the rest, and retry the same frozen
+  `client_request_id` only after the user says they have topped up. Any spoken
+  proof is a separate synthesis operation with its own approved text, card,
+  approval, and request identity.
 
 A current explicit “generate” or “make it” instruction is approval when it
 fully covers the frozen card. Do not ask for redundant confirmation in that

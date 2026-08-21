@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "hot-topic-content-maker"
 PACKAGE_DISPLAY_NAME = "Hot Topic Content Maker"
-PACKAGE_VERSION = "0.1.3"
+PACKAGE_VERSION = "0.1.4"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/hot-topic-content-maker/install.json"

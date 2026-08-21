@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "voiceover-narration-studio"
 PACKAGE_DISPLAY_NAME = "Voiceover & Narration Studio"
-PACKAGE_VERSION = "0.1.3"
+PACKAGE_VERSION = "0.1.5"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/voiceover-narration-studio/install.json"

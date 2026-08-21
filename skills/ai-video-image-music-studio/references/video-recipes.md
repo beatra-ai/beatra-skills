@@ -1,8 +1,20 @@
 # Video recipes
 
-Use current models, constraints, and prices from `beatra.models.list`. Assemble final
-arguments, create one opaque `client_request_id`, call the selected billable tool exactly
-once, and poll with `beatra.tasks.get`.
+Use current models, constraints, and prices from `beatra.models.list`. Admit the
+complete payload, write the shortest admitted duration (audio-led and extend
+rules unchanged), and show the video admission card before creating
+`client_request_id` or submitting `beatra.videos.generate`,
+`beatra.videos.animate`, `beatra.videos.interpolate`,
+`beatra.videos.generate_from_references`, `beatra.videos.edit`, or
+`beatra.videos.extend`. The card must include route, tool, duration, resolution
+if set, provisional estimate, the fact that the 600-credit signup gift usually
+cannot start this video, the exact URL `https://console.beatra.ai/topup`, and
+starter ¥29 / 11,000 credits. Do not recommend ¥198. “Make the clip” is not
+approval. Example `duration` and `resolution` values below are placeholders;
+replace them with the shortest admitted duration and lowest admitted resolution
+unless the user named a higher tier. After confirmation, create one opaque
+`client_request_id`, call the selected billable tool exactly once, and poll
+with `beatra.tasks.get`.
 
 For local media, use only the dedicated bundled upload command. It validates
 the `beatra.assets.upload` grant and completes the upload internally:

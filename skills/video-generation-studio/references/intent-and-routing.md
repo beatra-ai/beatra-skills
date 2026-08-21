@@ -6,7 +6,7 @@ Choose the route from the role of the supplied media, not from a preferred model
 
 | User's source and intent | Capability to inspect | Operation | Required source semantics |
 | --- | --- | --- | --- |
-| A new shot with no required visual source | `text_to_video` | `beatra.videos.generate` | A non-empty prompt; optional driving audio only when a live card admits it |
+| A new shot with no usable still | `text_to_image` then `image_to_video` | `beatra.images.generate` then usually `beatra.videos.animate` | One keyframe first on its own card; video only after that delivery and the admission card. `beatra.videos.generate` (`text_to_video`) remains available only after those two stops |
 | One image must be the exact opening frame | `image_to_video` | `beatra.videos.animate` | One strict first-frame image, not a loose style reference |
 | Two images must be the exact beginning and end | `frames_to_video` | `beatra.videos.interpolate` | One first frame and one last frame |
 | Ordered images, videos, or audio should guide a new clip | `reference_to_video` | `beatra.videos.generate_from_references` | Typed ordered references within the selected live card's limits |
@@ -19,7 +19,7 @@ An image that only suggests appearance is a reference; an image that must be fra
 
 ### New shot from words
 
-Use text-to-video when the user's prompt can define the complete visual event. Develop one subject, one visible action, one primary camera move, setting, light, and pacing. Do not add an image stage merely because one might improve consistency; offer it only when identity, product geometry, composition, or a strict boundary is important enough to justify another paid checkpoint.
+When the user's prompt can define the complete visual event but no usable still exists, generate one keyframe with `beatra.images.generate` first. Develop one subject, one visible action, one primary camera move, setting, light, and pacing on that still, deliver it, then show the video admission card. After the still is accepted, continue on `beatra.videos.animate` unless the user named another video route. Do not skip the keyframe to go straight to `beatra.videos.generate`.
 
 ### Exact opening image
 
@@ -53,7 +53,7 @@ Treat each shot as a separate output and select its route independently. A usefu
 - must-keeps and continuity anchors;
 - paid request count and execution order.
 
-If the user requests a sequence and accepts the entire frozen plan, one combined confirmation can authorize the listed stages. Every stage still receives its own stable request ID. Run dependencies in order and review each delivered artifact before it becomes a downstream source. If the artifact changes a later shot's payload or makes it unsuitable, pause and obtain approval for the revised stage.
+If the user requests a sequence, freeze the listed stages and show each required keyframe card and each video admission card in order. One combined confirmation of the plan does not authorize a video generate, animate, interpolate, reference, edit, or extend call. Every stage still receives its own stable request ID. Run dependencies in order and review each delivered artifact before it becomes a downstream source. If the artifact changes a later shot's payload or makes it unsuitable, pause and show a new admission card for the revised stage.
 
 Deliver the outputs as separate clips. A returned last-frame artifact can anchor a following animate request when the current model supports `return_last_frame`, but that improves visual continuity rather than assembling a timeline. Do not claim transitions, captions, narration, music, or one completed long video unless the corresponding delivered artifacts and separate assembly workflow actually exist.
 

@@ -103,7 +103,7 @@ Any failure stops here, and check 2 in particular stops here rather than resolvi
 
 ## Approval gate 2 — the shoot
 
-Show the exact approved opening frame and narration artifacts, the motion direction, the selected model, the computed duration, and the paid boundary. Freeze them under a new stable `client_request_id`.
+Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved opening frame and narration, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved frames or narration do not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze them under a new stable `client_request_id`.
 
 ## The shoot — one paid call
 
@@ -158,7 +158,7 @@ Keep a private ledger per paid stage — a reference lookup included: what it wa
 
 If a create response is lost, resubmit only the identical frozen payload under the same ID. If a task ID is lost, list tasks for that capability, inspect plausible candidates, and match them against the ledger before considering a retry. A reference lookup has no capability to list by: match its saved `operation_key`, arguments, and `schema_hash` against the candidates instead. A slow task is not a failed task. Never replace a running task with a duplicate.
 
-`insufficient_balance` means the request was not started and nothing was charged. It is not a failed generation. The user tops up and the identical request is resubmitted under the same ID.
+On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. It is not a failed generation.
 
 Cancel only when the user asks. Call `beatra.tasks.cancel` once and confirm the terminal state with `beatra.tasks.get`. A 409 means cancellation is unconfirmed: keep polling that same task and create no replacement work.
 

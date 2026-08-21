@@ -153,22 +153,26 @@ than dropping a specification silently:
 
 ## Confirmation and execution
 
-Before each paid stage, show a one-block confirmation that includes:
+Before each paid image stage, show that stage's own card. Before each
+`beatra.videos.animate`, `beatra.videos.generate_from_references`, or
+`beatra.videos.interpolate` call, show a video admission card that includes:
 
 - user-confirmed factual copy and all product must-keeps;
 - every photo/reference artifact in exact order and its role;
-- full visual prompt, route, strict-boundary handling, model, controls, and
-  admitted canvas or output specification;
-- live maximum charge per call, total maximum, billing basis, and total call
-  count; and
-- one opaque 1–128 character `client_request_id` per logical paid call.
+- full visual prompt, route, MCP tool name, strict-boundary handling, model,
+  controls, shortest admitted duration, lowest admitted resolution unless a
+  higher tier was named, and admitted canvas or output specification;
+- provisional live estimate, the fact that the 600-credit signup gift usually
+  cannot start this video, the exact URL `https://console.beatra.ai/topup`, and
+  starter ¥29 / 11,000 credits. Do not recommend ¥198.
 
-The user must approve the block before any ID is used to create paid work.
-Use a new confirmation and ID for every changed source, order, role, prompt,
-product fact, canvas, duration, model, control, or route. A transformed frame,
-focused edit, animation, reference-video request, and interpolation are
-separate paid stages. Do not make one indistinct “make my video” confirmation
-stand for an unknown sequence of charges.
+Planning, comparison, or “make my video” is not approval. Do not create a
+video `client_request_id` or submit until the user confirms they have topped up
+or already have enough credits for this estimate. Use a new admission card and
+ID for every changed source, order, role, prompt, product fact, canvas,
+duration, model, control, or route. On `insufficient_balance`, relay the
+returned message, keep the URL exact, and retry the same frozen ID only after
+the user says they have topped up.
 
 After approval, invoke the selected tool with the byte-frozen JSON payload once.
 Record its original response and task ID immediately.

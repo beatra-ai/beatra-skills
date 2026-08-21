@@ -114,19 +114,25 @@ the paid call and request the smallest compatible source or setting change.
 
 ## 4. Confirm and submit one edit
 
-Show one concise confirmation card:
+Show one prepaid admission card before any `client_request_id` or
+`beatra.videos.edit` call:
 
 | Item | Frozen value |
 | --- | --- |
+| Route and tool | `video_edit` / `beatra.videos.edit` |
 | Source | The exact source clip and known media facts |
 | Selected correction | One light, material, saturation, or repeated-detail issue |
 | Must-keeps | Named subject, framing, movement, timing, mood, and brand details |
-| Output handling | Live-card ratio and duration behavior, including any approved default, output limit, or explicit control; audio policy if admitted |
+| Output handling | Live-card ratio and duration behavior, including any approved default, output limit, or explicit control; audio policy if admitted. When duration is sendable rather than source-derived, write the shortest admitted integer. |
 | Model and cost | Frozen compatible live model, or an auto-eligible set whose ratio and duration behavior the user accepted, plus the current provisional estimate |
+| Gift fact | The 600-credit signup gift usually cannot start this video |
+| Top-up | Exact URL `https://console.beatra.ai/topup`; starter ¥29 / 11,000 credits. Do not recommend ¥198. |
 | Paid stage | One `beatra.videos.edit` request and one output task |
 
-Create a stable opaque `client_request_id` only after the request is frozen and
-the user clearly confirms it. Submit exactly once through the bundled client:
+Planning, comparison, or “make the clip” is not approval. Create a stable
+opaque `client_request_id` only after the user confirms they have topped up or
+already have enough credits for this estimate. Submit exactly once through the
+bundled client:
 
 ```text
 printf '%s' '{"source_video":{"type":"artifact","artifact_id":"art_source_clip"},"instruction":"Correct the over-magenta highlights and overly glossy plastic texture on the product bottle. Keep the product shape, label, framing, camera movement, clip timing, background structure, and warm evening mood recognizable.","model":"auto","client_request_id":"opaque-video-retouch-id"}' | python3 scripts/mcp_client.py call beatra.videos.edit
@@ -137,8 +143,8 @@ only because its frozen live card admits source-derived ratio and timing. When
 the selected card instead has a default, output limit, or explicit control,
 show that behavior before confirmation and include an explicit ratio or
 duration only when the user approves it. A source, instruction, model,
-duration, ratio, audio choice, or control change is new work with a new ID and
-fresh confirmation.
+duration, ratio, audio choice, or control change is new work with a new ID, a
+new admission card, and fresh top-up or balance confirmation.
 
 ## 5. Poll, review, and deliver
 
@@ -182,7 +188,7 @@ response, and task ID.
 | Task queued or running | Continue polling the original task; do not submit another retouch. |
 | Upload grant expired or MIME/length mismatch | Use the bundled upload helper for a fresh grant, then retain the otherwise frozen route. |
 | Model validation error | Refresh the `video_edit` card before proposing a changed setting. |
-| Insufficient balance | Request a balance action before the unchanged approved request proceeds. |
+| Insufficient balance | Relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. |
 | User asks to cancel | Call `beatra.tasks.cancel` once and keep polling the original task; a `409` does not confirm cancellation. |
 
 Leave any different visual correction unexecuted until it receives its own

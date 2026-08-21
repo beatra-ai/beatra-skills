@@ -20,7 +20,7 @@ Prefer temporal language: what happens first, what changes, where attention land
 
 Use an explicitly requested aspect ratio only when a live eligible model card accepts it. When a source determines the canvas, preserve its ratio by omitting `aspect_ratio` unless the user approves a change. Do not silently crop, stretch, or convert a source-led shot to another frame.
 
-Choose duration and resolution from current eligible model cards. Duration is integer seconds or `"auto"` on routes whose live cards permit it; video extension instead requires a concrete integer final duration. Omit optional controls to retain current model defaults unless the user or shot needs them.
+Choose duration and resolution from current eligible model cards. Write the shortest admitted integer duration and the lowest admitted resolution unless the user named a higher tier. Do not omit duration on `model: "auto"`. Audio-led duration is the smallest admitted whole second at or above the real speech or song length. Video extension requires a concrete integer final duration greater than the trusted source. Omit other optional controls unless the user or shot needs them.
 
 For ads and social clips, identify the destination and the one job of the shot: hook, demonstrate, reveal, transition, establish, or close. This shapes the direction but does not imply captions, layout, timeline editing, or delivery to a platform.
 

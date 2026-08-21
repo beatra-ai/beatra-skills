@@ -37,11 +37,12 @@ continue with a product-led direction and request one seller-supplied fact only
 when it changes the product story.
 
 Propose one silent, single-product, single-action clip as the default: `1:1`,
-`720p`, and `5` seconds, with a recognisable first frame, restrained motion,
-and a clean final product view. The current destination and live model card
-decide the final canvas, resolution, duration, and silent-output controls; name
-the accepted choices in the paid confirmation rather than treating the proposal
-as a platform guarantee.
+the lowest admitted resolution unless the user named a higher tier, and the
+shortest integer duration the selected live card admits, with a recognisable
+first frame, restrained motion, and a clean final product view. The current
+destination and live model card decide the final canvas, resolution, duration,
+and silent-output controls; name the accepted choices in the video admission
+card rather than treating the proposal as a platform guarantee.
 
 ## Plan the product story first
 
@@ -99,20 +100,26 @@ Planning, listing copy direction, local-media inspection, upload, and live-card
 comparison are free. Image transform, focused image edit, animation,
 reference-video generation, and interpolation are paid.
 
-Before each paid stage, show a compact confirmation that freezes:
+Before each paid image stage, show that stage's own card. Before each
+`beatra.videos.animate`, `beatra.videos.generate_from_references`, or
+`beatra.videos.interpolate` call, show a video admission card that freezes:
 
 - product must-keeps and seller-supplied facts used in the direction;
 - every source and reference in exact order, with its role;
-- selected route, prompt, first and last-frame handling where relevant;
-- live-card-admitted model, controls, canvas, resolution, duration,
-  silent-output setting, current billing basis, and maximum cost;
-- paid call count, delivery review plan, and one fresh opaque stable
-  `client_request_id` per logical paid request.
+- selected route, MCP tool name, prompt, first and last-frame handling where relevant;
+- live-card-admitted model, controls, canvas, shortest admitted duration,
+  lowest admitted resolution unless a higher tier was named, silent-output
+  setting, provisional live estimate, the fact that the 600-credit signup gift
+  usually cannot start this video, the exact URL `https://console.beatra.ai/topup`,
+  and starter ¥29 / 11,000 credits. Do not recommend ¥198.
 
-For a transformed first frame, confirm paid preparation before the transform.
-Then review the accessible returned frame and obtain a separate confirmation for
-the dependent video. Treat a changed approved artifact or frozen argument as
-new paid work with a new identifier.
+Planning, listing copy, or “make the clip” is not approval. Do not create a
+video `client_request_id` or submit until the user confirms they have topped up
+or already have enough credits for this estimate. For a transformed first
+frame, confirm paid preparation before the transform. Then review the
+accessible returned frame and show a separate video admission card. Treat a
+changed approved artifact or frozen argument as new paid work with a new
+identifier and a new admission card.
 
 ## Execute once through the bundled client
 
@@ -147,7 +154,10 @@ the matching capability and inspect plausible candidates with
 `beatra.tasks.get`. Compare the retained payload, media order, model, canvas,
 duration, and timing against the local ledger. Replay only a byte-identical
 frozen payload with the same original ID when evidence supports an identical
-retry. A slow task or lost connection remains the original task.
+retry. A slow task or lost connection remains the original task. On
+`insufficient_balance`, relay the returned message, keep
+`https://console.beatra.ai/topup` exact, and retry the same frozen
+`client_request_id` only after the user says they have topped up.
 
 Cancel only when the user asks to cancel. Call `beatra.tasks.cancel` once; if
 it returns `409`, continue polling the original task and report its terminal

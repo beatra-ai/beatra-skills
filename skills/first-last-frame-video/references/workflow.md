@@ -36,7 +36,7 @@ A transition that depends on a not-yet-created frame cannot be submitted until t
 
 ## Preflight the live frames-to-video card
 
-Before any paid transition, call `beatra.models.list` with `{"capability":"frames_to_video"}` and inspect the current typed model cards. Require a current card that admits both endpoint images' actual MIME types, dimensions, and byte sizes. Confirm the live duration behavior, aspect-ratio handling, whether driving audio is admitted for this exact image/audio combination, and the price basis.
+Before any paid transition, call `beatra.models.list` with `{"capability":"frames_to_video"}` and inspect the current typed model cards. Require a current card that admits both endpoint images' actual MIME types, dimensions, and byte sizes. Confirm the live duration behavior, aspect-ratio handling, whether driving audio is admitted for this exact image/audio combination, and the price basis. Write the shortest integer `duration` that card admits. Do not omit duration on `model=auto` hoping a default will admit, and do not hard-code 8 / 10 / 15 when the card allows a shorter integer.
 
 Optional driving audio belongs only on a live frames-to-video card that admits the exact image/audio combination. Because Beatra does not trim audio, match the real audio duration to a supported video duration so the requested audio excerpt fits in full; when the audio would be generated first, prove at least one downstream card can admit the planned images plus target audio format and duration before paying for the upstream call, then repeat admission with the terminal audio's real MIME type, bytes, and duration before proposing the video call.
 
@@ -57,17 +57,18 @@ Submit strict `first_frame` and `last_frame`. Encode the transition map in one p
     "artifact_id": "art_last"
   },
   "prompt": "Transform the subject from the daytime outfit to the evening outfit with a smooth camera push-in, keeping the face and background aligned.",
+  "duration": 5,
   "client_request_id": "opaque-interpolate-id"
 }
 ```
 
-When driving audio is admitted and used, include it as typed audio media and choose a supported video duration that contains it in full. Show the exact first frame, last frame, transition instruction, optional driving audio, model behavior, explicit controls, and paid boundary. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.interpolate` exactly once.
+Replace `5` with the shortest integer the current card actually admits. When driving audio is admitted and used, include it as typed audio media and choose the smallest admitted whole second at or above the real audio length so the excerpt fits in full. Before creating `client_request_id` or submitting `beatra.videos.interpolate`, show the admission card with every field: route, tool, duration, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. A request to make the clip is not approval. A separately created endpoint image does not authorize the interpolate call.
 
 ## Poll, recover, and cancel
 
 Keep a private ledger entry for the transition stage: logical label, full frozen arguments, stable request ID, approval, creation time, create response, task ID, and terminal result. (A separately created endpoint image keeps its own stage entry.) Record the returned task ID immediately and call `beatra.tasks.get` until `succeeded`, `failed`, or `canceled`. `queued` and `running` mean wait, not retry.
 
-If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate.
+If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. Any change to frames, prompt, model, duration, or another control creates new logical paid work: assign a new request ID, show a new admission card, and obtain fresh top-up or balance confirmation.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.
 

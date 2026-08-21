@@ -50,13 +50,13 @@ The normal restyle payload is:
 }
 ```
 
-When an ordered style reference is used, include it in the typed `references` array as the live card requires. Show the exact source video, reference media when used, edit instruction, model behavior, explicit controls, output count, and paid boundary. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.edit` exactly once.
+When an ordered style reference is used, include it in the typed `references` array as the live card requires. Before creating `client_request_id` or submitting `beatra.videos.edit`, show the admission card with every field: route, tool, duration if set, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. A request to make the clip is not approval. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.edit` exactly once.
 
 ## Poll, recover, and cancel
 
 Keep a private ledger entry for the restyle stage: logical label, full frozen arguments, stable request ID, approval, creation time, create response, task ID, and terminal result. Record the returned task ID immediately and call `beatra.tasks.get` until `succeeded`, `failed`, or `canceled`. `queued` and `running` mean wait, not retry.
 
-If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate.
+If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. Any change to source, instruction, model, duration, or another control creates new logical paid work: assign a new request ID, show a new admission card, and obtain fresh top-up or balance confirmation.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.
 

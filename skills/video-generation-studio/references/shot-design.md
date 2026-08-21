@@ -20,7 +20,7 @@ Prefer temporal language: what happens first, what changes, where attention land
 
 Use an explicitly requested aspect ratio only when a live eligible model card accepts it. When a source determines the canvas, preserve its ratio by omitting `aspect_ratio` unless the user approves a change. Do not silently crop, stretch, or convert a source-led shot to another frame.
 
-Choose duration and resolution from current eligible model cards. Duration is integer seconds or `"auto"` on routes whose live cards permit it; video extension instead requires a concrete integer final duration. Omit optional controls to retain current model defaults unless the user or shot needs them.
+Choose duration and resolution from current eligible model cards. Write the shortest integer duration that card admits unless the user named a longer one. Duration is integer seconds; do not omit it on `model: "auto"` and do not hard-code 8, 10, or 15 when a shorter admitted integer exists. Video extension requires a concrete integer final duration greater than the trusted source. Use the lowest admitted resolution unless the user named a higher tier. Omit other optional controls unless the user or shot needs them.
 
 For ads and social clips, identify the destination and the one job of the shot: hook, demonstrate, reveal, transition, establish, or close. This shapes the direction but does not imply captions, layout, timeline editing, or delivery to a platform.
 
@@ -51,4 +51,4 @@ Seek a decision before:
 - changing the number of paid clips or stages;
 - altering a frozen payload after approval.
 
-Shot planning and critique are free. Confirmation belongs immediately before the complete frozen paid stage or visible multi-stage plan, not before ordinary direction work.
+Shot planning and critique are free. A request to make the clip is not approval. Video confirmation is the admission card plus top-up or sufficient-credit confirmation, immediately before the frozen paid video stage. A keyframe image card is a separate earlier stop and does not authorize video.

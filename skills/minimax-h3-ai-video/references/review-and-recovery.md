@@ -18,8 +18,11 @@ The replay uses byte-equivalent arguments and the same stable
 `client_request_id`. Never change prompt, media, order, duration, canvas,
 watermark, or model during recovery.
 
-A changed creative request is a new paid call: present a new confirmation and
-use a new identity.
+A changed creative request is a new paid call: show a new admission card
+(including the 600-credit fact, exact top-up URL, and starter ¥29) and use a
+new identity. On `insufficient_balance`, relay the returned message, keep
+`https://console.beatra.ai/topup` exact, and retry the same frozen
+`client_request_id` only after the user says they have topped up.
 
 ## Handle terminal states
 

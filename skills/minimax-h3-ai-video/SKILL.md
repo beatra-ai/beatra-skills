@@ -8,7 +8,9 @@ description: "Create polished 2K AI videos with MiniMax H3. Turn a written idea 
 Enhance one video brief or create one polished 720p or 2K MiniMax H3 video from
 the creator's actual starting point. Reuse decisions already present in the
 conversation, propose sensible defaults for choices the creator has not made,
-and ask only when a missing input changes the route or paid result.
+and ask only when a missing input changes the route or paid result. When the
+brief is rough, run `beatra.videos.enhance_prompt` first as its own gift-sized
+stage before any video generation.
 
 ## Choose the route
 
@@ -48,8 +50,8 @@ camera language, visual rhythm, brand presentation, or sound direction.
 
 For video generation, send `model="minimax-h3"`, either `resolution="720p"`
 or `resolution="2k"`, and an integer `duration` from 4 through 15 seconds. Use
-5 seconds when the creator has no duration preference. Use 720p for a lower-cost
-draft unless the creator wants 2K. H3 returns one MP4; the video schema has no
+5 seconds when the creator has no duration preference. Default to 720p. Send
+`2k` only when the creator names 2K. H3 returns one MP4; the video schema has no
 output-count control. For prompt enhancement, omit `model`; Beatra ignores that
 compatibility field and resolves H3 internally.
 
@@ -95,17 +97,30 @@ hardcoded price—for the estimate:
 
 Planning, upload, model discovery, installation registration, and task lookup
 are not billable generation calls. Prompt enhancement is a separate text-only
-postpaid task: it charges actual tokens only after success and never starts a
-video. Before each paid call, show one confirmation containing the final prompt,
-route, ordered inputs, duration, canvas where accepted, 720p or 2K output when
-generating, watermark choice, model behavior, and live estimate.
-For reference-to-video, include accepted input-video seconds, output seconds,
-and both meter estimates.
+postpaid task with its own card: it charges actual tokens only after success and
+never starts a video. That gift-sized stage does not authorize
+`beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`,
+or `beatra.videos.generate_from_references`.
 
-After approval, create one stable opaque `client_request_id` for the exact
-logical request and submit it once. A changed prompt, input or order, duration,
-canvas, watermark choice, or model is new paid work and needs fresh approval and
-a new ID.
+Before any of those video tools or a video `client_request_id`, show an
+admission card in the user's language: route and MCP tool name, live-card
+duration, resolution, and aspect, provisional live estimate, the fact that the
+600-credit signup gift usually cannot start this video, the exact URL
+`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+recommend ¥198. Include the final prompt, ordered inputs, 720p or named 2K
+output, watermark choice, and model behavior. For reference-to-video, include
+accepted input-video seconds, output seconds, and both meter estimates. Planning
+or “make the video” is not approval. Do not create `client_request_id` or submit
+until the user confirms they have topped up or already have enough credits for
+this estimate.
+
+After that confirmation, create one stable opaque `client_request_id` for the
+exact logical request and submit it once. A changed prompt, input or order,
+duration, canvas, watermark choice, or model is new paid work: show the changed
+admission card and obtain fresh top-up or balance confirmation and a new ID.
+On `insufficient_balance`, relay the returned message, keep the top-up URL
+exact, and retry the same frozen ID only after the user says they have topped
+up.
 
 Use the bundled `scripts/mcp_client.py` for every remote MCP operation. Pass the
 MCP tool name after `call` and send arguments as JSON on standard input. Never

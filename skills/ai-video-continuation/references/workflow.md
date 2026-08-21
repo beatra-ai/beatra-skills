@@ -34,7 +34,7 @@ Keep `model: "auto"` unless the user chose a concrete eligible model. Numeric co
 
 ## Size the final duration and submit the extension
 
-The request `duration` is the final returned-video duration, not seconds to add. It must be an integer that exceeds the trusted source duration and stays within the live maximum. The value does not accept `auto`. If the source already meets or exceeds the current maximum, this route cannot enter; tell the user plainly rather than submitting a doomed call.
+The request `duration` is the final returned-video duration, not seconds to add. It must be an integer that exceeds the trusted source duration and stays within the live maximum. Prefer the shortest admitted final duration that still exceeds the source. The value does not accept `auto`. If the source already meets or exceeds the current maximum, this route cannot enter; tell the user plainly rather than submitting a doomed call.
 
 The required `direction` is `"before"` (add a lead-in) or `"after"` (extend the ending). Optional ordered image or audio references may reinforce the continuation only when a live card permits them. State the continuation beat in the required `instruction` field: one positive line that names the single next event and preserves the continuity state.
 
@@ -53,13 +53,13 @@ The normal extension payload is:
 }
 ```
 
-Show the exact source video, continuation direction, next beat, final duration, model behavior, explicit controls, and paid boundary. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.extend` exactly once.
+Before creating `client_request_id` or submitting `beatra.videos.extend`, show the admission card with every field: route, tool, final duration, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. A request to make the clip is not approval. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.extend` exactly once.
 
 ## Poll, recover, and cancel
 
 Keep a private ledger entry for the extension stage: logical label, full frozen arguments, stable request ID, approval, creation time, create response, task ID, and terminal result. Record the returned task ID immediately and call `beatra.tasks.get` until `succeeded`, `failed`, or `canceled`. `queued` and `running` mean wait, not retry.
 
-If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate.
+If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. Any change to source, direction, beat, final duration, model, or another control creates new logical paid work: assign a new request ID, show a new admission card, and obtain fresh top-up or balance confirmation.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.
 

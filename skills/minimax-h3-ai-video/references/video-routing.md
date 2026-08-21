@@ -21,7 +21,7 @@ videos, or audio clips.
 
 - Generation model: `minimax-h3`, never `auto`.
 - Prompt enhancement omits `model`; any supplied value is ignored.
-- Resolution: `720p` for a lower-cost draft or `2k` for final detail.
+- Resolution: default `720p`. Send `2k` only when the creator names 2K.
 - Count: one MP4.
 - Duration: explicit integer 4–15 seconds; default 5.
 - Watermark: `false` unless requested.
@@ -68,6 +68,13 @@ scale. Accepted reference images and audio add no input meter.
 
 Do not hardcode a Credits price. Report the terminal task's
 `billing.net_charged_credits` after execution.
+
+Before `beatra.videos.generate`, `beatra.videos.animate`,
+`beatra.videos.interpolate`, or `beatra.videos.generate_from_references`, show
+the prepaid admission card: provisional live estimate, the 600-credit signup
+gift fact, `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits.
+Do not recommend ¥198. A completed `beatra.videos.enhance_prompt` stage does
+not authorize those video calls.
 
 ## Unsupported H3 branches
 

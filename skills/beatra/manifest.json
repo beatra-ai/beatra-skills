@@ -1,5 +1,5 @@
 {
-  "changelog": "Close the space inside eight Simplified Chinese search terms so the listing spells them the way customers type them.",
+  "changelog": "Show a prepaid admission card before video generation or voice clone on the universal hub.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "2.7.1"
+  "version": "2.7.2"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "Since the published version: follow the selected model's live duration and reference limits, including guided multi-video extension where supported, and rename the Simplified Chinese listing to 文生视频与图生视频工作室.",
+  "changelog": "Require one keyframe when no still exists, then a prepaid video admission card.",
   "display_name": "Video Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/video-generation-studio",
@@ -75,5 +75,5 @@
   },
   "name": "video-generation-studio",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

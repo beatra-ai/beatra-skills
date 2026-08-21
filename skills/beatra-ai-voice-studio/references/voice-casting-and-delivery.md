@@ -66,9 +66,10 @@ express breaths and pauses.
 
 Current synthesis controls are `format` (`mp3`, `wav`, `flac`, `opus`, or
 `pcm`), optional `sample_rate`, `speed` from 0.5 to 2.0, `volume` greater
-than 0 and at most 10, `pitch` from -12 to 12, and optional `emotion` from
-the live supported values. Keep defaults unless the destination or user
-requires a change.
+than 0 and at most 10, `pitch` from -1 to 1 (normalized: 0 keeps the
+voice's original pitch; use decimals like 0.25 for subtle tuning), and
+optional `emotion` from the live supported values. Keep defaults unless the
+destination or user requires a change.
 
 ## Calculate the current estimate
 

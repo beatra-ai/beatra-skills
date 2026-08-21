@@ -74,16 +74,27 @@ Planning is free. Only image, speech, and video calls are paid.
    `beatra.images.transform` when a cast reference must carry through.
 7. Synthesize each beat's narration with `beatra.speech.synthesize`, then read
    the actual returned duration, size, and MIME type.
-8. Animate each beat with `beatra.videos.animate`, passing that beat's shot
-   image and its narration as the driving audio. Select the video model
-   explicitly rather than leaving it to `auto`: keep only models whose card
-   admits `[image, driving_audio]`, because most on this capability do not and
-   the advertised `auto` default is a model that refuses driving audio. Omit
-   `aspect_ratio` — the 9:16
-   shot image governs the frame. Re-check the real returned narration length
-   against that card and use the smallest admitted whole second at or above it;
-   if the card admits none, stop before the video call rather than truncating
-   the line.
+8. After the shot image and narration exist, show a video admission card
+   before any video `client_request_id` or `beatra.videos.animate` call: route
+   `image_to_video`, tool `beatra.videos.animate`, that beat's image and
+   narration, audio-led duration, resolution if set, provisional live estimate,
+   the fact that the 600-credit signup gift usually cannot start this video,
+   the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000
+   credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is
+   not approval. Approved stills or narration do not authorize the video. Do
+   not submit until the user confirms they have topped up or already have
+   enough credits for this estimate. Then animate each beat with
+   `beatra.videos.animate`, passing that beat's shot image and its narration as
+   the driving audio. Select the video model explicitly rather than leaving it
+   to `auto`: keep only models whose card admits `[image, driving_audio]`,
+   because most on this capability do not and the advertised `auto` default is
+   a model that refuses driving audio. Omit `aspect_ratio` — the 9:16 shot
+   image governs the frame. Re-check the real returned narration length against
+   that card and use the smallest admitted whole second at or above it; if the
+   card admits none, stop before the video call rather than truncating the
+   line. An approved `beatra.videos.extend` also needs its own admission card;
+   its `duration` is the final returned length and must exceed that clip's own
+   duration.
 9. Deliver the beats in order as the finished scene set. Report only the actual
    returned task status, resolved model, dimensions, duration, usage, and
    `billing.net_charged_credits` for each. Review only media the host Agent can
@@ -112,8 +123,13 @@ task: submit once, then follow that task to a terminal state.
 Confirm before the first paid call, and again whenever the plan changes: the
 frozen beat sheet, the cast references, each narration line, the canvas, the
 explicit video model, the total number of paid calls in each stage, and the
-current maximum charge. A changed passage, beat, cast reference, narration line,
-canvas, model, or control is new paid work with a new request ID.
+current maximum charge. Each video generate, animate, or extend call still
+needs its own admission card and top-up or balance confirmation. A changed
+passage, beat, cast reference, narration line, canvas, model, or control is
+new paid work with a new request ID and, for a video stage, a new admission
+card. On `insufficient_balance`, relay the returned message, keep
+`https://console.beatra.ai/topup` exact, and retry the same frozen
+`client_request_id` only after the user says they have topped up.
 
 Because one beat spans an image, a speech, and a video call, keep a separate
 stable request ID per call and never reuse one across stages.

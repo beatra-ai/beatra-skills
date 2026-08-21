@@ -1,5 +1,5 @@
 {
-  "changelog": "Read the reference from a link — its caption, metrics, comments, and on YouTube its transcript — instead of only from a file, screenshots, or your own description.",
+  "changelog": "Show a prepaid admission card before the remake video stage.",
   "display_name": "Viral Video Teardown Remake",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
@@ -87,5 +87,5 @@
   },
   "name": "viral-video-teardown-remake",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.1.6"
 }

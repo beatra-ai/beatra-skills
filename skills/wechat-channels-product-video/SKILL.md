@@ -46,10 +46,12 @@ user's publication action as a generated result.
 
 ## Default and live capability check
 
-Propose one silent, single-product, single-action vertical clip: `9:16`,
-`720p`, and `5` seconds, with a clear first frame, stable light, a gentle push
-or turn, and a clean finish. Keep `model: "auto"` and advanced controls at their
-defaults unless the user chooses a model, price, or control.
+Propose one silent, single-product, single-action vertical clip: `9:16`, the
+lowest admitted resolution unless the user named a higher tier, and the
+shortest integer duration the selected live card admits, with a clear first
+frame, stable light, a gentle push or turn, and a clean finish. Keep
+`model: "auto"` and advanced controls at their defaults unless the user chooses
+a model, price, or control.
 
 Those are a proposal, not an assumption. Before freezing a route, call
 `beatra.models.list` through the bundled client for the selected capability and
@@ -104,27 +106,29 @@ package always needs a real product-photo anchor.
 
 Planning, caption writing, title options, posting direction, and live-card
 comparison are free. Transform, edit, animation, reference-video, and
-interpolation requests are paid. Before **each** paid stage, show one clear
-confirmation block that freezes:
+interpolation requests are paid. Before each paid image stage, show that
+stage's own card. Before **each** `beatra.videos.animate`,
+`beatra.videos.generate_from_references`, or `beatra.videos.interpolate` call,
+show a video admission card that freezes:
 
 - the product must-keeps and the user-supplied facts permitted in the
   motion or copy;
 - every source and reference in exact order, its role, and the full visual or
   motion prompt;
-- the selected route; strict first/last-frame handling where applicable;
-- the live-card-admitted model, controls, `aspect_ratio`, resolution, duration,
-  input and output media constraints, and current billing basis;
-- every paid call in that stage, its current maximum cost, the total maximum,
-  and the delivery review plan; and
-- a fresh opaque `client_request_id` for each logical paid request. The ID must
-  contain no user or product content and remain within the current schema's
-  1–128 character limit.
+- the selected route and MCP tool name; strict first/last-frame handling where applicable;
+- the live-card-admitted model, controls, `aspect_ratio`, shortest admitted
+  duration, lowest admitted resolution unless a higher tier was named, input
+  and output media constraints, provisional live estimate, the fact that the
+  600-credit signup gift usually cannot start this video, the exact URL
+  `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+  recommend ¥198.
 
-For a reference route that contains video, identify both the live
-`input_video_second` and `output_video_second` billing bases. A transform plus
-animation, an edit plus interpolation, or any changed source needs separate
-priced confirmation; “make a product video” is not approval for an unspecified
-chain of paid work.
+Planning, comparison, or “make a product video” is not approval. Do not create
+a video `client_request_id` or submit until the user confirms they have topped
+up or already have enough credits for this estimate. For a reference route that
+contains video, identify both the live `input_video_second` and
+`output_video_second` billing bases. A transform plus animation, an edit plus
+interpolation, or any changed source needs a separate admission card.
 
 After approval, submit each frozen payload exactly once through the bundled
 client. Any change to the photo, reference order or role, product must-keep,
@@ -164,7 +168,9 @@ on plausible candidates and compare the stored prompt, media facts and order,
 model, canvas, duration, controls, and timing before deciding whether a replay
 is warranted. A slow response, network or authentication problem, update
 failure, 409 response, or partial result never authorizes a replacement paid
-request.
+request. On `insufficient_balance`, relay the returned message, keep
+`https://console.beatra.ai/topup` exact, and retry the same frozen
+`client_request_id` only after the user says they have topped up.
 
 Cancel only on the user's explicit request. Call `beatra.tasks.cancel` once;
 if it returns 409, continue polling the same original task. Report a cancellation

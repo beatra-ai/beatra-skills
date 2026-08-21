@@ -39,11 +39,15 @@ a production-ready prompt before generation:
 }
 ```
 
-Submit `beatra.videos.enhance_prompt` once. Omit `model`; any supplied value or
-type is ignored. Poll the task to a terminal result, then review or edit the
-returned text. It never starts video generation. A successful task is charged
-after completion from actual input and output tokens; a failed or canceled
-task is not charged.
+When the brief is rough, run this gift-sized stage first. Show its own
+confirmation card, then submit `beatra.videos.enhance_prompt` once. Omit
+`model`; any supplied value or type is ignored. Poll the task to a terminal
+result, then review or edit the returned text. It never starts video
+generation and does not authorize `beatra.videos.generate`,
+`beatra.videos.animate`, `beatra.videos.interpolate`, or
+`beatra.videos.generate_from_references`. A successful task is charged after
+completion from actual input and output tokens; a failed or canceled task is
+not charged.
 
 ## Generate from a written idea
 
@@ -61,7 +65,9 @@ Use text-to-video when no source media must anchor the image:
 }
 ```
 
-Submit `beatra.videos.generate` exactly once after confirmation.
+Submit `beatra.videos.generate` exactly once after the prepaid admission card
+and top-up or balance confirmation. Default `duration` is 5 and `resolution`
+is `720p`. Send `2k` only when the creator names 2K.
 
 ## Animate one strict opening image
 
@@ -80,7 +86,9 @@ canvas is source-derived:
 }
 ```
 
-Submit `beatra.videos.animate` exactly once after confirmation.
+Submit `beatra.videos.animate` exactly once after the prepaid admission card
+and top-up or balance confirmation. Default `duration` is 5 and `resolution`
+is `720p`. Send `2k` only when the creator names 2K.
 
 ## Generate toward a strict closing frame
 
@@ -100,7 +108,9 @@ present, their dimensions and composition should be compatible. Omit
 }
 ```
 
-Submit `beatra.videos.interpolate` exactly once after confirmation. The last
+Submit `beatra.videos.interpolate` exactly once after the prepaid admission
+card and top-up or balance confirmation. Default `duration` is 5 and
+`resolution` is `720p`. Send `2k` only when the creator names 2K. The last
 image defines the exact closing frame; an optional `first_frame` also fixes the
 opening boundary while the model creates the movement between them.
 
@@ -126,10 +136,22 @@ and `reference_voice`:
 }
 ```
 
-Submit `beatra.videos.generate_from_references` exactly once after
-confirmation.
+Submit `beatra.videos.generate_from_references` exactly once after the prepaid
+admission card and top-up or balance confirmation. Default `duration` is 5 and
+`resolution` is `720p`. Send `2k` only when the creator names 2K.
 
 ## Confirm live quantities and cost
+
+Before any `beatra.videos.generate`, `beatra.videos.animate`,
+`beatra.videos.interpolate`, or `beatra.videos.generate_from_references` call,
+show the admission card: route, tool, live-card duration, resolution, and
+aspect, provisional estimate, the fact that the 600-credit signup gift usually
+cannot start this video, the exact URL `https://console.beatra.ai/topup`, and
+starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not create
+`client_request_id` or submit until the user confirms they have topped up or
+already have enough credits for this estimate. On `insufficient_balance`,
+relay the returned message, keep that URL exact, and retry the same frozen ID
+only after the user says they have topped up.
 
 For text, image, and first/last-frame requests, estimate the one
 `output_video_second` meter from the requested duration.

@@ -26,7 +26,7 @@ python3 scripts/mcp_client.py upload ./opening-frame.jpg --mime-type image/jpeg
 
 Upload is transport, not creative review. Retain the returned artifact reference and never pass a local path to a remote tool.
 
-Default to one shot, `model: "auto"`, and a vertical aspect ratio such as `9:16`. Freeze a shot card before any paid call: character identity, costume, location, action, emotion, camera language, blocking, composition, and the visible outcome. Route by source:
+Default to one shot, `model: "auto"`, a vertical aspect ratio such as `9:16`, and the shortest integer duration the selected live video card admits. Freeze a shot card before any paid call: character identity, costume, location, action, emotion, camera language, blocking, composition, and the visible outcome. Route by source:
 
 - text-only beat → `beatra.videos.generate`;
 - one strict approved opening image → `beatra.videos.animate`;
@@ -40,7 +40,7 @@ Generate dependent shots serially: review an identity-carrying shot before using
 1. Inspect every available image reference. Record its actual MIME type, width, height, aspect ratio, and byte size. Identify the actor identity, costume, location, action, emotion, camera language, blocking, composition, and the frozen dramatic beat this shot should deliver.
 2. Build a shot card: character identity, costume, location, action, emotion, camera language, blocking, composition, and the visible outcome. Then write one positive prompt that encodes the performance, mood, and landing moment for this single shot.
 3. Select the route by source. Call `beatra.models.list` with the matching capability to confirm a current card admits every actual media fact, camera control, and any driving audio. Keep the model at `auto` unless the user chose a concrete eligible model.
-4. Show the exact route, source images, reference media when used, prompt, model behavior, and paid boundary. Freeze them with one opaque stable `client_request_id`; then submit exactly one video call. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, one strict opening image to animate:
+4. After `beatra.models.list` admits the complete payload, show an admission card before any `client_request_id` or `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, or `beatra.videos.generate_from_references` call: route and MCP tool name, source images, reference media when used, prompt, shortest admitted duration, resolution if set, output count, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Freeze them with one opaque stable `client_request_id`; then submit exactly one video call. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, one strict opening image to animate:
 
    ```text
    printf '%s' '{"image":{"type":"artifact","artifact_id":"art_opening"},"prompt":"Slow dolly-in on the woman as her expression shifts from composure to tears, cinematic shallow depth of field, warm backlight.","aspect_ratio":"9:16","client_request_id":"opaque-drama-animate-id"}' | python3 scripts/mcp_client.py call beatra.videos.animate
@@ -69,7 +69,7 @@ Generate dependent shots serially: review an identity-carrying shot before using
 
 ## Paid changes, recovery, and cancellation
 
-Each shot is one paid video stage. A changed beat, actor reference, opening image, prompt, model, aspect ratio, or video control is new logical paid work with a new ID and fresh approval.
+Each shot is one paid video stage. A changed beat, actor reference, opening image, prompt, model, aspect ratio, duration, or video control is new logical paid work with a new ID, a new admission card, and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 

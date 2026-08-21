@@ -1,5 +1,5 @@
 {
-  "changelog": "Lead the Simplified Chinese display name with the short-drama term.",
+  "changelog": "Show a prepaid admission card before each short-drama shot.",
   "display_name": "AI Short Drama Shot Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-short-drama-shot-maker",
@@ -71,5 +71,5 @@
   },
   "name": "ai-short-drama-shot-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

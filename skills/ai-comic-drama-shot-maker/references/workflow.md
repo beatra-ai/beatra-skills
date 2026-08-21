@@ -114,13 +114,13 @@ Create and approve an original comic first frame through `beatra.images.generate
 
 After the user approves the returned first frame, upload or reference it and call `beatra.videos.animate` with a new request ID for the animation stage.
 
-For every route, show the exact source images, reference media when used, prompt, model behavior, explicit controls, output count, and paid boundary. Freeze all arguments and one opaque stable request ID. Submit the chosen video tool exactly once.
+For every video route, show the admission card before any `client_request_id`: route and MCP tool name, source images, reference media when used, prompt, shortest admitted duration, resolution if set, output count, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. A request to make the clip is not approval. An original first-frame image does not authorize the video call. Freeze all arguments and one opaque stable request ID. Submit the chosen video tool exactly once.
 
 ## Poll, recover, and cancel
 
 Keep a private ledger entry for each stage: logical label, full frozen arguments, stable request ID, approval, creation time, create response, task ID, and terminal result. Record the returned task ID immediately and call `beatra.tasks.get` until `succeeded`, `failed`, or `canceled`. `queued` and `running` mean wait, not retry.
 
-If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate.
+If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. A changed video payload needs a new ID, a new admission card, and fresh top-up or balance confirmation.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.
 

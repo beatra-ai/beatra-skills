@@ -1,5 +1,5 @@
 {
-  "changelog": "Read the public trending boards on Douyin, TikTok, and X, or search what people are posting about a topic, instead of only working from a topic you type.",
+  "changelog": "Keep the cover or TTS stage; show a prepaid admission card before the topic video.",
   "display_name": "Hot Topic Content Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hot-topic-content-maker",
@@ -87,5 +87,5 @@
   },
   "name": "hot-topic-content-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "Refresh the Simplified Chinese listing copy so the description covers spoken-script copywriting alongside the shooting script.",
+  "changelog": "Keep the first still or TTS stage; show a prepaid admission card before the seeding video.",
   "display_name": "Spoken Seeding Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/oral-seeding-video-maker",
@@ -76,5 +76,5 @@
   },
   "name": "oral-seeding-video-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.5"
 }

@@ -46,11 +46,11 @@ Call `beatra.models.list` for that capability. Choose only a current card whose 
 
 The request schema's broad bounds do not prove a particular live model accepts the media. If any required actual fact is missing or no current card admits the complete payload, stop before submission and request the smallest compatible source or setting change. Do not discover input incompatibility by making a paid call.
 
-Keep `model: "auto"` unless the user names or selects a concrete eligible model. For auto, use the ordered eligible live candidates rather than guessing a remembered default. For a concrete model, evaluate it exactly and report incompatibility without substitution.
+Keep `model: "auto"` unless the user names or selects a concrete eligible model. For auto, use the ordered eligible live candidates rather than guessing a remembered default. For a concrete model, evaluate it exactly and report incompatibility without substitution. Write the shortest integer `duration` that card admits. Do not omit duration on `model: "auto"` and do not hard-code 8, 10, or 15 when a shorter admitted integer exists. Use the lowest admitted resolution unless the user named a higher tier (Pro / 2K / 1080p).
 
 ## Text to video
 
-Use when no image or video must determine the visual source:
+Use only after a delivered keyframe and the video admission card, when the user still wants a text-led `beatra.videos.generate` call rather than animating that still:
 
 ```json
 {
@@ -152,11 +152,11 @@ Controls such as `negative_prompt`, `seed`, `enhance_prompt`, `watermark`, `gene
 
 Request `return_last_frame: true` only when a current card supports it and a reviewed last-frame image has a purpose, such as anchoring the next separately generated shot. It does not assemble clips.
 
-## Estimate, confirm, and submit once
+## Estimate, admit, and submit once
 
-Use current card pricing to show a provisional estimate based on the frozen model, duration, resolution, and any billable input-video quantity. Explain the stage and count before spend. The terminal `billing.net_charged_credits` is final.
+Use current card pricing to show a provisional estimate based on the frozen model, duration, resolution, and any billable input-video quantity. Before any `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, `beatra.videos.generate_from_references`, `beatra.videos.edit`, or `beatra.videos.extend` call, show the admission card with route, MCP tool name, live-card duration, resolution, and aspect, the provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. The terminal `billing.net_charged_credits` is final. Planning, comparison, or “make the clip” is not approval. Do not create `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate.
 
-Create one opaque stable `client_request_id` only after the payload is ready for approval. Record the tool and complete payload in a private ledger, submit once, and record the returned task ID immediately. A changed media item, reference order, model, instruction, prompt, direction, duration, ratio, resolution, or optional control creates a new request with a new ID and approval.
+Create one opaque stable `client_request_id` only after that confirmation. Record the tool and complete payload in a private ledger, submit once, and record the returned task ID immediately. A changed media item, reference order, model, instruction, prompt, direction, duration, ratio, resolution, or optional control creates a new request with a new ID and a new admission card. On `insufficient_balance`, relay the returned public message, keep the top-up URL exact, and retry the same frozen ID only after the user says they have topped up.
 
 ## Poll, recover, and cancel
 

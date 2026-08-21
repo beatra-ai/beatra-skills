@@ -76,15 +76,22 @@ automatic non-billable registration behavior.
   `beatra.videos.generate`, `beatra.videos.animate`,
   `beatra.videos.generate_from_references`,
   `beatra.videos.interpolate`, `beatra.videos.edit`, or
-  `beatra.videos.extend`. Choose with [videos](references/videos.md), then load
+  `beatra.videos.extend`. When the request is text-led and there is no usable
+  still, the first paid stage is `beatra.videos.enhance_prompt` or one
+  `beatra.images.generate` keyframe. That gift does not authorize a later video
+  call. Before generate, animate, interpolate, reference, edit, or extend, call
+  `beatra.models.list`, admit the payload, write the shortest admitted duration
+  (audio-led and extend rules unchanged), and show the video admission card.
+  Choose with [videos](references/videos.md), then load
   [video controls](references/video-controls.md) or
   [video recipes](references/video-recipes.md) only when needed.
 - For a song, instrumental, or reference-guided track, use
   `beatra.music.generate`. Follow [music](references/music.md).
 - For narration, browse only when a voice is still needed with
   `beatra.voices.list`, then use `beatra.speech.synthesize`. Create a reusable
-  voice with `beatra.voices.clone` only after explicit voice-owner consent.
-  Follow [speech and voices](references/speech-and-voices.md).
+  voice with `beatra.voices.clone` only after explicit voice-owner consent and
+  the clone admission card. Follow
+  [speech and voices](references/speech-and-voices.md).
 - When model selection, compatibility, supported controls, or an estimate
   matters for image, video, music, or speech, use `beatra.models.list` and
   treat its returned interface card as current truth. Follow
@@ -125,16 +132,25 @@ returns text only, never starts video generation, and a successful task
 settles from actual tokens after completion.
 
 A direct, well-specified request to create or look up authorizes that exact
-paid request once. Approval of a complete prepared scope also authorizes it
-once. Otherwise, show the intended result and estimate before execution. For
-media creation, include source media, concrete model or automatic choice,
-important controls, and output count. For public social lookup, copy the
-`schema_hash` from `beatra.social.tools.get` into execute with
+paid request once for image, music, speech, social execute, or a gift-sized
+video-prompt or keyframe stage. It does not authorize
+`beatra.videos.generate`, `beatra.videos.animate`,
+`beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
+`beatra.videos.edit`, `beatra.videos.extend`, or `beatra.voices.clone`. Before
+those video or clone calls, show the admission card: route and MCP tool name,
+live-card duration, resolution, and aspect (shortest admitted duration and
+lowest admitted resolution unless the user named a higher tier; audio-led and
+extend rules unchanged), provisional live estimate, the fact that the
+600-credit signup gift usually cannot start this video or clone, the exact URL
+`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
+not create `client_request_id` or submit until the user confirms they have
+topped up or already have enough credits for this estimate. For public social
+lookup, copy the `schema_hash` from `beatra.social.tools.get` into execute with
 `operation_key`, `arguments`, and one `client_request_id`. Show the
 `operation_key` and the credit price returned by `tools.get`. Do not show
-`schema_hash` to the user and do not ask for a model. Do not ask for a second
-confirmation after the exact scope is already approved. Voice cloning always
-requires the explicit consent attestation described above.
+`schema_hash` to the user and do not ask for a model. Voice cloning always
+also requires the explicit consent attestation described above.
 
 Create one stable 1..128-character `client_request_id` only after the validated
 paid payload is final. It names one logical paid operation. Submit
@@ -166,12 +182,13 @@ model, media, and options. For public social lookup, compare `operation_key`,
 arguments, and `schema_hash`. Never create a replacement because a response was
 lost or a task is still queued or running.
 
-On `insufficient_balance`, preserve the returned top-up URL. State that nothing
-was charged only when the error says so, wait for the user to top up, then use
-the original ID only for an identical retry. The current tool registry exposes
-no account or wallet-management call: do not invent balance reads, top-up
-operations, or account mutations. Connection revocation belongs in the Beatra
-Console.
+On `insufficient_balance`, relay the returned public message, keep
+`https://console.beatra.ai/topup` exact, translate the rest, and retry the same
+frozen `client_request_id` only after the user says they have topped up. State
+that nothing was charged only when the error says so. The current tool registry
+exposes no account or wallet-management call: do not invent balance reads,
+top-up operations, or account mutations. Connection revocation belongs in the
+Beatra Console.
 
 On a failed public social lookup, keep `error.code` and read the platform
 wording in `error.message` or `error.data.message`. Change arguments only when

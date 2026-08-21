@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "ai-video-continuation"
 PACKAGE_DISPLAY_NAME = "AI Video Continuation"
-PACKAGE_VERSION = "0.1.5"
+PACKAGE_VERSION = "0.1.6"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/ai-video-continuation/install.json"
