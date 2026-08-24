@@ -29,8 +29,9 @@ Write the plan in three beats:
 
 Default plan: one silent 2–15s clip from one image. Duration is a
 supported integer SKU chosen with the seller; if they do not pick, use
-5s. The plan locks white background, crop, product colour, and every
-quoted string — and the delivered clip is reviewed against that lock.
+5s. The plan locks white background, product colour, and every quoted
+string. It does not lock the crop, because the card's output ratio can
+re-frame the shot. The delivered clip is reviewed against that lock.
 Generated frames can still drift; report drift rather than gloss it.
 
 ## Upload the image
@@ -59,12 +60,14 @@ python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 Admit the image on a card that accepts a first-frame image without
-`driving_audio`. Use `model: "auto"`. Omit `aspect_ratio` to ask for the
-source ratio, then read what the card actually promises: a declared
-model default, a source-derived ratio, or fixed model behaviour. If the
-card declares a fixed ratio, say so before the production card — the
-pack shot will be re-framed. Compare MIME, dimensions, bytes, and the
-chosen duration with advertised constraints.
+`driving_audio`. Use `model: "auto"`. Omitting `aspect_ratio` does not
+request the image's ratio; it leaves the ratio to the card, which may
+apply a declared model default, a source-derived ratio, or fixed model
+behaviour. Only the second is tied to the image. On either of the other
+two, compare the card's output ratio with the image's, recorded when you
+inspected it, and if they differ, say so before the production card —
+the pack shot will be re-framed. Compare MIME, dimensions, bytes, and
+the chosen duration with advertised constraints.
 
 ## Freeze and submit
 
@@ -98,7 +101,6 @@ before any replay. Reuse an ID only with byte-identical arguments.
 Cancel only when the seller asks, then wait for a terminal state.
 
 Review against the plan: the named motion fired, the background stayed
-white, the crop held, and every quoted string is still readable at full
-size. Report unread small type as unread and label drift as drift.
+white, and every quoted string is still readable at full size. Report unread small type as unread and label drift as drift.
 Deliver the clip with actual dimensions, duration, usage, and
 `billing.net_charged_credits`.

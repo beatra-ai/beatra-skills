@@ -1,6 +1,6 @@
 ---
 name: "amazon-main-image-motion"
-description: "Turn one approved white-background main image into one short clip for the listing main video slot. The approved pack shot is the first frame, so its white background, crop, and framing carry straight into the clip while the product turns, a light sweeps across it, or the camera eases in. Use it for Amazon main image video, product photo animation, and white background product video work that stays one photo one clip."
+description: "Turn one approved white-background main image into one short clip for the listing main video slot. The approved pack shot is the first frame, so the clip opens on the product and the white background you already cleared, and from there it turns, a light sweeps across it, or the camera eases in. Use it for Amazon main image video, main image motion, product photo animation, and white background product video work that stays one photo one clip."
 ---
 
 # Amazon Main Image Motion
@@ -52,10 +52,12 @@ label.
 
 Default to one `beatra.videos.animate` call, `model: "auto"`, the main
 image as the strict first frame, no `driving_audio`, and no
-`aspect_ratio`, which asks for the source ratio without guaranteeing it.
-Read the chosen model's live card, and if that card declares a fixed
-output ratio, tell the seller the pack shot will be re-framed before
-showing the production card.
+`aspect_ratio`, which leaves the ratio to the card: a declared model
+default, a source-derived ratio, or fixed model behaviour. Read the
+chosen model's live card. Unless the card promises a source-derived
+ratio, compare its output ratio with the image's, and if they differ,
+tell the seller the pack shot will be re-framed before showing the
+production card.
 Choose a supported integer duration in the 2–15s range with the
 seller; if they do not pick, use 5s rather than the 15s ceiling.
 
@@ -75,8 +77,9 @@ seller; if they do not pick, use 5s rather than the 15s ceiling.
      speed;
    - the closing hold;
    - every transcribed string, quoted, marked to stay pixel-identical;
-   - what the plan locks: background white, crop, product colour, and
-     every quoted string. The plan is what the delivered clip is
+   - what the plan locks: background white, product colour, and every
+     quoted string. It does not lock the crop, because the card's output
+     ratio can re-frame the shot. The plan is what the delivered clip is
      reviewed against; generated frames can still drift, and drift is
      reported rather than glossed.
 
