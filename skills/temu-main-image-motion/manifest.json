@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn one Temu main image into one Temu main image video for the listing video slot.",
+  "display_name": "Temu Main Image Motion",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/temu-main-image-motion",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn one Temu main image into one Temu main image video for the listing video slot. The template one-shot keeps that photo as the first frame and returns one main image clip. Use it when Temu listing video work is product main image motion that stays one photo one clip.",
+      "display_name": "Temu Main Image Video",
+      "summary": "Turn one Temu main image into one Temu main image video for the listing video slot.",
+      "tags": [
+        "Temu main image video",
+        "template one-shot",
+        "main image clip",
+        "Temu listing video",
+        "product main image motion",
+        "one photo one clip"
+      ],
+      "title": "Temu Main Image Video: One Photo, One Template One-Shot"
+    },
+    "ja": {
+      "description": "Temuメイン画像動画は、出品用のメイン画像を、メイン動画枠向けの短いクリップにします。テンプレートワンカットは、その写真からメイン画像クリップを1本作り、Temu出品動画も商品メイン画像モーションとして1枚1本で揃えます。",
+      "display_name": "Temuメイン画像動画・テンプレートワンカット",
+      "summary": "出品用のメイン画像を、メイン動画枠向けの短いクリップにします。",
+      "tags": [
+        "Temuメイン画像動画",
+        "テンプレートワンカット",
+        "メイン画像クリップ",
+        "Temu出品動画",
+        "商品メイン画像モーション",
+        "1枚1本"
+      ],
+      "title": "Temuメイン画像動画・テンプレートワンカット：1枚から1本"
+    },
+    "zh": {
+      "description": "Temu主图视频把要用的主图做成一条模板一镜。主图短片和主图动效都按同一张主图出，一张主图一条短片。",
+      "display_name": "Temu主图视频·模板一镜",
+      "summary": "Temu主图视频把要用的主图做成一条模板一镜。",
+      "tags": [
+        "Temu主图视频",
+        "模板一镜",
+        "主图视频",
+        "Temu主图",
+        "主图短片",
+        "主图动效"
+      ],
+      "title": "Temu主图视频·模板一镜：一张主图一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "temu-main-image-motion",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

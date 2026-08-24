@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied public policy digest points into one policy digest still per page.",
+  "display_name": "Policy Digest Pages",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/policy-digest-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied public policy digest points into one policy digest still per page. This public points page still studio lays out each public digest page from the supplied digest. Use it for policy digest set layouts, page-by-page policy stills, and policy digest graphic work.",
+      "display_name": "Policy Digest Pages",
+      "summary": "Turn user-supplied public policy digest points into one policy digest still per page.",
+      "tags": [
+        "policy digest still",
+        "public points page still",
+        "policy digest set",
+        "public digest page",
+        "page-by-page policy still",
+        "policy digest graphic"
+      ],
+      "title": "Policy Digest Pages: One Still Per Public-Points Page"
+    },
+    "ja": {
+      "description": "手元の公開政策要点から、ページごとに1枚の政策ダイジェスト図を作ります。この公開要点図は、政策ページ図や公開要点ページ、政策図セットや政策要約図としても使えます。",
+      "display_name": "政策ダイジェスト図",
+      "summary": "手元の公開政策要点から、ページごとに1枚の政策ダイジェスト図を作ります。",
+      "tags": [
+        "政策ダイジェスト図",
+        "公開要点図",
+        "政策ページ図",
+        "公開要点ページ",
+        "政策図セット",
+        "政策要約図"
+      ],
+      "title": "政策ダイジェスト図：公開要点をページごとに渡す"
+    },
+    "zh": {
+      "description": "政策速览图组按已经写好的公开要点，做成公开要点转分页静帧。这个政策速览图工作室把确认过的要点排成公开要点图和政策分页图，一次给出政策图组。",
+      "display_name": "政策速览图组·公开要点转分页",
+      "summary": "按已经写好的公开要点，做成公开要点转分页静帧。",
+      "tags": [
+        "政策速览图组",
+        "公开要点转分页",
+        "政策速览图",
+        "公开要点图",
+        "政策分页图",
+        "政策图组"
+      ],
+      "title": "政策速览图组·公开要点转分页：按公开要点一页一图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "policy-digest-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

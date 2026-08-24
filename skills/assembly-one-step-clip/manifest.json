@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn authorized stills and seller-supplied step facts into one assembly step video per still.",
+  "display_name": "Assembly One-Step Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/assembly-one-step-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn authorized stills and seller-supplied step facts into one assembly step video per still. This one-step clip studio turns each still into a product assembly clip. Use it for furniture assembly video and how-to step clip work that stays one photo one clip.",
+      "display_name": "Assembly One-Step Clips",
+      "summary": "Turn authorized stills and seller-supplied step facts into one assembly step video per still.",
+      "tags": [
+        "assembly step video",
+        "one-step clip",
+        "product assembly clip",
+        "how-to step clip",
+        "furniture assembly video",
+        "one photo one clip"
+      ],
+      "title": "Assembly One-Step Clips: One Photo, One Assembly Clip"
+    },
+    "ja": {
+      "description": "出品者が渡した手順の静止画から、ステップごとに1本の組み立て手順動画を作ります。1ステップ1クリップのスタジオとして、製品組み立ての組立動画と手順クリップを1枚1クリップで渡します。",
+      "display_name": "組み立て手順動画・1ステップ1クリップ",
+      "summary": "出品者が渡した手順の静止画から、ステップごとに1本の組み立て手順動画を作ります。",
+      "tags": [
+        "組み立て手順動画",
+        "1ステップ1クリップ",
+        "組立動画",
+        "手順クリップ",
+        "製品組み立て",
+        "1枚1クリップ"
+      ],
+      "title": "組み立て手順動画・1ステップ1クリップ：静止画ごとに1本"
+    },
+    "zh": {
+      "description": "组装步骤视频按卖家提供的步骤事实，为每张静帧做成一条一步一镜短片。这个一步一镜工作室把产品组装短视频和步骤视频按步骤顺序交付。",
+      "display_name": "组装步骤视频·一步一镜",
+      "summary": "按卖家提供的步骤事实，为每张静帧做成一条一步一镜短片。",
+      "tags": [
+        "组装步骤视频",
+        "一步一镜",
+        "组装短视频",
+        "步骤视频",
+        "产品组装",
+        "一步一镜短片"
+      ],
+      "title": "组装步骤视频·一步一镜：每步一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "assembly-one-step-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

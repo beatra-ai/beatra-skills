@@ -1,0 +1,57 @@
+{
+  "changelog": "Turn already-written short sleep stories into one spoken clip per labeled story.",
+  "display_name": "Sleep Story Voice",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/sleep-story-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn already-written short sleep stories into one spoken clip per labeled story. This sleep story voice studio records each short sleep-story voice from the pages the producer already wrote. Use it for sleep stories, bedtime story reads, bedtime narration, and short sleep-story voice packs.",
+      "display_name": "Sleep Story Voice",
+      "summary": "Turn already-written short sleep stories into one spoken clip per labeled story.",
+      "tags": [
+        "sleep stories",
+        "bedtime story reads",
+        "short sleep-story voice",
+        "sleep story voice",
+        "bedtime narration",
+        "short sleep stories"
+      ],
+      "title": "Sleep Story Voice: One Short Story Per Clip"
+    },
+    "ja": {
+      "description": "睡眠物語は、すでに書いた短い睡眠物語から、取り込みやすい短い音声を1本ずつ渡します。導入、最初の場面、着地は同じ短い原稿から出します。寝かしつけ読みと導入の読みも同じ短い睡眠物語から出します。",
+      "display_name": "睡眠物語",
+      "summary": "すでに書いた短い睡眠物語から、読み上げを1本ずつ作ります。",
+      "tags": [
+        "睡眠物語",
+        "寝かしつけ読み",
+        "短い睡眠物語",
+        "導入の読み"
+      ],
+      "title": "睡眠物語：短い原稿を1本ずつ"
+    },
+    "zh": {
+      "description": "助眠故事是按已经写好的短篇助眠稿，做成一组可导入的助眠故事。助眠故事、语音连载和睡前故事都按同一套短稿出。",
+      "display_name": "助眠故事·语音连载",
+      "summary": "按已经写好的短篇助眠稿，做成一组可导入的助眠故事。",
+      "tags": [
+        "助眠故事",
+        "语音连载",
+        "睡前故事",
+        "短篇助眠"
+      ],
+      "title": "助眠故事：短稿一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "sleep-story-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

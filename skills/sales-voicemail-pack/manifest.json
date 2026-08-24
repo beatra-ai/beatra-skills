@@ -1,0 +1,57 @@
+{
+  "changelog": "Turn seller-supplied sales voicemail scripts into one spoken voicemail clip per labeled slot.",
+  "display_name": "Sales Voicemail Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/sales-voicemail-pack",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied sales voicemail scripts into one spoken voicemail clip per labeled slot. This sales voicemail studio records each missed-call callback, after-hours greeting, and follow-up voicemail from the lines the seller already wrote. Use it for voicemail drops, sales voicemail packs, and callback voicemail reads.",
+      "display_name": "Sales Voicemail Pack",
+      "summary": "Turn seller-supplied sales voicemail scripts into one spoken voicemail clip per labeled slot.",
+      "tags": [
+        "voicemail drops",
+        "sales voicemail packs",
+        "callback voicemail reads",
+        "sales voicemail",
+        "callback voicemail",
+        "voicemail drop"
+      ],
+      "title": "Sales Voicemail Pack: One Spoken Line Per Slot"
+    },
+    "ja": {
+      "description": "留守番電話は、すでに書いた営業の伝言から、取り込みやすい短い音声を1本ずつ渡します。不在折り返し、時間外、フォローの伝言は同じ原稿から出します。",
+      "display_name": "留守番電話",
+      "summary": "すでに書いた営業の伝言から、留守番電話を1本ずつ作ります。",
+      "tags": [
+        "留守番電話",
+        "営業伝言",
+        "折り返し伝言",
+        "時間外伝言"
+      ],
+      "title": "留守番電話：営業メッセージを1本ずつ"
+    },
+    "zh": {
+      "description": "语音信箱是按已经写好的销售留言稿，做成一组可导入的语音信箱。语音信箱、销售留言和回拨留言都按同一套稿出。",
+      "display_name": "语音信箱·销售留言",
+      "summary": "按已经写好的销售留言稿，做成一组可导入的语音信箱。",
+      "tags": [
+        "语音信箱",
+        "销售留言",
+        "回拨留言",
+        "未接回拨"
+      ],
+      "title": "语音信箱：销售留言一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "sales-voicemail-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

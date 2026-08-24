@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied drawing steps into one still per art demo page.",
+  "display_name": "Art Demo Page",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/art-demo-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied drawing steps into one still per art demo page. This classroom art still studio lays out each step-by-step art demo from the supplied demo points. Use it for art demonstration stills, drawing step pages, and an art demo set.",
+      "display_name": "Art Demo Page",
+      "summary": "Turn user-supplied drawing steps into one still per art demo page.",
+      "tags": [
+        "art demo page",
+        "classroom art still",
+        "step-by-step art demo",
+        "art demonstration still",
+        "drawing step page",
+        "art demo set"
+      ],
+      "title": "Art Demo Page: Classroom Step Stills"
+    },
+    "ja": {
+      "description": "手元の描き方手順から、ステップごとに1枚の美術示範図を作ります。この授業示範ページは、描き方手順図や図画工作示範、ステップ別美術図、美術授業図としても使えます。",
+      "display_name": "美術示範図",
+      "summary": "手元の描き方手順から、ステップごとに1枚の美術示範図を作ります。",
+      "tags": [
+        "美術示範図",
+        "授業示範ページ",
+        "描き方手順図",
+        "図画工作示範",
+        "ステップ別美術図",
+        "美術授業図"
+      ],
+      "title": "美術示範図：ステップごとの授業ページ"
+    },
+    "zh": {
+      "description": "美术示范图组按用户提供的作画步骤，按步做成步骤转示范页静帧。这个示范页工作室把确认过的步骤要点排成美术步骤图、课堂示范页和美术课示范图。",
+      "display_name": "美术示范图组·步骤转示范页",
+      "summary": "按用户提供的作画步骤，按步做成步骤转示范页静帧。",
+      "tags": [
+        "美术示范图组",
+        "步骤转示范页",
+        "美术步骤图",
+        "课堂示范页",
+        "示范页",
+        "美术课示范图"
+      ],
+      "title": "美术示范图组：步骤转示范页"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "art-demo-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,59 @@
+{
+  "changelog": "Turn seller-supplied floor-plan facts into one listing still per room.",
+  "display_name": "Listing Still Sets",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/real-estate-listing-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied floor-plan facts into one listing still per room. This listing still studio lays out the seller-supplied room names and layout lines as a listing still and property-page graphic. Use it for listing still sets, room listing stills, and property-page listing cards.",
+      "display_name": "Listing Still Sets",
+      "summary": "Turn seller-supplied floor-plan facts into one listing still per room.",
+      "tags": [
+        "listing still sets",
+        "room listing stills",
+        "property-page listing cards",
+        "listing still",
+        "floor-plan listing still",
+        "listing still set"
+      ],
+      "title": "Listing Still Sets: One Still Per Room"
+    },
+    "ja": {
+      "description": "物件出品セットは、すでに書いてある間取り説明から、部屋ごとに1枚の図を渡します。リビング図、寝室図、出品カードとして、同じ間取り説明から出します。",
+      "display_name": "物件出品セット",
+      "summary": "すでに書いてある間取り説明から、部屋ごとに1枚の図を作ります。",
+      "tags": [
+        "物件出品セット",
+        "リビング図",
+        "寝室図",
+        "出品カード"
+      ],
+      "title": "物件出品セット：部屋ごとに1枚"
+    },
+    "zh": {
+      "description": "房源上架套图是按已经写好的户型说明，给每个房间做成一张挂牌静帧。客厅图、卧室图、户型挂牌图和房源上架图都按同一套户型说明出。",
+      "display_name": "房源上架套图·房源挂牌静帧套",
+      "summary": "按已经写好的户型说明，做成房源上架套图，每个房间一张。",
+      "tags": [
+        "房源上架套图",
+        "房源挂牌静帧套",
+        "客厅图",
+        "卧室图",
+        "户型挂牌图",
+        "房源上架图"
+      ],
+      "title": "房源上架套图：每个房间一张"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "real-estate-listing-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

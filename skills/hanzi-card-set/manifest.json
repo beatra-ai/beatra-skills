@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied character lists into a four-to-eight still hanzi card set.",
+  "display_name": "Hanzi Card Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/hanzi-card-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied character lists into a four-to-eight still hanzi card set. This chinese character cards studio lays out each named character as its own still. Use it for recognition cards, hanzi flashcards, chinese character flashcards, and a character card pack.",
+      "display_name": "Hanzi Card Set",
+      "summary": "Turn user-supplied character lists into a four-to-eight still hanzi card set.",
+      "tags": [
+        "hanzi card set",
+        "chinese character cards",
+        "recognition cards",
+        "hanzi flashcards",
+        "chinese character flashcards",
+        "character card pack"
+      ],
+      "title": "Hanzi Card Set: Recognition Cards and Character Stills"
+    },
+    "ja": {
+      "description": "手元の漢字表から、4〜8枚の漢字カードセットを作ります。この漢字フラッシュカードは、識字カードや漢字学習カード、漢字カード図としても使えます。",
+      "display_name": "漢字カードセット",
+      "summary": "手元の漢字表から、4〜8枚の漢字カードセットを作ります。",
+      "tags": [
+        "漢字カードセット",
+        "漢字フラッシュカード",
+        "識字カード",
+        "漢字学習カード",
+        "漢字カード図",
+        "漢字カード"
+      ],
+      "title": "漢字カードセット：表からカードへ"
+    },
+    "zh": {
+      "description": "生字卡片组按用户提供的生字表，做成一组生字表转卡组静帧。这个认读卡工作室把已确认的生字排成生字卡、识字卡片和生字套图。",
+      "display_name": "生字卡片组·生字表转卡组",
+      "summary": "按用户提供的生字表，做成一组生字表转卡组静帧。",
+      "tags": [
+        "生字卡片组",
+        "生字表转卡组",
+        "认读卡",
+        "生字卡",
+        "识字卡片",
+        "生字套图"
+      ],
+      "title": "生字卡片组：生字表转卡组"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "hanzi-card-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

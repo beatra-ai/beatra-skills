@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn written account-opening steps into one account opening voice clip per labeled cue.",
+  "display_name": "Account Opening Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/broker-account-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn written account-opening steps into one account opening voice clip per labeled cue. This account opening guidance studio records each teller guidance clip and KYC step voice from the steps the desk already wrote, then delivers 8 to 20 account opening audio files. Use it for brokerage onboarding audio that keeps one step on each clip.",
+      "display_name": "Account Opening Voice Pack",
+      "summary": "Turn written account-opening steps into one account opening voice clip per labeled cue.",
+      "tags": [
+        "account opening voice",
+        "account opening guidance",
+        "brokerage onboarding audio",
+        "KYC step voice",
+        "teller guidance clip",
+        "account opening audio"
+      ],
+      "title": "Account Opening Voice: Step-by-Step Guidance Clips"
+    },
+    "ja": {
+      "description": "口座開設音声は、すでに書いた開設手順から、案内読み上げを1本ずつ渡します。口座開設ガイダンス、口座開設ナレーション、窓口案内音声は口に出せる一文で1本ずつ録り、8〜20本の口座開設案内音声として渡します。KYC手順音声も同じ一本ずつです。",
+      "display_name": "口座開設音声",
+      "summary": "すでに書いた開設手順から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "口座開設音声",
+        "口座開設ガイダンス",
+        "口座開設ナレーション",
+        "窓口案内音声",
+        "口座開設案内音声",
+        "KYC手順音声"
+      ],
+      "title": "口座開設音声：開設手順を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "开户指引语音按已经写好的开户步骤，做成每条指引一条口播。开户步骤语音、开户提示音、柜台开户语音都按开户口播来录，一次给出8到20条开户语音包。",
+      "display_name": "开户指引语音·步骤转语音",
+      "summary": "按已经写好的开户步骤，做成每条指引一条口播。",
+      "tags": [
+        "开户指引语音",
+        "开户步骤语音",
+        "开户提示音",
+        "柜台开户语音",
+        "开户口播",
+        "开户语音包"
+      ],
+      "title": "开户指引语音·步骤转语音：按开户步骤一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "broker-account-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

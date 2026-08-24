@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn hotel amenity stills the property already took into one hotel amenity video per labeled still.",
+  "display_name": "Hotel Amenity Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/hotel-amenity-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn hotel amenity stills the property already took into one hotel amenity video per labeled still. This hotel facility clip studio makes each amenity still clip from the photo the property already took, then delivers a hotel facility video, a pool amenity video, and a gym amenity clip from photos already on file. Use it for hotel amenity packs that give each still its own clip.",
+      "display_name": "Hotel Amenity Clips",
+      "summary": "Turn hotel amenity stills the property already took into one hotel amenity video per labeled still.",
+      "tags": [
+        "hotel amenity video",
+        "hotel facility clip",
+        "amenity still clip",
+        "pool amenity video",
+        "gym amenity clip",
+        "hotel facility video"
+      ],
+      "title": "Hotel Amenity Clips: One Still, One Facility Clip"
+    },
+    "ja": {
+      "description": "ホテル設備動画は、すでに撮った設備写真から短いクリップを1本ずつ渡します。設備クリップと設備写真動画として、プール動画やジム動画も設備紹介動画として1本ずつ揃えます。",
+      "display_name": "ホテル設備動画",
+      "summary": "すでに撮った設備写真から、短いクリップを1本ずつ作ります。",
+      "tags": [
+        "ホテル設備動画",
+        "設備クリップ",
+        "プール動画",
+        "ジム動画",
+        "設備紹介動画",
+        "設備写真動画"
+      ],
+      "title": "ホテル設備動画：設備写真を短いクリップで渡す"
+    },
+    "zh": {
+      "description": "酒店设施视频用已经拍好的设施照片，做成每张照片一条短片。设施一镜按原照做成设施短片，泳池设施视频和健身房短片也各成一条酒店设施短片。",
+      "display_name": "酒店设施视频·设施一镜",
+      "summary": "按已经拍好的设施照片，做成每张照片一条短片。",
+      "tags": [
+        "酒店设施视频",
+        "设施一镜",
+        "设施短片",
+        "泳池设施视频",
+        "健身房短片",
+        "酒店设施短片"
+      ],
+      "title": "酒店设施视频·设施一镜：一张设施照一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "hotel-amenity-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

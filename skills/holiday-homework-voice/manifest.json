@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written holiday homework list into one holiday homework voice clip per labeled cue.",
+  "display_name": "Holiday Homework Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/holiday-homework-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written holiday homework list into one holiday homework voice clip per labeled cue. This homework assignment voice studio records each homework instruction audio and assignment list voice from the list the teacher already wrote, then delivers 8 to 20 homework voice pack files. Use it for holiday homework clip packs that keep one assignment on each clip.",
+      "display_name": "Holiday Homework Voice Pack",
+      "summary": "Turn a written holiday homework list into one holiday homework voice clip per labeled cue.",
+      "tags": [
+        "holiday homework voice",
+        "homework assignment voice",
+        "homework instruction audio",
+        "assignment list voice",
+        "holiday homework clip",
+        "homework voice pack"
+      ],
+      "title": "Holiday Homework Voice: Assignment-List Instruction Clips"
+    },
+    "ja": {
+      "description": "休暇宿題音声は、すでに書いた宿題リストから、宿題説明音声を1本ずつ渡します。宿題リスト音声、宿題案内読み上げ、休みの宿題クリップは口に出せる一文で1本ずつ録り、8〜20本の宿題ボイスパックとして渡します。",
+      "display_name": "休暇宿題音声",
+      "summary": "すでに書いた宿題リストから、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "休暇宿題音声",
+        "宿題リスト音声",
+        "宿題説明音声",
+        "宿題案内読み上げ",
+        "休みの宿題クリップ",
+        "宿題ボイスパック"
+      ],
+      "title": "休暇宿題音声：宿題リストを短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "假期作业语音按已经写好的作业清单，做成每条说明一条口播。作业清单语音、作业说明语音、假期作业朗读都按假期作业口播来录，一次给出8到20条作业语音包。",
+      "display_name": "假期作业语音·作业清单转语音",
+      "summary": "按已经写好的作业清单，做成每条说明一条口播。",
+      "tags": [
+        "假期作业语音",
+        "作业清单语音",
+        "作业说明语音",
+        "假期作业朗读",
+        "假期作业口播",
+        "作业语音包"
+      ],
+      "title": "假期作业语音·作业清单转语音：按作业清单一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "holiday-homework-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

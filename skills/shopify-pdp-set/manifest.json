@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn seller-supplied product facts into one Shopify product-page stills set for a single SKU.",
+  "display_name": "Shopify Product-Page Stills",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/shopify-pdp-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied product facts into one Shopify product-page stills set for a single SKU. This Shopify PDP set studio lays out each named theme as a Shopify listing gallery still. Use it for a product-page still, a Shopify detail still, and product detail stills that stay one still per theme.",
+      "display_name": "Shopify Product-Page Stills",
+      "summary": "Turn seller-supplied product facts into one Shopify product-page stills set for a single SKU.",
+      "tags": [
+        "Shopify product-page stills",
+        "Shopify PDP set",
+        "Shopify listing gallery",
+        "product-page still",
+        "Shopify detail still",
+        "product detail stills"
+      ],
+      "title": "Shopify Product-Page Stills: One Theme, One Shopify Still"
+    },
+    "ja": {
+      "description": "Shopify商品ページセットは、売り手が渡した商品事実から、1つのSKUに対して商品詳細図を揃えます。Shopify出品セットとして、商品ページ静画、詳細ページ図、Shopifyギャラリーにも使えます。",
+      "display_name": "Shopify商品ページセット",
+      "summary": "売り手が渡した商品事実から、1つのSKUのShopify商品ページセットを揃えます。",
+      "tags": [
+        "Shopify商品ページセット",
+        "商品詳細図",
+        "Shopify出品セット",
+        "商品ページ静画",
+        "詳細ページ図",
+        "Shopifyギャラリー"
+      ],
+      "title": "Shopify商品ページセット：テーマごとに1枚の出品静画"
+    },
+    "zh": {
+      "description": "Shopify详情套图按卖家提供的商品事实，给同一SKU做成一组上架静帧。Shopify商品页上的详情静帧、商品详情图和Shopify套图都按同一份主题清单出。",
+      "display_name": "Shopify详情套图·上架静帧",
+      "summary": "按卖家提供的商品事实，做成Shopify详情套图，同一SKU一组上架静帧。",
+      "tags": [
+        "Shopify详情套图",
+        "上架静帧",
+        "Shopify商品页",
+        "详情静帧",
+        "商品详情图",
+        "Shopify套图"
+      ],
+      "title": "Shopify详情套图·上架静帧：同一SKU的商品页静帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "shopify-pdp-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

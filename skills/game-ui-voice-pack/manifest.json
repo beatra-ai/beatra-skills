@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn written game UI lines into one game voiceover clip per labeled cue.",
+  "display_name": "Game UI Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/game-ui-voice-pack",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn written game UI lines into one game voiceover clip per labeled cue. This game UI voice studio records each button voice clip, win voice line, and fail voice line from the copy the studio already wrote, then delivers 8 to 20 game cue audio files. Use it for game UI voice packs that keep one cue on each clip.",
+      "display_name": "Game UI Voice Pack",
+      "summary": "Turn written game UI lines into one game voiceover clip per labeled cue.",
+      "tags": [
+        "game voiceover",
+        "game UI voice",
+        "button voice clip",
+        "win voice line",
+        "fail voice line",
+        "game cue audio"
+      ],
+      "title": "Game UI Voice Pack: Button, Win, and Fail Cues"
+    },
+    "ja": {
+      "description": "ゲームUI音声は、すでに書いた短い操作文から、短い読み上げを1本ずつ渡します。ボタン音声、勝利音声、敗北音声は口に出せる一文で1本ずつ録り、8〜20本の操作音声として渡します。ゲーム効果音声も同じ一本ずつです。",
+      "display_name": "ゲームUI音声",
+      "summary": "すでに書いた短い操作文から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "ゲームUI音声",
+        "ボタン音声",
+        "勝利音声",
+        "敗北音声",
+        "ゲーム効果音声",
+        "操作音声"
+      ],
+      "title": "ゲームUI音声：操作文を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "游戏配音按已经写好的界面短句，做成每条提示一条口播。按钮语音、胜利语音、失败语音都按UI语音来录，一次给出8到20条游戏提示音，也适合游戏界面口播。",
+      "display_name": "游戏配音·UI语音",
+      "summary": "按已经写好的界面短句，做成每条提示一条口播。",
+      "tags": [
+        "游戏配音",
+        "UI语音",
+        "按钮语音",
+        "胜利语音",
+        "失败语音",
+        "游戏提示音"
+      ],
+      "title": "游戏配音·UI语音：按钮胜负一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "game-ui-voice-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied risk-grade definitions into a four-to-eight still risk grade set.",
+  "display_name": "Risk Grade Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/risk-grade-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied risk-grade definitions into a four-to-eight still risk grade set. This risk grade still studio lays out each named grade as its own still. Use it for risk grade graphics, risk level cards, risk classification stills, and a risk grade pack.",
+      "display_name": "Risk Grade Set",
+      "summary": "Turn user-supplied risk-grade definitions into a four-to-eight still risk grade set.",
+      "tags": [
+        "risk grade set",
+        "risk grade still",
+        "risk grade graphics",
+        "risk level cards",
+        "risk classification stills",
+        "risk grade pack"
+      ],
+      "title": "Risk Grade Set: Risk Level Cards and Grade Stills"
+    },
+    "ja": {
+      "description": "手元のリスク等級定義から、4〜8枚のリスク等級図セットを作ります。このリスク等級図は、リスク分類図やリスク説明図、リスクグレード図、等級カードとしても使えます。",
+      "display_name": "リスク等級図セット",
+      "summary": "手元のリスク等級定義から、4〜8枚のリスク等級図セットを作ります。",
+      "tags": [
+        "リスク等級図セット",
+        "リスク等級図",
+        "リスク分類図",
+        "リスク説明図",
+        "リスクグレード図",
+        "等級カード"
+      ],
+      "title": "リスク等級図セット：等級ごとの図"
+    },
+    "zh": {
+      "description": "风险等级图组按用户提供的风险等级定义，做成一组等级转图组静帧。这个风险等级图工作室把已确认的等级说明排成风险分级图、等级说明图和风险等级套图。",
+      "display_name": "风险等级图组·等级转图组",
+      "summary": "按用户提供的风险等级定义，做成一组等级转图组静帧。",
+      "tags": [
+        "风险等级图组",
+        "等级转图组",
+        "风险等级图",
+        "风险分级图",
+        "等级说明图",
+        "风险等级套图"
+      ],
+      "title": "风险等级图组：等级转图组"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "risk-grade-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

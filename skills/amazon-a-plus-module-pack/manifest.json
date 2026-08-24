@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn seller-supplied selling points into one Amazon A+ module still per point.",
+  "display_name": "Amazon A+ Module Stills",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/amazon-a-plus-module-pack",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied selling points into one Amazon A+ module still per point. This A+ page still studio lays out each seller-supplied benefit as an Amazon A+ Content module for the A+ page. Use it for Amazon A+ modules, selling-point modules, and a brand-story A+ graphic.",
+      "display_name": "Amazon A+ Module Stills",
+      "summary": "Turn seller-supplied selling points into one Amazon A+ module still per point.",
+      "tags": [
+        "Amazon A+ module",
+        "A+ page still",
+        "Amazon A+ Content",
+        "selling-point module",
+        "A+ module still",
+        "brand-story A+ graphic"
+      ],
+      "title": "Amazon A+ Module Stills: A+ Page Selling-Point Graphics"
+    },
+    "ja": {
+      "description": "出品者が用意した訴求ポイントから、ポイントごとに1枚のアマゾンモジュール用静止画を作ります。アマゾンA+のA+ページに載せるA+モジュール、訴求ポイント、ブランドストーリーのA+グラフィックをそろえます。",
+      "display_name": "A+ページ・アマゾンモジュール",
+      "summary": "出品者が用意した訴求ポイントから、ポイントごとに1枚のアマゾンモジュール用静止画を作ります。",
+      "tags": [
+        "A+ページ",
+        "アマゾンモジュール",
+        "A+モジュール",
+        "アマゾンA+",
+        "訴求ポイント",
+        "A+グラフィック"
+      ],
+      "title": "A+ページ・アマゾンモジュール：訴求ポイントごとに1枚"
+    },
+    "zh": {
+      "description": "A+页面按卖家提供的卖点，为每个卖点做成一张亚马逊模块静帧。这个亚马逊A+工作室把卖家提供的卖点排成A+模块、A+静帧、卖点模块和品牌故事A+图。",
+      "display_name": "A+页面·亚马逊模块",
+      "summary": "按卖家提供的卖点，为每个卖点做成一张亚马逊模块静帧。",
+      "tags": [
+        "A+页面",
+        "亚马逊模块",
+        "A+模块",
+        "亚马逊A+",
+        "卖点模块",
+        "A+静帧"
+      ],
+      "title": "A+页面·亚马逊模块：卖点模块静帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "amazon-a-plus-module-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

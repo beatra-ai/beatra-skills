@@ -1,0 +1,60 @@
+{
+  "changelog": "Turn written radio-drama ad-break lines into one spoken bumper clip per labeled slot.",
+  "display_name": "Radio Drama Ad Breaks",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/radio-drama-ad-break",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn written radio-drama ad-break lines into one spoken bumper clip per labeled slot. This radio-drama bumper studio records each pre-roll read, post-roll read, and sponsor bumper from the copy the producer already wrote, then delivers 8 to 20 bumper audio files. Use it for radio drama ad-break voiceovers that keep one bumper on each clip.",
+      "display_name": "Radio Drama Ad Breaks",
+      "summary": "Turn written radio-drama ad-break lines into one spoken bumper clip per labeled slot.",
+      "tags": [
+        "radio drama ad-break",
+        "pre-roll read",
+        "post-roll read",
+        "sponsor bumper",
+        "radio drama bumper",
+        "radio drama ad-break voiceovers"
+      ],
+      "title": "Radio Drama Ad Breaks: One Bumper Per Slot"
+    },
+    "ja": {
+      "description": "ラジオドラマCMは、すでに書いた提供読みから、短い読み上げを1本ずつ渡します。番組前CM、番組後CM、提供読みは口に出せる一文で1本ずつ録り、8〜20本の提供音声として渡します。",
+      "display_name": "ラジオドラマCM",
+      "summary": "すでに書いた提供読みから、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "ラジオドラマCM",
+        "番組前CM",
+        "番組後CM",
+        "提供読み",
+        "提供音声"
+      ],
+      "title": "ラジオドラマCM：提供読みを短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "广播剧贴片口播按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。开场贴片、收听提示、下期预告和赞助口播都按贴片词来录，一次给出8到20条广播剧贴片，也适合剧场口播。",
+      "display_name": "广播剧贴片口播·广播剧贴片口播",
+      "summary": "按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。",
+      "tags": [
+        "广播剧贴片口播",
+        "开场贴片",
+        "收听提示",
+        "下期预告",
+        "赞助口播",
+        "广播剧贴片"
+      ],
+      "title": "广播剧贴片口播：剧前剧后一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "radio-drama-ad-break",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

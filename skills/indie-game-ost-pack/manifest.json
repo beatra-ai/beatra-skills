@@ -1,0 +1,69 @@
+{
+  "changelog": "Build a labeled 8-15 track instrumental OST for title, explore, battle, shop, and victory.",
+  "display_name": "Indie Game OST Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/indie-game-ost-pack",
+  "icon": "https://beatra.ai/textures/icons/indie-game-ost-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Build an original indie game OST pack of 8 to 15 instrumental tracks for title, explore, battle, shop, and victory. This game soundtrack studio and game BGM generator writes loop-friendly game music you own and can use commercially, then delivers a labeled soundtrack you can audition in-engine. Use it as a game music pack for indie game OST, game background music, game BGM, battle music, explore music, shop music, and original game soundtrack work.",
+      "display_name": "Indie Game OST Pack",
+      "summary": "Build an original indie game OST pack of 8 to 15 instrumental tracks for title, explore, battle, shop, and victory.",
+      "tags": [
+        "indie game OST",
+        "game soundtrack",
+        "game BGM",
+        "game background music",
+        "game music pack",
+        "battle music",
+        "explore music",
+        "shop music",
+        "original game soundtrack"
+      ],
+      "title": "Indie Game OST Pack: Original Game Soundtrack and BGM"
+    },
+    "ja": {
+      "description": "インディーゲーム向けに、タイトル、探索、戦闘、ショップ、勝利用の8〜15曲のオリジナルゲームBGMパックを作ります。このゲームサウンドトラックはループ向きのゲーム音楽を商用利用できる形で書き、ラベル付きサウンドトラックで納品します。インディーゲーム BGM、ゲーム背景音楽、戦闘BGM、探索BGM、ショップBGMに使えます。",
+      "display_name": "ゲームBGMパック",
+      "summary": "インディーゲーム向けに、タイトル、探索、戦闘、ショップ、勝利用の8〜15曲のオリジナルゲームBGMパックを作ります。",
+      "tags": [
+        "ゲームBGM",
+        "ゲームサウンドトラック",
+        "インディーゲーム BGM",
+        "ゲーム背景音楽",
+        "戦闘BGM",
+        "探索BGM",
+        "ショップBGM",
+        "オリジナルゲームBGM"
+      ],
+      "title": "ゲームBGMパック：インディーゲーム向けオリジナルサウンドトラック"
+    },
+    "zh": {
+      "description": "为独立游戏一次做出8到15首原创游戏配乐。这个游戏原声带和游戏BGM工具会按标题、探索、战斗、商店和胜利写出可循环的游戏音乐，音乐归你所有、可直接商用，交付带标签的原声带，进引擎前先试听。适用于独立游戏配乐、游戏背景音乐、战斗音乐、探索音乐、商店音乐和原创游戏原声带。",
+      "display_name": "游戏配乐·独立游戏原声带",
+      "summary": "为独立游戏一次做出8到15首原创游戏配乐，进引擎前先试听。",
+      "tags": [
+        "游戏配乐",
+        "独立游戏配乐",
+        "游戏原声带",
+        "游戏BGM",
+        "游戏背景音乐",
+        "战斗音乐",
+        "探索音乐",
+        "商店音乐",
+        "原创游戏原声带"
+      ],
+      "title": "游戏配乐·独立游戏原声带：原创游戏BGM包"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "indie-game-ost-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

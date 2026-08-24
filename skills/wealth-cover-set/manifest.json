@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied session names and themes into a four-to-eight still wealth cover set.",
+  "display_name": "Wealth Cover Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wealth-cover-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied session names and themes into a four-to-eight still wealth cover set. This session cover set studio lays out each named investor education cover as its own still. Use it for session cover stills, education session covers, and a matching cover pack.",
+      "display_name": "Wealth Cover Set",
+      "summary": "Turn user-supplied session names and themes into a four-to-eight still wealth cover set.",
+      "tags": [
+        "wealth cover set",
+        "session cover set",
+        "investor education cover",
+        "session cover still",
+        "education session cover",
+        "cover pack"
+      ],
+      "title": "Wealth Cover Set: Session Covers and Education Stills"
+    },
+    "ja": {
+      "description": "手元の講座名・テーマから、4〜8枚の投教カバーセットを作ります。このセッションカバー図は、講座カバーやセミナーカバー、投資教育カバー、カバー図セットとしても使えます。",
+      "display_name": "投教カバーセット",
+      "summary": "手元の講座名・テーマから、4〜8枚の投教カバーセットを作ります。",
+      "tags": [
+        "投教カバーセット",
+        "セッションカバー図",
+        "講座カバー",
+        "セミナーカバー",
+        "投資教育カバー",
+        "カバー図セット"
+      ],
+      "title": "投教カバーセット：セッションごとの表紙"
+    },
+    "zh": {
+      "description": "投教封面组按用户提供的场次名称和主题，做成一组场次转封面静帧。这个投教封面工作室把已确认的场次排成投教封面图、场次封面和投教套图。",
+      "display_name": "投教封面组·场次转封面",
+      "summary": "按用户提供的场次名称和主题，做成一组场次转封面静帧。",
+      "tags": [
+        "投教封面组",
+        "场次转封面",
+        "投教封面图",
+        "场次封面",
+        "投教套图",
+        "投教封面"
+      ],
+      "title": "投教封面组：场次转封面"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wealth-cover-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

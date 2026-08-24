@@ -1,0 +1,64 @@
+{
+  "changelog": "Turn authorized stills and already-written intern onboarding notes into one intern onboarding talk per still.",
+  "display_name": "Intern Onboarding Talks",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/intern-onboarding-avatar",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn authorized stills and already-written intern onboarding notes into one intern onboarding talk per still. This intern welcome video studio writes a speakable first-day talking clip from the handbook, then animates each still into a 2 to 15s onboarding talking clip. Use it for intern briefing videos, intern first-day video, and intern onboarding video that stay one photo, one clip.",
+      "display_name": "Intern Onboarding Talks",
+      "summary": "Turn authorized stills and already-written intern onboarding notes into one intern onboarding talk per still.",
+      "tags": [
+        "intern onboarding talk",
+        "intern welcome video",
+        "first-day talking clip",
+        "onboarding talking clip",
+        "intern briefing video",
+        "intern first-day video",
+        "intern onboarding video"
+      ],
+      "title": "Intern Onboarding Talks: One Still, One First-Day Clip"
+    },
+    "ja": {
+      "description": "入社案内トークは、手元の写真とすでに書いてある入社案内から、写真1枚ごとに短いクリップを渡します。インターン入社案内と初日案内動画として、2〜15秒の入社オリエンテーション動画に仕上げ、入社説明動画やインターン歓迎動画にも使えます。",
+      "display_name": "入社案内トーク",
+      "summary": "手元の写真と、すでに書いてある入社案内から、短い入社案内トークを1枚ずつ作ります。",
+      "tags": [
+        "入社案内トーク",
+        "インターン入社案内",
+        "初日案内動画",
+        "入社オリエンテーション動画",
+        "入社説明動画",
+        "インターン歓迎動画"
+      ],
+      "title": "入社案内トーク：短い初日案内を写真ごとに渡す"
+    },
+    "zh": {
+      "description": "入职口播是按已经写好的入职须知，给每张授权照片做成一条实习生入职口播。入职须知口播、入职欢迎口播、入职说明视频、入职视频和入职培训视频都按同一套须知和照片出，也适合实习生入职短片。",
+      "display_name": "入职口播·实习生",
+      "summary": "按已经写好的入职须知和授权静帧，做成入职口播，每张照片一条。",
+      "tags": [
+        "入职口播",
+        "实习生入职口播",
+        "入职须知口播",
+        "入职欢迎口播",
+        "入职说明视频",
+        "实习生入职短片",
+        "入职视频",
+        "入职培训视频"
+      ],
+      "title": "入职口播·实习生：一张静帧一条入职口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "intern-onboarding-avatar",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

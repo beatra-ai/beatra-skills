@@ -1,0 +1,59 @@
+{
+  "changelog": "Turn seller-supplied nutrition facts into one nutrition panel still per SKU.",
+  "display_name": "Nutrition Panel Art",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/nutrition-panel-art",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied nutrition facts into one nutrition panel still per SKU. This nutrition panel art studio lays out the seller-supplied serving and nutrient lines as a nutrition facts label and nutrition panel graphic. Use it for food nutrition labels, packaging nutrition art, and product-page nutrition charts.",
+      "display_name": "Nutrition Panel Art",
+      "summary": "Turn seller-supplied nutrition facts into one nutrition panel still per SKU.",
+      "tags": [
+        "nutrition panel art",
+        "nutrition facts label",
+        "food nutrition label",
+        "packaging nutrition art",
+        "product-page nutrition chart",
+        "nutrition panel graphic"
+      ],
+      "title": "Nutrition Panel Art: One Still Per SKU"
+    },
+    "ja": {
+      "description": "栄養成分表は、すでに書いてある成分表から、SKUごとに1枚の図を渡します。食品栄養表示、パッケージ栄養図、商品ページの栄養チャートとして、同じ成分表とSKUから出します。",
+      "display_name": "栄養成分表",
+      "summary": "すでに書いてある成分表から、SKUごとに1枚の栄養成分表を作ります。",
+      "tags": [
+        "栄養成分表",
+        "食品栄養表示",
+        "パッケージ栄養図",
+        "商品ページの栄養チャート"
+      ],
+      "title": "栄養成分表：SKUごとに1枚"
+    },
+    "zh": {
+      "description": "营养成分图是按已经写好的成分表，给每个SKU做成一张营养成分表。配料表图、包装营养图、营养标示图和成分表包装图都按同一套成分表和SKU出。",
+      "display_name": "营养成分图·营养成分图",
+      "summary": "按已经写好的成分表，做成营养成分图，每个SKU一张。",
+      "tags": [
+        "营养成分图",
+        "营养成分表",
+        "配料表图",
+        "包装营养图",
+        "营养标示图",
+        "成分表包装图"
+      ],
+      "title": "营养成分图·营养成分图：每个SKU一张"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "nutrition-panel-art",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

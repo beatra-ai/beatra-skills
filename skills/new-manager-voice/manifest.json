@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written first-week checklist into one new manager week voice clip per labeled cue.",
+  "display_name": "New Manager Week Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/new-manager-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written first-week checklist into one new manager week voice clip per labeled cue. This first week voice pack studio records each new manager voice and first week checklist audio from the list the office already wrote, then delivers 8 to 20 new manager week clip files. Use it for manager onboarding voice packs that keep one cue on each clip.",
+      "display_name": "New Manager Week Voice Pack",
+      "summary": "Turn a written first-week checklist into one new manager week voice clip per labeled cue.",
+      "tags": [
+        "new manager week voice",
+        "first week voice pack",
+        "new manager voice",
+        "first week checklist audio",
+        "new manager week clip",
+        "manager onboarding voice"
+      ],
+      "title": "New Manager Week Voice: First-Week Checklist Clips"
+    },
+    "ja": {
+      "description": "新任マネージャー初週音声は、すでに書いた初週チェックリストから、初週チェックリスト音声とマネージャー入職音声を1本ずつ渡します。初週ボイス、マネージャー週音声は口に出せる一文で1本ずつ録り、8〜20本の初週ボイスパックとして渡します。",
+      "display_name": "新任マネージャー初週音声",
+      "summary": "すでに書いた初週チェックリストから、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "新任マネージャー初週音声",
+        "初週チェックリスト音声",
+        "マネージャー入職音声",
+        "初週ボイス",
+        "マネージャー週音声",
+        "初週ボイスパック"
+      ],
+      "title": "新任マネージャー初週音声：書いた初週リストを短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "新经理第一周按已经写好的第一周清单，做成每条清单转语音。这个新经理周语音工作室把第一周清单语音写成可说的稿，一次给出8到20条新经理入职语音和第一周语音包。",
+      "display_name": "新经理第一周·清单转语音",
+      "summary": "按已经写好的第一周清单，做成每条清单转语音。",
+      "tags": [
+        "新经理第一周",
+        "新经理周语音",
+        "第一周清单语音",
+        "新经理入职语音",
+        "清单转语音",
+        "第一周语音包"
+      ],
+      "title": "新经理第一周·清单转语音：按第一周清单一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "new-manager-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

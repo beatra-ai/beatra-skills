@@ -1,0 +1,58 @@
+{
+  "changelog": "Turn seller-supplied floor-plan facts and an already-written walk-in script into one talking clip per still.",
+  "display_name": "Walk-in Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/rental-walkin-avatar",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied floor-plan facts and an already-written walk-in script into one talking clip per still. This rental walk-in studio turns each authorized still into a 2 to 15s walk-in talking clip from the written line. Use it for rental walk-in videos, listing walk-in talks, and property walk-in talking clips.",
+      "display_name": "Walk-in Talking Clips",
+      "summary": "Turn seller-supplied floor-plan facts and an already-written walk-in script into one talking clip per still.",
+      "tags": [
+        "rental walk-in videos",
+        "listing walk-in talks",
+        "property walk-in talking clips",
+        "walk-in talking clip",
+        "rental walk-in video",
+        "listing walk-in talk"
+      ],
+      "title": "Walk-in Talking Clips: One Still, One Room Talk"
+    },
+    "ja": {
+      "description": "内見案内動画は、すでに書いてある間取り説明と台本から、写真1枚につき1本の案内トークを渡します。リビング案内、寝室案内として、同じ間取り説明から出します。",
+      "display_name": "内見案内動画",
+      "summary": "すでに書いてある間取り説明と台本から、写真1枚につき1本の案内トークを作ります。",
+      "tags": [
+        "内見案内動画",
+        "リビング案内",
+        "寝室案内",
+        "内見トーク"
+      ],
+      "title": "内見案内動画：部屋ごとに1本"
+    },
+    "zh": {
+      "description": "看房口播视频是按已经写好的户型说明和口播稿，给每张授权照片做成一条带看数字人。客厅口播、卧室口播、带看口播和看房口播都按同一套户型说明出。",
+      "display_name": "看房口播视频·带看口播",
+      "summary": "按已经写好的户型说明和口播稿，做成看房口播视频，每张照片一条。",
+      "tags": [
+        "看房口播视频",
+        "带看口播",
+        "客厅口播",
+        "卧室口播",
+        "看房口播"
+      ],
+      "title": "看房口播视频：一张静帧一条带看口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "rental-walkin-avatar",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

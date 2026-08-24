@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written civil-affairs materials list into one civil affairs voice clip per labeled cue.",
+  "display_name": "Civil Affairs Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/civil-affairs-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written civil-affairs materials list into one civil affairs voice clip per labeled cue. This materials list voice studio records each civil affairs instruction audio and window materials voice from the list the office already wrote, then delivers 8 to 20 civil affairs voice pack files. Use it for civil affairs clip packs that keep one materials item on each clip.",
+      "display_name": "Civil Affairs Voice Pack",
+      "summary": "Turn a written civil-affairs materials list into one civil affairs voice clip per labeled cue.",
+      "tags": [
+        "civil affairs voice",
+        "materials list voice",
+        "civil affairs instruction audio",
+        "window materials voice",
+        "civil affairs clip",
+        "civil affairs voice pack"
+      ],
+      "title": "Civil Affairs Voice: Materials-List Instruction Clips"
+    },
+    "ja": {
+      "description": "民政手続き音声は、すでに書いた必要書類リストから、窓口案内読み上げを1本ずつ渡します。必要書類リスト音声、民政説明音声、手続きクリップは口に出せる一文で1本ずつ録り、8〜20本の民政ボイスパックとして渡します。",
+      "display_name": "民政手続き音声",
+      "summary": "すでに書いた必要書類リストから、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "民政手続き音声",
+        "必要書類リスト音声",
+        "民政説明音声",
+        "窓口案内読み上げ",
+        "手続きクリップ",
+        "民政ボイスパック"
+      ],
+      "title": "民政手続き音声：必要書類リストを短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "民政办事语音按已经写好的材料清单，做成每条说明一条口播。材料清单语音、办事说明语音、民政材料朗读都按民政办事口播来录，一次给出8到20条办事语音包。",
+      "display_name": "民政办事语音·材料清单转语音",
+      "summary": "按已经写好的材料清单，做成每条说明一条口播。",
+      "tags": [
+        "民政办事语音",
+        "材料清单语音",
+        "办事说明语音",
+        "民政材料朗读",
+        "民政办事口播",
+        "办事语音包"
+      ],
+      "title": "民政办事语音·材料清单转语音：按材料清单一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "civil-affairs-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

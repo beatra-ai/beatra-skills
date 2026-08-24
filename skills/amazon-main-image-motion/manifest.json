@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn one approved white-background main image into one short clip for the listing main video slot.",
+  "display_name": "Amazon Main Image Motion",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/amazon-main-image-motion",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn one approved white-background main image into one short clip for the listing main video slot. The approved pack shot is the first frame, so its white background, crop, and framing carry straight into the clip while the product turns, a light sweeps across it, or the camera eases in. Use it for Amazon main image video, product photo animation, and white background product video work that stays one photo one clip.",
+      "display_name": "Amazon Main Image Motion",
+      "summary": "Turn one approved white-background main image into one short clip for the listing main video slot.",
+      "tags": [
+        "Amazon main image video",
+        "main image motion",
+        "product photo animation",
+        "white background product video",
+        "listing main video",
+        "one photo one clip"
+      ],
+      "title": "Amazon Main Image Motion: One Photo, One Main Image Clip"
+    },
+    "ja": {
+      "description": "Amazonメイン画像動画は、承認済みの白背景メイン画像をメイン動画枠用の短いクリップにします。承認済みのパッケージ写真がそのまま最初のフレームになり、白背景・構図・画角を引き継いだうえで、商品が回る、光が走る、ゆっくり寄るといった動きを付けます。商品画像アニメーションや白背景商品動画、リスティング動画に、1枚1本で使えます。",
+      "display_name": "Amazonメイン画像動画・白背景ワンカット",
+      "summary": "承認済みの白背景メイン画像を、メイン動画枠用の短いクリップにします。",
+      "tags": [
+        "Amazonメイン画像動画",
+        "メイン画像動画",
+        "商品画像アニメーション",
+        "白背景商品動画",
+        "リスティング動画",
+        "1枚1本"
+      ],
+      "title": "Amazonメイン画像動画・白背景ワンカット：1枚から1本"
+    },
+    "zh": {
+      "description": "亚马逊主图视频把已过审的白底主图做成一条主图位短片。白底一镜的做法，是以这张主图作首帧，白底、构图和取景原样带进片子，商品转一圈、光扫过表面或镜头缓缓推近；主图视频、商品主图动效、主图动图、Listing视频，指的都是这条短片。",
+      "display_name": "亚马逊主图视频·白底一镜",
+      "summary": "把已过审的白底主图，做成一条主图位短片。",
+      "tags": [
+        "亚马逊主图视频",
+        "白底一镜",
+        "主图视频",
+        "商品主图动效",
+        "主图动图",
+        "Listing视频"
+      ],
+      "title": "亚马逊主图视频·白底一镜：一张主图一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "amazon-main-image-motion",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,76 @@
+{
+  "changelog": "Hear three style sketches on one length first, then make the other lengths. A spoken slogan ships as its own audio file.",
+  "display_name": "Brand Jingle Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/brand-jingle-studio",
+  "icon": "https://beatra.ai/textures/icons/brand-jingle-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a brand name, slogan, and campaign use into a set of original brand jingles, ad songs, and audio-logo stings. This brand jingle maker and AI jingle generator drafts the hook and optional sung line, then generates reviewable tracks in the lengths and styles the campaign needs for ads, store openings, podcast intros, and radio spots. Use it as an ad song generator and brand music generator for brand theme songs, commercial jingles, advertising jingles, sonic logos, audio logo stings, campaign music, radio jingles, podcast intro jingles, and event walk-on themes, with each candidate generated as original music you can use commercially.",
+      "display_name": "Brand Jingle Studio",
+      "summary": "Turn a brand name, slogan, and campaign use into a set of original brand jingles, ad songs, and audio-logo stings.",
+      "tags": [
+        "brand jingle",
+        "AI jingle generator",
+        "commercial jingle",
+        "brand theme song",
+        "audio logo",
+        "sonic logo",
+        "ad song generator",
+        "advertising jingle",
+        "podcast intro jingle",
+        "radio jingle",
+        "campaign music",
+        "brand music generator"
+      ],
+      "title": "Brand Jingle Studio: AI Jingle Generator for Ads"
+    },
+    "ja": {
+      "description": "ブランド名、スローガン、出稿先から、オリジナルのブランドジングル、広告歌、サウンドロゴ候補を作ります。このAIジングルジェネレーターはフックと任意の歌詞を整えたあと、出稿尺と複数スタイルの候補を生成し、広告、店頭、ポッドキャストオープニング、ラジオスポットに使えます。ジングル作成、オーディオロゴ、ラジオジングル、ポッドキャストジングル、CM音楽、ブランド音楽、テーマソング作成の候補は商用利用できるオリジナル音楽です。",
+      "display_name": "ブランドジングルスタジオ",
+      "summary": "ブランド名とスローガンから、オリジナルの広告ジングルとサウンドロゴ候補をまとめて作ります。",
+      "tags": [
+        "ブランドジングル",
+        "ジングル作成",
+        "広告歌",
+        "サウンドロゴ",
+        "オーディオロゴ",
+        "テーマソング作成",
+        "CM音楽",
+        "ブランド音楽",
+        "ラジオジングル",
+        "ポッドキャストジングル"
+      ],
+      "title": "ブランドジングル作成：広告歌とサウンドロゴ"
+    },
+    "zh": {
+      "description": "把品牌名、口号和投放场景做成一组原创广告歌、品牌主题曲和声音Logo。这个AI广告歌生成和品牌主题曲制作工具会先写好钩子和可选唱词，再按投放时长和多种风格出候选，用于广告歌、品牌歌、宣传歌、活动主题曲、播客片头、电台广告、商业配乐、品牌音乐和广告配乐，每条都是现写的原创商用音乐。",
+      "display_name": "广告歌生成·品牌主题曲",
+      "summary": "把品牌名、口号和投放场景做成一组原创广告歌、品牌主题曲和声音Logo，先听再定稿。",
+      "tags": [
+        "广告歌",
+        "广告歌生成",
+        "品牌主题曲",
+        "品牌歌",
+        "宣传歌",
+        "声音Logo",
+        "商业配乐",
+        "品牌音乐",
+        "活动主题曲",
+        "广告配乐",
+        "AI广告歌"
+      ],
+      "title": "广告歌生成·品牌主题曲：AI 广告歌与声音Logo"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "brand-jingle-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

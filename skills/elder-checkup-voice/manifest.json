@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written elder-checkup schedule into one elder checkup voice clip per labeled cue.",
+  "display_name": "Elder Checkup Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/elder-checkup-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written elder-checkup schedule into one elder checkup voice clip per labeled cue. This checkup schedule voice studio records each elder checkup notice audio and community checkup read from the schedule the office already wrote, then delivers 8 to 20 elder checkup voice pack files. Use it for elder checkup clip packs that keep one schedule item on each clip.",
+      "display_name": "Elder Checkup Voice Pack",
+      "summary": "Turn a written elder-checkup schedule into one elder checkup voice clip per labeled cue.",
+      "tags": [
+        "elder checkup voice",
+        "checkup schedule voice",
+        "elder checkup notice audio",
+        "community checkup read",
+        "elder checkup clip",
+        "elder checkup voice pack"
+      ],
+      "title": "Elder Checkup Voice: Schedule Notice Clips"
+    },
+    "ja": {
+      "description": "高齢者健診通知音声は、すでに書いた健診日程から、健診案内読み上げを1本ずつ渡します。健診日程音声、地域健診読み上げ、健診クリップは口に出せる一文で1本ずつ録り、8〜20本の健診ボイスパックとして渡します。",
+      "display_name": "高齢者健診通知音声",
+      "summary": "すでに書いた健診日程から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "高齢者健診通知音声",
+        "健診日程音声",
+        "地域健診読み上げ",
+        "健診案内読み上げ",
+        "健診クリップ",
+        "健診ボイスパック"
+      ],
+      "title": "高齢者健診通知音声：健診日程を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "老年体检通知按已经写好的体检安排，做成每条通知一条口播。体检安排语音、体检通知口播、社区体检朗读都按体检安排转语音来录，一次给出8到20条体检通知语音包。",
+      "display_name": "老年体检通知·体检安排转语音",
+      "summary": "按已经写好的体检安排，做成每条通知一条口播。",
+      "tags": [
+        "老年体检通知",
+        "体检安排语音",
+        "体检通知口播",
+        "社区体检朗读",
+        "体检安排转语音",
+        "体检通知语音包"
+      ],
+      "title": "老年体检通知·体检安排转语音：按体检安排一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "elder-checkup-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

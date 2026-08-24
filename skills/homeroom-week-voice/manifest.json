@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written homeroom week plan into one homeroom week voice clip per labeled cue.",
+  "display_name": "Homeroom Week Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/homeroom-week-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written homeroom week plan into one homeroom week voice clip per labeled cue. This weekly class voice studio records each week plan voice and class notice audio from the plan the teacher already wrote, then delivers 8 to 20 homeroom voice pack files. Use it for homeroom weekly voice packs that keep one arrangement on each clip.",
+      "display_name": "Homeroom Week Voice Pack",
+      "summary": "Turn a written homeroom week plan into one homeroom week voice clip per labeled cue.",
+      "tags": [
+        "homeroom week voice",
+        "weekly class voice",
+        "week plan voice",
+        "class notice audio",
+        "homeroom weekly voice",
+        "homeroom voice pack"
+      ],
+      "title": "Homeroom Week Voice: Week-Plan Forwardable Clips"
+    },
+    "ja": {
+      "description": "担任週音声は、すでに書いた今週の予定から、今週予定音声を1本ずつ渡します。学級週案内、担任読み上げ、今週予定クリップは口に出せる一文で1本ずつ録り、8〜20本の学級ボイスパックとして渡します。",
+      "display_name": "担任週音声",
+      "summary": "すでに書いた今週の予定から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "担任週音声",
+        "今週予定音声",
+        "学級週案内",
+        "担任読み上げ",
+        "今週予定クリップ",
+        "学級ボイスパック"
+      ],
+      "title": "担任週音声：今週の予定を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "班主任周语音按已经写好的本周安排，做成每条安排一条口播。本周安排语音、班级周安排、周安排朗读都按班主任口播来录，一次给出8到20条班级语音包。",
+      "display_name": "班主任周语音·本周安排转语音",
+      "summary": "按已经写好的本周安排，做成每条安排一条口播。",
+      "tags": [
+        "班主任周语音",
+        "本周安排语音",
+        "班级周安排",
+        "班主任口播",
+        "周安排朗读",
+        "班级语音包"
+      ],
+      "title": "班主任周语音·本周安排转语音：按本周安排一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "homeroom-week-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

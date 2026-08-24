@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied unit outline points into one still per unit mind map page.",
+  "display_name": "Unit Map Page",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/unit-map-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied unit outline points into one still per unit mind map page. This classroom unit map studio lays out each unit outline still from the supplied unit points. Use it for a unit knowledge map, a lesson mind map page, and a unit map set.",
+      "display_name": "Unit Map Page",
+      "summary": "Turn user-supplied unit outline points into one still per unit mind map page.",
+      "tags": [
+        "unit mind map page",
+        "classroom unit map",
+        "unit outline still",
+        "unit knowledge map",
+        "lesson mind map page",
+        "unit map set"
+      ],
+      "title": "Unit Map Page: Classroom Unit Stills"
+    },
+    "ja": {
+      "description": "手元の単元要点から、ページごとに1枚の単元マップ図を作ります。この授業マインドマップは、単元要点図や単元導図ページ、知識マップ図、単元構成図としても使えます。",
+      "display_name": "単元マップ図",
+      "summary": "手元の単元要点から、ページごとに1枚の単元マップ図を作ります。",
+      "tags": [
+        "単元マップ図",
+        "授業マインドマップ",
+        "単元要点図",
+        "単元導図ページ",
+        "知識マップ図",
+        "単元構成図"
+      ],
+      "title": "単元マップ図：ページごとの授業図"
+    },
+    "zh": {
+      "description": "单元导图组按用户提供的单元要点，按页做成单元转分页静帧。这个导图页工作室把确认过的单元结构排成单元思维导图、课堂导图页、单元结构图和单元知识图。",
+      "display_name": "单元导图组·单元转分页",
+      "summary": "按用户提供的单元要点，按页做成单元转分页静帧。",
+      "tags": [
+        "单元导图组",
+        "单元转分页",
+        "单元思维导图",
+        "课堂导图页",
+        "单元结构图",
+        "单元知识图"
+      ],
+      "title": "单元导图组：单元转分页"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "unit-map-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

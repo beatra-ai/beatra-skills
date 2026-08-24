@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a coworking or daytime office brief into one office background music playlist of 8 to 15 low-stimulation instrumentals.",
+  "display_name": "Coworking Day Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/coworking-day-pack",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a coworking or daytime office brief into one office background music playlist of 8 to 15 low-stimulation instrumentals. This coworking playlist studio writes a workday music and office BGM set for arrival, focus, light talk, and close. Use it for daytime instrumental beds and a low-stimulation playlist the floor can play through the day.",
+      "display_name": "Coworking Day Pack",
+      "summary": "Turn a coworking or daytime office brief into one office background music playlist of 8 to 15 low-stimulation instrumentals.",
+      "tags": [
+        "office background music",
+        "coworking playlist",
+        "daytime instrumental",
+        "office BGM",
+        "workday music",
+        "low-stimulation playlist"
+      ],
+      "title": "Coworking Day Pack: Daytime Office Background Music"
+    },
+    "ja": {
+      "description": "オフィスBGMを、日中の執務空間向けに8〜15曲の低刺激BGMにします。この日中プレイリストは、出社・集中・軽い会話・終業のオフィス背景音楽と日中器楽を、コワーキングBGMとして渡します。",
+      "display_name": "オフィスBGM・日中プレイリスト",
+      "summary": "日中のオフィスやコワーキング向けに、8〜15曲の低刺激BGMを作ります。",
+      "tags": [
+        "オフィスBGM",
+        "日中プレイリスト",
+        "オフィス背景音楽",
+        "日中器楽",
+        "コワーキングBGM",
+        "低刺激BGM"
+      ],
+      "title": "オフィスBGM・日中プレイリスト：低刺激の器楽"
+    },
+    "zh": {
+      "description": "办公配乐按卖家给出的日间房间气质，做成8到15首低刺激器乐的日间歌单。这个办公BGM和办公室背景音乐工作室按到岗、专注、轻聊和收工写出日间器乐，也适合联合办公配乐。",
+      "display_name": "办公配乐·日间歌单",
+      "summary": "按日间办公或联合办公的房间气质，做成8到15首低刺激器乐。",
+      "tags": [
+        "办公配乐",
+        "日间歌单",
+        "办公BGM",
+        "办公室背景音乐",
+        "日间器乐",
+        "联合办公配乐"
+      ],
+      "title": "办公配乐·日间歌单：低刺激器乐"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "coworking-day-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

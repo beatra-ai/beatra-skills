@@ -1,0 +1,69 @@
+{
+  "changelog": "Build a labeled 10-20 track instrumental playlist for a livestream room or store.",
+  "display_name": "Livestream BGM Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/livestream-bgm-pack",
+  "icon": "https://beatra.ai/textures/icons/livestream-bgm-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Build an original livestream BGM playlist of 10 to 20 instrumental tracks for a room, store, or live-commerce shift. This livestream background music pack and store-loop music generator writes waiting, chat, product, hype, and night beds as original livestream music you own and can use commercially, then delivers a labeled playlist you can audition before going live. Use it as a playlist BGM generator for livestream BGM, live commerce BGM, store loop music, waiting room music, in-store background music, and original stream music.",
+      "display_name": "Livestream BGM Pack",
+      "summary": "Build an original livestream BGM playlist of 10 to 20 instrumental tracks for a room, store, or live-commerce shift.",
+      "tags": [
+        "livestream BGM",
+        "livestream background music",
+        "original livestream music",
+        "store loop music",
+        "live commerce BGM",
+        "waiting room music",
+        "playlist BGM generator",
+        "in-store background music",
+        "original stream music"
+      ],
+      "title": "Livestream BGM Pack: Original Stream and Store Music"
+    },
+    "ja": {
+      "description": "配信部屋、店舗、ライブコマース向けに、10〜20曲のオリジナルインストBGMプレイリストを作ります。この配信BGMパックは待機、雑談、商品説明、盛り上がり、深夜用のベッドを商用利用 BGM として書き、ラベル付きプレイリストで納品します。ライブ配信 BGM、ライブコマース BGM、店舗BGM、ループBGM、待機画面 BGM、商用オリジナル配信BGMに使えます。",
+      "display_name": "配信BGMパック",
+      "summary": "配信部屋、店舗、ライブコマース向けに、10〜20曲のオリジナルインストBGMプレイリストを作ります。",
+      "tags": [
+        "配信BGM",
+        "ライブ配信 BGM",
+        "店舗BGM",
+        "ループBGM",
+        "ライブコマース BGM",
+        "待機画面 BGM",
+        "商用利用 BGM",
+        "商用オリジナル配信BGM"
+      ],
+      "title": "配信BGMパック：ライブと店舗用オリジナル音楽"
+    },
+    "zh": {
+      "description": "为直播间、带货场次或门店一次做出10到20首原创循环纯音乐。这个直播间BGM歌单和门店循环音乐生成工具会按候场、闲聊、讲品、高潮和夜场写出原创BGM，音乐归你所有、可直接商用，交付带标签的歌单，开播前先试听。适用于直播间背景音乐、直播带货BGM、门店循环音乐、候场音乐、直播BGM、直播配乐和直播间音乐。",
+      "display_name": "直播间BGM歌单",
+      "summary": "为直播间、带货场次或门店一次做出10到20首原创循环纯音乐，先听再开播。",
+      "tags": [
+        "直播间BGM",
+        "直播间背景音乐",
+        "直播BGM",
+        "直播配乐",
+        "门店循环音乐",
+        "直播带货BGM",
+        "候场音乐",
+        "原创BGM",
+        "直播间音乐"
+      ],
+      "title": "直播间BGM歌单：原创直播背景音乐包"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "livestream-bgm-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

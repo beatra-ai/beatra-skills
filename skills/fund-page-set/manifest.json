@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied fund factsheet points into one still per page.",
+  "display_name": "Fund Factsheet Page",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/fund-page-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied fund factsheet points into one still per page. This fund factsheet page studio lays out each prospectus page still from the supplied fund factsheet. Use it for factsheet page graphics, fund page set layouts, and page-by-page fund stills.",
+      "display_name": "Fund Factsheet Page",
+      "summary": "Turn user-supplied fund factsheet points into one still per page.",
+      "tags": [
+        "fund factsheet page",
+        "prospectus page still",
+        "fund page set",
+        "factsheet page graphic",
+        "page-by-page fund still",
+        "fund factsheet"
+      ],
+      "title": "Fund Factsheet Page: Prospectus Stills"
+    },
+    "ja": {
+      "description": "手元のファンド説明書の要点から、ページごとに1枚の投資信託説明書図を作ります。このファンド説明書図は、交付目論見書図やファクトシート図、目論見書ページやファンドページ図としても使えます。",
+      "display_name": "投資信託説明書図",
+      "summary": "手元のファンド説明書の要点から、ページごとに1枚の投資信託説明書図を作ります。",
+      "tags": [
+        "投資信託説明書図",
+        "ファンド説明書図",
+        "交付目論見書図",
+        "ファクトシート図",
+        "目論見書ページ",
+        "ファンドページ図"
+      ],
+      "title": "投資信託説明書図：ページごとの図"
+    },
+    "zh": {
+      "description": "基金说明书图按用户提供的基金说明书要点，按页做成说明书转分页静帧。这个说明书图工作室把确认过的要点排成基金分页图和基金事实页。",
+      "display_name": "基金说明书图·说明书转分页",
+      "summary": "按用户提供的基金说明书要点，按页做成说明书转分页静帧。",
+      "tags": [
+        "基金说明书图",
+        "说明书转分页",
+        "基金分页图",
+        "基金事实页",
+        "说明书图",
+        "基金说明书"
+      ],
+      "title": "基金说明书图：说明书转分页"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "fund-page-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

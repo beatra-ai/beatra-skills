@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written incident briefing script into one incident brief voice clip per labeled cue.",
+  "display_name": "Incident Brief Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/incident-brief-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written incident briefing script into one incident brief voice clip per labeled cue. This incident brief voice studio records each accident notice audio and safety brief read from the script the office already wrote, then delivers 8 to 20 incident brief voice pack files. Use it for incident brief clip packs that keep one brief line on each clip.",
+      "display_name": "Incident Brief Voice Pack",
+      "summary": "Turn a written incident briefing script into one incident brief voice clip per labeled cue.",
+      "tags": [
+        "incident brief voice",
+        "accident notice audio",
+        "safety brief read",
+        "incident briefing clip",
+        "briefing script voice",
+        "incident brief voice pack"
+      ],
+      "title": "Incident Brief Voice: Briefing-Script Notice Clips"
+    },
+    "ja": {
+      "description": "事故通報音声は、すでに書いた通報原稿から、事故告知読み上げと安全通報音声を1本ずつ渡します。通報クリップ、事故通知ボイスは口に出せる一文で1本ずつ録り、8〜20本の事故通報ボイスパックとして渡します。",
+      "display_name": "事故通報音声",
+      "summary": "すでに書いた通報原稿から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "事故通報音声",
+        "事故告知読み上げ",
+        "安全通報音声",
+        "通報クリップ",
+        "事故通知ボイス",
+        "事故通報ボイスパック"
+      ],
+      "title": "事故通報音声：通報原稿を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "事故通报语音按已经写好的通报稿，做成每条通报一条口播。事故通报口播、安全通报朗读、事故通知语音都按通报稿转语音来录，一次给出8到20条事故通报语音包。",
+      "display_name": "事故通报语音·通报稿转语音",
+      "summary": "按已经写好的通报稿，做成每条通报一条口播。",
+      "tags": [
+        "事故通报语音",
+        "事故通报口播",
+        "安全通报朗读",
+        "事故通知语音",
+        "通报稿转语音",
+        "事故通报语音包"
+      ],
+      "title": "事故通报语音·通报稿转语音：按通报稿一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "incident-brief-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

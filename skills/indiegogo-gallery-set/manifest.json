@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written campaign and reward-tier plan into one gallery still per named slot.",
+  "display_name": "Crowdfunding Gallery Stills",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/indiegogo-gallery-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written campaign and reward-tier plan into one gallery still per named slot. This crowdfunding gallery studio lays out each named reward-tier still and campaign scene as its own still. Use it for Indiegogo gallery stills, Kickstarter gallery frames, reward-tier tiles, and campaign gallery sets.",
+      "display_name": "Crowdfunding Gallery Stills",
+      "summary": "Turn a written campaign and reward-tier plan into one gallery still per named slot.",
+      "tags": [
+        "crowdfunding gallery",
+        "reward-tier still",
+        "Indiegogo gallery",
+        "Kickstarter gallery",
+        "campaign gallery set",
+        "reward-tier tile"
+      ],
+      "title": "Crowdfunding Gallery Stills: Reward-Tier and Campaign Gallery"
+    },
+    "ja": {
+      "description": "クラウドファンディング画像は、すでに書いたプロジェクト案から、リワード枠ごとに1枚のギャラリー静止画を作ります。クラファンギャラリーとリワード画像を揃え、支援枠の図やプロジェクトギャラリーも同じ案で1枚ずつ渡します。",
+      "display_name": "クラウドファンディング画像",
+      "summary": "すでに書いたプロジェクト案から、枠ごとに1枚のギャラリー静止画を作ります。",
+      "tags": [
+        "クラウドファンディング画像",
+        "クラファンギャラリー",
+        "リワード画像",
+        "支援枠の図",
+        "プロジェクトギャラリー",
+        "リワード枠"
+      ],
+      "title": "クラウドファンディング画像：リワード枠ギャラリー"
+    },
+    "zh": {
+      "description": "众筹内容是按已经写好的众筹方案，把每个档位做成一张画廊静帧。档位图、档位静帧、众筹画廊和众筹套图都按同一份方案出。",
+      "display_name": "众筹内容·档位图",
+      "summary": "按已经写好的众筹方案，做成每个档位一张画廊静帧。",
+      "tags": [
+        "众筹内容",
+        "档位图",
+        "画廊静帧",
+        "众筹画廊",
+        "档位静帧",
+        "众筹套图"
+      ],
+      "title": "众筹内容·档位图：画廊静帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "indiegogo-gallery-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

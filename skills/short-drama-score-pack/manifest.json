@@ -1,0 +1,66 @@
+{
+  "changelog": "Build a labeled 8-15 track instrumental score for tension, romance, comedy, and tearjerker beds.",
+  "display_name": "Short Drama Score Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/short-drama-score-pack",
+  "icon": "https://beatra.ai/textures/icons/short-drama-score-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Build an original short-drama score pack of 8 to 15 instrumental beds for tension, romance, comedy, and tearjerker scenes. This short drama BGM studio and episode score generator writes loop-friendly short-drama music you own and can use commercially, then delivers a labeled short drama score you can audition before the cut. Use it as a short drama soundtrack for short-drama BGM, vertical drama music, episode score, romance beds, tension beds, and original short-drama music.",
+      "display_name": "Short Drama Score Pack",
+      "summary": "Build an original short-drama score pack of 8 to 15 instrumental beds for tension, romance, comedy, and tearjerker scenes.",
+      "tags": [
+        "short-drama BGM",
+        "short drama soundtrack",
+        "vertical drama music",
+        "episode score",
+        "romance beds",
+        "tension beds",
+        "original short-drama music",
+        "short drama score"
+      ],
+      "title": "Short Drama Score Pack: Original Short-Drama BGM"
+    },
+    "ja": {
+      "description": "縦型ショートドラマ向けに、緊張、恋愛、喜劇、涙の8〜15曲のオリジナルBGMパックを作ります。この短編ドラマBGMとエピソードスコアは、台詞の下に置けるループ向きのドラマ音楽を商用利用できる形で書き、ラベル付きスコアで納品します。縦型ドラマ音楽、短編ドラマサウンドトラック、恋愛シーンBGM、緊張シーンBGM、オリジナル短編ドラマ音楽に使えます。",
+      "display_name": "短編ドラマBGMパック",
+      "summary": "縦型ショートドラマ向けに、緊張、恋愛、喜劇、涙の8〜15曲のオリジナルBGMパックを作ります。",
+      "tags": [
+        "短編ドラマBGM",
+        "縦型ドラマ音楽",
+        "エピソードスコア",
+        "短編ドラマサウンドトラック",
+        "恋愛シーンBGM",
+        "緊張シーンBGM",
+        "オリジナル短編ドラマ音楽"
+      ],
+      "title": "短編ドラマBGMパック：縦型ドラマ向けオリジナルスコア"
+    },
+    "zh": {
+      "description": "为竖屏短剧一次做出8到15首原创短剧配乐。这个短剧BGM和短剧配乐工作室会按紧张、恋爱、喜感和虐心写出可循环的情绪床，音乐归你所有、可直接商用，交付带标签的短剧配乐，剪辑前先试听。适用于竖屏短剧配乐、短剧原声、恋爱底乐、紧张底乐和原创短剧音乐。",
+      "display_name": "短剧配乐·情绪床",
+      "summary": "为竖屏短剧一次做出8到15首原创短剧配乐，剪辑前先试听。",
+      "tags": [
+        "短剧配乐",
+        "短剧BGM",
+        "竖屏短剧配乐",
+        "短剧原声",
+        "恋爱底乐",
+        "紧张底乐",
+        "原创短剧音乐",
+        "情绪床"
+      ],
+      "title": "短剧配乐·情绪床：原创短剧BGM包"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "short-drama-score-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

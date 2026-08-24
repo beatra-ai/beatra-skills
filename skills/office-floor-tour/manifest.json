@@ -1,0 +1,59 @@
+{
+  "changelog": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still.",
+  "display_name": "Office Floor Tour",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/office-floor-tour",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still. This office floor video studio lays out each floor walkthrough clip from the seller-supplied floor photo, then delivers an office listing clip and a floor walkthrough video as separate files. Use it for office floor packs that give each still its own clip.",
+      "display_name": "Office Floor Tour",
+      "summary": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still.",
+      "tags": [
+        "office floor tour",
+        "office floor video",
+        "floor walkthrough clip",
+        "office listing clip",
+        "floor walkthrough video",
+        "office floor packs"
+      ],
+      "title": "Office Floor Tour: One Still, One Floor Clip"
+    },
+    "ja": {
+      "description": "オフィスタワー案内は、すでに撮ったフロア写真から短いクリップを1本ずつ渡します。オフィスフロア動画とフロア一鏡として、オフィス物件動画も1本ずつ揃えます。",
+      "display_name": "オフィスタワー案内",
+      "summary": "すでに撮ったフロア写真から、短いクリップを1本ずつ作ります。",
+      "tags": [
+        "オフィスタワー案内",
+        "オフィスフロア動画",
+        "フロア一鏡",
+        "オフィス物件動画"
+      ],
+      "title": "オフィスタワー案内：フロア写真を短いクリップで渡す"
+    },
+    "zh": {
+      "description": "办公楼讲房用已经拍好的楼层照，做成每张照片一条短片。楼层一镜按原照做成办公楼层视频，写字楼讲房和楼层短片也各成一条办公楼一镜。",
+      "display_name": "办公楼讲房·楼层一镜",
+      "summary": "按已经拍好的楼层照，做成每张照片一条短片。",
+      "tags": [
+        "办公楼讲房",
+        "楼层一镜",
+        "办公楼层视频",
+        "写字楼讲房",
+        "楼层短片",
+        "办公楼一镜"
+      ],
+      "title": "办公楼讲房·楼层一镜：一张楼层照一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "office-floor-tour",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

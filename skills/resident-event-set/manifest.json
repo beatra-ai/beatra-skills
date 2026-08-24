@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied resident event names and points into a four-to-eight still resident event set.",
+  "display_name": "Resident Event Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/resident-event-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied resident event names and points into a four-to-eight still resident event set. This community event pack studio lays out each named activity as its own resident event still. Use it for activity still pack layouts, resident event graphic packs, and community activity still sets.",
+      "display_name": "Resident Event Pack",
+      "summary": "Turn user-supplied resident event names and points into a four-to-eight still resident event set.",
+      "tags": [
+        "resident event still",
+        "community event pack",
+        "resident event set",
+        "activity still pack",
+        "resident event graphic",
+        "community activity still"
+      ],
+      "title": "Resident Event Pack: Matching Activity Stills"
+    },
+    "ja": {
+      "description": "手元の住民イベント名と要点から、4〜8枚の住民イベント図セットを作ります。この地域活動セットは、住民活動図やイベント図セット、地域イベント図、活動ポスター図としても使えます。",
+      "display_name": "住民イベント図",
+      "summary": "手元の住民イベント名と要点から、4〜8枚の住民イベント図セットを作ります。",
+      "tags": [
+        "住民イベント図",
+        "地域活動セット",
+        "住民活動図",
+        "イベント図セット",
+        "地域イベント図",
+        "活動ポスター図"
+      ],
+      "title": "住民イベント図：活動ごとの図セット"
+    },
+    "zh": {
+      "description": "居民活动图组按已经写好的活动名称和要点，做成一组活动转图组静帧。这个居民活动图工作室把确认过的活动排成社区活动套图和活动套图，一次给出居民活动海报。",
+      "display_name": "居民活动图组·活动转图组",
+      "summary": "按已经写好的活动名称和要点，做成一组活动转图组静帧。",
+      "tags": [
+        "居民活动图组",
+        "活动转图组",
+        "居民活动图",
+        "社区活动套图",
+        "活动套图",
+        "居民活动海报"
+      ],
+      "title": "居民活动图组·活动转图组：按活动做成一套图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "resident-event-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

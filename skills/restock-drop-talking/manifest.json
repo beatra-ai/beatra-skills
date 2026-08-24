@@ -1,0 +1,57 @@
+{
+  "changelog": "Turn seller-supplied restock facts and an already-written restock script into one talking clip per still.",
+  "display_name": "Restock Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/restock-drop-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied restock facts and an already-written restock script into one talking clip per still. This restock talking studio turns each authorized still into a 2 to 15s restock talking clip from the written line. Use it for restock talking videos, restock announcement talks, and restock drop talking clips.",
+      "display_name": "Restock Talking Clips",
+      "summary": "Turn seller-supplied restock facts and an already-written restock script into one talking clip per still.",
+      "tags": [
+        "restock talking videos",
+        "restock announcement talks",
+        "restock drop talking clips",
+        "restock talking clip",
+        "restock talking video",
+        "restock announcement talk"
+      ],
+      "title": "Restock Talking Clips: One Still, One Restock Talk"
+    },
+    "ja": {
+      "description": "再入荷予告動画は、すでに書いてある再入荷の案内と台本から、写真1枚につき1本のトークを渡します。入荷案内、商品案内として、同じ再入荷の案内から出します。",
+      "display_name": "再入荷予告動画",
+      "summary": "すでに書いてある再入荷の案内と台本から、写真1枚につき1本のトークを作ります。",
+      "tags": [
+        "再入荷予告動画",
+        "入荷案内",
+        "商品案内",
+        "再入荷トーク"
+      ],
+      "title": "再入荷予告動画：写真ごとに1本"
+    },
+    "zh": {
+      "description": "补货预告口播是按已经写好的补货稿，给每张授权照片做成一条到货口播。补货预告、到货口播和上新一条都按同一套补货稿出。",
+      "display_name": "补货预告口播·上新一条",
+      "summary": "按已经写好的补货稿，做成补货预告口播，每张照片一条。",
+      "tags": [
+        "补货预告口播",
+        "上新一条",
+        "补货预告",
+        "到货口播"
+      ],
+      "title": "补货预告口播：一张静帧一条上新一条"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "restock-drop-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

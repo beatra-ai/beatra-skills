@@ -1,0 +1,60 @@
+{
+  "changelog": "First public version: turn one kitchen photo the listing already uses into one short clip.",
+  "display_name": "Apartment Kitchen Tour",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/apartment-kitchen-tour",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn one kitchen photo the listing already uses into one short clip for the listing page. The photo is the clip's first frame, so that frame keeps the room's layout, and from there the camera eases in, drifts between foreground and background, or light sweeps across the counter. Use it for kitchen tour video, apartment kitchen clip, listing photo animation, and real estate room video work that stays one photo one clip.",
+      "display_name": "Apartment Kitchen Tour",
+      "summary": "Turn one kitchen photo the listing already uses into one short clip for the listing page.",
+      "tags": [
+        "kitchen tour video",
+        "apartment kitchen clip",
+        "listing photo animation",
+        "real estate room video",
+        "one photo one clip"
+      ],
+      "title": "Apartment Kitchen Tour: One Photo, One Kitchen Clip"
+    },
+    "ja": {
+      "description": "キッチン内見動画は、物件で既に使っているキッチン写真を1本の短いクリップにします。キッチン1カットはその写真を最初のフレームとし、そのフレームは部屋のレイアウトをそのまま保ちます。そこから、カメラがゆっくり寄る、手前と奥の間を動く、天板に光が走る——この中から1つだけ選びます。キッチン動画、物件動画、内見動画、民泊動画に、1枚1本で使えます。",
+      "display_name": "キッチン内見動画・キッチン1カット",
+      "summary": "物件で既に使っているキッチン写真を、1本の短いクリップにします。",
+      "tags": [
+        "キッチン内見動画",
+        "キッチン1カット",
+        "キッチン動画",
+        "物件動画",
+        "内見動画",
+        "民泊動画"
+      ],
+      "title": "キッチン内見動画・キッチン1カット：1枚から1本"
+    },
+    "zh": {
+      "description": "厨房讲房，就是把房源已在用的那张厨房照做成一条短片。厨房一镜以这张照片作为首帧，首帧保留房间原本的布局，随后镜头缓缓推近、在前后景之间轻轻移动，或光扫过台面；厨房视频、房源短视频、看房视频、民宿视频，用的都是这条短片。",
+      "display_name": "厨房讲房·厨房一镜",
+      "summary": "把房源已在用的那张厨房照，做成一条短片。",
+      "tags": [
+        "厨房讲房",
+        "厨房一镜",
+        "厨房视频",
+        "房源短视频",
+        "看房视频",
+        "民宿视频"
+      ],
+      "title": "厨房讲房·厨房一镜：一张照片一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "apartment-kitchen-tour",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied open windows into a four-to-eight still wealth open calendar.",
+  "display_name": "Wealth Open Calendar",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wealth-open-cal-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied open windows into a four-to-eight still wealth open calendar. This open-period calendar set studio lays out each named fund open window calendar as its own still. Use it for open window calendar stills, wealth calendar stills, and an open calendar pack.",
+      "display_name": "Wealth Open Calendar",
+      "summary": "Turn user-supplied open windows into a four-to-eight still wealth open calendar.",
+      "tags": [
+        "wealth open calendar",
+        "open-period calendar set",
+        "fund open window calendar",
+        "open window calendar still",
+        "wealth calendar still",
+        "open calendar pack"
+      ],
+      "title": "Wealth Open Calendar: Open-Window Calendar Stills"
+    },
+    "ja": {
+      "description": "手元のオープン期間から、4〜8枚の開放カレンダーセットを作ります。このオープン期間カレンダーは、ファンド開放日図や申込期間カレンダー、換金期間図、開放日カレンダーとしても使えます。",
+      "display_name": "開放カレンダーセット",
+      "summary": "手元のオープン期間から、4〜8枚の開放カレンダーセットを作ります。",
+      "tags": [
+        "開放カレンダーセット",
+        "オープン期間カレンダー",
+        "ファンド開放日図",
+        "申込期間カレンダー",
+        "換金期間図",
+        "開放日カレンダー"
+      ],
+      "title": "開放カレンダーセット：オープン期間ごとの図"
+    },
+    "zh": {
+      "description": "理财开放日历按用户提供的开放期，做成一组开放期转日历静帧。这个理财日历工作室把已确认的开放窗口排成开放期日历、理财日历图、开放日历图和开放日历套图。",
+      "display_name": "理财开放日历·开放期转日历",
+      "summary": "按用户提供的开放期，做成一组开放期转日历静帧。",
+      "tags": [
+        "理财开放日历",
+        "开放期转日历",
+        "开放期日历",
+        "理财日历图",
+        "开放日历图",
+        "开放日历套图"
+      ],
+      "title": "理财开放日历：开放期转日历"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wealth-open-cal-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn authorized stills and already-written job-fair role notes into one booth talking clip per still.",
+  "display_name": "Job Fair Booth Talks",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/job-fair-booth-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn authorized stills and already-written job-fair role notes into one booth talking clip per still. This campus recruiting talk studio writes a speakable booth talking clip from the role notes, then animates each still into a 2 to 15s job fair video. Use it for recruiting booth video, campus job fair video, and job fair booth talk packs that stay one photo, one clip.",
+      "display_name": "Job Fair Booth Talks",
+      "summary": "Turn authorized stills and already-written job-fair role notes into one booth talking clip per still.",
+      "tags": [
+        "job fair booth talk",
+        "campus recruiting talk",
+        "booth talking clip",
+        "job fair video",
+        "campus job fair video",
+        "recruiting booth video"
+      ],
+      "title": "Job Fair Booth Talks: One Still, One Booth Clip"
+    },
+    "ja": {
+      "description": "就職説明会トークは、手元の写真とすでに書いてある職種メモから、写真1枚ごとに短いクリップを渡します。合同企業説明会動画とブース案内動画として、2〜15秒の採用ブース動画に仕上げ、就職フェア動画にも使えます。",
+      "display_name": "就職説明会トーク",
+      "summary": "手元の写真と、すでに書いてある職種メモから、短い就職説明会トークを1枚ずつ作ります。",
+      "tags": [
+        "就職説明会トーク",
+        "合同企業説明会動画",
+        "ブース案内動画",
+        "採用ブース動画",
+        "就職フェア動画"
+      ],
+      "title": "就職説明会トーク：短いブース案内を写真ごとに渡す"
+    },
+    "zh": {
+      "description": "双选会口播是按已经写好的岗位稿，给每张授权照片做成一条招聘展位口播。招聘会口播、校园招聘口播、双选会视频、双选会展位视频和校园双选会视频都按同一套岗位稿和照片出。",
+      "display_name": "双选会口播·展位一条",
+      "summary": "按已经写好的岗位稿和授权静帧，做成双选会口播，每张照片一条。",
+      "tags": [
+        "双选会口播",
+        "招聘展位口播",
+        "招聘会口播",
+        "校园招聘口播",
+        "双选会视频",
+        "双选会展位视频",
+        "校园双选会视频"
+      ],
+      "title": "双选会口播·展位一条：一张静帧一条展位口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "job-fair-booth-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

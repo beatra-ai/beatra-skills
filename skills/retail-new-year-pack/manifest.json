@@ -1,0 +1,57 @@
+{
+  "changelog": "Turn seller-supplied new-year store mood notes into one retail playlist of 8 to 15 instrumentals.",
+  "display_name": "Retail New Year Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/retail-new-year-pack",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied new-year store mood notes into one retail playlist of 8 to 15 instrumentals. This new year music studio writes a retail playlist and seasonal store BGM set for doors-open, browse, and close. Use it for new year music, retail playlists, and seasonal store BGM.",
+      "display_name": "Retail New Year Pack",
+      "summary": "Turn seller-supplied new-year store mood notes into one retail playlist of 8 to 15 instrumentals.",
+      "tags": [
+        "new year music",
+        "retail playlist",
+        "seasonal store BGM",
+        "new-year instrumental",
+        "store holiday music",
+        "retail BGM"
+      ],
+      "title": "Retail New Year Pack: New Year Music for the Store"
+    },
+    "ja": {
+      "description": "新年店内BGMは、すでに書いてある年末年始の空気から、店内で流せる器楽を渡します。開店、回遊、閉店として、同じ季節の案内から出します。",
+      "display_name": "新年店内BGM",
+      "summary": "すでに書いてある年末年始の店内の空気から、8〜15曲の器楽を作ります。",
+      "tags": [
+        "新年店内BGM",
+        "季節BGM",
+        "店内プレイリスト",
+        "年末年始BGM"
+      ],
+      "title": "新年店内BGM：季節の器楽セット"
+    },
+    "zh": {
+      "description": "新年配乐是按已经写好的档期气氛，做成一组能在店里循环的器乐。新年配乐、零售歌单和档期BGM都按同一套气氛出。",
+      "display_name": "新年配乐·零售歌单",
+      "summary": "按已经写好的档期气氛，做成8到15首能在店里循环的器乐。",
+      "tags": [
+        "新年配乐",
+        "零售歌单",
+        "档期BGM",
+        "店内新年音乐"
+      ],
+      "title": "新年配乐·零售歌单：店内档期器乐"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "retail-new-year-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

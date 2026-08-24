@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied assignment names and points into a four-to-eight still lab cover set.",
+  "display_name": "Lab Cover Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/lab-cover-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied assignment names and points into a four-to-eight still lab cover set. This lab report cover studio lays out each named assignment as its own still. Use it for assignment covers, experiment covers, lab report stills, and a matching cover pack.",
+      "display_name": "Lab Cover Set",
+      "summary": "Turn user-supplied assignment names and points into a four-to-eight still lab cover set.",
+      "tags": [
+        "lab cover set",
+        "lab report cover",
+        "assignment cover",
+        "experiment cover",
+        "lab report still",
+        "cover pack"
+      ],
+      "title": "Lab Cover Set: Assignment Covers and Lab Report Stills"
+    },
+    "ja": {
+      "description": "手元の課題名・要点から、4〜8枚の実験レポート表紙セットを作ります。この課題表紙図は、実験表紙やレポートカバー、課題カバー、実験カバーセットとしても使えます。",
+      "display_name": "実験レポート表紙セット",
+      "summary": "手元の課題名・要点から、4〜8枚の実験レポート表紙セットを作ります。",
+      "tags": [
+        "実験レポート表紙セット",
+        "課題表紙図",
+        "実験表紙",
+        "レポートカバー",
+        "課題カバー",
+        "実験カバーセット"
+      ],
+      "title": "実験レポート表紙セット：課題ごとの表紙"
+    },
+    "zh": {
+      "description": "实验报告封面组按用户提供的课题名称和要点，做成一组课题转封面静帧。这个实验报告封面工作室把已确认的课题排成课题封面、实验封面和实验套图。",
+      "display_name": "实验报告封面组·课题转封面",
+      "summary": "按用户提供的课题名称和要点，做成一组课题转封面静帧。",
+      "tags": [
+        "实验报告封面组",
+        "课题转封面",
+        "实验报告封面",
+        "课题封面",
+        "实验封面",
+        "实验套图"
+      ],
+      "title": "实验报告封面组：课题转封面"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "lab-cover-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

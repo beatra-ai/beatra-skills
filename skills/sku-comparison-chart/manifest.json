@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn seller-supplied SKU specs into one SKU comparison chart set.",
+  "display_name": "SKU Comparison Charts",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/sku-comparison-chart",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied SKU specs into one SKU comparison chart set. This spec-table studio lays out each named comparison as a listing comparison still. Use it for a spec comparison still, a product comparison graphic, and listing comparison charts that stay one still per axis.",
+      "display_name": "SKU Comparison Charts",
+      "summary": "Turn seller-supplied SKU specs into one SKU comparison chart set.",
+      "tags": [
+        "SKU comparison chart",
+        "spec-table studio",
+        "listing comparison still",
+        "spec comparison still",
+        "product comparison graphic",
+        "listing comparison charts"
+      ],
+      "title": "SKU Comparison Charts: One Axis, One Spec Still"
+    },
+    "ja": {
+      "description": "SKU比較図は、売り手が渡した仕様から仕様比較表と比較静画を揃えます。スペック比較、商品比較図、出品比較図としても使えます。",
+      "display_name": "SKU比較図",
+      "summary": "売り手が渡した仕様から、SKU比較図として仕様比較表と比較静画を揃えます。",
+      "tags": [
+        "SKU比較図",
+        "仕様比較表",
+        "比較静画",
+        "スペック比較",
+        "商品比較図",
+        "出品比較図"
+      ],
+      "title": "SKU比較図：軸ごとに1枚の仕様表"
+    },
+    "zh": {
+      "description": "SKU对比图按卖家提供的规格，做成一组规格表和对比静帧。规格对比、商品对比图和上架对比图都按同一份SKU清单出。",
+      "display_name": "SKU对比图·规格表",
+      "summary": "按卖家提供的规格，做成SKU对比图，一组规格表和对比静帧。",
+      "tags": [
+        "SKU对比图",
+        "规格表",
+        "对比静帧",
+        "规格对比",
+        "商品对比图",
+        "上架对比图"
+      ],
+      "title": "SKU对比图·规格表：每个对比轴一张静帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "sku-comparison-chart",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

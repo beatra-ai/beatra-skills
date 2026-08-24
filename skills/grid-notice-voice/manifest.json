@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written grid-matter list into one grid notice voice clip per labeled cue.",
+  "display_name": "Grid Notice Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/grid-notice-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written grid-matter list into one grid notice voice clip per labeled cue. This grid matter voice studio records each community grid notice audio and street grid voice from the list the office already wrote, then delivers 8 to 20 grid notice voice pack files. Use it for grid notice clip packs that keep one matter on each clip.",
+      "display_name": "Grid Notice Voice Pack",
+      "summary": "Turn a written grid-matter list into one grid notice voice clip per labeled cue.",
+      "tags": [
+        "grid notice voice",
+        "grid matter voice",
+        "community grid notice audio",
+        "street grid voice",
+        "grid notice clip",
+        "grid notice voice pack"
+      ],
+      "title": "Grid Notice Voice: Matter-List Notice Clips"
+    },
+    "ja": {
+      "description": "グリッド通知音声は、すでに書いた連絡事項から、町内通知読み上げとコミュニティ連絡音声を1本ずつ渡します。連絡事項音声、地域連絡クリップは口に出せる一文で1本ずつ録り、8〜20本のグリッドボイスパックとして渡します。",
+      "display_name": "グリッド通知音声",
+      "summary": "すでに書いた連絡事項から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "グリッド通知音声",
+        "町内通知読み上げ",
+        "コミュニティ連絡音声",
+        "連絡事項音声",
+        "地域連絡クリップ",
+        "グリッドボイスパック"
+      ],
+      "title": "グリッド通知音声：連絡事項を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "网格通知语音按已经写好的网格事项，做成每条通知一条口播。网格事项语音、网格通知口播、社区网格朗读都按网格事项转语音来录，一次给出8到20条网格通知语音包。",
+      "display_name": "网格通知语音·网格事项转语音",
+      "summary": "按已经写好的网格事项，做成每条通知一条口播。",
+      "tags": [
+        "网格通知语音",
+        "网格事项语音",
+        "网格通知口播",
+        "社区网格朗读",
+        "网格事项转语音",
+        "网格通知语音包"
+      ],
+      "title": "网格通知语音·网格事项转语音：按网格事项一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "grid-notice-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

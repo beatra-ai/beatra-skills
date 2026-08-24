@@ -1,0 +1,181 @@
+---
+name: "sku-comparison-chart"
+description: "Turn seller-supplied SKU specs into one SKU comparison chart set. This spec-table studio lays out each named comparison as a listing comparison still. Use it for a spec comparison still, a product comparison graphic, and listing comparison charts that stay one still per axis."
+---
+
+# SKU Comparison Charts
+
+Turn seller-supplied SKU specs into one comparison still per named
+axis. Deliver 4 to 8 stills. Keep each still as its own file.
+
+## Scope and adjacent routes
+
+Use this Skill when a listing needs comparison stills from spec rows
+the seller already wrote.
+
+Route a generic marketplace gallery to `ecommerce-listing-image-set`.
+Route a Shopify product-page theme set to `shopify-pdp-set`. Route
+Amazon A+ selling-point modules to `amazon-a-plus-module-pack`. Do not
+look up public posts or store catalogs for a missing spec.
+
+## Collect confirmed facts
+
+Hard inputs are:
+
+- at least two named SKUs;
+- the seller-supplied spec rows that will appear on the charts
+  (size, material, weight, or other facts the seller already wrote);
+- how many stills the set should contain, or permission to use the
+  default of 4.
+
+Reuse brand palette, destination, language, and must-keeps already in
+the conversation. Ask only for a missing hard input. A count outside
+4 to 8 is still doable: confirm that set size and its live cost.
+
+Do not invent a measurement, price, rating, or certification. A
+product photo is a visual reference, not a source for missing specs.
+File access is not consent.
+
+Inspect every optional still. Record MIME type, width, height, aspect
+ratio, byte size, and whether it has an alpha channel. For a local
+file, upload only through the bundled client after inspection
+(`scripts/mcp_client.py` / `beatra.assets.upload`). Keep the returned
+artifact id. Never pass a local path to `beatra.images.generate` or
+`beatra.images.edit`.
+
+Default to one still per named comparison axis. If the seller wants a
+standard set and has not numbered the axes, plan up to four roles
+from the facts already given: overview table, size, material, and
+use. Leave an axis whose fact is missing on the plan.
+
+Keep the same type, palette, and column order across the set so the
+stills read as one comparison family.
+
+## Plan the free chart list
+
+Write a labeled chart list before any paid image. Default four axes
+unless the seller names another count in 4 to 8. Each item records
+the SKUs, the printed spec rows, visual role, language, canvas, and
+any optional reference role.
+
+That list is the free visible result. Planning is not approval.
+
+Safe defaults:
+
+- one `beatra.images.generate` call per axis;
+- `model: "auto"` and `count: 1`;
+- canvas `{"type":"preset","tier":"2K","aspect":"1:1"}` unless the
+  seller named another listing slot;
+- `beatra.images.edit` only after the seller accepts a still and asks
+  for a local correction, with that accepted image as `images[0]`.
+
+## Confirm once, create by axis
+
+Planning is free. Before the first billable call, read
+`beatra.models.list` for `text_to_image`:
+
+```json
+{"capability": "text_to_image"}
+```
+
+Show one current production card and wait:
+
+1. Work — one SKU comparison still per named axis
+   (`beatra.images.generate`).
+2. Credits — the live `text_to_image` price just read, times the
+   axis count. Do not reuse a remembered number.
+3. Count — one paid call per still. Do not batch several axes
+   into one `count`.
+4. Identity — one new opaque `client_request_id` per still.
+5. If we stop here — the labeled chart list remains usable.
+6. If the balance is insufficient — relay the official message and
+   its top-up URL exactly
+   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
+   prose; keep the URL. Do not retry until the seller says they have
+   topped up. Do not recommend ¥198.
+
+Submit once through bundled `scripts/mcp_client.py`. Poll
+`beatra.tasks.get`. Deliver actual bytes plus
+`billing.net_charged_credits`. Do not promise the prepaid estimate is
+the final charge.
+
+After approval, submit each axis once. Keep no more than two
+generation tasks in flight on one connection.
+
+A later local correction is new paid work. Read the live `image_edit`
+card first. Show a separate six-field edit card. Use a new
+`client_request_id`.
+
+## Review, deliver, and recover
+
+Review printed rows against the confirmed spec list. Report only the
+text the host can actually see. Treat generated small type as a review
+item, not as a certified spec sheet.
+
+Deliver the stills in axis order, the chart list, observed dimensions
+and formats, task IDs, resolved models, and returned
+`billing.net_charged_credits`.
+
+After a returned `task_id`, poll that task. If the create response is
+lost, search with `beatra.tasks.list` and verify with
+`beatra.tasks.get` before replay. Reuse an ID only with
+byte-identical arguments. A changed SKU, spec row, canvas, model, or
+prompt is a new card and a new ID. Cancel only when the seller asks.
+
+## Execution
+
+Invoke every remote Beatra operation only through this package's bundled
+`scripts/mcp_client.py`. Put the MCP tool name after `call` and send one
+JSON object on standard input.
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_image"}
+```
+
+```text
+printf '%s' '{"prompt":"Create the approved SKU comparison still for the named axis. Show only the confirmed SKUs and spec rows. Keep the shared comparison look.","model":"auto","count":1,"canvas":{"type":"preset","tier":"2K","aspect":"1:1"},"client_request_id":"opaque-sku-compare-01"}' | python3 scripts/mcp_client.py call beatra.images.generate
+```
+
+Do not configure or call a host Beatra Connector, and do not use
+REST/OpenAPI as a fallback.
+
+## References by task
+
+- For spec lists, payloads, confirmation, polling, recovery, and
+  review, read [SKU comparison workflow](references/workflow.md).
+- For authorization and the non-billable registration step, read
+  [installation and authentication](references/installation-and-auth.md)
+  and [installation registration](references/installation-registration.md).
+- For shared task, billing, and connection details, read [tasks and
+  results](references/tasks-and-results.md), [billing, errors, and
+  recovery](references/billing-errors-and-recovery.md), and [Bundled MCP
+  Client diagnostics](references/mcp-connection.md).
+- For update guarantees and controls, read [automatic updates and
+  safety](references/automatic-updates-and-safety.md). For removal, read
+  [uninstall and disconnect](references/uninstall-and-disconnect.md).
+
+## Runtime and safe automatic updates
+
+The bundled client silently checks for a newer release at most once
+every 24 hours per installation. When a newer version is available, it
+installs automatically without separate confirmation. It downloads only
+from the fixed official Beatra discovery and immutable CDN paths for
+this package, channel, and locale, verifies discovery data, archive,
+manifest, and every packaged file, and replaces only package-owned
+files.
+
+Update checks, downloads, verification, replacement, rollback, and
+recovery fail open: the current installation remains usable and the
+original command continues. An update failure never authorizes retrying
+a paid image request. The setting persists for this installation. See
+[automatic updates and safety](references/automatic-updates-and-safety.md).
+
+```text
+python3 scripts/mcp_client.py update --auto off
+python3 scripts/mcp_client.py update --auto on
+python3 scripts/mcp_client.py update --check
+```
