@@ -15,15 +15,15 @@ Captions exist only when the catalog returns them. A produced video remake belon
 
 ## Inputs and defaults
 
-One hard input: the words. That is a public YouTube link, or a transcript the user already copied. Either is enough.
+The hard input is a YouTube link. A pasted transcript is also enough.
 
-Reuse the conversation's language, audience, and what the remake is for. Default to the captions when a lookup runs, skip comments unless the user asks, and a deliverable with two blocks: a Chinese spoken script and a remake structure. Name those defaults instead of asking.
+Reuse the conversation's language, audience, and what the remake is for. Default to the captions when a lookup runs, skip comments unless the user asks, and a deliverable with two blocks: a Chinese spoken script and a remake structure. Prefer a Chinese caption track. When the source is not Chinese, default to a Chinese spoken-script translation. Name those defaults instead of asking.
 
 When the user wants captions read from a public YouTube link, this package can look them up. Every lookup is paid, optional, and confirmed on its own before it runs, per [looking up captions](references/caption-lookup.md). If the platform has no operation in the whitelist, it has no lookup — work from what the user pasted. Without a lookup, write the script from the pasted transcript rather than inventing what the video said.
 
 ## Golden path
 
-The script can be written at no cost from a transcript the user brought. The only paid call is an optional lookup, and it happens only when the user asks for it and confirms its own price.
+The script can be written at no cost from a transcript the user brought. The only paid call is an optional lookup, and it happens only when the user asks for it and confirms its own price. Write the transcript first, then mark chapters and speakers, then extract the hook and retention structure. A remake delivers that structure, not only a translation.
 
 **Before the script, only when the user asks for it:** read one YouTube video's captions, and optionally one page of its comments, per [looking up captions](references/caption-lookup.md). Skip the lookup whenever the user already pasted a transcript.
 

@@ -23,10 +23,22 @@ bundled path needs diagnosis.
 
 ## Shape the direction first
 
+At the studio entrance, split first: original song, cover, gift song, or
+instrumental BGM. This package defaults to an original song. Route a cover or
+re-arrangement of an existing recording to `ai-song-cover-studio`, a gift or
+occasion song to `personalized-song-maker`, and pure instrumental BGM to
+`short-video-bgm-studio`.
+
 Reuse every settled choice in the conversation. Infer ordinary creative details
-from the destination when that is safe. Ask only when a missing answer changes
-the lyrics, reference direction, vocal or instrumental route, exact paid payload,
-or another high-impact user choice.
+from the destination when that is safe. The hard inputs are a theme or lyrics
+plus the intended use. If genre is empty, ask before writing the production
+card. Ask only when a missing answer changes the lyrics, reference direction,
+vocal or instrumental route, exact paid payload, or another high-impact user
+choice.
+
+Follow this golden path: lock structure, write an executable caption, generate
+a limited set of takes, then make one focused revision. Do not automatically
+chain Extend.
 
 Before generation, prepare one compact production card:
 

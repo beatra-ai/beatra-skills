@@ -1,5 +1,5 @@
 {
-  "changelog": "Simplified Chinese listing wording tidied up.",
+  "changelog": "Generate one short loopable instrumental from a scene description and duration after the user asks.",
   "display_name": "Short Video BGM Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-video-bgm-studio",
@@ -75,5 +75,5 @@
   },
   "name": "short-video-bgm-studio",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.5"
 }

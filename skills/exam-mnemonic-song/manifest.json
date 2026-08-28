@@ -1,0 +1,63 @@
+{
+  "changelog": "Turn one exam knowledge point into a mnemonic song you can replay, then turn the rest of the syllabus into a set.",
+  "display_name": "Exam Mnemonic Song",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/exam-mnemonic-song",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn one exam knowledge point into a mnemonic song you can replay, then turn the rest of the syllabus into a set. This exam mnemonic song studio writes a knowledge-point song and exam memory song from the facts you already have. Use it for bar-exam mnemonics, teacher-certification songs, accounting-exam memory songs, and other exam mnemonic playlists.",
+      "display_name": "Exam Mnemonic Song",
+      "summary": "Turn one exam knowledge point into a mnemonic song you can replay, then turn the rest of the syllabus into a set.",
+      "tags": [
+        "exam mnemonic song",
+        "knowledge-point song",
+        "exam memory song",
+        "bar-exam mnemonic",
+        "teacher-certification song",
+        "accounting-exam memory song"
+      ],
+      "title": "Exam Mnemonic Song: Knowledge-Point Memory Songs"
+    },
+    "ja": {
+      "description": "語呂合わせソングは、資格試験の1つの論点を歌にして、同じ科目を暗記ソングのセットにします。司法試験、教員採用、簿記の試験暗記ソングに使えます。",
+      "display_name": "語呂合わせソング",
+      "summary": "資格試験の1つの論点を歌にし、同じ科目を暗記ソングのセットにします。",
+      "tags": [
+        "語呂合わせソング",
+        "暗記ソング",
+        "資格試験",
+        "試験暗記ソング",
+        "司法試験",
+        "教員採用",
+        "簿記"
+      ],
+      "title": "語呂合わせソング・試験暗記：論点を歌に"
+    },
+    "zh": {
+      "description": "口诀歌按已有知识点做成一首可跟唱的考证口诀，再把同一科目做成一套。这个记忆歌和知识点歌曲工作室适合法考口诀、教资口诀和会计证口诀。",
+      "display_name": "口诀歌·考证知识点成曲",
+      "summary": "按已有知识点做成一首可跟唱的考证口诀，再把同一科目做成一套。",
+      "tags": [
+        "口诀歌",
+        "考证口诀",
+        "记忆歌",
+        "知识点歌曲",
+        "法考口诀",
+        "教资口诀",
+        "会计证口诀"
+      ],
+      "title": "口诀歌·考证知识点成曲：记忆歌"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "exam-mnemonic-song",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

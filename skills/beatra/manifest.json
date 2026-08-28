@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid admission card before video generation or voice clone on the universal hub.",
+  "changelog": "Make image work land right the first time with copyable request examples, and turn a named artist into the musical qualities a song supplier will accept.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -55,7 +55,7 @@
     },
     "zh": {
       "description": "通过同一个AI创作工具完成AI图片、视频、音乐与语音创作，查找公开社交数据，编辑视觉成果，并集中查看和管理生成资产。Beatra 全能创作支持AI图片生成（文生图）、AI视频生成（图生视频）和AI视频编辑，通过AI音乐生成把想法做成歌曲或纯音乐，也可用AI语音生成（文字转语音）、多语言旁白和AI语音克隆完成跨媒介内容；还能查找抖音数据、小红书数据，以及 YouTube、TikTok、Instagram 与 X 上的公开帖子、笔记、评论、账号和趋势，把社交媒体数据用于竞品调研和创作。它是一款面向AI内容创作与多模态内容创作的AI创作套件，用起来就是一个把图片、视频、音乐与语音收在同一处的AI创作助手，适用于社交内容、产品展示、营销素材、课程、播客、短片和跨媒介项目；还能在不同媒介间复用原始素材、已有成果和查到的公开资料，查看制作进度、返回文件、实际用量和积分记录。",
-      "display_name": "Beatra全能创作",
+      "display_name": "视频短视频图片音乐音频配音口播数字人全能创作",
       "summary": "通过同一连接生成AI图片、视频、音乐与语音，查找公开社交数据，编辑受支持的图片和视频，并清晰查看返回文件与实际积分用量。",
       "tags": [
         "AI内容创作",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "2.7.2"
+  "version": "2.7.8"
 }

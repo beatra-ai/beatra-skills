@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Club Activity Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/club-notice-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied club-activity script and authorized stills into one club activity talking clip per still. This club notice talking video studio writes a speakable event script talking clip for each photo, then animates a 2 to 15s club notice talking clip. Use it for club activity talking pack, club signup talking clip, and activity notice talking pack work that stays one photo, one clip.",
+      "display_name": "Club Activity Talking Clips",
+      "summary": "Turn a user-supplied club-activity script and authorized stills into one club activity talking clip per still.",
+      "tags": [
+        "club activity talking clip",
+        "club notice talking video",
+        "club activity talking pack",
+        "event script talking clip",
+        "club signup talking clip",
+        "activity notice talking pack"
+      ],
+      "title": "Club Activity Talking Clips: One Still, One Event Script Read"
+    },
+    "ja": {
+      "description": "部活動告知動画は、手元の活動原稿と写真から、写真1枚ごとに短いクリップを渡します。サークル告知トークと部活お知らせ動画として、サークル活動読み上げと部活動案内動画を2〜15秒に仕上げ、クラブ告知クリップにも使えます。",
+      "display_name": "部活動告知動画",
+      "summary": "部活動告知動画は、手元の活動原稿と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "部活動告知動画",
+        "サークル告知トーク",
+        "部活お知らせ動画",
+        "サークル活動読み上げ",
+        "部活動案内動画",
+        "クラブ告知クリップ"
+      ],
+      "title": "部活動告知動画：活動原稿を写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "社团活动口播按老师提供的活动稿和授权静帧，为每张图做成一条活动稿转口播。这个活动通知口播和活动报名口播工作室为社团活动短视频写出可说的稿，再做成2到15秒的社团口播短视频。",
+      "display_name": "社团活动口播·活动稿转口播",
+      "summary": "社团活动口播按老师提供的活动稿和授权静帧，为每张图做成一条活动稿转口播。",
+      "tags": [
+        "社团活动口播",
+        "活动稿转口播",
+        "活动通知口播",
+        "社团口播短视频",
+        "社团活动短视频",
+        "活动报名口播"
+      ],
+      "title": "社团活动口播·活动稿转口播：一张静帧一条活动稿口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "club-notice-talking",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

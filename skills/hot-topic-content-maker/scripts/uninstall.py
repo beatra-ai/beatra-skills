@@ -30,7 +30,7 @@ AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
 REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
 PACKAGE_SLUG = "hot-topic-content-maker"
 PACKAGE_DISPLAY_NAME = "Hot Topic Content Maker"
-PACKAGE_VERSION = "0.1.4"
+PACKAGE_VERSION = "0.1.7"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

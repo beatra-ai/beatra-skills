@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a named product launch into three visual-tone stills, then one opening film clip for the stage screen.",
+  "display_name": "Product Launch Opening Film",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/product-launch-opening-film",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a named product launch into three visual-tone stills, then one opening film clip for the stage screen. This product launch opening film studio writes a launch event film and product reveal film from the product name, launch message, and visual direction you already have. Use it for a brand launch film, a product launch film, and other stage-screen opening films.",
+      "display_name": "Product Launch Opening Film",
+      "summary": "Turn a named product launch into three visual-tone stills, then one opening film clip for the stage screen.",
+      "tags": [
+        "product launch opening film",
+        "opening film",
+        "product launch film",
+        "launch event film",
+        "brand launch film",
+        "product reveal film"
+      ],
+      "title": "Product Launch Opening Film: Stage-Screen Launch Clips"
+    },
+    "ja": {
+      "description": "発表会オープニング映像は、新製品のトーンボード3枚から発表会映像を一本にします。製品発表会やブランド発表のオープニング映像、新製品発表のステージ映像に使えます。",
+      "display_name": "発表会オープニング映像",
+      "summary": "新製品のトーンボード3枚から発表会映像を一本にします。",
+      "tags": [
+        "発表会オープニング映像",
+        "新製品発表",
+        "オープニング映像",
+        "発表会映像",
+        "製品発表会",
+        "ブランド発表"
+      ],
+      "title": "発表会オープニング映像：ステージ用の一本"
+    },
+    "zh": {
+      "description": "发布会开场先做三帧视觉基调图，再做成一条舞台大屏新品发布片。这个发布会开场片工作室按已有产品名、发布信息和视觉方向，写成新品发布会和品牌发布会的开场片。",
+      "display_name": "发布会开场·新品发布片",
+      "summary": "发布会开场先做三帧视觉基调图，再做成一条舞台大屏新品发布片。",
+      "tags": [
+        "发布会开场",
+        "新品发布片",
+        "发布会开场片",
+        "新品发布会",
+        "品牌发布会",
+        "开场片"
+      ],
+      "title": "发布会开场·新品发布片：舞台大屏开场片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "product-launch-opening-film",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

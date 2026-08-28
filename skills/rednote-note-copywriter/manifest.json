@@ -1,5 +1,5 @@
 {
-  "changelog": "Write Xiaohongshu note copy with five title options, a structured body, cover text, hashtags, a comment starter, and an advertising-law screen over the finished draft.",
+  "changelog": "Research first, lead with real experience, and put the hook in the first two lines.",
   "display_name": "REDnote Note Copywriter",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-note-copywriter",
@@ -66,5 +66,5 @@
   },
   "name": "rednote-note-copywriter",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }

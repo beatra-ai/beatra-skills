@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid clone admission card before activating a voice.",
+  "changelog": "Pass the exact voice-clone or speech type when reading the live model card.",
   "display_name": "AI Voice Cloning Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voice-cloning-studio",
@@ -71,5 +71,5 @@
   },
   "name": "voice-cloning-studio",
   "schema_version": 1,
-  "version": "0.1.8"
+  "version": "0.1.9"
 }

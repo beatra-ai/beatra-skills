@@ -12,6 +12,11 @@ when a request mixes those outcomes or will continue across several sessions.
 
 ## Scope and routes
 
+At the entrance, lock the medium first: long narration, multilingual, or brand
+clone. Route an audiobook to `ai-audiobook-narration`, a podcast episode to
+`ai-podcast-voiceover`, and a short social or promo read to
+`short-form-voiceover-audio`.
+
 Reuse every decision already present in the conversation. Route a focused,
 standalone request to the narrower package when it is available:
 
@@ -19,9 +24,10 @@ standalone request to the narrower package when it is available:
 | --- | --- |
 | One short-video, ad, social, or promo read | `short-form-voiceover-audio` |
 | An audiobook or other ordered long-form narration | `ai-audiobook-narration` |
+| A single-host podcast episode or recurring show | `ai-podcast-voiceover` |
 | Multilingual dubbing with the target-language scripts already supplied and approved | `ai-multilingual-dubbing` |
 | Creation of one authorized reusable voice | `voice-cloning-studio` |
-| Mixed work, ongoing voice production, or a request that combines those routes | Continue here and maintain one production ledger |
+| Long narration, multilingual, brand clone, or mixed work those routes do not cover | Continue here and maintain one production ledger |
 
 This Studio creates speech from supplied or approved text. It does not make a
 finished video, lip-sync a speaker, publish media, transcribe a recording, or
@@ -32,6 +38,9 @@ Read [intent and routing](references/intent-and-routing.md) when deciding
 between a focused package and a mixed Studio project.
 
 ## Inputs and defaults
+
+Hard inputs include consent status. Do not imitate a voice without
+authorization.
 
 For synthesis, the hard inputs are:
 

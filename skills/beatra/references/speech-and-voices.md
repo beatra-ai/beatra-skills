@@ -23,8 +23,18 @@ silently.
 user requests a language or context establishes one clearly; otherwise omit it
 for automatic detection. When language support matters, use
 `beatra.models.list` with the text-to-speech capability and read the exact
-model card's current `constraints.supported_languages`. Do not maintain a
-static language list or expose a supplier-private language parameter.
+model card's current `constraints.supported_languages`:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_speech"}
+```
+
+Do not maintain a static language list or expose a supplier-private language
+parameter.
 
 Speech pricing uses weighted characters: each Han ideograph counts as two and
 every other character counts as one. Credits are linear per 1,000 weighted
@@ -44,13 +54,23 @@ owner's permission. Possession of an audio file is not consent.
    `python3 scripts/mcp_client.py upload <path> --mime-type <type>` and reuse the
    returned artifact. An already returned artifact or supported direct HTTPS
    media value does not need another upload.
-3. Call `beatra.models.list` for the voice-clone capability, admit the sample,
-   and show the clone admission card before any `client_request_id`: route,
-   tool `beatra.voices.clone`, provisional estimate, the fact that the
-   600-credit signup gift usually cannot start this clone, the exact URL
-   `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
-   recommend ¥198. Do not submit until the user confirms they have topped up or
-   already have enough credits for this estimate.
+3. Call `beatra.models.list` for the voice-clone capability:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "voice_clone"}
+```
+
+   Admit the sample and show the clone admission card before any
+   `client_request_id`: route, tool `beatra.voices.clone`, provisional
+   estimate, the fact that the 600-credit signup gift usually cannot start
+   this clone, the exact URL `https://console.beatra.ai/wallet?intent=buy`, and starter
+   ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user
+   confirms they have topped up or already have enough credits for this
+   estimate.
 4. Set `consent_attested: true` only after confirmation. Include the requested
    display name and one new stable `client_request_id`.
 5. Submit exactly once and poll the same task with `beatra.tasks.get`. Do not
@@ -62,5 +82,5 @@ A successful result is a successful activated voice: it is already activated.
 Deliver the returned
 `voice_id`, display name, and any other returned voice fields. Voice cloning has
 one fixed charge on successful activation, including activation; later speech
-usage is separate. Failed tasks are refunded. Use `beatra.models.list` with the
-voice-clone capability for current constraints and price.
+usage is separate. Failed tasks are refunded. Use `beatra.models.list` with
+`{"capability":"voice_clone"}` for current constraints and price.

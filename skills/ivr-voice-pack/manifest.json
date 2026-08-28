@@ -1,0 +1,63 @@
+{
+  "changelog": "Record a labeled phone-tree pack of welcome, menu, hold, transfer, after-hours, and error prompts.",
+  "display_name": "IVR Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ivr-voice-pack",
+  "icon": "https://beatra.ai/textures/icons/ivr-voice-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Build a labeled IVR voice pack for a phone tree: welcome, menu, hold, transfer, after-hours, and error prompts in one consistent brand voice. This phone tree voice studio and hotline voiceover shop records about twelve default prompts as a voice menu you can drop into the switch. Use it for IVR prompts, call center voice, auto attendant audio, and customer-service phone menus.",
+      "display_name": "IVR Voice Pack",
+      "summary": "Build a labeled IVR voice pack for a phone tree: welcome, menu, hold, transfer, after-hours, and error prompts in one consistent brand voice.",
+      "tags": [
+        "IVR voice pack",
+        "phone tree voice",
+        "hotline voiceover",
+        "voice menu",
+        "IVR prompts",
+        "call center voice",
+        "auto attendant audio",
+        "customer-service phone menus"
+      ],
+      "title": "IVR Voice Pack: Labeled Phone-Tree Prompts"
+    },
+    "ja": {
+      "description": "ウェルカム、メニュー、保留、転送、時間外、エラー案内をラベル付きのIVR音声パックにします。この自動音声応答と電話案内音声の制作では、音声ガイダンスを約12本の電話メニュー音声として収録し、コールセンター音声として渡せます。",
+      "display_name": "IVR音声パック",
+      "summary": "ウェルカム、メニュー、保留、転送、時間外、エラー案内を、同じブランド声のIVR音声パックにします。",
+      "tags": [
+        "IVR音声",
+        "自動音声応答",
+        "電話案内音声",
+        "音声ガイダンス",
+        "電話メニュー音声",
+        "コールセンター音声"
+      ],
+      "title": "IVR音声パック：電話ツリーの案内をラベル付きで"
+    },
+    "zh": {
+      "description": "把热线话术做成带标签的客服语音包。这个IVR语音包和电话树语音工具会按欢迎、菜单、等待、转接、非工作时间和错误提示录完热线语音，并交付可导入交换机的语音菜单。适用于IVR语音、客服热线口播和分机引导音频。",
+      "display_name": "客服语音·IVR语音包",
+      "summary": "把热线话术做成带标签的客服语音包，欢迎、菜单、等待、转接、非工作时间和错误提示一把声音录完。",
+      "tags": [
+        "客服语音",
+        "IVR语音",
+        "IVR语音包",
+        "电话树语音",
+        "热线语音",
+        "语音菜单"
+      ],
+      "title": "客服语音·IVR语音包：电话树欢迎到错误提示"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ivr-voice-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

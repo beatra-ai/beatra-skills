@@ -10,9 +10,10 @@ small set of approved storyboard key frames. Use this Skill for short films,
 ads, animation, social-video concepts, motion comics, vertical dramas, or a
 creative pitch that needs a shared visual direction before production.
 
-Use the resulting shot plan as the source of truth for a later image or video
-production request. A one-off illustration without shot planning belongs to
-`beatra-ai-image-studio`; a reusable character asset pack belongs to
+Prove the sequence works before paying for polished frames. If the user only
+wants the table, stop at the written storyboard. Use the resulting shot plan
+as the source of truth for a later image or video production request. A one-off
+illustration without shot planning belongs to `beatra-ai-image-studio`; a reusable character asset pack belongs to
 `ip-character-consistency-studio`; and a request to produce finished moving
 footage can continue through `beatra-ai-video-studio` after the board is
 accepted.
@@ -26,12 +27,13 @@ must-keeps. Ask only when a missing choice would change the board: for example,
 the intended medium or orientation, the principal audience or message, or the
 scene whose visual direction needs deciding.
 
-Default to a concise editorial shot plan: one central visual idea per shot,
-clear progression of beats, an explicit camera intention, and a short written
-frame prompt. Keep existing aspect ratio and visual references when they are
-provided; otherwise use the destination's normal aspect ratio. Do the written
-planning first, then ask the user to select the one to four shots that deserve
-visual key frames.
+Break the narrative into beats before drawing frames. Two or more shots need
+a global shot list. Default to a concise editorial shot plan: one central
+visual idea per shot, clear progression of beats, an explicit camera
+intention, and a short written frame prompt. Keep existing aspect ratio and
+visual references when they are provided; otherwise use the destination's
+normal aspect ratio. Do the written planning first, then ask the user to
+select the one to four shots that deserve visual key frames.
 
 ## Golden path
 
@@ -40,14 +42,17 @@ visual key frames.
    angle and intended movement, timing estimate, dialogue or sound cue, and a
    concise still-frame prompt. This planning step does not create a paid media
    task.
-2. Review the story order and visual direction with the user. Record each
-   approved key-frame candidate, its source references if any, its must-keeps,
-   canvas, and the desired visual style. Read [storyboard planning and key
-   frames](references/workflow.md) when a shot needs a route-specific request.
+2. Review the beat board and shot list with the user. A structured plan is
+   still required. Start paid work only after a human approves that plan.
+   Record each approved key-frame candidate, its source references if any, its
+   must-keeps, canvas, and the desired visual style. Read [storyboard planning
+   and key frames](references/workflow.md) when a shot needs a route-specific
+   request.
 3. Before creating any key frame, read the live model card for the selected
    image capability. Show the route, the complete prompt and references in
    order, canvas, output count, model behavior, and current maximum price.
-   Start paid work only after the user approves that frozen plan.
+   Start paid work only after the user approves that frozen plan. Paid key
+   frames must be generated stills, not placeholders.
 4. Treat each different shot as its own `count: 1` paid request. The current
    package may create one to four approved key frames, therefore at most four
    paid image requests, with no more than two generation tasks in flight at one

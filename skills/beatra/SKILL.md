@@ -80,11 +80,19 @@ automatic non-billable registration behavior.
   still, the first paid stage is `beatra.videos.enhance_prompt` or one
   `beatra.images.generate` keyframe. That gift does not authorize a later video
   call. Before generate, animate, interpolate, reference, edit, or extend, call
-  `beatra.models.list`, admit the payload, write the shortest admitted duration
-  (audio-led and extend rules unchanged), and show the video admission card.
+  `beatra.models.list` with that route's exact capability (for example
+  `{"capability":"text_to_video"}` or `{"capability":"image_to_video"}`), admit
+  the payload, write the shortest admitted duration (audio-led and extend rules
+  unchanged), and show the video admission card.
   Choose with [videos](references/videos.md), then load
   [video controls](references/video-controls.md) or
   [video recipes](references/video-recipes.md) only when needed.
+- For a talking presenter, spoken delivery, or digital-human clip, synthesize the
+  narration first with `beatra.speech.synthesize`, then animate a portrait with
+  `beatra.videos.animate`, passing that narration as `driving_audio`. The video
+  card's admitted formats and durations both constrain what you synthesize, so
+  read `{"capability":"image_to_video"}` before the speech call.
+  Follow [video recipes](references/video-recipes.md).
 - For a song, instrumental, or reference-guided track, use
   `beatra.music.generate`. Follow [music](references/music.md).
 - For narration, browse only when a voice is still needed with
@@ -93,10 +101,13 @@ automatic non-billable registration behavior.
   the clone admission card. Follow
   [speech and voices](references/speech-and-voices.md).
 - When model selection, compatibility, supported controls, or an estimate
-  matters for image, video, music, or speech, use `beatra.models.list` and
-  treat its returned interface card as current truth. Follow
-  [models](references/models.md). Do not maintain model, price, language,
-  default, or reference-limit lists from memory.
+  matters for image, video, music, or speech, copy an exact
+  `{"capability":"..."}` payload from [models](references/models.md) and treat
+  the returned interface card as current truth. Do not maintain model, price,
+  language, default, or reference-limit lists from memory.
+- When the user asks how many credits remain or whether a live estimate fits,
+  call `beatra.wallet.get`. When they ask what was charged, call
+  `beatra.wallet.ledger`. Both are read-only.
 
 Do not silently turn the request into another operation. Respect a concrete
 model choice and report incompatibility instead of substituting a different
@@ -123,8 +134,8 @@ permission, and only then set `consent_attested: true`. See
 ## Keep the paid boundary clear
 
 Creative planning, authorization, upload preparation, voice browsing, model
-discovery, public social tool search and inspection, recent-task listing, and
-estimates are non-billable. Image, video, music, speech, voice-clone,
+discovery, public social tool search and inspection, recent-task listing,
+credit-balance and ledger reads, and estimates are non-billable. Image, video, music, speech, voice-clone,
 video-prompt-enhancement, and public social execute consume credits and return
 an asynchronous task. Public social execute is prepaid. Video-prompt
 enhancement is the postpaid exception: it
@@ -142,7 +153,7 @@ live-card duration, resolution, and aspect (shortest admitted duration and
 lowest admitted resolution unless the user named a higher tier; audio-led and
 extend rules unchanged), provisional live estimate, the fact that the
 600-credit signup gift usually cannot start this video or clone, the exact URL
-`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
 recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
 not create `client_request_id` or submit until the user confirms they have
 topped up or already have enough credits for this estimate. For public social
@@ -155,7 +166,8 @@ also requires the explicit consent attestation described above.
 Create one stable 1..128-character `client_request_id` only after the validated
 paid payload is final. It names one logical paid operation. Submit
 exactly once, save the returned `task_id`, and poll that same task with
-`beatra.tasks.get`. An identical retry keeps the same request ID and the exact
+`beatra.tasks.get`. Never poll a row whose submission returned no `task_id`;
+reconcile with `beatra.tasks.list` instead. An identical retry keeps the same request ID and the exact
 validated paid payload; the ID itself and transport attribution are not
 part of the payload identity. Any accepted paid-argument change is new
 paid work with a new ID and confirmation.
@@ -183,11 +195,11 @@ arguments, and `schema_hash`. Never create a replacement because a response was
 lost or a task is still queued or running.
 
 On `insufficient_balance`, relay the returned public message, keep
-`https://console.beatra.ai/topup` exact, translate the rest, and retry the same
+`https://console.beatra.ai/wallet?intent=buy` exact, translate the rest, and retry the same
 frozen `client_request_id` only after the user says they have topped up. State
-that nothing was charged only when the error says so. The current tool registry
-exposes no account or wallet-management call: do not invent balance reads,
-top-up operations, or account mutations. Connection revocation belongs in the
+that nothing was charged only when the error says so. Do not invent a top-up
+operation or an account mutation. Use the `topup_url` from `beatra.wallet.get`
+or the URL inside the 402 message. Connection revocation belongs in the
 Beatra Console.
 
 On a failed public social lookup, keep `error.code` and read the platform

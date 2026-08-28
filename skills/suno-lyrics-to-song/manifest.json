@@ -1,5 +1,5 @@
 {
-  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "changelog": "Label verse, chorus, and bridge before generation, and stop at lyrics when the user did not ask for a song.",
   "display_name": "Suno Lyrics to Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
@@ -74,5 +74,5 @@
   },
   "name": "suno-lyrics-to-song",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.9"
 }

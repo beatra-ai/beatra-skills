@@ -67,6 +67,9 @@ growth are not this package's to promise, in the copy or in the reply.
 
 Steps 1 to 7 cost nothing, including reading the card and pricing the thumbnail.
 The publishing copy is a complete deliverable on its own.
+Deliver the title, description, tags, pinned comment, and chapter list in one
+pass; missing any item is incomplete. Keep the spoken script and the upload
+copy in separate files.
 
 1. Build a publishing brief from the topic, outline/script, audience, creator
    voice, supplied facts, chapters, must-keep terms, exclusions, and desired

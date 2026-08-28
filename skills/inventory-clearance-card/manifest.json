@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn already-written clearance rules into one clearance explanation card per SKU.",
+  "display_name": "Clearance Explanation Cards",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/inventory-clearance-card",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn already-written clearance rules into one clearance explanation card per SKU. This clearance sale card studio lays out the seller-supplied discount and dates as an inventory clearance graphic. Use it for a clearance poster, clearance price card, and stock clearance still that stay one SKU, one still.",
+      "display_name": "Clearance Explanation Cards",
+      "summary": "Turn already-written clearance rules into one clearance explanation card per SKU.",
+      "tags": [
+        "clearance explanation card",
+        "clearance sale card",
+        "inventory clearance graphic",
+        "clearance poster",
+        "clearance price card",
+        "stock clearance still"
+      ],
+      "title": "Clearance Explanation Cards: One SKU, One Sale Still"
+    },
+    "ja": {
+      "description": "在庫処分カードは、すでに書いてある処分条件から、SKUごとに1枚の在庫処分カードを渡します。処分セールカードと在庫一掃ポスターとして、クリアランス値札、在庫処分図、処分条件カードにも使えます。",
+      "display_name": "在庫処分カード",
+      "summary": "すでに書いてある処分条件から、SKUごとに1枚の在庫処分カードを作ります。",
+      "tags": [
+        "在庫処分カード",
+        "処分セールカード",
+        "在庫一掃ポスター",
+        "クリアランス値札",
+        "在庫処分図",
+        "処分条件カード"
+      ],
+      "title": "在庫処分カード：SKUごとに1枚の処分図を渡す"
+    },
+    "zh": {
+      "description": "清仓说明卡是按已经写好的清仓规则，给每个SKU做成一张清仓图。清仓海报、清仓库存卡、清仓促销卡和清仓价签都按同一套规则和SKU出。",
+      "display_name": "清仓说明卡·清仓说明卡",
+      "summary": "按已经写好的清仓规则，做成清仓说明卡，每个SKU一张。",
+      "tags": [
+        "清仓说明卡",
+        "清仓图",
+        "清仓海报",
+        "清仓库存卡",
+        "清仓促销卡",
+        "清仓价签"
+      ],
+      "title": "清仓说明卡·清仓说明卡：每个SKU一张清仓图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "inventory-clearance-card",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

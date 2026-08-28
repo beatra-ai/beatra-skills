@@ -11,15 +11,17 @@ One pass from a topic to a publishable WeChat article: titles, digest, body, cov
 
 The route is: a topic, an article, and its whole image set. It fits when the article does not exist yet and the pictures do not either.
 
-When one of them already exists, another workflow fits better. A finished article that needs illustrations belongs in `wechat-article-visual-pack`. A title that only needs a cover belongs in `wechat-cover-maker`. A short social note rather than long-form belongs in the workflow for that platform.
+When one of them already exists, another workflow fits better. A finished article that needs illustrations belongs in `wechat-article-visual-pack`. A title that only needs a cover belongs in `wechat-cover-maker`. A Xiaohongshu 3:4 feed cover belongs in `rednote-cover-maker` or `zhongcao-cover-maker`. A short social note rather than long-form belongs in the workflow for that platform.
+
+Lock a headline cover at 2.35:1 with a center safe zone. Do not skip the design proposal and jump to paid images.
 
 ## Inputs and defaults
 
-The one hard input is the topic. Ask for it if it is missing.
+The hard input is the topic or the article body. Ask for it if it is missing. Use the user's title wording; do not invent a viral headline and then generate.
 
 Three more inputs raise the result sharply, and they are asked for together, once, rather than one at a time: what is being promoted and its selling points, who the reader is, and what that reader is frustrated by. When they do not arrive, write from the topic alone and say which parts are written around a gap.
 
-Reuse whatever the conversation already states about the account's voice, the campaign, and the length. Default to a body of about 1,500 characters or 900 words, three title candidates, one cover, three in-body images, and a tone read from the topic. Name each default in the confirmation instead of asking about it.
+Reuse whatever the conversation already states about the account's voice, the campaign, and the length. Default to a body of about 1,500 characters or 900 words, three title candidates, one cover, three in-body images, and a tone read from the topic. Lock the headline 2.35:1, secondary 1:1, and share-card 1:1 ratios once. Consider at least one image for each H2. Name each default in the confirmation instead of asking about it.
 
 The article is written in the language its readers read, which on a WeChat Official Account is Simplified Chinese. Write the titles, the digest line, and the body in Simplified Chinese by default, including when the conversation itself is being held in another language — the account's readers are the audience, not the person commissioning the piece. Write in another language only when the user asks for one, and say which language the body will be in as part of the confirmation.
 
@@ -32,13 +34,13 @@ Stages 1 to 3 cost nothing. No paid call happens before the writing is approved.
 1. **Write the article.** Title candidates, the digest line, and the body structured for phone reading, per [writing the article](references/article-craft.md). Screen the copy in the same pass.
 2. **Plan the image set.** The cover, and where each in-body image goes and what it carries, per [planning the images](references/visual-set.md). Every in-body image is placed against a specific paragraph, because an image that is not answering a paragraph is decoration.
 3. Read the live `text_to_image` card with `beatra.models.list` — or the `image_to_image` card when a brand reference was uploaded to anchor the look — and check the canvases and count against it.
-4. **Show the writing and the image plan together, and get one approval.** The cover at 2.35:1, each in-body image with the paragraph it serves, the shared look that holds them together, and the current estimate per call. It is free to revise, and every prompt is built from it.
-5. Render the cover and the in-body images with `beatra.images.generate`, one call per image, or `beatra.images.transform` from the uploaded reference.
+4. **Lock title and canvas, then the illustration outline.** Show the writing and the image plan together. The cover stays 2.35:1 with a center safe zone. Get the cover confirmation card first, then a confirmation card for each section image. It is free to revise, and every prompt is built from it.
+5. Render the cover and the in-body images with `beatra.images.generate`, one call per image, or `beatra.images.transform` from the uploaded reference. Do not start paid images before those cards.
 6. Poll each task with `beatra.tasks.get` until terminal, deliver the article with its images placed in reading order, and review what you can actually see.
 
 ## Decisions that require confirmation
 
-Confirm before spending once: the whole image set together, each with its price and request ID. There is no second gate, because no image here depends on another.
+Confirm the cover on its own card, then each section image on its own card, each with its price and request ID. No image here depends on another rendered result, but the cover card still comes first.
 
 Also confirm, rather than deciding alone: more than six images in total including the cover, a claim the user has not verified, a cover carrying text rather than an image alone, and any change after an image is approved. Each changed argument is new paid work with a new request identifier and fresh approval.
 

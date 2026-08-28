@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn Douyin comment objections into one comment talking clip per still.",
+  "display_name": "Douyin Comment Demo Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-comment-to-demo-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn Douyin comment objections into one comment talking clip per still. This douyin comment demo studio writes a speakable demo talking clip from each seller-picked objection, then animates a 2 to 15s objection demo clip. Use it for comment demo video and a douyin objection video that stay one photo, one clip.",
+      "display_name": "Douyin Comment Demo Clips",
+      "summary": "Turn Douyin comment objections into one comment talking clip per still.",
+      "tags": [
+        "douyin comment demo",
+        "objection demo clip",
+        "comment talking clip",
+        "douyin objection video",
+        "demo talking clip",
+        "comment demo video"
+      ],
+      "title": "Douyin Comment Demo Clips: One Still, One Objection Reply"
+    },
+    "ja": {
+      "description": "抖音コメント実演は、公開コメントの異論を短い実演トークにします。異論への実演とコメントトークとして、手元の写真1枚ごとに2〜15秒の異論クリップを渡し、実演トークやコメント実演動画にも使えます。",
+      "display_name": "抖音コメント実演",
+      "summary": "公開コメントの異論と手元の写真から、短い実演トークを1枚ずつ作ります。",
+      "tags": [
+        "抖音コメント実演",
+        "異論への実演",
+        "コメントトーク",
+        "異論クリップ",
+        "実演トーク",
+        "コメント実演動画"
+      ],
+      "title": "抖音コメント実演：異論への短いトークを写真ごとに渡す"
+    },
+    "zh": {
+      "description": "抖音评论演示按成片评论里的异议，做成一条可说的演示口播。这个异议转演示和评论口播工作室把抖音异议写成口播稿，再做成2到15秒的演示口播，也适合评论演示视频。",
+      "display_name": "抖音评论演示·异议转演示",
+      "summary": "按抖音评论里的异议和人像或商品照片，做成演示口播，每张照片一条。",
+      "tags": [
+        "抖音评论演示",
+        "异议转演示",
+        "评论口播",
+        "抖音异议",
+        "演示口播",
+        "评论演示视频"
+      ],
+      "title": "抖音评论演示·异议转演示：一张静帧一条演示口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-comment-to-demo-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

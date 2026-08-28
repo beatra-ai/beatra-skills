@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied account-opening material checklist lines into a four-to-eight still KYC guide set.",
+  "display_name": "KYC Guide Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/kyc-guide-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied account-opening material checklist lines into a four-to-eight still KYC guide set. This checklist-to-guide studio lays out each named material as its own still. Use it for account-opening material graphics, KYC guide stills, materials checklist cards, and a KYC materials pack.",
+      "display_name": "KYC Guide Set",
+      "summary": "Turn user-supplied account-opening material checklist lines into a four-to-eight still KYC guide set.",
+      "tags": [
+        "KYC guide set",
+        "KYC materials pack",
+        "account-opening material graphics",
+        "KYC guide stills",
+        "materials checklist cards",
+        "KYC materials pack"
+      ],
+      "title": "KYC Guide Set: Account-Opening Material Stills"
+    },
+    "ja": {
+      "description": "手元の口座開設資料リストから、4〜8枚の口座開設資料図セットを作ります。このKYC資料図は、本人確認案内図や必要書類カード、開設資料セットとしても使えます。",
+      "display_name": "口座開設資料図セット",
+      "summary": "手元の口座開設資料リストから、4〜8枚の口座開設資料図セットを作ります。",
+      "tags": [
+        "口座開設資料図セット",
+        "KYC資料図",
+        "口座開設資料図",
+        "本人確認案内図",
+        "必要書類カード",
+        "開設資料セット"
+      ],
+      "title": "口座開設資料図セット：資料ごとの図"
+    },
+    "zh": {
+      "description": "开户材料图组按用户提供的开户材料清单，做成一组清单转图组静帧。这个开户材料图工作室把已确认的材料说明排成开户材料图、开户指引图和开户材料套图。",
+      "display_name": "开户材料图组·清单转图组",
+      "summary": "按用户提供的开户材料清单，做成一组清单转图组静帧。",
+      "tags": [
+        "开户材料图组",
+        "清单转图组",
+        "开户材料图",
+        "开户指引图",
+        "材料说明图",
+        "开户材料套图"
+      ],
+      "title": "开户材料图组：清单转图组"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "kyc-guide-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

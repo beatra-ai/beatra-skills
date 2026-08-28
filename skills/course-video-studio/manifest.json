@@ -1,0 +1,70 @@
+{
+  "changelog": "Turn a lecture into digital-teacher lesson videos.",
+  "display_name": "Course Video Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/course-video-studio",
+  "icon": "https://beatra.ai/textures/icons/course-video-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos. This AI course video studio and digital teacher studio prepares lecture narration, then produces a stable presenter clip for each lesson so a training team can publish without a camera shoot. Use it for course videos, training videos, digital human lectures, lesson talking head series, elearning video, teacher avatar video, lecture video maker work, and training presenter video.",
+      "display_name": "Course Video Studio",
+      "summary": "Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos.",
+      "tags": [
+        "course video",
+        "training video",
+        "digital teacher",
+        "lesson talking head",
+        "AI course video",
+        "elearning video",
+        "digital human lecture",
+        "teacher avatar video",
+        "lecture video maker",
+        "training presenter video"
+      ],
+      "title": "Course Video Studio: Digital Teacher Lesson Videos"
+    },
+    "ja": {
+      "description": "講義原稿と許可済みの講師肖像から、各回のトーキングヘッド講座ビデオを作ります。この講座ビデオスタジオはまず講義ナレーションを作り、各授業を安定したプレゼンター映像にします。撮影現場なしで講座ビデオ、研修ビデオ、講義動画、eラーニング動画、トーキングヘッド講義、AI講座動画、デジタル講師シリーズを公開できます。",
+      "display_name": "講座ビデオ・デジタル講師",
+      "summary": "講義原稿と許可済みの講師肖像から、各回のトーキングヘッド講座ビデオを作ります。",
+      "tags": [
+        "講座ビデオ",
+        "研修ビデオ",
+        "デジタル講師",
+        "講義動画",
+        "eラーニング動画",
+        "トーキングヘッド講義",
+        "AI講座動画"
+      ],
+      "title": "講座ビデオ・デジタル講師：講義トーキングヘッド"
+    },
+    "zh": {
+      "description": "用讲稿和一张授权讲师人像，做成每一讲的数字人口播课程视频。这个课程视频和数字人讲师工作室会先做好课程旁白，再把每一讲做成稳定的口播成片，培训团队不用再搭棚拍摄。适用于课程视频、培训视频、数字人讲课、课件视频、网课视频、AI课程视频、讲师口播、培训口播视频和系列课件口播。",
+      "display_name": "课程视频·数字人讲师",
+      "summary": "用讲稿和一张授权讲师人像，做成每一讲的数字人口播课程视频。",
+      "tags": [
+        "课程视频",
+        "培训视频",
+        "数字人讲师",
+        "数字人讲课",
+        "课件视频",
+        "网课视频",
+        "AI课程视频",
+        "讲师口播",
+        "培训口播视频",
+        "数字人口播课程"
+      ],
+      "title": "课程视频·数字人讲师：课件口播成片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "course-video-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

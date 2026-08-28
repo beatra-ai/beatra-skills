@@ -12,6 +12,10 @@ visible in the conversation and move by the shortest path to a finished song.
 
 ## Choose how the lyrics may change
 
+If the user only wants the lyrics organized and does not ask to generate, stop
+at the lyrics. Generation on Beatra is `beatra.music.generate`; do not log into
+a Suno account.
+
 - **Preserve:** keep every lyric-body character, punctuation mark, complete
   line, and the original line order. Add short section labels and arrange blank
   lines around complete lyric lines without rewriting them.
@@ -30,6 +34,9 @@ summary in the final production card. Split lyric review into an earlier step
 only when the user explicitly asks to review first or says not to spend yet.
 
 ## Shape a song-ready version
+
+The hard input is complete or scattered lyrics. Label verse, chorus, and bridge
+before any paid generation. Custom lyrics must carry section labels.
 
 Infer useful defaults from the lyrics instead of turning intake into a
 questionnaire. Propose a title, section structure, genre, mood, tempo feel,
@@ -54,6 +61,10 @@ single-lead `vocal_gender` control only when the user chooses one male or female
 lead; express other casting through the lyrics and music direction.
 
 ## Confirm once, execute once
+
+Organize the skeleton and section labels, obtain the user's confirmation of the
+lyrics, then present one song-generation confirmation card. Do not
+automatically redo the whole song.
 
 Planning, lyric work, structure, and music direction do not call the paid music
 tool. Before generation, present one final readable production card containing

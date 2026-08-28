@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written class duty roster into one class duty voice clip per labeled cue.",
+  "display_name": "Class Duty Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/class-duty-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written class duty roster into one class duty voice clip per labeled cue. This duty roster voice studio records each class duty audio and roster reminder from the list the teacher already wrote, then delivers 8 to 20 class duty voice pack files. Use it for duty clip packs that keep one roster item on each clip.",
+      "display_name": "Class Duty Voice Pack",
+      "summary": "Turn a written class duty roster into one class duty voice clip per labeled cue.",
+      "tags": [
+        "class duty voice",
+        "duty roster voice",
+        "class duty audio",
+        "roster reminder",
+        "duty clip",
+        "class duty voice pack"
+      ],
+      "title": "Class Duty Voice: Roster-to-Clip Reads"
+    },
+    "ja": {
+      "description": "手元の当番表から、ラベル付きの当番リマインドボイスを1件1本作ります。当番表ボイスや当番リマインド音声、当番口頭も当番クリップとして録り、8〜20本の当番ボイスパックで渡します。",
+      "display_name": "当番リマインドボイス",
+      "summary": "手元の当番表から、ラベル付きの当番リマインドボイスを1件1本作ります。",
+      "tags": [
+        "当番リマインドボイス",
+        "当番表ボイス",
+        "当番リマインド音声",
+        "当番口頭",
+        "当番クリップ",
+        "当番ボイスパック"
+      ],
+      "title": "当番リマインドボイス：当番表を1件1本で読む"
+    },
+    "zh": {
+      "description": "值日提醒语音按已经写好的值日表，做成每条值日表转语音一条口播。值日表语音、值日提醒朗读、值日口播都按值日提醒来录，一次给出8到20条值日语音包。",
+      "display_name": "值日提醒语音·值日表转语音",
+      "summary": "按已经写好的值日表，做成每条值日表转语音一条口播。",
+      "tags": [
+        "值日提醒语音",
+        "值日表转语音",
+        "值日表语音",
+        "值日提醒朗读",
+        "值日口播",
+        "值日语音包"
+      ],
+      "title": "值日提醒语音·值日表转语音：按值日表一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "class-duty-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

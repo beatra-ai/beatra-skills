@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a Douyin hot search topic into one talking hook clip per still.",
+  "display_name": "Douyin Hot Search Hook Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-hot-to-hook-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a Douyin hot search topic into one talking hook clip per still. This douyin hot search hook studio writes a speakable hot search talking clip from each seller-picked trend, then animates a 2 to 15s douyin hook clip. Use it for trend hook video and a hot search hook clip that stay one photo, one talking hook clip.",
+      "display_name": "Douyin Hot Search Hook Clips",
+      "summary": "Turn a Douyin hot search topic into one talking hook clip per still.",
+      "tags": [
+        "douyin hot search hook",
+        "hot search talking clip",
+        "douyin hook clip",
+        "trend hook video",
+        "hot search hook clip",
+        "talking hook clip"
+      ],
+      "title": "Douyin Hot Search Hook Clips: One Still, One Trend Hook"
+    },
+    "ja": {
+      "description": "抖音急上昇トークは、公開の急上昇ワードを短いフッククリップにします。トレンドフックと急上昇トークとして、手元の写真1枚ごとに2〜15秒のトレンドトークを渡し、急上昇フック動画にも使えます。",
+      "display_name": "抖音急上昇トーク",
+      "summary": "公開の急上昇ワードと手元の写真から、短いフッククリップを1枚ずつ作ります。",
+      "tags": [
+        "抖音急上昇トーク",
+        "トレンドフック",
+        "急上昇トーク",
+        "フッククリップ",
+        "トレンドトーク",
+        "急上昇フック動画"
+      ],
+      "title": "抖音急上昇トーク：短いフックを写真ごとに渡す"
+    },
+    "zh": {
+      "description": "抖音热搜口播按公开热搜和人像或商品照片，做成一条可说的钩子口播。这个热搜转钩子和热搜口播工作室把抖音热搜写成口播稿，再做成2到15秒的钩子口播，也适合热搜口播视频。",
+      "display_name": "抖音热搜口播·钩子口播",
+      "summary": "按公开热搜和人像或商品照片，做成钩子口播，每张照片一条。",
+      "tags": [
+        "抖音热搜口播",
+        "热搜转钩子",
+        "热搜口播",
+        "抖音热搜",
+        "钩子口播",
+        "热搜口播视频"
+      ],
+      "title": "抖音热搜口播·钩子口播：一张静帧一条热搜口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-hot-to-hook-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

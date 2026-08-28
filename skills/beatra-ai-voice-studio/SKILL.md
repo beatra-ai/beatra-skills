@@ -12,6 +12,10 @@ when a request mixes those outcomes or will continue across several sessions.
 
 ## Scope and routes
 
+At the unified entrance, split first to audiobook, podcast, short voiceover,
+clone, or multilingual. This package only handles voice selection and scenes
+those focused packages do not cover.
+
 Reuse every decision already present in the conversation. Route a focused,
 standalone request to the narrower package when it is available:
 
@@ -19,9 +23,10 @@ standalone request to the narrower package when it is available:
 | --- | --- |
 | One short-video, ad, social, or promo read | `short-form-voiceover-audio` |
 | An audiobook or other ordered long-form narration | `ai-audiobook-narration` |
+| A single-host podcast episode or recurring show | `ai-podcast-voiceover` |
 | Multilingual dubbing with the target-language scripts already supplied and approved | `ai-multilingual-dubbing` |
 | Creation of one authorized reusable voice | `voice-cloning-studio` |
-| Mixed work, ongoing voice production, or a request that combines those routes | Continue here and maintain one production ledger |
+| Voice selection, mixed work, or a scene those routes do not cover | Continue here and maintain one production ledger |
 
 This Studio creates speech from supplied or approved text. It does not make a
 finished video, lip-sync a speaker, publish media, transcribe a recording, or

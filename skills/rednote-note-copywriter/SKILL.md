@@ -34,9 +34,13 @@ Default to five title options of at most 20 Chinese characters each, one
 250–500 Chinese-character note body (or a natural equivalent in the requested
 language), three cover-text options, five to ten relevant hashtags, and one
 conversational comment starter. Keep one clear promise, concrete details,
-readable paragraphs, and a save/share-worthy takeaway.
+readable paragraphs, and a save/share-worthy takeaway. Write the body in short
+sentences and short paragraphs, and keep hashtags at the end of the note.
 
 ## Golden path
+
+Research before writing. Prefer real experience over hype. The first two lines
+carry the hook.
 
 1. Build a brief with audience, topic, supplied facts, first-person stance,
    tone, location or product details, must-keep wording, exclusions, and the

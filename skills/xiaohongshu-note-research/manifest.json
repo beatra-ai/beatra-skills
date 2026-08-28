@@ -1,5 +1,5 @@
 {
-  "changelog": "First public release. Turn a category, a note link, or pasted notes into a research memo of title patterns and followable angles.",
+  "changelog": "Refresh the Simplified Chinese listing description so it covers Xiaohongshu note analysis.",
   "display_name": "Note Research Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-note-research",
@@ -30,7 +30,7 @@
       "title": "ノート分析：見えているノートをリサーチメモにする"
     },
     "zh": {
-      "description": "把品类、一条笔记链接，或你已经复制的笔记，做成调研备忘。给品类、公开笔记，或粘贴的标题和正文，就能拿到标题套路、结构、原话评论和能跟的角度。这个笔记分析工作流会读小红书上的公开笔记、评论和作者近作，也可以直接用你粘贴的内容，做成小红书笔记的笔记调研，整理竞品笔记里的笔记套路。适合笔记分析、小红书笔记、笔记调研、竞品笔记和笔记套路。",
+      "description": "把品类、一条笔记链接，或你已经复制的笔记，做成调研备忘。给品类、公开笔记，或粘贴的标题和正文，就能拿到标题套路、结构、原话评论和能跟的角度。这个笔记分析工作流会读小红书上的公开笔记、评论和作者近作，也可以直接用你粘贴的内容，做成小红书笔记的笔记调研，整理竞品笔记里的笔记套路。适合小红书笔记分析、小红书笔记、笔记调研、竞品笔记和笔记套路。",
       "display_name": "笔记分析工作室",
       "summary": "给品类、笔记链接，或已经复制的笔记，拿到标题套路、结构和能跟的角度。",
       "tags": [
@@ -52,5 +52,5 @@
   },
   "name": "xiaohongshu-note-research",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

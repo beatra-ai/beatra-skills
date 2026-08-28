@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a user-supplied geography place table and authorized stills into one geography place talking clip per still.",
+  "display_name": "Geography Place Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/geo-place-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied geography place table and authorized stills into one geography place talking clip per still. This geography place talking video studio writes a speakable place-fact talking clip for each photo, then animates a 2 to 15s place highlight talking clip. Use it for geography place talking packs that stay one photo, one clip.",
+      "display_name": "Geography Place Talking Clips",
+      "summary": "Turn a user-supplied geography place table and authorized stills into one geography place talking clip per still.",
+      "tags": [
+        "geography place talking clip",
+        "place table talking clip",
+        "place fact talking clip",
+        "geography place talking pack",
+        "classroom place talking clip",
+        "geography place talking video"
+      ],
+      "title": "Geography Place Talking Clips: One Still, One Place Read"
+    },
+    "ja": {
+      "description": "地理地点トークは、手元の地点表と写真から、写真1枚ごとに短いクリップを渡します。地点表から地点トークと地理読み上げ動画として、地点要点トークと教室案内動画を2〜15秒に仕上げます。",
+      "display_name": "地理地点トーク",
+      "summary": "地理地点トークは、手元の地点表と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "地理地点トーク",
+        "地点表から地点トーク",
+        "地点読み上げ動画",
+        "地点要点トーク",
+        "地理トーク",
+        "教室案内動画"
+      ],
+      "title": "地理地点トーク：地点表から写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "地理地点口播按教师提供的地点表和授权静帧，为每张图做成一条地点表转口播。这个地点表转口播和地点口播工作室把地点口播写成可说的稿，再做成2到15秒的地理口播和地理地点短视频。",
+      "display_name": "地理地点口播·地点表转口播",
+      "summary": "地理地点口播按教师提供的地点表和授权静帧，为每张图做成一条地点表转口播。",
+      "tags": [
+        "地理地点口播",
+        "地点表转口播",
+        "地点口播",
+        "地理口播",
+        "地理地点短视频",
+        "地点表口播"
+      ],
+      "title": "地理地点口播·地点表转口播：一张静帧一条地点口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "geo-place-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

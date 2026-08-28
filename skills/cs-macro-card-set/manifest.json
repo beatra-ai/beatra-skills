@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied customer-service macro titles and talk tracks into a four-to-eight still CS macro card set.",
+  "display_name": "CS Macro Card Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/cs-macro-card-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied customer-service macro titles and talk tracks into a four-to-eight still CS macro card set. This macro-to-card studio lays out each named script as its own service macro still. Use it for CS macro card packs, service talk cards, and matching macro script graphics.",
+      "display_name": "CS Macro Card Pack",
+      "summary": "Turn user-supplied customer-service macro titles and talk tracks into a four-to-eight still CS macro card set.",
+      "tags": [
+        "CS macro card",
+        "macro card pack",
+        "CS macro card set",
+        "service talk card",
+        "macro script card",
+        "customer service macro"
+      ],
+      "title": "CS Macro Card Pack: Matching Script Stills"
+    },
+    "ja": {
+      "description": "手元のマクロタイトルとトーク原稿から、4〜8枚のCSマクロカード図セットを作ります。このCSマクロセットは、サポートトークカードやマクロ図セット、CSマクロカード図としても使えます。",
+      "display_name": "CSマクロカード図",
+      "summary": "手元のマクロタイトルとトーク原稿から、4〜8枚のCSマクロカード図セットを作ります。",
+      "tags": [
+        "CSマクロカード図",
+        "マクロカードセット",
+        "サポートトークカード",
+        "マクロ図セット",
+        "CSマクロカード",
+        "マクロ原稿カード"
+      ],
+      "title": "CSマクロカード図：マクロごとの図セット"
+    },
+    "zh": {
+      "description": "客服话术卡组按已经写好的话术标题和话术正文，做成一组话术转卡组静帧。这个客服话术工作室把确认过的话术排成客服话术卡和话术套图，一次给出客服话术卡组。",
+      "display_name": "客服话术卡组·话术转卡组",
+      "summary": "按已经写好的话术标题和话术正文，做成一组话术转卡组静帧。",
+      "tags": [
+        "客服话术卡组",
+        "话术转卡组",
+        "客服话术卡",
+        "话术套图",
+        "客服话术",
+        "话术卡组"
+      ],
+      "title": "客服话术卡组·话术转卡组：按话术做成一套图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "cs-macro-card-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

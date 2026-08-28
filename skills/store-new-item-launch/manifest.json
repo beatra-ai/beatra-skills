@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn three named new-item stills into a launch board you can post, then turn the rest of the set into a matching pack.",
+  "display_name": "Store New Item Launch",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/store-new-item-launch",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn three named new-item stills into a launch board you can post, then turn the rest of the set into a matching pack. This store new item launch studio writes a new-item still set and launch poster from the facts you already have. Use it for cafe launches, retail restocks, and chain-store new-item boards.",
+      "display_name": "Store New Item Launch",
+      "summary": "Turn three named new-item stills into a launch board you can post, then turn the rest of the set into a matching pack.",
+      "tags": [
+        "store new item launch",
+        "new-item still set",
+        "launch poster",
+        "cafe launches",
+        "retail restocks",
+        "chain-store new-item boards"
+      ],
+      "title": "Store New Item Launch: New-Item Still Sets"
+    },
+    "ja": {
+      "description": "店舗新作セットは、店がすでに決めた新作事実から先に3枚の新作ポスターを作り、同じ新作をセットにします。カフェ新作やチェーン店新作の店頭新作ボード、新作メニューに使えます。",
+      "display_name": "店舗新作セット",
+      "summary": "店がすでに決めた新作事実から先に3枚の新作ポスターを作り、同じ新作をセットにします。",
+      "tags": [
+        "店舗新作セット",
+        "新作ポスター",
+        "新作メニュー",
+        "店頭新作ボード",
+        "カフェ新作",
+        "チェーン店新作"
+      ],
+      "title": "店舗新作セット：新作ポスター"
+    },
+    "zh": {
+      "description": "门店上新按门店已有的新品事实先做成三张上新海报，再把同一批新品套图补齐。这个门店上新套图工作室适合餐饮上新、零售上新和连锁门店上新。",
+      "display_name": "门店上新·新品套图",
+      "summary": "按门店已有的新品事实先做成三张上新海报，再把同一批新品套图补齐。",
+      "tags": [
+        "门店上新",
+        "新品套图",
+        "上新海报",
+        "餐饮上新",
+        "零售上新",
+        "连锁门店上新"
+      ],
+      "title": "门店上新·新品套图：上新海报"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "store-new-item-launch",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

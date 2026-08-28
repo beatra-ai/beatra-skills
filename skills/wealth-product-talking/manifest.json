@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Wealth Product Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wealth-product-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied product factsheet and authorized stills into one wealth product talking clip per still. This product factsheet talking video studio writes a speakable product highlights talking clip for each photo, then animates a 2 to 15s product factsheet talking clip. Use it for wealth product talking pack and factsheet talking video pack work that stays one photo, one clip.",
+      "display_name": "Wealth Product Talking Clips",
+      "summary": "Turn a user-supplied product factsheet and authorized stills into one wealth product talking clip per still.",
+      "tags": [
+        "wealth product talking clip",
+        "product factsheet talking video",
+        "wealth product talking pack",
+        "product highlights talking clip",
+        "product factsheet talking clip",
+        "factsheet talking video pack"
+      ],
+      "title": "Wealth Product Talking Clips: One Still, One Factsheet Read"
+    },
+    "ja": {
+      "description": "金融商品トーク動画は、手元の商品説明書と写真から、写真1枚ごとに短いクリップを渡します。商品説明書読み上げと運用商品口頭動画として、商品ポイントトークと目論見書トークを2〜15秒に仕上げ、金融商品紹介動画にも使えます。",
+      "display_name": "金融商品トーク動画",
+      "summary": "金融商品トーク動画は、手元の商品説明書と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "金融商品トーク動画",
+        "商品説明書読み上げ",
+        "運用商品口頭動画",
+        "商品ポイントトーク",
+        "目論見書トーク",
+        "金融商品紹介動画"
+      ],
+      "title": "金融商品トーク動画：商品説明書を写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "理财产品口播按顾问提供的产品说明书要点和授权静帧，为每张图做成一条说明书转口播。这个产品说明书口播和产品卖点口播工作室把产品要点口播写成可说的稿，再做成2到15秒的理财口播短视频。",
+      "display_name": "理财产品口播·说明书转口播",
+      "summary": "理财产品口播按顾问提供的产品说明书要点和授权静帧，为每张图做成一条说明书转口播。",
+      "tags": [
+        "理财产品口播",
+        "说明书转口播",
+        "产品说明书口播",
+        "理财口播短视频",
+        "产品卖点口播",
+        "产品要点口播"
+      ],
+      "title": "理财产品口播·说明书转口播：一张静帧一条说明书口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wealth-product-talking",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

@@ -39,6 +39,8 @@ claims, prices, results, credentials, and offers for user-supplied facts.
 Default to three hook options, a 30–60 second script, a conversational spoken
 rhythm, one clear viewer takeaway, a simple Hook → proof or explanation →
 payoff → comment prompt structure, and a shot beat for every spoken section.
+Default to writing those three opening hooks for the first 3 seconds that
+decide whether the viewer stays — not a self-introduction.
 When the user gives a duration, preserve it and adjust line density rather
 than inventing a guarantee about retention or virality.
 

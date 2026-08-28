@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied merchant inspection notices and authorized stills into one market inspection talking clip per still.",
+  "display_name": "Market Inspection Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/market-inspect-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied merchant inspection notices and authorized stills into one market inspection talking clip per still. This merchant notice talking video studio writes a speakable merchant notice talking clip for each photo, then animates a 2 to 15s merchant notice talking clip. Use it for market inspection talking pack and merchant notice talking video pack work that stays one photo, one clip.",
+      "display_name": "Market Inspection Talking Clips",
+      "summary": "Turn user-supplied merchant inspection notices and authorized stills into one market inspection talking clip per still.",
+      "tags": [
+        "market inspection talking clip",
+        "merchant notice talking video",
+        "market inspection talking pack",
+        "merchant notice talking clip",
+        "inspection notice talking clip",
+        "merchant notice talking video pack"
+      ],
+      "title": "Market Inspection Talking Clips: One Still, One Merchant-Notice Read"
+    },
+    "ja": {
+      "description": "すでに書いた店舗向け検査案内と許可済みの写真から、案内を読み上げる動画を1本ずつ渡します。案内1件を2〜15秒で読み上げ、写真1枚につき1本のファイルに分けます。市場監督の窓口案内や店舗向け告知動画としてそのまま使えます。",
+      "display_name": "市場検査トーククリップ",
+      "summary": "すでに書いた店舗向け検査案内と写真から、短い読み上げ動画を1本ずつ作ります。",
+      "tags": [
+        "市場検査トーククリップ",
+        "店舗案内の読み上げ動画",
+        "市場検査動画",
+        "検査案内読み上げ",
+        "店舗案内から読み上げ動画",
+        "市場検査トーククリップパック"
+      ],
+      "title": "市場検査トーククリップ：店舗案内を短い読み上げ動画で渡す"
+    },
+    "zh": {
+      "description": "市场检查提示按已经写好的商户须知，做成每张照片一条口播。商户须知口播、市场检查口播、检查提示朗读都按商户须知转口播来录，一次给出2到8条市场检查口播包。",
+      "display_name": "市场检查提示·商户须知转口播",
+      "summary": "按已经写好的商户须知，做成每张照片一条口播。",
+      "tags": [
+        "市场检查提示",
+        "商户须知口播",
+        "市场检查口播",
+        "检查提示朗读",
+        "商户须知转口播",
+        "市场检查口播包"
+      ],
+      "title": "市场检查提示·商户须知转口播：按商户须知一条一口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "market-inspect-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

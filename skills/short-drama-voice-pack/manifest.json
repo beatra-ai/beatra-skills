@@ -1,0 +1,66 @@
+{
+  "changelog": "Cast one voice per role and deliver labeled short-drama line clips by episode.",
+  "display_name": "Short Drama Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/short-drama-voice-pack",
+  "icon": "https://beatra.ai/textures/icons/short-drama-voice-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a vertical short-drama episode script into a labeled short drama voiceover pack with one consistent voice per role. This short drama dialogue studio and vertical short drama voiceover shop casts the episode, records every spoken line as labeled clips, and keeps those character voices through the episode so editors can place AI short drama voice and multi-character voiceover without recasting. Use it for short drama voice acting, episode dialogue audio, vertical drama TTS, micro drama voiceover, and serialized short-drama line clips.",
+      "display_name": "Short Drama Voice Pack",
+      "summary": "Turn a vertical short-drama episode script into a labeled short drama voiceover pack with one consistent voice per role.",
+      "tags": [
+        "short drama voiceover",
+        "short drama dialogue",
+        "vertical short drama voiceover",
+        "AI short drama voice",
+        "multi-character voiceover",
+        "short drama voice acting",
+        "episode dialogue audio",
+        "vertical drama TTS",
+        "micro drama voiceover"
+      ],
+      "title": "Short Drama Voice Pack: Episode Dialogue, One Voice per Role"
+    },
+    "ja": {
+      "description": "縦型ショートドラマの1話分の台詞を、役ごとに声を固定したショートドラマ音声パックにします。この縦型ドラマ吹き替えと短編ドラマ音声の制作では、キャラ別ボイスで各行を収録し、話数ごとにラベル付きクリップで納品します。縦型ドラマ台詞、ショートドラマ配役音声、縦型ドラマボイスに使えます。",
+      "display_name": "短劇ボイスパック",
+      "summary": "縦型ショートドラマの1話分の台詞を、役ごとに声を固定したショートドラマ音声パックにします。",
+      "tags": [
+        "縦型ショートドラマ",
+        "ショートドラマ音声",
+        "縦型ドラマ吹き替え",
+        "短編ドラマ音声",
+        "縦型ドラマ台詞",
+        "ショートドラマ配役音声",
+        "縦型ドラマボイス",
+        "キャラ別ボイス"
+      ],
+      "title": "短劇ボイスパック：縦型ショートドラマの台詞を役ごとに"
+    },
+    "zh": {
+      "description": "把竖屏短剧单集对白做成按角色标注的短剧配音包。这个短剧配音工作室和竖屏短剧配音工具会给每个角色固定一把声音，按集录完短剧对白，并交付带角色标签的台词片段，方便剪辑落位。适用于多角色配音、AI短剧配音、短剧台词音频和分集短剧配音。",
+      "display_name": "短剧配音工作室",
+      "summary": "把竖屏短剧单集对白做成按角色标注的短剧配音包，一角一声，按集交付。",
+      "tags": [
+        "短剧配音",
+        "短剧对白",
+        "短剧配音工作室",
+        "竖屏短剧配音",
+        "多角色配音",
+        "AI短剧配音"
+      ],
+      "title": "短剧配音工作室：按集交付竖屏短剧对白"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "short-drama-voice-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

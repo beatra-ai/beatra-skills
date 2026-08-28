@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written visitor reception script into one visitor reception voice clip per labeled cue.",
+  "display_name": "Visitor Desk Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/visitor-desk-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written visitor reception script into one visitor reception voice clip per labeled cue. This front desk voice studio records each reception script audio and visitor greeting voice from the script the desk already wrote, then delivers 8 to 20 visitor desk voice pack files. Use it for visitor reception voice packs that keep one cue on each clip.",
+      "display_name": "Visitor Desk Voice Pack",
+      "summary": "Turn a written visitor reception script into one visitor reception voice clip per labeled cue.",
+      "tags": [
+        "visitor reception voice",
+        "front desk voice",
+        "reception script audio",
+        "visitor greeting voice",
+        "visitor reception clip",
+        "visitor desk voice pack"
+      ],
+      "title": "Visitor Desk Voice: Reception Script Clips"
+    },
+    "ja": {
+      "description": "来客受付音声は、すでに書いた受付スクリプトから、受付スクリプト音声と来客案内音声を1本ずつ渡します。受付台音声、来客受付ボイスは口に出せる一文で1本ずつ録り、8〜20本の来客受付ボイスパックとして渡します。",
+      "display_name": "来客受付音声",
+      "summary": "すでに書いた受付スクリプトから、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "来客受付音声",
+        "受付スクリプト音声",
+        "来客案内音声",
+        "受付台音声",
+        "来客受付ボイス",
+        "来客受付ボイスパック"
+      ],
+      "title": "来客受付音声：書いた受付スクリプトを短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "访客接待语音按已经写好的接待词，做成每条接待词转语音。前台接待语音、接待词语音、前台语音都按接待词转语音来录，一次给出8到20条访客接待语音包。",
+      "display_name": "访客接待语音·接待词转语音",
+      "summary": "按已经写好的接待词，做成每条接待词转语音。",
+      "tags": [
+        "访客接待语音",
+        "前台接待语音",
+        "接待词转语音",
+        "接待词语音",
+        "前台语音",
+        "访客接待语音包"
+      ],
+      "title": "访客接待语音·接待词转语音：按接待词一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "visitor-desk-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

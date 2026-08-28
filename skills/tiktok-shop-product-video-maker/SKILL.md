@@ -16,7 +16,9 @@ Use this package to plan a shoppable product video for a specific market:
 product showcases, demonstrations, unboxings, reviews, comparison angles, and
 creator-led shopping videos. It writes the plan and the filming language; it
 does not render video, record narration, upload products, publish ads, or
-promise sales or platform approval.
+promise sales or platform approval. This package delivers the script, shot
+list, and subtitles. It does not default to a paid finished clip. Stop when
+product facts are missing.
 
 Route a finished product clip from a single product image to
 `product-video-studio`, an AI creator delivering the pitch on camera to
@@ -26,11 +28,11 @@ Route a finished product clip from a single product image to
 
 ## Inputs and defaults
 
-The hard inputs are the target market and the merchant's own product facts.
-Reuse the product name, category, selling points, price, audience, creator
-voice, destination, and photos already known in the conversation. Ask only for
-what changes the plan: the target market, the one action the viewer should
-take, the source facts, or the shooting constraint.
+The hard input is confirmed product facts. Reuse the product name, category,
+selling points, price, audience, creator voice, destination, target market,
+and photos already known in the conversation. Ask only for what changes the
+plan: the target market, the one action the viewer should take, the source
+facts, or the shooting constraint.
 
 Write in the destination market's language. Default to English for a US or
 global TikTok Shop audience and Japanese for a Japan audience, and mirror any
@@ -48,6 +50,10 @@ merchant has not stated. When a proof point is missing, ask for it rather than
 filling it with plausible detail.
 
 ## Golden path
+
+The path is confirmed facts to a shot-by-shot plan with voiceover, on-screen
+text, and a CTA. Every spoken claim must land on a proof visual. Do not
+promise a viral hit.
 
 1. Build the product brief: market and language, product facts, audience, the
    one viewer action, creator voice, must-keep wording, available photos, and

@@ -1,0 +1,63 @@
+{
+  "changelog": "Turn listing photos into a labeled set of room clips, with optional separate narration.",
+  "display_name": "Listing Room Video Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/listing-room-video-pack",
+  "icon": "https://beatra.ai/textures/icons/listing-room-video-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn listing photos into a labeled set of listing room video clips, one room at a time. This listing video pack and real estate room video studio animates each listing photo into a short property video so buyers can preview the living room, bedroom, kitchen, and more as separate room clips. Use it for property room video, listing photo video, real estate listing video, and a labeled room video pack that keeps each space easy to scan. Add optional agent narration files beside the clips, or a talking-head intro and outro when you bring an agent portrait and a short script.",
+      "display_name": "Listing Room Video Pack",
+      "summary": "Turn listing photos into a labeled set of listing room video clips, one room at a time.",
+      "tags": [
+        "listing room video",
+        "listing video pack",
+        "real estate room video",
+        "property video",
+        "listing photo video",
+        "real estate listing video",
+        "room video pack",
+        "property room video"
+      ],
+      "title": "Listing Room Video Pack: Labeled Room Clips from Photos"
+    },
+    "ja": {
+      "description": "物件写真から部屋ごとにラベルを付けた物件ルーム動画を作ります。この物件ルーム動画パックはリビング、寝室、キッチンなどの部屋動画を短い不動産動画として書き出し、内見前に部屋を確認できるようにします。物件写真動画、不動産物件動画、マンション動画、内見動画のセットとして使えます。必要なら別ファイルの案内ナレーションや、担当者のトーキングヘッドの導入・締めも添えられます。",
+      "display_name": "物件ルーム動画パック",
+      "summary": "物件写真から部屋ごとにラベルを付けた短い物件ルーム動画を作ります。",
+      "tags": [
+        "物件ルーム動画",
+        "物件ルーム動画パック",
+        "不動産動画",
+        "部屋動画",
+        "物件写真動画",
+        "内見動画"
+      ],
+      "title": "物件ルーム動画パック：写真から部屋クリップへ"
+    },
+    "zh": {
+      "description": "用房源照片做成按房间标注的房源视频套装。这个讲房和房产视频工作室会把客厅、卧室、厨房等房间视频做成可点开的成片，也适合房源讲解、楼盘视频和带看前的房间预览，让每个房间都有一段清楚的动态画面。需要时再另做经纪人旁白文件，或用人像和短稿做一条讲房开场或收尾口播。",
+      "display_name": "房源视频·讲房套装",
+      "summary": "用房源照片做成按房间标注的短视频套装，每个房间一段。",
+      "tags": [
+        "房源视频",
+        "讲房",
+        "房产视频",
+        "房源讲解",
+        "房间视频",
+        "楼盘视频"
+      ],
+      "title": "房源视频·讲房套装：房产视频与房间视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "listing-room-video-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

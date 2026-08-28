@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn contractor-supplied project names, unit names, and handover dates into three handover sign stills, then turn the rest of that project into a matching set.",
+  "display_name": "Project Handover Sign Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/project-handover-sign-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn contractor-supplied project names, unit names, and handover dates into three handover sign stills, then turn the rest of that project into a matching set. This project handover sign studio lays out each named completion board from the inscriptions you already have. Use it for project completion signs, handover sign boards, and matching completion-sign packs.",
+      "display_name": "Project Handover Sign Set",
+      "summary": "Turn contractor-supplied project names, unit names, and handover dates into three handover sign stills, then turn the rest of that project into a matching set.",
+      "tags": [
+        "project handover sign",
+        "handover sign stills",
+        "project completion signs",
+        "handover sign boards",
+        "completion-sign packs",
+        "completion board"
+      ],
+      "title": "Project Handover Sign Set: Completion Boards"
+    },
+    "ja": {
+      "description": "施工者がすでに書いた工事名、社名、竣工日を、まず3枚の竣工看板にし、同じ工事の残りを竣工標識セットにします。この竣工標識セットは、引渡し看板、工事完成看板、竣工銘板のそろったセットに使えます。",
+      "display_name": "竣工標識セット",
+      "summary": "施工者がすでに書いた工事名、社名、竣工日を、まず3枚の竣工看板にし、同じ工事の残りを竣工標識セットにします。",
+      "tags": [
+        "竣工標識セット",
+        "竣工看板",
+        "引渡し看板",
+        "工事完成看板",
+        "竣工銘板",
+        "竣工標識"
+      ],
+      "title": "竣工標識セット：竣工看板と引渡し看板"
+    },
+    "zh": {
+      "description": "竣工标识按施工方已经写好的项目名、单位名称和竣工日期，先做成三张工程竣工牌，再把同一项目做成竣工标识牌成套。这个工程竣工标识工作室把确认过的竣工铭牌排成项目竣工牌，一次给出工程竣工牌成套。",
+      "display_name": "竣工标识·工程竣工牌成套",
+      "summary": "按施工方已经写好的项目名、单位名称和竣工日期，先做成三张工程竣工牌，再把同一项目做成竣工标识牌成套。",
+      "tags": [
+        "竣工标识",
+        "工程竣工牌",
+        "竣工标识牌",
+        "工程竣工标识",
+        "竣工铭牌",
+        "项目竣工牌"
+      ],
+      "title": "竣工标识·工程竣工牌成套：竣工标识牌"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "project-handover-sign-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

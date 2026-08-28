@@ -22,6 +22,8 @@ For a spoken, vertical commerce clip, use `product-video-studio`. For static
 listing images, use `ecommerce-listing-image-set` or `product-photo-studio`.
 For a WeChat Channels product showcase, use `wechat-channels-product-video`.
 For editorial work on an existing video, use `beatra-ai-video-studio`.
+Effect claims that lack evidence stay at a draft. Route work that needs
+live-action editing out.
 
 ## Inputs and sensible defaults
 

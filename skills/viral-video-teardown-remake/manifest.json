@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid admission card before the remake video stage.",
+  "changelog": "Restore 小红书 in the Simplified Chinese copy in place of the 小红薯 alias, executing a ruling this package's own 0.1.5 record made and left unmet for four versions, and align the Chinese listing title with the storefront name. For Simplified Chinese installations this build is also the first to carry, in the Chinese instructions, the prepaid admission card before the video stage, task polling corrected from a billing URL to `beatra.tasks.get`, the corrected insufficient-balance recovery, and the repair of a token-displacement defect that had left the published Execution section naming no client at all.",
   "display_name": "Viral Video Teardown Remake",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
@@ -52,7 +52,7 @@
       "title": "バズ動画の分解とリメイク：構成を読み解き、自分の一本に作り替える"
     },
     "zh": {
-      "description": "把一条已经跑出来的短视频，变成你自己的那一条。参考视频可以是文件、截图或你自己的描述，也可以直接粘一个视频链接——抖音、TikTok、小红薯、Instagram、YouTube、X 都能读到标题文案、作者和公开数据，需要时再做评论分析，取评论区里观众的原话；YouTube 还支持字幕提取，拿到整段逐字稿。爆款短视频拆解与复刻工作流：逐段拆出钩子、中段节奏和转化引导，判定它属于哪一类脚本结构，说清它到底靠什么跑起来，再把这套骨架原样套到你的产品或选题上——交付画面与口播分开写的分镜表、生成好的分镜图、选定音色的口播配音，以及一条由开场画面动起来、配好整段口播的竖屏短片。适合对标爆款、抄爆款结构、二创改写、视频号与抖音小红薯快手起号找对标，也适合把收藏夹里存了很久的参考视频，变成一套能反复复用的内容公式。",
+      "description": "把一条已经跑出来的短视频，变成你自己的那一条。参考视频可以是文件、截图或你自己的描述，也可以直接粘一个视频链接——抖音、TikTok、小红书、Instagram、YouTube、X 都能读到标题文案、作者和公开数据，需要时再做评论分析，取评论区里观众的原话；YouTube 还支持字幕提取，拿到整段逐字稿。爆款短视频拆解与复刻工作流：逐段拆出钩子、中段节奏和转化引导，判定它属于哪一类脚本结构，说清它到底靠什么跑起来，再把这套骨架原样套到你的产品或选题上——交付画面与口播分开写的分镜表、生成好的分镜图、选定音色的口播配音，以及一条由开场画面动起来、配好整段口播的竖屏短片。适合爆款拆解、对标爆款、抄爆款结构、二创改写、视频号、抖音、小红书、快手起号找对标，也适合把收藏夹里存了很久的参考视频，变成一套能反复复用的内容公式。",
       "display_name": "爆款视频拆解·短视频复刻",
       "summary": "粘一个视频链接，或者把文件截图交给它：把一条跑出来的短视频拆成钩子、中段和转化引导，再把这套结构套到你自己的选题上，出分镜表、分镜图、口播，以及一条由开场画面动起来的竖屏短片。",
       "tags": [
@@ -75,7 +75,7 @@
         "逐字稿",
         "评论分析"
       ],
-      "title": "爆款短视频拆解与复刻：拆到结构，重做成你的"
+      "title": "爆款视频拆解·短视频复刻：拆到结构，重做成你的"
     }
   },
   "mcp": {
@@ -87,5 +87,5 @@
   },
   "name": "viral-video-teardown-remake",
   "schema_version": 1,
-  "version": "0.1.6"
+  "version": "0.1.9"
 }

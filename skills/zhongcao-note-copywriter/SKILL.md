@@ -43,7 +43,8 @@ Default to five title options of at most 20 Chinese characters each, one
 250–500 Chinese-character note body (or a natural equivalent in the requested
 language), three cover-text options, five to ten relevant hashtags, and one
 conversational comment starter. Keep one clear promise, concrete details,
-readable paragraphs, and a save/share-worthy takeaway.
+readable paragraphs, and a save/share-worthy takeaway. Write the body in short
+sentences and short paragraphs, and keep hashtags at the end of the note.
 
 The cover uses a 2K vertical 3:4 canvas and `count: 1`, and omits `model`,
 which resolves to `auto`. Take a different canvas only when the user names one,
@@ -58,6 +59,9 @@ Steps 1 to 7 cost nothing, including reading the card and pricing the cover.
 The one thing that can charge earlier is the optional Xiaohongshu lookup,
 which is offered, priced and approved on its own before it runs.
 The note copy is a complete deliverable on its own.
+
+Research before writing. Prefer real experience over hype. The first two lines
+carry the hook.
 
 1. Build a brief with audience, topic, supplied facts, first-person stance,
    tone, location or product details, must-keep wording, exclusions, and the

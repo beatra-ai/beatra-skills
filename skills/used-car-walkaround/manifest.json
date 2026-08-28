@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn one used-car condition sheet into a listing hero still and a speakable walkaround script, then turn that still into one used car walkaround clip.",
+  "display_name": "Used Car Walkaround",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/used-car-walkaround",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn one used-car condition sheet into a listing hero still and a speakable walkaround script, then turn that still into one used car walkaround clip. This used car walkaround studio makes a used-car listing still and a listing walkaround video from the facts you already have. Use it for dealer lot walkaround video, used-car listing video, and inventory walkaround clips.",
+      "display_name": "Used Car Walkaround",
+      "summary": "Turn one used-car condition sheet into a listing hero still and a speakable walkaround script, then turn that still into one used car walkaround clip.",
+      "tags": [
+        "used car walkaround",
+        "used-car listing still",
+        "listing walkaround video",
+        "dealer lot walkaround video",
+        "used-car listing video",
+        "inventory walkaround clip"
+      ],
+      "title": "Used Car Walkaround: Listing Walkaround Video"
+    },
+    "ja": {
+      "description": "中古車ウォークアラウンドは、手元の車両状態表から1台分の掲載メイン画像と読み上げ原稿を作り、その画像から1本のウォークアラウンド動画にします。中古車動画、掲載ウォークアラウンド、在庫紹介動画、ウォークアラウンドクリップとして中古車店で使えます。",
+      "display_name": "中古車ウォークアラウンド",
+      "summary": "手元の車両状態表から1台分の掲載メイン画像と読み上げ原稿を作り、その画像から1本のウォークアラウンド動画にします。",
+      "tags": [
+        "中古車ウォークアラウンド",
+        "中古車動画",
+        "掲載ウォークアラウンド",
+        "在庫紹介動画",
+        "中古車店",
+        "ウォークアラウンドクリップ"
+      ],
+      "title": "中古車ウォークアラウンド：掲載用ワンカット"
+    },
+    "zh": {
+      "description": "绕车视频按车况表做成一台二手车的车源主图和口播，再做成一条车源视频。这个二手车车源视频工作室适合挂牌绕车视频、库存车源视频和到店绕车短片。",
+      "display_name": "绕车视频·二手车车源",
+      "summary": "按车况表做成一台二手车的车源主图和口播，再做成一条车源视频。",
+      "tags": [
+        "绕车视频",
+        "二手车",
+        "车源视频",
+        "二手车车源",
+        "挂牌绕车视频",
+        "库存车源视频"
+      ],
+      "title": "绕车视频·二手车车源：挂牌车源视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "used-car-walkaround",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

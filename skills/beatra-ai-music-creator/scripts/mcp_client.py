@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "beatra-ai-music-creator"
 PACKAGE_DISPLAY_NAME = "AI Music Creator"
-PACKAGE_VERSION = "1.3.3"
+PACKAGE_VERSION = "1.3.5"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/beatra-ai-music-creator/install.json"

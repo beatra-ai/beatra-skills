@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Earnings Script Reads",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/earnings-script-read",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn an official earnings script into one spoken earnings script read per labeled section. This earnings call voice studio writes earnings report narration and quarterly results audio from the prepared remarks the company already wrote, then records 8 to 20 earnings script voice clips. Use it for investor update voice packs that stay one section, one clip.",
+      "display_name": "Earnings Script Reads",
+      "summary": "Turn an official earnings script into one spoken earnings script read per labeled section.",
+      "tags": [
+        "earnings script read",
+        "earnings call voice",
+        "earnings report narration",
+        "quarterly results audio",
+        "investor update voice",
+        "earnings script voice"
+      ],
+      "title": "Earnings Script Reads: Official Script, One Clip Per Section"
+    },
+    "ja": {
+      "description": "決算読み上げは、会社がすでに書いた原稿から、短い読み上げを1本ずつ渡します。この決算説明音声と四半期結果音声は、業績発表音声を口に出せる文にして、8〜20本の決算原稿音声や投資家向け音声として渡します。",
+      "display_name": "決算読み上げ",
+      "summary": "会社がすでに書いた原稿から、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "決算読み上げ",
+        "決算説明音声",
+        "四半期結果音声",
+        "投資家向け音声",
+        "決算原稿音声",
+        "業績発表音声"
+      ],
+      "title": "決算読み上げ：原稿の段落ごとに短い音声を渡す"
+    },
+    "zh": {
+      "description": "财报口播按公司已写好的财报稿，做成每段一条朗读。这个财报稿朗读和财报语音工作室把业绩说明会口播写成可说的段落，再录成8到20条财报朗读音频，也适合投资者更新语音。",
+      "display_name": "财报口播·财报稿朗读",
+      "summary": "按公司已写好的财报稿，做成每段一条朗读口播。",
+      "tags": [
+        "财报口播",
+        "财报稿朗读",
+        "财报语音",
+        "业绩说明会口播",
+        "财报朗读音频",
+        "投资者更新语音"
+      ],
+      "title": "财报口播·财报稿朗读：官方稿一段一条"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "earnings-script-read",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

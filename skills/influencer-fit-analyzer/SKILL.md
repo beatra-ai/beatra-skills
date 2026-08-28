@@ -9,13 +9,13 @@ The job is an 8–12 person shortlist memo: followers, recent play median if loo
 
 ## Scope and adjacent routes
 
-The route is: a category or a handful of accounts, optional public reads, a shortlist. It fits when someone needs who to approach, not a diagnosis of one account and not a first post.
+The route is: a category or a handful of accounts, optional public reads, a shortlist. It fits when someone needs who to approach, not a diagnosis of one account and not a first post. The shortlist is the deliverable. Outreach copy and sending are not this package.
 
 A full account diagnosis belongs in an account-teardown workflow. A produced first post belongs in that same teardown-and-build route. UGC ads and paid-social creatives belong in an ads workflow.
 
 ## Inputs and defaults
 
-One hard input: who to match. That is a category with budget and market, or account links and @ handles the user already has. Any of those is enough.
+The hard inputs are the category plus a budget or follower band plus a region, or account links and @ handles the user already has. A vague "find influencers" request is not enough — ask for those fields first.
 
 Reuse the conversation's platform, category, budget, and market. Default to eight to twelve people, one page of recent posts per person if a lookup runs, and a memo that names followers, recent play, interaction, pillars, and talk-or-not. Name those defaults instead of asking.
 
@@ -23,7 +23,7 @@ When the user wants creators read from a public handle or a category search, thi
 
 ## Golden path
 
-The shortlist can be written at no cost from accounts the user brought. The only paid call is an optional lookup, and it happens only when the user asks for it and confirms its own price.
+The shortlist can be written at no cost from accounts the user brought. The only paid call is an optional lookup, and it happens only when the user asks for it and confirms its own price. Do not default to a profile-only lookup. Recent work and topic fit must come from content evidence, then close the memo at eight to twelve people.
 
 **Before the memo, only when the user asks for it:** search one page of creators in a named category, or read a given handle and one page of that person's posts, per [looking up creators](references/creator-lookup.md). Skip the lookup whenever the user already pasted the bios, counts, and posts.
 

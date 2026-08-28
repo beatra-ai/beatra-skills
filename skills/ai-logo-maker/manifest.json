@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now state that an install keeps the channel and language it was installed from.",
+  "changelog": "Reuse known brand context first, then one exploration card with limited variants.",
   "display_name": "AI Logo Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-logo-maker",
@@ -75,5 +75,5 @@
   },
   "name": "ai-logo-maker",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.1.6"
 }

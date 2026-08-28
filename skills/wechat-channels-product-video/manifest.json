@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid admission card before the Channels product video call.",
+  "changelog": "Stop at a script when confirmed product facts are missing.",
   "display_name": "WeChat Channels Product Showcase Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-product-video",
@@ -70,5 +70,5 @@
   },
   "name": "wechat-channels-product-video",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

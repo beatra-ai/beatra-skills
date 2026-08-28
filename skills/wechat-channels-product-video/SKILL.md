@@ -14,7 +14,8 @@ This package is for a product photo plus a Video Channels display direction. A
 general-purpose product-video workflow belongs in `product-video-studio`; a
 creator-led Douyin advertisement belongs in
 `douyin-ugc-ad-creator`; editing or extending supplied footage belongs in
-`beatra-ai-video-studio`.
+`beatra-ai-video-studio`. When confirmed product information is missing, stop
+at a script or draft and do not pay to produce the clip.
 
 ## Start with a product anchor
 

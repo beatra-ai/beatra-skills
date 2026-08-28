@@ -16,18 +16,20 @@ background music and no vocal is wanted. It fits short-video posts, vlogs,
 product and unboxing clips, tutorial and course footage, livestream and store
 loops, podcast intros and outros, and slideshow or event recaps.
 
-Route a song with sung lyrics to `beatra-ai-music-creator`. Route finished
-lyrics that need a melody to `suno-lyrics-to-song`, a gift or occasion song to
-`personalized-song-maker`, and a cover or re-arrangement of an existing song to
-`ai-song-cover-studio`. Route a music video built around a finished track to
-`ai-music-video-clip-maker`, and spoken narration to
-`short-form-voiceover-audio`.
+Scoring a finished cut to edit points is not this package; this package takes a
+footage or scene description. Route a song with sung lyrics to
+`beatra-ai-music-creator`. Route finished lyrics that need a melody to
+`suno-lyrics-to-song`, a gift or occasion song to `personalized-song-maker`, and
+a cover or re-arrangement of an existing song to `ai-song-cover-studio`. Route
+a music video built around a finished track to `ai-music-video-clip-maker`, and
+spoken narration to `short-form-voiceover-audio`.
 
 ## Inputs and defaults
 
-The one hard input is what the music is for: the scene, product, or mood it has
-to sit under. Reuse the platform, footage description, brand tone, target
-length, and any reference track already present in the conversation.
+The hard inputs are a footage or scene description plus the length in seconds.
+Do not spend unless the user asked to generate. Reuse the platform, footage
+description, brand tone, target length, and any reference track already present
+in the conversation.
 
 Ask only when the answer changes the paid result: the intended use, when the
 request is just "make music" with no scene attached.
@@ -35,6 +37,7 @@ request is just "make music" with no scene attached.
 Defaults that avoid extra questions:
 
 - `instrumental: true` with no lyrics, because this route is background music.
+- A short, loop-friendly duration when the user did not name a length.
 - A calm-to-lift energy arc with a clean resolved ending, which suits a cut that
   has to end cleanly.
 - `model: "suno-5.5"` for ordinary generation. Never omit the model and never
@@ -45,9 +48,10 @@ Defaults that avoid extra questions:
 
 Briefing and planning are free. Only the generation call is paid.
 
-1. Write a short music card from the footage: use and destination, mood, genre,
-   tempo feel, instrumentation, the energy arc across the cut, the intended
-   length, whether narration sits on top, and anything to avoid.
+1. Lock the scene and the length in seconds, then write a short music card from
+   the footage: use and destination, mood, genre, tempo feel, instrumentation,
+   the energy arc across the cut, the intended length, whether narration sits on
+   top, and anything to avoid.
 2. Turn the card into one positive prompt that carries genre, mood, tempo feel,
    instrumentation, structure, and intended use in a single coherent direction.
 3. Call `beatra.models.list` for the text-to-music capability, or the
@@ -56,9 +60,10 @@ Briefing and planning are free. Only the generation call is paid.
    card rather than assuming a model, a control, or an input limit.
 4. **Confirm before paid work.** Show the frozen prompt, `instrumental: true`,
    the title, the model, any accepted model options, the current maximum charge,
-   and one opaque stable `client_request_id`.
-5. Submit `beatra.music.generate` exactly once, record the task ID immediately,
-   and poll that same task.
+   a commercial-clearance note for this original instrumental, and one opaque
+   stable `client_request_id`.
+5. Submit `beatra.music.generate` exactly once for one instrumental track,
+   record the task ID immediately, and poll that same task.
 6. Deliver every returned clip in order with its real duration, MIME type, size,
    and URL or artifact ID, plus the returned title when present, the resolved
    model, the actual usage, and `billing.net_charged_credits`.

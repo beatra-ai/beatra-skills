@@ -1,5 +1,5 @@
 {
-  "changelog": "Refresh the Simplified Chinese listing copy so the description carries the common Chinese nickname for YouTube.",
+  "changelog": "Require a title or topic so the thumbnail can be read with the title, and keep candidate directions structurally different.",
   "display_name": "YouTube Thumbnail Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-thumbnail-maker",
@@ -61,5 +61,5 @@
   },
   "name": "youtube-thumbnail-maker",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.2"
 }

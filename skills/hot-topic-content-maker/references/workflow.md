@@ -40,7 +40,7 @@ Read the current `image_to_video` cards and keep only models whose `input_combin
 
 Do not leave selection to `model: "auto"` on this route. Pass an admitted model explicitly, and read its `duration` behaviour; current cards advertise `supports_auto: false`, so an explicit integer duration is always required.
 
-## Approval gate 1 — the cover, and the clip's materials
+## Approval gate 1 — the cover, and the clip materials
 
 Show the plan in one block, then freeze:
 

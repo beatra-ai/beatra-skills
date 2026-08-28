@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still.",
+  "display_name": "Security Awareness Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/security-aware-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still. This security awareness talking video studio writes a speakable security awareness talking clip for each photo, then animates a 2 to 15s all-hands talking clip. Use it for security awareness talking pack and all-hands talking video pack work that stays one photo, one clip.",
+      "display_name": "Security Awareness Talking Clips",
+      "summary": "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still.",
+      "tags": [
+        "security awareness talking clip",
+        "all-hands talking video",
+        "security awareness talking pack",
+        "all-hands talking clip",
+        "speakable security awareness talking clip",
+        "all-hands talking video pack"
+      ],
+      "title": "Security Awareness Talking Clips: One Still, One All-Hands Read"
+    },
+    "ja": {
+      "description": "セキュリティ意識口播は、すでに書いた要点と許可済みの写真から、全社向け口播を1本ずつ渡します。セキュリティ意識動画、要点から口播は全社向けとして2〜15秒で1本ずつ作り、2〜8本のセキュリティ意識口播パックとして渡します。",
+      "display_name": "セキュリティ意識口播",
+      "summary": "すでに書いたセキュリティ意識の要点と写真から、短い口播を1本ずつ作ります。",
+      "tags": [
+        "セキュリティ意識口播",
+        "全社向け口播",
+        "セキュリティ意識動画",
+        "要点から口播",
+        "セキュリティ要点口播",
+        "セキュリティ意識口播パック"
+      ],
+      "title": "セキュリティ意識口播：要点を短い口播で渡す"
+    },
+    "zh": {
+      "description": "安全意识口播按已经写好的要点，做成每张照片一条全员口播。全员口播、安全意识视频、要点转全员口播都按安全意识要点来录，一次给出2到8条安全意识口播包。",
+      "display_name": "安全意识口播·要点转全员口播",
+      "summary": "按已经写好的安全意识要点，做成每张照片一条全员口播。",
+      "tags": [
+        "安全意识口播",
+        "全员口播",
+        "安全意识视频",
+        "要点转全员口播",
+        "安全意识要点口播",
+        "安全意识口播包"
+      ],
+      "title": "安全意识口播·要点转全员口播：按要点一条一口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "security-aware-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

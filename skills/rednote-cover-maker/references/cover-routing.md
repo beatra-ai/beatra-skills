@@ -9,7 +9,7 @@ before choosing a tool.
 | --- | --- | --- |
 | One photo + style or topic | The source image plus one target look | `beatra.images.transform` |
 | One photo + multiple style references | Ordered references (source first, style/color after) | `beatra.images.transform` |
-| Topic or note idea only, no source photo | A topic description and one style direction | `beatra.images.generate` |
+| Topic or note idea only, no source photo | A confirmed topic; propose a style default if missing | `beatra.images.generate` |
 | Accepted cover + specific fix | The accepted cover plus the requested change | `beatra.images.edit` |
 
 A single photo with no explicit style preference is enough to propose a clean
@@ -31,9 +31,9 @@ the result.
 - **Style direction.** Clean and bright (beauty, skincare), warm and appetizing
   (food, cafe), editorial and minimal (fashion, OOTD), cozy and atmospheric
   (home, lifestyle), or bold and high-contrast (knowledge, before/after).
-- **Text-safe zone.** Where the user plans to add their headline overlay—top
-  third, center, or bottom. The image composition must preserve clean,
-  uncluttered space in that zone.
+- **Headline or text-safe zone.** If the user already wrote cover title copy,
+  render it in the top or bottom third. If they did not, preserve a clean
+  uncluttered zone—top third, center, or bottom—for a later overlay.
 - **Visual references.** Style inspiration, desired color palette, or a
   competitor cover to match—ordered with the source photo first.
 
@@ -78,9 +78,9 @@ preference whenever available.
 
 ## Text-safe zone
 
-A Xiaohongshu cover is rarely text-free. The creator typically adds a bold
-headline overlay after receiving the image. The generated cover must preserve
-space for that overlay:
+A Xiaohongshu cover is rarely text-free. When the user already wrote cover
+title copy, render that exact headline in the top or bottom third and keep it
+from filling the frame. When they did not, preserve space for a later overlay:
 
 - **Top third** — the most common placement. Keep the upper area clean and
   uncluttered.
@@ -88,8 +88,9 @@ space for that overlay:
   of busy detail.
 - **Bottom** — less common, used for subtitle or call-to-action text.
 
-State the text-safe zone in the prompt: "reserve a clean text-safe area in the
-upper third of the frame for headline overlay."
+State the choice in the prompt: either the exact headline and its third, or
+"reserve a clean text-safe area in the upper third of the frame for headline
+overlay."
 
 ## Visual access
 

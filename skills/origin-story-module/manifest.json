@@ -1,0 +1,59 @@
+{
+  "changelog": "Turn seller-supplied origin facts into one origin story module still per SKU.",
+  "display_name": "Origin Story Modules",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/origin-story-module",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied origin facts into one origin story module still per SKU. This origin story module studio lays out the seller-supplied origin place and harvest lines as a product-page origin module and origin story graphic. Use it for origin story modules, farm-origin stills, and detail-page origin cards.",
+      "display_name": "Origin Story Modules",
+      "summary": "Turn seller-supplied origin facts into one origin story module still per SKU.",
+      "tags": [
+        "origin story module",
+        "origin story graphic",
+        "product-page origin module",
+        "farm-origin stills",
+        "detail-page origin cards",
+        "origin story modules"
+      ],
+      "title": "Origin Story Modules: One Still Per SKU"
+    },
+    "ja": {
+      "description": "産地ストーリーは、すでに書いてある産地説明から、SKUごとに1枚の図を渡します。産地モジュール図、農場産地图、商品ページの産地カードとして、同じ産地説明とSKUから出します。",
+      "display_name": "産地ストーリー",
+      "summary": "すでに書いてある産地説明から、SKUごとに1枚の産地モジュールを作ります。",
+      "tags": [
+        "産地ストーリー",
+        "産地モジュール図",
+        "農場産地图",
+        "商品ページの産地カード"
+      ],
+      "title": "産地ストーリー：SKUごとに1枚"
+    },
+    "zh": {
+      "description": "产地故事模块是按已经写好的产地说明，给每个SKU做成一张产地故事图。产地模块图、农场产地图、详情页产地卡和原产地故事图都按同一套产地说明和SKU出。",
+      "display_name": "产地故事模块·产地故事模块",
+      "summary": "按已经写好的产地说明，做成产地故事模块，每个SKU一张。",
+      "tags": [
+        "产地故事模块",
+        "产地故事图",
+        "产地模块图",
+        "农场产地图",
+        "详情页产地卡",
+        "原产地故事图"
+      ],
+      "title": "产地故事模块·产地故事模块：每个SKU一张"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "origin-story-module",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

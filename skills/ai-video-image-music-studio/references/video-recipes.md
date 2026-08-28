@@ -8,7 +8,7 @@ rules unchanged), and show the video admission card before creating
 `beatra.videos.generate_from_references`, `beatra.videos.edit`, or
 `beatra.videos.extend`. The card must include route, tool, duration, resolution
 if set, provisional estimate, the fact that the 600-credit signup gift usually
-cannot start this video, the exact URL `https://console.beatra.ai/topup`, and
+cannot start this video, the exact URL `https://console.beatra.ai/wallet?intent=buy`, and
 starter ¥29 / 11,000 credits. Do not recommend ¥198. “Make the clip” is not
 approval. Example `duration` and `resolution` values below are placeholders;
 replace them with the shortest admitted duration and lowest admitted resolution

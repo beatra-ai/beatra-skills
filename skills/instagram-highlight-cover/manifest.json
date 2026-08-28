@@ -1,0 +1,61 @@
+{
+  "changelog": "Instagram highlight covers are one still per named highlight after reading the account Reels and posts.",
+  "display_name": "Instagram Highlight Covers",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/instagram-highlight-cover",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Instagram highlight covers are one still per named highlight after reading the account Reels and posts. Use this highlight cover set for highlight covers, cover stills, and a highlight cover group from the same highlight list.",
+      "display_name": "Instagram Highlight Covers",
+      "summary": "Instagram highlight covers are one still per named highlight after reading the account Reels and posts.",
+      "tags": [
+        "Instagram highlight cover",
+        "highlight cover",
+        "highlight covers",
+        "cover still",
+        "highlight cover group",
+        "Reels highlight cover"
+      ],
+      "title": "Instagram Highlight Covers: One Still Per Named Highlight"
+    },
+    "ja": {
+      "description": "Instagramのハイライトカバーは、アカウントのリールと投稿を読んだあと、決めたハイライトごとに1枚のカバーを作ります。ハイライトカバー、カバー画像、ハイライト表紙を同じハイライト一覧から出します。",
+      "display_name": "Instagramハイライトカバー",
+      "summary": "アカウントのリールと投稿を読んだあと、決めたハイライトごとに1枚のカバーを作ります。",
+      "tags": [
+        "ハイライトカバー",
+        "Instagramハイライトカバー",
+        "カバー画像",
+        "ハイライト表紙",
+        "リールカバー",
+        "ハイライト一覧"
+      ],
+      "title": "Instagramハイライトカバー：決めた項目ごとに1枚"
+    },
+    "zh": {
+      "description": "Instagram精选封面是按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。精选封面、封面图、精选封面组和 Reels 封面都按同一套栏目出。",
+      "display_name": "Instagram精选封面·封面图",
+      "summary": "按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。",
+      "tags": [
+        "Instagram精选封面",
+        "精选封面",
+        "封面图",
+        "精选封面组",
+        "Reels封面",
+        "精选栏目封面"
+      ],
+      "title": "Instagram精选封面：每个栏目一张封面"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "instagram-highlight-cover",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

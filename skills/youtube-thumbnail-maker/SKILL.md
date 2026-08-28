@@ -42,16 +42,19 @@ fact the user has not stated.
 
 Reuse the topic, working title, script or outline, audience, channel style,
 source images, must-keep subject, and destination canvas already in the
-conversation. Ask only when the missing answer changes the image: the core
-promise, the hero subject, the title wording, or the channel direction.
+conversation. The topic or working title is a hard input: the thumbnail must
+be readable together with the title, so ask before paying if both are missing.
 
 When the user has a video rather than an image, ask for an exported key frame or
 screenshot. A frame has to be supplied as a file; it is not pulled from a video.
 
 Default to three thumbnail directions described in text, one recommendation,
 title-matching notes, a safe text hierarchy, and a channel consistency note.
-Rendering is what costs money, so describe the directions first and render only
-the one the user picks.
+The three directions must be structural prototypes — different hero, crop, or
+curiosity gap — not three color variants of one layout. At least one should
+sit on the same-track reference the user already named. Rendering is what
+costs money, so describe the directions first and render only the one the user
+picks. Write the curiosity gap that complements the title into the paid card.
 
 - `beatra.images.transform` for a supplied frame, portrait, or product photo,
   with that image at `images[0]`.

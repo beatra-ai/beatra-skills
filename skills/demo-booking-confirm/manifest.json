@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Booking Confirmation Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/demo-booking-confirm",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn confirmed booking facts into one booking confirmation voice clip per labeled notice. This appointment confirm audio studio writes speakable reschedule voice clips and cancel booking voice lines for a shop, then records 8 to 20 reservation confirm voice reads. Use it for shop booking voice packs that stay one line, one clip.",
+      "display_name": "Booking Confirmation Voice Pack",
+      "summary": "Turn confirmed booking facts into one booking confirmation voice clip per labeled notice.",
+      "tags": [
+        "booking confirmation voice",
+        "appointment confirm audio",
+        "reschedule voice clip",
+        "cancel booking voice",
+        "shop booking voice",
+        "reservation confirm voice"
+      ],
+      "title": "Booking Confirmation Voice Pack: Success, Reschedule, Cancel"
+    },
+    "ja": {
+      "description": "予約確認音声は、店がすでに決めた予約内容から、成立・変更・取消の短い読み上げを1本ずつ渡します。この予約成立音声と日程変更音声は、キャンセル案内音声を口に出せる文にして、8〜20本の予約リマインド音声や店舗予約音声として渡します。",
+      "display_name": "予約確認音声",
+      "summary": "店がすでに決めた予約内容から、成立・変更・取消の短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "予約確認音声",
+        "予約成立音声",
+        "日程変更音声",
+        "キャンセル案内音声",
+        "予約リマインド音声",
+        "店舗予約音声"
+      ],
+      "title": "予約確認音声：成立・変更・取消を短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "预约确认语音按门店已确认的预约事实，做成预约成功、改期和取消的口播。这个预约成功语音和改期语音工作室把取消预约语音写成可说的稿，再录成8到20条预约提醒语音，也适合门店预约语音。",
+      "display_name": "预约确认语音·成功改期取消",
+      "summary": "按已确认的预约事实，做成预约成功、改期和取消口播，每条词一条。",
+      "tags": [
+        "预约确认语音",
+        "预约成功语音",
+        "改期语音",
+        "取消预约语音",
+        "预约提醒语音",
+        "门店预约语音"
+      ],
+      "title": "预约确认语音·成功改期取消：一条词一条口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "demo-booking-confirm",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

@@ -1,5 +1,5 @@
 {
-  "changelog": "Add an optional Xiaohongshu lookup. Before designing, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the cover direction rests on the platform instead of on guesswork. Optional, priced per read, and confirmed separately; a run that skips it still delivers.",
+  "changelog": "Require a confirmed topic before topic-only generation, and render a supplied headline in the top or bottom third.",
   "display_name": "Zhongcao Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-cover-maker",
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-cover-maker",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

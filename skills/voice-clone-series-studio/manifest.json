@@ -1,0 +1,71 @@
+{
+  "changelog": "Lead Japanese listing copy with a voice you own, not authorized-voice wording.",
+  "display_name": "Voice Clone Series Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/voice-clone-series-studio",
+  "icon": "https://beatra.ai/textures/icons/voice-clone-series-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Clone one voice you own and keep using it for a series of episodes, updates, and lessons. This voice cloning and AI voice clone studio for series narration creates a reusable AI voice, custom AI voice, and brand voice clone from a clean sample, then turns each new script into narration in that same voice so a podcast, course, or creator series stays consistent. Use it to clone my voice, build a podcast voice clone, and generate the next episode voiceover or recurring voiceover without recasting.",
+      "display_name": "Voice Clone Series Studio",
+      "summary": "Clone one voice you own and keep using it for a series of episodes, updates, and lessons.",
+      "tags": [
+        "voice cloning",
+        "clone my voice",
+        "AI voice clone",
+        "custom AI voice",
+        "series narration",
+        "podcast voice clone",
+        "recurring voiceover",
+        "brand voice clone",
+        "episode voiceover",
+        "reusable AI voice"
+      ],
+      "title": "Voice Clone Series Studio: Clone a Voice for Recurring Episodes"
+    },
+    "ja": {
+      "description": "自分の声を一度クローンし、連載、更新、講義を同じ声で作り続けます。このボイスクローン／AI音声クローン連載スタジオは、きれいな単一話者サンプルから再利用できる個人またはブランドボイスを作り、新しい原稿を同じ声の連載ナレーションにします。声のクローン、カスタム音声、ポッドキャスト音声、シリーズナレーション、コース更新に使えます。",
+      "display_name": "ボイスクローン連載スタジオ",
+      "summary": "自分の声を一度クローンし、連載・更新・講義を同じ声で作り続けます。",
+      "tags": [
+        "ボイスクローン",
+        "声のクローン",
+        "AI音声クローン",
+        "連載ナレーション",
+        "ポッドキャスト音声",
+        "ブランドボイス",
+        "カスタム音声",
+        "シリーズナレーション"
+      ],
+      "title": "ボイスクローン連載スタジオ：同じ声で続きを作る"
+    },
+    "zh": {
+      "description": "先做一次声音克隆，再用同一把声音持续做出连载、更新和课程旁白。这个AI声音克隆和连载配音工作室用清晰单人样本做出可复用的个人或品牌声音，支持克隆我的声音和音色克隆后把每一期文稿做成同一自定义音色的旁白，适合播客配音、课程连载配音、系列旁白、创作者系列和品牌通知，不用每期重新选声。",
+      "display_name": "声音克隆·连载配音",
+      "summary": "先做一次声音克隆，再用同一把声音持续做出连载、更新和课程旁白。",
+      "tags": [
+        "声音克隆",
+        "克隆我的声音",
+        "AI声音克隆",
+        "音色克隆",
+        "连载配音",
+        "播客配音",
+        "系列旁白",
+        "品牌声音",
+        "自定义音色",
+        "课程连载配音"
+      ],
+      "title": "声音克隆·连载配音：克隆后持续出连载"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "voice-clone-series-studio",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

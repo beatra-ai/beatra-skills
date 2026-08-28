@@ -1,5 +1,5 @@
 {
-  "changelog": "Refresh the Simplified Chinese listing copy so the description covers cross-border short-video search terms.",
+  "changelog": "Deliver script, shots, and captions; do not default to a paid finished clip.",
   "display_name": "TikTok Shop Product Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-shop-product-video-maker",
@@ -64,5 +64,5 @@
   },
   "name": "tiktok-shop-product-video-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.5"
 }

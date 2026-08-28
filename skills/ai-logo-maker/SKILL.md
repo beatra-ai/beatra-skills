@@ -29,7 +29,9 @@ brief into a visual specification that scales.
 ## Shape one brand brief
 
 Reuse the user's brand name, industry, style preferences, color values,
-reference images, and intended use. Ask only when a missing decision materially
+reference images, and intended use. Restate what is already known before
+asking. Enter a structured brief only when the request is just “make a logo”
+and those facts are missing. Ask only when a missing decision materially
 changes the result. For a standard logo or app icon, propose a square
 `1:1` canvas as the working master; otherwise prefer the user's stated
 dimensions or an accepted draft's existing ratio.
@@ -47,6 +49,10 @@ Build the brief around:
 If the user has already chosen the style or type, reuse it. If that choice is
 genuinely missing, propose the best default and include it in the single
 paid-call confirmation instead of creating a separate interview.
+
+Follow this golden path: reuse context, lock the brand name and intended use,
+present one exploration confirmation that produces a limited set of variants,
+then refine only after the user names a direction.
 
 ## Prepare the call
 

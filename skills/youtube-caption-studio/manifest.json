@@ -1,5 +1,5 @@
 {
-  "changelog": "First public release. Turn a YouTube link or a pasted transcript into a Chinese spoken script and remake structure.",
+  "changelog": "Prefer a Chinese track and deliver remake structure, not only a translation.",
   "display_name": "YouTube Caption Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-caption-studio",
@@ -52,5 +52,5 @@
   },
   "name": "youtube-caption-studio",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }

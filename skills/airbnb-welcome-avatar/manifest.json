@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Homestay Welcome Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/airbnb-welcome-avatar",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn authorized host or room stills and confirmed stay facts into one homestay welcome talking clip per still. This homestay welcome talking-clip studio writes a speakable check-in and amenity script, then animates each still into a 2–15s welcome or facility clip in stay order. Use it for homestay welcome videos, Airbnb check-in greetings, amenity explainers, and guest arrival talking clips that stay one photo, one clip.",
+      "display_name": "Homestay Welcome Talking Clips",
+      "summary": "Turn authorized stills and stay facts into one welcome talking clip per photo.",
+      "tags": [
+        "homestay welcome video",
+        "Airbnb check-in greeting",
+        "amenity explainer",
+        "guest arrival talking clip",
+        "homestay welcome talking clip",
+        "check-in welcome video"
+      ],
+      "title": "Homestay Welcome Talking Clips: Check-in and Amenity Videos"
+    },
+    "ja": {
+      "description": "民泊のチェックイン歓迎と設備説明を、許可されたホスト写真または部屋写真から1枚につき1本の短い歓迎動画にします。この民泊ウェルカム動画は、確認済みの滞在情報だけで台本を書き、2〜15秒の歓迎クリップや設備クリップを到着順に渡します。民泊歓迎動画、チェックイン案内、設備説明、ゲスト到着の案内動画に使えます。",
+      "display_name": "民泊ウェルカム動画",
+      "summary": "許可された写真と確認済みの滞在情報から、1枚につき1本の歓迎クリップを作ります。",
+      "tags": [
+        "民泊ウェルカム動画",
+        "チェックイン案内",
+        "設備説明",
+        "民泊歓迎動画",
+        "ゲスト到着",
+        "案内動画"
+      ],
+      "title": "民泊ウェルカム動画：チェックインと設備説明"
+    },
+    "zh": {
+      "description": "民宿口播把房东授权的人像或房间静帧做成入住欢迎和设施说明短片，每张照片一段民宿欢迎口播。这个民宿视频工作室按入住顺序交付欢迎词、Wi-Fi、停车和设施说明成片，也适合民宿欢迎、入住引导和客房介绍。",
+      "display_name": "民宿口播·民宿欢迎",
+      "summary": "用授权静帧和已确认入住事实，做成入住欢迎和设施说明口播，每张照片一段。",
+      "tags": [
+        "民宿口播",
+        "民宿欢迎",
+        "入住欢迎",
+        "设施说明",
+        "民宿视频",
+        "入住引导"
+      ],
+      "title": "民宿口播·民宿欢迎：入住与设施说明短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "airbnb-welcome-avatar",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

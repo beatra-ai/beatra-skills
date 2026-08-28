@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a user-supplied fund quarterly report highlight sheet and authorized stills into one fund quarterly report talking clip per still.",
+  "display_name": "Fund Quarterly Report Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/fund-report-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied fund quarterly report highlight sheet and authorized stills into one fund quarterly report talking clip per still. This fund quarterly report talking video studio writes a speakable report-fact talking clip for each photo, then animates a 2 to 15s quarterly highlight talking clip. Use it for fund quarterly report talking packs that stay one photo, one clip.",
+      "display_name": "Fund Quarterly Report Talking Clips",
+      "summary": "Turn a user-supplied fund quarterly report highlight sheet and authorized stills into one fund quarterly report talking clip per still.",
+      "tags": [
+        "fund quarterly report talking clip",
+        "quarterly report highlight talking clip",
+        "report fact talking clip",
+        "fund quarterly report talking pack",
+        "manager commentary talking clip",
+        "quarterly report talking video"
+      ],
+      "title": "Fund Quarterly Report Talking Clips: One Still, One Report Read"
+    },
+    "ja": {
+      "description": "投信四半期報告トークは、手元の四半期報告要点と写真から、写真1枚ごとに短いクリップを渡します。報告から四半期トークと四半期報告読み上げ動画として、報告要点トークと報告案内動画を2〜15秒に仕上げます。",
+      "display_name": "投信四半期報告トーク",
+      "summary": "投信四半期報告トークは、手元の四半期報告要点と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "投信四半期報告トーク",
+        "報告から四半期トーク",
+        "四半期報告読み上げ動画",
+        "報告要点トーク",
+        "四半期トーク",
+        "報告案内動画"
+      ],
+      "title": "投信四半期報告トーク：報告要点から写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "基金季报口播按顾问提供的季报要点和授权静帧，为每张图做成一条季报要点转口播。这个季报要点口播和报告要点口播工作室把报告要点口播写成可说的稿，再做成2到15秒的基金季报短视频。",
+      "display_name": "基金季报口播·季报要点转口播",
+      "summary": "基金季报口播按顾问提供的季报要点和授权静帧，为每张图做成一条季报要点转口播。",
+      "tags": [
+        "基金季报口播",
+        "季报要点转口播",
+        "季报要点口播",
+        "报告要点口播",
+        "基金季报短视频",
+        "季报口播"
+      ],
+      "title": "基金季报口播·季报要点转口播：一张静帧一条季报口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "fund-report-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

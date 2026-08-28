@@ -1,5 +1,5 @@
 {
-  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "changelog": "Rename the Simplified Chinese listing to AI配音 and keep naming multilingual narration in the description.",
   "display_name": "AI Multilingual Dubbing",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-multilingual-dubbing",
@@ -46,8 +46,8 @@
       "title": "AI多言語吹き替え：海外向け動画・講座のナレーション音声"
     },
     "zh": {
-      "description": "根据各语言口播稿制作 AI 多语言配音和多语言旁白，适合出海视频、产品发布、海外营销、跨境电商视频、课程培训和短剧译制项目。先按市场和片段整理文案，再为每种语言选择合适声音，用代表片段试听读音、语气、节奏和时长，交付清晰可审听的音频。可用于 AI 视频翻译配音、视频本地化配音、多语种配音、课程多语言配音、多语种语音合成和中英日配音；旁白音频按市场、语言和片段整理，方便继续完成视频翻译、口型同步、成片剪辑与海外营销内容制作。",
-      "display_name": "AI多语言配音",
+      "description": "根据各语言口播稿制作 AI配音和多语言旁白，适合出海视频、产品发布、海外营销、跨境电商视频、课程培训和短剧译制项目。先按市场和片段整理文案，再为每种语言选择合适声音，用代表片段试听读音、语气、节奏和时长，交付清晰可审听的音频。可用于 AI 视频翻译配音、视频本地化配音、多语种配音、课程多语言配音、多语种语音合成和中英日配音；旁白音频按市场、语言和片段整理，方便继续完成视频翻译、口型同步、成片剪辑与海外营销内容制作。",
+      "display_name": "AI配音",
       "summary": "根据各语言口播稿制作多语言旁白音频，按市场选声，先试听读音、语气和时长，再按语言与片段清晰交付。",
       "tags": [
         "AI多语言配音",
@@ -75,5 +75,5 @@
   },
   "name": "ai-multilingual-dubbing",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }

@@ -1,0 +1,63 @@
+{
+  "changelog": "Build loopable welcome, product, FAQ, and close talking-head clips for an unattended night shift.",
+  "display_name": "Unattended Live Avatar",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/unattended-live-avatar",
+  "icon": "https://beatra.ai/textures/icons/unattended-live-avatar-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn one shop portrait and short welcome, product, FAQ, and close scripts into talking-avatar clips a store can loop overnight. This unattended live avatar and night-shift avatar studio can clone or pick a voice, then produce a talking avatar livestream set for welcome, product, FAQ, and close so an unattended livestream or digital human livestream can keep a shop loop presenter on camera. Use it for overnight digital human clips, live room avatar loops, and a night-shift talking-head that keeps the room open.",
+      "display_name": "Unattended Live Avatar",
+      "summary": "Turn one shop portrait and short welcome, product, FAQ, and close scripts into talking-avatar clips a store can loop overnight.",
+      "tags": [
+        "unattended live avatar",
+        "night-shift avatar",
+        "talking avatar livestream",
+        "unattended livestream",
+        "digital human livestream",
+        "shop loop presenter",
+        "overnight digital human",
+        "live room avatar"
+      ],
+      "title": "Unattended Live Avatar: Night-Shift Talking-Head Clips"
+    },
+    "ja": {
+      "description": "店舗の肖像と歓迎・商品・FAQ・締めの短い原稿から、夜も回せるトーキングヘッドクリップを作ります。この無人配信アバター／夜勤アバタースタジオは声を用意し、歓迎、商品説明、FAQ、締めのクリップを揃えて無人ライブ配信やデジタルヒューマン配信の店舗ループ口演に使えます。配信ルームアバター、夜勤のデジタルヒューマン、店舗の無人口演に向いています。",
+      "display_name": "無人配信アバター",
+      "summary": "店舗の肖像と歓迎・商品・FAQ・締めの短い原稿から、夜も回せるトーキングヘッドクリップを作ります。",
+      "tags": [
+        "無人配信アバター",
+        "夜勤アバター",
+        "無人ライブ配信",
+        "デジタルヒューマン配信",
+        "店舗ループ口演",
+        "配信ルームアバター"
+      ],
+      "title": "無人配信アバター：夜勤トーキングヘッド"
+    },
+    "zh": {
+      "description": "用一张店员或主播人像和欢迎、讲品、问答、收播短稿，做成店铺可循环播放的无人直播口播片段。这个夜班数字人和无人直播数字人工作室会先备好声音，再按欢迎、讲品、问答、收播做成循环口播，适合夜班值守、无人值守直播间和店铺循环开播，也就是数字人直播、直播间数字人和可循环的夜班口播成片。",
+      "display_name": "无人直播·夜班数字人",
+      "summary": "用一张店员或主播人像和欢迎、讲品、问答、收播短稿，做成店铺可循环播放的口播片段。",
+      "tags": [
+        "无人直播",
+        "夜班数字人",
+        "无人直播数字人",
+        "数字人直播",
+        "循环口播",
+        "直播间数字人"
+      ],
+      "title": "无人直播·夜班数字人：循环口播与直播间数字人"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "unattended-live-avatar",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied branch window names and board lines into a four-to-eight still bank desk board set.",
+  "display_name": "Bank Desk Board Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/bank-desk-board-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied branch window names and board lines into a four-to-eight still bank desk board set. This window-to-board studio lays out each named window as its own branch board still. Use it for branch window board packs, teller board stills, and matching desk board graphics.",
+      "display_name": "Bank Desk Board Pack",
+      "summary": "Turn user-supplied branch window names and board lines into a four-to-eight still bank desk board set.",
+      "tags": [
+        "bank desk board",
+        "window board pack",
+        "bank desk board set",
+        "branch window board",
+        "teller board still",
+        "desk board graphic"
+      ],
+      "title": "Bank Desk Board Pack: Matching Window Stills"
+    },
+    "ja": {
+      "description": "手元の窓口名と看板要点から、4〜8枚の窓口看板図セットを作ります。この店舗看板セットは、窓口案内図や窓口図セット、店舗看板図、カウンター看板図としても使えます。",
+      "display_name": "窓口看板図",
+      "summary": "手元の窓口名と看板要点から、4〜8枚の窓口看板図セットを作ります。",
+      "tags": [
+        "窓口看板図",
+        "店舗看板セット",
+        "窓口案内図",
+        "窓口図セット",
+        "店舗看板図",
+        "カウンター看板図"
+      ],
+      "title": "窓口看板図：窓口ごとの図セット"
+    },
+    "zh": {
+      "description": "网点看板组按已经写好的窗口名称和看板要点，做成一组窗口转看板静帧。这个网点看板工作室把确认过的窗口排成窗口看板套图和柜员看板，一次给出网点窗口看板。",
+      "display_name": "网点看板组·窗口转看板",
+      "summary": "按已经写好的窗口名称和看板要点，做成一组窗口转看板静帧。",
+      "tags": [
+        "网点看板组",
+        "窗口转看板",
+        "网点看板",
+        "窗口看板套图",
+        "柜员看板",
+        "网点窗口看板"
+      ],
+      "title": "网点看板组·窗口转看板：按窗口做成一套图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "bank-desk-board-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -16,8 +16,8 @@ conversation and move by the shortest route that completes the requested cover.
   with clean background, professional lighting, and a text-safe area using
   `beatra.images.transform`. This is the default when a source photo exists.
 - **Generate a cover concept from a topic:** when no source photo exists, turn
-  the topic or note idea into a click-worthy cover visual using
-  `beatra.images.generate`.
+  the confirmed topic or note idea into a click-worthy cover visual using
+  `beatra.images.generate`. Do not enter this route on a style word alone.
 - **Refine an accepted cover:** use `beatra.images.edit` with the accepted cover
   as `images[0]` to fix color, lighting, background blemishes, or composition
   without changing the overall layout.
@@ -28,10 +28,11 @@ specification that fits Xiaohongshu's platform aesthetic.
 
 ## Shape one cover brief
 
-Reuse the user's content topic, target audience, style preference, and any
-visual references. Ask only when a missing decision materially changes the
-result. For a standard Xiaohongshu cover, propose a vertical 3:4 canvas with a
-clean background and a text-safe top or center zone as the default.
+Reuse the user's content topic, target audience, style preference, headline
+copy, and any visual references. Ask only when a missing decision materially
+changes the result. Without a source photo, the topic is a hard input: do not
+invent one, and do not treat a bare style word as enough to generate. For a
+standard Xiaohongshu feed cover, default to a vertical 3:4 canvas.
 
 Build the brief around:
 
@@ -41,14 +42,16 @@ Build the brief around:
   the cover;
 - one style direction—clean and bright, warm and appetizing, editorial and
   minimal, cozy and atmospheric, or bold and high-contrast;
-- a text-safe zone preference—top third, center, or bottom—so the user can
-  add their headline overlay later without clashing with the image;
+- headline placement—when the user already wrote cover title copy, render it
+  in the top or bottom third and keep it from filling the frame; when they
+  did not, leave a clean text-safe zone (top third, center, or bottom) for a
+  later overlay;
 - ordered visual references when available (style inspiration, color
   reference, composition reference).
 
-If the user has already stated the topic or style, reuse it. If that choice is
-genuinely missing, propose the best default and include it in the single
-paid-call confirmation.
+If the user has already stated the topic or style, reuse it. If style is
+missing but a topic or photo exists, propose the best category default and
+include it in the single paid-call confirmation.
 
 ## Prepare the call
 
@@ -82,9 +85,10 @@ or price decision. The detailed request shapes and examples are in
 Planning and brief preparation are free, with or without the optional
 Xiaohongshu lookup, which is priced and approved on its own before it runs.
 Before the paid image call, show and
-freeze the final prompt, ordered references, canvas, style direction, text-safe
-zone, model, controls, and output count. Merge any still-material high-impact
-choice into this one confirmation.
+freeze the final prompt, ordered references, canvas, style direction, headline
+copy and placement or the empty text-safe zone, model, controls, and output
+count. Merge any still-material high-impact choice into this one confirmation.
+Do not add three color-mood variations or a carousel set to this card.
 
 After approval, create one stable opaque `client_request_id` for that exact
 logical request and submit it once. A changed prompt, reference or order,
@@ -105,10 +109,11 @@ Use `beatra.tasks.cancel` only when the user asks. If cancellation returns
 recovery](references/review-and-recovery.md) for the full recovery contract.
 
 When the result is visible, review thumbnail clarity (is the focal subject
-recognizable at small size?), text-safe zone (is there clean space for a
-headline overlay?), color and lighting (does it match the Xiaohongshu aesthetic
-for the category?), canvas fit (is the vertical 3:4 ratio correct?), and
-overall click appeal. Deliver the artifact links, observed dimensions, task ID,
+recognizable at small size?), headline treatment (if title copy was rendered,
+is it readable at thumbnail size and confined to the top or bottom third; if
+not, is there clean space for a later overlay?), color and lighting (does it
+match the Xiaohongshu aesthetic for the category?), canvas fit (is the
+vertical 3:4 ratio correct?), and overall click appeal. Deliver the artifact links, observed dimensions, task ID,
 and `billing.net_charged_credits`. Offer at most one focused, unexecuted
 revision. Generated assets can also be viewed and managed at
 [beatra.ai](https://beatra.ai).

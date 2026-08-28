@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn Xiaohongshu parent FAQ notes into a 4 to 8 still answer set.",
+  "display_name": "Xiaohongshu Parent FAQ Stills",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/xiaohongshu-parent-faq-stills",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn Xiaohongshu parent FAQ notes into a 4 to 8 still answer set. This parent FAQ still studio reads public parent notes and questions, then lays out an answer still pack from confirmed teaching facts. Use it for parent FAQ graphics, answer stills, a Xiaohongshu parent FAQ still, and an answer card set.",
+      "display_name": "Xiaohongshu Parent FAQ Stills",
+      "summary": "Turn Xiaohongshu parent FAQ notes into a 4 to 8 still answer set.",
+      "tags": [
+        "Xiaohongshu parent FAQ",
+        "parent FAQ still",
+        "parent FAQ graphics",
+        "answer card set",
+        "parent notes",
+        "answer stills"
+      ],
+      "title": "Xiaohongshu Parent FAQ Stills: Note to Answer Cards"
+    },
+    "ja": {
+      "description": "小紅書保護者FAQは、保護者ノートと手元の授業事実から、4〜8枚の回答図を作ります。このノートから回答図と保護者FAQ図は、回答カードとしても使えます。",
+      "display_name": "小紅書保護者FAQ図",
+      "summary": "保護者ノートと手元の授業事実から、4〜8枚の回答図を作ります。",
+      "tags": [
+        "小紅書保護者FAQ",
+        "ノートから回答図",
+        "保護者ノート",
+        "保護者FAQ",
+        "回答図",
+        "回答カード"
+      ],
+      "title": "小紅書保護者FAQ図：ノートから回答カードへ"
+    },
+    "zh": {
+      "description": "小红书家长问答按家长笔记和已确认的教学事实，做成答疑图组。这个笔记转答疑图组把家长问答排成4到8张答疑图。",
+      "display_name": "小红书家长问答·笔记转答疑图组",
+      "summary": "按家长笔记和已确认的教学事实，做成答疑图组。",
+      "tags": [
+        "小红书家长问答",
+        "笔记转答疑图组",
+        "家长笔记",
+        "家长问答",
+        "答疑图组",
+        "答疑图"
+      ],
+      "title": "小红书家长问答·笔记转答疑图组：一条提问一张答疑卡"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "xiaohongshu-parent-faq-stills",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

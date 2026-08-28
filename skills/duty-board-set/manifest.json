@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied classroom duty roster slots and duty lines into a four-to-eight still duty board set.",
+  "display_name": "Duty Board Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/duty-board-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied classroom duty roster slots and duty lines into a four-to-eight still duty board set. This roster-to-board studio lays out each named duty slot as its own classroom board still. Use it for duty roster board packs, classroom duty boards, and matching duty board graphics.",
+      "display_name": "Duty Board Pack",
+      "summary": "Turn user-supplied classroom duty roster slots and duty lines into a four-to-eight still duty board set.",
+      "tags": [
+        "duty board",
+        "duty board set",
+        "classroom duty board",
+        "duty roster board",
+        "class duty board",
+        "duty board graphic"
+      ],
+      "title": "Duty Board Pack: Matching Roster Stills"
+    },
+    "ja": {
+      "description": "手元の当番表の役割名と看板要点から、4〜8枚の当番表看板セットを作ります。この当番表セットは、当番看板図や当番図セット、教室当番看板、クラス当番看板としても使えます。",
+      "display_name": "当番表看板",
+      "summary": "手元の当番表の役割名と看板要点から、4〜8枚の当番表看板セットを作ります。",
+      "tags": [
+        "当番表看板",
+        "当番表セット",
+        "当番看板図",
+        "当番図セット",
+        "教室当番看板",
+        "クラス当番看板"
+      ],
+      "title": "当番表看板：役割ごとの図セット"
+    },
+    "zh": {
+      "description": "值日看板组按已经写好的值日岗位名称和看板要点，做成一组值日表转看板静帧。这个值日看板工作室把确认过的岗位排成值日看板套图和班级值日看板，一次给出教室值日看板。",
+      "display_name": "值日看板组·值日表转看板",
+      "summary": "按已经写好的值日岗位名称和看板要点，做成一组值日表转看板静帧。",
+      "tags": [
+        "值日看板组",
+        "值日表转看板",
+        "值日看板",
+        "值日看板套图",
+        "班级值日看板",
+        "教室值日看板"
+      ],
+      "title": "值日看板组·值日表转看板：按岗位做成一套图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "duty-board-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written shift handoff checklist into one shift handoff voice clip per labeled cue.",
+  "display_name": "Shift Handoff Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/shift-handoff-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written shift handoff checklist into one shift handoff voice clip per labeled cue. This shift handover voice studio records each handover checklist audio and shift change voice from the list the desk already wrote, then delivers 8 to 20 shift handoff clip files. Use it for shift handoff voice packs that keep one cue on each clip.",
+      "display_name": "Shift Handoff Voice Pack",
+      "summary": "Turn a written shift handoff checklist into one shift handoff voice clip per labeled cue.",
+      "tags": [
+        "shift handoff voice",
+        "shift handover voice",
+        "handover checklist audio",
+        "shift change voice",
+        "shift handoff clip",
+        "shift handoff voice pack"
+      ],
+      "title": "Shift Handoff Voice: Checklist Handover Clips"
+    },
+    "ja": {
+      "description": "シフト引き継ぎ音声は、すでに書いた引き継ぎチェックリストから、引き継ぎチェックリスト音声と申し送り音声を1本ずつ渡します。シフト交代音声、引き継ぎボイスは口に出せる一文で1本ずつ録り、8〜20本のシフト引き継ぎボイスパックとして渡します。",
+      "display_name": "シフト引き継ぎ音声",
+      "summary": "すでに書いた引き継ぎチェックリストから、短い読み上げを1本ずつ作ります。",
+      "tags": [
+        "シフト引き継ぎ音声",
+        "引き継ぎチェックリスト音声",
+        "申し送り音声",
+        "シフト交代音声",
+        "引き継ぎボイス",
+        "シフト引き継ぎボイスパック"
+      ],
+      "title": "シフト引き継ぎ音声：書いた引き継ぎリストを短い読み上げで渡す"
+    },
+    "zh": {
+      "description": "交接班语音按已经写好的交接清单，做成每条清单转语音。交班口播、交接清单语音、接班语音都按清单转语音来录，一次给出8到20条交接班语音包。",
+      "display_name": "交接班语音·清单转语音",
+      "summary": "按已经写好的交接清单，做成每条清单转语音。",
+      "tags": [
+        "交接班语音",
+        "交班口播",
+        "交接清单语音",
+        "接班语音",
+        "清单转语音",
+        "交接班语音包"
+      ],
+      "title": "交接班语音·清单转语音：按交接清单一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "shift-handoff-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

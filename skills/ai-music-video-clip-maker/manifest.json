@@ -1,5 +1,5 @@
 {
-  "changelog": "Require a cover still when missing, then a prepaid video admission card with audio-led duration.",
+  "changelog": "Lock the song and a 20–30s climax cut before paying for visuals; do not generate a song from a theme.",
   "display_name": "AI Music Video Clip Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-music-video-clip-maker",
@@ -71,5 +71,5 @@
   },
   "name": "ai-music-video-clip-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.4"
 }

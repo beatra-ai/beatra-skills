@@ -15,7 +15,7 @@ A full account diagnosis belongs in an account-teardown workflow. Rebuilding one
 
 ## Inputs and defaults
 
-One hard input: the comments' source. That is a public post link, a category or product the user wants searched, or comments they already copied. Any of those is enough.
+The hard input is a work link or the comment text itself. Do not start from a huge blind post set or scan a whole site. A named category search is allowed only when the user already pointed at one category, not as a substitute for a missing work.
 
 Reuse the conversation's platform, product, and what the brief is for. Default to one page of top-level comments, no reply thread, and a brief with four blocks: objections, verbatim lines, FAQ answers, spoken hooks. Name those defaults instead of asking.
 
@@ -27,9 +27,9 @@ The brief can be written at no cost from comments the user brought. The only pai
 
 **Before the brief, only when the user asks for it:** read one public post and one page of its comments, or search one page of posts in a named category and then read comments on one of them, per [looking up comments](references/comment-lookup.md). Skip the lookup whenever the user already pasted comments.
 
-1. **Collect the comments.** From the lookup payload or from what the user pasted. Keep each line attributed — looked up with its read time, or supplied.
-2. **Group them** into objections, purchase worries, praise that names a reason, and questions, per [writing the brief](references/brief.md).
-3. **Write the brief:** a short read of what the audience is actually saying, a list of verbatim lines, FAQ answers in their wording, live-commerce replies, and spoken hooks. Offer one revision of the wording at no cost.
+1. **Bound the works.** Collect comments from the named post, the named category page, or what the user pasted. Keep each line attributed — looked up with its read time, or supplied.
+2. **Group them** into objections, FAQs, verbatim lines, and pain points, per [writing the brief](references/brief.md). Every line in the brief must point back to a source comment.
+3. **Write the brief:** a short read of what the audience is actually saying, a list of verbatim lines, FAQ answers in their wording, live-commerce replies, and spoken hooks. Hooks come from those quotes, not from invented inspiration. Offer one revision of the wording at no cost.
 4. Deliver the brief. For a lookup, also deliver the task ID, terminal status, and `billing.net_charged_credits`. A lookup has no model, dimensions, or duration to report.
 
 ## Decisions that require confirmation

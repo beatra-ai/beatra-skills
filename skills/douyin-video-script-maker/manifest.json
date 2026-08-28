@@ -1,5 +1,5 @@
 {
-  "changelog": "Since the published version: render one vertical Douyin cover from the script's chosen title, and rename the Simplified Chinese listing to 抖音脚本与抖音文案制作.",
+  "changelog": "Write opening hooks for the first three seconds instead of a self-introduction.",
   "display_name": "Douyin Video Script Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-video-script-maker",
@@ -68,5 +68,5 @@
   },
   "name": "douyin-video-script-maker",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "Correct the voice-casting synthesis-control pitch range to the live normalized -1..1 scale (0 keeps the original pitch).",
+  "changelog": "Split audiobook, podcast, short voiceover, clone, and multilingual at the entrance.",
   "display_name": "Beatra AI Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-voice-studio",
@@ -80,5 +80,5 @@
   },
   "name": "beatra-ai-voice-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.5"
 }

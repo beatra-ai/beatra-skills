@@ -30,7 +30,7 @@ AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
 REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
 PACKAGE_SLUG = "tiktok-shop-product-video-maker"
 PACKAGE_DISPLAY_NAME = "TikTok Shop Product Video Maker"
-PACKAGE_VERSION = "0.1.3"
+PACKAGE_VERSION = "0.1.5"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

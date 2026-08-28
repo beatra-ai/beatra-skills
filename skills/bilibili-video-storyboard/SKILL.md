@@ -16,7 +16,8 @@ animation, creative videos, and channel-series planning. A request for one new
 cover belongs to `bilibili-thumbnail-maker`; a platform-neutral film, ad, or
 animation board belongs to `ai-storyboard-generator`; and approved plans can
 continue into `beatra-ai-video-studio` when the requested result is finished
-footage.
+footage. Prove the sequence works before paying for key frames. Route
+publishing copy to `bilibili-publishing-pack`.
 
 ## Inputs and defaults
 
@@ -35,6 +36,9 @@ existing canvas and visual direction when known. Otherwise, defer the exact
 canvas choice until selected key frames are ready for paid work.
 
 ## Golden path
+
+The path is a topic or script, a beat sheet, human approval, then a limited
+set of key frames.
 
 1. Turn the source into a free, reviewable Bilibili shot list. For every shot,
    show its chapter and story beat, time range, subject and action, frame size

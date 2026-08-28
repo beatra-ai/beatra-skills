@@ -3,11 +3,41 @@
 Prefer Beatra's automatic routing. Omit `model`, or leave it as `auto`, unless
 the user explicitly names a model or asks to choose, compare, or change models.
 
-When model choice matters, call `beatra.models.list` for the exact generation
-capability. Present only the returned selectable models and use its current
-constraints, defaults, supported media combinations, and customer price inputs.
-Respect an explicit selection and allow validation to reject an incompatible
-combination rather than silently substituting another model.
+When model choice matters, call `beatra.models.list` with the exact generation
+capability for the tool you are about to use. Pass one JSON object:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_image"}
+```
+
+Map the next tool to `capability`:
+
+- `beatra.images.generate` → `text_to_image`
+- `beatra.images.transform` → `image_to_image`
+- `beatra.images.edit` → `image_edit`
+- `beatra.videos.generate` → `text_to_video`
+- `beatra.videos.animate` → `image_to_video`
+- `beatra.videos.generate_from_references` → `reference_to_video`
+- `beatra.videos.interpolate` → `frames_to_video`
+- `beatra.videos.edit` → `video_edit`
+- `beatra.videos.extend` → `video_extend`
+- `beatra.videos.enhance_prompt` → `video_prompt_enhancement`
+- `beatra.music.generate` → `text_to_music` or `reference_audio_to_music`
+- `beatra.speech.synthesize` → `text_to_speech`
+- `beatra.voices.clone` → `voice_clone`
+- `beatra.images.understand` → `image_to_text`
+- `beatra.videos.understand` → `video_to_text`
+
+Do not call with an empty object, `capability: "image"` / `"video"`, a hyphenated
+name such as `voice-clone`, a tool name such as `videos.animate`, or
+`capabilities: [...]`. Present only the returned selectable models and use its
+current constraints, defaults, supported media combinations, and customer price
+inputs. Respect an explicit selection and allow validation to reject an
+incompatible combination rather than silently substituting another model.
 
 Every returned control name is an exact MCP request path. A dotted path names a
 nested object and `[]` names each item in an array, for example

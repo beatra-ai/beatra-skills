@@ -1,5 +1,5 @@
 {
-  "changelog": "Lead the Simplified Chinese display name with the official-account visual-story term and stop sharing the article-prefix with the image-pack sibling.",
+  "changelog": "Lock the 2.35:1 headline cover and confirm cover then section images; do not invent a viral headline.",
   "display_name": "WeChat Article Visual Story",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-article-visual-story",
@@ -76,5 +76,5 @@
   },
   "name": "wechat-article-visual-story",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.5"
 }

@@ -1,0 +1,61 @@
+{
+  "changelog": "Land renewal reminder talking clips from user-supplied schedule and authorized stills.",
+  "display_name": "Insurance Renewal Reminder Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/insurance-renew-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied policy renewal dates and authorized stills into one insurance renewal reminder talking clip per still. This insurance renewal reminder talking video studio writes a speakable expiry-date talking clip for each photo, then animates a 2 to 15s renewal reminder talking clip. Use it for insurance renewal reminder talking packs that stay one photo, one clip.",
+      "display_name": "Insurance Renewal Reminder Talking Clips",
+      "summary": "Turn user-supplied policy renewal dates and authorized stills into one insurance renewal reminder talking clip per still.",
+      "tags": [
+        "insurance renewal reminder talking clip",
+        "renewal reminder talking clip",
+        "expiry date talking clip",
+        "insurance renewal talking pack",
+        "renewal deadline talking clip",
+        "insurance renewal talking video"
+      ],
+      "title": "Insurance Renewal Reminder Talking Clips: One Still, One Expiry Read"
+    },
+    "ja": {
+      "description": "更新案内トークは、手元の更新日程と写真から、写真1枚ごとに短いクリップを渡します。日程から満了日トークと更新案内動画として、満了案内トークと更新リマインド動画を2〜15秒に仕上げます。",
+      "display_name": "更新案内トーク",
+      "summary": "更新案内トークは、手元の更新日程と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "更新案内トーク",
+        "日程から満了日トーク",
+        "更新リマインド動画",
+        "満了案内トーク",
+        "更新案内トーク",
+        "更新リマインド動画"
+      ],
+      "title": "更新案内トーク：日程から写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "续保提醒口播按顾问提供的续保日程和授权静帧，为每张图做成一条到期日转口播。这个续保到期口播和到期提醒口播工作室把到期提醒口播写成可说的稿，再做成2到15秒的续保提醒短视频。",
+      "display_name": "续保提醒口播·到期日转口播",
+      "summary": "续保提醒口播按顾问提供的续保日程和授权静帧，为每张图做成一条到期日转口播。",
+      "tags": [
+        "续保提醒口播",
+        "到期日转口播",
+        "续保到期口播",
+        "到期提醒口播",
+        "续保截止口播",
+        "续保提醒短视频"
+      ],
+      "title": "续保提醒口播·到期日转口播：一张静帧一条到期口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "insurance-renew-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

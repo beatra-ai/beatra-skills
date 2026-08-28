@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn couple-supplied ceremony facts into three wedding opening film storyboard keyframes, then one opening film.",
+  "display_name": "Wedding Opening Film",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wedding-opening-film",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn couple-supplied ceremony facts into three wedding opening film storyboard keyframes, then one opening film. This wedding opening film studio lays out a couple storyboard and a ceremony opening clip from the facts you already have. Use it for photo-studio wedding openers, wedding-planner opening films, and couple storyboard keyframes.",
+      "display_name": "Wedding Opening Film",
+      "summary": "Turn couple-supplied ceremony facts into three wedding opening film storyboard keyframes, then one opening film.",
+      "tags": [
+        "wedding opening film",
+        "couple storyboard",
+        "storyboard keyframe",
+        "ceremony opening clip",
+        "photo-studio wedding opener",
+        "wedding-planner opening film"
+      ],
+      "title": "Wedding Opening Film: Couple Storyboard Keyframes"
+    },
+    "ja": {
+      "description": "結婚式オープニング映像は、手元の挙式の事実から3枚の絵コンテキーフレームを作り、1本のオープニング映像にします。フォトスタジオやウエディングプランナーの結婚式オープニング、新郎新婦の絵コンテに使えます。",
+      "display_name": "結婚式オープニング映像",
+      "summary": "手元の挙式の事実から3枚の絵コンテキーフレームを作り、1本のオープニング映像にします。",
+      "tags": [
+        "結婚式オープニング映像",
+        "絵コンテキーフレーム",
+        "オープニング映像",
+        "フォトスタジオ",
+        "ウエディングプランナー",
+        "新郎新婦の絵コンテ"
+      ],
+      "title": "結婚式オープニング映像：新郎新婦の絵コンテ"
+    },
+    "zh": {
+      "description": "婚礼开场片按影楼或婚庆已有的新人分镜做成三张关键帧，再做成一条婚礼开场成片。这个婚礼开场和新人分镜工作室适合影楼婚礼开场、婚庆开场片和仪式分镜关键帧。",
+      "display_name": "婚礼开场片·新人分镜",
+      "summary": "按影楼或婚庆已有的新人分镜做成三张关键帧，再做成一条婚礼开场成片。",
+      "tags": [
+        "婚礼开场片",
+        "新人分镜",
+        "婚礼开场",
+        "影楼婚礼开场",
+        "婚庆开场片",
+        "仪式分镜关键帧"
+      ],
+      "title": "婚礼开场片·新人分镜：三张关键帧再成片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wedding-opening-film",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

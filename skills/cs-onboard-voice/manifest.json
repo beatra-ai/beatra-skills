@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written customer-onboarding step list into one customer onboard voice clip per labeled cue.",
+  "display_name": "Customer Onboard Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/cs-onboard-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written customer-onboarding step list into one customer onboard voice clip per labeled cue. This onboarding-step voice studio records each customer onboarding audio and step list voice from the steps the enablement team already wrote, then delivers 8 to 20 customer onboard voice pack files. Use it for onboarding clip packs that keep one written step on each clip.",
+      "display_name": "Customer Onboard Voice Pack",
+      "summary": "Turn a written customer-onboarding step list into one customer onboard voice clip per labeled cue.",
+      "tags": [
+        "customer onboard voice",
+        "onboarding-step voice",
+        "customer onboarding audio",
+        "step list voice",
+        "onboarding clip",
+        "customer onboard voice pack"
+      ],
+      "title": "Customer Onboard Voice: Step-List-to-Clip Reads"
+    },
+    "ja": {
+      "description": "手元の顧客開通手順から、ラベル付きの顧客開通ボイスを1件1本作ります。開通手順ボイスや顧客開通音声、手順読み上げも開通クリップとして録り、8〜20本の顧客開通ボイスパックで渡します。",
+      "display_name": "顧客開通ボイス",
+      "summary": "手元の顧客開通手順から、ラベル付きの顧客開通ボイスを1件1本作ります。",
+      "tags": [
+        "顧客開通ボイス",
+        "開通手順ボイス",
+        "顧客開通音声",
+        "手順読み上げ",
+        "開通クリップ",
+        "顧客開通ボイスパック"
+      ],
+      "title": "顧客開通ボイス：開通手順を1件1本で読む"
+    },
+    "zh": {
+      "description": "客户开通语音按已经写好的客户开通步骤，做成每条开通步骤转语音一条口播。开通步骤语音、客户开通朗读、开通指引语音都按开通步骤口播来录，一次给出8到20条客户开通语音包。",
+      "display_name": "客户开通语音·开通步骤转语音",
+      "summary": "按已经写好的客户开通步骤，做成每条开通步骤转语音一条口播。",
+      "tags": [
+        "客户开通语音",
+        "开通步骤转语音",
+        "开通步骤语音",
+        "客户开通朗读",
+        "开通指引语音",
+        "客户开通语音包"
+      ],
+      "title": "客户开通语音·开通步骤转语音：按开通步骤一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "cs-onboard-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

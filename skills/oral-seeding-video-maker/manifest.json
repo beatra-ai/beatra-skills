@@ -1,5 +1,5 @@
 {
-  "changelog": "Keep the first still or TTS stage; show a prepaid admission card before the seeding video.",
+  "changelog": "State the 15-second ceiling as this route's own bound that the selected live model card must also support, rather than as a model capability. For Simplified Chinese installations this build is also the first to carry, in the Chinese instructions, the prepaid admission card before the video stage, task polling corrected from a billing URL to `beatra.tasks.get`, and the corrected insufficient-balance recovery.",
   "display_name": "Spoken Seeding Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/oral-seeding-video-maker",
@@ -46,7 +46,7 @@
       "title": "語り系 紹介動画メーカー：テーマ一行から縦型動画まで"
     },
     "zh": {
-      "description": "只有一个选题，也能做出一条口播种草视频。这个口播视频制作与短视频脚本生成工作流，会先按你的产品或主题选定脚本结构，写出钩子、中段和结尾引导，并且把画面和口播分成两栏分别写，再产出方便你剪进自己版本的分镜静图、你选定音色的口播音轨、可选的纯音乐垫底，以及由开场画面动起来、配好整段口播的竖屏短片。适合种草口播、达人推荐、带货口播文案与脚本、测评向短视频、服务与知识类讲解，以及新号起号的日更内容；抖音、视频号、小红书、快手都能用——不用拍摄、不用出镜、不用上传任何素材，真正的无素材出片。",
+      "description": "只有一个选题，也能做出一条口播种草视频。这个口播视频制作与短视频脚本生成工作流，会先按你的产品或主题选定脚本结构，写出钩子、中段和结尾引导，并且把画面和口播分成两栏分别写，再产出方便你剪进自己版本的分镜静图、你选定音色的口播音轨、可选的纯音乐垫底，以及由开场画面动起来、配好整段口播的竖屏短片。适合小红书种草口播、达人推荐、带货口播文案与脚本、测评向短视频、服务与知识类讲解，以及新号起号的日更内容；抖音、视频号、小红书、快手都能用——不用拍摄、不用出镜、不用上传任何素材，真正的无素材出片。",
       "display_name": "口播种草视频制作",
       "summary": "只给一个选题，就拿到口播种草竖屏短片、可自行剪进版本的分镜静图和配音，全程零素材。",
       "tags": [
@@ -76,5 +76,5 @@
   },
   "name": "oral-seeding-video-maker",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

@@ -3,10 +3,23 @@
 ## Verify the linked article-pack route
 
 For a two-to-four-image article pack, call `beatra.models.list` through the
-bundled client before the paid request. Verify live support for the selected
-generation or transform capability, final count, final canvas, and
-`output_relationship: "sequence"`. Keep `model: "auto"` unless an actual
-compatibility, control, availability, or price decision requires otherwise. If
+bundled client before the paid request, for the chosen route only:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_image"}
+```
+
+For transform use `{"capability":"image_to_image"}`; for edit use
+`{"capability":"image_edit"}`.
+
+Verify live support for the selected generation or transform capability, final
+count, final canvas, and `output_relationship: "sequence"`. Keep `model: "auto"`
+unless an actual compatibility, control, availability, or price decision
+requires otherwise. If
 the compatible sequence route is not available, report it and obtain the user's
 explicit choice between one image or multiple separate paid requests. Never
 present independent candidates as a coordinated article sequence.

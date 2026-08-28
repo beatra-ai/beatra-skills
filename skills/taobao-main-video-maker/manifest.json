@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid admission card before the Taobao main video call.",
+  "changelog": "Keep effect claims without evidence at a draft and route live-action editing out.",
   "display_name": "Taobao Product Main Image Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/taobao-main-video-maker",
@@ -71,5 +71,5 @@
   },
   "name": "taobao-main-video-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.4"
 }

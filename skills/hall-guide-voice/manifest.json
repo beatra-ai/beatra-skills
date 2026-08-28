@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written hall window list into one hall guide voice clip per labeled cue.",
+  "display_name": "Hall Guide Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/hall-guide-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written hall window list into one hall guide voice clip per labeled cue. This window list voice studio records each hall window audio and window cue voice from the list the hall already wrote, then delivers 8 to 20 hall guide voice pack files. Use it for hall guide clip packs that keep one window on each clip.",
+      "display_name": "Hall Guide Voice Pack",
+      "summary": "Turn a written hall window list into one hall guide voice clip per labeled cue.",
+      "tags": [
+        "hall guide voice",
+        "window list voice",
+        "hall window audio",
+        "window cue voice",
+        "hall guide clip",
+        "hall guide voice pack"
+      ],
+      "title": "Hall Guide Voice: Window-List-to-Clip Reads"
+    },
+    "ja": {
+      "description": "手元の窓口一覧から、ラベル付きの窓口案内ボイスを1件1本作ります。窓口一覧ボイスや窓口案内音声、窓口読み上げボイスも案内クリップとして録り、8〜20本の窓口案内ボイスパックで渡します。",
+      "display_name": "窓口案内ボイス",
+      "summary": "手元の窓口一覧から、ラベル付きの窓口案内ボイスを1件1本作ります。",
+      "tags": [
+        "窓口案内ボイス",
+        "窓口一覧ボイス",
+        "窓口案内音声",
+        "窓口読み上げボイス",
+        "案内クリップ",
+        "窓口案内ボイスパック"
+      ],
+      "title": "窓口案内ボイス：窓口一覧を1件1本で読む"
+    },
+    "zh": {
+      "description": "办事大厅指引按已经写好的窗口清单，做成每条窗口清单转语音一条口播。窗口指引语音、大厅窗口语音、办事窗口朗读都按大厅指引口播来录，一次给出8到20条大厅指引语音包。",
+      "display_name": "办事大厅指引·窗口清单转语音",
+      "summary": "按已经写好的窗口清单，做成每条窗口清单转语音一条口播。",
+      "tags": [
+        "办事大厅指引",
+        "窗口清单转语音",
+        "窗口指引语音",
+        "大厅窗口语音",
+        "办事窗口朗读",
+        "大厅指引语音包"
+      ],
+      "title": "办事大厅指引·窗口清单转语音：按窗口清单一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "hall-guide-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

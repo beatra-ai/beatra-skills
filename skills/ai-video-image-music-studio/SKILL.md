@@ -89,6 +89,9 @@ automatic non-billable registration behavior.
   matters, use `beatra.models.list` and treat its returned interface card as
   current truth. Follow [models](references/models.md). Do not maintain model,
   price, language, default, or reference-limit lists from memory.
+- When the user asks how many credits remain or whether a live estimate fits,
+  call `beatra.wallet.get`. When they ask what was charged, call
+  `beatra.wallet.ledger`. Both are read-only.
 
 Do not silently turn the request into another operation. Respect a concrete
 model choice and report incompatibility instead of substituting a different
@@ -115,7 +118,8 @@ permission, and only then set `consent_attested: true`. See
 ## Keep the paid boundary clear
 
 Creative planning, authorization, upload preparation, voice browsing, model
-discovery, recent-task listing, and estimates are non-billable. Image, video,
+discovery, recent-task listing, credit-balance and ledger reads, and estimates
+are non-billable. Image, video,
 music, speech, voice-clone, and video-prompt-enhancement creation consumes
 credits and returns an asynchronous task. Video-prompt enhancement is the
 postpaid exception: it returns text only, never starts video generation, and a
@@ -131,7 +135,7 @@ live-card duration, resolution, and aspect (shortest admitted duration and
 lowest admitted resolution unless the user named a higher tier; audio-led and
 extend rules unchanged), provisional live estimate, the fact that the
 600-credit signup gift usually cannot start this video or clone, the exact URL
-`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
 recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
 not create `client_request_id` or submit until the user confirms they have
 topped up or already have enough credits for this estimate. Voice cloning
@@ -162,11 +166,11 @@ with the saved payload before deciding that it is the same work. Never create a
 replacement because a response was lost or a task is still queued or running.
 
 On `insufficient_balance`, relay the returned public message, keep
-`https://console.beatra.ai/topup` exact, translate the rest, and retry the same
+`https://console.beatra.ai/wallet?intent=buy` exact, translate the rest, and retry the same
 frozen `client_request_id` only after the user says they have topped up. State
-that nothing was charged only when the error says so. The current tool registry
-exposes no account or wallet-management call: do not invent balance reads,
-top-up operations, or account mutations. Connection revocation belongs in the
+that nothing was charged only when the error says so. Do not invent a top-up
+operation or an account mutation. Use the `topup_url` from `beatra.wallet.get`
+or the URL inside the 402 message. Connection revocation belongs in the
 Beatra Console.
 
 ## Deliver returned truth

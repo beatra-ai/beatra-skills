@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a TikTok creator homepage and recent posts into a collaboration brief still set.",
+  "display_name": "TikTok Creator Brief Stills",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/tiktok-creator-to-brief-stills",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a TikTok creator homepage and recent posts into a collaboration brief still set. This TikTok creator brief studio reads the public profile and recent works, then lays out each already-written collab term as its own creator homepage brief card. Media buyers use it for TikTok creator briefs, collaboration brief stills, and a brief still pack they can hand off one file at a time.",
+      "display_name": "TikTok Creator Brief Stills",
+      "summary": "Turn a TikTok creator homepage and recent posts into a collaboration brief still set.",
+      "tags": [
+        "TikTok creator brief",
+        "collaboration brief still",
+        "creator homepage brief",
+        "TikTok creator briefs",
+        "collaboration brief stills",
+        "brief still pack"
+      ],
+      "title": "TikTok Creator Brief Stills: Homepage to Brief Cards"
+    },
+    "ja": {
+      "description": "TikTokクリエイターBriefは、公開プロフィールと最近の投稿から協力Brief図を揃えます。すでに書いた協力条件をクリエイター紹介Brief図として1枚ずつ渡し、協力BriefカードやBrief図セットとしても使えます。",
+      "display_name": "TikTokクリエイターBrief",
+      "summary": "TikTokクリエイターBriefは、公開プロフィールと最近の投稿から協力Brief図を揃えます。",
+      "tags": [
+        "TikTokクリエイターBrief",
+        "協力Brief図",
+        "クリエイター紹介Brief図",
+        "協力Briefカード",
+        "Brief図セット",
+        "協力条件"
+      ],
+      "title": "TikTokクリエイターBrief：紹介Brief図を1枚ずつ"
+    },
+    "zh": {
+      "description": "TikTok达人Brief把达人主页和近期作品做成一组合作Brief图。媒介把已经写好的合作条件做成达人主页转Brief图，每张合作Brief图单独成文件。",
+      "display_name": "TikTok达人Brief·达人主页转Brief图",
+      "summary": "TikTok达人Brief把达人主页和近期作品做成一组合作Brief图。",
+      "tags": [
+        "TikTok达人Brief",
+        "达人主页转Brief图",
+        "合作Brief图",
+        "达人主页",
+        "合作条件",
+        "近期作品"
+      ],
+      "title": "TikTok达人Brief·达人主页转Brief图：每条合作条件一张图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "tiktok-creator-to-brief-stills",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

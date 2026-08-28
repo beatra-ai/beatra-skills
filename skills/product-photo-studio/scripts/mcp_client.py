@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "product-photo-studio"
 PACKAGE_DISPLAY_NAME = "AI Product Photo Studio"
-PACKAGE_VERSION = "0.1.6"
+PACKAGE_VERSION = "0.1.9"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/product-photo-studio/install.json"

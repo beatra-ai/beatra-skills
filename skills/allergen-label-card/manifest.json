@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn seller-supplied ingredients into one allergen explanation still per SKU.",
+  "display_name": "Allergen Explanation Card",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/allergen-label-card",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn seller-supplied ingredient and allergen facts into one allergen explanation card per SKU. This allergen label card studio lays out the seller-supplied allergens and ingredients as an allergen listing still. Use it for food allergen notices, SKU allergen cards, and product-page ingredient explanation graphics.",
+      "display_name": "Allergen Explanation Card",
+      "summary": "Turn seller-supplied ingredients into one allergen explanation still per SKU.",
+      "tags": [
+        "allergen explanation card",
+        "allergen label card",
+        "food allergen notice",
+        "SKU allergen card",
+        "ingredient explanation graphic",
+        "allergen listing still"
+      ],
+      "title": "Allergen Explanation Card: Ingredient Notice Stills"
+    },
+    "ja": {
+      "description": "販売者が提供した成分とアレルゲン事実から、SKUごとに1枚のアレルゲン説明カードを作ります。このアレルゲン説明カードは、確認済みの成分だけを図にし、食品アレルゲン表示、アレルゲン公示、SKUアレルゲンの成分説明図に使えます。",
+      "display_name": "アレルゲン説明カード",
+      "summary": "販売者が提供した成分から、SKUごとに1枚のアレルゲン説明図を作ります。",
+      "tags": [
+        "アレルゲン説明カード",
+        "アレルゲン表示",
+        "成分説明図",
+        "食品アレルゲン",
+        "アレルゲン公示",
+        "SKUアレルゲン"
+      ],
+      "title": "アレルゲン説明カード：成分説明図"
+    },
+    "zh": {
+      "description": "过敏原说明卡按卖家提供的成分和过敏原事实，为每个SKU做成一张过敏原说明图。这个过敏原标签和成分说明图工作室把已确认的成分排成食品过敏原公示、SKU过敏原卡片和详情页成分说明。",
+      "display_name": "过敏原说明卡·过敏原说明卡",
+      "summary": "按卖家提供的成分和过敏原事实，为每个SKU做成一张说明图。",
+      "tags": [
+        "过敏原说明卡",
+        "过敏原标签",
+        "成分说明图",
+        "食品过敏原",
+        "过敏原公示",
+        "SKU过敏原"
+      ],
+      "title": "过敏原说明卡：成分说明图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "allergen-label-card",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

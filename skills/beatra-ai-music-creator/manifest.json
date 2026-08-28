@@ -1,5 +1,5 @@
 {
-  "changelog": "Spell the Simplified Chinese songwriting terms without an internal space so they match customer queries.",
+  "changelog": "Split original song, cover, gift song, and BGM at the entrance; lock structure and generate a limited set of takes.",
   "display_name": "AI Music Creator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-music-creator",
@@ -75,5 +75,5 @@
   },
   "name": "beatra-ai-music-creator",
   "schema_version": 1,
-  "version": "1.3.3"
+  "version": "1.3.5"
 }

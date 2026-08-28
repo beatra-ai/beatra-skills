@@ -1,5 +1,5 @@
 {
-  "changelog": "Require a gift-sized first win when text-led, then a prepaid video admission card.",
+  "changelog": "Teach wallet balance and ledger reads for remaining credits and deductions.",
   "display_name": "AI Video, Image & Music Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-image-music-studio",
@@ -76,5 +76,5 @@
   },
   "name": "ai-video-image-music-studio",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }

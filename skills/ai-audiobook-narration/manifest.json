@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid admission card before cloning an audiobook narrator.",
+  "changelog": "Teach agents never to poll generations that returned no task reference; reconcile with the task list instead.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.1.9"
+  "version": "0.2.0"
 }

@@ -1,0 +1,57 @@
+{
+  "changelog": "Turn a public TikTok stitch target into one quote reply card per chosen hook.",
+  "display_name": "Stitch Prompt Card",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/stitch-prompt-card",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a public TikTok stitch target into one quote reply card per chosen hook. This stitch prompt card studio reads the quoted video and comments, then makes quote reply stills from the reply lines you already wrote. Use it for quote reply cards, stitch prompt cards, and TikTok quote reply stills.",
+      "display_name": "Stitch Prompt Card",
+      "summary": "Turn a public TikTok stitch target into one quote reply card per chosen hook.",
+      "tags": [
+        "quote reply cards",
+        "stitch prompt cards",
+        "TikTok quote reply",
+        "quote reply stills",
+        "stitch prompt",
+        "quote reply card"
+      ],
+      "title": "Stitch Prompt Card: One Quote Reply Still Per Hook"
+    },
+    "ja": {
+      "description": "引用返信は、すでに書いた返事から、取り込みやすい引用カードを1枚ずつ渡します。引用プロンプトとTikTok引用も同じ短い原稿から出します。",
+      "display_name": "引用返信",
+      "summary": "すでに書いた返事から、引用カードを1枚ずつ作ります。",
+      "tags": [
+        "引用返信",
+        "引用カード",
+        "引用プロンプト",
+        "TikTok引用"
+      ],
+      "title": "引用返信：返事1つにつき1枚"
+    },
+    "zh": {
+      "description": "引用回复是按已经写好的回复句，把被引用成片做成一组引用提示卡。引用回复、引用提示卡、引用回复卡和引用成片都按同一套原话出。",
+      "display_name": "引用回复·引用提示卡",
+      "summary": "按已经写好的回复句，把被引用成片做成一组引用提示卡。",
+      "tags": [
+        "引用回复",
+        "引用提示卡",
+        "引用回复卡",
+        "引用成片"
+      ],
+      "title": "引用回复：一句回复一张卡"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "stitch-prompt-card",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

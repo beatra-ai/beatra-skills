@@ -28,10 +28,13 @@ the requested outcome is the video itself.
 ## Shape the thumbnail brief
 
 Reuse the topic, title, channel series style, intended viewer, visual
-references, and must-keep details. Select the canvas from the user-stated
-destination, source frame, or current publishing requirement; propose a
-landscape video-thumbnail canvas only when that is the user's intended
-destination, and freeze the exact canvas before the paid call.
+references, and must-keep details. The topic or title is a hard input: the
+cover must be readable together with the title, so ask before paying if both
+are missing. Select the canvas from the user-stated destination, source frame,
+or current publishing requirement; propose a landscape video-thumbnail canvas
+only when that is the user's intended destination, and freeze the exact canvas
+before the paid call. If more than one candidate is described, they must be
+structural differences, not color variants.
 
 Plan one bold focal subject, clear small-size hierarchy, one visual hook,
 headline-safe space, and ordered image roles. Prefer a text-safe area rather

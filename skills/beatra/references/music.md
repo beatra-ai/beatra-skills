@@ -10,13 +10,31 @@ track guided by reference audio.
 - For reference-guided work, state what musical qualities should guide the new
   result. Do not promise exact melody, voice, identity, or arrangement
   preservation.
+- Name musical qualities, not recording artists. When the music supplier flags a
+  prompt, tag, or lyric for naming a real artist, it returns a terminal
+  `safety_rejected` task; the prepaid credits are refunded, but the attempt is
+  wasted. When the user names an artist as a reference, keep their intent and
+  describe what they are reaching for — genre, era, tempo feel, instrumentation,
+  vocal texture, production style — rather than passing the name through. Tell
+  the user once that the reference was expressed as musical qualities, so they
+  know what was actually sent.
 
 Omit `model` unless the user explicitly chooses one. Use
-`beatra.models.list` with the text-to-music or reference-audio-to-music
-capability only when current compatibility, supported controls, constraints, or
-price matters. Model-specific options are accepted only when the returned
-interface card documents them; never move an option between model families or
-silently drop one.
+`beatra.models.list` only when current compatibility, supported controls,
+constraints, or price matters:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_music"}
+```
+
+For a reference-guided track use `{"capability":"reference_audio_to_music"}`.
+Model-specific options are accepted only when the returned interface card
+documents them; never move an option between model families or silently drop
+one.
 
 For a local reference, use only:
 

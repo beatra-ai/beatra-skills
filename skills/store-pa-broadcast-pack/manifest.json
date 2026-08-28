@@ -1,0 +1,63 @@
+{
+  "changelog": "Record dated open, promo, flash, and close PA reads for one store campaign window.",
+  "display_name": "Store PA Broadcast Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/store-pa-broadcast-pack",
+  "icon": "https://beatra.ai/textures/icons/store-pa-broadcast-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Build dated store PA announcement reads for one campaign window: open, promo, flash, and close. This in-store announcement pack and retail PA voice studio records store promo voice lines you can play on the shop floor through the campaign dates. Use it for store opening announcements, flash-sale PA, closing announcements, and in-store promo voiceover.",
+      "display_name": "Store PA Broadcast Pack",
+      "summary": "Build dated store PA announcement reads for one campaign window: open, promo, flash, and close.",
+      "tags": [
+        "store PA announcement",
+        "in-store announcement",
+        "retail PA",
+        "store promo voice",
+        "store opening announcements",
+        "flash-sale PA",
+        "closing announcements",
+        "in-store promo voiceover"
+      ],
+      "title": "Store PA Broadcast Pack: Dated Open, Promo, Flash, Close"
+    },
+    "ja": {
+      "description": "開業、販促、タイムセール、閉店の読み上げを、開催期間付きの店内放送パックにします。この店内アナウンスと店舗プロモ音声の制作では、開業アナウンスと店内販促放送、閉店アナウンスを日付付きで納品します。",
+      "display_name": "店舗放送プロモパック",
+      "summary": "開業、販促、タイムセール、閉店の読み上げを、開催期間付きの店内放送パックにします。",
+      "tags": [
+        "店内放送",
+        "店内アナウンス",
+        "店舗プロモ音声",
+        "開業アナウンス",
+        "店内販促放送",
+        "閉店アナウンス"
+      ],
+      "title": "店舗放送プロモパック：開業から閉店までの日付付き読み上げ"
+    },
+    "zh": {
+      "description": "按活动档期做一套带日期的门店广播口播。这个促销口播和店内广播工具会录开业广播、门店促销语音、限时促销和打烊提示，并按促销广播窗口交付可循环播放的店内口播。适用于门店开业、档期促销和店内促销广播。",
+      "display_name": "门店广播·促销口播",
+      "summary": "按活动档期做一套带日期的门店广播口播，开业、促销、限时和打烊一把声音录完。",
+      "tags": [
+        "门店广播",
+        "促销口播",
+        "店内广播",
+        "门店促销语音",
+        "开业广播",
+        "促销广播"
+      ],
+      "title": "门店广播·促销口播：档期开业到打烊口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "store-pa-broadcast-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

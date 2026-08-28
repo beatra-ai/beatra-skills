@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a TikTok hashtag trend into one talking hook clip per still.",
+  "display_name": "TikTok Hashtag Hook Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/tiktok-hashtag-to-hook-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a TikTok hashtag trend into one talking hook clip per still. This TikTok hashtag hook studio reads public hashtag rankings and head posts, then records each already-written hook as a 2 to 15s talking clip. Those TikTok hashtag hooks become a short trend hook video, and each hashtag hook clip stays a file they can send on its own.",
+      "display_name": "TikTok Hashtag Hook Clips",
+      "summary": "Turn a TikTok hashtag trend into one talking hook clip per still.",
+      "tags": [
+        "TikTok hashtag hook",
+        "talking hook clip",
+        "trend hook video",
+        "hashtag hook clip",
+        "TikTok hashtag hooks",
+        "TikTok hashtag trend"
+      ],
+      "title": "TikTok Hashtag Hook Clips: One Still, One Trend Hook"
+    },
+    "ja": {
+      "description": "TikTokハッシュタグ口播は、公開トレンドと先頭投稿からフック口播を作ります。すでに書いたフックを1本のトーククリップにし、トレンドフック動画やハッシュタグフックとしても使えます。",
+      "display_name": "TikTokハッシュタグ口播",
+      "summary": "TikTokハッシュタグ口播は、公開トレンドと先頭投稿からフック口播を作ります。",
+      "tags": [
+        "TikTokハッシュタグ口播",
+        "フック口播",
+        "トーククリップ",
+        "トレンドフック動画",
+        "ハッシュタグフック",
+        "先頭投稿"
+      ],
+      "title": "TikTokハッシュタグ口播：タグごとに1本"
+    },
+    "zh": {
+      "description": "TikTok热标口播把热标和头部成片做成一组钩子口播。运营把已经写好的钩子录成热标转钩子，每条钩子口播单独成片。",
+      "display_name": "TikTok热标口播·热标转钩子",
+      "summary": "TikTok热标口播把热标和头部成片做成一组钩子口播。",
+      "tags": [
+        "TikTok热标口播",
+        "热标转钩子",
+        "钩子口播",
+        "热标",
+        "头部成片",
+        "单独成片"
+      ],
+      "title": "TikTok热标口播·热标转钩子：每条热标一条钩子口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "tiktok-hashtag-to-hook-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

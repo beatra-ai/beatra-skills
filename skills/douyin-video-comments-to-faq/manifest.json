@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn Douyin video comments into one comment FAQ still per picked question.",
+  "display_name": "Douyin Comment FAQ Stills",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/douyin-video-comments-to-faq",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn Douyin video comments into one comment FAQ still per picked question. This douyin comment reply studio writes a listing FAQ card from each seller-answered comment, then lays out a 4 to 8 still comment FAQ set. Use it for listing FAQ graphics and a douyin comment faq card that stay one question, one still.",
+      "display_name": "Douyin Comment FAQ Stills",
+      "summary": "Turn Douyin video comments into one comment FAQ still per picked question.",
+      "tags": [
+        "douyin comment reply",
+        "comment FAQ still",
+        "comment FAQ set",
+        "listing FAQ graphics",
+        "douyin comment faq",
+        "comment faq card"
+      ],
+      "title": "Douyin Comment FAQ Stills: One Question, One Reply Card"
+    },
+    "ja": {
+      "description": "抖音コメントFAQは、公開コメントの質問を短いFAQカードにします。コメントFAQと質問カードとして、手元の事実だけで4〜8枚のFAQ図を渡し、コメント返信図にも使えます。",
+      "display_name": "抖音コメントFAQ",
+      "summary": "公開コメントの質問と手元の事実から、短いFAQカードを1問ずつ作ります。",
+      "tags": [
+        "抖音コメントFAQ",
+        "コメントFAQ",
+        "質問カード",
+        "FAQカード",
+        "FAQ図",
+        "コメント返信図"
+      ],
+      "title": "抖音コメントFAQ：質問ごとに短いカードを渡す"
+    },
+    "zh": {
+      "description": "抖音评论回复按成片评论里的问题和卖家已写答案，做成FAQ静帧。这个成片评论转FAQ图和评论FAQ工作室把抖音评论写成问答卡，再排成4到8张FAQ图，也适合评论回复图。",
+      "display_name": "抖音评论回复·成片评论转FAQ图",
+      "summary": "按成片评论里的问题和卖家已写答案，做成FAQ静帧，每条问题一张。",
+      "tags": [
+        "抖音评论回复",
+        "成片评论转FAQ图",
+        "评论FAQ",
+        "抖音评论",
+        "FAQ静帧",
+        "评论回复图"
+      ],
+      "title": "抖音评论回复·成片评论转FAQ图：一条问题一张问答卡"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "douyin-video-comments-to-faq",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

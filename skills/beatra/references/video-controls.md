@@ -2,7 +2,8 @@
 
 Use this reference after selecting one video action. Public controls are model-aware. Call
 `beatra.models.list` with the selected capability instead of guessing supported models,
-defaults, input limits, or prices. Returned control names are exact MCP request paths;
+defaults, input limits, or prices. Copy the matching payload from
+[videos](videos.md). Returned control names are exact MCP request paths;
 dotted names are nested objects and `[]` addresses each item in an array.
 
 ## Model selection and defaults

@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Trading Calendar Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/market-calendar-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied public trading calendar and authorized stills into one trading calendar talking clip per still. This public calendar talking video studio writes a speakable session calendar announcement and holiday calendar talking clip for each photo, then animates a 2 to 15s market calendar talking clip. Use it for settlement calendar talking video packs that stay one photo, one clip.",
+      "display_name": "Trading Calendar Talking Clips",
+      "summary": "Turn a user-supplied public trading calendar and authorized stills into one trading calendar talking clip per still.",
+      "tags": [
+        "trading calendar talking clip",
+        "public calendar talking video",
+        "market calendar talking clip",
+        "session calendar announcement",
+        "holiday calendar talking clip",
+        "settlement calendar talking video"
+      ],
+      "title": "Trading Calendar Talking Clips: One Still, One Calendar Read"
+    },
+    "ja": {
+      "description": "取引カレンダー口頭動画は、手元の公開カレンダーと写真から、写真1枚ごとに短いクリップを渡します。公開カレンダー読み上げと市場カレンダー動画として、休場日案内クリップと受渡日トークを2〜15秒に仕上げ、取引日程読み上げにも使えます。",
+      "display_name": "取引カレンダー口頭動画",
+      "summary": "取引カレンダー口頭動画は、手元の公開カレンダーと写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "取引カレンダー口頭動画",
+        "公開カレンダー読み上げ",
+        "市場カレンダー動画",
+        "休場日案内クリップ",
+        "受渡日トーク",
+        "取引日程読み上げ"
+      ],
+      "title": "取引カレンダー口頭動画：公開カレンダーを写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "交易日历口播按顾问提供的已公开交易日历和授权静帧，为每张图做成一条交易日口播。这个公开日历转口播和休市日历口播工作室把交割日口播写成可说的稿，再做成2到15秒的交易日历短视频。",
+      "display_name": "交易日历口播·公开日历转口播",
+      "summary": "交易日历口播按顾问提供的已公开交易日历和授权静帧，为每张图做成一条交易日口播。",
+      "tags": [
+        "交易日历口播",
+        "公开日历转口播",
+        "交易日口播",
+        "休市日历口播",
+        "交割日口播",
+        "交易日历短视频"
+      ],
+      "title": "交易日历口播·公开日历转口播：一张静帧一条日历口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "market-calendar-talking",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

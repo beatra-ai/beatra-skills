@@ -1,5 +1,5 @@
 {
-  "changelog": "Launch the REDnote ordered carousel visual workflow.",
+  "changelog": "Lock the note type and slide-order outline first, then generate the 3:4 set while reusing the same approved visual anchors on every slide.",
   "display_name": "REDnote Carousel Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-carousel-maker",
@@ -65,5 +65,5 @@
   },
   "name": "rednote-carousel-maker",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

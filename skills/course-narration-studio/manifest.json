@@ -1,0 +1,70 @@
+{
+  "changelog": "Record the first lecture, keep term readings consistent, then record the rest of the course.",
+  "display_name": "Course Narration Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/course-narration-studio",
+  "icon": "https://beatra.ai/textures/icons/course-narration-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn lecture manuscripts and course slides into a lecture-by-lecture narration pack with one consistent teacher voice. This AI course narration studio and course voiceover studio organizes lessons, keeps term pronunciations consistent, and records a first lecture plus the remaining course as ordered lesson audio. Use it for course narration, training voiceover, lesson TTS, lecture TTS, AI course audio, lesson narration, elearning voiceover, teacher voiceover, knowledge product audio, and course text to speech.",
+      "display_name": "Course Narration Studio",
+      "summary": "Turn lecture manuscripts and course slides into a lecture-by-lecture narration pack with one consistent teacher voice.",
+      "tags": [
+        "course narration",
+        "course voiceover",
+        "training voiceover",
+        "lecture TTS",
+        "AI course audio",
+        "lesson narration",
+        "elearning voiceover",
+        "teacher voiceover",
+        "knowledge product audio",
+        "course text to speech"
+      ],
+      "title": "Course Narration Studio: AI Course Voiceover by Lecture"
+    },
+    "ja": {
+      "description": "講義原稿とスライドを、同じ講師の声で講義ごとに並べたナレーションパックにします。このAI講座ナレーションスタジオは授業順を整理し、用語の読みを固め、代表講義で声を確認してから残りの講座を収録します。講座ナレーション、講義ボイスオーバー、研修音声、eラーニング音声、講義読み上げ、教材TTS、コース音声作成に使えます。",
+      "display_name": "講座ナレーションスタジオ",
+      "summary": "講義原稿とスライドを、同じ講師の声で講義ごとに並べたナレーションパックにします。",
+      "tags": [
+        "講座ナレーション",
+        "講義ボイスオーバー",
+        "研修音声",
+        "教材TTS",
+        "eラーニング音声",
+        "講義読み上げ",
+        "コース音声作成"
+      ],
+      "title": "講座ナレーションスタジオ：講義ごとのコース音声"
+    },
+    "zh": {
+      "description": "把讲稿和课件做成按讲排列的课程配音。这个AI课程配音和培训旁白工作室会整理课次、统一术语读音，先用一讲试听老师声音，再按顺序录完剩余课程，适合课程旁白、培训配音、讲稿配音、课件配音、知识付费配音、网课配音、老师配音和讲义转语音。",
+      "display_name": "课程配音工作室",
+      "summary": "把讲稿和课件做成按讲排列的课程配音，同一把老师声音先试听再录完全部课程。",
+      "tags": [
+        "课程配音",
+        "课程旁白",
+        "培训配音",
+        "讲稿配音",
+        "课件配音",
+        "知识付费配音",
+        "网课配音",
+        "AI课程配音",
+        "讲义转语音",
+        "老师配音"
+      ],
+      "title": "课程配音工作室：按讲次做AI课程旁白"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "course-narration-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

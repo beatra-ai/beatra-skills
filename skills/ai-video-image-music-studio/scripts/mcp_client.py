@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "ai-video-image-music-studio"
 PACKAGE_DISPLAY_NAME = "AI Video, Image & Music Studio"
-PACKAGE_VERSION = "0.1.7"
+PACKAGE_VERSION = "0.1.8"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/ai-video-image-music-studio/install.json"

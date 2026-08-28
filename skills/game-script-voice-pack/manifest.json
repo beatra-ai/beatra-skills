@@ -1,0 +1,71 @@
+{
+  "changelog": "Turn a game or murder-mystery script into a labeled voice pack, one clip per line.",
+  "display_name": "Game Script Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/game-script-voice-pack",
+  "icon": "https://beatra.ai/textures/icons/game-script-voice-pack-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a murder-mystery or indie-game script into a labeled multi-character voice pack. This AI game voice pack and character dialogue studio casts one consistent voice per role, records every line in script order, and delivers numbered clips with character IDs ready for an engine or tabletop production. Use it for game voice acting, indie game dialogue, murder mystery voiceover, multi character TTS, NPC voice acting, interactive story audio, tabletop voice pack work, and scripted game audio.",
+      "display_name": "Game Script Voice Pack",
+      "summary": "Turn a murder-mystery or indie-game script into a labeled multi-character voice pack.",
+      "tags": [
+        "game voice pack",
+        "game voice acting",
+        "indie game dialogue",
+        "murder mystery voiceover",
+        "multi character TTS",
+        "character voice pack",
+        "interactive story audio",
+        "NPC voice acting",
+        "scripted game audio",
+        "tabletop voice pack"
+      ],
+      "title": "Game Script Voice Pack: Multi-Character Game and Mystery Voices"
+    },
+    "ja": {
+      "description": "マーダーミステリーやインディーゲームの台本を、役ごとのラベル付きボイスパックにします。このゲーム音声パックは役ごとに声を固定し、台本順で全台詞を収録し、キャラクターID付きの番号クリップで納品します。ゲームボイス、キャラボイス、NPC音声、対話音声、台本読み、マーダーミステリー音声、インディーゲーム 音声、テーブルトーク用音声に使えます。",
+      "display_name": "ゲーム台本ボイスパック",
+      "summary": "マーダーミステリーやインディーゲームの台本を、役ごとのラベル付きボイスパックにします。",
+      "tags": [
+        "ゲーム音声",
+        "ゲームボイス",
+        "マーダーミステリー音声",
+        "キャラボイス",
+        "NPC音声",
+        "対話音声",
+        "インディーゲーム 音声",
+        "台本読み"
+      ],
+      "title": "ゲーム台本ボイスパック：マーダーミステリーとゲーム台詞"
+    },
+    "zh": {
+      "description": "把剧本杀或独立游戏剧本做成带角色编号的多角色语音包。这个剧本杀配音和游戏语音包工具会给每个角色固定一把声音，按剧本顺序录完每一句，并带上角色ID和台词编号，方便导入引擎或桌面剧场。适用于剧本杀配音、独立游戏配音、多角色配音、NPC配音、互动剧配音、对白配音、角色语音包、剧本配音和情景训练音频。",
+      "display_name": "剧本杀配音·游戏语音包",
+      "summary": "把剧本杀或独立游戏剧本做成带角色编号的多角色语音包，按剧本顺序逐句交付。",
+      "tags": [
+        "剧本杀配音",
+        "游戏配音",
+        "游戏语音包",
+        "多角色配音",
+        "独立游戏配音",
+        "NPC配音",
+        "互动剧配音",
+        "对白配音",
+        "角色语音包",
+        "剧本配音"
+      ],
+      "title": "剧本杀配音·游戏语音包：多角色对白按句交付"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "game-script-voice-pack",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

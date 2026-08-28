@@ -1,0 +1,63 @@
+{
+  "changelog": "Record a serialized executive or company podcast episode in one host voice, then continue the show.",
+  "display_name": "Corporate Podcast Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/corporate-podcast-studio",
+  "icon": "https://beatra.ai/textures/icons/corporate-podcast-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn executive talking points or company column copy into a serialized corporate podcast with one consistent host voice. This executive podcast studio and company podcast series records each branded episode, then continues the brand podcast as an executive column so listeners recognize the same host across the corporate audio series. Use it for leadership podcast episodes, C-suite podcast audio, and company thought-leadership shows.",
+      "display_name": "Corporate Podcast Studio",
+      "summary": "Turn executive talking points or company column copy into a serialized corporate podcast with one consistent host voice.",
+      "tags": [
+        "corporate podcast",
+        "executive podcast",
+        "company podcast",
+        "brand podcast",
+        "executive column",
+        "corporate audio series",
+        "leadership podcast",
+        "C-suite podcast audio"
+      ],
+      "title": "Corporate Podcast Studio: Serialized Executive Episodes"
+    },
+    "ja": {
+      "description": "経営者の話や社内コラムを、同じホスト声で続けられる企業ポッドキャストにします。この経営者ポッドキャストと役員ポッドキャストの制作では、社内ポッドキャストやブランドポッドキャストを話ごとに収録し、企業音声コラムとして継続できます。",
+      "display_name": "企業ポッドキャストスタジオ",
+      "summary": "経営者の話や社内コラムを、同じホスト声で続けられる企業ポッドキャストにします。",
+      "tags": [
+        "企業ポッドキャスト",
+        "経営者ポッドキャスト",
+        "役員ポッドキャスト",
+        "社内ポッドキャスト",
+        "ブランドポッドキャスト",
+        "企業音声コラム"
+      ],
+      "title": "企業ポッドキャストスタジオ：経営者コラムを連載音声に"
+    },
+    "zh": {
+      "description": "把高管口述或公司专栏稿做成可连载更新的企业播客。这个高管播客和高管专栏工作室会固定一把主持人声音，按期录完公司播客与品牌播客，并交付可继续更新的企业音频专栏。适用于企业播客连载、高管口述音频和品牌专栏节目。",
+      "display_name": "企业播客·高管专栏",
+      "summary": "把高管口述或公司专栏稿做成可连载更新的企业播客，同一把主持人声音按期继续。",
+      "tags": [
+        "企业播客",
+        "高管播客",
+        "公司播客",
+        "品牌播客",
+        "高管专栏",
+        "企业音频专栏"
+      ],
+      "title": "企业播客·高管专栏：连载高管口述节目"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "corporate-podcast-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -17,7 +17,16 @@ local upload and before `beatra.voices.clone`; do not set
 
 ## Read current sample conditions
 
-Use the live voice-clone card from `beatra.models.list` as the source of truth.
+Use the live voice-clone card from `beatra.models.list` as the source of truth:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "voice_clone"}
+```
+
 The current card accepts clean, natural, single-speaker speech from about 10 to
 300 seconds and no more than 20 MiB. Music, multiple speakers, pronounced echo
 or heavy noise make readiness uncertain. If the host cannot inspect or play

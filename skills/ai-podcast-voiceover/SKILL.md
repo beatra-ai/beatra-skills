@@ -25,18 +25,24 @@ voice project to `beatra-ai-voice-studio` and its focused cloning route. Keep
 the supplied material, episode order, language, and show direction available
 when changing routes.
 
-When the requested episode requires named speakers, a music bed, a mixed or
-assembled final episode, preserve that production requirement and choose the
-appropriate production or editing route. Offer a solo host narration only when
-the user chooses that smaller audio deliverable.
+This package delivers single-host episode audio. Route multi-host mixing, RSS
+listing, and professional mastering out. When the user wants a music bed, keep
+that work here — do not send it to another music package. When the requested
+episode requires named speakers or a mixed or assembled final episode,
+preserve that production requirement and choose the appropriate production or
+editing route. Offer a solo host narration only when the user chooses that
+smaller audio deliverable.
 
 ## Open the show
 
-Look first for `./<show>/show-profile.json`. Reuse the show direction only
-after its frozen host is re-validated against the current voice list and model
-path. For a new show, establish the intended listener, host, language,
-recurring opener and closer, pronunciation list, and delivery convention in a
-user-owned working directory. Follow [the show profile](references/show-profile.md).
+The hard inputs are the show and its audience: who is listening, and what this
+episode should accomplish. Look first for `./<show>/show-profile.json` and
+reuse that archive when it exists. Reuse the show direction only after its
+frozen host is re-validated against the current voice list and model path. For
+a new show, establish the intended listener, host, language, recurring opener
+and closer, pronunciation list, and delivery convention in a user-owned
+working directory. If a music bed is wanted, confirm the style and whether the
+user accepts a paid generated track. Follow [the show profile](references/show-profile.md).
 
 ## Prepare the episode script
 
@@ -73,20 +79,35 @@ and no explicit sample rate unless the profile or destination calls for a
 supported change. Follow [voice, delivery, and recovery](references/voice-and-delivery.md)
 for casting, live-card validation, and current price math.
 
+## Golden path
+
+Lock the show and its audience first. Write the episode for the ear. Prove the
+direction with a short sample the user has heard. Then present the episode
+synthesis confirmation card. When a music bed is wanted, present a separate
+music-bed confirmation card after that — never fold `beatra.music.generate`
+into the speech card. The direction is established only after the sample has
+been heard.
+
 ## Price and confirm
 
 Script preparation, voice previews, current model discovery, and price
-estimation are free. Every `beatra.speech.synthesize` request is paid. Present
-a production card with the exact text, frozen voice and settings,
-weighted-character total, live price calculation, expected request count, and
-one new opaque `client_request_id` for each logical request.
+estimation are free. Every `beatra.speech.synthesize` request is paid. Every
+`beatra.music.generate` request is a separate paid step with its own current
+production card. Present a speech production card with the exact text, frozen
+voice and settings, weighted-character total, live price calculation, expected
+request count, and one new opaque `client_request_id` for each logical request.
+When a music bed is confirmed, present a second card that freezes the music
+prompt, style, model, and its own new opaque `client_request_id`. Do not
+automatically retry either paid call. A changed argument needs a new
+`client_request_id` and a fresh card.
 
 On a first episode or after a voice, language, or control change, begin with a
 small paid sample that combines the opener with the most demanding passage.
 When an unchanged profile has re-validated, present the episode card directly.
 The episode has its own approval; a sample approval never authorizes it. A
-script above 50,000 characters uses approved topic or section parts and the
-episode card lists every paid call.
+music-bed approval never authorizes speech, and a speech approval never
+authorizes the music bed. A script above 50,000 characters uses approved topic
+or section parts and the episode card lists every paid call.
 
 ## Create, deliver, and record
 
@@ -100,10 +121,13 @@ arguments as JSON on standard input. Do not configure or call a host Beatra
 Connector, and do not use REST/OpenAPI as a fallback. Submit each approved
 logical paid request once under its stable request ID, record its returned task
 ID immediately, and poll that task with `beatra.tasks.get` until it is terminal.
+When a music bed was confirmed on its own card, submit `beatra.music.generate`
+once under that card's identifier after the episode speech is approved.
 
 Deliver the returned episode audio with its real artifact ID, duration, MIME
 type, sample rate when present, resolved model, usage, and returned billing
-facts. When the host can listen, review the actual pacing, pronunciations, and
+facts. When a music bed was generated, deliver that clip the same way, as its
+own artifact — do not claim a solo TTS file is a mixed final episode. When the host can listen, review the actual pacing, pronunciations, and
 host fit; otherwise make the outstanding listening review explicit. If the host
 has user-approved access to the show's working directory, append the delivered
 episode record there; otherwise hand the same factual record and artifact URL

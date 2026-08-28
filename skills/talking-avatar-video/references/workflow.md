@@ -85,6 +85,8 @@ Before creating a video `client_request_id` or submitting `beatra.videos.animate
 
 Keep a private ledger entry for each narration and video stage: logical label, full frozen arguments, stable request ID, approval, creation time, create response, task ID, and terminal result. Record each returned task ID immediately and call `beatra.tasks.get` until `succeeded`, `failed`, or `canceled`. `queued` and `running` mean wait, not retry.
 
+A stage whose submission was rejected or returned no `task_id` never became a task: nothing is queued, running, or billable for it. Never poll such a row with `beatra.tasks.get`. When a row stays empty or a retry outcome is unclear, reconcile first with `beatra.tasks.list`, then either drop the row or resubmit it with a NEW `client_request_id`. Poll only rows whose `task_id` came from a successful creation response.
+
 If a stage's create response is lost, retry only its identical frozen payload with its same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse a narration ID for video, reuse an ID after any argument changes, or replace a slow task with a duplicate.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.

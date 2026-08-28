@@ -29,6 +29,9 @@ visual specification anchored to the source product.
 
 ## Shape one product brief
 
+The hard input is a real product photo. Scene and lighting must not rewrite a
+confirmed color, accessory, or quantity.
+
 Reuse the user's product type, intended marketplace, background preference,
 and any style references. Ask only when a missing decision materially changes
 the result. For a standard marketplace main image, propose a clean white

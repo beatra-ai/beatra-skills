@@ -30,7 +30,7 @@ AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
 REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
 PACKAGE_SLUG = "suno-lyrics-to-song"
 PACKAGE_DISPLAY_NAME = "Suno Lyrics to Song"
-PACKAGE_VERSION = "0.1.7"
+PACKAGE_VERSION = "0.1.9"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

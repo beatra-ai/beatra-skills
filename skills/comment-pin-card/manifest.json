@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a finished video's comments into one pin comment still per original quote.",
+  "display_name": "Pin Comment Cards",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/comment-pin-card",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a finished video's comments into one pin comment still per original quote. This pinned comment card studio reads public comments or pasted lines, then makes a comment screenshot for each seller-picked quote. Use it for pin comment cards, video comment cards, and quote cards that keep the original words.",
+      "display_name": "Pin Comment Cards",
+      "summary": "Turn a finished video's comments into one pin comment still per original quote.",
+      "tags": [
+        "pin comment",
+        "pinned comment card",
+        "comment screenshot",
+        "quote card",
+        "video comment card",
+        "pin comment still"
+      ],
+      "title": "Pin Comment Cards: Screenshot Stills of Original Quotes"
+    },
+    "ja": {
+      "description": "公開の動画コメントや貼り付けた原文から、選んだ一文ごとに1枚の固定コメントを作ります。このコメントカードは、ピン留めコメント用のコメントスクショと引用カードを、動画コメントの原文のまま残します。",
+      "display_name": "固定コメント・コメントカード",
+      "summary": "公開の動画コメントから、選んだ一文ごとに1枚の固定コメントを作ります。",
+      "tags": [
+        "固定コメント",
+        "コメントカード",
+        "コメントスクショ",
+        "引用カード",
+        "動画コメント",
+        "ピン留めコメント"
+      ],
+      "title": "固定コメント・コメントカード：原文のスクショ"
+    },
+    "zh": {
+      "description": "置顶评论按卖家选定的原话，为每条可置顶评论做成一张置顶评论卡。这个置顶评论卡工作室把成片评论做成评论截图和评论卡片，只排卖家选定的置顶原话。",
+      "display_name": "置顶评论·置顶评论卡",
+      "summary": "把成片评论里卖家选定的原话，做成每条一张置顶评论卡。",
+      "tags": [
+        "置顶评论",
+        "置顶评论卡",
+        "评论截图",
+        "评论卡片",
+        "成片评论",
+        "置顶原话"
+      ],
+      "title": "置顶评论·置顶评论卡：成片原话截图卡"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "comment-pin-card",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

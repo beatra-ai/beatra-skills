@@ -1,0 +1,61 @@
+{
+  "changelog": "Instagram product video is one product detail video per product still after reading a competitor Reel.",
+  "display_name": "Instagram Product Videos",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/instagram-reel-to-pdp-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Instagram product video is one product detail video per product still after reading a competitor Reel. Use this Instagram PDP clip studio for a product page video and a Reel-to-PDP clip from the same still list.",
+      "display_name": "Instagram Product Videos",
+      "summary": "Instagram product video is one product detail video per product still after reading a competitor Reel.",
+      "tags": [
+        "Instagram product video",
+        "product detail video",
+        "PDP clip",
+        "product page video",
+        "Reel-to-PDP clip",
+        "Instagram PDP clip"
+      ],
+      "title": "Instagram Product Videos: One Still, One PDP Clip"
+    },
+    "ja": {
+      "description": "Instagram商品動画は、参考にしたリールの構図を読んだあと、商品写真ごとに1本の商品詳細動画を作ります。PDPクリップ、商品ページ動画、リール参考動画、商品紹介クリップを同じ写真一覧から出します。",
+      "display_name": "Instagram商品動画",
+      "summary": "参考にしたリールの構図を読んだあと、商品写真ごとに1本の商品詳細動画を作ります。",
+      "tags": [
+        "Instagram商品動画",
+        "商品詳細動画",
+        "PDPクリップ",
+        "商品ページ動画",
+        "リール参考動画",
+        "商品紹介クリップ"
+      ],
+      "title": "Instagram商品動画：写真ごとに商品詳細クリップ"
+    },
+    "zh": {
+      "description": "Instagram详情视频是按已经读过的对标Reel构图，给每张商品图做成一条详情一镜。详情一镜、商品详情视频、PDP短片、商品页短片和Reel转一镜都按同一套商品图出。",
+      "display_name": "Instagram详情视频·Reel转一镜",
+      "summary": "按已经读过的对标Reel构图，给每张商品图做成一条详情一镜。",
+      "tags": [
+        "Instagram详情视频",
+        "详情一镜",
+        "商品详情视频",
+        "PDP短片",
+        "Reel转一镜",
+        "商品页短片"
+      ],
+      "title": "Instagram详情视频·Reel转一镜：一张商品图一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "instagram-reel-to-pdp-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

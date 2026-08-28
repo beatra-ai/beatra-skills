@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set.",
+  "display_name": "YouTube Lesson Card Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/youtube-lesson-card-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set. This caption to knowledge-point studio reads public lesson captions, then lays out knowledge-point stills as a lesson card pack. Use it for lesson point cards and YouTube lesson caption cards.",
+      "display_name": "YouTube Lesson Card Set",
+      "summary": "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set.",
+      "tags": [
+        "YouTube lesson captions",
+        "caption to knowledge-point",
+        "knowledge-point stills",
+        "lesson card pack",
+        "lesson point cards",
+        "YouTube lesson caption cards"
+      ],
+      "title": "YouTube Lesson Caption Cards: Caption to Knowledge-Point Stills"
+    },
+    "ja": {
+      "description": "YouTube授業字幕は、公開されている授業字幕から4〜8枚のポイント図を作ります。この字幕からポイント図と授業ポイント図は、ポイントカードやポイント静画としても使えます。",
+      "display_name": "YouTube授業字幕·字幕からポイント図",
+      "summary": "公開されている授業字幕から4〜8枚のポイント図を作ります。",
+      "tags": [
+        "YouTube授業字幕",
+        "字幕からポイント図",
+        "授業ポイント図",
+        "ポイント静画",
+        "ポイントカード",
+        "授業字幕"
+      ],
+      "title": "YouTube授業字幕·字幕からポイント図：授業字幕をポイント静画にする"
+    },
+    "zh": {
+      "description": "YouTube课文字幕图按课文讲解字幕做成4到8张知识点图。这个字幕转知识点图把课文字幕图排成知识点卡。",
+      "display_name": "YouTube课文字幕图·字幕转知识点图",
+      "summary": "按课文讲解字幕做成4到8张知识点图。",
+      "tags": [
+        "YouTube课文字幕图",
+        "字幕转知识点图",
+        "课文字幕图",
+        "知识点图",
+        "知识点卡",
+        "课文讲解字幕"
+      ],
+      "title": "YouTube课文字幕图·字幕转知识点图：课文字幕做成知识点静帧"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "youtube-lesson-card-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

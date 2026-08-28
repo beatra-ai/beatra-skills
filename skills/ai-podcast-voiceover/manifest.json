@@ -1,5 +1,5 @@
 {
-  "changelog": "Lead the Simplified Chinese display name with the podcast-voiceover term and spell the AI podcast terms without an internal space.",
+  "changelog": "Keep a licensable music bed in this package behind its own confirmation card; lock show and audience first; write for the ear; listen to a sample before the episode card.",
   "display_name": "AI Podcast Voiceover",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
@@ -72,5 +72,5 @@
   },
   "name": "ai-podcast-voiceover",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.6"
 }

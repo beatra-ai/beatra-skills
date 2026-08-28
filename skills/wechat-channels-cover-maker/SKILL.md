@@ -23,7 +23,8 @@ existing-cover review, use `cover-performance-preflight`; for the video itself,
 use `beatra-ai-video-studio`.
 
 - **Create from the story:** use `beatra.images.generate` when the topic,
-  title, or script is sufficient and no image source must be preserved.
+  title, or script is confirmed and no image source must be preserved. Do not
+  enter this route on a style word alone.
 - **Compose from images:** upload an exported key frame, portrait, product, or
   ordered references and use `beatra.images.transform`. If the user has only a
   video, ask for one exported key frame or screenshot; this image route has no
@@ -35,19 +36,23 @@ use `beatra-ai-video-studio`.
 
 Reuse the video topic, title, opening hook, channel style, target viewer,
 portrait or product source, references, and must-keep details already in the
-conversation. Choose the canvas from the user-stated destination, source
-frame, or current publishing requirement. Prefer an explicit destination
-preset. If the user confirms a source-derived aspect for an image transform,
-its final ordered image anchors that aspect: put the intended canvas anchor
-last, disclose that role in the confirmation, and never assume the first focal
-source sets it. Propose a video-cover canvas only as a starting point; freeze
-the actual canvas before paid work.
+conversation. Without a key frame or photo, the topic or title is a hard
+input: do not invent one. Choose the canvas from the user-stated destination,
+source frame, or current publishing requirement. Prefer an explicit
+destination preset. Do not default to Xiaohongshu 3:4. If the user confirms a
+source-derived aspect for an image transform, its final ordered image anchors
+that aspect: put the intended canvas anchor last, disclose that role in the
+confirmation, and never assume the first focal source sets it. Propose a
+vertical video-cover canvas only as a starting point; freeze the actual canvas
+before paid work.
 
-Plan one clear focal subject, a small-size visual hook, readable hierarchy,
-and a title-safe area. Prefer title-safe space rather than promising exact
-rendered Chinese words or logos. If the user requires in-image text, freeze
-the exact short text and inspect it character by character only when it is
-actually visible.
+Plan one clear focal subject, a small-size visual hook, and readable
+hierarchy. When the user already wrote title copy, place it in the top or
+bottom third and keep it from filling the frame. Otherwise prefer title-safe
+space rather than promising exact rendered Chinese words or logos. If the user
+requires in-image text, freeze the exact short text and its third-of-frame
+placement and inspect it character by character only when it is actually
+visible.
 
 ## Confirm and create one paid request
 

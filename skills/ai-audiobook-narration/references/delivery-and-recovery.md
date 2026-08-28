@@ -8,6 +8,13 @@ that task with `beatra.tasks.get` until it reaches `succeeded`, `failed`, or
 `canceled`. A queued or running task remains the same paid operation and must
 not be replaced.
 
+A segment whose submission was rejected or returned no `task_id` never became a
+task: nothing is queued, running, or billable for it. Never poll such a row with
+`beatra.tasks.get`. When a ledger row stays empty or a retry outcome is unclear,
+reconcile first with `beatra.tasks.list`, then either drop the row or resubmit
+it with a NEW `client_request_id`. Poll only rows whose `task_id` came from a
+successful creation response.
+
 If the task ID was lost, call `beatra.tasks.list` with
 `capability: "text_to_speech"`. The default page is not the entire history, so
 follow `next_cursor` page by page until the relevant time window has been

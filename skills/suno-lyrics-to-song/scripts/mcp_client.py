@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "suno-lyrics-to-song"
 PACKAGE_DISPLAY_NAME = "Suno Lyrics to Song"
-PACKAGE_VERSION = "0.1.7"
+PACKAGE_VERSION = "0.1.9"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/suno-lyrics-to-song/install.json"

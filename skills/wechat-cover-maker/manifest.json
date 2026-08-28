@@ -1,5 +1,5 @@
 {
-  "changelog": "Simplified Chinese listing wording tidied up.",
+  "changelog": "Treat the article title as a hard input and route a Xiaohongshu 3:4 feed cover away.",
   "display_name": "WeChat Official Account Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-cover-maker",
@@ -77,5 +77,5 @@
   },
   "name": "wechat-cover-maker",
   "schema_version": 1,
-  "version": "0.1.9"
+  "version": "0.2.1"
 }

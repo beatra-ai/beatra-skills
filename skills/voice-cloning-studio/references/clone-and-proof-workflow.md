@@ -2,8 +2,17 @@
 
 ## Resolve the live model and price
 
-Read the available voice-clone card with `beatra.models.list`. Prefer
-`model: "auto"`. Under the current contract, automatic selection is not
+Read the available voice-clone card with `beatra.models.list`:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "voice_clone"}
+```
+
+Prefer `model: "auto"`. Under the current contract, automatic selection is not
 request-dependent and the omitted request has one declared default, so use
 that resolved model and its single current price. If a future live card makes
 selection request-dependent or leaves multiple candidates, show the honest

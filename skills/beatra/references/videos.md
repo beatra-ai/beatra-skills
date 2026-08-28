@@ -22,8 +22,19 @@ image belongs in `animate`, and a required strict last image belongs in `interpo
 After choosing the action, load [video controls](video-controls.md). Load
 [video recipes](video-recipes.md) when constructing the payload. Call
 `beatra.models.list` for the chosen capability before naming compatibility,
-duration, resolution, or a numeric estimate. Admit the complete payload against
-one current card. Write the shortest admitted integer duration unless the route
+duration, resolution, or a numeric estimate:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_video"}
+```
+
+Copy the matching value for the action just chosen from [models](models.md).
+Admit the complete payload against one current card. Write the shortest
+admitted integer duration unless the route
 is audio-led or an extend whose `duration` is the final returned length and
 must exceed the trusted source. Use the lowest admitted resolution unless the
 user named a higher tier.
@@ -39,7 +50,7 @@ concrete model. A concrete model is never silently replaced. Before
 `beatra.videos.extend`, show the admission card: route, tool, duration,
 resolution, aspect, provisional estimate, the fact that the 600-credit signup
 gift usually cannot start this video, the exact URL
-`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
 recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
 not create `client_request_id` or submit until the user confirms they have
 topped up or already have enough credits for this estimate. Any change to the

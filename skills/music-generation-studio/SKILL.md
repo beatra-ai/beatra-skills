@@ -13,6 +13,16 @@ reference-led new arrangement. Treat singer identity, pronunciation, exact
 duration, loop points, melody carryover, and mastering as qualities to review
 after generation rather than guaranteed properties.
 
+Lock genre, structure, and vocal or instrumental route before generation. A
+“surprise me” random song is not this package's default. Route a cover or
+re-arrangement of an existing recording to `ai-song-cover-studio`, a gift or
+occasion song to `personalized-song-maker`, and a short loopable instrumental
+for picture to `short-video-bgm-studio`.
+
+The hard inputs are a theme or lyrics plus the intended use. If purpose,
+genre, or vocal route is empty, gather them first; do not fill the gap with a
+default pop brief.
+
 Use the bundled `scripts/mcp_client.py` for every Beatra operation. Do not
 configure or use a host Beatra Connector. Never use REST/OpenAPI as a fallback.
 For ordinary calls, run
@@ -43,7 +53,9 @@ Before generation, prepare one compact production card:
 
 For instrumentals, omit lyrics and make room for dialogue or other functional
 needs in the creative direction. For vocal music, finish and show material lyric
-changes before generation. Lyrics writing, creative planning, model discovery,
+changes before generation. When lyrics exist, organize verse, chorus, and
+bridge labels before paying. Do not put BPM, key, or tempo numbers into the
+style caption. Lyrics writing, creative planning, model discovery,
 prompt preparation, and critique do not require a paid music call. See
 [intent and routing](references/intent-and-routing.md),
 [creative brief and style](references/creative-brief-and-style.md),
@@ -91,6 +103,12 @@ A direct, well-specified request to generate authorizes that exact request once.
 Approval of the complete production card also authorizes it once. Do not add a
 second confirmation. An estimate, comparison, lyric review, direction choice,
 or “do not generate yet” is not approval.
+
+Follow this golden path: lock structure and the dynamic arc, write an
+executable caption plus labelled lyrics, then confirm one paid request that
+produces a limited set of takes. After review, extend or replace only the
+strongest section; do not automatically regenerate or chain Extend on the
+whole song.
 
 Before a billable call, make model, title, lyrics or instrumental status,
 reference, important controls, and the one-generation scope visible. Create a

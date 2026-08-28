@@ -1,0 +1,70 @@
+{
+  "changelog": "Turn a founder or expert brief into a talking-head video with a stable look and voice.",
+  "display_name": "Founder IP Avatar Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/founder-ip-avatar-studio",
+  "icon": "https://beatra.ai/textures/icons/founder-ip-avatar-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn one authorized founder or expert portrait and a weekly script into a talking-head IP video in that person's likeness and voice. This founder avatar and digital avatar studio can clone that person's voice and produce a stable founder talking head clip for founder updates, expert explainers, and brand announcements. Use it for a digital human spokesperson, talking head founder series, expert avatar video, brand digital human, AI presenter, AI spokesperson video, and recurring presenter video.",
+      "display_name": "Founder IP Avatar Studio",
+      "summary": "Turn one authorized founder or expert portrait and a weekly script into a talking-head IP video in that person's likeness and voice.",
+      "tags": [
+        "founder avatar",
+        "digital human spokesperson",
+        "AI presenter",
+        "talking head founder",
+        "expert avatar video",
+        "brand digital human",
+        "founder talking head",
+        "AI spokesperson video",
+        "digital avatar studio",
+        "recurring presenter video"
+      ],
+      "title": "Founder IP Avatar Studio: Digital Human Founder Videos"
+    },
+    "ja": {
+      "description": "許可を得た創業者や専門家の肖像と週次原稿から、その人の声と姿のトーキングヘッド動画を作ります。この創業者アバター／創業者デジタルアバタースタジオは、その人の声をクローンし、更新原稿を読み、安定したAIプレゼンター映像にします。創業者アップデート、専門家動画、ブランドアバター、バーチャル司会のデジタルヒューマンに使えます。",
+      "display_name": "創業者デジタルアバター",
+      "summary": "許可を得た創業者や専門家の肖像と週次原稿から、その人の声と姿のトーキングヘッド動画を作ります。",
+      "tags": [
+        "デジタルヒューマン",
+        "創業者アバター",
+        "AIプレゼンター",
+        "トーキングヘッド",
+        "バーチャル司会",
+        "専門家動画",
+        "ブランドアバター"
+      ],
+      "title": "創業者デジタルアバター：デジタルヒューマン動画"
+    },
+    "zh": {
+      "description": "用一张授权人像和每周文稿，做成创始人或专家本人音色的数字人分身和数字人口播视频。这个创始人数字分身和数字人主播工作室可以先做声音克隆，再把更新稿配成旁白，最后做成稳定的口播视频，适合创始人更新、专家讲解和品牌公告，也就是专家数字人、品牌数字人、虚拟主播、AI主播和可复用的创始人出镜系列。",
+      "display_name": "数字人分身·创始人口播",
+      "summary": "用一张授权人像和每周文稿，做成创始人或专家本人音色的数字人口播视频。",
+      "tags": [
+        "创始人数字分身",
+        "数字人分身",
+        "数字人口播",
+        "数字人主播",
+        "AI主播",
+        "专家数字人",
+        "品牌数字人",
+        "口播视频",
+        "虚拟主播",
+        "创始人出镜"
+      ],
+      "title": "数字人分身·创始人口播：数字人口播与专家周更"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "founder-ip-avatar-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

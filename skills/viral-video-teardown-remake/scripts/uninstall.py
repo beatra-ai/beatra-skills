@@ -30,7 +30,7 @@ AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
 REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
 PACKAGE_SLUG = "viral-video-teardown-remake"
 PACKAGE_DISPLAY_NAME = "Viral Video Teardown Remake"
-PACKAGE_VERSION = "0.1.6"
+PACKAGE_VERSION = "0.1.9"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "zhongcao-cover-maker"
 PACKAGE_DISPLAY_NAME = "Zhongcao Cover Maker"
-PACKAGE_VERSION = "0.1.5"
+PACKAGE_VERSION = "0.1.7"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/zhongcao-cover-maker/install.json"

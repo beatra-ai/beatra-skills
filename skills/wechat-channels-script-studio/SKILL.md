@@ -27,7 +27,7 @@ Ask once, together, for the four things that change the script — the confirmed
 
 Reuse whatever the conversation already states about the account, the audience, the category, the offer, and the destination. When those are absent, choose from the product and name the choice in the delivery rather than asking.
 
-Default to a 45-second target, the structure selected in [structuring the script](references/script-structure.md), a product link attached and its beats placed, spoken narration in the account's own register, and no rendered media unless asked for. WeChat Channels distribution runs through the social graph, so the script is written to be worth passing on and not only worth finishing.
+Default to a 45-second target, the structure selected in [structuring the script](references/script-structure.md), a product link attached and its beats placed, spoken narration in the account's own register, and no rendered media unless asked for. Default to the opening segment carrying the hook rather than leading with a brand slogan. WeChat Channels distribution runs through the social graph, so the script is written to be worth passing on and not only worth finishing.
 
 **Everything the script asserts about the product comes from the user.** Price, specification, ingredients, results, certifications, timeframes, offer terms, and stock are theirs to supply. When one is missing, write the beat around it and say plainly which parts were written around a gap — never produce a plausible-looking figure, because they are the one who answers for it. The same rule governs any claim about a reference video's real performance: describe its structure from what is actually visible, and treat view, sales, or conversion numbers as the user's to state.
 

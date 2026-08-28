@@ -1,5 +1,5 @@
 {
-  "changelog": "Add an optional Xiaohongshu lookup. Before drafting, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the copy rests on the platform instead of on guesswork. Optional, priced per read, and confirmed separately; a run that skips it still delivers the full copy.",
+  "changelog": "Research first, lead with real experience, and put the hook in the first two lines.",
   "display_name": "Zhongcao Note Copywriter",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-note-copywriter",
@@ -75,5 +75,5 @@
   },
   "name": "zhongcao-note-copywriter",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.5"
 }

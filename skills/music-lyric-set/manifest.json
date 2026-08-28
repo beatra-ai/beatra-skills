@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied song lyrics into a four-to-eight still music lyric card set.",
+  "display_name": "Music Lyric Card Set",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/music-lyric-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied song lyrics into a four-to-eight still music lyric card set. This lyric-to-card studio lays out each named lyric section as its own still. Use it for music lyric card packs, lyric flashcards, and matching lyric card graphics.",
+      "display_name": "Music Lyric Card Set",
+      "summary": "Turn user-supplied song lyrics into a four-to-eight still music lyric card set.",
+      "tags": [
+        "music lyric card",
+        "music lyric card set",
+        "lyric flashcard",
+        "lyric card pack",
+        "lyric section card",
+        "song lyric cards"
+      ],
+      "title": "Music Lyric Card Set: Matching Lyric Stills"
+    },
+    "ja": {
+      "description": "手元の歌詞段落名と歌詞本文から、4〜8枚の歌詞カードセットを作ります。この歌詞カードセットは、歌詞カード図や歌詞フラッシュカード、音楽歌詞カードとしても使えます。",
+      "display_name": "歌詞カードセット",
+      "summary": "手元の歌詞段落名と歌詞本文から、4〜8枚の歌詞カードセットを作ります。",
+      "tags": [
+        "歌詞カード図",
+        "歌詞カードセット",
+        "歌詞フラッシュカード",
+        "音楽歌詞カード",
+        "歌詞図セット",
+        "歌詞カード"
+      ],
+      "title": "歌詞カードセット：段落ごとの図セット"
+    },
+    "zh": {
+      "description": "音乐歌词卡组按已经写好的歌词段落名称和歌词正文，做成一组歌词转卡组静帧。这个歌词卡组工作室把确认过的段落排成歌词套图和音乐歌词卡，一次给出歌词卡片。",
+      "display_name": "音乐歌词卡组·歌词转卡组",
+      "summary": "按已经写好的歌词段落名称和歌词正文，做成一组歌词转卡组静帧。",
+      "tags": [
+        "音乐歌词卡组",
+        "歌词转卡组",
+        "歌词卡组",
+        "歌词套图",
+        "音乐歌词卡",
+        "歌词卡片"
+      ],
+      "title": "音乐歌词卡组·歌词转卡组：按段落做成一套图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "music-lyric-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

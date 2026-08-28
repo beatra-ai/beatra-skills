@@ -11,11 +11,11 @@ Turn one real product photo plus the merchant's own product details into one ver
 
 The route is: a product photo, a short spoken script, and one finished clip. Three things have to be true together — the subject is a product rather than a person's face, the video should speak, and the deliverable is a video.
 
-When one of them is not true, another workflow fits better. A product image that should simply move without narration belongs in an image-to-motion workflow. A person or avatar presenting the product belongs in a talking-avatar workflow. A retouched product still with no video belongs in a product-photo workflow. Narration with no picture belongs in a voiceover workflow.
+When one of them is not true, another workflow fits better. A product image that should simply move without narration belongs in an image-to-motion workflow. A person or avatar presenting the product belongs in a talking-avatar workflow. A retouched product still with no video belongs in a product-photo workflow. Narration with no picture belongs in a voiceover workflow. Effect claims that lack a product fact or experience evidence stay at a draft and do not walk into a paid finished clip.
 
 ## Inputs and defaults
 
-The one hard input is a product photo the host Agent can inspect. Ask for it if it is missing; ask for nothing else up front.
+The hard inputs are a product photo the host Agent can inspect and a traceable source for each selling point. Ask for a missing hard input; ask for nothing else up front.
 
 Reuse whatever the conversation already states about the product, the destination, and the merchant's own claims. Default to a 9:16 vertical canvas, one clip, a script of about 12 seconds, and a narration voice matched to short social content. Name each default in the confirmation instead of asking about it.
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "Since the published version: songs, instrumentals, BGM and reference-led arrangements no longer fail partway through, and Suno exclusion tags stay within the supported 200-character limit.",
+  "changelog": "Lock genre, structure, and vocal route before generation; produce limited takes and do not chain Extend on the whole song.",
   "display_name": "Music Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/music-generation-studio",
@@ -75,5 +75,5 @@
   },
   "name": "music-generation-studio",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

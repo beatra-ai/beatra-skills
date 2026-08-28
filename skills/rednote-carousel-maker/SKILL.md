@@ -38,6 +38,15 @@ the set. Default to safe space for later overlay rather than guaranteeing
 rendered Chinese titles. If short in-image text is requested, freeze the exact
 copy in the confirmation and inspect it only when the result is visible.
 
+## Golden path
+
+Lock the note type and an ordered slide-by-slide outline first. Freeze the
+shared visual anchors — one subject, palette, lighting direction, and
+composition language, plus any approved reference image that keeps the series
+consistent — before any paid generation. Then generate the 3:4 cover and
+supporting slides in that approved order, reusing those same anchors on every
+slide.
+
 ## Verify sequence capability, then confirm one paid request
 
 Use only this Skill's bundled `scripts/mcp_client.py` for all remote Beatra

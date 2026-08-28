@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied public subsidy conditions and authorized stills into one housing subsidy talking clip per still.",
+  "display_name": "Housing Subsidy Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/housing-subsidy-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied public subsidy conditions and authorized stills into one housing subsidy talking clip per still. This public conditions talking video studio writes a speakable subsidy conditions talking clip for each photo, then animates a 2 to 15s public conditions talking clip. Use it for housing subsidy talking pack and subsidy talking video pack work that stays one photo, one clip.",
+      "display_name": "Housing Subsidy Talking Clips",
+      "summary": "Turn user-supplied public subsidy conditions and authorized stills into one housing subsidy talking clip per still.",
+      "tags": [
+        "housing subsidy talking clip",
+        "public conditions talking video",
+        "housing subsidy talking pack",
+        "subsidy conditions talking clip",
+        "public conditions talking clip",
+        "subsidy talking video pack"
+      ],
+      "title": "Housing Subsidy Talking Clips: One Still, One Public-Conditions Read"
+    },
+    "ja": {
+      "description": "住宅補助口播は、すでに書いた公開条件と許可済みの写真から、公開条件口播を1本ずつ渡します。住宅補助動画、補助条件読み上げは公開条件から口播として2〜15秒で1本ずつ作り、2〜8本の住宅補助口播パックとして渡します。",
+      "display_name": "住宅補助口播",
+      "summary": "すでに書いた公開条件と写真から、短い口播を1本ずつ作ります。",
+      "tags": [
+        "住宅補助口播",
+        "公開条件口播",
+        "住宅補助動画",
+        "補助条件読み上げ",
+        "公開条件から口播",
+        "住宅補助口播パック"
+      ],
+      "title": "住宅補助口播：公開条件を短い口播で渡す"
+    },
+    "zh": {
+      "description": "住房补贴口播按已经写好的公开条件，做成每张照片一条口播。公开条件口播、住房补贴视频、补贴条件朗读都按公开条件转口播来录，一次给出2到8条住房补贴口播包。",
+      "display_name": "住房补贴口播·公开条件转口播",
+      "summary": "按已经写好的公开条件，做成每张照片一条口播。",
+      "tags": [
+        "住房补贴口播",
+        "公开条件口播",
+        "住房补贴视频",
+        "补贴条件朗读",
+        "公开条件转口播",
+        "住房补贴口播包"
+      ],
+      "title": "住房补贴口播·公开条件转口播：按公开条件一条一口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "housing-subsidy-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

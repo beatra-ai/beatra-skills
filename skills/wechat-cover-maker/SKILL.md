@@ -12,7 +12,9 @@ the shortest route that completes the requested cover.
 ## Choose the route
 
 - **Create from an idea:** when no source image exists, get the article title or
-  topic, extract one visual hook, and use `beatra.images.generate`.
+  topic, extract one visual hook, and use `beatra.images.generate`. A Xiaohongshu
+  3:4 feed cover is a different job: route it to `rednote-cover-maker` or
+  `zhongcao-cover-maker`. Do not invent a headline to start generation.
 - **Compose from references:** with one to four logos, portraits, products, or
   brand images, preserve their declared order and use
   `beatra.images.transform`. A title or topic is needed only when it changes the
@@ -28,10 +30,11 @@ turning the brief into a visual specification.
 
 Reuse the user's article context, visual references, dimensions, title choice,
 and must-keep details. Ask only when a missing decision materially changes the
-result. For a standard WeChat article cover, propose `900 × 383` as the working
-canvas; otherwise prefer the user's stated dimensions or an accepted draft's
-existing ratio. Confirm a different destination only when it changes the
-composition.
+result. The article title or topic is a hard input: do not invent a viral
+headline and then generate. For a standard WeChat article cover, propose
+`900 × 383` as the working canvas and reserve a headline-safe area; otherwise
+prefer the user's stated dimensions or an accepted draft's existing ratio.
+Confirm a different destination only when it changes the composition.
 
 Build the brief around:
 

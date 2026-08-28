@@ -1,0 +1,64 @@
+{
+  "changelog": "Make one talking-head hiring video per open role from an authorized portrait and job brief.",
+  "display_name": "Hiring Avatar Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/hiring-avatar-studio",
+  "icon": "https://beatra.ai/textures/icons/hiring-avatar-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn one HR or founder portrait and a job brief into one talking-avatar hiring video per open role. This hiring avatar studio and recruitment avatar workflow can clone or pick a voice, then produce a hiring talking head clip that walks through the role, requirements, and next step. Use it for recruiting video, job posting video, job opening presenter clips, and a hiring video studio that keeps each new role on camera.",
+      "display_name": "Hiring Avatar Studio",
+      "summary": "Turn one HR or founder portrait and a job brief into one talking-avatar hiring video per open role.",
+      "tags": [
+        "hiring avatar",
+        "hiring avatar studio",
+        "recruitment avatar",
+        "hiring talking head",
+        "recruiting video",
+        "job posting video",
+        "job opening presenter",
+        "hiring video studio"
+      ],
+      "title": "Hiring Avatar Studio: One Talking-Head per Open Role"
+    },
+    "ja": {
+      "description": "人事または創業者の肖像と求人原稿から、空きポジションごとに1本の採用アバター動画を作ります。この採用アバタースタジオは声を用意し、職務、応募条件、次の一歩を話す採用口演にします。採用動画、求人動画、求人説明動画、採用デジタルヒューマン、ジョブオープニング動画に使えます。",
+      "display_name": "採用アバタースタジオ",
+      "summary": "人事または創業者の肖像と求人原稿から、空きポジションごとに1本の採用アバター動画を作ります。",
+      "tags": [
+        "採用アバター",
+        "採用アバタースタジオ",
+        "採用動画",
+        "求人動画",
+        "採用口演",
+        "求人説明動画",
+        "採用デジタルヒューマン"
+      ],
+      "title": "採用アバタースタジオ：空きポジション1本の口演"
+    },
+    "zh": {
+      "description": "用一张人事或创始人人像和岗位说明，做成每个空缺岗位一条招聘视频。这个岗位口播和招聘数字人工作室会把岗位职责、要求和发展讲清楚，适合招聘口播、岗位视频和招聘讲解，新岗位开口就能再做一条。",
+      "display_name": "招聘视频·岗位口播",
+      "summary": "用一张人事或创始人人像和岗位说明，做成每个空缺岗位一条口播视频。",
+      "tags": [
+        "招聘视频",
+        "岗位口播",
+        "招聘数字人",
+        "招聘口播",
+        "岗位视频",
+        "招聘讲解"
+      ],
+      "title": "招聘视频·岗位口播：招聘数字人与岗位视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "hiring-avatar-studio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

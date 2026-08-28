@@ -1,5 +1,5 @@
 {
-  "changelog": "Initial public release: AI Xiaohongshu (REDnote) cover and post image generator with vertical 3:4 canvas, category-aware styling, text-safe zones, photo transform, topic concept generation, and cover refinement for beauty, food, fashion, travel, and knowledge content.",
+  "changelog": "Require a confirmed topic before topic-only generation, and render a supplied headline in the top or bottom third instead of always leaving an empty overlay zone.",
   "display_name": "REDnote Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-cover-maker",
@@ -75,5 +75,5 @@
   },
   "name": "rednote-cover-maker",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

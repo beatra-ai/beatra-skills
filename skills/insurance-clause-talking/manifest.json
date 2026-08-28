@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied insurance policy clauses and authorized stills into one insurance clause talking clip per still.",
+  "display_name": "Insurance Clause Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/insurance-clause-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied insurance policy clauses and authorized stills into one insurance clause talking clip per still. This insurance clause talking video studio writes a speakable clause explanation talking clip for each photo, then animates a 2 to 15s insurance clause talking clip. Use it for insurance clause talking packs that stay one photo, one clip.",
+      "display_name": "Insurance Clause Talking Clips",
+      "summary": "Turn user-supplied insurance policy clauses and authorized stills into one insurance clause talking clip per still.",
+      "tags": [
+        "insurance clause talking clip",
+        "clause explanation talking clip",
+        "policy clause talking clip",
+        "insurance clause talking pack",
+        "insurance clause talking packs",
+        "insurance clause talking video"
+      ],
+      "title": "Insurance Clause Talking Clips: One Still, One Clause Read"
+    },
+    "ja": {
+      "description": "保険条項トークは、手元の保険条項と写真から、写真1枚ごとに短いクリップを渡します。条項から保険条項トークと条項読み上げ動画として、免責説明トークと保険条項案内動画を2〜15秒に仕上げます。",
+      "display_name": "保険条項トーク·条項からトーク",
+      "summary": "保険条項トークは、手元の保険条項と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "保険条項トーク",
+        "条項から保険条項トーク",
+        "条項読み上げ動画",
+        "免責説明トーク",
+        "保険条項トーク",
+        "保険条項案内動画"
+      ],
+      "title": "保険条項トーク·条項からトーク：写真1枚ごとに短いクリップ"
+    },
+    "zh": {
+      "description": "保险条款口播按顾问提供的保险条款和授权静帧，为每张图做成一条条款转口播。这个保险条款讲解口播和条款说明口播工作室把条款说明口播写成可说的稿，再做成2到15秒的保险条款短视频。",
+      "display_name": "保险条款口播·条款转口播",
+      "summary": "保险条款口播按顾问提供的保险条款和授权静帧，为每张图做成一条条款转口播。",
+      "tags": [
+        "保险条款口播",
+        "条款转口播",
+        "条款讲解口播",
+        "条款说明口播",
+        "保障范围口播",
+        "保险条款短视频"
+      ],
+      "title": "保险条款口播·条款转口播：一张静帧一条条款口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "insurance-clause-talking",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

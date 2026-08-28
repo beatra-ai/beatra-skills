@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo.",
+  "display_name": "Community Site One-Shot Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/community-site-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio makes a silent 2-15s site photo clip from each field still clip. Use it for community event clip sets that stay one photo one clip.",
+      "display_name": "Community Site One-Shot Clips",
+      "summary": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo.",
+      "tags": [
+        "community site clip",
+        "event site clip",
+        "site photo clip",
+        "community event clip",
+        "one photo one clip",
+        "field still clip"
+      ],
+      "title": "Community Site One-Shot Clips: One Photo, One Site Clip"
+    },
+    "ja": {
+      "description": "許可された地域イベント現場写真と、窓口が渡した情報から、写真1枚につき1本の現場ワンカットを作ります。1枚ごとに2〜15秒の現場クリップにし、地域イベント動画や現場写真クリップとして撮影順に渡します。1枚1本のままです。",
+      "display_name": "現場ワンカット",
+      "summary": "許可された地域イベント現場写真と、窓口が渡した情報から、写真1枚につき1本の現場ワンカットを作ります。",
+      "tags": [
+        "現場ワンカット",
+        "現場クリップ",
+        "地域イベント動画",
+        "現場写真クリップ",
+        "1枚1本",
+        "現場写真"
+      ],
+      "title": "現場ワンカット：写真1枚につき1本"
+    },
+    "zh": {
+      "description": "活动现场一镜按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。这个活动现场一镜工作室把社区活动短片和现场活动视频按拍摄顺序交付，做成现场动图。",
+      "display_name": "活动现场一镜·现场照转一镜",
+      "summary": "按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。",
+      "tags": [
+        "活动现场一镜",
+        "现场照转一镜",
+        "活动现场",
+        "社区活动短片",
+        "现场活动视频",
+        "现场动图"
+      ],
+      "title": "活动现场一镜·现场照转一镜：一照一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "community-site-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

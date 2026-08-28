@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn one public-education legal topic into a labeled digital-human still, a speakable explainer script, and one talking clip.",
+  "display_name": "Legal Explainer Clip",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/legal-explainer-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn one public-education legal topic into a labeled digital-human still, a speakable explainer script, and one talking clip. This Legal Explainer Clip studio writes lawyer explainer and public-education talking clips for firm marketing. Use it for a legal explainer video, legal explainer clips, lawyer explainer videos, and public-education talking-head shorts.",
+      "display_name": "Legal Explainer Clip",
+      "summary": "Turn one public-education legal topic into a labeled digital-human still, a speakable explainer script, and one talking clip.",
+      "tags": [
+        "Legal Explainer Clip",
+        "legal explainer clip",
+        "lawyer explainer",
+        "public-education talking clip",
+        "legal explainer video",
+        "lawyer explainer video"
+      ],
+      "title": "Legal Explainer Clip: Lawyer Public-Education Talking Clips"
+    },
+    "ja": {
+      "description": "法律解説ショートは、法律の一般向けテーマを、デジタルヒューマンの1枚と読み上げ原稿から1本の解説ショートにします。法律解説動画、リーガル解説、法律教育ショート、デジタルヒューマン解説、解説クリップに使えます。",
+      "display_name": "法律解説ショート",
+      "summary": "法律の一般向けテーマを、デジタルヒューマンの1枚と読み上げ原稿から1本の解説ショートにします。",
+      "tags": [
+        "法律解説ショート",
+        "法律解説動画",
+        "リーガル解説",
+        "法律教育ショート",
+        "デジタルヒューマン解説",
+        "解説クリップ"
+      ],
+      "title": "法律解説ショート：一般向けリーガル解説クリップ"
+    },
+    "zh": {
+      "description": "普法短片把一个普法主题做成带标注的数字人定妆图、可开口的普法稿，再做成一条普法口播短片。这个普法口播和律师科普口播工作室适合律所市场岗做普法短视频、律师科普、数字人口播和周更普法内容。",
+      "display_name": "普法短片·律师科普口播",
+      "summary": "把一个普法主题做成带标注的数字人定妆图、可开口的普法稿，再做成一条普法口播短片。",
+      "tags": [
+        "普法短片",
+        "律师科普",
+        "普法口播",
+        "律师科普口播",
+        "普法短视频",
+        "数字人口播"
+      ],
+      "title": "普法短片·律师科普口播：律所科普口播短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "legal-explainer-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Creator Drop Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/creator-drop-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a confirmed new-drop script and authorized stills into one drop talking clip per still. This product drop video studio writes a speakable launch talking clip and new-drop announcement for each photo, then animates a 2 to 15s talking teaser. Use it for creator drop videos and talking teasers that stay one photo, one clip.",
+      "display_name": "Creator Drop Talking Clips",
+      "summary": "Turn a confirmed new-drop script and authorized stills into one drop talking clip per still.",
+      "tags": [
+        "drop talking clip",
+        "product drop video",
+        "launch talking clip",
+        "new-drop announcement",
+        "creator drop video",
+        "talking teaser"
+      ],
+      "title": "Creator Drop Talking Clips: One Still, One Launch Teaser"
+    },
+    "ja": {
+      "description": "新作トーク動画は、手元の写真とすでに決まっている発売内容から、写真1枚ごとに短いクリップを渡します。発売予告トークと新作発表クリップとして、2〜15秒のトーク予告に仕上げ、クリエイター新作動画や発売告知動画にも使えます。",
+      "display_name": "新作トーク動画",
+      "summary": "手元の写真と、すでに決まっている発売内容から、短いトーク予告を1枚ずつ作ります。",
+      "tags": [
+        "新作トーク動画",
+        "発売予告トーク",
+        "新作発表クリップ",
+        "トーク予告",
+        "クリエイター新作動画",
+        "発売告知動画"
+      ],
+      "title": "新作トーク動画：短い発売告知を写真ごとに渡す"
+    },
+    "zh": {
+      "description": "上新口播视频按卖家确认的上新稿和授权静帧，为每张图做成一条预告口播。这个上新预告和上新口播工作室把新品口播写成可说的稿，再做成2到15秒的预告一条，也适合上新短视频。",
+      "display_name": "上新口播视频·预告一条",
+      "summary": "按确认过的上新稿和授权静帧，做成上新口播，每张照片一条。",
+      "tags": [
+        "上新口播视频",
+        "预告一条",
+        "上新预告",
+        "上新口播",
+        "新品口播",
+        "上新短视频"
+      ],
+      "title": "上新口播视频·预告一条：一张静帧一条上新口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "creator-drop-talking",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

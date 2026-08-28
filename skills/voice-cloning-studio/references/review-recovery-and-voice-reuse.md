@@ -9,10 +9,20 @@ delivery direction, then locate the saved voice with `beatra.voices.list`,
 `compatible_models`; do not select by display name alone.
 
 Read live text-to-speech cards with `beatra.models.list` and inspect every live
-candidate named by the voice's `compatible_models`. When the user supplies a
-target BCP-47 language, compare its primary language with each candidate's
-`constraints.supported_languages`, using only documented aliases. This is the
-text-to-speech model-card path; do not infer a top-level language field. Keep
+candidate named by the voice's `compatible_models`:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "text_to_speech"}
+```
+
+When the user supplies a target BCP-47 language, compare its primary language
+with each candidate's `constraints.supported_languages`, using only documented
+aliases. This is the text-to-speech model-card path; do not infer a top-level
+language field. Keep
 `model: "auto"` only when every live voice-compatible candidate supports that
 target language in `constraints.supported_languages`. If any candidate does
 not, select and freeze one live, voice-compatible, language-supported explicit

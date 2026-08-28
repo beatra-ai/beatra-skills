@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written census schedule into one census notice voice clip per labeled cue.",
+  "display_name": "Census Notice Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/census-notice-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written census schedule into one census notice voice clip per labeled cue. This census schedule voice studio records each census notice audio and arrangement voice from the list the office already wrote, then delivers 8 to 20 census notice voice pack files. Use it for census clip packs that keep one schedule item on each clip.",
+      "display_name": "Census Notice Voice Pack",
+      "summary": "Turn a written census schedule into one census notice voice clip per labeled cue.",
+      "tags": [
+        "census notice voice",
+        "census schedule voice",
+        "census notice audio",
+        "arrangement voice",
+        "census clip",
+        "census notice voice pack"
+      ],
+      "title": "Census Notice Voice: Schedule-to-Clip Reads"
+    },
+    "ja": {
+      "description": "手元の調査日程から、ラベル付きの調査通知ボイスを1件1本作ります。調査日程ボイスや調査通知音声、訪問通知ボイスも調査クリップとして録り、8〜20本の調査通知ボイスパックで渡します。",
+      "display_name": "調査通知ボイス",
+      "summary": "手元の調査日程から、ラベル付きの調査通知ボイスを1件1本作ります。",
+      "tags": [
+        "調査通知ボイス",
+        "調査日程ボイス",
+        "調査通知音声",
+        "訪問通知ボイス",
+        "調査クリップ",
+        "調査通知ボイスパック"
+      ],
+      "title": "調査通知ボイス：日程を1件1本で読む"
+    },
+    "zh": {
+      "description": "普查通知语音按已经写好的普查安排，做成每条安排转语音一条口播。普查安排语音、普查通知朗读、入户通知语音都按普查通知口播来录，一次给出8到20条普查语音包。",
+      "display_name": "普查通知语音·安排转语音",
+      "summary": "按已经写好的普查安排，做成每条安排转语音一条口播。",
+      "tags": [
+        "普查通知语音",
+        "安排转语音",
+        "普查安排语音",
+        "普查通知朗读",
+        "入户通知语音",
+        "普查语音包"
+      ],
+      "title": "普查通知语音·安排转语音：按普查安排一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "census-notice-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

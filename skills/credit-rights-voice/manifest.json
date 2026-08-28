@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a written credit-card benefits table into one credit-rights voice clip per labeled cue.",
+  "display_name": "Credit Rights Voice Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/credit-rights-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a written credit-card benefits table into one credit-rights voice clip per labeled cue. This benefits-table voice studio records each card-rights audio and rights-table voice from the list the desk already wrote, then delivers 8 to 20 credit-rights voice pack files. Use it for card-rights clip packs that keep one table item on each clip.",
+      "display_name": "Credit Rights Voice Pack",
+      "summary": "Turn a written credit-card benefits table into one credit-rights voice clip per labeled cue.",
+      "tags": [
+        "credit rights voice",
+        "benefits table voice",
+        "card rights audio",
+        "rights table voice",
+        "credit card clip",
+        "credit rights voice pack"
+      ],
+      "title": "Credit Rights Voice: Benefits-Table-to-Clip Reads"
+    },
+    "ja": {
+      "description": "手元のクレジットカード特典表から、ラベル付きのクレカ特典ボイスを1件1本作ります。特典表ボイスやクレカ特典音声、特典読み上げもクレカクリップとして録り、8〜20本のクレカ特典ボイスパックで渡します。",
+      "display_name": "クレカ特典ボイス",
+      "summary": "手元のクレジットカード特典表から、ラベル付きのクレカ特典ボイスを1件1本作ります。",
+      "tags": [
+        "クレカ特典ボイス",
+        "特典表ボイス",
+        "クレカ特典音声",
+        "特典読み上げ",
+        "クレカクリップ",
+        "クレカ特典ボイスパック"
+      ],
+      "title": "クレカ特典ボイス：特典表を1件1本で読む"
+    },
+    "zh": {
+      "description": "信用卡权益语音按已经写好的信用卡权益表，做成每条权益表转语音一条口播。权益表语音、信用卡权益朗读、权益口播都按信用卡权益口播来录，一次给出8到20条信用卡语音包。",
+      "display_name": "信用卡权益语音·权益表转语音",
+      "summary": "按已经写好的信用卡权益表，做成每条权益表转语音一条口播。",
+      "tags": [
+        "信用卡权益语音",
+        "权益表转语音",
+        "权益表语音",
+        "信用卡权益朗读",
+        "权益口播",
+        "信用卡语音包"
+      ],
+      "title": "信用卡权益语音·权益表转语音：按权益表一条一读"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "credit-rights-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

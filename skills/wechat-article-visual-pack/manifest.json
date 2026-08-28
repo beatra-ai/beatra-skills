@@ -1,5 +1,5 @@
 {
-  "changelog": "Launch the WeChat Official Account article visual-pack workflow.",
+  "changelog": "Pass the exact image type when checking whether a linked article sequence is available.",
   "display_name": "WeChat Article Visual Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-article-visual-pack",
@@ -65,5 +65,5 @@
   },
   "name": "wechat-article-visual-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }

@@ -13,8 +13,9 @@ take the shortest route to one publish-ready cover.
 
 ## Choose the route
 
-- **Generate from an idea:** turn a topic, hook, or script into a single cover
-  concept with `beatra.images.generate`.
+- **Generate from an idea:** turn a confirmed topic, hook, or script into a
+  single cover concept with `beatra.images.generate`. Do not enter this route
+  on a style word alone.
 - **Compose from an image:** upload a key-frame screenshot, product, portrait,
   or ordered visual references and use `beatra.images.transform`. A video file
   is not an image reference: when the user starts with a video, ask for one
@@ -30,16 +31,18 @@ to `product-video-studio`.
 
 Reuse the stated topic, hook, account style, target viewer, visual references,
 and must-keep details. Ask only when a missing choice would materially change
-the result. Choose the canvas from the user's current publishing surface or an
-explicit source-frame requirement; for a vertical-video request without one,
-ask the user to confirm the target canvas and freeze it in the paid-call
-confirmation.
+the result. Without a photo or key frame, the topic or hook is a hard input:
+do not invent one, and do not pay on a style word alone. For a Douyin feed
+cover with no stated canvas, default to vertical 9:16. Do not reuse a
+Xiaohongshu 3:4 default.
 
 Build around one visual hook, one focal subject visible at phone size, one
-style direction, a text-safe area, and any ordered image roles. Default to a
-text-safe area rather than promising rendered Chinese typography. If the user
-requests in-image words, include the exact short text in the confirmation and
-verify it only when the result is visible.
+style direction, and any ordered image roles. When the user already wrote
+title copy, place it in the top or bottom third and keep it from filling the
+frame. Otherwise default to a text-safe area rather than promising rendered
+Chinese typography. If the user requests in-image words, include the exact
+short text and its third-of-frame placement in the confirmation and verify it
+only when the result is visible.
 
 ## Prepare and confirm one paid request
 

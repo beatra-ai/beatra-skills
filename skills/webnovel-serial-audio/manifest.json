@@ -1,0 +1,63 @@
+{
+  "changelog": "Record the current webnovel chapter in one narrator voice, then continue later chapters.",
+  "display_name": "Webnovel Serial Audio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/webnovel-serial-audio",
+  "icon": "https://beatra.ai/textures/icons/webnovel-serial-audio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a serialized web novel into chapter-by-chapter webnovel audiobook audio with one consistent narrator. This serialized webnovel audio studio and web novel narration shop records the current chapter first, then continues later chapters in the same voice so listeners can follow a serial novel TTS library as new chapters land. Use it for chapter audiobook production, webnovel chapter audio, serial fiction narration, and ongoing web novel listening.",
+      "display_name": "Webnovel Serial Audio",
+      "summary": "Turn a serialized web novel into chapter-by-chapter webnovel audiobook audio with one consistent narrator.",
+      "tags": [
+        "webnovel audiobook",
+        "serialized webnovel audio",
+        "web novel narration",
+        "serial novel TTS",
+        "chapter audiobook",
+        "webnovel chapter audio",
+        "serial fiction narration",
+        "web novel listening"
+      ],
+      "title": "Webnovel Serial Audio: Chapter-by-Chapter Listening"
+    },
+    "ja": {
+      "description": "連載ウェブ小説を、同じ語り手で章ごとに続けられるウェブ小説朗読にします。この連載小説オーディオとウェブ小説オーディオブックの制作では、まず今回の章を録り、連載小説読み上げとして次の章も同じ声で続けます。小説読み上げ、連載ウェブ小説の聴取、章ごとの朗読に使えます。",
+      "display_name": "連載ウェブ小説オーディオ",
+      "summary": "連載ウェブ小説を、同じ語り手で章ごとに続けられるオーディオにします。",
+      "tags": [
+        "ウェブ小説朗読",
+        "連載小説オーディオ",
+        "ウェブ小説オーディオブック",
+        "連載小説読み上げ",
+        "小説読み上げ",
+        "連載ウェブ小説"
+      ],
+      "title": "連載ウェブ小説オーディオ：章ごとに聞き続けられる朗読"
+    },
+    "zh": {
+      "description": "把连载网文按章做成可继续更新的网文有声。这个连载听书和有声网文工作室会固定一把叙事声音，先交出当前章的章节有声，再按同一把声音继续后面的连载有声。适用于网文配音、连载小说听书、网文章节朗读和连载听书更新。",
+      "display_name": "网文有声·连载听书",
+      "summary": "把连载网文按章做成可继续更新的网文有声，同一把叙事声音先听本章再录后面。",
+      "tags": [
+        "网文有声",
+        "连载听书",
+        "有声网文",
+        "网文配音",
+        "章节有声",
+        "连载有声"
+      ],
+      "title": "网文有声·连载听书：按章继续的有声网文"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "webnovel-serial-audio",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

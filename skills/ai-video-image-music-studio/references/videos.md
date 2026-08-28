@@ -39,7 +39,7 @@ concrete model. A concrete model is never silently replaced. Before
 `beatra.videos.extend`, show the admission card: route, tool, duration,
 resolution, aspect, provisional estimate, the fact that the 600-credit signup
 gift usually cannot start this video, the exact URL
-`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
+`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
 recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
 not create `client_request_id` or submit until the user confirms they have
 topped up or already have enough credits for this estimate. Any change to the

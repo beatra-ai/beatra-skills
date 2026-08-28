@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a user-supplied fund dividend announcement and authorized stills into one fund dividend talking clip per still.",
+  "display_name": "Fund Dividend Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/fund-dividend-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied fund dividend announcement and authorized stills into one fund dividend talking clip per still. This fund dividend talking video studio writes a speakable account-arrival talking clip for each photo, then animates a 2 to 15s dividend announcement talking clip. Use it for fund dividend talking packs that stay one photo, one clip.",
+      "display_name": "Fund Dividend Talking Clips",
+      "summary": "Turn a user-supplied fund dividend announcement and authorized stills into one fund dividend talking clip per still.",
+      "tags": [
+        "fund dividend talking clip",
+        "dividend announcement talking clip",
+        "account arrival talking clip",
+        "fund dividend talking pack",
+        "payment arrival talking clip",
+        "dividend announcement talking video"
+      ],
+      "title": "Fund Dividend Talking Clips: One Still, One Announcement Read"
+    },
+    "ja": {
+      "description": "分配金公告トークは、手元の分配金公告と写真から、写真1枚ごとに短いクリップを渡します。公告から分配金トークと分配金読み上げ動画として、入金案内トークと分配金案内動画を2〜15秒に仕上げます。",
+      "display_name": "分配金公告トーク",
+      "summary": "分配金公告トークは、手元の分配金公告と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "分配金公告トーク",
+        "公告から分配金トーク",
+        "分配金読み上げ動画",
+        "入金案内トーク",
+        "分配金トーク",
+        "分配金案内動画"
+      ],
+      "title": "分配金公告トーク：公告から写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "基金分红口播按顾问提供的分红公告和授权静帧，为每张图做成一条公告转口播。这个分红公告口播和到账说明口播工作室把分红到账口播写成可说的稿，再做成2到15秒的基金分红短视频。",
+      "display_name": "基金分红口播·公告转口播",
+      "summary": "基金分红口播按顾问提供的分红公告和授权静帧，为每张图做成一条公告转口播。",
+      "tags": [
+        "基金分红口播",
+        "公告转口播",
+        "分红公告口播",
+        "到账说明口播",
+        "分红到账口播",
+        "基金分红短视频"
+      ],
+      "title": "基金分红口播·公告转口播：一张静帧一条分红口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "fund-dividend-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

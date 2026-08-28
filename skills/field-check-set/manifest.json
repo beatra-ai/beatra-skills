@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn user-supplied on-site inspection check item names and check points into a four-to-eight still field check set.",
+  "display_name": "Field Check Pack",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/field-check-set",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn user-supplied on-site inspection check item names and check points into a four-to-eight still field check set. This check-item-to-still studio lays out each named inspection item as its own on-site check still. Use it for field check still packs, inspection checklist graphics, and matching on-site inspection still sets.",
+      "display_name": "Field Check Pack",
+      "summary": "Turn user-supplied on-site inspection check item names and check points into a four-to-eight still field check set.",
+      "tags": [
+        "field check set",
+        "on-site inspection stills",
+        "inspection checklist graphics",
+        "field check still pack",
+        "inspection item stills",
+        "on-site check graphics"
+      ],
+      "title": "Field Check Pack: Matching Inspection Stills"
+    },
+    "ja": {
+      "description": "手元の現場検査項目名と検査要点から、4〜8枚の現場検査図セットを作ります。この検査項目セットは、現場検査図や検査項目図セット、訪問検査図としても使えます。",
+      "display_name": "現場検査図セット",
+      "summary": "手元の現場検査項目名と検査要点から、4〜8枚の現場検査図セットを作ります。",
+      "tags": [
+        "現場検査図セット",
+        "検査項目図",
+        "訪問検査図",
+        "検査項目図セット",
+        "現場検査図",
+        "検査チェック図"
+      ],
+      "title": "現場検査図セット：検査項目ごとの図セット"
+    },
+    "zh": {
+      "description": "上门检查图组按已经写好的上门检查项名称和检查要点，做成一组检查项转图组静帧。这个上门检查工作室把确认过的检查项排成现场检查图组和上门检查套图，一次给出检查项图组。",
+      "display_name": "上门检查图组·检查项转图组",
+      "summary": "按已经写好的上门检查项名称和检查要点，做成一组检查项转图组静帧。",
+      "tags": [
+        "上门检查图组",
+        "检查项转图组",
+        "现场检查图组",
+        "上门检查套图",
+        "检查项图组",
+        "上门检查静帧"
+      ],
+      "title": "上门检查图组·检查项转图组：按检查项做成一套图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "field-check-set",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

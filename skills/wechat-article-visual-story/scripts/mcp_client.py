@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "wechat-article-visual-story"
 PACKAGE_DISPLAY_NAME = "WeChat Article Visual Story"
-PACKAGE_VERSION = "0.1.3"
+PACKAGE_VERSION = "0.1.5"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/wechat-article-visual-story/install.json"

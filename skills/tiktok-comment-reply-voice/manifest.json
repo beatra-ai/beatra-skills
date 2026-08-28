@@ -1,0 +1,57 @@
+{
+  "changelog": "Turn public TikTok comments into one spoken reply clip per written line.",
+  "display_name": "TikTok Comment Reply Voice",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/tiktok-comment-reply-voice",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn public TikTok comments into one spoken reply clip per written line. This TikTok comment reply voice studio reads the comments on a finished post, then records each TikTok comment reply from the reply lines you already wrote. Operators use it when they need TikTok comment replies as a comment reply voice pack, or spoken comment replies they can import one file at a time.",
+      "display_name": "TikTok Comment Reply Voice",
+      "summary": "Turn public TikTok comments into one spoken reply clip per written line.",
+      "tags": [
+        "spoken reply clip",
+        "TikTok comment reply",
+        "comment reply voice",
+        "TikTok comment replies",
+        "comment reply voice pack",
+        "spoken comment replies"
+      ],
+      "title": "TikTok Comment Reply Voice: One Spoken Reply Per Line"
+    },
+    "ja": {
+      "description": "公開中のTikTokコメントから、書いた返信を1本ずつ読み上げます。完成した投稿のコメントを読んだあと、すでに書いた返信文でコメント返信音声を渡します。TikTokコメント返信の現場でも、コメント返信の読み上げは同じ書いた返信のままです。",
+      "display_name": "TikTokコメント返信",
+      "summary": "公開中のTikTokコメントから、書いた返信を1本ずつ読み上げます。",
+      "tags": [
+        "TikTokコメント返信",
+        "コメント返信音声",
+        "コメント返信の読み上げ",
+        "書いた返信"
+      ],
+      "title": "TikTokコメント返信：返事1つにつき1本"
+    },
+    "zh": {
+      "description": "TikTok评论回复把成片评论做成一组可导入的回复口播。运营把已经写好的回复录成 TikTok评论口播包，每条评论口播单独成文件。",
+      "display_name": "TikTok评论回复·TikTok评论口播包",
+      "summary": "TikTok评论回复把成片评论做成一组可导入的回复口播。",
+      "tags": [
+        "TikTok评论回复",
+        "TikTok评论口播包",
+        "回复口播",
+        "评论口播"
+      ],
+      "title": "TikTok评论回复：一条回复一条口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "tiktok-comment-reply-voice",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

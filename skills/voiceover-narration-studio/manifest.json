@@ -1,5 +1,5 @@
 {
-  "changelog": "Correct the voice-casting synthesis-control pitch range to the live normalized -1..1 scale (0 keeps the original pitch).",
+  "changelog": "Lock the medium first and require consent before imitating a voice.",
   "display_name": "Voiceover & Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
@@ -80,5 +80,5 @@
   },
   "name": "voiceover-narration-studio",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.7"
 }

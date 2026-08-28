@@ -1,5 +1,5 @@
 {
-  "changelog": "Add an optional Xiaohongshu lookup. Before building the slides, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the opening hook and slide order rest on the platform instead of on guesswork. Optional, priced per read, and confirmed separately; a run that skips it still delivers.",
+  "changelog": "Lock the note type and slide-order outline first, then generate while reusing the same approved visual anchors. Do not add extra paid calls just to produce another style set.",
   "display_name": "Zhongcao Carousel Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-carousel-maker",
@@ -73,5 +73,5 @@
   },
   "name": "zhongcao-carousel-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

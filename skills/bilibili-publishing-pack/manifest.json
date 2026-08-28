@@ -1,5 +1,5 @@
 {
-  "changelog": "Render one landscape Bilibili thumbnail from the chosen title and thumbnail brief.",
+  "changelog": "Deliver title, description, tags, pinned comment, and chapters in one complete pack.",
   "display_name": "Bilibili Publishing Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-publishing-pack",
@@ -63,5 +63,5 @@
   },
   "name": "bilibili-publishing-pack",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.4"
 }

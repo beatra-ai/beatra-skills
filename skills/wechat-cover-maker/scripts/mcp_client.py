@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "wechat-cover-maker"
 PACKAGE_DISPLAY_NAME = "WeChat Official Account Cover Maker"
-PACKAGE_VERSION = "0.1.9"
+PACKAGE_VERSION = "0.2.1"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/wechat-cover-maker/install.json"

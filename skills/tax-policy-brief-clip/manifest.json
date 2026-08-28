@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn a dated tax-policy source into a policy-points still and a speakable brief, then into one short tax policy brief clip.",
+  "display_name": "Tax Policy Brief Clip",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/tax-policy-brief-clip",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a dated tax-policy source into a policy-points still and a speakable brief, then into one short tax policy brief clip. This tax policy brief clip studio lays out the supplied fiscal-policy points as a policy-points still and a talking tax-advisor brief. Use it for bookkeeping-firm policy briefs, tax-advisor client updates, and monthly tax-policy readout clips.",
+      "display_name": "Tax Policy Brief Clip",
+      "summary": "Turn a dated tax-policy source into a policy-points still and a speakable brief, then into one short tax policy brief clip.",
+      "tags": [
+        "tax policy brief clip",
+        "policy-points still",
+        "fiscal-policy points",
+        "tax-advisor brief",
+        "bookkeeping-firm policy brief",
+        "tax-policy readout clip"
+      ],
+      "title": "Tax Policy Brief Clip: Policy-Points Still to Brief"
+    },
+    "ja": {
+      "description": "税務政策ブリーフ映像は、手元の税務政策を1枚の政策ポイント図と読み上げ用ブリーフにし、短い映像にします。記帳事務所や税理士向け映像として、顧客に渡す税務政策ブリーフ映像と税務ブリーフ、政策ポイント図に使えます。",
+      "display_name": "税務政策ブリーフ映像",
+      "summary": "手元の税務政策を1枚の政策ポイント図と読み上げ用ブリーフにし、短い映像にします。",
+      "tags": [
+        "税務政策ブリーフ映像",
+        "税務政策",
+        "政策ポイント図",
+        "税務ブリーフ",
+        "記帳事務所",
+        "税理士向け映像"
+      ],
+      "title": "税務政策ブリーフ映像・税務要点：政策ポイント図から短い映像"
+    },
+    "zh": {
+      "description": "政策解读短片按已有政策原文做成一张政策要点图和一段可跟读的财税政策口播，再做成一条政策解读短片。这个财税要点工作室适合发给客户的代理记账政策更新。",
+      "display_name": "政策解读短片·财税要点",
+      "summary": "按已有政策原文做成一张政策要点图和一段可跟读的财税政策口播，再做成一条政策解读短片。",
+      "tags": [
+        "政策解读短片",
+        "财税政策",
+        "政策要点图",
+        "财税要点",
+        "财税政策口播",
+        "代理记账政策更新"
+      ],
+      "title": "政策解读短片·财税要点：政策要点图成片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "tax-policy-brief-clip",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

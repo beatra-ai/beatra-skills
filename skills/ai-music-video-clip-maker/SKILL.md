@@ -9,14 +9,14 @@ Create a short visual clip guided by a song's mood, rhythm, and visual concept. 
 
 ## Scope and adjacent routes
 
-The normal route is one accessible music excerpt and one visual direction that becomes one short concept clip. Route a portrait-plus-singing-audio request to a photo-singing workflow; a story-to-lyrics-to-song request to a personalized-song workflow; a reference-song reinterpretation to a song-cover workflow; and a broad non-music video request to a general video studio. Keep this route focused on finished music becoming a short visual clip.
+The song is the fixed spine: the clip exists to amplify its structure, artist identity, lyrics, and release goal. If rights are not cleared, stay at planning or an internal sample and do not treat the result as a publishable official music video. Route a portrait-plus-singing-audio request to a photo-singing workflow; a story-to-lyrics-to-song request to a personalized-song workflow; a reference-song reinterpretation to a song-cover workflow; and a broad non-music video request to a general video studio. Keep this route focused on finished music becoming a short visual clip. Do not generate a song from a theme in this package.
 
 ## Inputs and defaults
 
 The hard inputs are:
 
-- one accessible short music excerpt whose real duration fits a supported video duration;
-- one visual direction: mood, motif, subject, palette, camera, and movement.
+- one finished song or accessible excerpt whose real duration can be cut to a supported video duration;
+- one main route: performance, narrative, lyric-led, or visualization.
 
 Ask only for a missing hard input. Reuse the known genre, energy, opening image, and aspect ratio. A cover or opening still is not a hard input. When the visual direction exists and no usable cover or opening still is present, generate one cover or keyframe with `beatra.images.generate` as its own paid stage. For a local audio or image file the host Agent can access, use the bundled upload helper only after inspection:
 
@@ -27,7 +27,7 @@ python3 scripts/mcp_client.py upload ./cover-art.png --mime-type image/png
 
 Upload is transport, not creative review. Retain the returned artifact reference and never pass a local path to a remote tool.
 
-Default to one short clip, `model: "auto"`, and a source-appropriate aspect ratio. Build a compact audio-visual map before any paid call: hook or energy, dominant mood, pulse, visual motif, subject, movement, palette, camera, opening image, and landing image. Route by visual control:
+Default to cutting the chorus or strongest 20–30 seconds rather than forcing the whole song into one clip. Keep `model: "auto"` and a source-appropriate aspect ratio. Build a compact audio-visual map before any paid call: hook or energy, dominant mood, pulse, visual motif, subject, movement, palette, camera, opening image, and landing image. Write the beat, phrase, or climax cut into the paid card. Route by visual control:
 
 - text plus compatible driving audio → `beatra.videos.generate`;
 - strict approved cover art or portrait opening → `beatra.videos.animate` with driving audio;

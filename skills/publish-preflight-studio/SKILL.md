@@ -9,7 +9,7 @@ Read a post the way a reviewer will, the way its audience will, and the way the 
 
 ## Scope and adjacent routes
 
-The route is: copy in, three reads, corrected copy out, and a cover rendered from the corrected wording. It fits when something is written and about to be published.
+The route is: copy in, three reads, corrected copy out, and a cover rendered from the corrected wording. It fits when something is written and about to be published. Confirm the platform first. The scan exists so the post can go out, not so it becomes official-sounding, and it does not teach review-evasion.
 
 When the starting point is different, another workflow fits better. An existing cover image to diagnose and improve belongs in a cover-performance workflow. Copy that has not been written yet belongs in the workflow for that format — a seeding video, a note, an article. A finished script that needs a voice belongs in a voiceover workflow.
 
@@ -25,7 +25,7 @@ Run the compliance read first and return it fast. It is the one with a deadline 
 
 ## Golden path
 
-Stages 1 to 4 cost nothing. The only paid work here is rendering a cover.
+Stages 1 to 4 cost nothing. The only paid work here is rendering a cover. Give each platform a verdict — publishable, publishable after edits, or do not publish — plus a replacement draft that cites the original locations. If the copy changed, then offer cover-structure candidates. If the copy is clean, say it is clean.
 
 1. **Compliance read.** Screen every line against the restrictions in [screening the copy](references/compliance-screen.md). For each flagged phrase, give the phrase, why it is flagged, and a replacement that keeps the selling intent. A flag without a replacement is half a finding.
 2. **Audience read.** Build reader profiles from the copy's evident audience and read the post back through each, per [reading it as the audience](references/audience-read.md). Name the exact line that loses each profile, not a general impression.

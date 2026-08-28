@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn YouTube insurance captions into one talking insurance clip per still.",
+  "display_name": "YouTube Insurance Caption Talking",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/youtube-insure-caption-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn YouTube insurance captions into one talking insurance clip per still. This YouTube insurance caption studio reads public captions, then records each already-written clause line as a 2 to 15s talking clip. Those insurance talking clips stay separate files they can send on their own.",
+      "display_name": "YouTube Insurance Caption Talking",
+      "summary": "Turn YouTube insurance captions into one talking insurance clip per still.",
+      "tags": [
+        "YouTube insurance captions",
+        "talking insurance clip",
+        "YouTube insurance caption",
+        "public captions",
+        "insurance talking clips",
+        "talking clip"
+      ],
+      "title": "YouTube Insurance Caption Talking: One Still, One Clause Read"
+    },
+    "ja": {
+      "description": "YouTube保険字幕は、公開字幕から保険トーク動画を一式作ります。手元の約款メモを字幕からトーク動画にし、各クリップは別ファイルのまま渡します。",
+      "display_name": "YouTube保険字幕",
+      "summary": "YouTube保険字幕は、公開字幕から保険トーク動画を一式作ります。",
+      "tags": [
+        "YouTube保険字幕",
+        "保険トーク動画",
+        "公開字幕",
+        "約款メモ",
+        "字幕からトーク動画",
+        "別ファイル"
+      ],
+      "title": "YouTube保険字幕：字幕ごとに1本"
+    },
+    "zh": {
+      "description": "YouTube保险字幕把公开字幕做成一组保险口播。顾问按已经写好的条款稿做成字幕转口播，每条单独成片。",
+      "display_name": "YouTube保险字幕·字幕转口播",
+      "summary": "YouTube保险字幕把公开字幕做成一组保险口播。",
+      "tags": [
+        "YouTube保险字幕",
+        "字幕转口播",
+        "保险口播",
+        "公开字幕",
+        "条款稿",
+        "单独成片"
+      ],
+      "title": "YouTube保险字幕·字幕转口播：每条字幕一条保险口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "youtube-insure-caption-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

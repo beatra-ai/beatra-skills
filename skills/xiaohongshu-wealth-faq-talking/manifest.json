@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn Xiaohongshu wealth FAQ notes into one talking FAQ clip per still.",
+  "display_name": "Xiaohongshu Wealth FAQ Talking",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/xiaohongshu-wealth-faq-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn Xiaohongshu wealth FAQ notes into one talking FAQ clip per still. This Xiaohongshu wealth FAQ studio reads public note questions, then records each already-written product answer as a 2 to 15s talking clip. Those wealth FAQ talking clips stay separate files they can send on their own.",
+      "display_name": "Xiaohongshu Wealth FAQ Talking",
+      "summary": "Turn Xiaohongshu wealth FAQ notes into one talking FAQ clip per still.",
+      "tags": [
+        "Xiaohongshu wealth FAQ",
+        "talking FAQ clip",
+        "Xiaohongshu wealth FAQ studio",
+        "public note questions",
+        "already-written product answer",
+        "wealth FAQ talking clips"
+      ],
+      "title": "Xiaohongshu Wealth FAQ Talking: One Still, One Answered Question"
+    },
+    "ja": {
+      "description": "小紅書資産運用FAQは、公開ノートの聞き方からよくある質問トークを一式作ります。手元の商品説明をノートの聞き方からトーク動画にし、各クリップは別ファイルのまま渡します。",
+      "display_name": "小紅書資産運用FAQ",
+      "summary": "小紅書資産運用FAQは、公開ノートの聞き方からよくある質問トークを一式作ります。",
+      "tags": [
+        "小紅書資産運用FAQ",
+        "よくある質問トーク",
+        "公開ノートの聞き方",
+        "商品説明",
+        "ノートの聞き方からトーク動画",
+        "別ファイル"
+      ],
+      "title": "小紅書資産運用FAQ：聞き方ごとに1本"
+    },
+    "zh": {
+      "description": "小红书理财问答把公开笔记问法做成一组答疑口播。顾问按已经写好的产品稿做成笔记问法转口播，每条单独成片。",
+      "display_name": "小红书理财问答·笔记问法转口播",
+      "summary": "小红书理财问答把公开笔记问法做成一组答疑口播。",
+      "tags": [
+        "小红书理财问答",
+        "笔记问法转口播",
+        "答疑口播",
+        "公开笔记问法",
+        "产品稿",
+        "单独成片"
+      ],
+      "title": "小红书理财问答·笔记问法转口播：每条问法一条答疑口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "xiaohongshu-wealth-faq-talking",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

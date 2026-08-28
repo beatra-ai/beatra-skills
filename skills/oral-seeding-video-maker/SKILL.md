@@ -21,7 +21,7 @@ Reuse whatever the conversation already states about the audience, the goal, the
 
 Default to a 9:16 vertical canvas, a 12-second target, the script pattern selected in [choosing the pattern](references/script-patterns.md), an opening frame plus any beats the user marks, and a narration voice matched to short social content. Music is off unless asked for. Default to writing the first 3 seconds as the hook — the reason to keep watching — rather than opening with a self-introduction.
 
-Two facts shape every decision. **The finished clip runs at most 15 seconds**, and only the opening frame is animated into it — the other marked frames are delivered as stills for the user's own edit.
+Two facts shape every decision. **The clip runs 12 seconds by default and 15 at the most — this route's own bound, which the selected live model card must also support**, and only the opening frame is animated into it — the other marked frames are delivered as stills for the user's own edit.
 
 Claims split by source. What the subject is, who it is for, and how it is used are yours to write. Prices, specifications, ingredients, results, timeframes, certifications, and promotional terms come from the user. When those are missing, write the beat around them; never produce a plausible figure, because the user is the one who answers for it.
 

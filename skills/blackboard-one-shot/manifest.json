@@ -1,0 +1,61 @@
+{
+  "changelog": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo.",
+  "display_name": "Blackboard One-Shot Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/blackboard-one-shot",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo. This one-shot blackboard studio makes a silent 2-15s blackboard clip from each board photo clip. Use it for classroom blackboard video and lesson-board clip sets that stay one photo one clip.",
+      "display_name": "Blackboard One-Shot Clips",
+      "summary": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo.",
+      "tags": [
+        "blackboard one-shot",
+        "blackboard clip",
+        "classroom blackboard video",
+        "lesson-board clip",
+        "one photo one clip",
+        "board photo clip"
+      ],
+      "title": "Blackboard One-Shot Clips: One Photo, One Board Clip"
+    },
+    "ja": {
+      "description": "許可された黒板写真と、教師が渡した情報から、写真1枚につき1本の黒板ワンカットを作ります。1枚ごとに2〜15秒の黒板クリップにし、授業黒板動画や板書クリップ、黒板写真クリップとして撮影順に渡します。1枚1本のままです。",
+      "display_name": "黒板ワンカット",
+      "summary": "許可された黒板写真と、教師が渡した情報から、写真1枚につき1本の黒板ワンカットを作ります。",
+      "tags": [
+        "黒板ワンカット",
+        "黒板クリップ",
+        "授業黒板動画",
+        "板書クリップ",
+        "1枚1本",
+        "黒板写真クリップ"
+      ],
+      "title": "黒板ワンカット：写真1枚につき1本"
+    },
+    "zh": {
+      "description": "板书一镜视频按教师提供的板书事实，为每张板书照做成一条板书照转一镜短片。这个板书一镜工作室把课堂板书视频和板书短片按拍摄顺序交付，做成板书动图。",
+      "display_name": "板书一镜视频·板书照转一镜",
+      "summary": "按教师提供的板书事实，为每张板书照做成一条板书照转一镜短片。",
+      "tags": [
+        "板书一镜视频",
+        "板书照转一镜",
+        "板书一镜",
+        "板书短片",
+        "课堂板书视频",
+        "板书动图"
+      ],
+      "title": "板书一镜视频·板书照转一镜：一照一条短片"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "blackboard-one-shot",
+  "schema_version": 1,
+  "version": "0.1.1"
+}

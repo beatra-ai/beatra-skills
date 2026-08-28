@@ -1,0 +1,61 @@
+{
+  "changelog": "Speech generation now runs on the first request.",
+  "display_name": "Wrong Item Talking Clips",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/wrong-item-talking",
+  "icon": "https://beatra.ai/icon-512x512.png",
+  "localized": {
+    "en": {
+      "description": "Turn a user-supplied wrong-item script and authorized stills into one wrong item talking clip per still. This mistake explanation talking video studio writes a speakable wrong-item explanation talking clip for each photo, then animates a 2 to 15s homework error talking clip. Use it for error explanation talking pack and wrong-item script talking clip work that stays one photo, one clip.",
+      "display_name": "Wrong Item Talking Clips",
+      "summary": "Turn a user-supplied wrong-item script and authorized stills into one wrong item talking clip per still.",
+      "tags": [
+        "wrong item talking clip",
+        "mistake explanation talking video",
+        "error explanation talking pack",
+        "homework error talking clip",
+        "wrong-item script talking clip",
+        "wrong-item explanation talking clip"
+      ],
+      "title": "Wrong Item Talking Clips: One Still, One Wrong-Item Script Read"
+    },
+    "ja": {
+      "description": "誤答解説動画は、手元の誤答原稿と写真から、写真1枚ごとに短いクリップを渡します。間違い問題解説と誤答解説トークとして、誤答読み上げと授業解説動画を2〜15秒に仕上げ、解説クリップにも使えます。",
+      "display_name": "誤答解説動画",
+      "summary": "誤答解説動画は、手元の誤答原稿と写真から、写真1枚ごとに短いクリップを渡します。",
+      "tags": [
+        "誤答解説動画",
+        "間違い問題解説",
+        "誤答解説トーク",
+        "誤答読み上げ",
+        "授業解説動画",
+        "解説クリップ"
+      ],
+      "title": "誤答解説動画：誤答原稿を写真ごとに読み上げる"
+    },
+    "zh": {
+      "description": "错题讲解口播按老师提供的错题稿和授权静帧，为每张图做成一条错题稿转口播。这个错因讲解口播和正确思路口播工作室为错题口播短视频写出可说的稿，再做成2到15秒的易错提醒口播。",
+      "display_name": "错题讲解口播·错题稿转口播",
+      "summary": "错题讲解口播按老师提供的错题稿和授权静帧，为每张图做成一条错题稿转口播。",
+      "tags": [
+        "错题讲解口播",
+        "错题稿转口播",
+        "错因讲解口播",
+        "正确思路口播",
+        "错题口播短视频",
+        "易错提醒口播"
+      ],
+      "title": "错题讲解口播·错题稿转口播：一张静帧一条错题稿口播"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "wrong-item-talking",
+  "schema_version": 1,
+  "version": "0.1.2"
+}

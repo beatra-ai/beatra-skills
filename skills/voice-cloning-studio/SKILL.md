@@ -41,8 +41,17 @@ for the exact sample and source checks.
 ## Prepare the source and current clone card
 
 Read the live voice-clone model card with `beatra.models.list` when current
-sample conditions, model selection or price are needed. Treat that card as
-truth. The supported source forms are a prior `artifact_id`, a `data_uri`, or
+sample conditions, model selection or price are needed:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "voice_clone"}
+```
+
+Treat that card as truth. The supported source forms are a prior `artifact_id`, a `data_uri`, or
 an HTTPS `url`. A suitable sample is currently about 10 to 300 seconds, no
 larger than 20 MiB, and clean natural speech from one speaker. If the host
 cannot inspect or play it, say sample readiness is unverified rather than
@@ -140,9 +149,10 @@ lost.
 The user may stop after a successful clone. If they ask to hear it, prepare a
 short final text and delivery direction first. The clone confirmation does not
 approve this second paid operation. Read live `beatra.voices.list` and
-`beatra.models.list` facts and inspect every live candidate compatible with the
-returned voice. Read language support from each text-to-speech model card's
-`constraints.supported_languages`. Keep `model: "auto"` only when every such
+`beatra.models.list` with `{"capability":"text_to_speech"}` and inspect every
+live candidate compatible with the returned voice. Read language support from
+each text-to-speech model card's `constraints.supported_languages`. Keep
+`model: "auto"` only when every such
 candidate supports the target BCP-47 language there. Otherwise freeze one
 live, voice-compatible, language-supported explicit model in the separate
 card. If no candidate meets both requirements, stop before submission and
