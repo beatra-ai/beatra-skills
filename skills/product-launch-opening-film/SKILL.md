@@ -87,10 +87,8 @@ lists all three stills and wait:
 5. If we stop here — the labeled three-frame visual-tone board
    remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the team says they have
-   topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the team says they have topped up.
 
 Submit each still once through bundled `scripts/mcp_client.py`. Keep
 at most two image tasks in flight. Poll `beatra.tasks.get`. Deliver
@@ -111,9 +109,9 @@ fresh six-field card for one film and wait:
    duration, model, or control mints a new ID.
 5. If we stop here — the accepted stills and the visual-tone board
    remain usable.
-6. If the balance is insufficient — relay the official message and
-   `https://console.beatra.ai/wallet?intent=buy` exactly. Do not retry
-   until the team says they have topped up. Do not recommend ¥198.
+6. If the balance is insufficient — relay the official message and its
+   top-up URL exactly. Do not retry until the team says they have
+   topped up.
 
 Do not treat acceptance of the stills as approval of the film.
 
@@ -133,9 +131,9 @@ first. Show a fresh six-field card and wait:
    reference order, duration, model, or control mints a new ID.
 5. If we stop here — the accepted stills, the visual-tone board, and
    any accepted generate clip remain usable.
-6. If the balance is insufficient — relay the official message and
-   `https://console.beatra.ai/wallet?intent=buy` exactly. Do not retry
-   until the team says they have topped up. Do not recommend ¥198.
+6. If the balance is insufficient — relay the official message and its
+   top-up URL exactly. Do not retry until the team says they have
+   topped up.
 
 ## Review, deliver, and recover
 
@@ -184,6 +182,19 @@ printf '%s' '{"references":[{"kind":"image","media":{"type":"artifact","artifact
 
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
