@@ -65,7 +65,7 @@ a timeline.
 3. Call `beatra.models.list` for that stage's exact capability before relying on model availability, accepted input combinations, media limits, controls, durations, ratios, resolutions, or price. Keep `model: "auto"` unless the user chose a concrete eligible model. An explicitly named model is evaluated as requested and is never silently replaced. Before `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, `beatra.videos.generate_from_references`, `beatra.videos.edit`, or `beatra.videos.extend`, write the shortest admitted integer duration (audio-led and extend rules unchanged) and the lowest admitted resolution unless the user named a higher tier.
 4. Admit the complete payload against one current eligible model card. Compare actual media kind, MIME type, byte size, dimensions, aspect ratio, duration, reference counts and combinations, and supported controls as applicable. For editing and extension, include the trusted source-video duration. If a required fact is unavailable or no live card accepts the planned payload, stop before the paid call and request the smallest compatible source or plan change.
 5. When the first paid stage is a gift-sized win, show that stage's own card — for `beatra.videos.enhance_prompt`, route `video_prompt_enhancement`, tool, prompt, target duration and ratio if set, and provisional live estimate; for one keyframe, route `text_to_image`, tool `beatra.images.generate`, direction, canvas if set, output count, and provisional live estimate — then submit that stage once and deliver the text or still. Use `beatra.images.transform` only for one to four ordered references that should form a new shot frame, or `beatra.images.edit` when `images[0]` is the base and a bounded part should change. Inspect the delivered still before constructing dependent video work. This gift card does not authorize any video call.
-6. Show a video admission card before any `client_request_id` or `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, `beatra.videos.generate_from_references`, `beatra.videos.edit`, or `beatra.videos.extend` call: route and MCP tool name, live-card duration, resolution, and aspect, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Numeric estimates come only from current model cards; the terminal task's `billing.net_charged_credits` is final. Planning, comparison, or “make the clip” is not approval. Do not create `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate.
+6. Show a video admission card before any `client_request_id` or `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, `beatra.videos.generate_from_references`, `beatra.videos.edit`, or `beatra.videos.extend` call: route and MCP tool name, live-card duration, resolution, and aspect, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Numeric estimates come only from current model cards; the terminal task's `billing.net_charged_credits` is final. Planning, comparison, or “make the clip” is not approval. Do not create `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate.
 7. Freeze the exact payload with one opaque stable `client_request_id`. Invoke only the bundled client: put the MCP tool name after `call` and its JSON arguments on standard input. The example below uses admitted duration `5`; replace it with the shortest integer the current card actually admits:
 
    ```text
@@ -85,11 +85,24 @@ Run dependent stages in order. Review an image before its video and review a cli
 
 ## Changes, recovery, and cancellation
 
-A changed tool, model, source, source order, prompt or instruction, direction, duration, aspect ratio, resolution, or optional control is new logical paid work. Assign a new ID, show a new admission card for a video stage, and obtain fresh top-up or balance confirmation unless it was already included in a frozen admitted sequence. Never reuse an ID for changed arguments. On `insufficient_balance`, relay the returned public message, keep the URL `https://console.beatra.ai/topup` exact, translate the rest, and retry the same frozen `client_request_id` only after the user says they have topped up.
+A changed tool, model, source, source order, prompt or instruction, direction, duration, aspect ratio, resolution, or optional control is new logical paid work. Assign a new ID, show a new admission card for a video stage, and obtain fresh top-up or balance confirmation unless it was already included in a frozen admitted sequence. Never reuse an ID for changed arguments. On `insufficient_balance`, relay the returned public message, keep the top-up URL inside the balance error exact, translate the rest, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with its same request ID. If the task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them to the private request ledger before considering an identical retry. Recover the original request before planning a replacement; never duplicate a paid submission or guess its artifact, charge, refund, or state.
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once and confirm the resulting terminal state with `beatra.tasks.get`. A 409 does not confirm cancellation, so continue polling the same task rather than creating replacement work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

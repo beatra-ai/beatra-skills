@@ -38,6 +38,6 @@ Review and label each shot separately. Keep actual artifact identities and depen
 
 ## Failure, cancellation, and uncertainty
 
-For a failed terminal task, use the returned error, billing, and refund facts. Do not assume credits were charged or refunded. A changed retry uses a new ID, a new admission card, and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen ID only after the user says they have topped up.
+For a failed terminal task, use the returned error, billing, and refund facts. Do not assume credits were charged or refunded. A changed retry uses a new ID, a new admission card, and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen ID only after the user says they have topped up.
 
 For a lost response or missing task ID, recover the original with `beatra.tasks.list` and `beatra.tasks.get` before any identical same-ID retry. Queued or running work remains active. For user-requested cancellation, call `beatra.tasks.cancel` once and verify the final state; a conflict response does not prove cancellation.
