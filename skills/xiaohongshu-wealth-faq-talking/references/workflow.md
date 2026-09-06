@@ -55,9 +55,8 @@ video card, then submit `beatra.videos.animate` once per slot with
 `driving_audio` attached.
 
 Poll `beatra.tasks.get` until terminal. Read actual MIME, duration,
-size, and `billing.net_charged_credits`. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198.
+size, and `billing.net_charged_credits`. Keep the top-up URL inside
+the balance error exact.
 
 ```text
 printf '%s' '{"image":{"type":"artifact","artifact_id":"art-wealth-faq-01"},"driving_audio":{"type":"artifact","artifact_id":"art-speech-01"},"prompt":"A restrained wealth FAQ read with steady eye line and a stable camera.","duration":8,"client_request_id":"opaque-wealth-faq-video-01"}' | python3 scripts/mcp_client.py call beatra.videos.animate
