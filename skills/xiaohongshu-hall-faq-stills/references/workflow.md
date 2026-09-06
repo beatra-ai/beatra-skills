@@ -37,9 +37,8 @@ A local correction after accept uses a separate `image_edit` card
 with the accepted image as `images[0]`.
 
 Poll `beatra.tasks.get` until terminal. Read actual MIME, dimensions,
-size, and `billing.net_charged_credits`. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198.
+size, and `billing.net_charged_credits`. Keep the top-up URL inside
+the balance error exact.
 
 ```text
 printf '%s' '{"prompt":"Create the approved materials still for the named hall FAQ complaint. Print only the confirmed materials line.","model":"auto","count":1,"canvas":{"type":"preset","tier":"2K","aspect":"1:1"},"client_request_id":"opaque-hall-faq-01"}' | python3 scripts/mcp_client.py call beatra.images.generate
