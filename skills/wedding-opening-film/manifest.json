@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn couple-supplied ceremony facts into three wedding opening film storyboard keyframes, then one opening film.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Wedding Opening Film",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wedding-opening-film",
@@ -57,5 +57,5 @@
   },
   "name": "wedding-opening-film",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
