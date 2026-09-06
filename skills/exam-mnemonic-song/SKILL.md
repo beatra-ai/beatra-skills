@@ -71,10 +71,8 @@ first knowledge-point song and wait:
    prompt, title, or model mints a new ID.
 5. If we stop here — the labeled lyric sheet remains usable.
 6. If the balance is insufficient — relay the official message and its
-   top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the teacher says they have
-   topped up. Do not recommend ¥198.
+   top-up URL exactly. Translate the prose; keep the URL. Do not retry
+   until the teacher says they have topped up.
 
 Submit once through bundled `scripts/mcp_client.py`. Poll
 `beatra.tasks.get`. Deliver actual bytes, actual duration, and
@@ -93,9 +91,9 @@ new pack. Show a fresh six-field card for that frozen set and wait:
    lyric, prompt, title, or model mints a new ID for the changed slots.
 5. If we stop here — the first accepted song and the remaining lyric
    sheets remain usable.
-6. If the balance is insufficient — relay the official message and
-   `https://console.beatra.ai/wallet?intent=buy` exactly. Do not retry
-   until the teacher says they have topped up. Do not recommend ¥198.
+6. If the balance is insufficient — relay the official message and its
+   top-up URL exactly. Do not retry until the teacher says they have
+   topped up.
 
 Do not treat acceptance of the first song as approval of the rest.
 
@@ -130,6 +128,19 @@ printf '%s' '{"model":"suno-5.5","prompt":"Clear-diction mnemonic song, moderate
 
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
