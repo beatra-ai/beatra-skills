@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a user-supplied fund quarterly report highlight sheet and authorized stills into one fund quarterly report talking clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Fund Quarterly Report Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/fund-report-talking",
@@ -57,5 +57,5 @@
   },
   "name": "fund-report-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
