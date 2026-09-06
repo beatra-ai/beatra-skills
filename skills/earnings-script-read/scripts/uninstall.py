@@ -30,7 +30,7 @@ AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
 REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
 PACKAGE_SLUG = "earnings-script-read"
 PACKAGE_DISPLAY_NAME = "Earnings Script Reads"
-PACKAGE_VERSION = "0.1.2"
+PACKAGE_VERSION = "0.1.3"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly
