@@ -69,13 +69,40 @@ State which media details could not be inspected instead of inferring them from 
 
 Record each task ID immediately and poll only that task. `queued` and `running` mean wait. If a create response is lost, resubmit only the identical frozen payload under the same identifier; if a task ID is lost, list tasks for that capability and match candidates against your own ledger before any retry. Redoing one card reuses the other artifacts unchanged. `insufficient_balance` means nothing was charged and the identical request can be resubmitted after a top-up.
 
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
+
 ## References by task
 
-- Session frame, the three phases, the six-stage chain, lineup order, and the minute-by-minute schedule: [planning the session](references/session-plan.md)
-- The seven-step product talk track, the twelve line categories, urgency types, and the compliance screen: [writing the talk track](references/talk-track.md)
-- Exact payloads, what the confirmation freezes, polling, redoing one card, recovery, and cancellation: [live session workflow](references/workflow.md)
+Three tiers. Read the first on a first run, the second while building the
+session and before the one paid confirmation, and the third when something goes
+wrong or needs recovery.
+
+### Getting started
+
+- On a first run, or when the single approval gate is unfamiliar, read [one session, end to end](references/worked-example.md) — a complete run with the schedule, the seven-step talk track, the compliance pass catching three lines, and where the money enters
 - First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Non-billable package registration: [installation registration](references/installation-registration.md)
+
+### Building the session
+
+- Session frame, the three phases, the six-stage chain, lineup order, and the minute-by-minute schedule: [planning the session](references/session-plan.md)
+- The seven-step product talk track, the twelve line categories, urgency types, and the compliance screen with its banned-term list and replacement patterns: [writing the talk track](references/talk-track.md)
+- Exact payloads, what the confirmation freezes, polling, redoing one card, recovery, and cancellation: [live session workflow](references/workflow.md)
+
+### Diagnosing and recovering
+
+- When a line fails the screen, a merchant insists on one that does, a card renders a wrong figure, a host rejects the wording, or a price changes after approval: [questions and anti-patterns](references/faq.md)
 - Task polling, artifacts, and result fields: [tasks and results](references/tasks-and-results.md)
 - Balance, validation, and structured errors: [billing, errors, and recovery](references/billing-errors-and-recovery.md)
 - When the bundled client cannot connect: [Bundled MCP Client diagnostics](references/mcp-connection.md)

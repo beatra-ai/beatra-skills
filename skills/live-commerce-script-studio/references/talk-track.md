@@ -63,9 +63,45 @@ Never invent a number to create pressure. A stock figure that does not move as i
 
 ## Screen every line before anything is produced
 
-**Superlatives and absolutes.** Words claiming top rank, totality, or permanence — best, first, number one, absolute, permanent, national-grade, 100% — are restricted in advertising copy in several markets, and their local-language equivalents carry the same restriction. Live sessions are transcribed and reviewed, so a spoken superlative carries the same exposure as a written one. Replace with the specific thing that is true.
+**Superlatives and absolutes.** Words claiming top rank, totality, or permanence are restricted in advertising copy in several markets, whether or not the claim is true, and their local-language equivalents carry the same restriction. Live sessions are transcribed and reviewed, so a spoken superlative carries the same exposure as a written one. Screen for at least these, and for the same claims in any other language the session is read in:
 
-**Efficacy claims.** Health, medical, curative, weight, whitening, and safety outcomes need substantiation the merchant actually holds. Without it, move the line to what the product does rather than what it achieves. Beauty, supplement, medical device, and childcare categories are screened hardest.
+```text
+最   第一   顶级   国家级   销量冠军   绝对   独家   唯一   永久   万能   史上最低
+```
+
+Do not screen by substring. The ranking word for "first" also begins ordinary
+time and sequence phrases that claim no rank at all:
+
+```text
+✓ 第一天     ← 时间序数，保留
+✓ 第一次用   ← 次序，保留
+✗ 全网第一   ← 排名主张，删除
+```
+
+Cutting the first two destroys compliant copy. Read what the phrase asserts.
+
+Replace each with the specific thing the merchant has actually supplied. The pattern is always the same — swap the ranking for the fact that earned it:
+
+| Instead of | Say |
+| --- | --- |
+| a top-rank claim about sales | the number the merchant supplied, with its period |
+| a totality claim about who it suits | the two or three cases it was tested on |
+| an "only one on the market" claim | the one feature no competitor line was shown to have |
+| a permanence claim about the effect | how long the merchant's own test observed it holding |
+| a "lowest ever" price claim | the regular price and the live price, both with the specification |
+
+When nothing has been supplied, the line does not get softened — it comes out, and the merchant is told which line and why.
+
+**Efficacy claims.** Health, medical, curative, weight, whitening, and safety outcomes need substantiation the merchant actually holds. Without it, move the line to what the product does rather than what it achieves — not "clears acne" but "the merchant's own eight-week panel reported less redness", once they confirm it.
+
+Four categories are screened hardest, and each has a line that decides it:
+
+| Category | The line that decides it |
+| --- | --- |
+| Beauty and skincare | Does the claim describe an appearance the viewer can see, or a change inside the skin? The second needs substantiation. |
+| Supplements and food | Is a health outcome named at all? Naming one at all requires the merchant's registration document. |
+| Medical devices | Is the registration number on the listing? Without it the product cannot be described by what it treats. |
+| Childcare | Is a safety outcome asserted? Safety is a claim, not a feature, and needs the test report. |
 
 **Prices.** Every price appears with its unit, size, or count. A regular price used as an anchor has to be a price the product actually sold at.
 
