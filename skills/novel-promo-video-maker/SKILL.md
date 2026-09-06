@@ -77,24 +77,23 @@ Planning is free. Only image, speech, and video calls are paid.
 8. After the shot image and narration exist, show a video admission card
    before any video `client_request_id` or `beatra.videos.animate` call: route
    `image_to_video`, tool `beatra.videos.animate`, that beat's image and
-   narration, audio-led duration, resolution if set, provisional live estimate,
-   the fact that the 600-credit signup gift usually cannot start this video,
-   the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000
-   credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is
-   not approval. Approved stills or narration do not authorize the video. Do
-   not submit until the user confirms they have topped up or already have
-   enough credits for this estimate. Then animate each beat with
-   `beatra.videos.animate`, passing that beat's shot image and its narration as
-   the driving audio. Select the video model explicitly rather than leaving it
-   to `auto`: keep only models whose card admits `[image, driving_audio]`,
-   because most on this capability do not and the advertised `auto` default is
-   a model that refuses driving audio. Omit `aspect_ratio` — the 9:16 shot
-   image governs the frame. Re-check the real returned narration length against
-   that card and use the smallest admitted whole second at or above it; if the
-   card admits none, stop before the video call rather than truncating the
-   line. An approved `beatra.videos.extend` also needs its own admission card;
-   its `duration` is the final returned length and must exceed that clip's own
-   duration.
+   narration, audio-led duration, resolution if set, provisional live
+   estimate, the fact that the 600-credit signup gift usually cannot start
+   this video, and what happens if the balance is short. Planning, comparison,
+   or “make the clip” is not approval. Approved stills or narration do not
+   authorize the video. Do not submit until the user confirms they have topped
+   up or already have enough credits for this estimate. Then animate each beat
+   with `beatra.videos.animate`, passing that beat's shot image and its
+   narration as the driving audio. Select the video model explicitly rather
+   than leaving it to `auto`: keep only models whose card admits
+   `[image, driving_audio]`, because most on this capability do not and the
+   advertised `auto` default is a model that refuses driving audio. Omit
+   `aspect_ratio` — the 9:16 shot image governs the frame. Re-check the real
+   returned narration length against that card and use the smallest admitted
+   whole second at or above it; if the card admits none, stop before the video
+   call rather than truncating the line. An approved `beatra.videos.extend`
+   also needs its own admission card; its `duration` is the final returned
+   length and must exceed that clip's own duration.
 9. Deliver the beats in order as the finished scene set. Report only the actual
    returned task status, resolved model, dimensions, duration, usage, and
    `billing.net_charged_credits` for each. Review only media the host Agent can
@@ -127,8 +126,8 @@ current maximum charge. Each video generate, animate, or extend call still
 needs its own admission card and top-up or balance confirmation. A changed
 passage, beat, cast reference, narration line, canvas, model, or control is
 new paid work with a new request ID and, for a video stage, a new admission
-card. On `insufficient_balance`, relay the returned message, keep
-`https://console.beatra.ai/topup` exact, and retry the same frozen
+card. On `insufficient_balance`, relay the returned message, keep the top-up
+URL inside the balance error exact, and retry the same frozen
 `client_request_id` only after the user says they have topped up.
 
 Because one beat spans an image, a speech, and a video call, keep a separate
@@ -148,6 +147,19 @@ is `canceled`.
 
 When one beat fails and the others succeed, recover that beat alone. The
 approved beats already delivered stay valid and are not regenerated.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

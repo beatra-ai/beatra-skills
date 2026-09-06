@@ -138,14 +138,14 @@ send optional controls such as `resolution`, `seed`, or `negative_prompt` when
 discovery lists them for the selected model; unsupported controls are rejected
 rather than ignored.
 
-Before creating a video `client_request_id` or submitting `beatra.videos.animate`
-or `beatra.videos.extend`, show the admission card: route and MCP tool name,
-audio-led or extend duration, resolution if set, provisional estimate, the fact
-that the 600-credit signup gift usually cannot start this video, the exact URL
-`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
-recommend ¥198. Do not submit until the user confirms they have topped up or
-already have enough credits for this estimate. Approved stills or narration do
-not authorize the video. A request to make the clip is not approval.
+Before creating a video `client_request_id` or submitting
+`beatra.videos.animate` or `beatra.videos.extend`, show the admission card:
+route and MCP tool name, audio-led or extend duration, resolution if set,
+provisional estimate, the fact that the 600-credit signup gift usually cannot
+start this video, and what happens if the balance is short. Do not submit until
+the user confirms they have topped up or already have enough credits for this
+estimate. Approved stills or narration do not authorize the video. A request to
+make the clip is not approval.
 
 ## Carry motion across a cut
 
@@ -185,12 +185,13 @@ explicitly selected video model, the count of image, speech, and video calls,
 the current maximum charge for each stage, and a separate opaque stable
 `client_request_id` per call. Never reuse one ID across stages.
 
-Any changed passage, beat, cast reference, narration line, canvas, model, or
-control is new paid work with a new ID and a fresh approval. A video-stage
-change also needs a new admission card and fresh top-up or balance
-confirmation. On `insufficient_balance`, relay the returned message, keep
-`https://console.beatra.ai/topup` exact, and retry the same frozen
-`client_request_id` only after the user says they have topped up.
+Any changed passage, beat, cast reference, narration line, canvas, model,
+or control is new paid work with a new ID and a fresh approval. A
+video-stage change also needs a new admission card and fresh top-up or
+balance confirmation. On `insufficient_balance`, relay the returned
+message, keep the top-up URL inside the balance error exact, and retry the
+same frozen `client_request_id` only after the user says they have topped
+up.
 
 ## Poll, recover, and cancel
 
