@@ -36,7 +36,7 @@ Leave the model at `auto` unless the user chose a concrete eligible model. Alway
 
 Every numeric cost estimate is provisional and requires a fresh live model lookup. State the returned pricing basis and assumptions. The terminal task's actual `billing.net_charged_credits`, not the estimate, is final.
 
-Before creating `client_request_id` or submitting `beatra.videos.animate`, show the admission card with every field: route, tool, duration, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Do not generate a replacement still.
+Before creating `client_request_id` or submitting `beatra.videos.animate`, show the admission card with every field: route, tool, duration, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Do not generate a replacement still.
 
 ## Freeze the paid payload
 
@@ -70,9 +70,9 @@ Record the task ID from the create response, then call `beatra.tasks.get` for th
 
 If the task ID is lost, call `beatra.tasks.list` with `{"capability":"image_to_video"}`. Treat that list only as candidates: call `beatra.tasks.get` for each plausible task and match returned source/prompt/model/control/timing facts against the private ledger. If the create response was lost and no task can be recovered, retry only the identical frozen payload with the same `client_request_id`.
 
-On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
-Any change to source, prompt, model, duration, aspect ratio, resolution, audio, or another control creates new logical paid work. Assign a new request ID, show a new admission card (including the 600-credit fact, exact top-up URL, and starter ¥29), and obtain fresh top-up or balance confirmation. A request to make the changed clip is not approval. Recover the original work before offering that changed submission.
+Any change to source, prompt, model, duration, aspect ratio, resolution, audio, or another control creates new logical paid work. Assign a new request ID, show a new admission card (including the 600-credit fact and what happens if the balance is short), and obtain fresh top-up or balance confirmation. A request to make the changed clip is not approval. Recover the original work before offering that changed submission.
 
 Cancel only at the user's request by calling `beatra.tasks.cancel` once for the known task. Confirm the resulting terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; do not promise a stop, repeat cancellation automatically, or create replacement work.
 
