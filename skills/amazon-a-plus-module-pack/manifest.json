@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied selling points into one Amazon A+ module still per point.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Amazon A+ Module Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/amazon-a-plus-module-pack",
@@ -57,5 +57,5 @@
   },
   "name": "amazon-a-plus-module-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
