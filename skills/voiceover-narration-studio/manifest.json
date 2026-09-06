@@ -1,5 +1,5 @@
 {
-  "changelog": "Lock the medium first and require consent before imitating a voice.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Voiceover & Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
@@ -80,5 +80,5 @@
   },
   "name": "voiceover-narration-studio",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }

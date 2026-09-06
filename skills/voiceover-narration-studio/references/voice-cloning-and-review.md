@@ -55,8 +55,7 @@ Before creating `client_request_id` or submitting `beatra.voices.clone`, show
 the clone admission card: route `voice_clone`, tool `beatra.voices.clone`,
 live `beatra.models.list` price for one successful activated voice, the
 provisional estimate, the fact that the 600-credit signup gift usually cannot
-start this clone, the exact URL `https://console.beatra.ai/topup`, and starter
-¥29 / 11,000 credits. Do not recommend ¥198. Do not create
+start this clone, and what happens if the balance is short. Do not create
 `client_request_id` or submit until the user confirms they have topped up or
 already have enough credits for this estimate. Do not offer a free clone or a
 free sample that replaces the clone. On `insufficient_balance`, relay the
