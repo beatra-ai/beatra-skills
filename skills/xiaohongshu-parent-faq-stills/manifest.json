@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn Xiaohongshu parent FAQ notes into a 4 to 8 still answer set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Xiaohongshu Parent FAQ Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-parent-faq-stills",
@@ -57,5 +57,5 @@
   },
   "name": "xiaohongshu-parent-faq-stills",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
