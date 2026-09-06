@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a written campaign and reward-tier plan into one gallery still per named slot.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Crowdfunding Gallery Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/indiegogo-gallery-set",
@@ -57,5 +57,5 @@
   },
   "name": "indiegogo-gallery-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
