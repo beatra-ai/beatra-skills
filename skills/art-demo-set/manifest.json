@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn user-supplied drawing steps into one still per art demo page.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Art Demo Page",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/art-demo-set",
@@ -57,5 +57,5 @@
   },
   "name": "art-demo-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

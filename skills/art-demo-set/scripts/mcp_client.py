@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "art-demo-set"
 PACKAGE_DISPLAY_NAME = "Art Demo Page"
-PACKAGE_VERSION = "0.1.1"
+PACKAGE_VERSION = "0.1.2"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/art-demo-set/install.json"
