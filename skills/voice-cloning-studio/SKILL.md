@@ -95,15 +95,14 @@ scale. Build one clone card that freezes:
 Planning, catalog reads, sample advice, naming, or “clone it now” do not
 approve a charge. Before any `client_request_id` or `beatra.voices.clone`
 call, show the clone admission card in the user's language: route
-`voice_clone`, tool `beatra.voices.clone`, live `beatra.models.list` price for
-one successful activated voice, the provisional estimate, the fact that the
-600-credit signup gift usually cannot start this clone, the exact URL
-`https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
-recommend ¥198. Numeric estimates come only from current model cards; the
-terminal task's `billing.net_charged_credits` is final. Do not create
-`client_request_id` or submit until the user confirms they have topped up or
-already have enough credits for this estimate. Do not offer a free clone or a
-free sample that replaces the clone.
+`voice_clone`, tool `beatra.voices.clone`, live `beatra.models.list` price
+for one successful activated voice, the provisional estimate, the fact that
+the 600-credit signup gift usually cannot start this clone, and what happens
+if the balance is short. Numeric estimates come only from current model
+cards; the terminal task's `billing.net_charged_credits` is final. Do not
+create `client_request_id` or submit until the user confirms they have
+topped up or already have enough credits for this estimate. Do not offer a
+free clone or a free sample that replaces the clone.
 
 ## Submit the clone once and follow its task
 
@@ -182,7 +181,7 @@ identical clone JSON be replayed with the same local request ID. A changed
 sample, name, model or language is new paid work: create a new card, a new
 admission card, top-up or balance confirmation, and ID. Never automatically
 retry a terminal failed or canceled task. On `insufficient_balance`, relay the
-returned public message, keep the URL `https://console.beatra.ai/topup` exact,
+returned public message, keep the top-up URL inside the balance error exact,
 translate the rest, and retry the same frozen `client_request_id` only after
 the user says they have topped up.
 
@@ -191,6 +190,19 @@ billing, asset and error fields. Missing billing values are unknown, not zero.
 Use provider-neutral `TaskError` facts and report charged, refunded and net
 values only when returned. If the host cannot play returned audio, say it was
 not auditioned rather than fabricating a review.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
