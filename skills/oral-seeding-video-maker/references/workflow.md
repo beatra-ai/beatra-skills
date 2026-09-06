@@ -102,7 +102,7 @@ Any failure stops here. Shortening an over-long narration and synthesizing again
 
 ## Approval gate 2 — the shoot
 
-Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved opening frame and narration, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved frames or narration do not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze them under a new stable `client_request_id`.
+Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved opening frame and narration, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved frames or narration do not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze them under a new stable `client_request_id`.
 
 ## The shoot — one paid call
 
@@ -160,7 +160,7 @@ Keep a private ledger per paid stage: what it was for, the complete frozen argum
 
 If a create response is lost, resubmit only the identical frozen payload under the same ID. If a task ID is lost, call `beatra.tasks.list` for that capability, call `beatra.tasks.get` on plausible candidates, and match them against the ledger before considering a retry. If the request ID itself is lost, do not invent a new one and do not replay: attempt task recovery and stop if the original cannot be identified. A slow task is not a failed task. Never replace a running task with a duplicate.
 
-On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. It is not a failed generation.
+On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up. It is not a failed generation.
 
 Cancel only when the user asks. Call `beatra.tasks.cancel` once and confirm the terminal state with `beatra.tasks.get`. A 409 means cancellation is unconfirmed: keep polling that same task and create no replacement work.
 
