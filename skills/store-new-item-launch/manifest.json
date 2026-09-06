@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn three named new-item stills into a launch board you can post, then turn the rest of the set into a matching pack.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Store New Item Launch",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/store-new-item-launch",
@@ -57,5 +57,5 @@
   },
   "name": "store-new-item-launch",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
