@@ -25,8 +25,51 @@ is not on this list even when `beatra.social.tools.search` returns it.
 Plus one transcript operation: `social.youtube.video.captions.get`, **60 credits**,
 YouTube only. No other platform on this list returns a transcript.
 
+Plus two account-level operations, **Douyin only**, used together for the same-account
+comparison below: `social.douyin.user.search` and `social.douyin.user.posts.list`, 6
+credits each.
+
 Prices are what the catalog charges today; read the live price from
 `beatra.social.tools.get` and quote that, not this table.
+
+## A same-account comparison — Douyin only, two lookups
+
+One video doing well can just be the recommendation algorithm rolling the dice. To tell
+a repeatable method apart from a one-off, the cheapest evidence is the rest of the
+account's output, and on Douyin this route can reach it in two paid steps:
+
+1. **`social.douyin.user.search`** with the creator's name as `keyword` — the same name
+   the user already has from watching the reference, never an internal ID they would
+   have to go and find. Returns a page of matching users, each carrying its `sec_uid`.
+   Confirm this lookup on its own, at its live price, before running it.
+2. **`social.douyin.user.posts.list`** fed that `sec_uid`. Returns one page of the
+   account's posts, each with its own `statistics` and `video` metadata; a page this
+   size typically comes back as an artifact envelope — handle it per "A lookup delivers
+   in one of two shapes" below. Confirm this lookup on its own too, at its own live
+   price, separately from the search above — it is a second charge, not bundled into the
+   first.
+
+**That is two separate paid lookups, each disclosed and confirmed on its own before it
+runs**, exactly like every other lookup on this page — never one price quoted for both,
+and never the second one run on the strength of the first's approval. Read both prices
+live from `beatra.social.tools.get`; quote no number from memory.
+
+Once the page of posts is in hand, check two things against it: how far this post's
+public metrics sit from the account's median, and whether the same structural beats show
+up in the other posts. Recurrence points to a method; a one-off points to luck.
+
+**This route exists on Douyin only.** No search-by-name operation is whitelisted for
+TikTok, Instagram, YouTube, X, or Xiaohongshu — on those platforms, say plainly that a
+same-account comparison is not available here, rather than implying this route
+generalises.
+
+This whole comparison is optional, and it is the user's call whether the teardown's
+directional judgement needs this anchor badly enough to spend twice more — never run it
+without asking, and never send the user off to hand-collect other posts manually instead
+of running it. When it is skipped — on Douyin by choice, or because the reference is on
+another platform — say so in the teardown report: a single-post sample cannot tell a
+method from a lucky roll, and the report should state that plainly rather than imply
+otherwise.
 
 ## Turning the link into arguments
 
@@ -90,9 +133,11 @@ That listing call is billed like any other. Pass the language you expect on the 
 call, and only fall back to the empty-code listing when that returns nothing — otherwise
 one transcript costs 120 credits instead of 60.
 
-Say plainly that a transcript is available for YouTube only. On every other platform the
-spoken track still has to come from the user, from the video file, or from the caption
-text the post itself carries.
+Say plainly that a transcript is available for YouTube only. On every other platform,
+the spoken track still has to come from the remaining tiers of the four-tier dialogue
+ladder — a transcript the user supplies directly, hard-burned subtitles read from the
+frames, or recorded as missing — never from the video's own audio track, which the
+vision model cannot hear; see [reading the reference](teardown.md) for the full ladder.
 
 ## Confirming it
 
@@ -131,6 +176,32 @@ Keep this straight, because it decides whether a lookup is worth running at all.
 None of the three shows you a frame. Framing, motion, on-screen text, and cutting rhythm
 still come from a file the host can open, from screenshots, or from the user. Say which
 is which.
+
+## A lookup delivers in one of two shapes
+
+A small result comes back inline in the task output. A large one does not: the
+`output` is instead an envelope, `{"delivery": "artifact", "result_artifact": {...}}`,
+and the actual data sits at `result_artifact.url` as CDN-hosted JSON. A single page of
+a creator's posts measured around 630 KB and came back this way.
+
+Handle both shapes. When `delivery` reads `artifact`, fetch `result_artifact.url` and
+parse the JSON it returns — the envelope is not the result, and treating it as one
+means working from a payload that is missing everything.
+
+## A direct play address expires fast
+
+The post payload's play address carries a `cdn_url_expired` timestamp, and in practice
+it goes stale after roughly 57 minutes.
+
+So: **use a direct address the moment it is fetched, inside the same run that fetched
+it.** Never cache it across sessions, and never write it into a deliverable for the user
+to click later — it will be dead by the time they do. Re-running the teardown later
+means fetching the post again, not reusing the old link.
+
+The same payload carries `has_watermark`. For Douyin it is `true` — the play address
+this route can reach is watermarked, and there is no unwatermarked version to ask for
+instead. That watermark is why the reference footage itself can never be fed into a
+generation call; see [compliance](compliance.md) for what it rules out.
 
 ## Carrying the result into the teardown
 
