@@ -68,10 +68,8 @@ the 2-15s range with the user; if they do not pick, use 5s.
       ID.
    5. If we stop here — the labeled clip plan remains usable.
    6. If the balance is insufficient — relay the official message and
-      its top-up URL exactly
-      (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-      prose; keep the URL. Do not retry until the teacher says they
-      have topped up. Do not recommend ¥198.
+      its top-up URL exactly. Translate the prose; keep the URL. Do
+      not retry until the teacher says they have topped up.
 
    Do not submit until the user confirms they have topped up or already
    have enough credits.
@@ -96,11 +94,11 @@ Each paid photo has its own frozen payload and ID. Recover a lost
 create response only with that photo's identical payload. Recover a
 lost task ID through `beatra.tasks.list` and `beatra.tasks.get`. Call
 `beatra.tasks.cancel` only when the user asks to cancel that photo; on
-409 keep polling. On `insufficient_balance`, keep the top-up URL exact
-and retry the same frozen ID only after the user says they have topped
-up. If a create returns no `task_id`, do not poll; reconcile before
-minting a new ID. A changed photo, prompt, duration, or model is new
-work and a new card.
+409 keep polling. On `insufficient_balance`, keep the top-up URL
+inside the balance error exact and retry the same frozen ID only after
+the user says they have topped up. If a create returns no `task_id`,
+do not poll; reconcile before minting a new ID. A changed photo,
+prompt, duration, or model is new work and a new card.
 
 ## Execution
 
@@ -118,6 +116,19 @@ python3 scripts/mcp_client.py call beatra.models.list
 
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

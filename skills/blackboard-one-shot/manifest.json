@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Blackboard One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/blackboard-one-shot",
@@ -57,5 +57,5 @@
   },
   "name": "blackboard-one-shot",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
