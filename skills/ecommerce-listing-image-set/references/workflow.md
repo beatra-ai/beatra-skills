@@ -27,6 +27,56 @@ dimension, certification, packaging detail, or copy. For all cards, state the
 same product must-keeps and shared visual direction: palette, lighting,
 surface, camera family, and brand styling.
 
+## Variants and more than one SKU
+
+A gallery covers one verified SKU. A colour, size, or material variant is a
+different SKU with its own photos and its own must-keeps. No ordinary slot
+mixes two variants; the single exception is the deliberate range slot below.
+
+When the seller has several variants of one product, the variant in the supplied
+photos leads unless they say otherwise; ask which one leads only when the photos
+show more than one and the seller has not said. That variant gets the full set.
+The others take one of two routes, and the seller chooses before any paid call:
+
+- **A variant slot inside the lead gallery.** One added slot showing the range
+  together, sourced from a photo that genuinely contains every variant being
+  shown. Cheapest, and right when the storefront sells the variants on one
+  listing. Never assemble it from separate photos and present it as one shot of
+  the range.
+- **A separate set per variant.** Right when each variant has its own listing.
+  Repeat this workflow per SKU, reusing the confirmed slot template and the
+  shared direction clause so the sets read as one brand while each stays
+  sourced from its own photos.
+
+The same holds for an unrelated multi-SKU request: run one gallery per SKU. What
+carries between runs is the slot template, the shared direction clause, and the
+seller's brand facts — never a fact card, and never a source photo.
+
+## Write prompts that hold the set together
+
+Slot prompts differ by purpose and agree on everything else. Give each prompt
+four parts in this order: the slot and its purpose, the statement that image 1
+is the verified SKU, that slot's must-keeps, and a shared direction clause that
+is reused **verbatim** across every slot in the set. Varying the wording of the
+shared clause between slots is the usual reason a gallery comes back looking
+like six unrelated photographs.
+
+Write the direction clause once, from the seller's approved direction, naming
+surface, light direction and quality, depth, and finish. Say what is in the
+frame rather than what must stay out; a prompt that lists absences tends to
+render them. A seller often gives direction as an absence — "no busy props" —
+so restate it positively before it enters the clause, keeping their meaning:
+"the product alone in frame". The single exception is a slot whose subject is an
+enumerated list, such as in-box or included items, where the enumeration needs
+an explicit bound so the model does not add a generous extra.
+
+Prefer carrying an approved claim through composition rather than on-image type.
+Small generated text is unreliable, and a claim set in type is a claim a
+marketplace reviews as copy.
+
+For a fully worked run — fact card, six resolved slots, the prompt suite, the
+confirmation card, and the delivery report — read [a complete listing set](worked-example.md).
+
 ## Prepare references and the model card
 
 Upload a local product file through the bundled helper using its exact MIME
@@ -66,8 +116,10 @@ Show one confirmation card before the first billable request. It must list:
 - product must-keeps, shared direction, and one prompt per slot;
 - canvas, model behaviour, controls, and `count: 1` for every slot;
 - the current per-image price, six-call total for a default set, and any live
-  concurrency limit; and
-- delivery order and the review checks for the completed gallery.
+  concurrency limit;
+- delivery order and the review checks for the completed gallery;
+- what the seller keeps if they stop after any slot; and
+- what happens to the frozen plan if the balance runs out mid-run.
 
 After approval, create one opaque stable `client_request_id` per slot. Submit
 each transform once. Keep at most two generation tasks in flight on one MCP
@@ -114,6 +166,12 @@ On visible results, review first within each slot, then across the set:
    repetition across the ordered gallery.
 4. Record only actual dimensions, format, resolved model, successful-image
    count, task state, and `billing.net_charged_credits` returned by the task.
+
+When the seller asks how many credits remain, read `beatra.wallet.get`. When
+they ask what this gallery cost or what has been deducted, read
+`beatra.wallet.ledger`. Both are ordinary reads available at any time, not a
+step before submitting, and neither replaces the live model card as the source
+of a price.
 
 When a result cannot be viewed, report that it has not been visually inspected
 and give the artifact for seller review. Deliver every artifact in slot order,

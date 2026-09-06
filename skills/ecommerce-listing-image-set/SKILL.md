@@ -10,18 +10,21 @@ seller needs a coherent set of listing images rather than one isolated product
 photo: a hero, feature, detail, lifestyle, size or fit, and packaging or
 in-box view that each explain a different part of the product story.
 
-Use `product-photo-studio` for one clean-background, lifestyle, or focused
-product-image request. Use `marketplace-main-image-preflight` when the job is
-to assess current marketplace rules and make a single targeted repair. Keep
+Keep main-image compliance separate from secondary-image persuasion. Use
+`product-photo-studio` for one clean-background, lifestyle, or focused
+product-image request. Use `marketplace-main-image-preflight` when the seller
+only wants one main-image rule check or a single targeted repair. Keep
 model-on-product work and long-form product-detail or A+ visual-module work
 outside this package's one-SKU gallery scope until a currently installed
 specialist package is selected.
 
 ## Build the SKU fact card
 
-Reuse the seller's product type, target storefronts, visual direction, and
-must-keeps already present in the conversation. Start with one to four real
-product photos of the exact SKU. Ask only for facts that change a planned slot:
+The hard inputs are real product photos of the exact SKU plus confirmed SKU
+facts. Do not invent a selling-point image when a fact is missing. Reuse the
+seller's product type, target storefronts, visual direction, and must-keeps
+already present in the conversation. Start with one to four real product
+photos of the exact SKU. Ask only for facts that change a planned slot:
 
 - SKU name and exact variant, including colour, material, and visible label
   details that must remain recognisable;
@@ -29,7 +32,9 @@ product photos of the exact SKU. Ask only for facts that change a planned slot:
 - approved benefits, dimensions, fit or scale facts for a feature or size
   view;
 - destination marketplace or product page, requested image count, and any
-  supplied format requirement; and
+  supplied format requirement;
+- one photo that genuinely contains every variant, when the seller wants a
+  single slot showing the range; and
 - an existing brand palette, type treatment, scene reference, or approved
   visual direction when it should carry across the gallery.
 
@@ -53,10 +58,21 @@ Omit or replace a slot whose required fact is not available; retain the ordered
 set plan so the seller can add it later. A current-marketplace review belongs
 with `marketplace-main-image-preflight`, not an assumption inside this package.
 
+One gallery covers one verified SKU. When the seller has colour, size, or
+material variants, the variant in the supplied photos leads unless they say
+otherwise; confirm that in the set card rather than asking first. Ask which one
+leads only when the photos show more than one and the seller has not said. The
+seller chooses between one added variant slot and a separate set per variant
+before any paid call; several SKUs mean several runs that share a slot template
+and visual direction, never a fact card. See [listing-set
+workflow](references/workflow.md).
+
 ## Plan the complete image set
 
-Create a gallery brief before creating images. It records the chosen slots in
-order, the buyer question and fact source for each, SKU must-keeps, reference
+Create a gallery brief before creating images. Write an ordered shot list
+first — hero, benefit, lifestyle, size or fit, packaging — and wait for the
+seller to confirm that plan before any paid image. It records the chosen slots
+in order, the buyer question and fact source for each, SKU must-keeps, reference
 roles, canvas, scene and lighting direction, and any short on-image copy the
 seller has explicitly approved. Use one shared visual direction—palette,
 lighting, surface, and composition family—while giving each slot a separate
@@ -82,9 +98,11 @@ ordered SKU references remain the visual source of continuity.
 Planning is free. Before the first billable call, present one set confirmation
 that freezes the complete ordered slot list, prompts, source and reference
 order, approved fact sources, canvas for every slot, model behaviour, output
-count, current per-image price, and the total maximum price and call count.
-Treat changes to an approved slot, source fact, product/reference order,
-canvas, model, count, or control as new paid work.
+count, current per-image price, and the total maximum price and call count. It
+also states what the seller keeps if they stop after any slot, and what happens
+to the frozen plan if the balance runs out mid-run. Treat changes to an approved
+slot, source fact, product/reference order, canvas, model, count, or control as
+new paid work.
 
 After approval, give each image slot its own stable opaque
 `client_request_id` and submit it once. A six-slot gallery is six separate
@@ -135,9 +153,16 @@ as a fallback.
 
 ## References by task
 
-- For slot plans, fact sources, reference order, request payloads, confirmation,
-  task polling, recovery, cancellation, and gallery review, read [listing-set
+- For slot plans, variants, prompt craft, fact sources, reference order, request
+  payloads, confirmation, task polling, recovery, cancellation, gallery review,
+  and reading remaining credits or what a run was charged, read [listing-set
   workflow](references/workflow.md).
+- On a first run, or when a finished set reads as unrelated images rather than
+  one gallery, read [a complete listing set](references/worked-example.md) for a
+  worked fact card, six resolved slots, the prompt suite, the confirmation card,
+  and the delivery report.
+- When a seller reports a wrong image, a slow task, a lost response, or a change
+  after approval, read [listing-set questions and anti-patterns](references/faq.md).
 - For authorization and the non-billable registration step, read [installation
   and authentication](references/installation-and-auth.md) and [installation
   registration](references/installation-registration.md).

@@ -1,5 +1,5 @@
 {
-  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "changelog": "Shows a full worked run with the prompt behind every image, adds a route for colour, size and material variants and for more than one SKU, and answers the questions that come up while a set is being made.",
   "display_name": "AI Ecommerce Listing Image Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ecommerce-listing-image-set",
@@ -47,7 +47,7 @@
       "title": "AI EC出品画像セット：メイン・訴求・シーン画像"
     },
     "zh": {
-      "description": "基于真实商品照片和已确认 SKU 信息，制作一套统一的 AI 电商上架套图。为新品上架、商品详情页、店铺首页和跨境电商 Listing 准备商品主图、卖点图、商品详情图、商品场景图、尺寸展示图和包装清单图；适合亚马逊Listing图片、淘宝商品图、Shopify产品图、Etsy商品图片和独立站商品展示。",
+      "description": "基于真实商品照片和 SKU 信息，制作一套统一的 AI 电商上架套图。为新品上架、商品详情页、店铺首页和跨境电商 Listing 准备商品主图、商品卖点图、商品详情图、商品场景图、商品尺寸图和展示包装清单的商品包装图；适合亚马逊Listing图片、淘宝商品图、Shopify产品图、Etsy商品图片和独立站商品展示。",
       "display_name": "AI电商上架套图",
       "summary": "基于真实商品照片和已确认 SKU 信息，一次规划并制作主图、卖点图、场景图、尺寸展示和包装清单图。",
       "tags": [
@@ -76,5 +76,5 @@
   },
   "name": "ecommerce-listing-image-set",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.9"
 }
