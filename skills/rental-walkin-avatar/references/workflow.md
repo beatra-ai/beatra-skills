@@ -67,14 +67,13 @@ Call `beatra.models.list` with `{"capability":"image_to_video"}`:
 ```
 
 Admit the still plus the approved audio. Live driving-audio i2v SKUs
-are 2–15s. Use the smallest supported integer duration at or above the
-actual speech length. Split a longer spoken clip into sequential
+are 2–15s. Use the smallest supported integer duration at or above
+the actual speech length. Split a longer spoken clip into sequential
 containable segments. Each segment is a new speech call and a new
 video call. Show the video production card before creating a video
 request ID. Approved narration does not authorize the video call. The
-600-credit signup gift usually cannot start this video. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198.
+600-credit signup gift usually cannot start this video. Keep the
+top-up URL inside the balance error exact.
 
 ```json
 {

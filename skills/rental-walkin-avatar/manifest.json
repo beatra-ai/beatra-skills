@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied floor-plan facts and an already-written walk-in script into one talking clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Walk-in Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rental-walkin-avatar",
@@ -54,5 +54,5 @@
   },
   "name": "rental-walkin-avatar",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
