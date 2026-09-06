@@ -1,5 +1,5 @@
 {
-  "changelog": "Research first, lead with real experience, and put the hook in the first two lines.",
+  "changelog": "Re-lock against the current shared runtime after the 2026-08-21 shared-guidance change; independent trilingual SEO review fixed translation artifacts and keyword naturalness.",
   "display_name": "REDnote Note Copywriter",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-note-copywriter",
@@ -23,11 +23,11 @@
       "title": "REDnote Note Copywriter: Xiaohongshu Titles and Post Copy"
     },
     "ja": {
-      "description": "商品、体験、投稿テーマ、想定読者から、小紅書（REDnote）の投稿文案をAIで作成します。タイトル候補、読みやすい本文、表紙に載せる短いコピー、関連ハッシュタグ、自然なコメント案を整え、商品紹介、店舗体験、美容、グルメ、コーデ、旅行、ナレッジ投稿に活用できます。",
-      "display_name": "小紅書投稿文案メーカー",
+      "description": "商品、体験、投稿テーマ、想定読者から、小紅書（REDnote）の投稿コピーをAIで作成します。タイトル候補、読みやすい本文、表紙に載せる短いコピー、関連ハッシュタグ、自然なコメント案を整え、商品紹介、店舗体験、美容、グルメ、コーデ、旅行、ナレッジ投稿に活用できます。",
+      "display_name": "小紅書投稿コピーメーカー",
       "summary": "商品、体験、投稿テーマ、想定読者から、小紅書のタイトル、本文、表紙コピー、ハッシュタグ、自然なコメント案を整えます。",
       "tags": [
-        "小紅書 投稿文案",
+        "小紅書 投稿コピー",
         "小紅書 タイトル作成",
         "REDnote 本文作成",
         "小紅書 商品紹介文",
@@ -37,7 +37,7 @@
         "中国SNS 投稿文",
         "AI 投稿文作成"
       ],
-      "title": "小紅書投稿文案作成：タイトル・本文・紹介コピー"
+      "title": "小紅書投稿コピー作成：タイトル・本文・紹介コピー"
     },
     "zh": {
       "description": "使用 AI 将商品、体验、选题或受众信息制作成小红书文案、小红书标题和小红书笔记正文。生成标题备选、结构清晰的种草文案、首图文字、相关话题标签和自然的评论互动引导，适用于商品推荐、本地体验、美妆、护肤、美食、穿搭、旅行和知识分享。",
@@ -66,5 +66,5 @@
   },
   "name": "rednote-note-copywriter",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }
