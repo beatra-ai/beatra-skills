@@ -1,51 +1,51 @@
 {
-  "changelog": "Turn YouTube training captions into a 4 to 8 still handout set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "YouTube Training Caption Cards",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-train-caption-cards",
   "icon": "https://beatra.ai/icon-512x512.png",
   "localized": {
     "en": {
-      "description": "Turn YouTube training captions into a 4 to 8 still handout set. This caption to handout studio reads public training captions, then lays out training handout stills as a lecture still pack. Use it for training slide cards and YouTube training caption cards.",
+      "description": "Turn public YouTube training captions into a set of 4 to 8 handout cards. This training card studio reads the training captions, pulls each key point, and lays out one card per point for workshops and how-to videos.",
       "display_name": "YouTube Training Caption Cards",
       "summary": "Turn YouTube training captions into a 4 to 8 still handout set.",
       "tags": [
         "YouTube training captions",
+        "training handout cards",
         "caption to handout",
-        "training handout stills",
-        "lecture still pack",
-        "training slide cards",
-        "YouTube training caption cards"
+        "workshop summary cards",
+        "training key points",
+        "YouTube training cards"
       ],
-      "title": "YouTube Training Caption Cards: Caption to Handout Stills"
+      "title": "YouTube Training Cards: Captions to Handout Cards"
     },
     "ja": {
-      "description": "YouTube研修字幕は、公開されている研修字幕から4〜8枚のレジュメ図を作ります。この字幕からレジュメ図と研修レジュメ図は、ポイントカードやレジュメ静画としても使えます。",
-      "display_name": "YouTube研修字幕·字幕からレジュメ図",
+      "description": "公開されているYouTube研修字幕から、4〜8枚の研修レジュメカードを作ります。字幕の要点を1枚ずつカードにまとめ、研修やハウツー動画のまとめに使えます。",
+      "display_name": "YouTube研修字幕からレジュメ図",
       "summary": "公開されている研修字幕から4〜8枚のレジュメ図を作ります。",
       "tags": [
         "YouTube研修字幕",
-        "字幕からレジュメ図",
-        "研修レジュメ図",
-        "レジュメ静画",
-        "ポイントカード",
+        "研修レジュメ",
+        "字幕からレジュメ",
+        "研修まとめ",
+        "ハウツー動画まとめ",
         "研修字幕"
       ],
-      "title": "YouTube研修字幕·字幕からレジュメ図：研修字幕をレジュメ静画にする"
+      "title": "YouTube研修字幕からレジュメ図：研修字幕をレジュメカードにする"
     },
     "zh": {
-      "description": "YouTube培训字幕按培训字幕做成4到8张讲义图。这个字幕转讲义图和培训讲义图工作室把讲义静帧排成知识点卡。",
-      "display_name": "YouTube培训字幕·字幕转讲义图",
+      "description": "YouTube培训字幕转讲义图按培训视频字幕做成4到8张讲义卡片，每个要点一张，适合内训和操作教程总结。",
+      "display_name": "YouTube培训字幕转讲义图",
       "summary": "按培训字幕做成4到8张讲义图。",
       "tags": [
         "YouTube培训字幕",
-        "字幕转讲义图",
         "培训讲义图",
-        "讲义静帧",
-        "知识点卡",
-        "培训字幕"
+        "讲义卡片",
+        "内训总结图",
+        "操作教程总结",
+        "字幕转讲义图"
       ],
-      "title": "YouTube培训字幕·字幕转讲义图：培训字幕做成讲义静帧"
+      "title": "YouTube培训字幕转讲义图：培训字幕做成讲义卡片"
     }
   },
   "mcp": {
@@ -57,5 +57,5 @@
   },
   "name": "youtube-train-caption-cards",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
