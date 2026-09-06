@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a public TikTok stitch target into one quote reply card per chosen hook.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Stitch Prompt Card",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/stitch-prompt-card",
@@ -53,5 +53,5 @@
   },
   "name": "stitch-prompt-card",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
