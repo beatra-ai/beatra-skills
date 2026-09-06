@@ -1,5 +1,5 @@
 {
-  "changelog": "Deliver title, description, tags, pinned comment, and chapters in one complete pack.",
+  "changelog": "Re-lock with independently reviewed trilingual SEO copy fixes.",
   "display_name": "Bilibili Publishing Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-publishing-pack",
@@ -17,7 +17,7 @@
         "Bilibili upload copy",
         "Bilibili pinned comment",
         "Bilibili chapter timestamps",
-        "UP主投稿文案"
+        "Bilibili submission copy"
       ],
       "title": "Bilibili Publishing Pack: Titles, Descriptions & Tags"
     },
@@ -63,5 +63,5 @@
   },
   "name": "bilibili-publishing-pack",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.1.5"
 }
