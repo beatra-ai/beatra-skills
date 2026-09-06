@@ -1,0 +1,101 @@
+{
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
+  "display_name": "Audio Drama Voice Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/audio-drama-voice-studio",
+  "icon": "https://beatra.ai/textures/icons/audio-drama-voice-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Give every character in your script its own voice and get the whole scene recorded line by line, in script order, as numbered clips ready to drop into your editor. This AI multi-character voice generator covers audio drama and radio play, dramatised fiction and audiobooks with a cast, dialogue voice over, two-host and panel shows, scripted ads with two roles, and course roleplay scenes: decide who is who first — age, temperament, how far apart the voices should sit — give the narrator a voice of their own, and afterwards re-record just the one line you want to change. Also used for audio drama voice generator work, multi-character voice generator work, multi-speaker audio, dialogue text to speech, script to dialogue audio, AI audio drama, radio play voices, and full cast voiceover.",
+      "display_name": "Audio Drama Voice Studio",
+      "summary": "Give every character in your script its own voice and get the whole scene recorded line by line, in script order.",
+      "tags": [
+        "multi character voice generator",
+        "audio drama generator",
+        "ai voice actor",
+        "character voice generator",
+        "script to voice",
+        "dialogue voice over",
+        "radio play voices",
+        "audiobook character voices",
+        "ai voice over",
+        "text to speech",
+        "voice generator",
+        "narrator voice",
+        "audio drama voice generator",
+        "multi-character voice generator",
+        "dialogue text to speech",
+        "multi-speaker audio",
+        "script to dialogue audio",
+        "AI audio drama",
+        "full cast voiceover"
+      ],
+      "title": "Audio Drama Voice Studio: AI Multi-Character Voice Generator"
+    },
+    "ja": {
+      "description": "台本の登場人物ごとに専用の声を割り当て、セリフを台本の順番どおり一行ずつ収録し、番号付きの音声として受け取れます。この AI キャラクターボイス生成ツールは、オーディオドラマやドラマCD、朗読とオーディオブック、セリフの音声化、二人トーク番組、掛け合いのある広告、講座のロールプレイ場面に向いています。まず誰が誰かを決め——年齢、性格、声をどれだけ離すか——ナレーションにも専用の声を用意でき、あとから直したい一行だけを録り直せます。ボイスドラマ、ラジオドラマ、複数話者の音声生成、キャラクターボイス、台本から音声、ポッドキャスト会話音声にも使えます。",
+      "display_name": "オーディオドラマ音声スタジオ",
+      "summary": "台本の登場人物ごとに専用の声を割り当て、セリフを台本の順番どおり一行ずつ収録します。",
+      "tags": [
+        "複数キャラクター 音声",
+        "キャラクター ボイス 生成",
+        "台本 音声化",
+        "セリフ 読み上げ",
+        "オーディオドラマ 制作",
+        "ドラマCD 制作",
+        "朗読 音声",
+        "ナレーション 生成",
+        "AI 音声",
+        "音声合成",
+        "AI 声優",
+        "ボイス 生成",
+        "ボイスドラマ",
+        "キャラクターボイス",
+        "音声生成",
+        "複数話者",
+        "オーディオドラマ",
+        "ラジオドラマ",
+        "台本から音声",
+        "ポッドキャスト会話音声"
+      ],
+      "title": "オーディオドラマ音声スタジオ：AI キャラクターボイス生成"
+    },
+    "zh": {
+      "description": "把剧本里的每个角色分配一个专属音色，整场对白按剧本顺序逐句配好，编号交付，可以直接拖进剪辑软件。这个 AI 多角色配音工具把剧本变成一整场角色配音，适合广播剧、有声剧、有声小说、剧本配音、对话配音、双人播客、课程情景对话和多角色广告：先定好谁是谁——年龄、性格、几个角色之间要拉开多少距离——旁白也能单独占一个音色；之后想改哪一句，就只重录那一句。也用于有声剧配音、多人配音、广播剧配音、AI有声剧、多人语音合成、剧本转音频和角色语音生成。",
+      "display_name": "多角色配音工作室",
+      "summary": "把剧本里的每个角色分配一个专属音色，整场对白按剧本顺序逐句配好，编号交付。",
+      "tags": [
+        "多角色配音",
+        "剧本配音",
+        "角色配音",
+        "对话配音",
+        "广播剧",
+        "有声剧",
+        "有声小说配音",
+        "旁白配音",
+        "配音",
+        "AI配音",
+        "语音合成",
+        "音色",
+        "有声剧配音",
+        "多人配音",
+        "广播剧配音",
+        "AI有声剧",
+        "多人语音合成",
+        "剧本转音频",
+        "角色语音生成"
+      ],
+      "title": "多角色配音工作室：AI 剧本配音，一个角色一个音色"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "audio-drama-voice-studio",
+  "schema_version": 1,
+  "version": "0.1.7"
+}
