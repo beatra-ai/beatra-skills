@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a coworking or daytime office brief into one office background music playlist of 8 to 15 low-stimulation instrumentals.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Coworking Day Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/coworking-day-pack",
@@ -57,5 +57,5 @@
   },
   "name": "coworking-day-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
