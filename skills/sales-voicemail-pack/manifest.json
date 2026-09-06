@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied sales voicemail scripts into one spoken voicemail clip per labeled slot.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Sales Voicemail Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/sales-voicemail-pack",
@@ -53,5 +53,5 @@
   },
   "name": "sales-voicemail-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
