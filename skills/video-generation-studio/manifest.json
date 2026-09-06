@@ -1,5 +1,5 @@
 {
-  "changelog": "Require one keyframe when no still exists, then a prepaid video admission card.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Video Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/video-generation-studio",
@@ -75,5 +75,5 @@
   },
   "name": "video-generation-studio",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.1.5"
 }

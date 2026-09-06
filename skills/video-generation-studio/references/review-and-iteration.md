@@ -30,7 +30,7 @@ Generated video can drift even when a task succeeds. Describe observed differenc
 - Repeat the same route as new work when the core motion, composition, or event needs a new render.
 - Return to the optional image stage only when the anchor itself caused the failure.
 
-A new operation is a new paid request. Show the changed payload, live eligibility, and a new admission card, then assign a new stable ID after top-up or balance confirmation. Do not call an edit a free revision or silently retry an unsatisfactory but successful task. On `insufficient_balance`, relay the returned public message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen ID only after the user says they have topped up.
+A new operation is a new paid request. Show the changed payload, live eligibility, and a new admission card, then assign a new stable ID after top-up or balance confirmation. Do not call an edit a free revision or silently retry an unsatisfactory but successful task. On `insufficient_balance`, relay the returned public message, keep the top-up URL inside the balance error exact, and retry the same frozen ID only after the user says they have topped up.
 
 ## Multi-shot delivery
 
