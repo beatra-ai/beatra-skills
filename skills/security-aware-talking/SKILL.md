@@ -1,6 +1,6 @@
 ---
 name: "security-aware-talking"
-description: "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still. This security awareness talking video studio writes a speakable security awareness talking clip for each photo, then animates a 2 to 15s all-hands talking clip. Use it for security awareness talking pack and all-hands talking video pack work that stays one photo, one clip."
+description: "Turn written security-awareness talking points and an authorized photo into one speakable all-hands talking clip per photo. This talking clip studio writes the spoken line from the security points, records a 2 to 15 second read-aloud clip per photo, and delivers a pack of 2 to 8 single-photo clips for all-hands meetings and security-awareness campaigns."
 ---
 
 # Security Awareness Talking Clips
@@ -90,10 +90,8 @@ clone card and wait:
 4. Identity — one new opaque `client_request_id`.
 5. If we stop here — the labeled slot list remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the team says they have
-   topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the team says they have topped up.
 
 Before speech, call `beatra.models.list` for `text_to_speech`:
 
@@ -112,10 +110,8 @@ Show the speech card and wait:
 4. Identity — one new opaque `client_request_id` per slot.
 5. If we stop here — the labeled slot list remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the team says they have
-   topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the team says they have topped up.
 
 Submit each speech slot once through bundled `scripts/mcp_client.py`.
 Poll `beatra.tasks.get`. Read actual audio MIME, duration, and size.
@@ -145,10 +141,8 @@ this video. Show the video card and wait:
 5. If we stop here — the slot list and approved narration remain
    usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the team says they have
-   topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the team says they have topped up.
 
 Then submit `beatra.videos.animate` once per approved segment.
 
@@ -195,6 +189,19 @@ printf '%s' '{"image":{"type":"artifact","artifact_id":"art-security-01"},"drivi
 
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

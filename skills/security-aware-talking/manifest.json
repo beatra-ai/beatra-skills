@@ -1,40 +1,40 @@
 {
-  "changelog": "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Security Awareness Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/security-aware-talking",
   "icon": "https://beatra.ai/icon-512x512.png",
   "localized": {
     "en": {
-      "description": "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still. This security awareness talking video studio writes a speakable security awareness talking clip for each photo, then animates a 2 to 15s all-hands talking clip. Use it for security awareness talking pack and all-hands talking video pack work that stays one photo, one clip.",
+      "description": "Turn written security-awareness talking points and an authorized photo into one speakable all-hands talking clip per photo. This talking clip studio writes the spoken line from the security points, records a 2 to 15 second read-aloud clip per photo, and delivers a pack of 2 to 8 single-photo clips for all-hands meetings and security-awareness campaigns.",
       "display_name": "Security Awareness Talking Clips",
       "summary": "Turn user-supplied security-awareness talking points and authorized stills into one all-hands talking clip per still.",
       "tags": [
         "security awareness talking clip",
-        "all-hands talking video",
-        "security awareness talking pack",
-        "all-hands talking clip",
-        "speakable security awareness talking clip",
-        "all-hands talking video pack"
+        "all-hands meeting video",
+        "security awareness video",
+        "read-aloud security clip",
+        "security training clip",
+        "talking clip pack"
       ],
-      "title": "Security Awareness Talking Clips: One Still, One All-Hands Read"
+      "title": "Security Awareness Talking Clips: All-Hands Read-Aloud Videos"
     },
     "ja": {
-      "description": "セキュリティ意識口播は、すでに書いた要点と許可済みの写真から、全社向け口播を1本ずつ渡します。セキュリティ意識動画、要点から口播は全社向けとして2〜15秒で1本ずつ作り、2〜8本のセキュリティ意識口播パックとして渡します。",
-      "display_name": "セキュリティ意識口播",
-      "summary": "すでに書いたセキュリティ意識の要点と写真から、短い口播を1本ずつ作ります。",
+      "description": "すでに書いたセキュリティ要点と許可済みの写真から、全社向けの読み上げ動画を1本ずつ渡します。要点1件を2〜15秒で読み上げ、写真1枚につき1本のファイルに分けます。社内研修や全社アナウンスの動画としてそのまま使えます。",
+      "display_name": "セキュリティ意識トーククリップ",
+      "summary": "すでに書いたセキュリティ意識の要点と写真から、短い読み上げ動画を1本ずつ作ります。",
       "tags": [
-        "セキュリティ意識口播",
-        "全社向け口播",
+        "セキュリティ意識トーククリップ",
+        "全社向け読み上げ動画",
         "セキュリティ意識動画",
-        "要点から口播",
-        "セキュリティ要点口播",
-        "セキュリティ意識口播パック"
+        "要点から読み上げ動画",
+        "セキュリティ要点の読み上げ動画",
+        "セキュリティ意識トーククリップパック"
       ],
-      "title": "セキュリティ意識口播：要点を短い口播で渡す"
+      "title": "セキュリティ意識トーククリップ：要点を短い読み上げ動画で渡す"
     },
     "zh": {
-      "description": "安全意识口播按已经写好的要点，做成每张照片一条全员口播。全员口播、安全意识视频、要点转全员口播都按安全意识要点来录，一次给出2到8条安全意识口播包。",
+      "description": "安全意识口播按已经写好的安全要点，做成每张照片一条全员口播。全员会议视频、安全意识视频、要点朗读都逐条录制，一次给出2到8条，每条只对应一张照片。",
       "display_name": "安全意识口播·要点转全员口播",
       "summary": "按已经写好的安全意识要点，做成每张照片一条全员口播。",
       "tags": [
@@ -45,7 +45,7 @@
         "安全意识要点口播",
         "安全意识口播包"
       ],
-      "title": "安全意识口播·要点转全员口播：按要点一条一口播"
+      "title": "安全意识口播：按要点逐条转全员口播视频"
     }
   },
   "mcp": {
@@ -57,5 +57,5 @@
   },
   "name": "security-aware-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
