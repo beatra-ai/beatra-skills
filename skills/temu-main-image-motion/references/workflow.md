@@ -80,10 +80,9 @@ image:
 
 Poll `beatra.tasks.get` until terminal. Read actual video MIME,
 duration, size, and `billing.net_charged_credits`. Do not treat a
-storyboard preview as the clip check. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198. Do not attach `driving_audio`. Do not invent a stitch, concat,
-or editor tool.
+storyboard preview as the clip check. Keep the top-up URL inside the
+balance error exact. Do not attach `driving_audio`. Do not invent a
+stitch, concat, or editor tool.
 
 ## Delivery and recovery
 
