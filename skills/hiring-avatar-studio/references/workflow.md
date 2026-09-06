@@ -9,10 +9,10 @@ after consent, upload a local sample through the bundled client after
 inspection. Show the clone admission card before creating a clone request
 ID: route `voice_clone`, tool `beatra.voices.clone`, live price for one
 successful activated voice, the provisional estimate, the 600-credit gift
-usually cannot start this clone, `https://console.beatra.ai/topup`,
-starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not create
-`client_request_id` until the user confirms they have topped up or already
-have enough credits. Do not offer a free clone. Submit `beatra.voices.clone` exactly once:
+usually cannot start this clone, and what happens if the balance is
+short. Do not create `client_request_id` until the user confirms they
+have topped up or already have enough credits. Do not offer a free clone.
+Submit `beatra.voices.clone` exactly once:
 
 ```json
 {
@@ -48,10 +48,10 @@ audio. If terminal audio size remains unavailable, stop before video.
 Show the video admission card before creating a video request ID: route
 `image_to_video`, tool `beatra.videos.animate`, approved portrait and
 speech artifacts, prompt, audio-led duration, resolution if set, output
-count, provisional live estimate, the 600-credit gift usually cannot start
-this video, `https://console.beatra.ai/topup`, starter ¥29 / 11,000
-credits. Duration is the smallest admitted whole second at or above real
-speech length. Do not shorten words to cheapen the clip.
+count, provisional live estimate, the 600-credit gift usually cannot
+start this video, and what happens if the balance is short. Duration is
+the smallest admitted whole second at or above real speech length. Do
+not shorten words to cheapen the clip.
 
 ```json
 {

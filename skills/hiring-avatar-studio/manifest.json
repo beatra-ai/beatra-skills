@@ -1,5 +1,5 @@
 {
-  "changelog": "Make one talking-head hiring video per open role from an authorized portrait and job brief.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Hiring Avatar Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hiring-avatar-studio",
@@ -60,5 +60,5 @@
   },
   "name": "hiring-avatar-studio",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
