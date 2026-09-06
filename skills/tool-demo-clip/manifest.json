@@ -1,12 +1,12 @@
 {
-  "changelog": "Turn authorized tool demo photos and trainer-supplied facts into one tool demo clip per photo.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Tool Demo One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tool-demo-clip",
   "icon": "https://beatra.ai/icon-512x512.png",
   "localized": {
     "en": {
-      "description": "Turn authorized tool demo photos and trainer-supplied facts into one tool demo clip per photo. This one-shot demo studio turns each tool photo into a silent 2–15s clip. Use it for enterprise tool demo video and customer enablement clips that stay one photo one clip.",
+      "description": "Turn authorized tool demo photos and trainer-supplied facts into one tool demo clip per photo. This one-shot demo studio turns each tool photo into a silent 2 to 15 second clip. Use it for enterprise tool demo videos and customer training clips, one photo per clip.",
       "display_name": "Tool Demo One-Shot Clips",
       "summary": "Turn authorized tool demo photos and trainer-supplied facts into one tool demo clip per photo.",
       "tags": [
@@ -15,37 +15,37 @@
         "tool demo video",
         "customer enablement clip",
         "enterprise tool demo",
-        "one photo one clip"
+        "software demo clip"
       ],
       "title": "Tool Demo One-Shot Clips: One Photo, One Demo Clip"
     },
     "ja": {
-      "description": "ツールデモ一镜は、トレーナーが渡した工具事实から、工具写真ごとに1本のツールデモ一镜短片を作ります。1枚1クリップのスタジオとして、ツールデモ動画と顧客トレーニング短片を撮影順に渡します。",
-      "display_name": "ツールデモ一镜",
-      "summary": "トレーナーが渡した工具事实から、工具写真ごとに1本のツールデモ一镜短片を作ります。",
+      "description": "許可されたツールデモ写真と、トレーナーが渡した情報から、写真1枚につき1本のクリップを作ります。1枚ごとに2〜15秒の音声なしクリップにし、企業向けツールデモ動画や顧客トレーニング用の素材として撮影順に渡します。",
+      "display_name": "ツールデモワンカット",
+      "summary": "トレーナーが渡したツールの情報から、ツール写真ごとに1本のツールデモワンカットクリップを作ります。",
       "tags": [
-        "ツールデモ一镜",
-        "工具照转一镜",
+        "ツールデモワンカット",
+        "ツール写真からワンカット",
         "ツールデモ動画",
-        "顧客トレーニング短片",
+        "顧客トレーニングクリップ",
         "企業ツールデモ",
         "1枚1クリップ"
       ],
-      "title": "ツールデモ一镜・工具照转一镜：工具写真ごとに1本"
+      "title": "ツールデモワンカット：ツール写真ごとに1本"
     },
     "zh": {
-      "description": "工具演示一镜按培训师提供的工具事实，为每张工具照做成一条工具演示一镜短片。这个一镜工作室把工具演示视频和客户培训短片按拍摄顺序交付。",
-      "display_name": "工具演示一镜·工具照转一镜",
-      "summary": "按培训师提供的工具事实，为每张工具照做成一条工具演示一镜短片。",
+      "description": "工具演示一镜按培训师提供的工具事实，为每张工具照片做成一条演示短片。工具演示视频和客户培训短片按拍摄顺序逐条交付，每条只对应一张照片。",
+      "display_name": "工具演示一镜",
+      "summary": "按培训师提供的工具事实，为每张工具照片做成一条工具演示一镜短片。",
       "tags": [
         "工具演示一镜",
-        "工具照转一镜",
+        "工具演示短片",
         "工具演示视频",
         "客户培训短片",
         "企业工具演示",
-        "一照一镜"
+        "企业培训短片"
       ],
-      "title": "工具演示一镜·工具照转一镜：每张工具照一条短片"
+      "title": "工具演示一镜：每张工具照片一条演示短片"
     }
   },
   "mcp": {
@@ -57,5 +57,5 @@
   },
   "name": "tool-demo-clip",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
