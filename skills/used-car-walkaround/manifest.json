@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn one used-car condition sheet into a listing hero still and a speakable walkaround script, then turn that still into one used car walkaround clip.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Used Car Walkaround",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/used-car-walkaround",
@@ -57,5 +57,5 @@
   },
   "name": "used-car-walkaround",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
