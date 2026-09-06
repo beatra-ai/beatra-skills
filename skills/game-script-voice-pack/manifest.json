@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a game or murder-mystery script into a labeled voice pack, one clip per line.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Game Script Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/game-script-voice-pack",
@@ -67,5 +67,5 @@
   },
   "name": "game-script-voice-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

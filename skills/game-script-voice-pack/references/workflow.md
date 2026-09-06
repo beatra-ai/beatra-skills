@@ -30,10 +30,9 @@ larger than 20 MiB, and clean single-speaker speech. Only after consent,
 upload a local sample through the bundled client. Show the clone
 admission card before creating a clone request ID: route `voice_clone`,
 tool `beatra.voices.clone`, live price for one successful activated
-voice, the provisional estimate, the 600-credit gift usually cannot start
-this clone, `https://console.beatra.ai/topup`, starter ¥29 / 11,000
-credits. Do not recommend ¥198. Do not create `client_request_id` until
-the user confirms they have topped up or already have enough credits.
-Submit `beatra.voices.clone` exactly once with `consent_attested: true`.
-Poll with `beatra.tasks.get` until terminal, then freeze that
-character's `voice_id`.
+voice, the provisional estimate, the 600-credit gift usually cannot
+start this clone, and what happens if the balance is short. Do not
+create `client_request_id` until the user confirms they have topped up
+or already have enough credits. Submit `beatra.voices.clone` exactly
+once with `consent_attested: true`. Poll with `beatra.tasks.get` until
+terminal, then freeze that character's `voice_id`.
