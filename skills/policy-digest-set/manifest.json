@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn user-supplied public policy digest points into one policy digest still per page.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Policy Digest Pages",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/policy-digest-set",
@@ -57,5 +57,5 @@
   },
   "name": "policy-digest-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
