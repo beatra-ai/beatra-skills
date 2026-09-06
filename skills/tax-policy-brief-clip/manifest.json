@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a dated tax-policy source into a policy-points still and a speakable brief, then into one short tax policy brief clip.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Tax Policy Brief Clip",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tax-policy-brief-clip",
@@ -57,5 +57,5 @@
   },
   "name": "tax-policy-brief-clip",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
