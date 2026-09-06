@@ -54,9 +54,7 @@ production card, then submit once per slot:
 Poll `beatra.tasks.get` until terminal. Read actual
 `task.output.audio.mime_type`, `duration_seconds`, `size_bytes`, and
 `billing.net_charged_credits`. Do not treat a script preview as the
-audio review. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198.
+audio review. Keep the top-up URL inside the balance error exact.
 
 ## Video admission
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn user-supplied merchant inspection notices and authorized stills into one market inspection talking clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Market Inspection Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/market-inspect-talking",
@@ -57,5 +57,5 @@
   },
   "name": "market-inspect-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
