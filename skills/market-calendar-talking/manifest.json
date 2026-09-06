@@ -1,5 +1,5 @@
 {
-  "changelog": "Speech generation now runs on the first request.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Trading Calendar Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/market-calendar-talking",
@@ -57,5 +57,5 @@
   },
   "name": "market-calendar-talking",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }
