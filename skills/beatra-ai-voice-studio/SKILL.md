@@ -150,16 +150,15 @@ estimates are non-billable. `beatra.speech.synthesize` and
   `beatra.voices.clone` call, show the clone admission card: route
   `voice_clone`, tool `beatra.voices.clone`, live `beatra.models.list` price
   for one successful activated voice, the provisional estimate, the fact that
-  the 600-credit signup gift usually cannot start this clone, the exact URL
-  `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
-  recommend ¥198. Do not create `client_request_id` or submit until the user
-  confirms they have topped up or already have enough credits for this
-  estimate. Do not offer a free clone or a free sample that replaces the
-  clone. On `insufficient_balance`, relay the returned public message, keep
-  the URL exact, translate the rest, and retry the same frozen
-  `client_request_id` only after the user says they have topped up. Any spoken
-  proof is a separate synthesis operation with its own approved text, card,
-  approval, and request identity.
+  the 600-credit signup gift usually cannot start this clone, and what
+  happens if the balance is short. Do not create `client_request_id` or
+  submit until the user confirms they have topped up or already have enough
+  credits for this estimate. Do not offer a free clone or a free sample that
+  replaces the clone. On `insufficient_balance`, relay the returned public
+  message, keep the URL exact, translate the rest, and retry the same frozen
+  `client_request_id` only after the user says they have topped up. Any
+  spoken proof is a separate synthesis operation with its own approved text,
+  card, approval, and request identity.
 
 A current explicit “generate” or “make it” instruction is approval when it
 fully covers the frozen card. Do not ask for redundant confirmation in that
@@ -200,6 +199,19 @@ deletion, or a refund that the returned result does not establish.
 Deliver long-form and multilingual results in the approved route, language,
 and segment order. Keep accepted audio unchanged. A correction re-synthesizes
 only an explicitly approved affected segment.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "beatra-ai-voice-studio"
 PACKAGE_DISPLAY_NAME = "Beatra AI Voice Studio"
-PACKAGE_VERSION = "0.2.5"
+PACKAGE_VERSION = "0.2.6"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/beatra-ai-voice-studio/install.json"

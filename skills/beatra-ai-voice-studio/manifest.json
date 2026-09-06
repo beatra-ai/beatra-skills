@@ -1,5 +1,5 @@
 {
-  "changelog": "Split audiobook, podcast, short voiceover, clone, and multilingual at the entrance.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Beatra AI Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-voice-studio",
@@ -80,5 +80,5 @@
   },
   "name": "beatra-ai-voice-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }
