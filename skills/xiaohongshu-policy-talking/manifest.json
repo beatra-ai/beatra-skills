@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn Xiaohongshu policy-question notes into one talking policy clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Xiaohongshu Policy Talking",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-policy-talking",
@@ -57,5 +57,5 @@
   },
   "name": "xiaohongshu-policy-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
