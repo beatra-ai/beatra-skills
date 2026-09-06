@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied floor-plan facts into one listing still per room.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Listing Still Sets",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/real-estate-listing-set",
@@ -55,5 +55,5 @@
   },
   "name": "real-estate-listing-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
