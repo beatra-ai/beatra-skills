@@ -26,8 +26,8 @@ MiB, and clean single-speaker speech. Use the live `voice_clone` card
 before any clone request ID: route `voice_clone`, tool
 `beatra.voices.clone`, live price for one successful activated voice, the
 provisional estimate, the 600-credit gift usually cannot start this
-clone, `https://console.beatra.ai/topup`, starter ¥29 / 11,000 credits.
-Do not recommend ¥198. Submit `beatra.voices.clone` exactly once:
+clone, and what happens if the balance is short. Submit
+`beatra.voices.clone` exactly once:
 
 ```json
 {
@@ -47,10 +47,10 @@ Never put a display name in `voice`.
 Every `beatra.videos.animate` call uses its own admission card: route
 `image_to_video`, tool `beatra.videos.animate`, approved portrait and
 speech artifacts, prompt, audio-led duration, resolution if set, output
-count, provisional live estimate, the 600-credit gift usually cannot start
-this video, `https://console.beatra.ai/topup`, starter ¥29 / 11,000
-credits. Duration is the smallest admitted whole second at or above real
-speech length. Do not shorten the lecture to cheapen the clip.
+count, provisional live estimate, the 600-credit gift usually cannot
+start this video, and what happens if the balance is short. Duration is
+the smallest admitted whole second at or above real speech length. Do
+not shorten the lecture to cheapen the clip.
 
 ```json
 {

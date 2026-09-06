@@ -1,12 +1,12 @@
 {
-  "changelog": "Turn a lecture into digital-teacher lesson videos.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Course Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-video-studio",
   "icon": "https://beatra.ai/textures/icons/course-video-studio-0.1.1.png",
   "localized": {
     "en": {
-      "description": "Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos. This AI course video studio and digital teacher studio prepares lecture narration, then produces a stable presenter clip for each lesson so a training team can publish without a camera shoot. Use it for course videos, training videos, digital human lectures, lesson talking head series, elearning video, teacher avatar video, lecture video maker work, and training presenter video.",
+      "description": "Turn lesson materials into presenter-led course videos with lecture narration. This course video studio prepares the spoken narration for each lesson, then records a digital-teacher delivery, so enablement teams get ready-to-publish lecture videos and training presenter clips.",
       "display_name": "Course Video Studio",
       "summary": "Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos.",
       "tags": [
@@ -39,7 +39,7 @@
       "title": "講座ビデオ・デジタル講師：講義トーキングヘッド"
     },
     "zh": {
-      "description": "用讲稿和一张授权讲师人像，做成每一讲的数字人口播课程视频。这个课程视频和数字人讲师工作室会先做好课程旁白，再把每一讲做成稳定的口播成片，培训团队不用再搭棚拍摄。适用于课程视频、培训视频、数字人讲课、课件视频、网课视频、AI课程视频、讲师口播、培训口播视频和系列课件口播。",
+      "description": "课程视频工作室把讲义素材做成讲师出镜的课程视频和课程旁白。先为每节课写好口播稿，再用数字人讲师交付成片，培训团队拿到即可发布。",
       "display_name": "课程视频·数字人讲师",
       "summary": "用讲稿和一张授权讲师人像，做成每一讲的数字人口播课程视频。",
       "tags": [
@@ -66,5 +66,5 @@
   },
   "name": "course-video-studio",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }

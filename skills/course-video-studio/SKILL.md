@@ -1,6 +1,6 @@
 ---
 name: "course-video-studio"
-description: "Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos. This AI course video studio and digital teacher studio prepares lecture narration, then produces a stable presenter clip for each lesson so a training team can publish without a camera shoot. Use it for course videos, training videos, digital human lectures, lesson talking head series, elearning video, teacher avatar video, lecture video maker work, and training presenter video."
+description: "Turn lesson materials into presenter-led course videos with lecture narration. This course video studio prepares the spoken narration for each lesson, then records a digital-teacher delivery, so enablement teams get ready-to-publish lecture videos and training presenter clips."
 ---
 
 # Course Video Studio
@@ -46,16 +46,15 @@ than the longest video duration that can hold it.
    size, and whether it has an alpha channel. Build the lesson ledger. For a
    local portrait or sample, upload only through the bundled client after
    inspection. Never pass a local path to a remote tool.
-2. Select or clone a teacher voice. A clone requires consent first; access
-   to a file is not consent. A suitable sample is currently about 10 to
-   300 seconds, no larger than 20 MiB, and clean single-speaker speech.
-   Use the live `voice_clone` admission card
-   before any clone `client_request_id` or `beatra.voices.clone` call:
-   route `voice_clone`, tool `beatra.voices.clone`, live price for one
+2. Select or clone a teacher voice. A clone requires consent first;
+   access to a file is not consent. A suitable sample is currently about
+   10 to 300 seconds, no larger than 20 MiB, and clean single-speaker
+   speech. Use the live `voice_clone` admission card before any clone
+   `client_request_id` or `beatra.voices.clone` call: route
+   `voice_clone`, tool `beatra.voices.clone`, live price for one
    successful activated voice, the provisional estimate, the 600-credit
-   signup gift usually cannot start this clone,
-   `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do
-   not recommend ¥198. Do not create `client_request_id` or submit until
+   signup gift usually cannot start this clone, and what happens if the
+   balance is short. Do not create `client_request_id` or submit until
    the user confirms they have topped up or already have enough credits.
    Do not offer a free clone. Submit `beatra.voices.clone` exactly once:
 
@@ -101,14 +100,13 @@ than the longest video duration that can hold it.
    Use the smallest supported integer video duration at or above the
    actual speech length. Show the video admission card before
    `beatra.videos.animate`: route `image_to_video`, tool
-   `beatra.videos.animate`, approved portrait and speech artifacts, prompt,
-   audio-led duration, resolution if set, output count, provisional live
-   estimate, the 600-credit gift usually cannot start this video,
-   `https://console.beatra.ai/topup`, starter ¥29 / 11,000 credits. Do not
-   recommend ¥198. Do not submit until the user confirms they have topped
-   up or already have enough credits. Approved narration does not
-   authorize the video call. Each segment video has its own
-   `client_request_id`.
+   `beatra.videos.animate`, approved portrait and speech artifacts,
+   prompt, audio-led duration, resolution if set, output count,
+   provisional live estimate, the 600-credit gift usually cannot start
+   this video, and what happens if the balance is short. Do not submit
+   until the user confirms they have topped up or already have enough
+   credits. Approved narration does not authorize the video call. Each
+   segment video has its own `client_request_id`.
 6. After the pilot lesson's clips are accepted, repeat
    segment-narration-then-video for remaining lessons. Each paid stage
    has its own `client_request_id`. Submit only through the bundled
@@ -128,9 +126,22 @@ changed lecture is new narration and, if the audio changes, a new video.
 
 Recover each stage only with its identical frozen payload and ID. Recover
 a lost task ID through `beatra.tasks.list` and `beatra.tasks.get`. On
-`insufficient_balance`, keep `https://console.beatra.ai/topup` exact and
-retry the same frozen `client_request_id` only after the user says they
-have topped up.
+`insufficient_balance`, keep the top-up URL inside the balance error
+exact and retry the same frozen `client_request_id` only after the user
+says they have topped up.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
