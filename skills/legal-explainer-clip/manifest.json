@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn one public-education legal topic into a labeled digital-human still, a speakable explainer script, and one talking clip.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Legal Explainer Clip",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/legal-explainer-clip",
@@ -57,5 +57,5 @@
   },
   "name": "legal-explainer-clip",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
