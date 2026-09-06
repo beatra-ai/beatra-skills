@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a finished video's comments into one pin comment still per original quote.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Pin Comment Cards",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/comment-pin-card",
@@ -20,22 +20,22 @@
       "title": "Pin Comment Cards: Screenshot Stills of Original Quotes"
     },
     "ja": {
-      "description": "公開の動画コメントや貼り付けた原文から、選んだ一文ごとに1枚の固定コメントを作ります。このコメントカードは、ピン留めコメント用のコメントスクショと引用カードを、動画コメントの原文のまま残します。",
-      "display_name": "固定コメント・コメントカード",
-      "summary": "公開の動画コメントから、選んだ一文ごとに1枚の固定コメントを作ります。",
+      "description": "公開の動画コメントや貼り付けた原文から、選んだ一文ごとに1枚のピン留めコメントカードを作ります。ピン留めしたいコメントをスクリーンショット風のカードにし、動画コメントの原文をそのまま表示します。",
+      "display_name": "ピン留めコメント・コメントカード",
+      "summary": "公開の動画コメントから、選んだ一文ごとに1枚のピン留めコメントを作ります。",
       "tags": [
-        "固定コメント",
+        "ピン留めコメントカード",
         "コメントカード",
-        "コメントスクショ",
+        "コメントスクリーンショット",
         "引用カード",
         "動画コメント",
         "ピン留めコメント"
       ],
-      "title": "固定コメント・コメントカード：原文のスクショ"
+      "title": "ピン留めコメントカード：原文のスクリーンショット"
     },
     "zh": {
       "description": "置顶评论按卖家选定的原话，为每条可置顶评论做成一张置顶评论卡。这个置顶评论卡工作室把成片评论做成评论截图和评论卡片，只排卖家选定的置顶原话。",
-      "display_name": "置顶评论·置顶评论卡",
+      "display_name": "置顶评论卡",
       "summary": "把成片评论里卖家选定的原话，做成每条一张置顶评论卡。",
       "tags": [
         "置顶评论",
@@ -45,7 +45,7 @@
         "成片评论",
         "置顶原话"
       ],
-      "title": "置顶评论·置顶评论卡：成片原话截图卡"
+      "title": "置顶评论卡：成片原话截图卡"
     }
   },
   "mcp": {
@@ -57,5 +57,5 @@
   },
   "name": "comment-pin-card",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
