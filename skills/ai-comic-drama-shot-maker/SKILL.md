@@ -40,7 +40,7 @@ Each shot is an independent deliverable. Generate dependent shots serially: revi
 1. Inspect every available visual source. Record its actual MIME type, width, height, aspect ratio, and byte size. Identify the character identity, costume, art style, scene, action, emotion, camera, composition, and the frozen story beat this shot should deliver.
 2. Build a shot card: character identity, costume, art style, scene, action, emotion, camera, composition, and the visible end state. Then write one positive prompt that encodes the motion, mood, and landing moment for this single shot.
 3. Select the route by input semantics. Call `beatra.models.list` with the matching capability to confirm a current card admits every actual media fact, art-direction control, and any driving audio. If an original first-frame image is needed, read its image card separately and match the request to live `pricing.options`; never multiply its customer estimate by source-image count. Keep the model at `auto` unless the user chose a concrete eligible model.
-4. After `beatra.models.list` admits the complete video payload, show an admission card before any video `client_request_id` or `beatra.videos.animate`, `beatra.videos.interpolate`, or `beatra.videos.generate_from_references` call: route and MCP tool name, source images, reference media when used, prompt, shortest admitted duration, resolution if set, output count, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. An original first-frame image stage is its own paid card and does not authorize the video call. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. If an image price option is not uniquely determined before admission, show its live range and use the maximum as the approval ceiling. Freeze each stage with one opaque stable `client_request_id`; then submit exactly one call for that stage. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, one strict panel to animate:
+4. After `beatra.models.list` admits the complete video payload, show an admission card before any video `client_request_id` or `beatra.videos.animate`, `beatra.videos.interpolate`, or `beatra.videos.generate_from_references` call: route and MCP tool name, source images, reference media when used, prompt, shortest admitted duration, resolution if set, output count, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. An original first-frame image stage is its own paid card and does not authorize the video call. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. If an image price option is not uniquely determined before admission, show its live range and use the maximum as the approval ceiling. Freeze each stage with one opaque stable `client_request_id`; then submit exactly one call for that stage. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, one strict panel to animate:
 
    ```text
    printf '%s' '{"image":{"type":"artifact","artifact_id":"art_panel"},"prompt":"Animate the character turning toward the camera with wind blowing through their hair, keeping the cel-shaded art style and costume unchanged.","client_request_id":"opaque-comic-animate-id"}' | python3 scripts/mcp_client.py call beatra.videos.animate
@@ -69,11 +69,24 @@ Each shot is an independent deliverable. Generate dependent shots serially: revi
 
 ## Paid changes, recovery, and cancellation
 
-Each shot is one paid video stage. An image stage that creates an original first frame is a separate paid stage with its own request ID. A changed character identity, art style, panel, reference, prompt, model, aspect ratio, duration, or video control is new logical paid work with a new ID, a new admission card for a video stage, and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+Each shot is one paid video stage. An image stage that creates an original first frame is a separate paid stage with its own request ID. A changed character identity, art style, panel, reference, prompt, model, aspect ratio, duration, or video control is new logical paid work with a new ID, a new admission card for a video stage, and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once and confirm the resulting terminal state with `beatra.tasks.get`. A 409 means cancellation is not confirmed, so continue polling that same task without creating replacement work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
