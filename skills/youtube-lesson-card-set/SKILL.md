@@ -1,6 +1,6 @@
 ---
 name: "youtube-lesson-card-set"
-description: "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set. This caption to knowledge-point studio reads public lesson captions, then lays out knowledge-point stills as a lesson card pack. Use it for lesson point cards and YouTube lesson caption cards."
+description: "Turn public YouTube lesson captions into a set of 4 to 8 takeaway cards. This lesson card studio reads the lesson captions, pulls the key points, and lays out one card per point for lessons and tutorial videos."
 ---
 
 # YouTube Lesson Card Set
@@ -87,10 +87,8 @@ inspect, then show a six-field lookup card and wait:
 4. Identity — one new opaque `client_request_id` per execute.
 5. If we stop here — the pasted-caption plan remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the user says they have
-   topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the user says they have topped up.
 
 Do not show `schema_hash` to the user. A confirmed lookup does not
 authorize image work. After a terminal lookup, report the payload,
@@ -120,10 +118,8 @@ Show the generate card and wait:
 4. Identity — one new opaque `client_request_id` per slot.
 5. If we stop here — the labeled slot list remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the user says they have
-   topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the user says they have topped up.
 
 Submit each generate slot once through bundled
 `scripts/mcp_client.py`. Poll `beatra.tasks.get`. Read actual image
@@ -204,6 +200,19 @@ printf '%s' '{"prompt":"Create the approved knowledge-point still for the named 
 
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

@@ -1,51 +1,51 @@
 {
-  "changelog": "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "YouTube Lesson Card Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-lesson-card-set",
   "icon": "https://beatra.ai/icon-512x512.png",
   "localized": {
     "en": {
-      "description": "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set. This caption to knowledge-point studio reads public lesson captions, then lays out knowledge-point stills as a lesson card pack. Use it for lesson point cards and YouTube lesson caption cards.",
+      "description": "Turn public YouTube lesson captions into a set of 4 to 8 takeaway cards. This lesson card studio reads the lesson captions, pulls the key points, and lays out one card per point for lessons and tutorial videos.",
       "display_name": "YouTube Lesson Card Set",
-      "summary": "Turn YouTube lesson captions into a 4 to 8 knowledge-point still set.",
+      "summary": "Turn YouTube lesson captions into a 4 to 8 takeaway card set.",
       "tags": [
         "YouTube lesson captions",
-        "caption to knowledge-point",
-        "knowledge-point stills",
-        "lesson card pack",
-        "lesson point cards",
-        "YouTube lesson caption cards"
+        "lesson takeaway cards",
+        "caption to summary cards",
+        "lesson key points",
+        "tutorial summary cards",
+        "YouTube lesson cards"
       ],
-      "title": "YouTube Lesson Caption Cards: Caption to Knowledge-Point Stills"
+      "title": "YouTube Lesson Cards: Caption Points to Takeaway Cards"
     },
     "ja": {
-      "description": "YouTube授業字幕は、公開されている授業字幕から4〜8枚のポイント図を作ります。この字幕からポイント図と授業ポイント図は、ポイントカードやポイント静画としても使えます。",
-      "display_name": "YouTube授業字幕·字幕からポイント図",
-      "summary": "公開されている授業字幕から4〜8枚のポイント図を作ります。",
+      "description": "公開されているYouTube授業字幕から、4〜8枚の要点カードを作ります。字幕の要点を1枚ずつカードにまとめ、授業やチュートリアル動画のまとめに使えます。",
+      "display_name": "YouTube授業の要点カード",
+      "summary": "公開されている授業字幕から4〜8枚の要点図を作ります。",
       "tags": [
         "YouTube授業字幕",
-        "字幕からポイント図",
-        "授業ポイント図",
-        "ポイント静画",
-        "ポイントカード",
+        "授業の要点カード",
+        "字幕から要点図",
+        "授業まとめ",
+        "チュートリアルまとめ",
         "授業字幕"
       ],
-      "title": "YouTube授業字幕·字幕からポイント図：授業字幕をポイント静画にする"
+      "title": "YouTube授業の要点カード：授業字幕から要点図を作る"
     },
     "zh": {
-      "description": "YouTube课文字幕图按课文讲解字幕做成4到8张知识点图。这个字幕转知识点图把课文字幕图排成知识点卡。",
-      "display_name": "YouTube课文字幕图·字幕转知识点图",
+      "description": "YouTube知识点卡片按课文讲解字幕做成4到8张要点图，每个要点一张，适合课程讲解和教学视频总结。",
+      "display_name": "YouTube知识点卡片",
       "summary": "按课文讲解字幕做成4到8张知识点图。",
       "tags": [
-        "YouTube课文字幕图",
-        "字幕转知识点图",
-        "课文字幕图",
-        "知识点图",
-        "知识点卡",
-        "课文讲解字幕"
+        "YouTube字幕要点图",
+        "课文讲解字幕",
+        "知识点卡片",
+        "课程要点图",
+        "教学视频总结",
+        "字幕转要点图"
       ],
-      "title": "YouTube课文字幕图·字幕转知识点图：课文字幕做成知识点静帧"
+      "title": "YouTube知识点卡片：课文字幕做成要点图"
     }
   },
   "mcp": {
@@ -57,5 +57,5 @@
   },
   "name": "youtube-lesson-card-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
