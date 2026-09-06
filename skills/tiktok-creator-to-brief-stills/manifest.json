@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a TikTok creator homepage and recent posts into a collaboration brief still set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "TikTok Creator Brief Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-creator-to-brief-stills",
@@ -57,5 +57,5 @@
   },
   "name": "tiktok-creator-to-brief-stills",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
