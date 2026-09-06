@@ -54,9 +54,8 @@ six-field production card, then submit once per still:
 
 Poll `beatra.tasks.get` until terminal. Read actual video MIME,
 duration, size, and `billing.net_charged_credits`. Do not treat a
-storyboard preview as the clip review. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not
-recommend ¥198.
+storyboard preview as the clip review. Keep the top-up URL inside
+the balance error exact.
 
 ## Delivery and recovery
 
