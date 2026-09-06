@@ -48,9 +48,8 @@ one 2–15s clip. Duration is audio-led. Do not stitch. Show the
 video card, then submit `beatra.videos.animate` once per slot.
 
 Poll `beatra.tasks.get` until terminal. Read actual MIME, duration,
-size, and `billing.net_charged_credits`. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198.
+size, and `billing.net_charged_credits`. Keep the top-up URL inside
+the balance error exact.
 
 ## Review and recovery
 

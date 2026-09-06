@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn Douyin comment objections into one comment talking clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Douyin Comment Demo Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-comment-to-demo-clip",
@@ -57,5 +57,5 @@
   },
   "name": "douyin-comment-to-demo-clip",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
