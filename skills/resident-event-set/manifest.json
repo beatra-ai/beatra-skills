@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn user-supplied resident event names and points into a four-to-eight still resident event set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Resident Event Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/resident-event-set",
@@ -57,5 +57,5 @@
   },
   "name": "resident-event-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
