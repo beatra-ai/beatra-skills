@@ -1,5 +1,5 @@
 {
-  "changelog": "Show a prepaid admission card before restyling the source clip.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "AI Video Restyler",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-restyler",
@@ -71,5 +71,5 @@
   },
   "name": "ai-video-restyler",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }
