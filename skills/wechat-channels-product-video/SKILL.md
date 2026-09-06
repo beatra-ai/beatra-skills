@@ -120,9 +120,8 @@ show a video admission card that freezes:
 - the live-card-admitted model, controls, `aspect_ratio`, shortest admitted
   duration, lowest admitted resolution unless a higher tier was named, input
   and output media constraints, provisional live estimate, the fact that the
-  600-credit signup gift usually cannot start this video, the exact URL
-  `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not
-  recommend ¥198.
+  600-credit signup gift usually cannot start this video, and what happens
+  if the balance is short.
 
 Planning, comparison, or “make a product video” is not approval. Do not create
 a video `client_request_id` or submit until the user confirms they have topped
@@ -162,16 +161,17 @@ original task with `beatra.tasks.get` until `succeeded`, `failed`, or
 `canceled`; `queued` and `running` are progress, not authorization to replace a
 chargeable request.
 
-Replay only when the creation response is genuinely unknown, with byte-identical
-arguments and the same original ID. If the task ID is missing, first call
-`beatra.tasks.list` for the matching capability, then call `beatra.tasks.get`
-on plausible candidates and compare the stored prompt, media facts and order,
-model, canvas, duration, controls, and timing before deciding whether a replay
-is warranted. A slow response, network or authentication problem, update
-failure, 409 response, or partial result never authorizes a replacement paid
-request. On `insufficient_balance`, relay the returned message, keep
-`https://console.beatra.ai/topup` exact, and retry the same frozen
-`client_request_id` only after the user says they have topped up.
+Replay only when the creation response is genuinely unknown, with
+byte-identical arguments and the same original ID. If the task ID is missing,
+first call `beatra.tasks.list` for the matching capability, then call
+`beatra.tasks.get` on plausible candidates and compare the stored prompt,
+media facts and order, model, canvas, duration, controls, and timing before
+deciding whether a replay is warranted. A slow response, network or
+authentication problem, update failure, 409 response, or partial result never
+authorizes a replacement paid request. On `insufficient_balance`, relay the
+returned message, keep the top-up URL inside the balance error exact, and
+retry the same frozen `client_request_id` only after the user says they have
+topped up.
 
 Cancel only on the user's explicit request. Call `beatra.tasks.cancel` once;
 if it returns 409, continue polling the same original task. Report a cancellation
@@ -188,6 +188,19 @@ vertical fit against the approved plan. State plainly which properties could
 not be inspected. Then provide the aligned WeChat Channels title and publishing
 copy. At most one unexecuted focused revision may be suggested; a revision is
 new paid work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

@@ -163,8 +163,7 @@ Before each paid image stage, show that stage's own card. Before each
   controls, shortest admitted duration, lowest admitted resolution unless a
   higher tier was named, and admitted canvas or output specification;
 - provisional live estimate, the fact that the 600-credit signup gift usually
-  cannot start this video, the exact URL `https://console.beatra.ai/topup`, and
-  starter ¥29 / 11,000 credits. Do not recommend ¥198.
+  cannot start this video, and what happens if the balance is short.
 
 Planning, comparison, or “make my video” is not approval. Do not create a
 video `client_request_id` or submit until the user confirms they have topped up
