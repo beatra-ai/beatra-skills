@@ -32,22 +32,21 @@ When the request is text-led and there is no usable still, the first paid stage
 is `beatra.videos.enhance_prompt` or one `beatra.images.generate` keyframe.
 That gift delivery does not authorize any later video call.
 
-Upload local media before generation. Omit `model` unless the user explicitly requests a
-concrete model. A concrete model is never silently replaced. Before
-`beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`,
-`beatra.videos.generate_from_references`, `beatra.videos.edit`, or
-`beatra.videos.extend`, show the admission card: route, tool, duration,
-resolution, aspect, provisional estimate, the fact that the 600-credit signup
-gift usually cannot start this video, the exact URL
-`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
-recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
-not create `client_request_id` or submit until the user confirms they have
-topped up or already have enough credits for this estimate. Any change to the
-model, media, instruction, prompt, resolution, ratio, duration, or optional
-control creates a new logical request, a new admission card, and a new
-`client_request_id`. On `insufficient_balance`, relay the returned message,
-keep the URL exact, and retry the same frozen ID only after the user says they
-have topped up.
+Upload local media before generation. Omit `model` unless the user explicitly
+requests a concrete model. A concrete model is never silently replaced. Before
+`beatra.videos.generate`, `beatra.videos.animate`,
+`beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
+`beatra.videos.edit`, or `beatra.videos.extend`, show the admission card:
+route, tool, duration, resolution, aspect, provisional estimate, the fact that
+the 600-credit signup gift usually cannot start this video, and what happens
+if the balance is short. Planning, comparison, or “make the clip” is not
+approval. Do not create `client_request_id` or submit until the user confirms
+they have topped up or already have enough credits for this estimate. Any
+change to the model, media, instruction, prompt, resolution, ratio, duration,
+or optional control creates a new logical request, a new admission card, and a
+new `client_request_id`. On `insufficient_balance`, relay the returned
+message, keep the URL exact, and retry the same frozen ID only after the user
+says they have topped up.
 
 When a create call is rejected, preserve the complete structured error. Use `param` to
 locate the field and `details.candidate_failures[].code` to distinguish resolution,

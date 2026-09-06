@@ -47,10 +47,9 @@ owner's permission. Possession of an audio file is not consent.
 3. Call `beatra.models.list` for the voice-clone capability, admit the sample,
    and show the clone admission card before any `client_request_id`: route,
    tool `beatra.voices.clone`, provisional estimate, the fact that the
-   600-credit signup gift usually cannot start this clone, the exact URL
-   `https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
-   recommend ¥198. Do not submit until the user confirms they have topped up or
-   already have enough credits for this estimate.
+   600-credit signup gift usually cannot start this clone, and what happens if
+   the balance is short. Do not submit until the user confirms they have topped
+   up or already have enough credits for this estimate.
 4. Set `consent_attested: true` only after confirmation. Include the requested
    display name and one new stable `client_request_id`.
 5. Submit exactly once and poll the same task with `beatra.tasks.get`. Do not
