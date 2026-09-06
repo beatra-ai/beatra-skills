@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied new-year store mood notes into one retail playlist of 8 to 15 instrumentals.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Retail New Year Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/retail-new-year-pack",
@@ -53,5 +53,5 @@
   },
   "name": "retail-new-year-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
