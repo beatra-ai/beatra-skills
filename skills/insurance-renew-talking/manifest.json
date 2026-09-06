@@ -1,5 +1,5 @@
 {
-  "changelog": "Land renewal reminder talking clips from user-supplied schedule and authorized stills.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Insurance Renewal Reminder Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/insurance-renew-talking",
@@ -57,5 +57,5 @@
   },
   "name": "insurance-renew-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
