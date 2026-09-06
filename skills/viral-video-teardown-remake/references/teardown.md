@@ -1,86 +1,79 @@
 # Reading the reference
 
-The teardown draws on three sources, and it keeps them separate because their reliability is not the same.
+The teardown is free, and everything after it is built on it. Spend the effort here.
 
-| Layer | Source | Reliability |
+The one thing that can cost money before it is an optional lookup that reads the reference from a link, confirmed on its own first — see [reading the reference from a link](reference-lookup.md). The teardown itself stays free whether or not that lookup ran.
+
+## Work from what you actually have
+
+The reference arrives in one of five shapes:
+
+| Shape | What you can read directly | What you must ask for |
 | --- | --- | --- |
-| Picture semantics — shots, framing, on-screen text | `beatra.videos.understand`, one call, `response_format` set to `json` | High for what it sees; **timings need a rescale before they mean anything** |
-| Dialogue | The four-tier ladder below | Depends on which tier supplied the line |
-| Public metrics and comments | `beatra.social.execute` | A snapshot taken at read time |
+| A video file the host can open | Everything: shots, pacing, on-screen text, spoken words, ending | Nothing |
+| A link, when the user asks for it to be looked up | Caption, author, visible metrics, comments — and the transcript on YouTube | Everything visual |
+| Screenshots of key moments | Framing, on-screen text, subject, setting | Pacing, spoken words, ending |
+| A transcript or caption | Spoken content, claims, call to action | Everything visual |
+| The user's own account of it | Whatever they describe | The rest |
 
-**Call `beatra.videos.understand` once, not once per question.** It is billed per second of input video. Four separate questions against the same clip are not four small charges — each one recomputes the whole clip, so four questions cost four times the price of one. Put every field the teardown needs into a single JSON structure and ask for it in one call.
+A link and a file are complements rather than rivals: the file carries the frames, the lookup carries the numbers, the audience's words, and the spoken track. When both are available the teardown is at its strongest, and each half is still labelled by where it came from.
 
-**The call is also capped at 50 MiB and 360 seconds of input video** — a fixed tool limit, checked before the price is even quoted, not something a live card can raise. A reference past either limit is rejected before any charge; check the file against both before proposing the price.
+Take the shape that arrives. Say once, plainly, which parts you read yourself and which came from the user, then carry that distinction into the report. Do not describe a frame you did not see, and do not infer a spoken line from a caption.
 
-That one call is still a charge, so it is confirmed on its own before it runs, the way the optional lookup is: state both limits, quote the live per-second price read from `beatra.models.list` with capability `video_to_text` rather than a number from memory, and say plainly that the teardown can run at no cost from screenshots, a transcript, or the user's own account of the clip instead. See [remake workflow](workflow.md) for that gate. When the reference arrives in one of those shapes rather than as a video file, this charge never arises at all — fill the tables below from what the user brought, and say which parts you read yourself.
+When the shape is thin, one question buys most of the missing value: *what happens in the first three seconds, and what does it ask the viewer to do at the end?* Hook and call to action carry the structure; the middle can be reconstructed around them.
 
-## Table 1 — duration lock and rescale
+## Segment it
 
-Read the clip's real duration, `T`, from the material's own metadata before looking at anything the model returned.
+Produce a beat table. In and out points in seconds, and the beats in order.
 
-**Never take the duration from the model. Its self-reported duration is wrong.** A probe against a public 56-second Douyin post came back with `total_duration_s: 1.46` — the tool had compressed all nineteen shots' timings into that range while the clip itself ran fifty-six seconds.
+| Field | What goes in it |
+| --- | --- |
+| Beat | Its function, named for what it does — `pain amplified`, `product enters`, `result shown`, `reversal` — never `middle 1`, `middle 2` |
+| In / out | Seconds, contiguous. The first beat starts at 0; each beat starts where the previous ended |
+| On screen | What is visible: subject, framing, setting, motion, on-screen text |
+| Spoken | What is said, or the caption where there is no speech |
+| Why it holds | The reason a viewer does not leave during this beat |
 
-The error is not random; it is a clean linear scale, and that makes it fixable:
+Keep the beat count honest to the reference. A tutorial or build video runs to seven body beats; most other patterns run to five. Do not split a beat per shot — a beat is a function, not a cut.
 
-1. Read the model's `total_duration_s` as `T_reported`.
-2. Compute `k = T / T_reported`, using the real `T` from the material's own metadata — never the model's figure.
-3. Multiply every timing the model returned, every shot's start and end, by `k`.
-4. Check that the rescaled end of the last shot lands on `T`. On the probe clip it landed exactly on 56.00 seconds, with a mean deviation of 0.245 seconds from whole-second boundaries across the rest of the shots.
+## Name the pattern
 
-Table 1 records `T`, `T_reported`, `k`, and that end-of-last-shot check. Every other table's timings depend on this table having run first.
+Six patterns cover nearly everything in short social video. Read the reference's core move, not its category.
 
-State the precision ceiling out loud: the model samples one frame per second internally, so no rescaled timing is more precise than a second. That is enough for an ordinary clip; a clip with cuts inside the same one-second window will not show them apart, and the teardown should say so rather than let table 3 imply a precision it does not have.
+| Pattern | Body beats | Beat functions in order | It fits when |
+| --- | --- | --- | --- |
+| Pain-first | 3 | pain amplified / product enters / result shown | A specific, nameable frustration opens it |
+| Scene-embedded | 2 | everyday scene / product folded in | An ordinary moment carries the product |
+| Story-turn | 4 | setup / conflict / reversal / product folded in | Feeling or a relationship carries it |
+| Spoken authority | 4 | who I am / substance delivered / recommendation / proof | Someone is talking to camera and knows something |
+| Unboxing test | 4 | opening / appearance / function tested / lived experience | The result is visible and measurable |
+| Build-along | 3 to 7 | materials / process / result | The viewer is being shown how |
 
-## Dialogue: a four-tier ladder
+Name one pattern. When two seem to fit, choose by what the first three seconds do — that is what the viewer responded to.
 
-**The model cannot hear.** It receives sampled frames, not an audio track, so dialogue never comes from `beatra.videos.understand`. It comes from one of four sources, taken in this order:
+## Attribute the performance
 
-1. A transcript the user supplies directly. Highest reliability, no extra cost.
-2. The YouTube captions operation — YouTube only. No other platform this package can reach has an equivalent operation.
-3. Hard-burned subtitles read from the frames. The text itself is real, but there is no precise per-line start and end time behind it — mark these lines **approximate**.
-4. Nothing available. Record the line as missing in table 2. **Never invent a line of dialogue.**
+Keep three layers apart, because they carry over differently.
 
-### Never ask the vision model about sound
+- **Structural.** The pattern, the beat order, where the turn lands, how long the hook runs. This is what transfers to a new subject intact.
+- **Content.** The specific claim, number, demonstration, or story. This does *not* transfer — it has to be replaced with the user's own, from their own facts.
+- **Presentation.** Delivery pace, on-screen text rhythm, framing, cutting speed, sound. This transfers as direction.
 
-On the same probe clip — one that had background music — `beatra.videos.understand` returned `spoken_audio_detected: false`. It has no audio track; that boolean is a guess dressed up as an observation, and here it was a **false negative**, the dangerous kind: acting on it would put the entire rewrite layer on the premise that the clip has no dialogue to work from.
+Rank the factors by contribution and say which layer each belongs to. A teardown that credits everything to the content leaves nothing to reuse; one that credits everything to structure ignores why *this* execution landed.
 
-Keep every audio field out of the JSON structure you request, and out of the prompt. Whether the clip has speech, music, both, or neither is answered only by the four-tier ladder above, never by the vision model.
+When the comments were looked up, they are the best evidence available for this section: what viewers quote back names the beat that actually landed, and what they object to names the weakness the remake should fix. They remain evidence for an inference, not proof of cause — attribute them as looked up, with the time they were read.
 
-## Table 2 — per-line script evidence
+## Score six dimensions
 
-| Start (s) | End (s) | Duration | Line | On-screen keyword | Source tier |
-| --- | --- | --- | --- | --- | --- |
+Score each out of 10 with the evidence that justifies it — a timestamp, a line, a visible move. A score without evidence is an opinion.
 
-Two rules, no exceptions:
+| Dimension | What it measures |
+| --- | --- |
+| Hook strength | Whether the first three seconds give a reason to stay |
+| Information density | Substance per second, against dead air |
+| Pacing | Whether beat lengths match their jobs |
+| Subject presentation | How clearly the product, person, or topic is shown |
+| Emotional curve | Whether tension builds and resolves rather than staying flat |
+| Conversion pull | Whether the ending makes the next step obvious and easy |
 
-- **One row per spoken line.** Never merge two lines into one row, and never split one line across two rows.
-- **Never polish the wording.** This table is evidence, not copy — transcribe the line as delivered, awkward phrasing included.
-
-"On-screen keyword" is for a price, a discount, a number, or a promise printed on screen — the things a later compliance pass needs to check. "Source tier" names which of the four tiers above supplied that row, so a reader can tell an exact YouTube caption apart from an approximate burned-in subtitle at a glance.
-
-## Table 3 — shot master table
-
-| # | Start (s) | End (s) | Cut type | Shot size | Lighting | Subject and emotion | Caption position |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-
-Cover the whole clip: no gap between one shot's end and the next shot's start, no overlap between rows, and every timing already run through the rescale in table 1.
-
-**There is no camera-movement column, and that is deliberate.** On the probe clip, all nineteen shots came back `Static` for camera movement. One frame per second gives the model no inter-frame continuity to read, so a pan, tilt, or push is invisible to it in principle — the field was never observing anything real. A column that returns the same constant value on every row is worse than no column at all, because a downstream reader treats a constant as a real observation instead of noticing it was never measurable. If camera movement matters to the teardown, ask the user, or say plainly that this route cannot get it.
-
-## Table 4 — observation and attribution
-
-Six dimensions: hook strength, information density, pacing, subject presentation, emotional curve, conversion pull.
-
-**No absolute scores.** For each dimension, write three things:
-
-- **Observation** — what the clip actually does on this dimension, stated as fact.
-- **Evidence** — a row number cited into table 2 or table 3, not a general impression.
-- **Directional judgement** — stronger or weaker than the comparison in hand, never a number.
-
-There is no baseline corpus behind a figure like 8.5 out of 10 for a hook — a number like that is invented precision dressed up as measurement. A same-account comparison gives the directional judgement something concrete to be relative to; on Douyin, two further paid lookups can reach one — see [reading the reference from a link](reference-lookup.md) for the route and its cost, rather than re-deriving that mechanism here. It is optional, and on every other platform it is not available at all. Without a comparison in hand — whether it was skipped by choice or the platform has none — say plainly that the judgement reflects one sample and nothing more.
-
-## Two limits to state in the deliverable
-
-**Why a clip performed remains an inference, even with comments in hand.** Comments are evidence of what viewers noticed, not proof of what caused the result. Say what would confirm the read — the same structure recurring elsewhere in the account, or a wider sample — rather than presenting the inference as settled.
-
-**The metrics that would actually settle it are not available.** Completion rate and the three-second drop-off are the decisive numbers for judging a hook, and no platform this package reaches exposes either one. Every retention read built from likes, comments, or shares is a weak substitute for those two numbers, not an equivalent to them. State this plainly in the deliverable — otherwise table 4 reads as more certain than the evidence behind it actually is.
+Close with an overall read: how repeatable this structure is on a different subject, three things worth carrying over, and the one weakness worth fixing in the remake. That last item is where the remake beats the reference instead of only matching it.
