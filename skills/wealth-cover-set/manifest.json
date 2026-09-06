@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn user-supplied session names and themes into a four-to-eight still wealth cover set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Wealth Cover Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wealth-cover-set",
@@ -57,5 +57,5 @@
   },
   "name": "wealth-cover-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
