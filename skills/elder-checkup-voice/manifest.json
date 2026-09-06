@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a written elder-checkup schedule into one elder checkup voice clip per labeled cue.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Elder Checkup Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/elder-checkup-voice",
@@ -57,5 +57,5 @@
   },
   "name": "elder-checkup-voice",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
