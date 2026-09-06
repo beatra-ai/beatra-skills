@@ -56,9 +56,8 @@ clone approval.
    `beatra.voices.clone` call: route `voice_clone`, tool
    `beatra.voices.clone`, live price for one successful activated voice, the
    provisional estimate, the fact that the 600-credit signup gift usually
-   cannot start this clone, the exact URL `https://console.beatra.ai/topup`,
-   and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit
-   until the user confirms they have topped up or already have enough
+   cannot start this clone, and what happens if the balance is short. Do not
+   submit until the user confirms they have topped up or already have enough
    credits. Do not offer a free clone.
 3. Freeze `display_name`, sample source, `consent_attested: true`, model
    from the live card, and one opaque stable clone `client_request_id`.
@@ -99,9 +98,22 @@ clone work. A changed episode script is new synthesis work.
 Recover a lost create response only with the identical frozen payload and
 ID. Recover a lost task ID through `beatra.tasks.list` plus
 `beatra.tasks.get` before any retry. Cancel only at the user's request.
-On `insufficient_balance` for clone or a TTS block, keep
-`https://console.beatra.ai/topup` exact and retry the same frozen ID only
-after the user says they have topped up.
+On `insufficient_balance` for clone or a TTS block, keep the top-up URL
+inside the balance error exact and retry the same frozen ID only after
+the user says they have topped up.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
