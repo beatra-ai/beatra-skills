@@ -70,13 +70,12 @@ video route.
    source, one problem cluster, exact instruction, must-keeps, live-card
    duration and ratio behavior (including any output limit or approved
    explicit control), resolution if set, provisional live estimate, the fact
-   that the 600-credit signup gift usually cannot start this video, the exact
-   URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits.
-   Do not recommend ¥198. When duration is a sendable control rather than
-   source-derived, write the shortest admitted integer. Planning, comparison,
-   or “make the clip” is not approval. Do not create `client_request_id` or
-   submit until the user confirms they have topped up or already have enough
-   credits for this estimate.
+   that the 600-credit signup gift usually cannot start this video, and what
+   happens if the balance is short. When duration is a sendable control
+   rather than source-derived, write the shortest admitted integer.
+   Planning, comparison, or “make the clip” is not approval. Do not create
+   `client_request_id` or submit until the user confirms they have topped up
+   or already have enough credits for this estimate.
 5. **Execute once through the bundled client.** Use the bundled
    `scripts/mcp_client.py` for every remote Beatra tool: put the MCP tool name
    after `call` and pass
@@ -95,14 +94,14 @@ video route.
 
 Confirm before the paid edit, before choosing a paid model instead of `auto`,
 before accepting any live-card default or output limit that changes source
-ratio or timing, before choosing an explicit ratio or duration, before choosing
-an audio policy, or before accepting weaker preservation for the selected
-repair. One changed source, instruction, model, duration, ratio, audio policy,
-or optional control is new paid work and receives a new request ID, a new
-admission card, and fresh top-up or balance confirmation. On
-`insufficient_balance`, relay the returned message, keep
-`https://console.beatra.ai/topup` exact, and retry the same frozen
-`client_request_id` only after the user says they have topped up.
+ratio or timing, before choosing an explicit ratio or duration, before
+choosing an audio policy, or before accepting weaker preservation for the
+selected repair. One changed source, instruction, model, duration, ratio,
+audio policy, or optional control is new paid work and receives a new request
+ID, a new admission card, and fresh top-up or balance confirmation. On
+`insufficient_balance`, relay the returned message, keep the top-up URL inside
+the balance error exact, and retry the same frozen `client_request_id` only
+after the user says they have topped up.
 
 ## Recovery and next step
 
@@ -115,6 +114,19 @@ first task is queued or running. A user-requested cancellation uses
 After a visible result, recommend at most one focused, unexecuted next edit.
 A different correction is a new paid request; do not label it as a free
 revision or silently rerender the clip.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

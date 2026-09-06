@@ -126,7 +126,7 @@ Show one prepaid admission card before any `client_request_id` or
 | Output handling | Live-card ratio and duration behavior, including any approved default, output limit, or explicit control; audio policy if admitted. When duration is sendable rather than source-derived, write the shortest admitted integer. |
 | Model and cost | Frozen compatible live model, or an auto-eligible set whose ratio and duration behavior the user accepted, plus the current provisional estimate |
 | Gift fact | The 600-credit signup gift usually cannot start this video |
-| Top-up | Exact URL `https://console.beatra.ai/topup`; starter ¥29 / 11,000 credits. Do not recommend ¥198. |
+| Top-up | What happens if the balance is short. |
 | Paid stage | One `beatra.videos.edit` request and one output task |
 
 Planning, comparison, or “make the clip” is not approval. Create a stable
@@ -188,7 +188,7 @@ response, and task ID.
 | Task queued or running | Continue polling the original task; do not submit another retouch. |
 | Upload grant expired or MIME/length mismatch | Use the bundled upload helper for a fresh grant, then retain the otherwise frozen route. |
 | Model validation error | Refresh the `video_edit` card before proposing a changed setting. |
-| Insufficient balance | Relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. |
+| Insufficient balance | Relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up. |
 | User asks to cancel | Call `beatra.tasks.cancel` once and keep polling the original task; a `409` does not confirm cancellation. |
 
 Leave any different visual correction unexecuted until it receives its own
