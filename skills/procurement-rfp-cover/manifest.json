@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied tender facts into one RFP cover still per project.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "RFP Cover Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/procurement-rfp-cover",
@@ -33,7 +33,7 @@
     },
     "zh": {
       "description": "招标文件封面是按已经写好的项目说明，给每个项目做成一张招标文件封面。投标文件封面、标书封面图、招标封面图和RFP封面都按同一套项目说明出。",
-      "display_name": "招标文件封面·招标文件封面",
+      "display_name": "招标文件封面",
       "summary": "按已经写好的项目说明，做成招标文件封面，每个项目一张。",
       "tags": [
         "招标文件封面",
@@ -55,5 +55,5 @@
   },
   "name": "procurement-rfp-cover",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
