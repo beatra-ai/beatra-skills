@@ -1,51 +1,51 @@
 {
-  "changelog": "Turn an authorized presenter still and a post-meeting external script into one webinar recap talking clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Webinar Recap Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/webinar-recap-talking",
   "icon": "https://beatra.ai/icon-512x512.png",
   "localized": {
     "en": {
-      "description": "Turn an authorized presenter still and a post-meeting external script into one webinar recap talking clip per still. This customer recap talking studio writes a speakable recap line for each photo, then animates a 2 to 15s talking clip. Use it for customer meeting recap videos and post-webinar talking clips that stay one photo, one clip.",
+      "description": "Turn an authorized presenter photo and the post-meeting script into one webinar recap talking clip per photo. This talking clip studio writes a speakable recap line for each photo, records a 2 to 15 second talking clip, and delivers one file per photo for customer meeting recap videos and post-webinar follow-ups.",
       "display_name": "Webinar Recap Talking Clips",
       "summary": "Turn an authorized presenter still and a post-meeting external script into one webinar recap talking clip per still.",
       "tags": [
-        "webinar recap talking",
+        "webinar recap video",
         "customer meeting recap",
-        "post-webinar talking clip",
-        "recap talking video",
-        "external recap script",
-        "one photo one clip"
+        "post-webinar follow-up video",
+        "recap talking clip",
+        "webinar highlights video",
+        "talking clip pack"
       ],
       "title": "Webinar Recap Talking Clips: One Photo, One Recap Clip"
     },
     "ja": {
-      "description": "顧客会要点トークは、会后对外稿と許可された静帧から、静帧ごとに1本の顧客会要点トークを作ります。1枚1クリップのスタジオとして、顧客会リプレイ要点と顧客トレーニング口播を槽位順に渡します。",
-      "display_name": "顧客会要点トーク",
-      "summary": "会后对外稿と許可された静帧から、静帧ごとに1本の顧客会要点トークを作ります。",
+      "description": "ウェビナー後の共有原稿と使用許可済みの写真から、静止画ごとに1本の要点トークを作ります。写真1枚につき1クリップで、ウェビナーのリプレイ要点や顧客トレーニング用のトーククリップを要点の順に渡します。",
+      "display_name": "ウェビナー要点トーク",
+      "summary": "ウェビナー後の共有原稿と使用許可済みの写真から、静止画ごとに1本の要点トークを作ります。",
       "tags": [
-        "顧客会要点トーク",
-        "会后稿转口播",
-        "顧客会リプレイ要点",
-        "顧客トレーニング口播",
-        "会后对外稿",
+        "ウェビナー要点トーク",
+        "顧客ミーティング要点",
+        "ウェビナーリプレイ要点",
+        "顧客トレーニングのトーククリップ",
+        "ウェビナー後の共有原稿",
         "1枚1クリップ"
       ],
-      "title": "顧客会要点トーク・会后稿转口播：静帧ごとに1本"
+      "title": "ウェビナー要点トーク：静止画ごとに1本"
     },
     "zh": {
-      "description": "客户会要点口播按会后对外稿和授权静帧，为每张图做成一条客户会要点口播。这个会后稿转口播工作室把客户会回放要点和客户培训口播按槽位顺序交付。",
-      "display_name": "客户会要点口播·会后稿转口播",
-      "summary": "按会后对外稿和授权静帧，为每张图做成一条客户会要点口播。",
+      "description": "客户会议要点口播按会后对外稿和授权照片，为每张图做成一条要点口播。客户会议回放要点和客户培训口播按要点顺序逐条交付，每条只对应一张照片。",
+      "display_name": "客户会议要点口播",
+      "summary": "按会后对外稿和授权静帧，为每张图做成一条客户会议要点口播。",
       "tags": [
-        "客户会要点口播",
+        "客户会议要点口播",
         "会后稿转口播",
-        "客户会回放要点",
+        "客户会议回放要点",
         "客户培训口播",
         "会后对外稿",
         "一图一条"
       ],
-      "title": "客户会要点口播·会后稿转口播：每张静帧一条口播"
+      "title": "客户会议要点口播：会后稿转口播视频"
     }
   },
   "mcp": {
@@ -57,5 +57,5 @@
   },
   "name": "webinar-recap-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
