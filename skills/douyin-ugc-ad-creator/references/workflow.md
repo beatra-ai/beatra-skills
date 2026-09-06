@@ -84,7 +84,7 @@ Refresh the live `image_to_video` cards after preparation. Re-admit the exact ap
 
 Choose the smallest integer duration at or above the actual narration duration that the selected live model card supports. A fractional narration can leave the shortest unavoidable tail pause or held frame, so include that in the review after delivery.
 
-Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved frame and narration, product and creator must-keeps, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze a new opaque request ID.
+Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved frame and narration, product and creator must-keeps, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze a new opaque request ID.
 
 ```json
 {
@@ -107,7 +107,7 @@ When the host can inspect the video, review product visibility and recognizabili
 
 ## Changes, recovery, and cancellation
 
-The first frame, focused edit, narration, and final video have separate IDs and paid boundaries. A changed product image, creator reference, source order, claim, prompt, script, voice, language, format, model, canvas, duration, or control is new paid work with new approval and a new ID. A video-stage change also needs a new admission card and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+The first frame, focused edit, narration, and final video have separate IDs and paid boundaries. A changed product image, creator reference, source order, claim, prompt, script, voice, language, format, model, canvas, duration, or control is new paid work with new approval and a new ID. A video-stage change also needs a new admission card and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 If a creation response is genuinely unknown, retry only the byte-identical frozen payload with the same ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against the private request ledger before considering an identical retry. Recover the original stage before planning replacement work; never duplicate a paid submission or infer a charge, refund, or artifact.
 

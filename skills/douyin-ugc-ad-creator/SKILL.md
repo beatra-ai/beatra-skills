@@ -36,16 +36,29 @@ Upload is transport, not visual review. Retain the returned artifact reference a
 5. **Confirm preparation.** Show the product claims, creator direction, canvas, complete script, selected voice, every paid first-frame or focused-frame edit request, the narration request, their live estimates, and one opaque stable `client_request_id` for each planned paid request. Planning and copy drafting are free; a clear request to make the prepared assets authorizes only the frozen preparation stage.
 6. Submit each approved preparation request exactly once through `scripts/mcp_client.py`. Poll each returned task with `beatra.tasks.get`. Present the actual first frame and narration whenever the host can access them, report their real media facts, and ask the user to approve the accessible preparation before the dependent video stage.
 7. Re-read the current `image_to_video` card and admit the accepted first frame plus the actual narration MIME type, size, and duration. Use the smallest supported integer video duration that fully contains the narration. Keep the video model explicit because the route depends on its driving-audio support.
-8. **Show the video admission card.** Show route `image_to_video`, tool `beatra.videos.animate`, the exact approved frame and narration artifacts, product and creator must-keeps, motion direction, selected video model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then submit one `beatra.videos.animate` request once, then poll the returned task until terminal.
+8. **Show the video admission card.** Show route `image_to_video`, tool `beatra.videos.animate`, the exact approved frame and narration artifacts, product and creator must-keeps, motion direction, selected video model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then submit one `beatra.videos.animate` request once, then poll the returned task until terminal.
 9. Deliver the returned video artifact or link, resolved model, actual dimensions and duration, and `billing.net_charged_credits`. Review only media the host can actually access for product presence, understandable narration, creator delivery, motion, ending, and destination fit. Offer one focused next change without executing it.
 
 ## Paid choices, recovery, and cancellation
 
-The first-frame preparation, optional focused first-frame edit, narration, and video are separate paid stages. Every changed product source, claim, creator reference, prompt, source order, canvas, script, voice, model, duration, or control is new paid work with a new confirmation and a new opaque request ID. A video-stage change also needs a new admission card and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+The first-frame preparation, optional focused first-frame edit, narration, and video are separate paid stages. Every changed product source, claim, creator reference, prompt, source order, canvas, script, voice, model, duration, or control is new paid work with a new confirmation and a new opaque request ID. A video-stage change also needs a new admission card and fresh top-up or balance confirmation. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 For every stage, invoke Beatra only through the bundled `scripts/mcp_client.py`, with the MCP tool name as the CLI argument and JSON on standard input. Do not configure or use a host Beatra Connector, and do not use REST/OpenAPI as a fallback. Record each task ID immediately. If a create response is genuinely lost, replay only the byte-equivalent frozen payload with the same ID. If a task ID is lost, use `beatra.tasks.list`, verify candidates with `beatra.tasks.get`, and recover the original task before considering a retry. Queued and running tasks remain the original work.
 
 Call `beatra.tasks.cancel` only when the user asks. Call it once; if cancellation returns `409`, continue polling that original task. A slow task, connection issue, update issue, or authorization issue never creates replacement paid work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

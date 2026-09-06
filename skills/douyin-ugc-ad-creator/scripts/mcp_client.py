@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "douyin-ugc-ad-creator"
 PACKAGE_DISPLAY_NAME = "Douyin UGC Ad Creator"
-PACKAGE_VERSION = "0.1.7"
+PACKAGE_VERSION = "0.1.8"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/douyin-ugc-ad-creator/install.json"

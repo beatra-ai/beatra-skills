@@ -1,5 +1,5 @@
 {
-  "changelog": "Keep the first still or TTS stage; show a prepaid admission card before the ad video.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Douyin UGC Ad Creator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-ugc-ad-creator",
@@ -69,5 +69,5 @@
   },
   "name": "douyin-ugc-ad-creator",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }
