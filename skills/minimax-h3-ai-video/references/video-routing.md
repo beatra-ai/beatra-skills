@@ -72,9 +72,8 @@ Do not hardcode a Credits price. Report the terminal task's
 Before `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, or `beatra.videos.generate_from_references`, show
 the prepaid admission card: provisional live estimate, the 600-credit signup
-gift fact, `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits.
-Do not recommend ¥198. A completed `beatra.videos.enhance_prompt` stage does
-not authorize those video calls.
+gift fact, and what happens if the balance is short. A completed
+`beatra.videos.enhance_prompt` stage does not authorize those video calls.
 
 ## Unsupported H3 branches
 

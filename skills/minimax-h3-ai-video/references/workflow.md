@@ -146,12 +146,11 @@ Before any `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, or `beatra.videos.generate_from_references` call,
 show the admission card: route, tool, live-card duration, resolution, and
 aspect, provisional estimate, the fact that the 600-credit signup gift usually
-cannot start this video, the exact URL `https://console.beatra.ai/topup`, and
-starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not create
-`client_request_id` or submit until the user confirms they have topped up or
-already have enough credits for this estimate. On `insufficient_balance`,
-relay the returned message, keep that URL exact, and retry the same frozen ID
-only after the user says they have topped up.
+cannot start this video, and what happens if the balance is short. Do not
+create `client_request_id` or submit until the user confirms they have topped
+up or already have enough credits for this estimate. On
+`insufficient_balance`, relay the returned message, keep that URL exact, and
+retry the same frozen ID only after the user says they have topped up.
 
 For text, image, and first/last-frame requests, estimate the one
 `output_video_second` meter from the requested duration.
