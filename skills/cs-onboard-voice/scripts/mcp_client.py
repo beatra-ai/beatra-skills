@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "cs-onboard-voice"
 PACKAGE_DISPLAY_NAME = "Customer Onboard Voice Pack"
-PACKAGE_VERSION = "0.1.1"
+PACKAGE_VERSION = "0.1.2"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/cs-onboard-voice/install.json"
