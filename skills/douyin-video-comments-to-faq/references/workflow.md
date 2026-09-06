@@ -36,9 +36,8 @@ A local correction after accept uses a separate `image_edit` card
 with the accepted image as `images[0]`.
 
 Poll `beatra.tasks.get` until terminal. Read actual MIME, dimensions,
-size, and `billing.net_charged_credits`. Keep
-`https://console.beatra.ai/wallet?intent=buy` exact. Do not recommend
-¥198.
+size, and `billing.net_charged_credits`. Keep the top-up URL inside
+the balance error exact.
 
 ## Review and recovery
 
