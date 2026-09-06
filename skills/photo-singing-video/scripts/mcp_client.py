@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "photo-singing-video"
 PACKAGE_DISPLAY_NAME = "Photo Singing Video"
-PACKAGE_VERSION = "0.1.3"
+PACKAGE_VERSION = "0.1.4"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/photo-singing-video/install.json"
