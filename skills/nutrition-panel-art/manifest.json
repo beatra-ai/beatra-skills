@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn seller-supplied nutrition facts into one nutrition panel still per SKU.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Nutrition Panel Art",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/nutrition-panel-art",
@@ -32,18 +32,18 @@
       "title": "栄養成分表：SKUごとに1枚"
     },
     "zh": {
-      "description": "营养成分图是按已经写好的成分表，给每个SKU做成一张营养成分表。配料表图、包装营养图、营养标示图和成分表包装图都按同一套成分表和SKU出。",
-      "display_name": "营养成分图·营养成分图",
+      "description": "营养成分图是按已经写好的成分表，给每个SKU做成一张营养成分标签图。配料表图、包装营养图和详情页营养图表都按同一套成分表和SKU出。",
+      "display_name": "营养成分图",
       "summary": "按已经写好的成分表，做成营养成分图，每个SKU一张。",
       "tags": [
         "营养成分图",
         "营养成分表",
         "配料表图",
         "包装营养图",
-        "营养标示图",
-        "成分表包装图"
+        "营养成分标签",
+        "包装营养成分图"
       ],
-      "title": "营养成分图·营养成分图：每个SKU一张"
+      "title": "营养成分图：每个SKU一张"
     }
   },
   "mcp": {
@@ -55,5 +55,5 @@
   },
   "name": "nutrition-panel-art",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
