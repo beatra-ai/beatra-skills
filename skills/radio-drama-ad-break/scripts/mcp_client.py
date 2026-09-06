@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "radio-drama-ad-break"
 PACKAGE_DISPLAY_NAME = "Radio Drama Ad Breaks"
-PACKAGE_VERSION = "0.1.1"
+PACKAGE_VERSION = "0.1.3"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/radio-drama-ad-break/install.json"

@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn written radio-drama ad-break lines into one spoken bumper clip per labeled slot.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Radio Drama Ad Breaks",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/radio-drama-ad-break",
@@ -34,7 +34,7 @@
     },
     "zh": {
       "description": "广播剧贴片口播按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。开场贴片、收听提示、下期预告和赞助口播都按贴片词来录，一次给出8到20条广播剧贴片，也适合剧场口播。",
-      "display_name": "广播剧贴片口播·广播剧贴片口播",
+      "display_name": "广播剧贴片口播",
       "summary": "按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。",
       "tags": [
         "广播剧贴片口播",
@@ -56,5 +56,5 @@
   },
   "name": "radio-drama-ad-break",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }
