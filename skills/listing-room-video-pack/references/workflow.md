@@ -27,11 +27,11 @@ Primary route: one listing photo becomes one short clip. Call
 `beatra.models.list` with `{"capability":"image_to_video"}` and admit
 the photo without `driving_audio`. Duration is a supported 2–15s SKU
 chosen with the user. Show the video admission card before creating a
-video request ID: route `image_to_video`, tool `beatra.videos.animate`,
-admitted photo, prompt, chosen duration, resolution if set, output
-count, provisional live estimate, the 600-credit gift usually cannot
-start this video, `https://console.beatra.ai/topup`, starter ¥29 /
-11,000 credits. Do not recommend ¥198.
+video request ID: route `image_to_video`, tool
+`beatra.videos.animate`, admitted photo, prompt, chosen duration,
+resolution if set, output count, provisional live estimate, the
+600-credit gift usually cannot start this video, and what happens if
+the balance is short.
 
 ```json
 {
