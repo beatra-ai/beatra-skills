@@ -47,18 +47,16 @@ Upload local media before generation. Omit `model` unless the user explicitly re
 concrete model. A concrete model is never silently replaced. Before
 `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`,
 `beatra.videos.generate_from_references`, `beatra.videos.edit`, or
-`beatra.videos.extend`, show the admission card: route, tool, duration,
-resolution, aspect, provisional estimate, the fact that the 600-credit signup
-gift usually cannot start this video, the exact URL
-`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
-recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
-not create `client_request_id` or submit until the user confirms they have
-topped up or already have enough credits for this estimate. Any change to the
+`beatra.videos.extend`, show the six-field production card from the main
+instructions and wait for the user's answer. Carry this route's own facts into
+it: the tool being called, and the duration, resolution, and aspect read from
+the live card beside the provisional estimate. Planning, comparison, or “make
+the clip” is not approval; approving the card is. Any change to the
 model, media, instruction, prompt, resolution, ratio, duration, or optional
-control creates a new logical request, a new admission card, and a new
+control creates a new logical request, a new card, and a new
 `client_request_id`. On `insufficient_balance`, relay the returned message,
-keep the URL exact, and retry the same frozen ID only after the user says they
-have topped up.
+keep the top-up URL it carries exact, and retry the same frozen ID only after
+the user says they have topped up.
 
 When a create call is rejected, preserve the complete structured error. Use `param` to
 locate the field and `details.candidate_failures[].code` to distinguish resolution,

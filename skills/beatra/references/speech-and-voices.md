@@ -14,6 +14,10 @@ Speech synthesis requires text and an opaque Beatra voice ID.
 4. Submit exactly once and poll the returned asynchronous task with
    `beatra.tasks.get`.
 
+On success, deliver the returned audio URL or artifact ID with its actual
+duration, MIME type, and size. If the result carries `subtitles`, deliver that
+URL and its format alongside the audio instead of dropping it.
+
 Omit `model` by default so Beatra can choose a compatible route. All customer
 requests remain asynchronous tasks while Beatra applies automatic execution
 routing internally. Respect an explicit concrete model and never substitute it
@@ -64,19 +68,16 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "voice_clone"}
 ```
 
-   Admit the sample and show the clone admission card before any
-   `client_request_id`: route, tool `beatra.voices.clone`, provisional
-   estimate, the fact that the 600-credit signup gift usually cannot start
-   this clone, the exact URL `https://console.beatra.ai/wallet?intent=buy`, and starter
-   ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user
-   confirms they have topped up or already have enough credits for this
-   estimate.
+   Admit the sample and show the six-field production card from the main
+   instructions before any `client_request_id`, naming `beatra.voices.clone` as the call and
+   the provisional estimate read from the live card. Do not submit until the
+   user approves that card.
 4. Set `consent_attested: true` only after confirmation. Include the requested
    display name and one new stable `client_request_id`.
 5. Submit exactly once and poll the same task with `beatra.tasks.get`. Do not
    create another clone while it is queued or running. On
-   `insufficient_balance`, keep the URL exact and retry the same frozen ID only
-   after the user says they have topped up.
+   `insufficient_balance`, keep the top-up URL the message carries exact and
+   retry the same frozen ID only after the user says they have topped up.
 
 A successful result is a successful activated voice: it is already activated.
 Deliver the returned

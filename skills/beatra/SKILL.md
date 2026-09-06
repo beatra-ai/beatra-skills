@@ -5,6 +5,22 @@ description: "Create AI images, videos, music, and voice, look up public social 
 
 # Beatra Universal
 
+**What you end up with.** Per run, one of:
+
+- **Images** — one to four, one by default.
+- **Video** — a clip, plus a separate last-frame still you can ask for on the
+  models that offer one.
+- **Music** — a song or instrumental, delivered as every clip the model returns.
+- **Narration** — an audio file.
+- **A reusable cloned voice.**
+- **A rewritten production prompt**, as text.
+- **Public social data**, returned as JSON.
+
+A returned file is delivered with whichever of its real dimensions, duration,
+format, and size the finished task actually reports. The exact rendered format
+comes from the model that runs, and is reported on delivery rather than
+promised in advance.
+
 Turn a requested outcome into the smallest verified Beatra workflow, complete
 it through the shared connection, and return only what the task actually
 produced. Use the host's native text and visual understanding to analyze a
@@ -21,7 +37,7 @@ another user-controlled high-impact choice.
 
 ## Use the bundled client only
 
-Run every Beatra operation through this package's bundled
+Run every Beatra operation through the bundled
 `scripts/mcp_client.py`. Do not configure or use a host Beatra Connector. Never
 use REST/OpenAPI as a fallback. For an ordinary call, run:
 
@@ -50,7 +66,7 @@ The helper observes completion, stores the Device Token privately, verifies it
 with one non-billable call, and prints Ready. Never expose the approval code or
 ask the user to confirm approval in chat. Authorize once for the full Beatra
 connection; changing between image, video, music, speech, and public social
-lookup does not need another grant. After installing or replacing the package,
+lookup does not need another grant. After installing or replacing it,
 start a new agent session when the host discovers Skills only at session
 startup. See [installation and authentication](references/installation-and-auth.md)
 for connection recovery and
@@ -83,7 +99,7 @@ automatic non-billable registration behavior.
   `beatra.models.list` with that route's exact capability (for example
   `{"capability":"text_to_video"}` or `{"capability":"image_to_video"}`), admit
   the payload, write the shortest admitted duration (audio-led and extend rules
-  unchanged), and show the video admission card.
+  unchanged), and show the production card.
   Choose with [videos](references/videos.md), then load
   [video controls](references/video-controls.md) or
   [video recipes](references/video-recipes.md) only when needed.
@@ -91,14 +107,20 @@ automatic non-billable registration behavior.
   narration first with `beatra.speech.synthesize`, then animate a portrait with
   `beatra.videos.animate`, passing that narration as `driving_audio`. The video
   card's admitted formats and durations both constrain what you synthesize, so
-  read `{"capability":"image_to_video"}` before the speech call.
+  read `{"capability":"image_to_video"}` and `{"capability":"text_to_speech"}`
+  before the speech call. Those two free reads surface every conflict this route
+  can raise before the first paid call — the audio format both cards must
+  accept, the spoken length against an admitted duration, and the portrait's own
+  fit. Raise all of them in a single message before the
+  first paid call rather than one at a time. The returned audio's real duration
+  and format still have to be re-checked against the card after synthesis.
   Follow [video recipes](references/video-recipes.md).
 - For a song, instrumental, or reference-guided track, use
   `beatra.music.generate`. Follow [music](references/music.md).
 - For narration, browse only when a voice is still needed with
   `beatra.voices.list`, then use `beatra.speech.synthesize`. Create a reusable
   voice with `beatra.voices.clone` only after explicit voice-owner consent and
-  the clone admission card. Follow
+  the production card. Follow
   [speech and voices](references/speech-and-voices.md).
 - When model selection, compatibility, supported controls, or an estimate
   matters for image, video, music, or speech, copy an exact
@@ -108,10 +130,33 @@ automatic non-billable registration behavior.
 - When the user asks how many credits remain or whether a live estimate fits,
   call `beatra.wallet.get`. When they ask what was charged, call
   `beatra.wallet.ledger`. Both are read-only.
+- When a model card comes back carrying a `top_up` block, relay its tiers as the
+  card lists them and in that order. Do not rank them, do not talk one down, and
+  do not pick one for the user. Which tier suits them is their call, made on the
+  wallet page with the whole list in front of them. Never quote a tier from
+  memory.
 
 Do not silently turn the request into another operation. Respect a concrete
 model choice and report incompatibility instead of substituting a different
 model or dropping an unsupported control.
+
+## Keep the user's wording
+
+Carry the user's own subject, constraints, and negations into the prompt, and
+expand it only as far as the chosen route actually needs. When you add wording
+the user did not give — style, lighting, mood, instrumentation, or camera
+language — say in your reply what you added. Some routes must add wording of
+their own: [music](references/music.md) replaces a named artist with musical
+qualities.
+
+Send the `enhance_prompt` control only when the selected model's interface card
+lists it. Sending an explicit `true` or `false` narrows which models `auto` may
+choose, and an explicitly named model that does not expose it rejects the
+request. `beatra.videos.enhance_prompt` is a separate paid tool that rewrites a
+brief into a production prompt by design.
+
+A returned result that does not match the prompt is a reportable outcome, not
+something to hide behind a reworded retry.
 
 ## Upload local media safely
 
@@ -148,16 +193,34 @@ video-prompt or keyframe stage. It does not authorize
 `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
 `beatra.videos.edit`, `beatra.videos.extend`, or `beatra.voices.clone`. Before
-those video or clone calls, show the admission card: route and MCP tool name,
-live-card duration, resolution, and aspect (shortest admitted duration and
-lowest admitted resolution unless the user named a higher tier; audio-led and
-extend rules unchanged), provisional live estimate, the fact that the
-600-credit signup gift usually cannot start this video or clone, the exact URL
-`https://console.beatra.ai/wallet?intent=buy`, and starter ¥29 / 11,000 credits. Do not
-recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do
-not create `client_request_id` or submit until the user confirms they have
-topped up or already have enough credits for this estimate. For public social
-lookup, copy the `schema_hash` from `beatra.social.tools.get` into execute with
+those video or clone calls, show the production card and wait for the user's
+answer:
+
+1. Work — what will be made, in the user's own words, and which call makes it.
+2. Credits — the provisional estimate from the live card just read, never a
+   remembered number.
+3. Count — how many paid calls this turn. A retry with changed arguments is
+   another one.
+4. Identity — one new opaque `client_request_id` per call, minted only once
+   that call's payload is final.
+5. If the user stops here — name what they already hold and keep, such as an
+   accepted opening frame, a synthesized narration, or an enhanced prompt. When
+   this is the run's first paid call, say plainly that nothing has been paid
+   for yet, rather than naming an artifact that does not exist.
+6. If the balance is insufficient — relay the returned message and its top-up
+   URL exactly, and wait.
+
+Show the route's live-card duration, resolution, and aspect beside the estimate,
+taking the shortest admitted duration and lowest admitted resolution unless the
+user named a higher tier; audio-led and extend rules are unchanged. Planning,
+comparison, or “make the clip” is not approval; approving this card is. Do not
+ask the user to confirm they have enough credits — the connection reports the
+balance itself — and do not create `client_request_id` or submit before they
+approve.
+
+Public social lookup is never folded into a video or clone production card. When it needs
+confirmation, it gets its own card. For it, copy the `schema_hash` from
+`beatra.social.tools.get` into execute with
 `operation_key`, `arguments`, and one `client_request_id`. Show the
 `operation_key` and the credit price returned by `tools.get`. Do not show
 `schema_hash` to the user and do not ask for a model. Voice cloning always
@@ -194,13 +257,14 @@ model, media, and options. For public social lookup, compare `operation_key`,
 arguments, and `schema_hash`. Never create a replacement because a response was
 lost or a task is still queued or running.
 
-On `insufficient_balance`, relay the returned public message, keep
-`https://console.beatra.ai/wallet?intent=buy` exact, translate the rest, and retry the same
+On `insufficient_balance`, relay the returned public message, keep its top-up
+URL exact, translate the rest, and retry the same
 frozen `client_request_id` only after the user says they have topped up. State
 that nothing was charged only when the error says so. Do not invent a top-up
 operation or an account mutation. Use the `topup_url` from `beatra.wallet.get`
-or the URL inside the 402 message. Connection revocation belongs in the
-Beatra Console.
+or the URL inside the 402 message. When the user asks which top-up amount to
+buy, read [questions and anti-patterns](references/faq.md). Connection
+revocation belongs in the Beatra Console.
 
 On a failed public social lookup, keep `error.code` and read the platform
 wording in `error.message` or `error.data.message`. Change arguments only when
@@ -208,6 +272,14 @@ that message names a field or ID, then use a new `client_request_id`. Otherwise
 keep the same ID and the same payload. Do not suggest changing a model.
 
 ## Deliver returned truth
+
+While a task is still queued or running, report the `stage` that
+`task.progress` actually returns instead of narrating an invented pace. Treat
+its `percent` as a phase marker rather than a completion fraction: it moves on
+fixed server steps, holds one value for the whole provider wait, and must never
+be handed to the user as a share of the work finished. An unchanged stage or
+percent is not evidence that the task is stuck. When a response carries no
+progress at all, say the task is still running and leave it there.
 
 On completion, report the `task_id`, terminal status, every returned result,
 and actual usage. For media generation, also report the resolved model. For
@@ -225,6 +297,16 @@ Preserve structured errors and give the smallest recovery step.
 
 ## References by task
 
+Three tiers. Read the first on a first run, the second once a route is chosen,
+and the third only when something needs diagnosis or recovery.
+
+### Getting started
+
+- On a first run, or when one job spans more than one medium, read [planning a multi-medium run](references/worked-example.md) for the order of decisions and where each paid boundary falls
+- First connection and automatic registration: [installation and authentication](references/installation-and-auth.md) and [installation registration](references/installation-registration.md)
+
+### Building the request, one medium at a time
+
 - Public social posts, accounts, comments, and trends: [public social data](references/social.md)
 - Image generation, transformation, and editing: [images](references/images.md)
 - Video route selection, controls, and request patterns: [videos](references/videos.md), [video controls](references/video-controls.md), and [video recipes](references/video-recipes.md)
@@ -232,11 +314,14 @@ Preserve structured errors and give the smallest recovery step.
 - Narration, voice discovery, and consent-gated voice cloning: [speech and voices](references/speech-and-voices.md)
 - Local image, video, or audio preparation: [uploads](references/uploads.md)
 - Current model compatibility, controls, and estimates: [models](references/models.md)
-- First connection and automatic registration: [installation and authentication](references/installation-and-auth.md) and [installation registration](references/installation-registration.md)
+
+### Diagnosing and recovering
+
+- When a user reports a result that misses the brief, a refused model, a stuck or lost task, or an unexpected charge, read [questions and anti-patterns](references/faq.md)
 - Bundled commands and connection diagnosis: [Bundled MCP Client diagnostics](references/mcp-connection.md)
 - Task progress, recovery, results, balance, and errors: [tasks and results](references/tasks-and-results.md) and [billing, errors, and recovery](references/billing-errors-and-recovery.md)
 - Verified automatic updates and persistent controls: [automatic updates and safety](references/automatic-updates-and-safety.md)
-- Package removal and shared credential handling: [uninstall and disconnect](references/uninstall-and-disconnect.md)
+- When the user wants to stop: [stopping use and removing shared credentials](references/uninstall-and-disconnect.md)
 
 ## Keep updates safe and removable
 
@@ -262,5 +347,5 @@ The first command disables silent checks, the second restores automatic
 updates, and the third reports the official available version without replacing
 files. Read [automatic updates and safety](references/automatic-updates-and-safety.md)
 for the full verified-update contract. For removal or credential cleanup,
-follow [uninstall and disconnect](references/uninstall-and-disconnect.md).
+follow [stopping use and removing shared credentials](references/uninstall-and-disconnect.md).
 Never directly delete the shared `~/.beatra` connection state.

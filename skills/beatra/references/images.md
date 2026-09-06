@@ -87,8 +87,12 @@ whole-image edit.
   rejects it.
 - `output_relationship` defaults to `independent` where available.
 - An omitted `seed` is random.
-- Omitted or null `enhance_prompt` and `reasoning` keep the selected model's
-  documented default.
+- `enhance_prompt` and `reasoning` belong to different image model families, so
+  read the selected model's interface card instead of assuming either exists.
+  Where the card lists `enhance_prompt`, omitting it or sending null submits the
+  prompt as written, and an explicit boolean also constrains model eligibility.
+  Where the card lists `reasoning`, omitting it or sending null keeps that
+  model's documented default.
 - The public limit is still four when a concrete model can expose a lower input
 maximum. An explicit incompatible model fails; `auto` may choose an eligible
 model. Inputs are never silently dropped or merged.

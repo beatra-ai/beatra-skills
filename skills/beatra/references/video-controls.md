@@ -15,8 +15,14 @@ compatible choices from discovery.
 
 Omitted controls use the selected model's declared defaults. There is no global default
 shared by every video model. Read `defaults` from discovery for the selected
-capability; it is the source of truth for resolution, duration, aspect ratio, audio,
-watermark, search, and last-frame behavior.
+capability; it is the source of truth for resolution, duration, audio, watermark,
+search, and last-frame behavior.
+
+`defaults` is not the source of truth for aspect ratio. A model publishes a default
+aspect ratio whether or not the selected capability honours one, and where the model
+derives the output shape from the input media that published value is never applied —
+echoing it back is rejected rather than ignored. Decide aspect ratio from what the card
+advertises for that capability, never from `defaults`.
 
 Read the admitted task input and `resolved_model` as the concrete truth after auto
 selection.
@@ -40,7 +46,8 @@ strict output ratio, pass an explicit ratio. When first and last frame images ha
 ratios, the first frame is authoritative and the last frame may be center-cropped to fit.
 
 `return_last_frame: true` asks for a separate image artifact whose dimensions match the
-output video. To create a longer continuous sequence, use that returned image as the next
+output video. Read it from the completed task's own `last_frame` result rather than from the
+convenience artifact list, which does not carry it. To create a longer continuous sequence, use that returned image as the next
 `animate` request's input; this is a continuity technique, not video extension.
 
 ## Media values

@@ -3,15 +3,14 @@
 Use current models, constraints, and prices from `beatra.models.list` with the
 capability payload for this recipe's tool (see [videos](videos.md)). Admit the
 complete payload, write the shortest admitted duration (audio-led and extend
-rules unchanged), and show the video admission card before creating
-`client_request_id` or submitting `beatra.videos.generate`,
-`beatra.videos.animate`, `beatra.videos.interpolate`,
+rules unchanged), and show the six-field production card from the main
+instructions before creating `client_request_id` or submitting
+`beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`,
 `beatra.videos.generate_from_references`, `beatra.videos.edit`, or
-`beatra.videos.extend`. The card must include route, tool, duration, resolution
-if set, provisional estimate, the fact that the 600-credit signup gift usually
-cannot start this video, the exact URL `https://console.beatra.ai/wallet?intent=buy`, and
-starter ¥29 / 11,000 credits. Do not recommend ¥198. “Make the clip” is not
-approval. Example `duration` and `resolution` values below are placeholders;
+`beatra.videos.extend`. Carry this route's own facts into it: the tool being
+called, and the duration, resolution, and aspect read from the live card beside
+the provisional estimate. “Make the clip” is not approval. Example `duration`
+and `resolution` values below are placeholders;
 replace them with the shortest admitted duration and lowest admitted resolution
 unless the user named a higher tier. After confirmation, create one opaque
 `client_request_id`, call the selected billable tool exactly once, and poll
@@ -40,7 +39,6 @@ Call `beatra.videos.generate`:
   "resolution": "720p",
   "aspect_ratio": "16:9",
   "duration": 6,
-  "generate_audio": true,
   "client_request_id": "vid-text-opaque-1"
 }
 ```
@@ -54,11 +52,20 @@ Call `beatra.videos.animate`:
   "prompt": "The subject looks toward camera while the camera eases forward",
   "image": { "type": "artifact", "artifact_id": "art_first" },
   "resolution": "720p",
-  "duration": "auto",
-  "return_last_frame": true,
   "client_request_id": "vid-animate-opaque-1"
 }
 ```
+
+Decide `aspect_ratio` by step 5 of the presenter recipe below. The same rule
+governs this route, and on this route nothing else protects you from it: it is
+the difference between a clip in the opening frame's shape and one in a model's
+own default.
+
+Optional controls narrow the field before they do anything else. `duration:
+"auto"` and `return_last_frame` are each admitted by only part of the catalogue,
+so adding either changes which models `auto` may select, and therefore which
+shape rule applies to the request you just changed. Add them only when the live
+card lists them for the model you want, and re-read the shape rule when you do.
 
 Add `driving_audio` only when discovery says the selected model supports that input.
 
@@ -85,19 +92,38 @@ about to pay for.
    looser of the two, so a script can be admissible as audio and still have no
    video duration that contains it. Estimate the spoken length of the script and
    confirm the route admits a duration at or above it. If it does not, shorten
-   the script or split the delivery before synthesizing.
+   the script or split the delivery before synthesizing. Both free card reads
+   are done by this point, so put every conflict they found — format, spoken
+   length, and portrait fit — to the user in one message rather than one at a
+   time.
 3. Synthesize with `beatra.speech.synthesize`, then read the returned audio's
-   actual duration, MIME type, and size rather than the requested ones. Let the
-   user hear it before the video stage; a script preview is not an audio review.
+   actual duration, MIME type, and size rather than the requested ones. Hand
+   the user the audio with those real facts and a chance to reject it before the
+   video stage; a script preview is not an audio review. Say plainly when the
+   host cannot play the file, and do not block on a review it cannot render —
+   the production card that follows is the user's decision point either way.
 4. Re-read the `image_to_video` cards against those real audio facts, and
    re-check the portrait facts against the current card at the same time. The audio
    must clear the live minimum and must fit a duration the route can contain.
    Take the smallest admitted duration at or above the actual speech length so
    no words are cut, and do not pad with silence. A fractional narration can
    leave a short held tail, so disclose it and inspect the ending.
-5. Omit `aspect_ratio` so the portrait's own frame survives.
-   `beatra.videos.animate` is not a crop or canvas override. When the
-   destination needs another shape, obtain a first frame already composed for it.
+5. Decide `aspect_ratio` from the card, not from a rule. On `image_to_video`,
+   most models derive the output shape from the frame and reject an explicit
+   `aspect_ratio` outright. A few take the shape from the request instead and
+   fall back to their own default when it is omitted, so a portrait handed to
+   one of those comes back in that default rather than in its own shape. The
+   card discriminates: when it advertises an `aspect_ratios` list, that model
+   decides the shape and you must say what you want; when it advertises no such
+   list, omit `aspect_ratio` and the frame governs. For a strict output shape on
+   a listing model, pass an explicit supported ratio — read
+   [video controls](video-controls.md) for what `adaptive` does and does not
+   promise before reaching for it — and read the returned `videos[].width` and
+   `videos[].height` back rather than assuming them; both are best-effort, so a
+   missing value is unknown rather than a failure. Do not read a published default aspect ratio as evidence
+   of either behaviour; models that ignore it publish one too. When the
+   destination needs a shape the frame does not have, obtain a first frame
+   already composed for it.
 
 Call `beatra.videos.animate`:
 
@@ -112,7 +138,7 @@ Call `beatra.videos.animate`:
 ```
 
 Approved narration does not authorize the video call, and replacing the
-narration is new paid work with fresh audio, a fresh admission card, and a new
+narration is new paid work with fresh audio, a fresh production card, and a new
 `client_request_id`. Treat identity, clothing, and background as must-keeps and
 review the result for drift instead of promising exact preservation or perfect
 lip sync.
@@ -182,7 +208,6 @@ Call `beatra.videos.edit`:
   "model": "auto",
   "resolution": "1080p",
   "duration": 8,
-  "generate_audio": true,
   "client_request_id": "vid-edit-opaque-1"
 }
 ```
