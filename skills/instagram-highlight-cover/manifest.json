@@ -1,5 +1,5 @@
 {
-  "changelog": "Instagram highlight covers are one still per named highlight after reading the account Reels and posts.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Instagram Highlight Covers",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/instagram-highlight-cover",
@@ -35,7 +35,7 @@
     },
     "zh": {
       "description": "Instagram精选封面是按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。精选封面、封面图、精选封面组和 Reels 封面都按同一套栏目出。",
-      "display_name": "Instagram精选封面·封面图",
+      "display_name": "Instagram精选封面",
       "summary": "按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。",
       "tags": [
         "Instagram精选封面",
@@ -57,5 +57,5 @@
   },
   "name": "instagram-highlight-cover",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.3"
 }

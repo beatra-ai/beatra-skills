@@ -52,10 +52,8 @@ then show a six-field lookup card and wait:
 4. Identity — one new opaque `client_request_id` per page.
 5. If we stop here — the written highlight plan remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the operator says they
-   have topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the operator says they have topped up.
 
 Do not show `schema_hash` to the operator. A confirmed lookup does
 not authorize generate.
@@ -76,10 +74,8 @@ card for `text_to_image`. Keep `model` as `auto` and `count` at
    changed name, prompt, file, model, or canvas mints a new ID.
 5. If we stop here — the labeled cover plan remains usable.
 6. If the balance is insufficient — relay the official message and
-   its top-up URL exactly
-   (`https://console.beatra.ai/wallet?intent=buy`). Translate the
-   prose; keep the URL. Do not retry until the operator says they
-   have topped up. Do not recommend ¥198.
+   its top-up URL exactly. Translate the prose; keep the URL. Do
+   not retry until the operator says they have topped up.
 
 A confirmed lookup does not authorize generate. Submit once
 through bundled `scripts/mcp_client.py`. Poll `beatra.tasks.get`.
@@ -118,6 +114,19 @@ printf '%s' '{"query":"instagram user","platform":"instagram","capability_family
 
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
