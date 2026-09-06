@@ -109,11 +109,10 @@ Before each paid image stage, show that stage's own card. Before each
 - product must-keeps and seller-supplied facts used in the direction;
 - every source and reference in exact order, with its role;
 - selected route, MCP tool name, prompt, first and last-frame handling where relevant;
-- live-card-admitted model, controls, canvas, shortest admitted duration,
-  lowest admitted resolution unless a higher tier was named, silent-output
-  setting, provisional live estimate, the fact that the 600-credit signup gift
-  usually cannot start this video, the exact URL `https://console.beatra.ai/topup`,
-  and starter ¥29 / 11,000 credits. Do not recommend ¥198.
+- live-card-admitted model, controls, canvas, shortest admitted duration, lowest
+  admitted resolution unless a higher tier was named, silent-output setting,
+  provisional live estimate, the fact that the 600-credit signup gift usually
+  cannot start this video, and what happens if the balance is short.
 
 Planning, listing copy, or “make the clip” is not approval. Do not create a
 video `client_request_id` or submit until the user confirms they have topped up
@@ -153,18 +152,31 @@ the host could not inspect.
 
 If a create response is genuinely unknown, first use `beatra.tasks.list` for
 the matching capability and inspect plausible candidates with
-`beatra.tasks.get`. Compare the retained payload, media order, model, canvas,
-duration, and timing against the local ledger. Replay only a byte-identical
-frozen payload with the same original ID when evidence supports an identical
-retry. A slow task or lost connection remains the original task. On
-`insufficient_balance`, relay the returned message, keep
-`https://console.beatra.ai/topup` exact, and retry the same frozen
+`beatra.tasks.get`. Compare the retained payload, media order, model,
+canvas, duration, and timing against the local ledger. Replay only a
+byte-identical frozen payload with the same original ID when evidence
+supports an identical retry. A slow task or lost connection remains the
+original task. On `insufficient_balance`, relay the returned message, keep
+the top-up URL inside the balance error exact, and retry the same frozen
 `client_request_id` only after the user says they have topped up.
 
 Cancel only when the user asks to cancel. Call `beatra.tasks.cancel` once; if
 it returns `409`, continue polling the original task and report its terminal
 state. A failed stage leaves successfully returned source artifacts available
 for a newly approved revision.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

@@ -108,19 +108,19 @@ Sources and references in exact order:
 Prompt and motion direction:
 Live-card model, canvas, shortest admitted duration, lowest admitted resolution unless a higher tier was named, and silent-output controls:
 Provisional estimate; 600-credit signup gift usually cannot start this video:
-Exact top-up URL https://console.beatra.ai/topup and starter ¥29 / 11,000 credits:
+What happens if the balance is short:
 Review after completion:
 ```
 
-Do not recommend ¥198. Planning or “make the clip” is not approval. Create one
-opaque `client_request_id` per logical paid request only after the user
-confirms they have topped up or already have enough credits for this estimate.
-It contains no product, seller, or user information and remains within the
-current 1–128 character limit. Changing a source, order, must-keep, prompt,
-route, model, canvas, resolution, duration, or control creates new paid work
-and requires a new admission card and new ID. On `insufficient_balance`, relay
-the returned message, keep `https://console.beatra.ai/topup` exact, and retry
-the same frozen ID only after the user says they have topped up.
+Planning or “make the clip” is not approval. Create one opaque
+`client_request_id` per logical paid request only after the user confirms they
+have topped up or already have enough credits for this estimate. It contains
+no product, seller, or user information and remains within the current 1–128
+character limit. Changing a source, order, must-keep, prompt, route, model,
+canvas, resolution, duration, or control creates new paid work and requires a
+new admission card and new ID. On `insufficient_balance`, relay the returned
+message, keep the top-up URL inside the balance error exact, and retry the
+same frozen ID only after the user says they have topped up.
 
 ## 4. Submit, track, and deliver
 
