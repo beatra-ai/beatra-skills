@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn YouTube insurance captions into one talking insurance clip per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "YouTube Insurance Caption Talking",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-insure-caption-talking",
@@ -57,5 +57,5 @@
   },
   "name": "youtube-insure-caption-talking",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
