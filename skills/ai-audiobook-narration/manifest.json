@@ -1,5 +1,5 @@
 {
-  "changelog": "Teach agents never to poll generations that returned no task reference; reconcile with the task list instead.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

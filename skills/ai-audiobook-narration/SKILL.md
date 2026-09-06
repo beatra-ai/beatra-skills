@@ -42,17 +42,17 @@ When the user brought a narrator sample, present a current `beatra.voices.clone`
 admission card first — route `voice_clone`, tool `beatra.voices.clone`, live
 `beatra.models.list` price for one successful activated voice, the provisional
 estimate, the fact that the 600-credit signup gift usually cannot start this
-clone, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 /
-11,000 credits. Do not recommend ¥198. Do not create `client_request_id` or
-submit until the user confirms they have topped up or already have enough
-credits for this estimate. Do not offer a free clone or a free sample that
-replaces the clone. Then freeze the returned `voice_id` so every chapter
-uses the same performer. Without a sample, do not default to cloning: use
-`beatra.voices.list` when the narrator is not already frozen. A returned
-opaque `voice_id` is the only valid value for synthesis `voice`; never substitute
-a display name, a prose preference, or a remembered label. Record the selected
-`voice_id`, its preview, stated language information, and `compatible_models` in
-the ledger. Use previews for casting without creating paid audio.
+clone, and what happens if the balance is short. Do not create
+`client_request_id` or submit until the user confirms they have topped up or
+already have enough credits for this estimate. Do not offer a free clone or a
+free sample that replaces the clone. Then freeze the returned `voice_id` so
+every chapter uses the same performer. Without a sample, do not default to
+cloning: use `beatra.voices.list` when the narrator is not already frozen. A
+returned opaque `voice_id` is the only valid value for synthesis `voice`; never
+substitute a display name, a prose preference, or a remembered label. Record the
+selected `voice_id`, its preview, stated language information, and
+`compatible_models` in the ledger. Use previews for casting without creating
+paid audio.
 
 Call `beatra.models.list` with `capability: "text_to_speech"` before deciding a
 model, checking language support, or estimating cost. For an explicit model,
@@ -91,21 +91,21 @@ card. Do not automatically retry a paid call. A changed argument needs a new
 ## Price and confirm the pilot
 
 Planning is free; `beatra.speech.synthesize` is paid. `beatra.voices.clone` is
-a separate paid step with its own current admission card when a narrator
-sample is present. That card must include the live `beatra.models.list` price,
-the 600-credit gift fact, `https://console.beatra.ai/topup`, and starter ¥29 /
-11,000 credits. Do not create a clone `client_request_id` or submit until the
-user confirms they have topped up or already have enough credits for this
-estimate. Do not offer a free clone or a free sample that replaces the clone.
-On `insufficient_balance`, relay the returned public message, keep the URL
-exact, translate the rest, and retry the same frozen clone
-`client_request_id` only after the user says they have topped up. `beatra.images.generate` is a separate paid step with its own current
-card when a listing cover is wanted. Count the pilot's billable
-quantity exactly as the live card defines `beatra_weighted_characters`: each Han
-ideograph weighs 2 and every other character weighs 1. Apply the card's current
-`estimate_formula`, `unit_price_credits`, and `scale`. When `auto` can resolve to
-more than one applicable voice-compatible card, show the resulting range or a
-clearly labeled upper bound.
+a separate paid step with its own current admission card when a narrator sample
+is present. That card must include the live `beatra.models.list` price, the
+600-credit gift fact, and what happens if the balance is short. Do not create a
+clone `client_request_id` or submit until the user confirms they have topped up
+or already have enough credits for this estimate. Do not offer a free clone or
+a free sample that replaces the clone. On `insufficient_balance`, relay the
+returned public message, keep the URL exact, translate the rest, and retry the
+same frozen clone `client_request_id` only after the user says they have topped
+up. `beatra.images.generate` is a separate paid step with its own current card
+when a listing cover is wanted. Count the pilot's billable quantity exactly as
+the live card defines `beatra_weighted_characters`: each Han ideograph weighs 2
+and every other character weighs 1. Apply the card's current
+`estimate_formula`, `unit_price_credits`, and `scale`. When `auto` can resolve
+to more than one applicable voice-compatible card, show the resulting range or
+a clearly labeled upper bound.
 
 A clone approval never authorizes the pilot, a pilot approval never authorizes
 remaining chapters or a cover, and a cover approval never authorizes speech or
@@ -214,6 +214,19 @@ readable text. If the project also needs source-file import, translation,
 multi-cast mixing, M4B assembly, mastering, or publishing support, preserve
 those requirements and route those preparation or finishing steps to a
 suitable workflow.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## Installation, updates, and account operations
 
