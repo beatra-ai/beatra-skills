@@ -41,16 +41,15 @@ the portrait as the strict first frame, and a source-derived aspect ratio.
 2. If the series still needs a cloned voice, confirm consent first. Access
    to a file is not consent. A suitable sample is currently about 10 to
    300 seconds, no larger than 20 MiB, and clean single-speaker speech.
-   Call `beatra.models.list` with
-   `{"capability":"voice_clone"}` and show the clone admission card before
-   any clone `client_request_id` or `beatra.voices.clone` call: route
-   `voice_clone`, tool `beatra.voices.clone`, live price for one successful
-   activated voice, the provisional estimate, the 600-credit signup gift
-   usually cannot start this clone, `https://console.beatra.ai/topup`, and
-   starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not create
-   `client_request_id` or submit until the user confirms they have topped
-   up or already have enough credits.    Do not offer a free clone. Submit
-   `beatra.voices.clone` exactly once:
+   Call `beatra.models.list` with `{"capability":"voice_clone"}` and show
+   the clone admission card before any clone `client_request_id` or
+   `beatra.voices.clone` call: route `voice_clone`, tool
+   `beatra.voices.clone`, live price for one successful activated voice,
+   the provisional estimate, the 600-credit signup gift usually cannot
+   start this clone, and what happens if the balance is short. Do not
+   create `client_request_id` or submit until the user confirms they have
+   topped up or already have enough credits. Do not offer a free clone.
+   Submit `beatra.voices.clone` exactly once:
 
    ```json
    {
@@ -98,8 +97,8 @@ the portrait as the strict first frame, and a source-derived aspect ratio.
 6. For each approved audio segment, refresh the `image_to_video` cards
    and admit the actual portrait plus that audio. Recheck every image
    fact and compare the audio's actual MIME, duration, and byte size
-   with the current driving-audio constraints. If terminal audio size is
-   absent, obtain it from trusted artifact metadata; if it remains
+   with the current driving-audio constraints. If terminal audio size
+   is absent, obtain it from trusted artifact metadata; if it remains
    unavailable, stop before video. Use the smallest supported integer
    video duration at or above the actual speech length. Show the video
    admission card before any video `client_request_id` or
@@ -107,11 +106,10 @@ the portrait as the strict first frame, and a source-derived aspect ratio.
    `beatra.videos.animate`, approved portrait and speech artifacts,
    prompt, audio-led duration, resolution if set, output count,
    provisional live estimate, the fact that the 600-credit signup gift
-   usually cannot start this video, the exact URL
-   `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits.
-   Do not recommend ¥198. Do not submit until the user confirms they
-   have topped up or already have enough credits. Approved narration
-   does not authorize the video call.
+   usually cannot start this video, and what happens if the balance is
+   short. Do not submit until the user confirms they have topped up or
+   already have enough credits. Approved narration does not authorize
+   the video call.
 7. Submit `beatra.videos.animate` exactly once per approved audio
    segment. Do not configure a host Beatra Connector. Do not use
    REST/OpenAPI as a fallback. Poll each video task with
@@ -128,12 +126,26 @@ admission card each require their own confirmation.
 ## Recovery
 
 Each paid stage has its own frozen payload and ID. Recover a lost create
-response only with that stage's identical payload. Recover a lost task ID
-through `beatra.tasks.list` and `beatra.tasks.get`. Call
+response only with that stage's identical payload. Recover a lost task
+ID through `beatra.tasks.list` and `beatra.tasks.get`. Call
 `beatra.tasks.cancel` only when the user asks to cancel that stage. On
-`insufficient_balance`, keep the top-up URL exact and retry the same
-frozen ID only after the user says they have topped up. If a create
-returns no `task_id`, do not poll; reconcile before minting a new ID.
+`insufficient_balance`, keep the top-up URL inside the balance error
+exact and retry the same frozen ID only after the user says they have
+topped up. If a create returns no `task_id`, do not poll; reconcile
+before minting a new ID.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

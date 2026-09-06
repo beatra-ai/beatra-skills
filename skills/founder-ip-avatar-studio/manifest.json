@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a founder or expert brief into a talking-head video with a stable look and voice.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Founder IP Avatar Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/founder-ip-avatar-studio",
@@ -66,5 +66,5 @@
   },
   "name": "founder-ip-avatar-studio",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
