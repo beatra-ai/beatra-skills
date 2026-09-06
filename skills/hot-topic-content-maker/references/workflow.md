@@ -10,6 +10,20 @@ printf '%s' '{"capability":"text_to_image"}' | python3 scripts/mcp_client.py cal
 
 Do not configure or call a host Beatra Connector. Do not fall back to REST or OpenAPI. Never pass a local path to a remote tool.
 
+This file is the payload-level reference and it is long. Read the stage you are
+in rather than the whole thing:
+
+| Stage | What it settles |
+| --- | --- |
+| Optional lookup gate | Whether to read a board at all, and its own price |
+| Free stage | Cards read, angles, wording, beats — nothing charged |
+| Selecting the video model | Which models accept supplied narration |
+| Approval gate 1 | The production card: cover and clip materials |
+| Production | The paid image and speech calls |
+| Review point | What must be true before the shoot is offered |
+| Approval gate 2 | The shoot card, and the one video call |
+| Delivering, redoing, recovery, stopping | After the calls, and how to back out |
+
 ## Optional lookup gate — before anything else
 
 Only when the user asks to see what is trending, or asks for their topic to be checked against what people are actually posting. Skipping it is the ordinary shape of this route.
@@ -40,7 +54,7 @@ Read the current `image_to_video` cards and keep only models whose `input_combin
 
 Do not leave selection to `model: "auto"` on this route. Pass an admitted model explicitly, and read its `duration` behaviour; current cards advertise `supports_auto: false`, so an explicit integer duration is always required.
 
-## Approval gate 1 — the cover, and the clip materials
+## Approval gate 1 — the production card: the cover, and the clip materials
 
 Show the plan in one block, then freeze:
 
@@ -103,7 +117,7 @@ Any failure stops here.
 
 ## Approval gate 2 — the shoot
 
-Only when a clip was included. Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved opening frame and narration, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved cover, frames, or narration do not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze them under a new stable `client_request_id`.
+Only when a clip was included. Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved opening frame and narration, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved cover, frames, or narration do not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze them under a new stable `client_request_id`.
 
 ```json
 {
@@ -116,13 +130,15 @@ Only when a clip was included. Show an admission card before any video `client_r
 }
 ```
 
-Omit `aspect_ratio`. The frame governs it, and the narration-capable models do not accept it. Set `duration` to the smallest integer second at or above the real narration length. Submit `beatra.videos.animate` exactly once.
+Omit `aspect_ratio`. The models this route admits derive the output shape from the frame and reject an explicit value — read that off the card you actually selected rather than carrying it as a rule, because a future narration-capable model need not behave the same way. Set `duration` to the smallest integer second at or above the real narration length. Submit `beatra.videos.animate` exactly once.
 
 ## Delivering and reviewing
 
 Record each task ID immediately and poll it with `beatra.tasks.get` until terminal. `queued` and `running` mean wait.
 
 Deliver the angles considered, the chosen one and why, the cover with its wording, the caption as one pasteable block, the hashtags in posting order, and — when a clip was included — the clip plan, every beat frame as a delivered still, and the finished clip. For every generation task, deliver its task ID, the returned artifact links, the resolved model, the returned dimensions and duration, and `billing.net_charged_credits`. A trend lookup is delivered differently and has no resolved model, dimensions, or duration; see [looking up what is trending](trend-lookup.md).
+
+When the user asks how many credits they have left, read `beatra.wallet.get`. When they ask what a particular run cost or what has been deducted, read `beatra.wallet.ledger`. Both are ordinary reads the user can ask for at any time, not a step before submitting, and neither replaces the live model card as the source of a price.
 
 When the host can view or play the returned media, review and say which parts could not be inspected:
 
@@ -145,9 +161,9 @@ When the host can view or play the returned media, review and say which parts co
 
 Keep a private ledger per paid call — the trend lookup included: what it was for, the complete frozen arguments, its stable `client_request_id`, the approval, the create response, the task ID, and the terminal result. For a lookup, record the `operation_key` and the time it was read alongside them, because the read time travels with every figure it produced.
 
-If a create response is lost, resubmit only the identical frozen payload under the same ID. If a task ID is lost, list tasks for that capability, inspect plausible candidates, and match them against the ledger before considering a retry. A trend lookup has no capability to list by: match its saved `operation_key`, arguments, and `schema_hash` against the candidates instead. A slow task is not a failed task. Never replace a running task with a duplicate.
+If a create response is lost, resubmit only the identical frozen payload under the same ID. If a task ID is lost, list tasks for that capability, inspect plausible candidates, and match them against the ledger before considering a retry. A trend lookup lists under the `social_data_fetch` capability; because it returns no resolved model or dimensions, match its candidates on the saved `operation_key`, arguments, and `schema_hash` instead. A slow task is not a failed task. Never replace a running task with a duplicate.
 
-On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up. It is not a failed generation.
+On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up. It is not a failed generation.
 
 Cancel only when the user asks. Call `beatra.tasks.cancel` once and confirm the terminal state with `beatra.tasks.get`. A 409 means cancellation is unconfirmed: keep polling that same task and create no replacement work.
 

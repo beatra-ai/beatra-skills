@@ -1,5 +1,5 @@
 {
-  "changelog": "Align the Simplified Chinese listing title with the renamed 热点选题 listing; the title still led with the retired 热点内容制作, leaving the rename half-done on the zh product page. For Simplified Chinese installations this build is also the first to carry, in the Chinese instructions, the prepaid admission card before the video stage, task polling corrected from a billing URL to `beatra.tasks.get`, the corrected insufficient-balance recovery, and the repair of a token-displacement defect that had left the published Execution section naming no client at all.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Hot Topic Content Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hot-topic-content-maker",
@@ -87,5 +87,5 @@
   },
   "name": "hot-topic-content-maker",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.2.1"
 }

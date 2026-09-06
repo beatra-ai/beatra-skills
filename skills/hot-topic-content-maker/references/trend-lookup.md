@@ -85,9 +85,9 @@ the returned payload, the `task_id`, the terminal status, and
 `billing.net_charged_credits`. There is no resolved model, no dimensions, no duration,
 and no media artifact; do not look for them and do not report them as missing.
 
-If the lookup's task ID is lost, do not list tasks by capability — a lookup has no
-capability. Compare the saved `operation_key`, arguments, and `schema_hash` against the
-candidates instead.
+If the lookup's task ID is lost, list tasks under the `social_data_fetch` capability.
+Because the fields above are absent, compare the saved `operation_key`, arguments, and
+`schema_hash` against the candidates rather than a model or dimensions.
 
 ## Carrying the result into the angles
 
