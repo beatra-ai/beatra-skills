@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn user-supplied assignment names and points into a four-to-eight still lab cover set.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Lab Cover Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/lab-cover-set",
@@ -57,5 +57,5 @@
   },
   "name": "lab-cover-set",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
