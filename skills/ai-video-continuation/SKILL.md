@@ -36,7 +36,7 @@ Default to one extended clip and `model: "auto"`. Extract a continuity state fro
 1. Inspect the source video. Record its actual MIME type, width, height, aspect ratio, duration, and byte size. Identify the subject, pose and action vector, camera movement, framing, lens feel, lighting, color, environment, source audio, the requested before/after direction, and the next visual beat.
 2. Build a continuity state from the final portion (for after-extension) or opening portion (for before-extension): subject, pose and action vector, camera movement, framing, lens feel, lighting, color, environment, and source-audio intent. Then state one continuation beat.
 3. Call `beatra.models.list` with `{"capability":"video_extend"}` before naming compatibility, duration, resolution, or a numeric estimate. Admit the complete payload against one current card: the source clip's actual MIME type, dimensions, duration, and byte size, that card's live final-duration maximum, direction control, optional reference limits, and price basis. Keep the model at `auto` unless the user chose a concrete eligible model. Any numeric estimate is provisional; the terminal task's `billing.net_charged_credits` is final.
-4. Choose the extension duration. The request `duration` is the final returned-video duration, not seconds to add: it must be an integer that exceeds the trusted source duration and stays within the live maximum. Prefer the shortest admitted final duration that still exceeds the source. If the source already meets or exceeds the current maximum, this route cannot enter and the user must be told plainly. Show an admission card before any `client_request_id` or `beatra.videos.extend` call: route `video_extend`, tool `beatra.videos.extend`, source, direction, next beat, final duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Freeze the exact payload with one opaque stable `client_request_id`; then submit one `beatra.videos.extend` call exactly once. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
+4. Choose the extension duration. The request `duration` is the final returned-video duration, not seconds to add: it must be an integer that exceeds the trusted source duration and stays within the live maximum. Prefer the shortest admitted final duration that still exceeds the source. If the source already meets or exceeds the current maximum, this route cannot enter and the user must be told plainly. Show an admission card before any `client_request_id` or `beatra.videos.extend` call: route `video_extend`, tool `beatra.videos.extend`, source, direction, next beat, final duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Freeze the exact payload with one opaque stable `client_request_id`; then submit one `beatra.videos.extend` call exactly once. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
 
    ```text
    printf '%s' '{"video":{"type":"artifact","artifact_id":"art_source"},"duration":10,"direction":"after","instruction":"Continue the shot forward: the subject turns and walks toward the window, keeping the same lens, lighting, and pacing.","client_request_id":"opaque-extend-id"}' | python3 scripts/mcp_client.py call beatra.videos.extend
@@ -47,11 +47,24 @@ Default to one extended clip and `model: "auto"`. Extract a continuity state fro
 
 ## Paid changes, recovery, and cancellation
 
-An extension is one paid stage. A changed source video, continuation direction, next beat, final duration, model, or control is new logical paid work with a new ID, a new admission card, and fresh top-up or balance confirmation. The `duration` is the final returned-video duration each time; it never means seconds to add. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+An extension is one paid stage. A changed source video, continuation direction, next beat, final duration, model, or control is new logical paid work with a new ID, a new admission card, and fresh top-up or balance confirmation. The `duration` is the final returned-video duration each time; it never means seconds to add. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once and confirm the resulting terminal state with `beatra.tasks.get`. A 409 means cancellation is not confirmed, so continue polling that same task without creating replacement work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
