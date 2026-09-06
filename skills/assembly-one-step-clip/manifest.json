@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn authorized stills and seller-supplied step facts into one assembly step video per still.",
+  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
   "display_name": "Assembly One-Step Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/assembly-one-step-clip",
@@ -57,5 +57,5 @@
   },
   "name": "assembly-one-step-clip",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
