@@ -47,7 +47,7 @@ After a delivered gift cover, prefer `beatra.videos.animate` with driving audio 
    ```
 
 4. Select the route by visual control. Call `beatra.models.list` with the matching capability to confirm a current card admits every actual media fact, the driving-audio combination, and the selected video duration. Keep the model at `auto` unless the user chose a concrete eligible model. Write the smallest admitted whole-second `duration` at or above the real song length. Do not omit `duration` on `model=auto`. Any numeric estimate is provisional; the terminal task's `billing.net_charged_credits` is final.
-5. Show an admission card before any video `client_request_id` or `beatra.videos.generate` / `beatra.videos.animate` / `beatra.videos.interpolate` / `beatra.videos.generate_from_references` call: route and MCP tool name, live-card duration, resolution if set, aspect if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate.
+5. Show an admission card before any video `client_request_id` or `beatra.videos.generate` / `beatra.videos.animate` / `beatra.videos.interpolate` / `beatra.videos.generate_from_references` call: route and MCP tool name, live-card duration, resolution if set, aspect if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Do not submit until the user confirms they have topped up or already have enough credits for this estimate.
 6. Freeze the exact route, audio, source images, reference media when used, prompt, selected duration, model behavior, and one opaque stable `client_request_id`; then submit exactly one video call. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example, text plus driving audio:
 
    ```text
@@ -77,11 +77,24 @@ After a delivered gift cover, prefer `beatra.videos.animate` with driving audio 
 
 ## Paid changes, recovery, and cancellation
 
-The optional cover stage and the video stage are separate paid requests with distinct IDs. A changed music excerpt, visual direction, cover image, prompt, model, selected duration, aspect ratio, or video control is new logical paid work: create a new ID, show the changed admission card, and obtain fresh top-up or balance confirmation. Never reuse an ID across changed arguments. On `insufficient_balance`, relay the returned message, keep the top-up URL exact, and retry the same frozen ID only after the user says they have topped up.
+The optional cover stage and the video stage are separate paid requests with distinct IDs. A changed music excerpt, visual direction, cover image, prompt, model, selected duration, aspect ratio, or video control is new logical paid work: create a new ID, show the changed admission card, and obtain fresh top-up or balance confirmation. Never reuse an ID across changed arguments. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen ID only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once and confirm the resulting terminal state with `beatra.tasks.get`. A 409 means cancellation is not confirmed, so continue polling that same task without creating replacement work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 

@@ -52,7 +52,7 @@ Keep `model: "auto"` unless the user chose a concrete eligible model. Numeric co
 
 Omit `aspect_ratio` so the route uses its declared default unless an explicit user decision needs another value and the live model card supports it. The prompt should encode the visual response to the music for this single clip, and reference the audio-visual map implicitly through the frozen mood, motif, and palette.
 
-Before creating a video `client_request_id` or submitting `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, or `beatra.videos.generate_from_references`, show the admission card with every field: route, tool, duration, resolution if set, aspect if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Do not submit until the user confirms they have topped up or already have enough credits for this estimate.
+Before creating a video `client_request_id` or submitting `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, or `beatra.videos.generate_from_references`, show the admission card with every field: route, tool, duration, resolution if set, aspect if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Do not submit until the user confirms they have topped up or already have enough credits for this estimate.
 
 ### Text plus driving audio — generate
 
@@ -146,9 +146,9 @@ Keep a private ledger entry for each stage: logical label, full frozen arguments
 
 If the create response is lost, retry only the identical frozen payload with the same ID. If the task ID is lost, call `beatra.tasks.list` with the relevant capability, call `beatra.tasks.get` for plausible candidates, and match returned facts against that stage's private ledger. Recover the original before planning changed work. Never reuse an ID after any argument changes or replace a slow task with a duplicate.
 
-On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
-Any change to music excerpt, visual direction, cover, prompt, model, duration, aspect ratio, or another control creates new logical paid work. Assign a new request ID, show a new admission card (including the 600-credit fact, exact top-up URL, and starter ¥29), and obtain fresh top-up or balance confirmation.
+Any change to music excerpt, visual direction, cover, prompt, model, duration, aspect ratio, or another control creates new logical paid work. Assign a new request ID, show a new admission card (including the 600-credit fact and what happens if the balance is short), and obtain fresh top-up or balance confirmation.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.
 
