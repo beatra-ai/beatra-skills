@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "product-video-studio"
 PACKAGE_DISPLAY_NAME = "Product Video Studio"
-PACKAGE_VERSION = "0.1.4"
+PACKAGE_VERSION = "0.1.5"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/product-video-studio/install.json"

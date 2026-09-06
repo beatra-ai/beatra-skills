@@ -32,7 +32,7 @@ Claims split by source. What the photo shows — shape, colour, finish, apparent
 5. **Confirm preparation.** Show the script, the 9:16 canvas and what changing it later would cost, the selected ready voice, and the exact paid preparation route: a direct opening photo plus narration, a transformed opening frame plus narration, or that route plus an approved related last-frame edit for a two-frame video. State the current estimate and a stable request ID for every planned paid call.
 6. Synthesize narration with `beatra.speech.synthesize`, then read the actual returned duration, size, and MIME type.
 7. **Show the merchant the real materials.** Display the frame and play the narration whenever the host can access them, report the true duration, and re-check it against the live card before going further. Clearly distinguish returned task facts from media details that the host could not inspect.
-8. **Show the video admission card.** After `beatra.models.list` admits the accepted frame plus the actual narration, show route `image_to_video`, tool `beatra.videos.animate`, frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, the exact URL `https://console.beatra.ai/topup`, and starter ¥29 / 11,000 credits. Do not recommend ¥198. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the frame, the narration, an explicitly selected model, and that audio-led duration.
+8. **Show the video admission card.** After `beatra.models.list` admits the accepted frame plus the actual narration, show route `image_to_video`, tool `beatra.videos.animate`, frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the frame, the narration, an explicitly selected model, and that audio-led duration.
 9. Poll that task with `beatra.tasks.get` until terminal, deliver the video, and review what you can actually see.
 
 Select the video model explicitly rather than leaving it to `auto`: only some models on this capability accept supplied narration, and one that does not will discard it.
@@ -64,7 +64,20 @@ When the host can view or play the returned media, inspect visible product fidel
 
 ## Recovery
 
-Record each task ID immediately and poll only that task. `queued` and `running` mean wait. If a create response is lost, resubmit only the identical frozen payload under the same identifier; if a task ID is lost, list tasks for that capability and match candidates against your own ledger before any retry. Redoing one stage reuses the other artifacts unchanged. On `insufficient_balance`, relay the returned message, keep `https://console.beatra.ai/topup` exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+Record each task ID immediately and poll only that task. `queued` and `running` mean wait. If a create response is lost, resubmit only the identical frozen payload under the same identifier; if a task ID is lost, list tasks for that capability and match candidates against your own ledger before any retry. Redoing one stage reuses the other artifacts unchanged. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits,
+call `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
+top-up tool. Do not make `wallet.get` a required step before every paid submit.
+
+When a model card comes back carrying a `top_up` block, relay its tiers as the
+card lists them and in that order. Do not rank them, do not talk one down, and
+do not pick one for the user. Which tier suits them is their call, made on
+the wallet page with the whole list in front of them. Never quote a tier from
+memory.
 
 ## References by task
 
