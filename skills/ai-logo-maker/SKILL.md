@@ -14,8 +14,8 @@ mark.
 
 - **Create from a brand brief:** when no source image exists, extract the brand
   name, industry feel, and one style direction, then use `beatra.images.generate`
-  with a square canvas. Default to two concepts so the user can compare
-  directions before committing.
+  with a square canvas. One call: named 1–4, or 4 if they name more, or 2 if
+  they only name styles or say nothing. Do not fire four `count=1` calls.
 - **Compose from references:** with one to four sketches, mood boards, or brand
   assets, preserve their declared order and use `beatra.images.transform`. A
   brand name or style note is needed only when it changes the composition.
@@ -63,21 +63,23 @@ REST/OpenAPI as a fallback. For exact commands and troubleshooting, use
 [Bundled MCP Client diagnostics](references/mcp-connection.md).
 
 - With no source image, call `beatra.images.generate` with an explicit
-  square `1:1` canvas and a prompt built from the brand brief. Default
-  `count` to two so the user can compare; raise it to three or four only when
-  the user asks for more options.
+  square `1:1` canvas and a prompt built from the brand brief. How many
+  images this call: if they name 1–4, that is `count`. If they name more
+  than 4, still one call, `count=4`. If they only name styles or say
+  nothing, `count=2`. A style list is not several calls. Do not fire
+  `count=1` four times to make two or four options.
 - With one to four ordered references, upload local files through the bundled
   client helpers, then call `beatra.images.transform` with an explicit canvas.
 - For an accepted draft, call `beatra.images.edit`. Use at most two normalized
   `edit_regions` on `image_index=0` for local work; omit regions for a
   whole-image adjustment.
 
-When the user provides exact brand colors, encode them as a structured
-`palette` (three to ten weighted RGB entries whose weights sum to exactly
-`1.0000`) rather than describing colors in prose. Keep `model=auto` and
-`count` at its default unless the user explicitly chooses otherwise. Call
-`beatra.models.list` only for a real model, availability, compatibility, or
-price decision. The detailed request shapes and examples are in
+Put brand hex codes in the prompt. Omit `palette`. Send `palette` only if
+they asked for a 3–10 color board with weights. Then copy
+`{"color":"#1655E0","weight":0.5}`. Never `r` / `g` / `b`. Keep `model=auto`
+unless the user explicitly chooses a model. Call `beatra.models.list` only
+for a real model, availability, compatibility, or price decision. The
+detailed request shapes and examples are in
 [workflow](references/workflow.md).
 
 Uploading makes bytes available to the remote tool; it does not itself inspect
@@ -86,13 +88,13 @@ the image. Review only visual facts the host can actually see.
 ## Confirm and execute once
 
 Planning and brief preparation are free. Before the paid image call, show and
-freeze the final prompt, ordered references, canvas, brand palette, logo type,
+freeze the final prompt, ordered references, canvas, brand colors, logo type,
 model, controls, and output count. Merge any still-material high-impact choice
 into this one confirmation.
 
 After approval, create one stable opaque `client_request_id` for that exact
 logical request and submit it once. A changed prompt, reference or order,
-canvas, palette, model, count, or control is new paid work and needs a new
+canvas, colors, model, count, or control is new paid work and needs a new
 confirmation and a new ID.
 
 ## Track, review, and deliver
@@ -107,6 +109,15 @@ or a connection failure never creates a replacement paid task.
 Use `beatra.tasks.cancel` only when the user asks. If cancellation returns
 `409`, continue tracking the original task. See [review and
 recovery](references/review-and-recovery.md) for the full recovery contract.
+
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
 
 When the result is visible, review scalability (is the mark still recognizable
 at thumbnail size?), brand-color accuracy, silhouette strength, safe-area

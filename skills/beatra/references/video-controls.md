@@ -130,7 +130,7 @@ remain the final truth.
   `unsupported_aspect_ratio`, or `unsupported_control`, plus `received` and
   `supported_values` when present.
 - `no_eligible_model` means no live auto candidate can satisfy the full request. Inspect
-  every provider-neutral candidate failure before relaxing a requirement.
+  every model-neutral candidate failure before relaxing a requirement.
 - `model_unavailable` can mean the named model supports the request but no compatible live
   route is currently ready. It is retryable; do not weaken explicit parameters silently.
 - A schema-level `invalid_request` means the payload shape itself is invalid, such as an

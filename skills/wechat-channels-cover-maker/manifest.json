@@ -1,5 +1,5 @@
 {
-  "changelog": "Require a topic or title before paying without a key frame, and do not default to a 3:4 Xiaohongshu canvas.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "WeChat Channels Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-cover-maker",
@@ -65,5 +65,5 @@
   },
   "name": "wechat-channels-cover-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

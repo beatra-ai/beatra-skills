@@ -30,7 +30,7 @@ AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
 REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
 PACKAGE_SLUG = "beatra-ai-image-studio"
 PACKAGE_DISPLAY_NAME = "Beatra AI Image Studio"
-PACKAGE_VERSION = "1.1.3"
+PACKAGE_VERSION = "1.1.4"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

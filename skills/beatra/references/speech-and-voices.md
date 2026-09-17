@@ -14,6 +14,28 @@ Speech synthesis requires text and an opaque Beatra voice ID.
 4. Submit exactly once and poll the returned asynchronous task with
    `beatra.tasks.get`.
 
+The minimum request is `voice`, `input`, and one stable `client_request_id`.
+The words to speak go in `input`. A request that carries them under any other
+name fails as a missing required field, and the name it used is dropped without
+comment rather than reported back, so the reply describes an absent `input`
+rather than the field actually sent.
+
+```bash
+python3 scripts/mcp_client.py call beatra.speech.synthesize
+```
+
+```json
+{
+  "voice": "vc-preset-warm-female",
+  "input": "Sunlight reaches the kitchen table before anyone else does.",
+  "client_request_id": "speech-opaque-1"
+}
+```
+
+Add `language`, `format`, `sample_rate`, `speed`, `volume`, `pitch`, or
+`emotion` only when the requested result needs them, and take their accepted
+values from the current model card rather than from a value seen elsewhere.
+
 On success, deliver the returned audio URL or artifact ID with its actual
 duration, MIME type, and size. If the result carries `subtitles`, deliver that
 URL and its format alongside the audio instead of dropping it.
@@ -23,7 +45,7 @@ requests remain asynchronous tasks while Beatra applies automatic execution
 routing internally. Respect an explicit concrete model and never substitute it
 silently.
 
-`language` is an optional provider-neutral BCP-47 tag. Use it only when the
+`language` is an optional model-neutral BCP-47 tag. Use it only when the
 user requests a language or context establishes one clearly; otherwise omit it
 for automatic detection. When language support matters, use
 `beatra.models.list` with the text-to-speech capability and read the exact

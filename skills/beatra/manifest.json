@@ -1,5 +1,5 @@
 {
-  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
+  "changelog": "Narration and song requests now come with a complete example to copy, so they are built correctly the first time. A song with lyrics shows the title it needs, and an instrumental has its own example.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "2.8.6"
+  "version": "2.8.8"
 }

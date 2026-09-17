@@ -50,6 +50,43 @@ The bundled MCP music route does not accept REST-only `callback_url`,
 `callback_signing_key_id`, or `metadata`. Do not add them or use another
 transport to obtain them.
 
+A sung track needs `prompt`, `lyrics`, `title`, and one stable
+`client_request_id`. `title` stops being optional the moment lyrics are
+supplied.
+
+```bash
+python3 scripts/mcp_client.py call beatra.music.generate
+```
+
+```json
+{
+  "prompt": "Warm indie folk, fingerpicked guitar, unhurried, for a family photo montage",
+  "lyrics": "Morning finds the window first\nand waits there while we wake",
+  "title": "Morning Finds the Window",
+  "client_request_id": "music-sung-opaque-1"
+}
+```
+
+An instrumental sets `instrumental` and sends no lyrics; a title stays welcome
+when the user named one. Lyrics and `instrumental: true` exclude each other, and
+a request carrying both is rejected.
+
+```json
+{
+  "prompt": "Warm indie folk, fingerpicked guitar, unhurried, for a family photo montage",
+  "instrumental": true,
+  "client_request_id": "music-instrumental-opaque-1"
+}
+```
+
+Omitting `model` routes the request portably. The portable route holds the
+prompt and lyrics to its own bounds, which are published on no card and are not
+the bounds of whichever model ends up serving the request; a card's limits
+govern only the model it belongs to, and only when that model is named. So when
+a prompt or lyric is long enough that a limit could matter, name the model whose
+card admits that length instead of sending it portably. A portable request
+refused for length names the exact bound it applied in the returned message.
+
 Music generation is one billable asynchronous request. Finalize the complete
 prompt, lyrics, instrumental status, title, model, reference, and accepted model
 options before creating the stable `client_request_id`. Submit once and poll

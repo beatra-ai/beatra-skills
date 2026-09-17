@@ -1,5 +1,5 @@
 {
-  "changelog": "Re-lock against the current shared runtime after the 2026-08-21 shared-guidance change; independent trilingual SEO review fixed translation artifacts and keyword naturalness.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Douyin Video Script Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-video-script-maker",
@@ -68,5 +68,5 @@
   },
   "name": "douyin-video-script-maker",
   "schema_version": 1,
-  "version": "0.1.8"
+  "version": "0.1.9"
 }

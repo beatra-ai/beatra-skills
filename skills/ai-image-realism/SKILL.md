@@ -42,6 +42,15 @@ Unless the user asks otherwise:
 
 Confirm before a paid call, before changing the composition or canvas, before accepting weaker preservation, before increasing output count, or before replacing `model=auto` with a chosen paid model. If a task remains non-terminal after the bounded polling window, return its task ID and current state for later recovery rather than creating another task.
 
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
+
 ## References by task
 
 - Multiple visible problems, uncertain route, or preservation conflicts: [diagnosis and routing](references/diagnosis-and-routing.md)

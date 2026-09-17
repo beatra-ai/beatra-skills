@@ -1,5 +1,5 @@
 {
-  "changelog": "Add an optional same-topic baseline. A search reads the titles and public counts of what already ranks for the topic on YouTube, TikTok, Douyin, and REDnote; on YouTube only, a further read returns a competitor's actual thumbnail image, and the same kind of read covers your own channel's recent thumbnails once you point it at your channel. The review then has a referent instead of standing alone. The baseline is optional, priced per call, and confirmed separately from the image work, so the preflight card stays free.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Cover Improvement Preflight",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/cover-performance-preflight",
@@ -86,5 +86,5 @@
   },
   "name": "cover-performance-preflight",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

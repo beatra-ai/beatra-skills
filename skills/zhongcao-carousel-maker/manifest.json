@@ -1,5 +1,5 @@
 {
-  "changelog": "Lock the note type and slide-order outline first, then generate while reusing the same approved visual anchors. Do not add extra paid calls just to produce another style set.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Zhongcao Carousel Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-carousel-maker",
@@ -73,5 +73,5 @@
   },
   "name": "zhongcao-carousel-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

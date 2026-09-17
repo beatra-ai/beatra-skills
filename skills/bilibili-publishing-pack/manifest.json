@@ -1,5 +1,5 @@
 {
-  "changelog": "Re-lock with independently reviewed trilingual SEO copy fixes.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Bilibili Publishing Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-publishing-pack",
@@ -63,5 +63,5 @@
   },
   "name": "bilibili-publishing-pack",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.6"
 }

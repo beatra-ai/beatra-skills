@@ -1,5 +1,5 @@
 {
-  "changelog": "Create a coordinated Douyin live-commerce visual kit with a pre-live cover, product selling-point card, and live-room background or overlay visual.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Douyin Live Commerce Visual Kit",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-live-commerce-visual-kit",
@@ -69,5 +69,5 @@
   },
   "name": "douyin-live-commerce-visual-kit",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

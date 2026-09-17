@@ -1,5 +1,5 @@
 {
-  "changelog": "Create a coordinated REDnote local-business discovery note with a store-front cover, store or service highlight, visit-ready closing visual, and local-post direction.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "REDnote Local Business Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-local-business-note-maker",
@@ -66,5 +66,5 @@
   },
   "name": "rednote-local-business-note-maker",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

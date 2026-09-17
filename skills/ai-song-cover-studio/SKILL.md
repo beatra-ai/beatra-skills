@@ -57,6 +57,15 @@ If a create response is lost, retry only the identical frozen payload with the s
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once and confirm the resulting terminal state with `beatra.tasks.get`. A 409 means cancellation is not confirmed, so continue polling that same task without creating replacement work.
 
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
+
 ## References by task
 
 - Read [Song cover workflow](references/workflow.md) when building a production card, choosing the reference-audio route, checking live model facts, constructing exact payloads, polling, recovering, cancelling, or reviewing arrangement and vocal results.

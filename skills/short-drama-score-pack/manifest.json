@@ -1,5 +1,5 @@
 {
-  "changelog": "Build a labeled 8-15 track instrumental score for tension, romance, comedy, and tearjerker beds.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Short Drama Score Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-score-pack",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-score-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

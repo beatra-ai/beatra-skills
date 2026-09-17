@@ -1,5 +1,5 @@
 {
-  "changelog": "Simplified Chinese listing wording tidied up.",
+  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
   "display_name": "Poster Design Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/poster-design-studio",
@@ -75,5 +75,5 @@
   },
   "name": "poster-design-studio",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

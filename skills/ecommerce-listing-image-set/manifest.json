@@ -1,5 +1,5 @@
 {
-  "changelog": "Shows a full worked run with the prompt behind every image, adds a route for colour, size and material variants and for more than one SKU, and answers the questions that come up while a set is being made.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "AI Ecommerce Listing Image Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ecommerce-listing-image-set",
@@ -76,5 +76,5 @@
   },
   "name": "ecommerce-listing-image-set",
   "schema_version": 1,
-  "version": "0.1.9"
+  "version": "0.2.0"
 }

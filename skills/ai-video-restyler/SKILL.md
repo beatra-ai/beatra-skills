@@ -51,6 +51,10 @@ If a create response is lost, retry only the identical frozen payload with the s
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once and confirm the resulting terminal state with `beatra.tasks.get`. A 409 means cancellation is not confirmed, so continue polling that same task without creating replacement work.
 
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
 ## Account balance
 
 When the user asks how many credits remain or whether a live estimate fits,

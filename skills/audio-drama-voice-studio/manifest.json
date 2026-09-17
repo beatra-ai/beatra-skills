@@ -1,5 +1,5 @@
 {
-  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Audio Drama Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/audio-drama-voice-studio",
@@ -97,5 +97,5 @@
   },
   "name": "audio-drama-voice-studio",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }

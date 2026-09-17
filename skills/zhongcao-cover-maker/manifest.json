@@ -1,5 +1,5 @@
 {
-  "changelog": "Require a confirmed topic before topic-only generation, and render a supplied headline in the top or bottom third.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Zhongcao Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-cover-maker",
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-cover-maker",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }

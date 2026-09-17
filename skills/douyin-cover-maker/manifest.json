@@ -1,5 +1,5 @@
 {
-  "changelog": "Require a topic or hook before paying without a photo, and default Douyin covers to 9:16 rather than 3:4.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Douyin Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-cover-maker",
@@ -66,5 +66,5 @@
   },
   "name": "douyin-cover-maker",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

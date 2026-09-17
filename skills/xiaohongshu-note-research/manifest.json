@@ -1,5 +1,5 @@
 {
-  "changelog": "Refresh the Simplified Chinese listing description so it covers Xiaohongshu note analysis.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Note Research Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-note-research",
@@ -52,5 +52,5 @@
   },
   "name": "xiaohongshu-note-research",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "Write a Xiaohongshu beauty or skincare note pack with five titles, a note body built on real usage, a four-slide 3:4 plan, cover text, hashtags, a comment starter, and a copy screen carrying the advertising-law and registered-efficacy rules.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "REDnote Beauty Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-beauty-note-maker",
@@ -63,5 +63,5 @@
   },
   "name": "rednote-beauty-note-maker",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

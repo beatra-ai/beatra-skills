@@ -3,10 +3,10 @@
 ## Before the paid boundary
 
 Present one final direction. Freeze the prompt, ordered references, canvas,
-brand palette, logo type, count, model, and controls in a single confirmation.
+brand colors, logo type, count, model, and controls in a single confirmation.
 After approval, create one stable opaque `client_request_id` for that exact
 logical request and submit once. Any change—prompt, reference or order, canvas,
-palette, model, count, or control—is new paid work with a new confirmation and
+colors, model, count, or control—is new paid work with a new confirmation and
 a new ID.
 
 ## Monitor and recover
@@ -31,6 +31,11 @@ minutes and report the task ID and status.
   is restored.
 - **Connection failure:** preserve the credential and the original
   `client_request_id`. Retry only the exact same parameters.
+
+If a generate, transform, or edit call returns insufficient credits: give the
+user the tool message in full. Do not change the URL. You may translate the
+other words. Do not replace it with your own top-up copy. Point the user to
+pay using that message.
 
 Use `beatra.tasks.cancel` only when the user asks. If cancellation returns
 `409`, the task continues—do not promise a stop or refund, and keep tracking

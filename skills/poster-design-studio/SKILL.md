@@ -120,6 +120,15 @@ dimensions, task ID, and `billing.net_charged_credits`. Offer at most one
 focused, unexecuted revision. Generated assets can also be viewed and managed at
 [beatra.ai](https://beatra.ai).
 
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
+
 ## References by task
 
 - Choosing among topic generate, photo transform, and draft refine, or planning

@@ -1,5 +1,5 @@
 {
-  "changelog": "Republish the packaged files at the current version so every store listing offers the same download. The instructions and listing copy are unchanged.",
+  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
   "display_name": "AI Image Realism Retoucher",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-image-realism",
@@ -70,5 +70,5 @@
   },
   "name": "ai-image-realism",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

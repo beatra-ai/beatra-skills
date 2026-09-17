@@ -1,5 +1,5 @@
 {
-  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Origin Story Modules",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/origin-story-module",
@@ -54,5 +54,5 @@
   },
   "name": "origin-story-module",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

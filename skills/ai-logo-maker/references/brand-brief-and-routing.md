@@ -68,12 +68,14 @@ hook so it survives at small sizes.
 ## Defaults that avoid unnecessary questions
 
 - Canvas: square `1:1` for the master logo (the most versatile single output).
-- Count: two concepts for initial exploration; raise to three or four only when
-  the user asks for more.
+- Count: if they name 1–4, that is `count`. If they name more than 4, still one
+  call, `count=4`. If they only name styles or say nothing, `count=2`. A style
+  list is not several calls. Do not fire `count=1` four times.
 - Model: `auto`.
 - Style: infer from industry when absent; state the inference in the
   confirmation.
-- Brand colors: use only when the user provides exact values.
+- Brand colors: put hex codes in the prompt. Omit `palette` unless they asked
+  for a 3–10 color board with weights.
 
 ## Visual access
 

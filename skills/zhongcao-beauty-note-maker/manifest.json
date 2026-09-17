@@ -1,5 +1,5 @@
 {
-  "changelog": "Add an optional Xiaohongshu lookup. Before drafting, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the beauty note rests on the platform instead of on guesswork. This is the only step in this Skill that charges, it runs only when the user asks and confirms it, and a run that skips it still delivers the full note.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Zhongcao Beauty Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-beauty-note-maker",
@@ -72,5 +72,5 @@
   },
   "name": "zhongcao-beauty-note-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

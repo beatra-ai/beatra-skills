@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now state that an install keeps the channel and language it was installed from.",
+  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
   "display_name": "AI Headshot Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-headshot-studio",
@@ -75,5 +75,5 @@
   },
   "name": "ai-headshot-studio",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

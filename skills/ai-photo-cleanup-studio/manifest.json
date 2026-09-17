@@ -1,5 +1,5 @@
 {
-  "changelog": "Use one consistent spelling for the Simplified Chinese display name and search terms.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Ai Photo Cleanup Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-photo-cleanup-studio",
@@ -75,5 +75,5 @@
   },
   "name": "ai-photo-cleanup-studio",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

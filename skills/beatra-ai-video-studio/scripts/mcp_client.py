@@ -25,7 +25,7 @@ from typing import Any
 PROTOCOL_VERSION = "2025-11-25"
 PACKAGE_SLUG = "beatra-ai-video-studio"
 PACKAGE_DISPLAY_NAME = "Beatra AI Video Studio"
-PACKAGE_VERSION = "1.2.5"
+PACKAGE_VERSION = "1.2.6"
 PACKAGE_CHANNEL = "canonical"
 PACKAGE_LOCALE = "en"
 PACKAGE_DISCOVERY_URL = "https://beatra.ai/skills/beatra-ai-video-studio/install.json"
@@ -64,6 +64,36 @@ AUTH_REQUIRED_MESSAGE = (
 
 class AuthenticationRequired(RuntimeError):
     """The remote MCP endpoint definitively rejected the bearer credential."""
+
+
+def _allowlisted_unauthorized_message(raw: bytes) -> str | None:
+    """Take only error.message from a Beatra 401 envelope. Never dump the body."""
+
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError, AttributeError):
+        return None
+    if not isinstance(payload, dict):
+        return None
+    error = payload.get("error")
+    if not isinstance(error, dict):
+        return None
+    details = error.get("details")
+    reason = details.get("reason") if isinstance(details, dict) else None
+    if error.get("code") != "mcp_connection_required" and reason != "mcp_connection_required":
+        return None
+    message = error.get("message")
+    if not isinstance(message, str):
+        return None
+    cleaned = message.strip()
+    return cleaned or None
+
+
+def _authentication_required_message(raw: bytes) -> str:
+    message = _allowlisted_unauthorized_message(raw)
+    if message is None:
+        return AUTH_REQUIRED_MESSAGE
+    return f"{AUTH_REQUIRED_CODE}: {message}"
 
 
 def _require_status(status: int, accepted: set[int], operation: str) -> None:
@@ -110,6 +140,13 @@ def _default_post_json(
             raw = response.read()
     except urllib.error.HTTPError as exc:
         status = int(exc.code)
+        raw = b""
+        try:
+            raw = exc.read() or b""
+        except Exception:
+            raw = b""
+        if status == 401:
+            raise AuthenticationRequired(_authentication_required_message(raw)) from None
         _require_status(status, set(), "Beatra MCP")
         raise AssertionError("unreachable") from exc
     except urllib.error.URLError as exc:

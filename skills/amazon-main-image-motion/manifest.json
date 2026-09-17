@@ -1,5 +1,5 @@
 {
-  "changelog": "Drop the instruction to rank a top-up tier down, and with it the hardcoded tier price and top-up address; add the read-only balance and ledger calls.",
+  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
   "display_name": "Amazon Main Image Motion",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/amazon-main-image-motion",
@@ -57,5 +57,5 @@
   },
   "name": "amazon-main-image-motion",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

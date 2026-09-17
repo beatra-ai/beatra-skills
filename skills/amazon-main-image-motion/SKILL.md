@@ -156,6 +156,10 @@ python3 scripts/mcp_client.py call beatra.models.list
 Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback.
 
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
 ## Account balance
 
 When the user asks how many credits remain or whether a live estimate fits,

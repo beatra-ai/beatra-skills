@@ -1,5 +1,5 @@
 {
-  "changelog": "Treat the article title as a hard input and route a Xiaohongshu 3:4 feed cover away.",
+  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
   "display_name": "WeChat Official Account Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-cover-maker",
@@ -77,5 +77,5 @@
   },
   "name": "wechat-cover-maker",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

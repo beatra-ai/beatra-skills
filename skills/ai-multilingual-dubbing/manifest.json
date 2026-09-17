@@ -1,5 +1,5 @@
 {
-  "changelog": "Rename the Simplified Chinese listing to AI配音 and keep naming multilingual narration in the description.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "AI Multilingual Dubbing",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-multilingual-dubbing",
@@ -75,5 +75,5 @@
   },
   "name": "ai-multilingual-dubbing",
   "schema_version": 1,
-  "version": "0.1.8"
+  "version": "0.1.9"
 }

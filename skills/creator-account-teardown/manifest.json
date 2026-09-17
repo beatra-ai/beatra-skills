@@ -1,5 +1,5 @@
 {
-  "changelog": "Tighten the English and Simplified Chinese listing descriptions.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Creator Account Teardown",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/creator-account-teardown",
@@ -85,5 +85,5 @@
   },
   "name": "creator-account-teardown",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.1.5"
 }

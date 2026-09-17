@@ -1,5 +1,5 @@
 {
-  "changelog": "Build a labeled 8-15 track instrumental OST for title, explore, battle, shop, and victory.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Indie Game OST Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/indie-game-ost-pack",
@@ -65,5 +65,5 @@
   },
   "name": "indie-game-ost-pack",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

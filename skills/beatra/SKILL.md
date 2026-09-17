@@ -276,7 +276,7 @@ keep the same ID and the same payload. Do not suggest changing a model.
 While a task is still queued or running, report the `stage` that
 `task.progress` actually returns instead of narrating an invented pace. Treat
 its `percent` as a phase marker rather than a completion fraction: it moves on
-fixed server steps, holds one value for the whole provider wait, and must never
+fixed server steps, holds one value for the whole generation wait, and must never
 be handed to the user as a share of the work finished. An unchanged stage or
 percent is not evidence that the task is stuck. When a response carries no
 progress at all, say the task is still running and leave it there.

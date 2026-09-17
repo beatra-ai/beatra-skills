@@ -1,5 +1,5 @@
 {
-  "changelog": "Create a coordinated REDnote food note with a cover, signature dish, food detail, dining-atmosphere images, and a food-post plan.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "REDnote Food Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-food-note-maker",
@@ -75,5 +75,5 @@
   },
   "name": "rednote-food-note-maker",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

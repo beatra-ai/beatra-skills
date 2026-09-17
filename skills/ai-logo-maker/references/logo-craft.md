@@ -20,14 +20,10 @@ high contrast, no gradients, no fine detail, scalable to small sizes."
 
 ## Brand color discipline
 
-When the user provides exact brand colors, encode them as a structured
-`palette` rather than describing them in prose.
-
-- Three to ten entries, each an object with `r`, `g`, `b` (0–255) and a
-  `weight` (0–1, up to four decimal places).
-- All weights must sum to exactly `1.0000`.
-- Example: one primary brand color at 60 % and two supporting colors at 20 %
-  each.
+Put exact brand colors in the prompt as hex codes such as `#1655E0`. Omit
+`palette` unless the user asked for a 3–10 color board with weights. Then each
+entry is `{"color":"#1655E0","weight":0.5}`. Never `r` / `g` / `b`. All
+weights must sum to exactly `1.0000`.
 
 When the user does not provide colors, let the model choose and review the
 result for appropriateness to the industry and personality cue.

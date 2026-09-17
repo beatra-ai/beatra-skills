@@ -1,5 +1,5 @@
 {
-  "changelog": "Lead the Simplified Chinese display name with the photo-to-illustration term itself.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "AI Photo Restyler",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-photo-restyler",
@@ -75,5 +75,5 @@
   },
   "name": "ai-photo-restyler",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.1.4"
 }

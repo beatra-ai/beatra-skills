@@ -1,5 +1,5 @@
 {
-  "changelog": "Turn a person's story and occasion into approved lyrics and a finished original song.",
+  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
   "display_name": "Personalized Song Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/personalized-song-maker",
@@ -71,5 +71,5 @@
   },
   "name": "personalized-song-maker",
   "schema_version": 1,
-  "version": "0.1.1"
+  "version": "0.1.2"
 }

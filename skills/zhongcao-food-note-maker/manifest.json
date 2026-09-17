@@ -1,5 +1,5 @@
 {
-  "changelog": "Add an optional Xiaohongshu lookup. Before drafting, the Skill can read one page of the notes already running for the topic, one page of a note's top comments, and an account's own recent notes, so the angle and the title rest on the platform instead of on guesswork. Optional, priced per read, and confirmed separately; a run that skips it still delivers.",
+  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
   "display_name": "Zhongcao Food Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-food-note-maker",
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-food-note-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.3"
 }
