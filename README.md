@@ -241,7 +241,7 @@ that reads `SKILL.md`.
 | [`wrong-item-talking`](skills/wrong-item-talking) | Turn a user-supplied wrong-item script and authorized stills into one wrong item talking clip per still. | 0.1.4 |
 | [`xiaohongshu-hall-faq-stills`](skills/xiaohongshu-hall-faq-stills) | Turn Xiaohongshu hall FAQ complaints into a 4 to 8 still materials set. | 0.1.3 |
 | [`xiaohongshu-note-research`](skills/xiaohongshu-note-research) | Give a category, a note link, or notes you already copied, and get title patterns, structure, and followable angles. | 0.1.3 |
-| [`xiaohongshu-parent-faq-stills`](skills/xiaohongshu-parent-faq-stills) | Turn Xiaohongshu parent FAQ notes into a 4 to 8 still answer set. | 0.1.2 |
+| [`xiaohongshu-parent-faq-stills`](skills/xiaohongshu-parent-faq-stills) | Turn Xiaohongshu parent FAQ notes into a 4 to 8 still answer set. | 0.1.3 |
 | [`xiaohongshu-policy-talking`](skills/xiaohongshu-policy-talking) | Turn Xiaohongshu policy-question notes into one talking policy clip per still. | 0.1.3 |
 | [`xiaohongshu-wealth-faq-talking`](skills/xiaohongshu-wealth-faq-talking) | Turn Xiaohongshu wealth FAQ notes into one talking FAQ clip per still. | 0.1.4 |
 | [`youtube-caption-studio`](skills/youtube-caption-studio) | Give a YouTube link or a pasted transcript and get a Chinese spoken script with remake beats. | 0.1.4 |
