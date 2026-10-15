@@ -1,5 +1,5 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Zhongcao Carousel Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-carousel-maker",
@@ -73,5 +73,5 @@
   },
   "name": "zhongcao-carousel-maker",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.0"
 }

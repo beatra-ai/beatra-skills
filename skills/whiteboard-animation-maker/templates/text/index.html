@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080,height=1920">
+<title>whiteboard-animation-maker text</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:'PingFang SC';src:local('PingFang SC'),local('PingFangSC-Regular'),local('Microsoft YaHei')}
+@font-face{font-family:'Georgia';src:local('Georgia'),local('Times New Roman')}
+*{box-sizing:border-box;margin:0}
+html,body,#root{width:1080px;height:1920px;overflow:hidden;background:#fff;position:relative}
+.scene{position:absolute;inset:0;background:#fff}
+#s2,#s3{opacity:0}
+.line{stroke:#111;stroke-width:3.4;stroke-linejoin:round;stroke-linecap:round;fill:none}
+.ink{stroke:#111;stroke-width:3.4;stroke-linejoin:round;stroke-linecap:round;fill:#fff}
+.label{fill:#111;font-family:'Georgia',serif;font-weight:700}
+#caps{position:absolute;left:0;right:0;bottom:0;height:400px;z-index:5;pointer-events:none}
+.cap{position:absolute;left:40px;right:40px;bottom:240px;text-align:center;font-family:'PingFang SC',sans-serif;font-size:48px;line-height:1.3;font-weight:600;color:#111;letter-spacing:.04em;white-space:nowrap;padding:28px 8px 8px;background:linear-gradient(to top,#fff 58%,rgba(255,255,255,0))}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+<section id="s1" class="scene">
+<svg width="1080" height="1920" viewBox="0 0 1080 1920">
+  <g id="art1">
+    <rect x="220" y="700" width="640" height="280" rx="12" fill="#fff" stroke="#111" stroke-width="3.4"/>
+  </g>
+</svg>
+</section>
+</div>
+<script src="voice.js"></script>
+<script src="scene.js"></script>
+<script src="draw.js"></script>
+<script src="captions.js"></script>
+<script>
+drawKids('#art1', sceneDraw('s1', 2.4), sceneT('s1', 0.04));
+mountCaptions(tl);
+window.__timelines.main = tl;
+</script>
+</body>
+</html>

@@ -13,6 +13,8 @@ Before looking for angles, establish four things about the topic. Ask only for w
 | How long it has left | A topic peaking today is worth a same-day post; one already fading is not — this comes from the user or from an attributed lookup, never from your own read; see *Facts about real events* |
 | Who is talking | Whether the audience overlaps with this account at all — same source rule |
 
+When the account is unknown, ask for it in the same message as the angles rather than in a round of its own, and mark the angles as generic until it is known. Ask where the post will go in that same message when the conversation has not said; the set it gets follows from that (see [content pack](content-pack.md)).
+
 When the user pasted a list rather than one topic, rank it by overlap with the account and say which one you are working from and why. A weaker topic with real overlap beats the biggest topic on the board with none.
 
 ## Six ways in

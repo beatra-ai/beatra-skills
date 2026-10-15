@@ -1,12 +1,12 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Douyin Comment FAQ Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-video-comments-to-faq",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-video-comments-to-faq.png",
   "localized": {
     "en": {
-      "description": "Turn Douyin video comments into one comment FAQ still per picked question. This douyin comment reply studio writes a listing FAQ card from each seller-answered comment, then lays out a 4 to 8 still comment FAQ set. Use it for listing FAQ graphics and a douyin comment faq card that stay one question, one still.",
+      "description": "Turn Douyin video comments into one comment FAQ still per picked question. This Douyin comment reply studio writes a listing FAQ card from each seller-answered comment, then lays out a 4 to 8 still comment FAQ set. Use it for listing FAQ graphics and a Douyin comment FAQ card that stay one question, one still.",
       "display_name": "Douyin Comment FAQ Stills",
       "summary": "Turn Douyin video comments into one comment FAQ still per picked question.",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "douyin-video-comments-to-faq",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.1"
 }

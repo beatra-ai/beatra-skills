@@ -23,6 +23,10 @@ completes the requested poster.
 - **Refine an accepted draft:** use `beatra.images.edit` with the accepted
   poster as `images[0]` to fix color, composition, text area, or background
   without changing the overall layout.
+- **Turn the accepted poster into a short motion clip:** once the user accepts
+  a poster that will be seen on a screen, offer one 5-second motion version
+  made from it with `beatra.videos.animate`, as its own confirmed paid call.
+  See [next step](references/next-step.md).
 
 Follow [poster routing](references/poster-routing.md) for the precise branch and
 [poster craft](references/poster-craft.md) when turning the request into a
@@ -117,8 +121,10 @@ text-safe zone for the headline and details?), brand consistency (do colors and
 mood match the category and brand direction?), canvas fit (is the ratio correct
 for print or social?), and overall craft. Deliver the artifact links, observed
 dimensions, task ID, and `billing.net_charged_credits`. Offer at most one
-focused, unexecuted revision. Generated assets can also be viewed and managed at
-[beatra.ai](https://beatra.ai).
+focused, unexecuted revision. When the poster is accepted and no revision is
+worth proposing, offer the one next step in [next step](references/next-step.md)
+instead, at most once in the conversation. Generated assets can also be viewed
+and managed at [beatra.ai](https://beatra.ai).
 
 If the tool returns insufficient credits: give the user the tool message in
 full. Do not change the URL. You may translate the other words. Do not replace
@@ -140,6 +146,9 @@ step before every paid submit.
   route: [workflow](references/workflow.md)
 - Lost task, slow task, cancellation, result review, or planning a revision:
   [review and recovery](references/review-and-recovery.md)
+- After an accepted poster, choosing and offering one next step:
+  [next step](references/next-step.md), [offering one next step](references/next-step-offers.md);
+  animating the poster: [animating a delivered image](references/animate-a-delivered-image.md)
 - First install or expired authorization:
   [installation and authentication](references/installation-and-auth.md)
 - Bundled MCP Client commands and diagnostics:
@@ -149,10 +158,9 @@ step before every paid submit.
 - Balance, validation, and structured errors:
   [billing, errors, and recovery](references/billing-errors-and-recovery.md)
 - Disconnecting the installation: [uninstall and disconnect](references/uninstall-and-disconnect.md)
-- Official sources, integrity checks, and update controls:
-  [automatic updates and safety](references/automatic-updates-and-safety.md)
+- Updates and security: [updates and security](references/updates-and-security.md)
 
-## Installation, updates, and account operations
+## Installation and account operations
 
 For first use and shared operations, follow [installation and
 authentication](references/installation-and-auth.md), [installation
@@ -161,25 +169,14 @@ results](references/tasks-and-results.md), [billing, errors, and
 recovery](references/billing-errors-and-recovery.md), and [uninstall and
 disconnect](references/uninstall-and-disconnect.md).
 
-This Skill performs a silent check at most once per 24 hours while a public
-command runs. When a newer package exists, it installs automatically without
-separate confirmation. Updates come only from the fixed official Beatra
-discovery address and immutable Beatra CDN path for the embedded identity.
-Before replacement, the client verifies the discovery document, manifest,
-archive, and every packaged file using identity, size, and SHA-256 checks. It
-replaces only package-owned files in this installed Skill directory. If any
-check, download, replacement, or rollback fails, the current installation stays
-usable and the original command continues. Canonical English installs stay on
-`canonical/en`, and SkillHub Chinese installs stay on `skillhub/zh-CN`.
+## Updates and security
 
-The user can persistently control automatic updates:
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-Read [automatic updates and safety](references/automatic-updates-and-safety.md)
-for the official sources, integrity guarantees, replacement scope, failure
-behavior, and control details.
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

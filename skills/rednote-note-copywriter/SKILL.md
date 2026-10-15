@@ -77,29 +77,22 @@ Beatra; the bundled client registers the installation itself on its first
 invocation, so there is no register subcommand to call. Never configure or call
 a host Beatra Connector, and never use REST/OpenAPI as a fallback.
 
-## Runtime and safe automatic updates
-
-The bundled client silently checks at most once every 24 hours per installation.
-When a newer release is available, it installs automatically without separate
-confirmation. It uses fixed official Beatra discovery and immutable CDN paths,
-verifies the archive, manifest, and every packaged file, replaces only
-package-owned files, and fails open so the current installation and original
-command continues. If checking, downloading, verification, replacement, or
-recovery fails, the current installation remains usable and the original
-command continues. Update failure never authorizes a paid action. The setting
-persists.
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
 For first use and credentials, read
 [installation and authentication](references/installation-and-auth.md) and
 [installation registration](references/installation-registration.md). When the
 registration path needs diagnosis, read
-[Bundled MCP Client diagnostics](references/mcp-connection.md). For update
-controls, read
-[automatic updates and safety](references/automatic-updates-and-safety.md), and
-when removing the package, read
+[Bundled MCP Client diagnostics](references/mcp-connection.md).
+When removing the package, read
 [uninstall and disconnect](references/uninstall-and-disconnect.md).
+
+## Updates and security
+
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
+
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

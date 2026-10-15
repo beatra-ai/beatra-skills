@@ -1,12 +1,12 @@
 {
-  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Blackboard One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/blackboard-one-shot",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/blackboard-one-shot.png",
   "localized": {
     "en": {
-      "description": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo. This one-shot blackboard studio makes a silent 2-15s blackboard clip from each board photo clip. Use it for classroom blackboard video and lesson-board clip sets that stay one photo one clip.",
+      "description": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo. This one-shot blackboard studio makes a silent 2-15s blackboard clip from each photo, so every board photo clip opens on the board exactly as captured. Use it for classroom blackboard video and lesson-board clip sets that stay one photo one clip.",
       "display_name": "Blackboard One-Shot Clips",
       "summary": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo.",
       "tags": [
@@ -34,7 +34,7 @@
       "title": "黒板ワンカット：写真1枚につき1本"
     },
     "zh": {
-      "description": "板书一镜视频按教师提供的板书事实，为每张板书照做成一条板书照转一镜短片。这个板书一镜工作室把课堂板书视频和板书短片按拍摄顺序交付，做成板书动图。",
+      "description": "板书一镜视频按教师提供的板书事实，为每张板书照做成一条板书照转一镜短片。这个板书一镜工作室按拍摄顺序交付每条课堂板书视频，可当作板书短片或板书动图使用。",
       "display_name": "板书一镜视频·板书照转一镜",
       "summary": "按教师提供的板书事实，为每张板书照做成一条板书照转一镜短片。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "blackboard-one-shot",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.1"
 }

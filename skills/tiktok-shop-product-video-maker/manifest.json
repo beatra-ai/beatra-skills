@@ -1,5 +1,5 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "TikTok Shop Product Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-shop-product-video-maker",
@@ -64,5 +64,5 @@
   },
   "name": "tiktok-shop-product-video-maker",
   "schema_version": 1,
-  "version": "0.1.6"
+  "version": "0.2.2"
 }

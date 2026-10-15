@@ -151,7 +151,7 @@ audio subtask or route to an appropriate video workflow. For a custom cloned
 voice, preserve the sample and consent requirements and route to the voice
 cloning workflow.
 
-## Installation, updates, and account operations
+## Installation and account operations
 
 For first use and shared operations, follow [installation and
 authentication](references/installation-and-auth.md), [installation
@@ -160,25 +160,14 @@ results](references/tasks-and-results.md), [billing, errors, and
 recovery](references/billing-errors-and-recovery.md), and [uninstall and
 disconnect](references/uninstall-and-disconnect.md).
 
-Automatic updates are enabled by default. The bundled client performs a silent
-check at most once every 24 hours while a public command runs. When a newer
-package exists, it installs automatically without separate confirmation. It
-uses only the fixed official discovery source and immutable CDN embedded for
-this installation. Before replacement it verifies the discovery document,
-manifest, archive, and every packaged file by identity, size, and SHA-256. It
-replaces only package-owned files in this Skill directory and rejects unsafe
-redirects, downgrades, or content for a different channel or locale. If any
-check, download, replacement, or rollback fails, the update fails open: the
-current installation remains usable and the current command continues.
+## Updates and security
 
-The user's update choice persists across later commands until changed:
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-Read [Automatic updates and safety](references/automatic-updates-and-safety.md)
-for the fixed sources, integrity checks, replacement boundary, fail-open
-behavior, and persistent controls.
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Legal Explainer Clip",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/legal-explainer-clip",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/legal-explainer-clip.png",
   "localized": {
     "en": {
       "description": "Turn one public-education legal topic into a labeled digital-human still, a speakable explainer script, and one talking clip. This Legal Explainer Clip studio writes lawyer explainer and public-education talking clips for firm marketing. Use it for a legal explainer video, legal explainer clips, lawyer explainer videos, and public-education talking-head shorts.",
@@ -57,5 +57,5 @@
   },
   "name": "legal-explainer-clip",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

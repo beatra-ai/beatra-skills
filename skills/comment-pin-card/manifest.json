@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Pin Comment Cards",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/comment-pin-card",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/comment-pin-card.png",
   "localized": {
     "en": {
       "description": "Turn a finished video's comments into one pin comment still per original quote. This pinned comment card studio reads public comments or pasted lines, then makes a comment screenshot for each seller-picked quote. Use it for pin comment cards, video comment cards, and quote cards that keep the original words.",
@@ -57,5 +57,5 @@
   },
   "name": "comment-pin-card",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

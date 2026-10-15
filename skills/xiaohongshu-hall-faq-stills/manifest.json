@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Xiaohongshu Hall FAQ Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-hall-faq-stills",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/xiaohongshu-hall-faq-stills.png",
   "localized": {
     "en": {
       "description": "Turn Xiaohongshu hall FAQ complaints into a 4 to 8 still materials set. This hall FAQ still studio reads public hall FAQ notes and complaints, then lays out a materials still pack from confirmed document facts. Use it for hall materials graphics, a Xiaohongshu hall FAQ still, and a document checklist set.",
@@ -57,5 +57,5 @@
   },
   "name": "xiaohongshu-hall-faq-stills",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

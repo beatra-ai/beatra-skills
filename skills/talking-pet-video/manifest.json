@@ -1,5 +1,5 @@
 {
-  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Talking Pet Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/talking-pet-video",
@@ -72,5 +72,5 @@
   },
   "name": "talking-pet-video",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.2.4"
 }

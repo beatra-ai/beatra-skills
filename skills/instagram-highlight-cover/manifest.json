@@ -1,14 +1,14 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Instagram Highlight Covers",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/instagram-highlight-cover",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/instagram-highlight-cover.png",
   "localized": {
     "en": {
-      "description": "Instagram highlight covers are one still per named highlight after reading the account Reels and posts. Use this highlight cover set for highlight covers, cover stills, and a highlight cover group from the same highlight list.",
+      "description": "Make one Instagram highlight cover still per named highlight, after reading the account's Reels and posts or from a highlight list you already wrote. Use it for highlight covers, cover stills, and a matching highlight cover group.",
       "display_name": "Instagram Highlight Covers",
-      "summary": "Instagram highlight covers are one still per named highlight after reading the account Reels and posts.",
+      "summary": "Make one Instagram highlight cover still per named highlight, after reading the account's Reels and posts or from a highlight list you already wrote.",
       "tags": [
         "Instagram highlight cover",
         "highlight cover",
@@ -34,7 +34,7 @@
       "title": "Instagramハイライトカバー：決めた項目ごとに1枚"
     },
     "zh": {
-      "description": "Instagram精选封面是按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。精选封面、封面图、精选封面组和 Reels 封面都按同一套栏目出。",
+      "description": "Instagram精选封面是按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。精选封面、封面图和精选封面组都按同一套栏目出。",
       "display_name": "Instagram精选封面",
       "summary": "按已经读过的账号 Reels 和帖，给每个精选栏目做成一张封面。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "instagram-highlight-cover",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.2"
 }

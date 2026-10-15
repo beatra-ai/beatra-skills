@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Webinar Recap Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/webinar-recap-talking",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/webinar-recap-talking.png",
   "localized": {
     "en": {
       "description": "Turn an authorized presenter photo and the post-meeting script into one webinar recap talking clip per photo. This talking clip studio writes a speakable recap line for each photo, records a 2 to 15 second talking clip, and delivers one file per photo for customer meeting recap videos and post-webinar follow-ups.",
@@ -57,5 +57,5 @@
   },
   "name": "webinar-recap-talking",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

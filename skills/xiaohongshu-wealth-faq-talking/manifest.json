@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Xiaohongshu Wealth FAQ Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-wealth-faq-talking",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/xiaohongshu-wealth-faq-talking.png",
   "localized": {
     "en": {
       "description": "Turn written product answers and public note questions into one spoken wealth FAQ clip per question. This talking clip studio reads the questions buyers actually ask on public Xiaohongshu notes, records a speakable answer for each, and delivers separate short videos the advisor can post on their own.",
@@ -57,5 +57,5 @@
   },
   "name": "xiaohongshu-wealth-faq-talking",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

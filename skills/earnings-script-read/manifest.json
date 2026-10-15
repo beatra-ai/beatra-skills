@@ -1,12 +1,12 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Earnings Script Reads",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/earnings-script-read",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/earnings-script-read.png",
   "localized": {
     "en": {
-      "description": "Turn an official earnings script into one spoken earnings script read per labeled section. This earnings call voice studio writes earnings report narration and quarterly results audio from the prepared remarks the company already wrote, then records 8 to 20 earnings script voice clips. Use it for investor update voice packs that stay one section, one clip.",
+      "description": "Turn an official earnings script into one spoken earnings script read per labeled section. This earnings call voice studio turns the prepared remarks the company already wrote into earnings report narration and quarterly results audio, recorded as 8 to 20 earnings script voice clips. Use it for investor update voice packs that stay one section, one clip.",
       "display_name": "Earnings Script Reads",
       "summary": "Turn an official earnings script into one spoken earnings script read per labeled section.",
       "tags": [
@@ -20,7 +20,7 @@
       "title": "Earnings Script Reads: Official Script, One Clip Per Section"
     },
     "ja": {
-      "description": "決算読み上げは、会社がすでに書いた原稿から、短い読み上げを1本ずつ渡します。この決算説明音声と四半期結果音声は、業績発表音声を口に出せる文にして、8〜20本の決算原稿音声や投資家向け音声として渡します。",
+      "description": "決算読み上げは、会社がすでに書いた原稿から、短い読み上げを1本ずつ渡します。原稿を口に出せる文に整えて録音し、決算説明音声、四半期結果音声、業績発表音声を、8〜20本の決算原稿音声や投資家向け音声として渡します。",
       "display_name": "決算読み上げ",
       "summary": "会社がすでに書いた原稿から、短い読み上げを1本ずつ作ります。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "earnings-script-read",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.2"
 }

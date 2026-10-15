@@ -1,12 +1,12 @@
 {
-  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Community Site One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/community-site-clip",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/community-site-clip.png",
   "localized": {
     "en": {
-      "description": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio makes a silent 2-15s site photo clip from each field still clip. Use it for community event clip sets that stay one photo one clip.",
+      "description": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio turns each event photo into one silent 2-15s site photo clip, in capture order. Use it for community event clip sets that stay one photo one clip.",
       "display_name": "Community Site One-Shot Clips",
       "summary": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo.",
       "tags": [
@@ -34,7 +34,7 @@
       "title": "現場ワンカット：写真1枚につき1本"
     },
     "zh": {
-      "description": "活动现场一镜按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。这个活动现场一镜工作室把社区活动短片和现场活动视频按拍摄顺序交付，做成现场动图。",
+      "description": "活动现场一镜按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。这个活动现场一镜工作室按拍摄顺序交付每条社区活动短片，可当作现场活动视频或现场动图使用。",
       "display_name": "活动现场一镜·现场照转一镜",
       "summary": "按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "community-site-clip",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.1"
 }

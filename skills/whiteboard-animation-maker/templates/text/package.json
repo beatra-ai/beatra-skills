@@ -1,0 +1,9 @@
+{
+  "name": "whiteboard-animation-maker-text-draft",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npx --yes hyperframes@0.8.20 check",
+    "render": "npx --yes hyperframes@0.8.20 render . -o renders/out.mp4 -f 30 -q standard --browser-timeout 120"
+  }
+}

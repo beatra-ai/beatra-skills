@@ -138,33 +138,20 @@ memory.
   for task and billing facts.
 - Read [Bundled MCP Client diagnostics](references/mcp-connection.md) when
   the bundled client cannot connect.
-- Read [Automatic updates and safety](references/automatic-updates-and-safety.md)
-  for update controls.
+- Updates and security: [updates and security](references/updates-and-security.md)
 - Read [Uninstall and disconnect](references/uninstall-and-disconnect.md)
   only when the user asks to remove the package.
 
-## Runtime and safe automatic updates
-
 Use or invoke the bundled `scripts/mcp_client.py` for every Beatra operation.
-Before ordinary commands it silently checks for a newer release at most once
-every 24 hours per installation. Silent checks are enabled by default, and a
-newer release installs without separate confirmation.
 
-The updater accepts only the fixed official discovery address and immutable
-Beatra CDN path embedded for this package, channel, and locale. It verifies
-the discovery data, archive, manifest, and every file's size and checksum
-before replacement. It replaces only package-owned files and rejects
-redirects, downgrades, wrong package/channel/locale/version data, unexpected
-URLs, unsafe archives, and files outside the owned destination.
+## Updates and security
 
-Update checks, downloads, verification, replacement, rollback, and recovery
-fail open: the current installation remains usable and the user's original
-command continues. An update failure never authorizes retrying a paid
-generation. The automatic-update choice persists across later commands for
-this installation:
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

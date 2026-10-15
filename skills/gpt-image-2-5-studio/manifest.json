@@ -1,0 +1,72 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "GPT Image 2.5 Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/gpt-image-2-5-studio",
+  "icon": "https://beatra.ai/textures/icons/gpt-image-2-5-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Create one GPT Image 2.5 still from a written brief or from one to four reference images. GPT Image 2.5 Studio uses GPT-Image-2.5 Flare (gpt-image-2.5-flare) or GPT-Image-2.5 Sunburst (gpt-image-2.5-sunburst) for ChatGPT Images 2.5 text to image and reference-guided pictures. Make posters, product stills, infographics, social crops, and campaign frames with readable on-image type.",
+      "display_name": "GPT Image 2.5 Studio",
+      "summary": "Create one GPT Image 2.5 still from a brief or reference images with Flare or Sunburst.",
+      "tags": [
+        "GPT Image 2.5",
+        "GPT-Image-2.5",
+        "ChatGPT Images 2.5",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst",
+        "text to image",
+        "posters",
+        "product still",
+        "infographic"
+      ],
+      "title": "GPT Image 2.5 Studio for Posters, Product Stills & Infographics"
+    },
+    "ja": {
+      "description": "GPT Image 2.5で1枚の画像を作ります。GPT-Image-2.5 Flare（gpt-image-2.5-flare）と GPT-Image-2.5 Sunburst（gpt-image-2.5-sunburst）、ChatGPT Images 2.5 のテキストから画像と参考画像から画像に対応し、日本語テキストのポスター、商品図、インフォグラフィック、SNS用フレームを作れます。",
+      "display_name": "GPT Image 2.5画像生成",
+      "summary": "GPT Image 2.5 Flare または Sunburst で、テキストや参考画像からポスター・商品図・インフォグラフィックを1枚作ります。",
+      "tags": [
+        "GPT Image 2.5",
+        "GPT-Image-2.5",
+        "ChatGPT Images 2.5",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst",
+        "テキストから画像",
+        "参考画像",
+        "ポスター",
+        "商品図",
+        "インフォグラフィック"
+      ],
+      "title": "GPT Image 2.5画像生成｜ポスターと商品図"
+    },
+    "zh": {
+      "description": "GPT Image 2.5生图用 GPT-Image-2.5 和 ChatGPT Images 2.5 出一张图。GPT Image 2.5 Studio 支持 gpt-image-2.5-flare 与 gpt-image-2.5-sunburst，可文生图或参考图生图，做中文海报、商品图、信息图和社媒画面。",
+      "display_name": "GPT Image 2.5生图",
+      "summary": "用 GPT Image 2.5 Flare 或 Sunburst，从文字或参考图出一张中文海报、商品图或信息图。",
+      "tags": [
+        "GPT Image 2.5",
+        "GPT-Image-2.5",
+        "ChatGPT Images 2.5",
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst",
+        "文生图",
+        "图生图",
+        "中文海报",
+        "商品图",
+        "信息图"
+      ],
+      "title": "GPT Image 2.5生图｜ChatGPT Images 2.5 海报与商品图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "gpt-image-2-5-studio",
+  "schema_version": 1,
+  "version": "0.1.8"
+}

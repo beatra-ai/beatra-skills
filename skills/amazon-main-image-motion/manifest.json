@@ -1,9 +1,9 @@
 {
-  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Amazon Main Image Motion",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/amazon-main-image-motion",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/amazon-main-image-motion.png",
   "localized": {
     "en": {
       "description": "Turn one approved white-background main image into one short clip for the listing main video slot. The approved pack shot is the first frame, so the clip opens on the product and the white background you already cleared, and from there it turns, a light sweeps across it, or the camera eases in. Use it for Amazon main image video, main image motion, product photo animation, and white background product video work that stays one photo one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "amazon-main-image-motion",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

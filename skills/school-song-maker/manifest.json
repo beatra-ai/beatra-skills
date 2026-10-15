@@ -1,0 +1,73 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "School Song Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/school-song-maker",
+  "icon": "https://beatra.ai/textures/icons/school-song-maker.png",
+  "localized": {
+    "en": {
+      "description": "Turn your school, class, year, motto, and shared memories into original lyrics and a song the whole class can sing together. This school song maker writes a class song, graduation song, freshman welcome song, school anthem, teachers' day song, school anniversary song, or sports day song with a chorus that is easy to learn, shapes the words with you line by line, and produces the finished song with a student choir, children's choir, or solo voice for assemblies, opening and graduation ceremonies, class meetings, and school performances.",
+      "display_name": "School Song Maker",
+      "summary": "Turn your school, class, motto, and memories into original lyrics and a sing-along class song, graduation song, or welcome song.",
+      "tags": [
+        "school song maker",
+        "school song",
+        "class song",
+        "graduation song",
+        "welcome song",
+        "school anthem",
+        "teachers' day song",
+        "school anniversary song",
+        "sports day song"
+      ],
+      "title": "School Song Maker: Class Song, Graduation Song & Welcome Song"
+    },
+    "ja": {
+      "description": "学校名、クラス、学年、校訓、クラスのスローガンや思い出からオリジナル歌詞を書き、クラス全員で歌える曲に仕上げます。クラスソング、卒業ソング、新入生歓迎の歌、校歌、先生への感謝の歌、創立記念の歌、体育祭の応援歌に対応し、覚えやすいサビと、合唱、児童合唱、ソロから選べる歌声で、入学式、卒業式、学級活動、文化祭に使えます。",
+      "display_name": "クラスソング・卒業ソング作成",
+      "summary": "学校名、クラス、校訓、思い出からオリジナル歌詞を書き、みんなで歌えるクラスソングや卒業ソングに仕上げます。",
+      "tags": [
+        "クラスソング",
+        "卒業ソング",
+        "校歌",
+        "新入生歓迎の歌",
+        "先生への感謝の歌",
+        "創立記念の歌",
+        "応援歌",
+        "合唱"
+      ],
+      "title": "クラスソング・卒業ソング作成：校歌や入学歓迎の歌もオリジナルで"
+    },
+    "zh": {
+      "description": "班歌定制把学校名、班级、年级、校训、班级口号和共同回忆写成原创歌词，再做成全班能一起唱的原创班歌和校园歌曲。用AI写班歌、毕业歌、毕业季歌曲、迎新歌、校歌、院歌、教师节歌曲、感恩老师的歌、校庆歌曲和运动会、军训班级歌曲，副歌好学好唱，歌词和你逐句打磨，可选学生合唱、童声合唱或独唱，用在开学典礼、毕业典礼、班会、文艺汇演和元旦晚会，也适合班级文化建设。",
+      "display_name": "班歌定制·毕业歌、迎新歌、校歌",
+      "summary": "把学校、班级、校训和共同回忆写成原创歌词，做成全班能一起唱的班歌、毕业歌或迎新歌。",
+      "tags": [
+        "班歌",
+        "原创班歌",
+        "班歌定制",
+        "毕业歌",
+        "毕业季歌曲",
+        "迎新歌",
+        "校歌",
+        "院歌",
+        "教师节歌曲",
+        "感恩老师的歌",
+        "校庆歌曲",
+        "校园歌曲",
+        "AI写班歌"
+      ],
+      "title": "班歌定制·毕业歌、迎新歌、校歌：AI原创校园歌曲"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "school-song-maker",
+  "schema_version": 1,
+  "version": "0.1.3"
+}

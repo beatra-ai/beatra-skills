@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Hanzi Card Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hanzi-card-set",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/hanzi-card-set.png",
   "localized": {
     "en": {
       "description": "Turn user-supplied character lists into a four-to-eight still hanzi card set. This chinese character cards studio lays out each named character as its own still. Use it for recognition cards, hanzi flashcards, chinese character flashcards, and a character card pack.",
@@ -57,5 +57,5 @@
   },
   "name": "hanzi-card-set",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

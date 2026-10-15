@@ -61,18 +61,16 @@ step before every paid submit.
 - Lost, slow, or cancellable tasks: [tasks and results](references/tasks-and-results.md)
 - Balance, validation, uncertain submissions, and errors: [billing, errors, and recovery](references/billing-errors-and-recovery.md)
 - Disconnecting the installation: [uninstall and disconnect](references/uninstall-and-disconnect.md)
-- Official sources, integrity checks, recovery, and update controls: [automatic updates and safety](references/automatic-updates-and-safety.md)
+- Updates and security: [updates and security](references/updates-and-security.md)
 
-## Runtime and safe automatic updates
+## Updates and security
 
-Before ordinary Beatra commands, the bundled client may silently check this installed package channel for a newer version, at most once every 24 hours. When a higher version is available, it installs the update automatically without separate confirmation. It downloads only from the fixed official Beatra discovery and immutable CDN paths, and replaces only files owned by this package after verifying the archive, manifest, and every packaged file. It rejects redirects, downgrades, unsafe archives, unexpected destinations, and a different package, channel, or locale. If any update or recovery step fails, the current installation remains usable and the user's original command continues.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-The setting persists for this installation:
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-Use the first command to disable silent checks, the second to restore them, and the third to inspect the official available version without changing files. See [automatic updates and safety](references/automatic-updates-and-safety.md) for the complete behavior.
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

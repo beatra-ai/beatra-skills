@@ -26,11 +26,12 @@ import urllib.request
 from pathlib import Path
 from typing import Any, Callable
 
-AUTHORIZATION_ORIGIN = "https://api.beatra.ai"
-REVOKE_URL = f"{AUTHORIZATION_ORIGIN}/oauth/device/revoke"
+sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed Skill
+
+REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "tiktok-hashtag-to-hook-clip"
 PACKAGE_DISPLAY_NAME = "TikTok Hashtag Hook Clips"
-PACKAGE_VERSION = "0.1.4"
+PACKAGE_VERSION = "0.2.1"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly
@@ -42,9 +43,13 @@ _STATE_FILES = (
     "host.json",
     "skills.json",
     "registrations.json",
+    "network.json",
+    "balance-holds.json",
+    "pending_authorization.json",
+    ".authorize.lock",
 )
 
-PostRevoke = Callable[[str], int]
+PostRevoke = Callable[[str, str], int]
 
 
 class _RejectRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -60,9 +65,19 @@ class _RejectRedirectHandler(urllib.request.HTTPRedirectHandler):
         raise RuntimeError(f"Beatra revocation refused HTTP redirect ({code})")
 
 
-def _default_post_revoke(token: str) -> int:
+def _revoke_url(state_dir: Path) -> str:
+    """Revoke over this computer's recorded network route. Uninstall never asks
+    Beatra which route to use: revocation is best effort, and the record it
+    would write is about to be removed."""
+
+    import mcp_client  # the bundled client beside this file owns the route
+
+    return f"{mcp_client.route_api_origin(mcp_client.current_route(state_dir))}{REVOKE_PATH}"
+
+
+def _default_post_revoke(token: str, url: str) -> int:
     request = urllib.request.Request(
-        REVOKE_URL,
+        url,
         data=b"",
         headers={
             "Accept": "application/json",
@@ -230,7 +245,7 @@ def uninstall(
     revoke_state = "no_credential"
     if token is not None:
         try:
-            status = post_revoke(token)
+            status = post_revoke(token, _revoke_url(state_dir))
             if status == 200:
                 revoked = True
                 revoke_state = "revoked"

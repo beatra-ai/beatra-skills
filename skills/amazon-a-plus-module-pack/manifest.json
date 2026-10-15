@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Amazon A+ Module Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/amazon-a-plus-module-pack",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/amazon-a-plus-module-pack.png",
   "localized": {
     "en": {
       "description": "Turn seller-supplied selling points into one Amazon A+ module still per point. This A+ page still studio lays out each seller-supplied benefit as an Amazon A+ Content module for the A+ page. Use it for Amazon A+ modules, selling-point modules, and a brand-story A+ graphic.",
@@ -57,5 +57,5 @@
   },
   "name": "amazon-a-plus-module-pack",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

@@ -238,31 +238,14 @@ memory.
   disconnect](references/uninstall-and-disconnect.md) only when that
   operational branch is active.
 
-## Runtime and safe automatic updates
+## Updates and security
 
-Before ordinary Beatra commands, the bundled client silently checks at most
-once every 24 hours for a newer release in this installation's fixed official
-channel and locale. When a newer release is available, the client installs it
-automatically without separate confirmation. It accepts only the fixed official
-discovery address and immutable Beatra CDN sources, verifies discovery,
-manifest, archive, and every file by identity,
-size, and SHA-256, and replaces only files owned by this package. Replacement
-uses locking, staging, backup, recovery, and rollback, with the updater itself
-replaced last.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-It rejects redirects, downgrades, a different package, and content for a
-different channel or locale.
-
-If an update, verification, download, rollback, or recovery step fails, the
-installation remains usable and the original command continues. It never
-authorizes a paid retry. The setting persists per installation:
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-Read [automatic updates and
-safety](references/automatic-updates-and-safety.md) for the complete updater
-contract and the immediate verified-update command.
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

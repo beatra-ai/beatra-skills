@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "TikTok Hashtag Hook Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-hashtag-to-hook-clip",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/tiktok-hashtag-to-hook-clip.png",
   "localized": {
     "en": {
       "description": "Turn a TikTok hashtag trend into one talking hook clip per still. This TikTok hashtag hook studio reads public hashtag rankings and top posts, then records each already-written hook as a 2 to 15 second talking clip. Each hashtag hook clip is a separate short video the creator can post on its own.",
@@ -57,5 +57,5 @@
   },
   "name": "tiktok-hashtag-to-hook-clip",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

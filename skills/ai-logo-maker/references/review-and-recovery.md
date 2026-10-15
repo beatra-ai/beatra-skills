@@ -25,8 +25,9 @@ minutes and report the task ID and status.
   timing. If the match is ambiguous, do not submit a replacement.
 - **Slow task:** a queued or running task never authorizes a replacement. Keep
   polling or report the task ID for later resumption.
-- **Authorization failure:** do not auto-retry. Preserve the credential and
-  direct the user to rerun `scripts/authorize.py`. The original
+- **Authorization failure:** do not auto-retry. Preserve the credential, run
+  `python3 scripts/authorize.py`, and follow its output until
+  it prints `Beatra is ready`. The original
   `client_request_id` remains valid for idempotent recovery once authorization
   is restored.
 - **Connection failure:** preserve the credential and the original
@@ -73,9 +74,8 @@ request with the accepted image as `images[0]`.
 
 ## Logo deliverable variants
 
-A complete logo delivery typically includes several variants of the same mark.
-After the primary square logo is accepted, advise the user that common variants
-are available as separate focused requests:
+A complete logo delivery typically includes several variants of the same mark,
+each available as a separate focused request:
 
 - **horizontal lockup** — symbol and brand name side by side for website
   headers and email signatures (wider aspect ratio such as 3:1 or 4:1);
@@ -83,6 +83,11 @@ are available as separate focused requests:
 - **monochrome version** — single-color (black or white) for stamps, embossing,
   and low-ink contexts;
 - **dark-background variant** — reversed colors for dark themes and overlays.
+
+Advice about these variants and the one next step in [next step](next-step.md)
+never share a message: give the variants when the user's primary use needs one; otherwise
+the next step comes first, and the variants stay available when the user
+asks.
 
 Each variant is a distinct paid request with its own confirmation and
 `client_request_id`. Do not promise that a variant will be identical to the

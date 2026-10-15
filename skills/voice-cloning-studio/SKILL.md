@@ -218,22 +218,14 @@ memory.
   and [Billing, errors, and recovery](references/billing-errors-and-recovery.md).
 - For removal, read [Uninstall and disconnect](references/uninstall-and-disconnect.md).
 
-## Automatic updates and safety
+## Updates and security
 
-Silent automatic update checks are enabled by default and occur at most once
-every 24 hours. When a newer version is found, it installs without separate
-confirmation. Discovery comes only from the fixed official discovery source
-and immutable CDN objects. The updater verifies discovery, manifest, archive,
-and every file before replacing only package-owned files. It rejects unsafe
-redirects, downgrades, and different channel or locale content.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Update trouble fails open: the original command continues and the current
-installation remains usable. The user's choice persists across commands. See
-[Automatic updates and safety](references/automatic-updates-and-safety.md), or
-use these explicit controls:
-
-```bash
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

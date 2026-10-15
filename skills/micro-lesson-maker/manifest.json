@@ -1,0 +1,62 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "Micro-Lesson Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/micro-lesson-maker",
+  "icon": "https://beatra.ai/textures/icons/micro-lesson-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Make a micro-lesson video from one lesson's slides or a single topic. When there are no slides it drafts them first, then writes the script page by page and adds narration, subtitles, and the teacher's photo or a digital-human opening, delivering a 5-to-10-minute lesson video. For micro-lesson contests, demo lesson recordings, flipped classroom video, review lessons, and short explainer video for students.",
+      "display_name": "Micro-Lesson Maker",
+      "summary": "One lesson's slides or a single topic into a narrated micro-lesson video with subtitles and an optional digital-human opening.",
+      "tags": [
+        "micro-lesson",
+        "micro-lesson video",
+        "lesson video",
+        "flipped classroom video",
+        "demo lesson",
+        "explainer video"
+      ],
+      "title": "Micro-Lesson Maker: One Lesson into a Micro-Lesson Video"
+    },
+    "ja": {
+      "description": "1回分の授業スライドや1つのテーマから、5〜10分のマイクロレッスン動画を作ります。スライドがなければ導入・説明・例題・まとめの流れで先に作り、スライドごとに原稿を書いてナレーションと字幕を付け、先生の写真やデジタル講師のオープニングも加えられます。反転授業の予習動画、研究授業や模擬授業の記録、復習用の解説動画、マイクロラーニングの教材など、授業動画づくりに向いています。",
+      "display_name": "マイクロレッスン動画メーカー",
+      "summary": "1回分のスライドや1つのテーマから、ナレーションと字幕付きのマイクロレッスン動画を作ります。先生の写真やデジタル講師のオープニングも加えられます。",
+      "tags": [
+        "マイクロレッスン",
+        "マイクロレッスン動画",
+        "授業動画",
+        "反転授業",
+        "解説動画",
+        "模擬授業",
+        "マイクロラーニング"
+      ],
+      "title": "マイクロレッスン動画メーカー：1回の授業を短い授業動画に"
+    },
+    "zh": {
+      "description": "微课制作把一节课的PPT课件或一个知识点做成5到10分钟的微课视频：没有课件时先按导入、讲解、例题、小结生成课件，再逐页写讲稿、配音、加字幕，可以放上老师照片，也可以让数字人老师开场。不用自己剪辑，一键生成微课视频，适合微课比赛、公开课视频、说课视频、复习课和课前预习。",
+      "display_name": "微课制作",
+      "summary": "用一节课的PPT或一个知识点，做成带讲解配音和字幕的微课视频，可加老师照片或数字人老师开场。",
+      "tags": [
+        "微课制作",
+        "微课",
+        "一键生成微课",
+        "公开课视频",
+        "说课视频",
+        "微课视频"
+      ],
+      "title": "微课制作：一节课做成微课视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "micro-lesson-maker",
+  "schema_version": 1,
+  "version": "0.1.5"
+}

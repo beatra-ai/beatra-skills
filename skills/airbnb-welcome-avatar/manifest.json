@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Homestay Welcome Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/airbnb-welcome-avatar",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/airbnb-welcome-avatar.png",
   "localized": {
     "en": {
       "description": "Turn authorized host or room stills and confirmed stay facts into one homestay welcome talking clip per still. This homestay welcome talking-clip studio writes a speakable check-in and amenity script, then animates each still into a 2–15s welcome or facility clip in stay order. Use it for homestay welcome videos, Airbnb check-in greetings, amenity explainers, and guest arrival talking clips that stay one photo, one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "airbnb-welcome-avatar",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

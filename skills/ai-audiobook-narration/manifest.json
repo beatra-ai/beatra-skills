@@ -1,5 +1,5 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.8"
 }

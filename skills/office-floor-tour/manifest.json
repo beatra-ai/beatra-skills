@@ -1,12 +1,12 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Office Floor Tour",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/office-floor-tour",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/office-floor-tour.png",
   "localized": {
     "en": {
-      "description": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still. This office floor video studio lays out each floor walkthrough clip from the seller-supplied floor photo, then delivers an office listing clip and a floor walkthrough video as separate files. Use it for office floor packs that give each still its own clip.",
+      "description": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still. This office floor video studio animates each floor photo into a floor walkthrough clip, ready to use as an office listing clip or floor walkthrough video. Use it for office floor packs that give each still its own clip.",
       "display_name": "Office Floor Tour",
       "summary": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still.",
       "tags": [
@@ -20,7 +20,7 @@
       "title": "Office Floor Tour: One Still, One Floor Clip"
     },
     "ja": {
-      "description": "オフィスタワー案内は、すでに撮ったフロア写真から短いクリップを1本ずつ渡します。オフィスフロア動画とフロア一鏡として、オフィス物件動画も1本ずつ揃えます。",
+      "description": "オフィスタワー案内は、すでに撮ったフロア写真から短いクリップを1本ずつ渡します。写真1枚を1本のワンカット（フロア一鏡）にしたオフィスフロア動画で、オフィス物件動画としても使えます。",
       "display_name": "オフィスタワー案内",
       "summary": "すでに撮ったフロア写真から、短いクリップを1本ずつ作ります。",
       "tags": [
@@ -32,7 +32,7 @@
       "title": "オフィスタワー案内：フロア写真を短いクリップで渡す"
     },
     "zh": {
-      "description": "办公楼讲房用已经拍好的楼层照，做成每张照片一条短片。楼层一镜按原照做成办公楼层视频，写字楼讲房和楼层短片也各成一条办公楼一镜。",
+      "description": "办公楼讲房用已经拍好的楼层照，做成每张照片一条短片。楼层一镜按原照做成办公楼层视频，可作写字楼讲房素材或楼层短片，每条都是一张照片的办公楼一镜。",
       "display_name": "办公楼讲房·楼层一镜",
       "summary": "按已经拍好的楼层照，做成每张照片一条短片。",
       "tags": [
@@ -55,5 +55,5 @@
   },
   "name": "office-floor-tour",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.1"
 }

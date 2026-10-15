@@ -1,0 +1,61 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "Slide Narration Studio",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/slide-narration-studio",
+  "icon": "https://beatra.ai/textures/icons/slide-narration-studio-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Narrate a slide deck page by page. It writes a spoken script for every slide, records it in the teacher's own voice through a voice clone or with a chosen narrator, and delivers one audio file per slide or narrated slides as a video with subtitles. It covers course narration, PowerPoint narration, slide voiceover, and lecture voiceover for courses, training decks, and talks.",
+      "display_name": "Slide Narration Studio",
+      "summary": "A spoken script and narration for every slide, in the teacher's own voice or a chosen narrator, as audio per slide or a narrated slide video.",
+      "tags": [
+        "course narration",
+        "PowerPoint narration",
+        "slide voiceover",
+        "lecture voiceover",
+        "narrated slides",
+        "voice clone"
+      ],
+      "title": "Slide Narration Studio: Narrate Slides Page by Page"
+    },
+    "ja": {
+      "description": "スライドナレーションスタジオは、スライド資料に1枚ずつ講座ナレーションを付けます。各スライドの話し言葉の原稿を書き、ボイスクローンで講師本人の声にするか、選んだナレーターの声で読み上げ、スライドごとの音声ファイルか、字幕付きのナレーション動画にして届けます。パワポのスライドナレーション、講義ナレーション、研修資料やeラーニング教材の音声づくりに向いています。",
+      "display_name": "スライドナレーションスタジオ",
+      "summary": "スライドごとの原稿とナレーションを講師本人の声か選んだ声で作り、スライドごとの音声かナレーション動画で届けます。",
+      "tags": [
+        "講座ナレーション",
+        "スライドナレーション",
+        "講義ナレーション",
+        "ナレーション動画",
+        "ボイスクローン",
+        "研修資料",
+        "eラーニング教材"
+      ],
+      "title": "スライドナレーションスタジオ：スライドを1枚ずつナレーション"
+    },
+    "zh": {
+      "description": "课件配音把PPT课件逐页写成讲稿并配上声音，老师可以通过声音克隆用自己的声音，也可以选合适的AI音色。交付每页一段的配音音频，或者直接合成带字幕的PPT配音讲解视频，适合课程配音、讲稿配音、培训课件和公开课。",
+      "display_name": "课件配音",
+      "summary": "读懂每页课件、写好讲稿，用老师自己的声音或合适的音色逐页配音，交付每页音频或带配音的讲解视频。",
+      "tags": [
+        "课件配音",
+        "PPT配音",
+        "课程配音",
+        "讲稿配音",
+        "声音克隆"
+      ],
+      "title": "课件配音：PPT逐页配上老师的声音"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "slide-narration-studio",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

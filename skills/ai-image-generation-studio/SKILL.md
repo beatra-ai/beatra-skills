@@ -17,6 +17,8 @@ Choose exactly one billable image route for each logical result:
 
 Use a reviewed result as the source for a later focused edit or composition only after delivery. Do not silently turn an edit into a new composition, replace supplied references with text-only generation, or promise pixel-exact preservation. Carry faces, products, logos, text, layout, palette, and other user-named details as must-keeps, then inspect every accessible output for drift.
 
+**After an accepted image, turn it into a short clip:** the image becomes the first frame of a 5-second video made with `beatra.videos.animate`, as its own confirmed paid call. Offer it, or the other step in [next step](references/next-step.md), once per conversation.
+
 ## Inputs and defaults
 
 The hard input is a nonblank visual direction. Transform also requires one to four accessible ordered reference images. Edit requires an accessible base image first and may use up to three later references. Ask only for a missing hard input or a choice that changes the result materially. Reuse the destination, audience, subject, source order, composition, style, light, color, exclusions, must-keeps, count, and model already known.
@@ -45,7 +47,7 @@ Default to `model: "auto"`, one output, `output_relationship: "independent"` for
 
    Do not configure, call, or trust a host Beatra Connector, and do not use REST/OpenAPI as a fallback. Submit the chosen billable tool exactly once.
 6. Record the returned task ID immediately and poll that task with `beatra.tasks.get` until `succeeded`, `failed`, or `canceled`. `queued` and `running` are progress states. Deliver every returned image URL and artifact ID plus actual width, height, format, MIME type, and byte size when returned. Report the terminal model, usage, successful-image count, and `billing.net_charged_credits`; do not replace those facts with the estimate.
-7. Review every accessible output for the brief's message, subject and must-keep fidelity, composition, style, light, color, text and logo rendering, actual dimensions, and destination fit. State what could and could not be inspected. Then recommend at most one focused edit, new composition, or new generation and wait for its own paid approval.
+7. Review every accessible output for the brief's message, subject and must-keep fidelity, composition, style, light, color, text and logo rendering, actual dimensions, and destination fit. State what could and could not be inspected. Then recommend at most one focused edit, new composition, or new generation and wait for its own paid approval. When the user accepts the image and no follow-up is worth proposing, offer the one next step in [next step](references/next-step.md) instead, once per conversation.
 
 ## Controls and paid changes
 
@@ -65,30 +67,33 @@ Keep a private ledger with the route, normalized frozen arguments, stable reques
 
 Call `beatra.tasks.cancel` only when the user asks to cancel. Call it once, then verify the terminal result with `beatra.tasks.get`. If cancellation is not confirmed, continue polling the same task; cancellation does not authorize replacement work.
 
+## Account balance
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they ask what was charged, call `beatra.wallet.ledger`. Both are read-only, and neither is a required step before a paid submit.
+
 ## References by task
 
 - Read [Intent and routing](references/intent-and-routing.md) to choose among text generation, ordered-reference composition, and base-image editing, or to plan a bounded sequence.
 - Read [Visual direction and source preparation](references/visual-direction.md) to build the brief, order references, inspect source facts, choose the canvas, and define must-keeps.
 - Read [Image payloads and admission](references/image-recipes.md) for exact live-card checks, valid controls, bundled-client calls, pricing, and recovery.
 - Read [Review and iteration](references/review-and-iteration.md) to deliver actual artifacts, inspect every result, retain usable references, and choose the smallest follow-up.
+- Read [Next step](references/next-step.md) and [Offering one next step](references/next-step-offers.md) after an accepted image, and [Animating a delivered image](references/animate-a-delivered-image.md) when the user wants the clip.
 - Read [Installation and authentication](references/installation-and-auth.md) only when authorization or shared credentials need attention, and [Installation registration](references/installation-registration.md) for the non-billable best-effort package registration step.
 - Read [Tasks and results](references/tasks-and-results.md) for shared terminal task semantics, and [Billing, errors, and recovery](references/billing-errors-and-recovery.md) for returned settlement or error details.
 - Read [Bundled MCP Client diagnostics](references/mcp-connection.md) when the bundled client cannot connect. Do not configure a host Connector.
-- Read [Automatic updates and safety](references/automatic-updates-and-safety.md) for update guarantees and controls.
+- Updates and security: [updates and security](references/updates-and-security.md)
 - Read [Uninstall and disconnect](references/uninstall-and-disconnect.md) only when the user asks to remove this package or shared credentials.
 
-## Runtime and safe automatic updates
+Use or invoke the bundled `scripts/mcp_client.py` for every Beatra operation.
 
-Use or invoke the bundled `scripts/mcp_client.py` for every Beatra operation. Before ordinary commands it silently checks for a newer release at most once every 24 hours per installation. Silent checks are enabled by default, and a newer release installs without separate confirmation.
+## Updates and security
 
-The updater accepts only the fixed official discovery address and immutable Beatra CDN path embedded for this package, channel, and locale. It verifies discovery data, archive, manifest, and every file's size and checksum before replacement. It replaces only package-owned files and rejects redirects, downgrades, wrong package, channel, locale, or version data, unexpected URLs, unsafe archives, and files outside the owned destination.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Update checks, downloads, verification, replacement, rollback, and recovery fail open: the current installation remains usable and the user's original command continues. An update failure never authorizes retrying a paid image request. The automatic-update choice persists across later commands for this installation:
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-`--auto off` disables silent checks, `--auto on` restores them, and `--check` reports the official available version without replacing files.
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

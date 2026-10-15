@@ -1,12 +1,12 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Course Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-video-studio",
   "icon": "https://beatra.ai/textures/icons/course-video-studio-0.1.1.png",
   "localized": {
     "en": {
-      "description": "Turn lesson materials into presenter-led course videos with lecture narration. This course video studio prepares the spoken narration for each lesson, then records a digital-teacher delivery, so enablement teams get ready-to-publish lecture videos and training presenter clips.",
+      "description": "Turn finished lecture scripts into presenter-led course videos with lecture narration. This course video studio prepares the spoken narration for each lesson, then records a digital-teacher delivery, so enablement teams get ready-to-publish lecture videos and training presenter clips.",
       "display_name": "Course Video Studio",
       "summary": "Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos.",
       "tags": [
@@ -39,7 +39,7 @@
       "title": "講座ビデオ・デジタル講師：講義トーキングヘッド"
     },
     "zh": {
-      "description": "课程视频工作室把讲义素材做成讲师出镜的课程视频和课程旁白。先为每节课写好口播稿，再用数字人讲师交付成片，培训团队拿到即可发布。",
+      "description": "课程视频工作室把写好的讲稿和一张授权讲师人像做成讲师出镜的课程视频和课程旁白。先把每节课的讲稿配成旁白，再用数字人讲师交付可直接发布的培训视频和网课视频。",
       "display_name": "课程视频·数字人讲师",
       "summary": "用讲稿和一张授权讲师人像，做成每一讲的数字人口播课程视频。",
       "tags": [
@@ -66,5 +66,5 @@
   },
   "name": "course-video-studio",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.4"
 }

@@ -13,9 +13,10 @@ channel.
 
 Rendering runs on Beatra, so this Skill needs a Beatra account at beatra.ai with
 credits on it. Any step that reaches Beatra needs the installation connected
-first: an unconnected one stops and names `scripts/authorize.py`, and running
-that opens a Beatra approval page in the browser where the user signs in or
-creates the account. An installation already connected to Beatra skips that.
+first: an unconnected one stops and names the authorization helper. Run
+`python3 scripts/authorize.py`: it opens a Beatra approval page in the browser
+where the user signs in or creates the account and waits for Allow; if it stops
+first, you run it again until it prints `Beatra is ready`. An installation already connected to Beatra skips that.
 Only rendering is charged, and the current price and the maximum charge from the
 live model card are shown for approval before the call. A settled task is billed
 on measured usage, so treat that figure as the approval basis rather than a
@@ -142,23 +143,14 @@ what the thumbnail does rather than predicting how it will perform.
   [uninstall and disconnect](references/uninstall-and-disconnect.md): client
   operation and removal.
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks at most once every 24 hours per installation.
-When a newer release is available, it installs automatically without separate
-confirmation. It uses fixed official Beatra discovery and immutable CDN paths,
-verifies the discovery data, archive, manifest, and every packaged file before
-replacement, and replaces only files owned by this package.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Checks, downloads, verification, replacement, and recovery fail open: the
-current installation remains usable and the original command continues. Update
-failure never authorizes paid work. The setting persists for this installation.
-Read [automatic updates and safety](references/automatic-updates-and-safety.md)
-for the official sources, integrity checks, replacement boundary, failure
-behavior, and controls.
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

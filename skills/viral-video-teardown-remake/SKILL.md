@@ -83,6 +83,8 @@ Deliver the teardown, the approved shot list and rebuild plan, every frame as a 
 
 When the host can view or play the returned media, check that each frame or segment matches the beat it was written for, that the narration is present and finishes cleanly, and that the clip or the segments fit the canvas. State which media details could not be inspected instead of inferring them from task metadata.
 
+After the teardown is delivered and the user stops before the remake, or after the remake is delivered, offer at most one next step in the conversation, as [next step](references/next-step.md) describes: a talking-avatar video made from the rewritten script of a talking-head reference, or original commercial-use music for a product remake.
+
 ## Recovery
 
 Record each task ID immediately and poll only that task. `queued` and `running` mean wait. If a create response is lost, resubmit only the identical frozen payload under the same identifier; if a task ID is lost, list tasks for that capability and match candidates against your own ledger before any retry — except for a reference lookup, which has no capability to list by and is matched on its saved `operation_key`, arguments, and `schema_hash`. Redoing one frame reuses the other artifacts unchanged; under a segmented rebuild, redo only the failed unit and keep the per-unit ledger described in [remake workflow](references/workflow.md). On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
@@ -108,24 +110,23 @@ memory.
 - How the three source layers combine, how the model's timings get rescaled against the real duration, and how the four evidence-and-scoring tables get filled: [reading the reference](references/teardown.md)
 - Carrying the structure onto a new subject, writing paired visual and spoken fields, choosing the mode and its locks, and taking reference frames from real assets before generation: [rewriting onto your subject](references/remake-plan.md)
 - Exact payloads, what each confirmation freezes, polling, redoing one stage or one unit, the per-unit ledger, recovery, and cancellation: [remake workflow](references/workflow.md)
+- After a delivered teardown or remake, choosing and offering one next step: [next step](references/next-step.md) and [offering one next step](references/next-step-offers.md)
 - First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Non-billable package registration: [installation registration](references/installation-registration.md)
 - Task polling, artifacts, and result fields: [tasks and results](references/tasks-and-results.md)
 - Balance, validation, and structured errors: [billing, errors, and recovery](references/billing-errors-and-recovery.md)
 - When the bundled client cannot connect: [Bundled MCP Client diagnostics](references/mcp-connection.md)
-- Update guarantees and controls: [automatic updates and safety](references/automatic-updates-and-safety.md)
+- Updates and security: [updates and security](references/updates-and-security.md)
 - Removing the package or shared credentials: [uninstall and disconnect](references/uninstall-and-disconnect.md)
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks for a newer release at most once every 24 hours per installation. When a higher version is available it installs automatically without separate confirmation. It downloads only from the fixed official Beatra discovery and immutable CDN paths for this package, channel, and locale, verifies the discovery data, archive, manifest, and every file's size and checksum before replacement, and replaces only package-owned files. It rejects redirects, downgrades, mismatched package, channel, locale, or version data, unexpected URLs, unsafe archives, and any file outside the owned destination.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Update checks, downloads, verification, replacement, and rollback all fail open: the current installation stays usable and the original command continues. An update failure never authorizes retrying a paid generation. The choice persists across later commands for this installation.
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-`--auto off` disables silent checks, `--auto on` restores them, and `--check` reports the official available version without replacing files. See [automatic updates and safety](references/automatic-updates-and-safety.md).
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

@@ -1,5 +1,5 @@
 {
-  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Photo Singing Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/photo-singing-video",
@@ -71,5 +71,5 @@
   },
   "name": "photo-singing-video",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.2.1"
 }

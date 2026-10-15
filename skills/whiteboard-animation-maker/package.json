@@ -1,0 +1,9 @@
+{
+  "name": "whiteboard-animation-maker",
+  "private": true,
+  "description": "Whiteboard animation one-click film: B&W 9:16 hand-drawn explainer, Beatra TTS, optional social-video fetch.",
+  "dependencies": {
+    "gsap": "3.14.2",
+    "hanzi-writer-data": "2.0.1"
+  }
+}

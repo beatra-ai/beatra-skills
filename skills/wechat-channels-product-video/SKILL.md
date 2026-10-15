@@ -215,27 +215,14 @@ memory.
 - Bundled-client diagnostics: [Bundled MCP Client diagnostics](references/mcp-connection.md)
 - Removing the package or shared credentials: [uninstall and disconnect](references/uninstall-and-disconnect.md)
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks for a newer release at most once every 24
-hours per installation. When a higher version is available, it installs
-automatically without separate confirmation. It uses only fixed official Beatra
-discovery and immutable CDN locations for this package, verifies package
-identity, archive size and SHA-256, manifest, and every package-owned file
-before replacement, and replaces only package-owned files. Redirects,
-downgrades, unexpected URLs, unsafe archives, identity mismatches, and files
-outside the owned destination are rejected.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Update checks, downloads, validation, replacement, and rollback fail open: the
-current installation remains usable and the original command continues. An
-update failure never authorizes a paid retry. This preference persists for the
-installation. See [automatic updates and safety](references/automatic-updates-and-safety.md).
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-`--auto off` disables silent checks, `--auto on` restores them, and `--check`
-reports the available official release without replacement.
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

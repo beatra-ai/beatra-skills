@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Shopify Product-Page Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/shopify-pdp-set",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/shopify-pdp-set.png",
   "localized": {
     "en": {
       "description": "Turn seller-supplied product facts into a Shopify product-page image set for a single SKU. This Shopify PDP set studio lays out each named theme as a product detail image, keeping one image per theme so the listing gallery stays consistent. Use it for Shopify detail pages, listing galleries, and product detail images.",
@@ -57,5 +57,5 @@
   },
   "name": "shopify-pdp-set",
   "schema_version": 1,
-  "version": "0.1.4"
+  "version": "0.2.1"
 }

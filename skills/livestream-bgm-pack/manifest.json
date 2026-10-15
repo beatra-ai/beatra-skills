@@ -1,5 +1,5 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Livestream BGM Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/livestream-bgm-pack",
@@ -23,7 +23,7 @@
       "title": "Livestream BGM Pack: Original Stream and Store Music"
     },
     "ja": {
-      "description": "配信部屋、店舗、ライブコマース向けに、10〜20曲のオリジナルインストBGMプレイリストを作ります。この配信BGMパックは待機、雑談、商品説明、盛り上がり、深夜用のベッドを商用利用 BGM として書き、ラベル付きプレイリストで納品します。ライブ配信 BGM、ライブコマース BGM、店舗BGM、ループBGM、待機画面 BGM、商用オリジナル配信BGMに使えます。",
+      "description": "配信部屋、店舗、ライブコマース向けに、10〜20曲のオリジナルインストBGMプレイリストを作ります。この配信BGMパックは待機、雑談、商品説明、盛り上がり、深夜用のトラックを商用利用 BGM として作り、ラベル付きプレイリストで納品します。ライブ配信 BGM、ライブコマース BGM、店舗BGM、ループBGM、待機画面 BGM、商用オリジナル配信BGMに使えます。",
       "display_name": "配信BGMパック",
       "summary": "配信部屋、店舗、ライブコマース向けに、10〜20曲のオリジナルインストBGMプレイリストを作ります。",
       "tags": [
@@ -65,5 +65,5 @@
   },
   "name": "livestream-bgm-pack",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.9"
 }

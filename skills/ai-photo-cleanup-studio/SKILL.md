@@ -141,29 +141,18 @@ before submitting.
   task, artifact, and billing facts.
 - [Bundled MCP Client diagnostics](references/mcp-connection.md): client
   operation and connection diagnostics; do not configure a host Connector.
-- [automatic updates and safety](references/automatic-updates-and-safety.md):
-  update behaviour and controls.
+- Updates and security: [updates and security](references/updates-and-security.md)
 - [uninstall and disconnect](references/uninstall-and-disconnect.md): package
   removal and shared credential cleanup.
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks at most once every 24 hours per installation.
-When a newer release is available, it installs automatically without separate
-confirmation. It uses only fixed official Beatra discovery and immutable CDN
-paths for this package, channel, and locale, verifies discovery, archive,
-manifest, and every packaged file before replacement, and replaces only
-package-owned files. Update checks, downloads, verification, replacement, and
-recovery fail open: the current installation remains usable and the original
-command continues. An update failure never authorizes retrying a paid
-generation. The choice persists across later commands.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-`--auto off` disables silent checks, `--auto on` restores them, and `--check`
-reports the official available version without replacing files. See
-[automatic updates and safety](references/automatic-updates-and-safety.md).
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

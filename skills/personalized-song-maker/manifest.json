@@ -1,5 +1,5 @@
 {
-  "changelog": "Relay the official insufficient-credits message and point the user to pay from that text.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Personalized Song Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/personalized-song-maker",
@@ -71,5 +71,5 @@
   },
   "name": "personalized-song-maker",
   "schema_version": 1,
-  "version": "0.1.2"
+  "version": "0.1.8"
 }

@@ -4,7 +4,7 @@ The angle is chosen. This turns it into everything needed to publish.
 
 ## What a post is made of
 
-Four pieces, always, plus the clip when one was included.
+Four pieces, always, plus the cards or the video the set includes (see [content pack](content-pack.md)).
 
 | Piece | What it does |
 | --- | --- |
@@ -45,18 +45,9 @@ Three groups, and the mix matters more than the count.
 
 Use the topic's real tag, spelled the way people are actually using it. An invented variant reaches nobody.
 
-## The clip
+## Cards and video
 
-When a clip is included, plan it as beats with on-screen and spoken kept apart, exactly as a video script would be.
-
-| Field | Written for | Contains |
-| --- | --- | --- |
-| On screen | The image call | Subject, framing, setting, lighting, motion — no dialogue |
-| Spoken | The speech call | The exact words in speaking rhythm — no scene description |
-
-Trend clips run short. Twelve seconds is the default and the ceiling is 15: the topic supplies the context, so the clip only has to deliver the angle.
-
-Three beats is usually right — the hook that names the topic, the angle delivered, and the one ask. Budget the spoken fields at roughly four to five Chinese characters or two to three English words per second, and write to that rather than trimming after synthesis.
+Inner cards, the scene video's shots, the presenter's script, the music brief, subtitles, the finished video, and the edit list are planned per [content pack](content-pack.md). The rules below for screening the copy apply to all of them: card text, spoken lines, and subtitles are copy too.
 
 ## Screen the copy while it is still free
 
@@ -70,4 +61,4 @@ Three beats is usually right — the hook that names the topic, the angle delive
 
 ## Deliver it ready to paste
 
-The user is publishing this within the hour. Hand over the caption as one block they can copy without editing, the hashtags on their own line in posting order, the cover wording beside the rendered cover so the two can be checked against each other, and the clip with its beats listed so they can re-cut it in their own editor if they want to.
+The user is publishing this within the hour. Hand over the caption as one block they can copy without editing, the hashtags on their own line in posting order, the cover wording beside the rendered cover so the two can be checked against each other, and, for a video, the finished video first, with the subtitles and the parts beside it so they can re-cut it in their own editor if they want to.

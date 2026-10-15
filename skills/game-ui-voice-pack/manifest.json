@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Game UI Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/game-ui-voice-pack",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/game-ui-voice-pack.png",
   "localized": {
     "en": {
       "description": "Turn written game UI lines into one game voiceover clip per labeled cue. This game UI voice studio records each button voice clip, win voice line, and fail voice line from the copy the studio already wrote, then delivers 8 to 20 game cue audio files. Use it for game UI voice packs that keep one cue on each clip.",
@@ -57,5 +57,5 @@
   },
   "name": "game-ui-voice-pack",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

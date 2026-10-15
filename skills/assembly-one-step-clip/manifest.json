@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Assembly One-Step Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/assembly-one-step-clip",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/assembly-one-step-clip.png",
   "localized": {
     "en": {
       "description": "Turn authorized stills and seller-supplied step facts into one assembly step video per still. This one-step clip studio turns each still into a product assembly clip. Use it for furniture assembly video and how-to step clip work that stays one photo one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "assembly-one-step-clip",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

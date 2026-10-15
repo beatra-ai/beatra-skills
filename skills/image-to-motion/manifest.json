@@ -1,5 +1,5 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Image to Video & Photo Animator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/image-to-motion",
@@ -72,5 +72,5 @@
   },
   "name": "image-to-motion",
   "schema_version": 1,
-  "version": "0.1.8"
+  "version": "0.2.4"
 }

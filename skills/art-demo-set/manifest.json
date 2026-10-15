@@ -1,9 +1,9 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Art Demo Page",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/art-demo-set",
-  "icon": "https://beatra.ai/icon-512x512.png",
+  "icon": "https://beatra.ai/textures/icons/art-demo-set.png",
   "localized": {
     "en": {
       "description": "Turn user-supplied drawing steps into one still per art demo page. This classroom art still studio lays out each step-by-step art demo from the supplied demo points. Use it for art demonstration stills, drawing step pages, and an art demo set.",
@@ -57,5 +57,5 @@
   },
   "name": "art-demo-set",
   "schema_version": 1,
-  "version": "0.1.3"
+  "version": "0.2.0"
 }

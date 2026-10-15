@@ -160,24 +160,14 @@ routes, the confirmation wording, and how a result is reported and recovered.
 - For client commands and diagnostics: [Bundled MCP Client diagnostics](references/mcp-connection.md).
 - For removal: [uninstall and disconnect](references/uninstall-and-disconnect.md).
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks at most once every 24 hours per installation.
-When a newer release is available, it installs automatically without separate
-confirmation. It uses only the fixed official Beatra discovery address and
-immutable CDN path for this package, channel, and locale. Before replacement,
-it verifies discovery data, manifest, archive, and every packaged file using
-the expected identity, size, and SHA-256 values, then replaces only
-package-owned files in the installed Skill directory.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Checks, downloads, verification, replacement, rollback, and recovery fail open:
-the current installation stays usable and the original command continues. The
-setting persists for this installation. Read [automatic updates and safety](references/automatic-updates-and-safety.md)
-for the official sources, integrity checks, replacement boundary, failure
-behaviour, and controls.
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

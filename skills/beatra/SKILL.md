@@ -62,8 +62,13 @@ python3 scripts/authorize.py
 ```
 
 The browser supports sign-in or account creation and then one Allow decision.
-The helper observes completion, stores the Device Token privately, verifies it
-with one non-billable call, and prints Ready. Never expose the approval code or
+The helper prints the approval link at once, waits for Allow (leave it running),
+stores the Device Token privately, verifies it with one non-billable call, and
+prints `Beatra is ready`. When it prints `BEATRA_AUTH_PENDING`, show the user
+the approval link, then run the same command again until it prints
+`Beatra is ready`. Every run continues the same approval, so the user approves
+only once, and an Allow given while nothing runs connects on the next Beatra
+command. Never expose the approval code or
 ask the user to confirm approval in chat. Authorize once for the full Beatra
 connection; changing between image, video, music, speech, and public social
 lookup does not need another grant. After installing or replacing it,
@@ -115,6 +120,14 @@ automatic non-billable registration behavior.
   first paid call rather than one at a time. The returned audio's real duration
   and format still have to be re-checked against the card after synthesis.
   Follow [video recipes](references/video-recipes.md).
+- For lecture or courseware work — slides into lecture videos, narration for
+  every slide, a micro-lesson, or a new lesson deck — the dedicated Skills
+  keep the course, the scripts, and the renders on this computer: Lecture
+  Video Maker, Slide Narration Studio, Micro-Lesson Maker, and AI Courseware
+  Maker. Offer the one that fits with the install message in
+  [questions and anti-patterns](references/faq.md#pointing-to-another-skill)
+  and install it only after the user asks; single clips and single
+  narrations stay here.
 - For a song, instrumental, or reference-guided track, use
   `beatra.music.generate`. Follow [music](references/music.md).
 - For narration, browse only when a voice is still needed with
@@ -320,32 +333,23 @@ and the third only when something needs diagnosis or recovery.
 - When a user reports a result that misses the brief, a refused model, a stuck or lost task, or an unexpected charge, read [questions and anti-patterns](references/faq.md)
 - Bundled commands and connection diagnosis: [Bundled MCP Client diagnostics](references/mcp-connection.md)
 - Task progress, recovery, results, balance, and errors: [tasks and results](references/tasks-and-results.md) and [billing, errors, and recovery](references/billing-errors-and-recovery.md)
-- Verified automatic updates and persistent controls: [automatic updates and safety](references/automatic-updates-and-safety.md)
+- Updates and security: [updates and security](references/updates-and-security.md)
 - When the user wants to stop: [stopping use and removing shared credentials](references/uninstall-and-disconnect.md)
 
-## Keep updates safe and removable
+## Removal
 
-Before ordinary commands, the bundled client performs a silent check at most
-once every 24 hours. When a higher version is available from its fixed official
-discovery address and immutable official CDN source, the client may install it
-automatically without separate confirmation. It verifies the archive,
-manifest, and every packaged
-file, then replaces only package-owned files. If checking, downloading,
-verification, replacement, rollback, or recovery fails, the current
-installation remains usable and the original command continues. Update failure
-never justifies a paid retry.
-
-The per-installation choice persists:
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-The first command disables silent checks, the second restores automatic
-updates, and the third reports the official available version without replacing
-files. Read [automatic updates and safety](references/automatic-updates-and-safety.md)
-for the full verified-update contract. For removal or credential cleanup,
+For removal or credential cleanup,
 follow [stopping use and removing shared credentials](references/uninstall-and-disconnect.md).
 Never directly delete the shared `~/.beatra` connection state.
+
+## Updates and security
+
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
+
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

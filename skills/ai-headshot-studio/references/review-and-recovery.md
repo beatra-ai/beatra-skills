@@ -23,7 +23,7 @@ minutes and report the task ID and status.
   the selected one with `beatra.tasks.get`. Match by capability, input, and
   timing. If the match is ambiguous, do not submit a replacement.
 - **Slow task:** a queued or running task never authorizes a replacement.
-- **Authorization failure:** direct the user to rerun `scripts/authorize.py`.
+- **Authorization failure:** run `python3 scripts/authorize.py` and follow its output until it prints `Beatra is ready`.
   The original `client_request_id` remains valid for idempotent recovery.
 - **Connection failure:** preserve the credential and the original
   `client_request_id`. Retry only the exact same parameters.

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080,height=1920">
+<title>whiteboard-animation-maker program</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:'PingFang SC';src:local('PingFang SC'),local('PingFangSC-Regular'),local('Microsoft YaHei')}
+@font-face{font-family:'Georgia';src:local('Georgia'),local('Times New Roman')}
+*{box-sizing:border-box;margin:0}
+html,body,#root{width:1080px;height:1920px;overflow:hidden;background:#fff;color:#111;font-family:'PingFang SC',sans-serif;position:relative}
+.scene{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;padding:160px 88px 340px}
+h1{font-size:64px;line-height:1.28;font-weight:800;letter-spacing:-1px;text-align:center;max-width:904px;margin:0 auto 48px}
+.art{width:904px;height:1280px;margin:0 auto}
+.ink{stroke:#111;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;fill:#fff}
+#caps{position:absolute;left:0;right:0;bottom:0;height:400px;z-index:5;pointer-events:none}
+.cap{position:absolute;left:40px;right:40px;bottom:240px;text-align:center;font-family:'PingFang SC',sans-serif;font-size:48px;line-height:1.3;font-weight:600;color:#111;letter-spacing:.04em;white-space:nowrap;padding:28px 8px 8px;background:linear-gradient(to top,#fff 58%,rgba(255,255,255,0))}
+#s2{opacity:0}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+<section id="s1" class="scene">
+  <h1 id="h1">标题是阅读轨</h1>
+  <svg class="art" viewBox="0 0 904 1280">
+    <g id="card1">
+      <rect x="262" y="420" width="380" height="220" rx="8" class="ink"/>
+      <text x="452" y="548" text-anchor="middle" font-size="48" fill="#111" font-weight="700">标签</text>
+    </g>
+  </svg>
+</section>
+</div>
+<script src="voice.js"></script>
+<script src="scene.js"></script>
+<script src="captions.js"></script>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({paused: true});
+function xfade(from, to, t) {
+  tl.to(from, {opacity: 0, duration: 0.28, ease: 'sine.inOut'}, t);
+  tl.to(to, {opacity: 1, duration: 0.28, ease: 'sine.inOut'}, t);
+}
+tl.from('#h1', {y: 18, opacity: 0, duration: 0.4, ease: 'power2.out'}, sceneT('s1', 0.02));
+tl.from('#card1', {opacity: 0, y: 16, duration: 0.4, ease: 'power2.out'}, sceneT('s1', 0.12));
+mountCaptions(tl);
+window.__timelines.main = tl;
+</script>
+</body>
+</html>

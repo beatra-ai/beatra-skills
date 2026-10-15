@@ -1,6 +1,6 @@
 ---
 name: "community-site-clip"
-description: "Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio makes a silent 2-15s site photo clip from each field still clip. Use it for community event clip sets that stay one photo one clip."
+description: "Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio turns each event photo into one silent 2-15s site photo clip, in capture order. Use it for community event clip sets that stay one photo one clip."
 ---
 
 # Community Site One-Shot Clips
@@ -146,28 +146,17 @@ memory.
   results](references/tasks-and-results.md), [billing, errors, and
   recovery](references/billing-errors-and-recovery.md), and [Bundled MCP
   Client diagnostics](references/mcp-connection.md).
-- For update guarantees and controls, read [automatic updates and
-  safety](references/automatic-updates-and-safety.md). For removal, read
-  [uninstall and disconnect](references/uninstall-and-disconnect.md).
+- Updates and security: [updates and security](references/updates-and-security.md)
+- For removal, read [uninstall and disconnect](references/uninstall-and-disconnect.md).
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks for a newer release at most once
-every 24 hours per installation. When a newer version is available, it
-installs automatically without separate confirmation. It downloads only
-from the fixed official Beatra discovery and immutable CDN paths for
-this package, channel, and locale, verifies discovery data, archive,
-manifest, and every packaged file, and replaces only package-owned
-files.
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-Update checks, downloads, verification, replacement, rollback, and
-recovery fail open: the current installation remains usable and the
-original command continues. An update failure never authorizes retrying
-a paid video request. The setting persists for this installation. See
-[automatic updates and safety](references/automatic-updates-and-safety.md).
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

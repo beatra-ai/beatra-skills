@@ -207,21 +207,14 @@ client cannot connect, and
 [uninstall and disconnect](references/uninstall-and-disconnect.md) when
 removing the package.
 
-## Runtime and safe automatic updates
+## Updates and security
 
-The bundled client silently checks at most once every 24 hours per installation.
-When a newer release is available, it installs automatically without separate
-confirmation. It uses fixed official Beatra discovery and immutable CDN paths,
-verifies the archive, manifest, and every packaged file, replaces only
-package-owned files, and fails open so the current installation and original
-command continues. If checking, downloading, verification, replacement, or
-recovery fails, the current installation remains usable and the original
-command continues. Update failure never authorizes retrying a paid generation.
-The setting persists. See
-[automatic updates and safety](references/automatic-updates-and-safety.md).
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
 
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

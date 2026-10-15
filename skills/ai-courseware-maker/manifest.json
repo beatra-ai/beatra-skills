@@ -1,0 +1,62 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "AI Courseware Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/ai-courseware-maker",
+  "icon": "https://beatra.ai/textures/icons/ai-courseware-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "AI courseware from a topic, grade, and lesson length: an editable PowerPoint lesson deck structured into warm-up, new content, practice, and summary. Key lesson slides get illustrations in one consistent style over a matching background, the teacher's script sits in the speaker notes, and the teaching slides open in PowerPoint or WPS ready to edit, with slide illustrations and the whole lesson deck in one style.",
+      "display_name": "AI Courseware Maker",
+      "summary": "Turn a topic, grade, and lesson length into an editable PowerPoint lesson deck with matching illustrations and the script in the notes.",
+      "tags": [
+        "AI courseware",
+        "lesson slides",
+        "PowerPoint lesson",
+        "teaching slides",
+        "slide illustrations",
+        "lesson deck"
+      ],
+      "title": "AI Courseware Maker: Lesson Decks with Illustrations"
+    },
+    "ja": {
+      "description": "単元と学年、授業時間を伝えると、導入・展開・練習・まとめの流れで、編集できるPowerPointの授業スライドを作ります。イラストと背景はひとつのタッチでそろえ、各スライドのノートには先生が話す内容を入れます。授業スライド作成や教材作成の時間を短くし、授業用イラストも同じタッチでそろうので、ふだんの授業準備、研究授業や模擬授業の発表、学級活動や保護者会のスライド教材に使えます。",
+      "display_name": "AIスライド教材メーカー",
+      "summary": "単元と学年、授業時間を伝えると、タッチのそろったイラストと話す内容のノートが付いた、編集できる授業スライドを作ります。",
+      "tags": [
+        "授業スライド",
+        "スライド教材",
+        "授業スライド作成",
+        "教材作成",
+        "授業用イラスト",
+        "研究授業",
+        "保護者会"
+      ],
+      "title": "AIスライド教材メーカー：イラスト付きの授業スライドを作成"
+    },
+    "zh": {
+      "description": "AI课件按课题、年级和课时一键生成课件：结构按导入、新授、练习、小结排好，配上统一画风的课件插图和课件背景图，并在备注里写好讲稿。生成的PPT课件可以在PowerPoint或WPS里直接修改，也适合做说课PPT、公开课课件、班会课件和家长会PPT。",
+      "display_name": "AI课件",
+      "summary": "说出课题和年级，生成可以直接修改的PPT课件，带统一风格的插图、背景和讲稿备注。",
+      "tags": [
+        "AI课件",
+        "一键生成课件",
+        "PPT课件",
+        "课件插图",
+        "课件背景图",
+        "说课PPT"
+      ],
+      "title": "AI课件：一键生成PPT课件和配图"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "ai-courseware-maker",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

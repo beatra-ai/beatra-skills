@@ -163,30 +163,24 @@ one focused, newly approved generation. Follow
 - First installation or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Bundled command syntax and diagnostics: [Bundled MCP Client diagnostics](references/mcp-connection.md)
 - Task recovery, billing, and returned results: [tasks and results](references/tasks-and-results.md) and [billing, errors, and recovery](references/billing-errors-and-recovery.md)
-- Automatic update behavior and persistent controls: [automatic updates and safety](references/automatic-updates-and-safety.md)
+- Updates and security: [updates and security](references/updates-and-security.md)
 - Package removal and shared credential handling: [uninstall and disconnect](references/uninstall-and-disconnect.md)
 
-## Automatic updates and removal
+## Removal
 
-Before ordinary Beatra commands, the bundled client silently checks for a
-higher package version at most once every 24 hours. It uses the fixed official
-discovery address and immutable official CDN source. It may automatically
-install that higher version without separate confirmation. It verifies the
-archive, manifest, and every packaged file, and replaces only
-package-owned files. If checking, download, verification, replacement, or
-recovery fails, the current installation stays usable and the original command
-continues; an update failure never permits a paid retry.
-
-The per-installation choice persists:
-
-```text
-python3 scripts/mcp_client.py update --auto off
-python3 scripts/mcp_client.py update --auto on
-python3 scripts/mcp_client.py update --check
-```
-
-See [automatic updates and safety](references/automatic-updates-and-safety.md)
-for the complete verified-update contract. For removal or credential cleanup,
+For removal or credential cleanup,
 follow [uninstall and disconnect](references/uninstall-and-disconnect.md).
 Never directly delete `~/.beatra` or shared credentials because another Beatra
 package may use the same connection.
+
+## Updates and security
+
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
+
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

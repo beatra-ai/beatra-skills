@@ -1,0 +1,62 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "Lecture Video Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/lecture-video-maker",
+  "icon": "https://beatra.ai/textures/icons/lecture-video-maker-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a teacher's slide deck and lecture notes into a whole course of lecture videos. Each slide gets the teacher's own voice or a chosen narrator and subtitles, a digital-human teacher can open and close lessons, and every knowledge point becomes one course video. From PowerPoint to video or slides to video, it suits online courses, MOOCs, training video series, and recorded classes.",
+      "display_name": "Lecture Video Maker",
+      "summary": "Turn slides and lecture notes into a whole course of lecture videos in the teacher's voice, with subtitles and an optional digital-human opening and closing.",
+      "tags": [
+        "course video",
+        "lecture video",
+        "slides to video",
+        "PowerPoint to video",
+        "digital-human teacher",
+        "training video"
+      ],
+      "title": "Lecture Video Maker: Slides to Lecture Videos"
+    },
+    "ja": {
+      "description": "講師のスライドと講義ノートから、講座全体の講義動画を作ります。各スライドに講師本人の声か選んだナレーターの声と字幕を付け、デジタル講師が各回の冒頭と最後に登場できます。トピックごとに1本の授業動画にまとまり、パワポを動画にするスライド動画づくりにも使えます。オンライン講座、eラーニング動画、研修動画、収録授業の講座ビデオに向いています。",
+      "display_name": "スライド講義動画メーカー",
+      "summary": "スライドと講義ノートから、講師本人の声と字幕で講座全体の講義動画を作ります。デジタル講師が冒頭と最後に登場する構成も選べます。",
+      "tags": [
+        "講座ビデオ",
+        "講義動画",
+        "デジタル講師",
+        "授業動画",
+        "スライド動画",
+        "研修動画",
+        "eラーニング動画"
+      ],
+      "title": "スライド講義動画メーカー：スライドから講義動画へ"
+    },
+    "zh": {
+      "description": "数字人讲课把老师的PPT课件和讲稿做成整门课的讲课视频和课程视频：每页课件配上老师的声音和字幕，可以克隆老师自己的声音，也可以让数字人讲师在开场和结尾出镜。PPT转视频按知识点一讲一条，整门课批量做完，适合网课、慕课、教学视频、培训视频和录播课。",
+      "display_name": "数字人讲课",
+      "summary": "把课件和讲稿做成整门课的讲课视频：课件画面、老师自己的声音和字幕，需要时请数字人老师在开场和结尾出镜。",
+      "tags": [
+        "数字人讲课",
+        "讲课视频",
+        "课程视频",
+        "教学视频",
+        "网课",
+        "PPT转视频"
+      ],
+      "title": "数字人讲课：PPT转视频，整门课做成讲课视频"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "lecture-video-maker",
+  "schema_version": 1,
+  "version": "0.1.4"
+}

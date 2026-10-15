@@ -1,0 +1,78 @@
+{
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "display_name": "Whiteboard Animation Maker",
+  "entry": "SKILL.md",
+  "homepage": "https://beatra.ai/skills/whiteboard-animation-maker",
+  "icon": "https://beatra.ai/textures/icons/whiteboard-animation-0.1.1.png",
+  "localized": {
+    "en": {
+      "description": "Turn a concept, a finished voiceover script, or a benchmark social video into a 1080×1920 black-and-white hand-drawn whiteboard explainer film. This whiteboard animation maker writes Chinese and English words stroke by stroke or animates flow cards and diagrams, narrates through text-to-speech or a cloned voice, and learns from benchmark Xiaohongshu, Douyin, TikTok, YouTube, Instagram, or X videos before drafting. Use it for whiteboard animation, hand-drawn explainer videos, doodle videos, concept explainers, what-is-X shorts, vertical explainers, spoken narration, TTS voiceover, and cloned narration for knowledge shorts.",
+      "display_name": "Whiteboard Animation Maker",
+      "summary": "Turn a concept, a script, or a benchmark video into a vertical black-and-white hand-drawn whiteboard film, with stroke-by-stroke Chinese and English words, cards and diagrams, and spoken narration.",
+      "tags": [
+        "whiteboard animation",
+        "hand-drawn explainer video",
+        "doodle video maker",
+        "whiteboard video maker",
+        "whiteboard video software",
+        "explainer video maker",
+        "concept explainer video",
+        "handwriting animation video",
+        "stroke by stroke handwriting video",
+        "TTS voiceover video",
+        "what is X explainer"
+      ],
+      "title": "Whiteboard Animation Maker: Hand-Drawn Explainer & Doodle Video"
+    },
+    "ja": {
+      "description": "概念、完成したナレーション台本、または参考にしたいSNS動画を、1080×1920の白地に黒い手描き線で描くホワイトボードアニメ解説動画に変えます。漢字や英単語を一筆ずつ書くモードとフローカード図解のモードがあり、音声合成またはクローン音声でナレーションを流せます。参考動画は Xiaohongshu、Douyin、TikTok、YouTube、Instagram、X から読み込んで構成を分析します。ホワイトボードアニメ、手描き解説動画、お絵描き動画、概念解説、縦型解説ショートの制作に利用できます。",
+      "display_name": "ホワイトボードアニメ作成",
+      "summary": "概念、台本、または参考動画から、縦型白黒の手描きホワイトボード解説動画を作成。漢字や英単語を一筆ずつ書く演出、カード図解、音声合成ナレーションに対応します。",
+      "tags": [
+        "ホワイトボードアニメ",
+        "ホワイトボードアニメーション",
+        "手描き動画",
+        "白板アニメ",
+        "解説動画作成",
+        "お絵描き動画",
+        "手書きアニメーション",
+        "概念解説動画",
+        "ナレーション動画",
+        "縦型ショート動画",
+        "英語手描き動画"
+      ],
+      "title": "ホワイトボードアニメ作成：手描き解説動画メーカー"
+    },
+    "zh": {
+      "description": "把一个概念、一份写好的口播稿，或一条要对标的社媒视频，变成 1080×1920 竖屏白板手绘讲解片（白底黑线）。这个白板动画制作工具支持汉字与英文单词逐笔手绘、流程卡片等多种画面，支持口播配音与声音克隆，还能先读取小红书、抖音、TikTok、YouTube、Instagram 或 X 上的对标视频再拆解结构。适用于白板动画、手绘讲解视频、手绘视频、概念科普、什么是 X、口播配音等需求。",
+      "display_name": "白板动画制作",
+      "summary": "给一个概念、一份口播稿或一条对标视频，产出竖屏白板手绘讲解片：汉字与英文逐笔手绘、卡片关系图、口播配音或克隆配音，本地成片。",
+      "tags": [
+        "白板动画",
+        "手绘视频",
+        "白板视频制作",
+        "手绘讲解视频",
+        "白板动画软件",
+        "一键成片",
+        "概念科普视频",
+        "口播配音",
+        "手写字动画",
+        "竖屏讲解视频",
+        "doodle视频",
+        "对标视频拆解",
+        "英文手绘视频"
+      ],
+      "title": "白板动画制作：手绘讲解视频、白板手绘视频工具"
+    }
+  },
+  "mcp": {
+    "authentication": "device-bearer",
+    "credential_file": "~/.beatra/credentials.json",
+    "name": "beatra",
+    "transport": "streamable-http",
+    "url": "https://mcp.beatra.ai/mcp"
+  },
+  "name": "whiteboard-animation-maker",
+  "schema_version": 1,
+  "version": "0.1.8"
+}

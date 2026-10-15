@@ -16,10 +16,11 @@ the two carrying a cross and a check are a rejected artifact and a kept one.
 
 ```text
 我们是做保温杯的，小红书账号，主打通勤人群。到处在说这波断崖式降温，
-能不能蹭一下，今天就要发。
+能不能蹭一下，今天就要发。时间紧，先只出封面和文案。
 ```
 
-A topic, an account, a platform, and a deadline. That is a complete input: no
+A topic, an account, a platform, a deadline, and a scope: the cover and the copy
+only, which the user asked for in so many words. That is a complete input: no
 lookup is needed, because the user brought the topic. Nothing so far costs
 anything.
 
@@ -97,20 +98,20 @@ search; B is stronger as an image. Both cleared the screen above. **The user
 picked A.**
 
 The card then freezes, in one message: the chosen angle and cover wording, the
-9:16 canvas with the warning that changing the ratio later means paying for
+3:4 canvas — the note opens on the cover, and 3:4 is the ratio its inner cards
+would use — with the warning that changing the ratio later means paying for
 every artifact again, the caption and hashtags as written below, whether a clip
 is included, the live per-image price read from the model card, the number of
 paid calls and the stable request ID each will carry, the statement that cover
 text is generated artwork and will be read back against the approved wording,
-and the resulting total. This run is **cover only** — the user
-declined the clip at this gate — so the card names one paid image call.
-
-The clip is offered exactly once, here. Declining now does not close it: the
-same clip can be added later, but it is new paid work with its own gate.
+that the angle, caption, and hashtags stay the user's if they stop here, what
+happens if the balance is short (the official message and top-up URL relayed,
+and the same request ID retried only after they top up), and the resulting
+total. In this run the user asked for the cover and copy only, so the card names one paid image call. For a Xiaohongshu post the default set is the image set — the cover plus inner cards — and the sections after delivery show what that, and a video, would have added.
 
 ## Production, and what came back
 
-One `beatra.images.generate` call at the frozen 9:16 canvas. The delivered
+One `beatra.images.generate` call at the frozen 3:4 canvas. The delivered
 caption and hashtags cost nothing and were written during the free stage.
 
 ```text
@@ -137,67 +138,81 @@ are category tags where this account competes — its audience, its product, and
 the seasonal shelf it sits on. One is the account tag, for continuity across
 posts. That is 1 / 3 / 1, inside the documented range.
 
-## What a clip would have added
+## What the full image set adds
 
-Had the user accepted the clip at gate 1, the beat plan would have been written
-free, alongside the cover. On-screen and spoken stay in separate fields, because
-they are written for different calls. **Everything in this section is what the
-run did not produce** — it is shown so the shape of a clip run is legible before
-paying for one.
+Illustrative: this run stopped at the cover. The default image set adds inner cards, planned free with the cover and listed on the same gate-1 card, each with its own request ID and price, under one estimated total.
+
+Each block is one card: a short headline, then at most three short lines.
+
+```text
+卡 1  降温第一天
+      地铁口全是缩着脖子的人
+
+卡 2  出门前灌满
+      到公司拧开还冒热气
+
+卡 3  通勤三件套
+      围巾 · 手套 · 一杯热的
+
+卡 4  你们那儿几度
+      评论区报个温度
+```
+
+The cards follow the caption's order, so the post reads the same in pictures and in text. After rendering, each card is read back against this text. A wrong card gets one `beatra.images.edit`, on its own card with its live price; if it is still wrong, the user chooses between taking it as returned with the text alongside and one more carded call for a text-free base.
+
+## The same angle as a scene video
+
+Illustrative. Had the user also posted to Douyin, this product-and-moment angle defaults to a scene video. The shots are written free, with on-screen and spoken fields apart because they feed different calls.
 
 The two column labels are the on-screen field and the spoken field.
 
 ```text
 1  画面  清晨地铁口，人群缩着脖子快走，冷白光，镜头缓慢前推
-   口播  今天是真的冷
+   口播  降温第一天，早上八点的地铁口全是缩着脖子的人。
 
-2  画面  工位特写，拧开杯盖，热气升起，暖光
-   口播  出门前灌满的那杯，还热着
+2  画面  玄关，出门前把热水灌进保温杯，蒸汽升起
+   口播  我今年做对的一件事，是每天出门前把杯子灌满热水。
 
-3  画面  手捧杯子看向窗外，画面转暖，镜头轻微后拉
-   口播  你们那儿今天几度
+3  画面  工位特写，拧开杯盖，热气升起，暖光
+   口播  到公司拧开还冒热气，那一口下去整个人才算醒。
+
+4  画面  手捧杯子看向窗外，画面转暖，镜头轻微后拉
+   口播  路改不了，手里那杯可以是热的。你们那儿今天几度？
 ```
 
-Three beats: the hook that names the topic, the angle delivered, the one ask.
-Spoken fields total 25 Chinese characters, which at four to five characters per
-second is roughly five to six seconds of narration — comfortably inside the
-12-second default, leaving room for the pauses real delivery adds.
+The spoken fields total 84 Chinese characters, not counting punctuation, roughly 17 to 21 seconds at four to five characters per second: inside the 15-to-30-second plan, and past what one take holds. So each shot becomes its own clip. The narration is one speech call; once its real duration comes back, each shot's share is set from its line's length, each clip is requested at the smallest whole second the card admits at or above that share, and the edit list trims it to the share. The music brief reads "warm, light acoustic guitar and soft percussion, unhurried, no vocals".
 
-**Approval gate 2 would then be its own card**, shown before any video request
-and after the beat stills and narration were reviewed: the route and tool, the
-approved opening frame and narration, the motion direction, the selected model
-— chosen explicitly, never left to `auto` on this route — the audio-led
-duration, the resolution if one was set, the provisional estimate, the note
-that the 600-credit signup gift usually cannot start it, and what happens if
-the balance is short.
+Say the narration comes back at 18.9 seconds. The four spoken lines are 21, 22, 20, and 21 characters long, 84 in all, so the first three shots take 4.7, 5.0, and 4.5 seconds and the last takes the remaining 4.7. Each clip was requested at 5 seconds, so every span fits inside its clip. Once the four clips are back, one join lays the narration from the start, the four muted clips over it in order, the music under it at 0.25, and the subtitles on top, and returns one 9:16 video of 18.9 seconds. It costs no credits.
 
-Approving the cover at gate 1 does not authorize the shoot. That is the whole
-reason there are two production gates rather than one: the cheap, reversible
-work is approved separately from the expensive, irreversible work, and the user
-sees the second price only when there is something real to price. A run that
-opens with a trend lookup has a third confirmation before either of them.
+Had the narration come in at 15 seconds or under, it would have been one take: the opening still animated with the narration as its driving audio, and the other stills delivered as stills. The join would then add the music and the subtitles to that one take, keeping its sound.
+
+**Gate 2 is its own card**, after the stills, narration, and music were reviewed: each video call with its still, the motion, the model, the duration, and the provisional estimate, whether the card's first-video offer applies to any of them, and what happens if the balance runs out partway. Approving gate 1 does not authorize it: the cheap, reversible work is approved separately from the expensive work. The video's estimate was already part of the gate-1 total; gate 2 prices each call again from the live card, now that the real narration length is known. The card ends with the join, which costs nothing and needs no approval of its own.
+
+## A news angle as a presenter video
+
+Illustrative, a different topic. An account that writes about home insurance picks the angle "before the typhoon, photograph your home for any claim" for Douyin. A news-and-explainer angle defaults to the presenter video with a virtual presenter.
+
+```text
+台风登陆前，先做一件事：给家里拍照留证。
+门窗、车辆、贵重物品，各拍一张，记得带上日期。
+```
+
+The script is about 35 Chinese characters, roughly 7 to 9 seconds. That fits one take, so it stays one take even though it has two sentences: one narration call and one video call. Gate 1 lists the virtual presenter image, the narration, the music, and the cover at 9:16, since this post is a video on its own, with the estimated total including the take. Gate 2 lists the one take with the explicitly selected model that accepts narration. Once the take is back, the join keeps its lip-synced sound, lays the music under it, and burns in the subtitles. Delivery brings that finished clip first, then the take, the music, and the SRT as files, and the reminder to switch on the platform's AI-generated content label. A script past 15 seconds would split at a sentence boundary into takes, one narration slice and one video call each, and the takes are joined into one video, each keeping its own sound.
 
 ## Delivery
 
-The cover image beside its wording so the two can be checked against each other,
-the caption as one block, the hashtags on their own line in posting order, and
-for each generation task its ID, artifact link, resolved model, returned
-dimensions, and `billing.net_charged_credits`. Had a clip run, every beat still
-is delivered too, not only the frame that ended up animated.
+The cover image beside its wording so the two can be checked against each other, every card beside its text, the caption as one block, the hashtags on their own line in posting order, and for each generation task its ID, artifact link, resolved model, returned dimensions, and `billing.net_charged_credits`. For a video, the finished video comes first, then every still, not only the one that was animated, each clip, the narration, the music, and the subtitles. The edit list is delivered only when the finished video could not be made.
 
 ## Where this run could have gone differently
 
-**The user brings no topic.** Then the optional lookup opens the run, priced and
-confirmed on its own before anything else. See
-[looking up what is trending](trend-lookup.md).
+**The user brings no topic.** Then the optional lookup opens the run, priced and confirmed on its own before anything else, and its first reply already offers topics with angles and asks where the post will go. See [looking up what is trending](trend-lookup.md).
 
-**The user wants a different ratio.** Say it at gate 1. After production, a ratio
-change means producing every paid artifact again.
+**The user wants a different ratio.** Say it at gate 1. After production, a ratio change means producing every affected paid artifact again.
 
-**The user wants the clip after seeing the cover.** Allowed, and normal. The beat
-plan is written free, the beat stills and narration are their own paid stage, and
-gate 2 still comes before the video.
+**The user wants the video after seeing the images.** Allowed, and normal. The shots or script are written free, the stills, narration, and music are their own paid stage, and gate 2 still comes before the video.
 
-**A cover comes back wrong.** Redo the cover; it reuses the clip artifacts
-unchanged rather than restarting the run. See
-[hot topic workflow](workflow.md) for what a redo does and does not re-charge.
+**A card or the cover comes back wrong.** One `beatra.images.edit` for that image, on its own card with its live price; if it is still wrong, the user takes it as returned with its text alongside, or approves one more call for a text-free base. Everything else is reused. See [hot topic workflow](workflow.md) for what a redo does and does not re-charge.
+
+**The user offers their own photo as the presenter.** They confirm they are the person pictured or have that person's consent; otherwise the virtual presenter is used. With that confirmation the photo is uploaded with the bundled client and checked against the video card before it goes on gate 1. After the video is delivered, they can save it as an avatar for later posts, once they confirm the consent sentence for whoever is pictured.
+
+**The finished video could not be joined.** The parts are delivered with the edit list. See [questions and anti-patterns](faq.md).

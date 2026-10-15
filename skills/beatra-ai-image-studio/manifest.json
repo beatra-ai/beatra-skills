@@ -1,5 +1,5 @@
 {
-  "changelog": "When Beatra authorization expires, reconnect and wait until Ready before retrying.",
+  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
   "display_name": "Beatra AI Image Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-image-studio",
@@ -76,5 +76,5 @@
   },
   "name": "beatra-ai-image-studio",
   "schema_version": 1,
-  "version": "1.1.4"
+  "version": "1.2.0"
 }
