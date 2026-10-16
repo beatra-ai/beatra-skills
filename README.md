@@ -43,6 +43,26 @@ Or copy a skill folder straight into your agent's skills directory —
 `~/.openclaw/skills/` for OpenClaw, and the equivalent path for any other agent
 that reads `SKILL.md`.
 
+## Specs
+
+As of 2026-10-16. Live list: https://docs.beatra.ai/en/docs/models
+
+- **Image understanding** — 1 model (MiniMax M3)
+- **Video understanding** — 1 model (MiniMax M3)
+- **Text to image** — 10 models (Qwen Image 2.0 Fast, Qwen Image 3.0, Qwen Image 3.0 Pro, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst, GPT Image 2, Wan Image 2.7 Fast, Qwen Image 2.0 Pro, Wan Image 2.7 Pro, MiniMax Image 01 Live); up to 4 images per request; canvas up to 16777216 pixels
+- **Image to image** — 10 models (Qwen Image 2.0 Fast, Qwen Image 3.0, Qwen Image 3.0 Pro, Wan Image 2.7 Fast, Qwen Image 2.0 Pro, Wan Image 2.7 Pro, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst, GPT Image 2, MiniMax Image 01 Live); up to 4 images per request; canvas up to 16777216 pixels
+- **Image editing** — 6 models (Qwen Image 2.0 Fast, Qwen Image 3.0, Qwen Image 3.0 Pro, Wan Image 2.7 Fast, Qwen Image 2.0 Pro, Wan Image 2.7 Pro); up to 4 images per request; canvas up to 4194304 pixels
+- **Text to video** — 9 models (seedance-2-mini, wan2.7-t2v, wan3.0-video, minimax-h3, happyhorse-1.1-t2v, seedance-2-fast, seedance-2, wan3.0-video-prime, seedance-2.5); 480p to 4K; 2–30 s; aspect ratios 16:9, 1:1, 21:9, 3:4, 4:3, 9:16, 4:5, 5:4, 9:21; MOV, MP4; 2 with native audio
+- **Image to video** — 9 models (wan2.7-i2v, wan3.0-video, minimax-h3, seedance-2-mini, happyhorse-1.1-i2v, seedance-2-fast, seedance-2, wan3.0-video-prime, seedance-2.5); 480p to 4K; 2–30 s; aspect ratios 16:9, 1:1, 21:9, 3:4, 4:3, 9:16; MOV, MP4; 2 with native audio
+- **Reference to video** — 9 models (wan2.7-r2v, minimax-h3, wan3.0-video, happyhorse-1.1-r2v, seedance-2-mini, seedance-2-fast, seedance-2, wan3.0-video-prime, seedance-2.5); 480p to 4K; 2–30 s; aspect ratios 16:9, 1:1, 3:4, 4:3, 9:16, 21:9, 4:5, 5:4, 9:21; MOV, MP4; 2 with native audio
+- **First and last frames to video** — 8 models (wan2.7-i2v, wan3.0-video, minimax-h3, seedance-2-mini, seedance-2-fast, seedance-2, wan3.0-video-prime, seedance-2.5); 480p to 4K; 2–30 s; aspect ratios 16:9, 1:1, 21:9, 3:4, 4:3, 9:16; MOV, MP4; 2 with native audio
+- **Video editing** — 8 models (wan2.7-videoedit, wan3.0-video, happyhorse-1.0-video-edit, seedance-2-mini, seedance-2-fast, seedance-2, wan3.0-video-prime, seedance-2.5); 480p to 4K; 2–30 s; aspect ratios 16:9, 1:1, 3:4, 4:3, 9:16, 21:9; MOV, MP4
+- **Video extension** — 7 models (wan2.7-i2v, wan3.0-video, seedance-2-mini, seedance-2-fast, seedance-2, wan3.0-video-prime, seedance-2.5); 480p to 4K; 2–30 s; aspect ratios 16:9, 1:1, 21:9, 3:4, 4:3, 9:16; MOV, MP4; 1 with native audio
+- **Text to music** — 2 models (Suno 6, MiniMax Music 3.0); lyrics up to 5000 characters
+- **Reference audio to music** — 2 models (Suno 6, MiniMax Music 3.0); lyrics up to 5000 characters
+- **Text to speech** — 2 models (MiniMax Speech 2.8 HD, MiniMax Speech 2.8 Turbo); FLAC, MP3, OPUS, PCM, WAV; 40 languages; up to 44.1 kHz; up to 50000 characters per request
+- **Voice cloning** — 1 model (MiniMax Voice Clone)
+
 ## Skills
 
 | Skill | What it does | Version |
@@ -210,3 +230,8 @@ ClawHub.
 
 - Beatra — https://beatra.ai
 - Skill catalog — https://beatra.ai/skills
+- Docs — https://docs.beatra.ai
+- Console — https://console.beatra.ai
+- WeChat mini program (mainland China) · 国内用户微信扫码使用
+
+<img src="assets/beatra-mini-program-qr.jpg" alt="Beatra WeChat mini program code" width="160">
