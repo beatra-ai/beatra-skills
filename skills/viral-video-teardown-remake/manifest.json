@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
   "display_name": "Viral Video Teardown Remake",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
@@ -87,5 +87,5 @@
   },
   "name": "viral-video-teardown-remake",
   "schema_version": 1,
-  "version": "0.3.8"
+  "version": "0.3.9"
 }

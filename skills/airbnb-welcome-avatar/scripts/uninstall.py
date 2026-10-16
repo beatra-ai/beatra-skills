@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "airbnb-welcome-avatar"
 PACKAGE_DISPLAY_NAME = "Homestay Welcome Talking Clips"
-PACKAGE_VERSION = "0.2.1"
+PACKAGE_VERSION = "0.2.2"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

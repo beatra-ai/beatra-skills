@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "image-to-motion"
 PACKAGE_DISPLAY_NAME = "Image to Video & Photo Animator"
-PACKAGE_VERSION = "0.2.4"
+PACKAGE_VERSION = "0.2.5"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "xiaohongshu-note-research"
 PACKAGE_DISPLAY_NAME = "Note Research Studio"
-PACKAGE_VERSION = "0.1.9"
+PACKAGE_VERSION = "0.2.0"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

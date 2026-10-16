@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
   "display_name": "Founder IP Avatar Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/founder-ip-avatar-studio",
@@ -66,5 +66,5 @@
   },
   "name": "founder-ip-avatar-studio",
   "schema_version": 1,
-  "version": "0.1.9"
+  "version": "0.2.0"
 }

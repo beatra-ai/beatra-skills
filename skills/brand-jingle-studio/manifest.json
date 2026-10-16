@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
   "display_name": "Brand Jingle Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/brand-jingle-studio",
@@ -72,5 +72,5 @@
   },
   "name": "brand-jingle-studio",
   "schema_version": 1,
-  "version": "0.1.8"
+  "version": "0.1.9"
 }

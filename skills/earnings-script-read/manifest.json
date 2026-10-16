@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
   "display_name": "Earnings Script Reads",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/earnings-script-read",
@@ -57,5 +57,5 @@
   },
   "name": "earnings-script-read",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

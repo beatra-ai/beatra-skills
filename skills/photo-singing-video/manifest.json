@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
   "display_name": "Photo Singing Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/photo-singing-video",
@@ -71,5 +71,5 @@
   },
   "name": "photo-singing-video",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

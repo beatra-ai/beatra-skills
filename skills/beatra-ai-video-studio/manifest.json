@@ -1,5 +1,5 @@
 {
-  "changelog": "Updates now come from the store or tool you installed this Skill from; the Skill no longer replaces its own files.",
+  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
   "display_name": "Beatra AI Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-video-studio",
@@ -75,5 +75,5 @@
   },
   "name": "beatra-ai-video-studio",
   "schema_version": 1,
-  "version": "1.3.3"
+  "version": "1.3.4"
 }
