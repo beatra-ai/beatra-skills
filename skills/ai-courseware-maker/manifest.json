@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "AI Courseware Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-courseware-maker",
@@ -58,5 +58,5 @@
   },
   "name": "ai-courseware-maker",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.6"
 }

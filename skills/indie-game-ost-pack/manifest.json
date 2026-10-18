@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Indie Game OST Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/indie-game-ost-pack",
@@ -65,5 +65,5 @@
   },
   "name": "indie-game-ost-pack",
   "schema_version": 1,
-  "version": "0.1.9"
+  "version": "0.2.0"
 }

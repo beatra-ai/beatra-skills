@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Micro-Lesson Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/micro-lesson-maker",
@@ -58,5 +58,5 @@
   },
   "name": "micro-lesson-maker",
   "schema_version": 1,
-  "version": "0.1.6"
+  "version": "0.1.7"
 }

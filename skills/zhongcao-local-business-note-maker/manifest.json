@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Zhongcao Local Business Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-local-business-note-maker",
@@ -75,5 +75,5 @@
   },
   "name": "zhongcao-local-business-note-maker",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

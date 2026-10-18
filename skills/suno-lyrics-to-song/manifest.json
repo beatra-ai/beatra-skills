@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Suno Lyrics to Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
@@ -74,5 +74,5 @@
   },
   "name": "suno-lyrics-to-song",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

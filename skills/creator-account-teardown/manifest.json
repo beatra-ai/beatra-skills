@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Creator Account Teardown",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/creator-account-teardown",
@@ -85,5 +85,5 @@
   },
   "name": "creator-account-teardown",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Zhongcao Food Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-food-note-maker",
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-food-note-maker",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

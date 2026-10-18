@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Webinar Recap Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/webinar-recap-talking",
@@ -57,5 +57,5 @@
   },
   "name": "webinar-recap-talking",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

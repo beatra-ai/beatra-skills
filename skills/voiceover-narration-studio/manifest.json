@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Voiceover & Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
@@ -80,5 +80,5 @@
   },
   "name": "voiceover-narration-studio",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

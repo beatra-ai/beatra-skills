@@ -1,5 +1,5 @@
 {
-  "changelog": "Copies installed from SkillHub, ModelScope, or WorkBuddy update themselves again. Nothing else changes.",
+  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
   "display_name": "Note Research Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-note-research",
@@ -52,5 +52,5 @@
   },
   "name": "xiaohongshu-note-research",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "ai-image-realism"
 PACKAGE_DISPLAY_NAME = "AI Image Realism Retoucher"
-PACKAGE_VERSION = "0.3.4"
+PACKAGE_VERSION = "0.3.5"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

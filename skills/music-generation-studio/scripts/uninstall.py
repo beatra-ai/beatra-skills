@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "music-generation-studio"
 PACKAGE_DISPLAY_NAME = "Music Generation Studio"
-PACKAGE_VERSION = "0.2.5"
+PACKAGE_VERSION = "0.2.6"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly
