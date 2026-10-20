@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Hanzi Card Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hanzi-card-set",
-  "icon": "https://beatra.ai/textures/icons/hanzi-card-set.png",
+  "icon": "https://beatra.ai/textures/icons/hanzi-card-set-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn user-supplied character lists into a four-to-eight still hanzi card set. This chinese character cards studio lays out each named character as its own still. Use it for recognition cards, hanzi flashcards, chinese character flashcards, and a character card pack.",
@@ -57,5 +57,5 @@
   },
   "name": "hanzi-card-set",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Game Script Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/game-script-voice-pack",
-  "icon": "https://beatra.ai/textures/icons/game-script-voice-pack-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/game-script-voice-pack-0.2.2.png",
   "localized": {
     "en": {
       "description": "Turn a murder-mystery or indie-game script into a labeled multi-character voice pack. This AI game voice pack and character dialogue studio casts one consistent voice per role, records every line in script order, and delivers numbered clips with character IDs ready for an engine or tabletop production. Use it for game voice acting, indie game dialogue, murder mystery voiceover, multi character TTS, NPC voice acting, interactive story audio, tabletop voice pack work, and scripted game audio.",
@@ -67,5 +67,5 @@
   },
   "name": "game-script-voice-pack",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

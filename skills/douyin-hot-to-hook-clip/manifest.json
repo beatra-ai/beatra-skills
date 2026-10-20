@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Douyin Hot Search Hook Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-hot-to-hook-clip",
-  "icon": "https://beatra.ai/textures/icons/douyin-hot-to-hook-clip.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-hot-to-hook-clip-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn a Douyin hot search topic into one talking hook clip per still. This douyin hot search hook studio writes a speakable hot search talking clip from each seller-picked trend, then animates a 2 to 15s douyin hook clip. Use it for trend hook video and a hot search hook clip that stay one photo, one talking hook clip.",
@@ -57,5 +57,5 @@
   },
   "name": "douyin-hot-to-hook-clip",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

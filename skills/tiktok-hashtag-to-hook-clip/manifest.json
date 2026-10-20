@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "TikTok Hashtag Hook Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-hashtag-to-hook-clip",
-  "icon": "https://beatra.ai/textures/icons/tiktok-hashtag-to-hook-clip.png",
+  "icon": "https://beatra.ai/textures/icons/tiktok-hashtag-to-hook-clip-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn a TikTok hashtag trend into one talking hook clip per still. This TikTok hashtag hook studio reads public hashtag rankings and top posts, then records each already-written hook as a 2 to 15 second talking clip. Each hashtag hook clip is a separate short video the creator can post on its own.",
@@ -57,5 +57,5 @@
   },
   "name": "tiktok-hashtag-to-hook-clip",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Headshot Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-headshot-studio",
-  "icon": "https://beatra.ai/textures/icons/ai-headshot-studio-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/ai-headshot-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Transform a casual selfie into a studio-quality professional headshot for LinkedIn, resume, company website, business card, or social media. This AI headshot generator creates polished professional portraits with new backgrounds, professional attire, and studio lighting while preserving the person's identity. Generate corporate headshots, tech startup portraits, academic profile photos, medical professional images, and creative industry portraits from one selfie. Specify a professional style and industry, pair with a desired background or setting, or refine an accepted headshot toward a publish-ready result.",
@@ -75,5 +75,5 @@
   },
   "name": "ai-headshot-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

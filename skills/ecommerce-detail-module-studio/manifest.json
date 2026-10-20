@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Ecommerce Detail Module Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ecommerce-detail-module-studio",
-  "icon": "https://beatra.ai/textures/icons/ecommerce-detail-module-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ecommerce-detail-module-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn confirmed SKU facts and product photos into three to six AI ecommerce detail modules with a visual story and layout guide for Amazon A+ Content, product detail pages, brand storefronts, Shopify product pages, and launch campaigns. Create product feature visuals, material details, use scenes, size or comparison modules, packaging images, and brand-story imagery for a clear, scrollable product experience.",
@@ -78,5 +78,5 @@
   },
   "name": "ecommerce-detail-module-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

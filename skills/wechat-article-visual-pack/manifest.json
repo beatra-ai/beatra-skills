@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "WeChat Article Visual Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-article-visual-pack",
-  "icon": "https://beatra.ai/textures/icons/wechat-article-visual-pack-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/wechat-article-visual-pack-0.2.3.png",
   "localized": {
     "en": {
       "description": "Create a WeChat Official Account visual pack from a finished article, outline, brand assets, photos, or visual references. Produce a lead cover plus coordinated in-article illustrations with clear section focus and consistent visual direction for WeChat articles, WeChat post images, brand stories, product explainers, event recaps, and knowledge content.",
@@ -65,5 +65,5 @@
   },
   "name": "wechat-article-visual-pack",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

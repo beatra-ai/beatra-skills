@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Brand Jingle Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/brand-jingle-studio",
-  "icon": "https://beatra.ai/textures/icons/brand-jingle-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/brand-jingle-studio-0.2.1.png",
   "localized": {
     "en": {
       "description": "Turn a brand name, slogan, and campaign use into a set of original brand jingles, ad songs, and audio-logo stings. This brand jingle maker and AI jingle generator drafts the hook and optional sung line, then generates reviewable tracks in the lengths and styles the campaign needs for ads, store openings, podcast intros, and radio spots. Use it as an ad song generator and brand music generator for brand theme songs, commercial jingles, advertising jingles, sonic logos, audio logo stings, campaign music, radio jingles, podcast intro jingles, and event walk-on themes, with each candidate generated as original music you can use commercially.",
@@ -72,5 +72,5 @@
   },
   "name": "brand-jingle-studio",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

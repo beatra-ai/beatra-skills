@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Unattended Live Avatar",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/unattended-live-avatar",
-  "icon": "https://beatra.ai/textures/icons/unattended-live-avatar-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/unattended-live-avatar-0.2.2.png",
   "localized": {
     "en": {
       "description": "Turn one shop portrait and short welcome, product, FAQ, and close scripts into talking-avatar clips a store can loop overnight. This unattended live avatar and night-shift avatar studio can clone or pick a voice, then produce a talking avatar livestream set for welcome, product, FAQ, and close so an unattended livestream or digital human livestream can keep a shop loop presenter on camera. Use it for overnight digital human clips, live room avatar loops, and a night-shift talking-head that keeps the room open.",
@@ -59,5 +59,5 @@
   },
   "name": "unattended-live-avatar",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

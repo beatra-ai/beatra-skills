@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "REDnote Note Copywriter",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/rednote-note-copywriter",
-  "icon": "https://beatra.ai/textures/icons/rednote-note-copywriter-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/rednote-note-copywriter-0.2.4.png",
   "localized": {
     "en": {
       "description": "Create Xiaohongshu or REDnote copy from a product, experience, topic, or audience brief. This AI Xiaohongshu copywriter produces title options, a structured note body, cover wording, relevant hashtags, and a natural comment starter for product discovery, local experiences, beauty, food, fashion, travel, and knowledge posts.",
@@ -66,5 +66,5 @@
   },
   "name": "rednote-note-copywriter",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

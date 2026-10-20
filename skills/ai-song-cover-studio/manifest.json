@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Song Cover Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-song-cover-studio",
-  "icon": "https://beatra.ai/textures/icons/ai-song-cover-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-song-cover-studio-0.2.2.png",
   "localized": {
     "en": {
       "description": "Turn a song recording into a newly interpreted cover or rearranged song from a reference performance and a fresh genre, arrangement, and vocal direction. This AI song cover studio and reference-audio cover generator reinterprets a classic song as rock, acoustic, folk, jazz, Chinese-style, ballad, or a new vocal character, and reviews recognizable reference influence, arrangement freshness, vocal delivery, lyrics, pronunciation, and structure. Use it for classic-song reinterpretation, genre swaps, creator demos, tribute performances, and personal practice recordings, with one cover generation per run and honest post-result review.",
@@ -71,5 +71,5 @@
   },
   "name": "ai-song-cover-studio",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

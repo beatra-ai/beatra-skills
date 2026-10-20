@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Earnings Script Reads",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/earnings-script-read",
-  "icon": "https://beatra.ai/textures/icons/earnings-script-read.png",
+  "icon": "https://beatra.ai/textures/icons/earnings-script-read-0.2.5.png",
   "localized": {
     "en": {
       "description": "Turn an official earnings script into one spoken earnings script read per labeled section. This earnings call voice studio turns the prepared remarks the company already wrote into earnings report narration and quarterly results audio, recorded as 8 to 20 earnings script voice clips. Use it for investor update voice packs that stay one section, one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "earnings-script-read",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

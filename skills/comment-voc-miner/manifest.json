@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Comment VOC Miner",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/comment-voc-miner",
-  "icon": "https://beatra.ai/textures/icons/comment-voc-miner-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/comment-voc-miner-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn public comments into a usable brief. Give a post link, a category to search, or comments you already copied, and get the objections, verbatim lines, purchase worries, FAQ answers, live-commerce replies, and spoken hooks that come from what viewers actually wrote. This comment analysis workflow reads public comments on Douyin, TikTok, Xiaohongshu, Instagram, YouTube, and X, and reply threads on Douyin, TikTok, Xiaohongshu, Instagram, and YouTube, or works from comments you paste, then groups the real audience language into a same-day brief. Use it for comment analysis, comment-section analysis, comment mining, VOC insight, audience insight, user voice research, FAQ writing, and live-commerce answers that sound like the audience.",
@@ -60,5 +60,5 @@
   },
   "name": "comment-voc-miner",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

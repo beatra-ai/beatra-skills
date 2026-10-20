@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Image Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-image-generation-studio",
-  "icon": "https://beatra.ai/textures/icons/ai-image-generation-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-image-generation-studio-0.2.4.png",
   "localized": {
     "en": {
       "description": "Create and refine images from a written brief, one to four ordered reference images, or an existing base image. AI Image Generation Studio supports text-to-image generation, reference-guided composition, and focused AI image editing for product photos, ad creative, brand visuals, posters, social graphics, illustrations, concept art, and photo background changes. Review each generated image for message, subject fidelity, composition, style, text, and destination fit, then choose the smallest useful edit, new composition, or new generation.",
@@ -75,5 +75,5 @@
   },
   "name": "ai-image-generation-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

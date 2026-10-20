@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Blackboard One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/blackboard-one-shot",
-  "icon": "https://beatra.ai/textures/icons/blackboard-one-shot.png",
+  "icon": "https://beatra.ai/textures/icons/blackboard-one-shot-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo. This one-shot blackboard studio makes a silent 2-15s blackboard clip from each photo, so every board photo clip opens on the board exactly as captured. Use it for classroom blackboard video and lesson-board clip sets that stay one photo one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "blackboard-one-shot",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

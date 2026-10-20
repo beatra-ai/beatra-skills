@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Photo Singing Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/photo-singing-video",
-  "icon": "https://beatra.ai/textures/icons/photo-singing-video-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/photo-singing-video-0.2.4.png",
   "localized": {
     "en": {
       "description": "Make a photo sing by animating one clear portrait with a short singing audio excerpt. This photo singing video and AI singing portrait workflow turns a single face into an expressive singing clip from one portrait and a chosen song excerpt, and reviews identity, mouth and facial movement, performance energy, audio presence, and synchronization. Use it for old photo singing, birthday greetings, character art, playful posts, song promos, and memorable messages, with one portrait and one singing audio excerpt per run and honest post-result review.",
@@ -71,5 +71,5 @@
   },
   "name": "photo-singing-video",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

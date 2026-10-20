@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Voice Clone Series Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voice-clone-series-studio",
-  "icon": "https://beatra.ai/textures/icons/voice-clone-series-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/voice-clone-series-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Clone one voice you own and keep using it for a series of episodes, updates, and lessons. This voice cloning and AI voice clone studio for series narration creates a reusable AI voice, custom AI voice, and brand voice clone from a clean sample, then turns each new script into narration in that same voice so a podcast, course, or creator series stays consistent. Use it to clone my voice, build a podcast voice clone, and generate the next episode voiceover or recurring voiceover without recasting.",
@@ -67,5 +67,5 @@
   },
   "name": "voice-clone-series-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Pin Comment Cards",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/comment-pin-card",
-  "icon": "https://beatra.ai/textures/icons/comment-pin-card.png",
+  "icon": "https://beatra.ai/textures/icons/comment-pin-card-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn a finished video's comments into one pin comment still per original quote. This pinned comment card studio reads public comments or pasted lines, then makes a comment screenshot for each seller-picked quote. Use it for pin comment cards, video comment cards, and quote cards that keep the original words.",
@@ -57,5 +57,5 @@
   },
   "name": "comment-pin-card",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

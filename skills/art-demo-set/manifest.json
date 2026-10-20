@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Art Demo Page",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/art-demo-set",
-  "icon": "https://beatra.ai/textures/icons/art-demo-set.png",
+  "icon": "https://beatra.ai/textures/icons/art-demo-set-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn user-supplied drawing steps into one still per art demo page. This classroom art still studio lays out each step-by-step art demo from the supplied demo points. Use it for art demonstration stills, drawing step pages, and an art demo set.",
@@ -57,5 +57,5 @@
   },
   "name": "art-demo-set",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

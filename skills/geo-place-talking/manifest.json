@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Geography Place Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/geo-place-talking",
-  "icon": "https://beatra.ai/textures/icons/geo-place-talking.png",
+  "icon": "https://beatra.ai/textures/icons/geo-place-talking-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn a user-supplied geography place table and authorized stills into one geography place talking clip per still. This geography place talking video studio writes a speakable place-fact talking clip for each photo, then animates a 2 to 15s place highlight talking clip. Use it for geography place talking packs that stay one photo, one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "geo-place-talking",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

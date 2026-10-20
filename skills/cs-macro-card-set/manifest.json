@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "CS Macro Card Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/cs-macro-card-set",
-  "icon": "https://beatra.ai/textures/icons/cs-macro-card-set.png",
+  "icon": "https://beatra.ai/textures/icons/cs-macro-card-set-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn user-supplied customer-service macro titles and talk tracks into a four-to-eight still CS macro card set. This macro-to-card studio lays out each named script as its own service macro still. Use it for CS macro card packs, service talk cards, and matching macro script graphics.",
@@ -57,5 +57,5 @@
   },
   "name": "cs-macro-card-set",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

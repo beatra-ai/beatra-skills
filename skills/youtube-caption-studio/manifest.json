@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "YouTube Caption Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-caption-studio",
-  "icon": "https://beatra.ai/textures/icons/youtube-caption-studio-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/youtube-caption-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn a YouTube link or a pasted transcript into a Chinese spoken script and a remake structure. This video captions and caption extract workflow reads YouTube captions and optional comments, or works from the transcript you already copied, then writes spoken Chinese with the remake beats that follow the original. Use it for video captions, caption extract, YouTube captions, and YouTube transcript work when you need a spoken remake from what the video already said.",
@@ -52,5 +52,5 @@
   },
   "name": "youtube-caption-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Bilibili Publishing Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-publishing-pack",
-  "icon": "https://beatra.ai/textures/icons/bilibili-publishing-pack-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/bilibili-publishing-pack-0.2.6.png",
   "localized": {
     "en": {
       "description": "Create Bilibili upload copy from a video topic, title, outline, or finished script. This AI Bilibili publishing pack produces title options, a readable video description, chapter timestamps when supplied, relevant tags, a pinned-comment prompt, and a thumbnail brief for Bilibili creators publishing explainers, reviews, tutorials, vlogs, games, animation, and creative videos. The chosen title and thumbnail brief then become a matching landscape 16:9 Bilibili thumbnail with a headline-safe composition.",
@@ -63,5 +63,5 @@
   },
   "name": "bilibili-publishing-pack",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

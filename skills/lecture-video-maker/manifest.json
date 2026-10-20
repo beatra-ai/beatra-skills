@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Lecture Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/lecture-video-maker",
-  "icon": "https://beatra.ai/textures/icons/lecture-video-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/lecture-video-maker-0.1.7.png",
   "localized": {
     "en": {
       "description": "Turn a teacher's slide deck and lecture notes into a whole course of lecture videos. Each slide gets the teacher's own voice or a chosen narrator and subtitles, a digital-human teacher can open and close lessons, and every knowledge point becomes one course video. From PowerPoint to video or slides to video, it suits online courses, MOOCs, training video series, and recorded classes.",
@@ -58,5 +58,5 @@
   },
   "name": "lecture-video-maker",
   "schema_version": 1,
-  "version": "0.1.6"
+  "version": "0.1.7"
 }

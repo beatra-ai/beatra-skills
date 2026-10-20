@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "WeChat Channels Product Showcase Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-product-video",
-  "icon": "https://beatra.ai/textures/icons/wechat-channels-product-video-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/wechat-channels-product-video-0.2.8.png",
   "localized": {
     "en": {
       "description": "Create a vertical WeChat Channels product-display video from a real product photo and confirmed product information. Shape a clear product opening, one detail or use moment, and a clean ending, then prepare the finished product video with a title and publishing copy for WeChat Channels product content, including a new-product showcase video.",
@@ -70,5 +70,5 @@
   },
   "name": "wechat-channels-product-video",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

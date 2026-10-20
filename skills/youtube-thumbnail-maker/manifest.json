@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "YouTube Thumbnail Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-thumbnail-maker",
-  "icon": "https://beatra.ai/textures/icons/youtube-thumbnail-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/youtube-thumbnail-maker-0.3.2.png",
   "localized": {
     "en": {
       "description": "Create YouTube thumbnails from a video topic, title, script, key frame, portrait, product photo, or channel reference. This AI thumbnail maker compares three directions in text first, then renders the one you pick as a 16:9 image with clear visual hooks, readable hierarchy, and a headline-safe composition for explainers, reviews, tutorials, vlogs, games, podcasts, and long-form creative videos. It pairs the image with title-matching advice and refines an accepted direction into a consistent channel look. Rendering requires a Beatra account at beatra.ai.",
@@ -61,5 +61,5 @@
   },
   "name": "youtube-thumbnail-maker",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

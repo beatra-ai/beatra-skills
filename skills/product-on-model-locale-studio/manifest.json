@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Product-on-Model Locale Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/product-on-model-locale-studio",
-  "icon": "https://beatra.ai/textures/icons/product-on-model-locale-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/product-on-model-locale-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Create AI product-on-model images and clothing try-on presentations from apparel and wearable-accessory product photos for localized ecommerce campaigns. Plan one fashion-model visual per market with market-specific casting, styling, pose, and shopping scene, then prepare product-on-model photography for fashion listings, apparel ads, Shopify storefronts, Amazon Fashion pages, and social commerce launches.",
@@ -75,5 +75,5 @@
   },
   "name": "product-on-model-locale-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

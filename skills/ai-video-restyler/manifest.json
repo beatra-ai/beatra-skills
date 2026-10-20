@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Video Restyler",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-restyler",
-  "icon": "https://beatra.ai/textures/icons/ai-video-restyler-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-video-restyler-0.2.3.png",
   "localized": {
     "en": {
       "description": "Restyle one short video into a new visual treatment while carrying forward the source subject, action, composition, and camera intent. This AI video restyler and video style transfer workflow turns live action into anime, illustration, Chinese comic, ink, clay, paper-cut, or cyberpunk looks from one source clip and a chosen art direction, and reviews style match, subject identity, motion continuity, and source-audio result. Use it for live action to anime, brand visual refresh, Chinese-comic looks, fashion films, music visuals, and creator experiments, with one dominant visual change per run and honest post-result review.",
@@ -71,5 +71,5 @@
   },
   "name": "ai-video-restyler",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

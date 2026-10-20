@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Influencer Fit Analyzer",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/influencer-fit-analyzer",
-  "icon": "https://beatra.ai/textures/icons/influencer-fit-analyzer-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/influencer-fit-analyzer-0.2.3.png",
   "localized": {
     "en": {
       "description": "Build an influencer shortlist from a category, budget, and market, or from account links and handles you already have. This influencer analysis and creator matching workflow reads public creator profiles and recent posts on TikTok, Douyin, Xiaohongshu, Instagram, YouTube, and X, or works from bios, follower counts, and posts you paste, then writes an 8-12 person memo with followers, recent play, interaction, content pillars, and a talk-or-not call. Use it for influencer analysis, creator matching, influencer shortlist, and creator research when you need who to approach for a campaign or collab.",
@@ -52,5 +52,5 @@
   },
   "name": "influencer-fit-analyzer",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

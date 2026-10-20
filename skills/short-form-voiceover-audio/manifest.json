@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Voiceover for Short Videos",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-form-voiceover-audio",
-  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "icon": "https://beatra.ai/textures/icons/short-form-voiceover-audio-0.2.8.png",
   "localized": {
     "en": {
       "description": "Turn final short-video scripts into ready-to-edit voiceover audio for TikTok, Reels, YouTube Shorts, product reviews, hook lines, explainers, and ads. This AI voice over generator, AI voice reader, and text-to-speech voiceover workflow makes scripts speakable, helps choose a suitable voice and supported language, and tunes pacing, pauses, names, numbers, brands, and pronunciation. Review the current price estimate, create MP3 voiceover audio, compare the returned duration with the target edit, and place the narration into short-form video, captions, avatar, lip-sync, and publishing workflows.",
@@ -75,5 +75,5 @@
   },
   "name": "short-form-voiceover-audio",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

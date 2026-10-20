@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Zhongcao OOTD Lookbook Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-ootd-lookbook-maker",
-  "icon": "https://beatra.ai/textures/icons/zhongcao-ootd-lookbook-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/zhongcao-ootd-lookbook-maker-0.2.4.png",
   "localized": {
     "en": {
       "description": "Create a coordinated REDnote (Xiaohongshu) OOTD lookbook from outfit photos or a styling idea. Build a vertical 3:4 fashion carousel with a cover, full-look outfit image, styling-detail image, and lifestyle scene, then shape a ready-to-publish fashion recommendation post with title ideas, caption angles, and tags. Use this AI outfit image maker for Xiaohongshu outfit posts, OOTD photos, fashion lookbooks, clothing recommendation visuals, creator style diaries, and brand collaboration campaigns. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
@@ -85,5 +85,5 @@
   },
   "name": "zhongcao-ootd-lookbook-maker",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "MiniMax H3 AI Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/minimax-h3-ai-video",
-  "icon": "https://beatra.ai/textures/icons/minimax-h3-ai-video-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/minimax-h3-ai-video-0.2.5.png",
   "localized": {
     "en": {
       "description": "Create polished 2K AI videos with MiniMax H3. Turn a written idea into text-to-video, animate an image, shape a transition between opening and closing frames, or guide a scene with image, video, and audio references. Make AI advertising videos, ecommerce product videos, brand films, dynamic posters, game UI motion, film titles, and social media clips with cinematic movement and native stereo sound. Start with your Beatra account and keep creative progress and finished videos organized in one place.",
@@ -84,5 +84,5 @@
   },
   "name": "minimax-h3-ai-video",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

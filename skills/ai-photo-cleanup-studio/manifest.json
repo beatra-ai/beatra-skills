@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Ai Photo Cleanup Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-photo-cleanup-studio",
-  "icon": "https://beatra.ai/textures/icons/ai-photo-cleanup-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-photo-cleanup-studio-0.2.2.png",
   "localized": {
     "en": {
       "description": "Point at what you want gone and get the photo back without it. This AI object remover clears passers-by from a travel shot, a stranger from the edge of a portrait, a bin or a traffic cone from a street scene, a stray hand or a reflection from a product photo, and clutter from a room, filling the space behind with surroundings that match the rest of the frame. You choose what gets edited, so the people and the subject you care about stay where they are, it works from the photo you already have, and you see the retouched result before you post it.",
@@ -75,5 +75,5 @@
   },
   "name": "ai-photo-cleanup-studio",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

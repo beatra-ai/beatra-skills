@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "WeChat Channels Script Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-script-studio",
-  "icon": "https://beatra.ai/textures/icons/wechat-channels-script-studio.png",
+  "icon": "https://beatra.ai/textures/icons/wechat-channels-script-studio-0.2.5.png",
   "localized": {
     "en": {
       "description": "Turn a product and its confirmed facts into a WeChat Channels short-video script you can film today. This WeChat Channels script writer lays the video out as a segment table second by second, writes the full spoken narration line by line, and places the product-link conversion beats against the exact segments where a viewer decides to tap through — then scores the draft across six dimensions so the weak part is visible before anyone shoots. Hand it a reference video that already sold and it carries that structure onto your own product. Storyboard frames and a voiced narration track are available on request, ready for your edit. Use it for WeChat Channels selling videos, spoken product recommendations, service explainers, private-domain traffic posts, store-link content, and creator accounts shipping a script a day.",
@@ -75,5 +75,5 @@
   },
   "name": "wechat-channels-script-studio",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

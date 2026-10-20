@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Live Commerce Script Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/live-commerce-script-studio",
-  "icon": "https://beatra.ai/textures/icons/live-commerce-script-studio-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/live-commerce-script-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn a product lineup into a live shopping script your host can actually read on air. This live commerce script studio builds the run of show for the whole session as a minute-by-minute live selling schedule, writes a seven-step product demo talk track for every featured product, fills a library of ready-to-read lines for opening, holding, interacting, urgency, and closing, and runs a compliance pass over the wording — then renders the talking-point card and countdown card your host and floor manager work from, plus spoken takes of the lines that have to land on delivery. Reuse it as a live commerce script template session after session. Use it for livestream selling on Douyin, WeChat Channels, Taobao, Kuaishou, and Xiaohongshu, for brand-owned streams, creator collaborations, new-product sessions, clearance runs, and for getting a first-time live host through a session without freezing.",
@@ -75,5 +75,5 @@
   },
   "name": "live-commerce-script-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

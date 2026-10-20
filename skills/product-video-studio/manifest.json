@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Product Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/product-video-studio",
-  "icon": "https://beatra.ai/textures/icons/product-video-studio-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/product-video-studio-0.2.5.png",
   "localized": {
     "en": {
       "description": "Turn one product photo into a vertical product video that speaks. This AI product video generator and product video maker builds ecommerce product videos, product ads, and commerce short videos from a single photo — composing a 9:16 opening frame, writing a short script from what the photo shows and the details you supply, voicing it with a selected narrator, and directing one finished clip ready to post. Use it for product launches, listing videos, shoppable social posts, storefront promos, and turning a phone snap of merchandise into a video that sells, with no shoot, no crew, and no editing.",
@@ -75,5 +75,5 @@
   },
   "name": "product-video-studio",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

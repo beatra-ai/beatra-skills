@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Suno Lyrics to Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
-  "icon": "https://beatra.ai/textures/icons/suno-lyrics-to-song-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/suno-lyrics-to-song-0.2.9.png",
   "localized": {
     "en": {
       "description": "Turn complete lyrics, a rough lyric draft, loose lines, or an existing hook into a structured, listenable Suno song. This Suno lyrics-to-song workflow works as an AI song generator from lyrics and AI music generator from lyrics: choose Preserve mode to keep every original line or Refine mode to improve rhythm, rhyme, singability, and hook strength. Build the song structure across verses, chorus, bridge, and purposeful repetition, then create a style prompt for music with genre, mood, arrangement, and vocal direction for Suno custom lyrics. Use it to turn lyrics into a song, make a song from lyrics, convert lyrics to music, get help from a lyrics songwriting assistant, or take rough lyrics to song-ready form through a custom lyrics-to-song process.",
@@ -74,5 +74,5 @@
   },
   "name": "suno-lyrics-to-song",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

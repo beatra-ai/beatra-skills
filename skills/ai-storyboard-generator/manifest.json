@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Storyboard Generator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-storyboard-generator",
-  "icon": "https://beatra.ai/textures/icons/ai-storyboard-generator-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-storyboard-generator-0.2.6.png",
   "localized": {
     "en": {
       "description": "Turn a script, scene, or ad brief into a structured AI storyboard plan with a practical shot list and one to four storyboard key-frame images. Plan shot types, camera angles and movement, action, timing, dialogue, and sound for short films, ads, animation, social video, motion comics, and creative pitches.",
@@ -70,5 +70,5 @@
   },
   "name": "ai-storyboard-generator",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

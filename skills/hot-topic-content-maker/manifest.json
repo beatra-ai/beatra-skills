@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Hot Topic Content Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hot-topic-content-maker",
-  "icon": "https://beatra.ai/textures/icons/hot-topic-content-maker-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/hot-topic-content-maker-0.3.3.png",
   "localized": {
     "en": {
       "description": "Turn a trending topic into a post you can publish today. Bring the hot topic, moment, or seasonal peg — or have it read the public trending boards on Douyin, TikTok, and X, or name a topic and have it search what people are actually posting about it on Xiaohongshu and Douyin, and pick the ones worth a look. This trending content workflow finds the angles that genuinely connect the topic to your brand or account, judges which one is worth your name on it, then builds the chosen angle into a finished post: cover wording and a rendered cover image, the caption, the hashtags, a beat-by-beat plan for a short cut, and the narrated vertical clip itself. Use it for trendjacking, newsjacking, trend-riding, trend discovery, seasonal and holiday campaigns, festival and shopping-event content, moment marketing, and getting a same-day social post or short video out of a topic while it is still moving. The finished post fits Douyin, Xiaohongshu, WeChat Channels, TikTok, Reels, and Shorts.",
@@ -87,5 +87,5 @@
   },
   "name": "hot-topic-content-maker",
   "schema_version": 1,
-  "version": "0.3.2"
+  "version": "0.3.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Music Video Clip Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-music-video-clip-maker",
-  "icon": "https://beatra.ai/textures/icons/ai-music-video-clip-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-music-video-clip-maker-0.2.5.png",
   "localized": {
     "en": {
       "description": "Create a short visual clip guided by a song's mood, rhythm, and visual concept. This AI music video clip maker and song-to-video generator turns a music excerpt and visual direction into a cinematic music promo clip, animates approved cover art or a portrait in time with the music, interpolates motion between opening and ending art, or uses audio as a loose mood reference for a new visual concept. Use it for new-song teasers, album promo clips, cover art animation, mood visuals, virtual performer scenes, and social music teasers, with an audio-visual map built from the song's hook, energy, palette, and landing image.",
@@ -71,5 +71,5 @@
   },
   "name": "ai-music-video-clip-maker",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

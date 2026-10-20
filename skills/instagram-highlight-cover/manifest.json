@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Instagram Highlight Covers",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/instagram-highlight-cover",
-  "icon": "https://beatra.ai/textures/icons/instagram-highlight-cover.png",
+  "icon": "https://beatra.ai/textures/icons/instagram-highlight-cover-0.2.5.png",
   "localized": {
     "en": {
       "description": "Make one Instagram highlight cover still per named highlight, after reading the account's Reels and posts or from a highlight list you already wrote. Use it for highlight covers, cover stills, and a matching highlight cover group.",
@@ -57,5 +57,5 @@
   },
   "name": "instagram-highlight-cover",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

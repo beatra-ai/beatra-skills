@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Xiaohongshu Hall FAQ Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/xiaohongshu-hall-faq-stills",
-  "icon": "https://beatra.ai/textures/icons/xiaohongshu-hall-faq-stills.png",
+  "icon": "https://beatra.ai/textures/icons/xiaohongshu-hall-faq-stills-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn Xiaohongshu hall FAQ complaints into a 4 to 8 still materials set. This hall FAQ still studio reads public hall FAQ notes and complaints, then lays out a materials still pack from confirmed document facts. Use it for hall materials graphics, a Xiaohongshu hall FAQ still, and a document checklist set.",
@@ -57,5 +57,5 @@
   },
   "name": "xiaohongshu-hall-faq-stills",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

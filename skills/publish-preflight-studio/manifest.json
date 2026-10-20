@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Publish Preflight Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/publish-preflight-studio",
-  "icon": "https://beatra.ai/textures/icons/publish-preflight-studio-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/publish-preflight-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Check a post before it goes out, then fix what it finds. Paste the caption, title, script, on-screen text, or tags — this pre-publish content check reads the wording against advertising-copy restrictions and regulated-category claim rules and returns a replacement for every phrase it flags, reads the post back through the people you are writing for and names the exact line that loses each of them, scores the hook and the reason to share with the evidence behind each score, then hands back the corrected copy and renders the cover carrying the fixed wording. Use it as a social media copy check and a banned words checker before publishing, for ad-copy review, superlative screening, audience reaction testing, hook strength scoring, and pre-checking brand or client copy before it reaches an approver, for Instagram, TikTok, Facebook, YouTube, and LinkedIn.",
@@ -75,5 +75,5 @@
   },
   "name": "publish-preflight-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Personalized Song Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/personalized-song-maker",
-  "icon": "https://beatra.ai/textures/icons/personalized-song-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/personalized-song-maker-0.2.1.png",
   "localized": {
     "en": {
       "description": "Turn a person's story and occasion into original lyrics and a newly generated song. This personalized song maker and custom song generator workflow collects the recipient, relationship, occasion, memories, and must-include details, drafts the title, lyrics, section structure, genre, and mood for approval, then generates one finished original song, and reviews story accuracy, name pronunciation, hook, lyric rendering, and vocal result. Use it for custom birthday songs, wedding songs, anniversary songs, proposal songs, family tribute songs, and company or team anthems, with one approved lyric draft and one song generation per run and honest post-result review.",
@@ -71,5 +71,5 @@
   },
   "name": "personalized-song-maker",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

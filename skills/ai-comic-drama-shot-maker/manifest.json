@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Comic Drama Shot Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-comic-drama-shot-maker",
-  "icon": "https://beatra.ai/textures/icons/ai-comic-drama-shot-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-comic-drama-shot-maker-0.2.6.png",
   "localized": {
     "en": {
       "description": "Turn a comic panel, character sheet, webtoon frame, or frozen story beat into one dynamic comic-drama shot. This AI comic drama generator and motion comic maker animates an approved comic panel or manga frame into a short live shot, interpolates motion between a first and last comic panel, combines loose character, style, and scene references into a new comic-drama shot, or creates an original comic first frame and brings it to life. Use it for web-novel comic shots, motion comics, webtoon to video, manga panel animation, character entrances, emotional close-ups, action panels, dialogue reactions, and serialized creator workflows, with frozen character identity, approved art direction, and honest review of each independently generated shot.",
@@ -71,5 +71,5 @@
   },
   "name": "ai-comic-drama-shot-maker",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

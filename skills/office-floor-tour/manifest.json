@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Office Floor Tour",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/office-floor-tour",
-  "icon": "https://beatra.ai/textures/icons/office-floor-tour.png",
+  "icon": "https://beatra.ai/textures/icons/office-floor-tour-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn seller-supplied office floor stills into one office floor tour clip per labeled still. This office floor video studio animates each floor photo into a floor walkthrough clip, ready to use as an office listing clip or floor walkthrough video. Use it for office floor packs that give each still its own clip.",
@@ -55,5 +55,5 @@
   },
   "name": "office-floor-tour",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

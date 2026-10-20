@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Creator Drop Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/creator-drop-talking",
-  "icon": "https://beatra.ai/textures/icons/creator-drop-talking.png",
+  "icon": "https://beatra.ai/textures/icons/creator-drop-talking-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn a confirmed new-drop script and authorized stills into one drop talking clip per still. This product drop video studio writes a speakable launch talking clip and new-drop announcement for each photo, then animates a 2 to 15s talking teaser. Use it for creator drop videos and talking teasers that stay one photo, one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "creator-drop-talking",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

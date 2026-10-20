@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Douyin UGC Ad Creator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-ugc-ad-creator",
-  "icon": "https://beatra.ai/textures/icons/douyin-ugc-ad-creator-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-ugc-ad-creator-0.2.8.png",
   "localized": {
     "en": {
       "description": "Create a Douyin shopping video, Douyin UGC ad, or AI creator product pitch from a product photo, product details, and an on-camera direction. This AI UGC ad creator composes a vertical presenter frame with the product, shapes a conversational hook and spoken recommendation, and delivers a short Douyin product video for launches, creator-style reviews, demonstrations, unboxings, and paid social creative.",
@@ -69,5 +69,5 @@
   },
   "name": "douyin-ugc-ad-creator",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

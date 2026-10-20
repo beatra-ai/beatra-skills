@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Stitch Prompt Card",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/stitch-prompt-card",
-  "icon": "https://beatra.ai/textures/icons/stitch-prompt-card.png",
+  "icon": "https://beatra.ai/textures/icons/stitch-prompt-card-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn a public TikTok stitch target into one quote reply card per chosen hook. This stitch prompt card studio reads the quoted video and comments, then makes quote reply stills from the reply lines you already wrote. Use it for quote reply cards, stitch prompt cards, and TikTok quote reply stills.",
@@ -53,5 +53,5 @@
   },
   "name": "stitch-prompt-card",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

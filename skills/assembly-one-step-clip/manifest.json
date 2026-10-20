@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Assembly One-Step Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/assembly-one-step-clip",
-  "icon": "https://beatra.ai/textures/icons/assembly-one-step-clip.png",
+  "icon": "https://beatra.ai/textures/icons/assembly-one-step-clip-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn authorized stills and seller-supplied step facts into one assembly step video per still. This one-step clip studio turns each still into a product assembly clip. Use it for furniture assembly video and how-to step clip work that stays one photo one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "assembly-one-step-clip",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

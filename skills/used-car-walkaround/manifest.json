@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Used Car Walkaround",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/used-car-walkaround",
-  "icon": "https://beatra.ai/textures/icons/used-car-walkaround.png",
+  "icon": "https://beatra.ai/textures/icons/used-car-walkaround-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn one used-car condition sheet into a listing hero still and a speakable walkaround script, then turn that still into one used car walkaround clip. This used car walkaround studio makes a used-car listing still and a listing walkaround video from the facts you already have. Use it for dealer lot walkaround video, used-car listing video, and inventory walkaround clips.",
@@ -57,5 +57,5 @@
   },
   "name": "used-car-walkaround",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

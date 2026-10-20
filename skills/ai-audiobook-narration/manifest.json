@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
-  "icon": "https://beatra.ai/textures/icons/speech-tight.png",
+  "icon": "https://beatra.ai/textures/icons/ai-audiobook-narration-0.3.1.png",
   "localized": {
     "en": {
       "description": "Turn final manuscript or course text into an audiobook with one consistent narrator. This AI audiobook generator and AI audiobook narration workflow organizes chapters, settles names and specialist pronunciations, shapes long-form pacing, helps choose a suitable audiobook narrator, and creates a representative sample before the remaining book. Use it for manuscript-to-audiobook production, chapter-by-chapter audiobooks, course narration, long-text-to-speech, and sample chapters, with up-to-date price estimates, ordered audio delivery, consistent narrator voice, and focused passage refinements.",
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

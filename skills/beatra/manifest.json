@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
-  "icon": "https://beatra.ai/textures/icons/beatra-universal.png",
+  "icon": "https://beatra.ai/textures/icons/beatra-2.9.8.png",
   "localized": {
     "en": {
       "description": "Create AI images, videos, music, and voice, look up public social data, edit visual results, and keep generated assets easy to find and manage. Beatra Universal turns text into images, images and references into video, ideas into songs or instrumentals, and scripts into narration, while also supporting custom voice creation and public social media data lookup across YouTube, TikTok, Instagram, and X. Use it as an AI media generator and AI creative suite for text-to-image, image-to-video, AI video editing, AI music generation, text-to-speech, multilingual voice-over, voice cloning, multimodal content creation, and YouTube or TikTok data for posts, comments, accounts, and trends. Reuse source media, returned files, and public social findings across formats, follow production progress, and view actual credit use for completed creative work.",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "2.9.7"
+  "version": "2.9.8"
 }

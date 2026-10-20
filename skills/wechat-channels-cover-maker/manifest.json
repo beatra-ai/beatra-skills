@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "WeChat Channels Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-cover-maker",
-  "icon": "https://beatra.ai/textures/icons/wechat-channels-cover-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/wechat-channels-cover-maker-0.2.3.png",
   "localized": {
     "en": {
       "description": "Create a WeChat Channels video cover, WeChat Video Account cover, or WeChat Channels thumbnail from a video topic, title, script, key frame, portrait, product photo, or reference image. This AI video cover maker builds a clear focal visual, a text-safe area, and a channel-consistent cover direction for WeChat Channels videos, creator updates, product explainers, local-business posts, and knowledge content.",
@@ -65,5 +65,5 @@
   },
   "name": "wechat-channels-cover-maker",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

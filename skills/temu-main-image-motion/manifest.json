@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Temu Main Image Motion",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/temu-main-image-motion",
-  "icon": "https://beatra.ai/textures/icons/temu-main-image-motion.png",
+  "icon": "https://beatra.ai/textures/icons/temu-main-image-motion-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn one Temu main image into one Temu main image video for the listing video slot: a template one-shot that keeps that photo as the first frame, adds one preset move such as a turntable or light sweep, and returns one main image clip. Use it for Temu listing video and product main image motion — one photo one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "temu-main-image-motion",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

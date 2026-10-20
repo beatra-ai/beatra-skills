@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Character Design Sheet & Consistency Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ip-character-consistency-studio",
-  "icon": "https://beatra.ai/textures/icons/ip-character-consistency-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ip-character-consistency-studio-0.2.3.png",
   "localized": {
     "en": {
       "description": "Build a reusable AI character visual pack from one to four ordered reference images or an original character brief. Create character sheets, portraits, full-body poses, expressions, story scenes, and branded mascots with focused character traits, style anchors, and reusable scene references for comics, games, short videos, and content series.",
@@ -69,5 +69,5 @@
   },
   "name": "ip-character-consistency-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

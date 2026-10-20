@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Music Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/music-generation-studio",
-  "icon": "https://beatra.ai/textures/icons/music-generation-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/music-generation-studio-0.2.7.png",
   "localized": {
     "en": {
       "description": "Create original songs, AI-generated music, lyrics-to-song tracks, instrumentals, background music, video soundtracks, jingles, multilingual songs, and reference-led arrangements from a clear creative brief. This AI music generator and AI song maker develops genre, mood, structure, singable lyrics, vocal direction, and production style, then creates reviewable audio with Suno 5.5 or another model you explicitly choose. Use it as an AI music studio for songwriting, an AI lyrics writer, text-to-music creation, BGM generation, brand music, podcast themes, game music, bilingual songs, or focused new versions of reference audio. Review vocals, pronunciation, duration, loop points, and arrangement fit after generation, then refine the strongest result.",
@@ -75,5 +75,5 @@
   },
   "name": "music-generation-studio",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

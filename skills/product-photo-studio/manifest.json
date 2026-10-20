@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Product Photo Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/product-photo-studio",
-  "icon": "https://beatra.ai/textures/icons/product-photo-studio-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/product-photo-studio-0.2.9.png",
   "localized": {
     "en": {
       "description": "Transform a real product photo into a studio-quality ecommerce image, lifestyle scene, or marketplace-ready hero shot. This AI product photography tool replaces backgrounds, improves lighting, and stages scenes while using the source photo and confirmed product details as the visual anchor. Create clean white-background listings, contextual lifestyle compositions, and premium ad visuals from a single phone snap for Amazon, Taobao, Shopify, and social media. Start from one product photo, combine several references, or refine a selected draft toward a polished listing image.",
@@ -76,5 +76,5 @@
   },
   "name": "product-photo-studio",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

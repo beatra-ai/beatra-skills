@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Audio Drama Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/audio-drama-voice-studio",
-  "icon": "https://beatra.ai/textures/icons/audio-drama-voice-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/audio-drama-voice-studio-0.2.7.png",
   "localized": {
     "en": {
       "description": "Give every character in your script its own voice and get the whole scene recorded line by line, in script order, as numbered clips ready to drop into your editor. This AI multi-character voice generator covers audio drama and radio play, dramatised fiction and audiobooks with a cast, dialogue voice over, two-host and panel shows, scripted ads with two roles, and course roleplay scenes: decide who is who first — age, temperament, how far apart the voices should sit — give the narrator a voice of their own, and afterwards re-record just the one line you want to change. Also used for audio drama voice generator work, multi-character voice generator work, multi-speaker audio, dialogue text to speech, script to dialogue audio, AI audio drama, radio play voices, and full cast voiceover.",
@@ -97,5 +97,5 @@
   },
   "name": "audio-drama-voice-studio",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

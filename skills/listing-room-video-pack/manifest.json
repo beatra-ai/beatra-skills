@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Listing Room Video Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/listing-room-video-pack",
-  "icon": "https://beatra.ai/textures/icons/listing-room-video-pack-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/listing-room-video-pack-0.2.2.png",
   "localized": {
     "en": {
       "description": "Turn listing photos into a labeled set of listing room video clips, one room at a time. This listing video pack and real estate room video studio animates each listing photo into a short property video so buyers can preview the living room, bedroom, kitchen, and more as separate room clips. Use it for property room video, listing photo video, real estate listing video, and a labeled room video pack that keeps each space easy to scan. Add optional agent narration files beside the clips, or a talking-head intro and outro when you bring an agent portrait and a short script.",
@@ -59,5 +59,5 @@
   },
   "name": "listing-room-video-pack",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

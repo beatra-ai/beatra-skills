@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Community Site One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/community-site-clip",
-  "icon": "https://beatra.ai/textures/icons/community-site-clip.png",
+  "icon": "https://beatra.ai/textures/icons/community-site-clip-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio turns each event photo into one silent 2-15s site photo clip, in capture order. Use it for community event clip sets that stay one photo one clip.",
@@ -57,5 +57,5 @@
   },
   "name": "community-site-clip",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

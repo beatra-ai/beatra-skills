@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "GPT Image 2.5 Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/gpt-image-2-5-studio",
-  "icon": "https://beatra.ai/textures/icons/gpt-image-2-5-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/gpt-image-2-5-studio-0.2.1.png",
   "localized": {
     "en": {
       "description": "Create one GPT Image 2.5 still from a written brief or from one to four reference images. GPT Image 2.5 Studio uses GPT-Image-2.5 Flare (gpt-image-2.5-flare) or GPT-Image-2.5 Sunburst (gpt-image-2.5-sunburst) for ChatGPT Images 2.5 text to image and reference-guided pictures. Make posters, product stills, infographics, social crops, and campaign frames with readable on-image type.",
@@ -68,5 +68,5 @@
   },
   "name": "gpt-image-2-5-studio",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Image Realism Retoucher",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-image-realism",
-  "icon": "https://beatra.ai/textures/icons/ai-image-realism-0.1.4.png",
+  "icon": "https://beatra.ai/textures/icons/ai-image-realism-0.3.6.png",
   "localized": {
     "en": {
       "description": "Improve AI image realism without starting over. This focused AI image editor and humanizer targets visible AI image artifacts—plastic skin, malformed hands or faces, extra fingers, repeated textures, and inconsistent lighting—with focused AI image retouching through a local repair or natural whole-image refinement. Use it to make AI portraits, product images, marketing graphics, and social covers look more realistic, remove the obvious AI look, fix AI hands and extra fingers, or refine product imagery, while aiming to keep identity, product shape, brand details, and composition recognizable where possible.",
@@ -70,5 +70,5 @@
   },
   "name": "ai-image-realism",
   "schema_version": 1,
-  "version": "0.3.5"
+  "version": "0.3.6"
 }

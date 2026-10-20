@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Zhongcao Food Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-food-note-maker",
-  "icon": "https://beatra.ai/textures/icons/zhongcao-food-note-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/zhongcao-food-note-maker-0.2.2.png",
   "localized": {
     "en": {
       "description": "Create a Xiaohongshu food post or REDnote food post from a dish photo, restaurant visit theme, or dining-atmosphere reference. This REDnote food image maker plans restaurant review images and AI food photography as a vertical 3:4 food-note sequence: a cover, dish close-up, table or restaurant atmosphere image, and a final detail image for a food recommendation post. Shape title ideas, caption angles, and tags for a restaurant review post, cafe-hopping post, new-menu launch post, restaurant visit images, food diary images, and restaurant social media images. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-food-note-maker",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "WeChat Article Visual Story",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-article-visual-story",
-  "icon": "https://beatra.ai/textures/icons/wechat-article-visual-story-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/wechat-article-visual-story-0.2.5.png",
   "localized": {
     "en": {
       "description": "Write the WeChat article and make its pictures in one pass. Give a topic, what you are promoting, and who it is for — this WeChat Official Account article generator returns title candidates written for the feed, the digest line, a full article body structured for how people actually read on a phone, then renders the 2.35:1 cover and a set of in-body images that hold one look from top to bottom. Use it for WeChat Official Account posts, brand and product articles, promotional long-form, founder and expert columns, case studies, content marketing programmes, and any long-form post where the writing and the pictures have to be produced together rather than handed between two people.",
@@ -76,5 +76,5 @@
   },
   "name": "wechat-article-visual-story",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

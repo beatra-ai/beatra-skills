@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Video Realism Retoucher",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/video-realism-retoucher",
-  "icon": "https://beatra.ai/textures/icons/video-realism-retoucher-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/video-realism-retoucher-0.2.4.png",
   "localized": {
     "en": {
       "description": "Polish an existing AI-generated short video with a focused realism retouch. This focused AI video retouch refines artificial lighting, synthetic materials, oversaturated color, and repeated or distracting detail in one selected pass, while carrying forward the shot's subject, camera framing, timing, and intended mood. Use it for AI video cleanup, video retouching, natural-looking video polish, product clips, ad creative, social video, and short-form footage that needs a cleaner, more believable finish.",
@@ -73,5 +73,5 @@
   },
   "name": "video-realism-retoucher",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

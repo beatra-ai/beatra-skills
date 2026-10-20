@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "TikTok Shop Product Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-shop-product-video-maker",
-  "icon": "https://beatra.ai/textures/icons/tiktok-shop-product-video-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/tiktok-shop-product-video-maker-0.2.5.png",
   "localized": {
     "en": {
       "description": "Create TikTok Shop product-video plans from product facts, photos, selling points, and English or Japanese audience context. This AI product video maker produces hooks, a ready-to-film script, shot beats, subtitle cues, localized titles, hashtags, and a product-page-safe CTA for product showcases, demonstrations, unboxings, reviews, and creator-led shopping videos.",
@@ -64,5 +64,5 @@
   },
   "name": "tiktok-shop-product-video-maker",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

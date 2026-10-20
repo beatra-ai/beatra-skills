@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Cover Improvement Preflight",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/cover-performance-preflight",
-  "icon": "https://beatra.ai/textures/icons/cover-performance-preflight-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/cover-performance-preflight-0.2.3.png",
   "localized": {
     "en": {
       "description": "Review an existing YouTube thumbnail, social media cover, article cover, or podcast cover design, then turn the findings into a practical thumbnail-optimization and cover-improvement plan. This AI thumbnail analyzer identifies the visual hook, focal hierarchy, title-to-image fit, text-safe contrast, mobile readability, and crop resilience, then produces targeted edit directions and two or three video cover improvement candidates ready to compare. It can optionally read the field your cover is entering: the titles and public counts of what already ranks for the same topic on YouTube, TikTok, Douyin, and REDnote; on YouTube, a competitor's actual thumbnail image; and your own YouTube channel's recent thumbnails. That turns competitor thumbnail analysis, a thumbnail benchmark, and a cover comparison into evidence sitting beside the review instead of one cover being judged alone. Surfaces with no public data — a WeChat article cover, a podcast cover, and others — simply skip that step.",
@@ -86,5 +86,5 @@
   },
   "name": "cover-performance-preflight",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

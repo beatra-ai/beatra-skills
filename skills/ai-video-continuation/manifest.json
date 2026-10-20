@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "AI Video Continuation",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-continuation",
-  "icon": "https://beatra.ai/textures/icons/ai-video-continuation-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-video-continuation-0.2.7.png",
   "localized": {
     "en": {
       "description": "Continue one short source clip naturally before or after its existing action from a continuity state and the next visual beat. This AI video continuation and generative extend workflow adds matching footage to the opening or ending of a clip — holding a moment longer, completing a reveal, adding a lead-in, or creating a natural ending — and reviews the seam, motion direction, subject identity, camera and lighting continuity, audio behavior, and final duration. Use it for stronger endings, longer holds, action continuation, product reveals, landscape extensions, and creator iterations.",
@@ -71,5 +71,5 @@
   },
   "name": "ai-video-continuation",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

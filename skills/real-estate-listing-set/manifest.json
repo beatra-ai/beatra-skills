@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Listing Still Sets",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/real-estate-listing-set",
-  "icon": "https://beatra.ai/textures/icons/real-estate-listing-set.png",
+  "icon": "https://beatra.ai/textures/icons/real-estate-listing-set-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn seller-supplied floor-plan facts into one listing still per room. This listing still studio lays out the seller-supplied room names and layout lines as a listing still and property-page graphic. Use it for listing still sets, room listing stills, and property-page listing cards.",
@@ -55,5 +55,5 @@
   },
   "name": "real-estate-listing-set",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Image to Video & Photo Animator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/image-to-motion",
-  "icon": "https://beatra.ai/textures/icons/image-to-motion-0.1.4.png",
+  "icon": "https://beatra.ai/textures/icons/image-to-motion-0.2.7.png",
   "localized": {
     "en": {
       "description": "Turn a single photo, product image, portrait, illustration, or AI artwork into a short image-to-video clip. This AI photo animator and picture-to-video workflow helps you bring a still image to life with directed subject motion, camera movement, pacing, duration, and aspect ratio while treating recognizable faces, product shape, logos, and composition as must-keep priorities. Use it for product photo animation, social video hooks, cinematic motion, animated portraits, storyboard shots, and moving artwork, then review the delivered video for visual drift and motion quality.",
@@ -72,5 +72,5 @@
   },
   "name": "image-to-motion",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

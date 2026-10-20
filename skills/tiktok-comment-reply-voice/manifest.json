@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "TikTok Comment Reply Voice",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-comment-reply-voice",
-  "icon": "https://beatra.ai/textures/icons/tiktok-comment-reply-voice.png",
+  "icon": "https://beatra.ai/textures/icons/tiktok-comment-reply-voice-0.2.3.png",
   "localized": {
     "en": {
       "description": "Turn public TikTok comments into one spoken reply clip per written line. This TikTok comment reply voice studio reads the comments on a finished post, then records each TikTok comment reply from the reply lines you already wrote. Operators use it when they need TikTok comment replies as a comment reply voice pack, or spoken comment replies they can import one file at a time.",
@@ -53,5 +53,5 @@
   },
   "name": "tiktok-comment-reply-voice",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

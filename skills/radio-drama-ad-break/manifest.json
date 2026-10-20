@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Radio Drama Ad Breaks",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/radio-drama-ad-break",
-  "icon": "https://beatra.ai/textures/icons/radio-drama-ad-break.png",
+  "icon": "https://beatra.ai/textures/icons/radio-drama-ad-break-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn written radio-drama ad-break lines into one spoken bumper clip per labeled slot. This radio-drama bumper studio records each pre-roll read, post-roll read, and sponsor bumper from the copy the producer already wrote, then delivers 8 to 20 bumper audio files. Use it for radio drama ad-break voiceovers that keep one bumper on each clip.",
@@ -56,5 +56,5 @@
   },
   "name": "radio-drama-ad-break",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

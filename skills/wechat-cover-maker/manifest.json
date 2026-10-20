@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "WeChat Official Account Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-cover-maker",
-  "icon": "https://beatra.ai/textures/icons/wechat-cover-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/wechat-cover-maker-0.3.1.png",
   "localized": {
     "en": {
       "description": "Turn an article title, topic, summary, or reference image into a WeChat Official Account cover, WeChat article cover, article hero image, post cover, headline image, or supporting article visual. This AI cover generator and article cover maker distills one clear visual hook, then creates either a rendered headline or a text-free headline-safe area. Use logos, portraits, products, and brand references to shape a brand cover image, and refine composition, focal point, color, thumbnail clarity, and crop resilience for a publish-ready WeChat cover design.",
@@ -77,5 +77,5 @@
   },
   "name": "wechat-cover-maker",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

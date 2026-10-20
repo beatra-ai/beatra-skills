@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "School Song Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/school-song-maker",
-  "icon": "https://beatra.ai/textures/icons/school-song-maker.png",
+  "icon": "https://beatra.ai/textures/icons/school-song-maker-0.1.6.png",
   "localized": {
     "en": {
       "description": "Turn your school, class, year, motto, and shared memories into original lyrics and a song the whole class can sing together. This school song maker writes a class song, graduation song, freshman welcome song, school anthem, teachers' day song, school anniversary song, or sports day song with a chorus that is easy to learn, shapes the words with you line by line, and produces the finished song with a student choir, children's choir, or solo voice for assemblies, opening and graduation ceremonies, class meetings, and school performances.",
@@ -69,5 +69,5 @@
   },
   "name": "school-song-maker",
   "schema_version": 1,
-  "version": "0.1.5"
+  "version": "0.1.6"
 }

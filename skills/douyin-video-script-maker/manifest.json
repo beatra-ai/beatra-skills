@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Douyin Video Script Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-video-script-maker",
-  "icon": "https://beatra.ai/textures/icons/douyin-video-script-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-video-script-maker-0.2.8.png",
   "localized": {
     "en": {
       "description": "Create a Douyin short-video script, Douyin spoken script, or Douyin product-video script from a topic, product or service facts, audience, and creator voice. This AI Douyin script writer produces three hook options, a ready-to-film short-video script, shot-by-shot beats, natural spoken lines, subtitle cues, title ideas, hashtags, and a comment prompt for knowledge sharing, local business, product demos, reviews, unboxings, shop content, and creator series. The chosen title then becomes a matching vertical 9:16 Douyin cover with a headline-safe composition.",
@@ -68,5 +68,5 @@
   },
   "name": "douyin-video-script-maker",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

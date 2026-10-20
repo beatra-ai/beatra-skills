@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Douyin Comment FAQ Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-video-comments-to-faq",
-  "icon": "https://beatra.ai/textures/icons/douyin-video-comments-to-faq.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-video-comments-to-faq-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn Douyin video comments into one comment FAQ still per picked question. This Douyin comment reply studio writes a listing FAQ card from each seller-answered comment, then lays out a 4 to 8 still comment FAQ set. Use it for listing FAQ graphics and a Douyin comment FAQ card that stay one question, one still.",
@@ -57,5 +57,5 @@
   },
   "name": "douyin-video-comments-to-faq",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

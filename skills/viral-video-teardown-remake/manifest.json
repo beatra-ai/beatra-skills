@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Viral Video Teardown Remake",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
-  "icon": "https://beatra.ai/textures/icons/viral-video-teardown-remake-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/viral-video-teardown-remake-0.4.1.png",
   "localized": {
     "en": {
       "description": "Turn a short video that already worked into your own version. Paste the link and this viral video teardown and short-video remake workflow reads the reference itself on TikTok, Douyin, Xiaohongshu, Instagram, YouTube, or X — caption, author, visible metrics, comments, and on YouTube the full transcript — or work from a file, screenshots, or your own description instead. It breaks the clip into its hook, body beats, and call to action, names the script pattern behind it, scores what carried the performance, then rewrites that structure around your product or topic — delivering a shot list with visuals and narration kept apart, reference frames from your own assets before any are generated, a narration track, and either an animated clip or segmented sources with a timecoded edit list. Use it to study a competitor's viral short, borrow a proven structure for Reels, Shorts, or WeChat Channels, rebuild a benchmark video under your own brand, or turn a saved reference into a content formula you can run again.",
@@ -87,5 +87,5 @@
   },
   "name": "viral-video-teardown-remake",
   "schema_version": 1,
-  "version": "0.4.0"
+  "version": "0.4.1"
 }

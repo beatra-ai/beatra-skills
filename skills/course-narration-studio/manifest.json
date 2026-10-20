@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Course Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-narration-studio",
-  "icon": "https://beatra.ai/textures/icons/course-narration-studio-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/course-narration-studio-0.2.6.png",
   "localized": {
     "en": {
       "description": "Turn lesson materials into polished course narration audio. This course narration studio organizes lessons into speakable scripts, records the teacher-voice narration for each section, and delivers slide-ready audio for courses, training, and knowledge-product audio.",
@@ -66,5 +66,5 @@
   },
   "name": "course-narration-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

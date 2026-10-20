@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Zhongcao Carousel Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-carousel-maker",
-  "icon": "https://beatra.ai/textures/icons/zhongcao-carousel-maker-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/zhongcao-carousel-maker-0.2.3.png",
   "localized": {
     "en": {
       "description": "Create a Xiaohongshu or REDnote carousel from a post outline, product details, photo set, or style reference. Build an ordered 3:4 image sequence with a hook cover and supporting slides, clear focal imagery, matched visual direction, and headline-safe areas for product recommendations, tutorials, food notes, OOTD, travel guides, knowledge posts, and Xiaohongshu content images for one connected post story. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
@@ -73,5 +73,5 @@
   },
   "name": "zhongcao-carousel-maker",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

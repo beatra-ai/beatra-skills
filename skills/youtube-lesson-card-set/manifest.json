@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "YouTube Lesson Card Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-lesson-card-set",
-  "icon": "https://beatra.ai/textures/icons/youtube-lesson-card-set.png",
+  "icon": "https://beatra.ai/textures/icons/youtube-lesson-card-set-0.2.4.png",
   "localized": {
     "en": {
       "description": "Turn public YouTube lesson captions into a set of 4 to 8 takeaway cards. This lesson card studio reads the lesson captions, pulls the key points, and lays out one card per point for lessons and tutorial videos.",
@@ -57,5 +57,5 @@
   },
   "name": "youtube-lesson-card-set",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

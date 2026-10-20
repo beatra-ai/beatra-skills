@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Douyin Data Brief",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-data-brief",
-  "icon": "https://beatra.ai/textures/icons/douyin-data-brief-0.1.0.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-data-brief-0.2.1.png",
   "localized": {
     "en": {
       "description": "Turn a Douyin link or a keyword into a one-page Douyin brief. Give a public post URL, a search term, or the caption, counts, and comments you already copied, and get play, like, comment, the hook, a verbatim audience line, and a follow-or-not. This Douyin data and Douyin analytics workflow reads a Douyin post, its comments, the creator, or the hot-search board, or works from what you paste, then writes an attributed same-day brief. Use it for Douyin data, Douyin analytics, Douyin brief, and Douyin post data when you need a clear read of what a clip or keyword is doing.",
@@ -52,5 +52,5 @@
   },
   "name": "douyin-data-brief",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

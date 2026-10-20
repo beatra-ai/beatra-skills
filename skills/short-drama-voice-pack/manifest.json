@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Short Drama Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-voice-pack",
-  "icon": "https://beatra.ai/textures/icons/short-drama-voice-pack-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/short-drama-voice-pack-0.2.2.png",
   "localized": {
     "en": {
       "description": "Turn a vertical short-drama episode script into a labeled short drama voiceover pack with one consistent voice per role. This short drama dialogue studio and vertical short drama voiceover shop casts the episode, records every spoken line as labeled clips, and keeps those character voices through the episode so editors can place AI short drama voice and multi-character voiceover without recasting. Use it for short drama voice acting, episode dialogue audio, vertical drama TTS, micro drama voiceover, and serialized short-drama line clips.",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-voice-pack",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Marketplace Main Image Preflight",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/marketplace-main-image-preflight",
-  "icon": "https://beatra.ai/textures/icons/marketplace-main-image-preflight-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/marketplace-main-image-preflight-0.2.2.png",
   "localized": {
     "en": {
       "description": "Review an existing product main image for Amazon, Shopify, Etsy, or another marketplace and turn target listing requirements into a clear preflight card. This AI marketplace image checker and Amazon main image editor helps ecommerce sellers prepare white-background product photos, sharpen product framing, clean distracting details, and create one polished listing hero image for a specific store, region, and category.",
@@ -75,5 +75,5 @@
   },
   "name": "marketplace-main-image-preflight",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

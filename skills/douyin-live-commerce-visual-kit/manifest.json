@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Douyin Live Commerce Visual Kit",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-live-commerce-visual-kit",
-  "icon": "https://beatra.ai/textures/icons/douyin-live-commerce-visual-kit-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/douyin-live-commerce-visual-kit-0.2.1.png",
   "localized": {
     "en": {
       "description": "Create Douyin live-commerce visuals from a livestream theme, product details, product photos, and brand references. This AI live-commerce design tool makes a Douyin live cover, livestream product card, live-room background, and overlay-ready visual direction for Douyin shop livestreams, creator livestreams, product launches, flash sales, and campaign events, with coordinated title-safe composition and clear selling points.",
@@ -69,5 +69,5 @@
   },
   "name": "douyin-live-commerce-visual-kit",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

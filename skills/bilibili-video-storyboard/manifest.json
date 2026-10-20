@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Bilibili Video Storyboard",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-video-storyboard",
-  "icon": "https://beatra.ai/textures/icons/bilibili-video-storyboard-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/bilibili-video-storyboard-0.2.4.png",
   "localized": {
     "en": {
       "description": "Create a Bilibili video storyboard from a topic, title, outline, or script. This AI Bilibili storyboard maker turns a long-form video idea into a chapter-led shot list, Bilibili video script, camera direction, narration and B-roll cues, and one to four storyboard key frames for explainers, reviews, tutorials, vlogs, gameplay, animation, and creative videos.",
@@ -70,5 +70,5 @@
   },
   "name": "bilibili-video-storyboard",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

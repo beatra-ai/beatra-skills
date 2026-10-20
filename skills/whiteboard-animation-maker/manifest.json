@@ -1,9 +1,9 @@
 {
-  "changelog": "Internal cleanup of the bundled client. Nothing you use changes.",
+  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
   "display_name": "Whiteboard Animation Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/whiteboard-animation-maker",
-  "icon": "https://beatra.ai/textures/icons/whiteboard-animation-0.1.1.png",
+  "icon": "https://beatra.ai/textures/icons/whiteboard-animation-maker-0.2.1.png",
   "localized": {
     "en": {
       "description": "Turn a concept, a finished voiceover script, or a benchmark social video into a 1080×1920 black-and-white hand-drawn whiteboard explainer film. This whiteboard animation maker writes Chinese and English words stroke by stroke or animates flow cards and diagrams, narrates through text-to-speech or a cloned voice, and learns from benchmark Xiaohongshu, Douyin, TikTok, YouTube, Instagram, or X videos before drafting. Use it for whiteboard animation, hand-drawn explainer videos, doodle videos, concept explainers, what-is-X shorts, vertical explainers, spoken narration, TTS voiceover, and cloned narration for knowledge shorts.",
@@ -74,5 +74,5 @@
   },
   "name": "whiteboard-animation-maker",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
