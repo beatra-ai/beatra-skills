@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "Fixes the Chinese edition of the instructions: the missing example commands and the confirmation step before a paid video are restored. The English instructions are unchanged.",
   "display_name": "AI Video Continuation",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-continuation",
@@ -42,7 +42,7 @@
       "title": "AI動画延長：続きを生成・前後に映像を追加"
     },
     "zh": {
-      "description": "用一条短视频和一个衔接状态、下一个画面节拍，在开头或结尾自然地补上衔接画面。这个 AI 视频续写与延长工作流可以为片段的开头或结尾补充画面——延长一个瞬间、补全一个揭幕、添加前奏或创造一个自然结尾——同时保留人物、镜头、光影和氛围，并在交付后检查接缝、运动方向、人物特征、镜头和光影连贯性、声音效果和最终时长。适合更强的结尾、视频扩展、更长的镜头延展、动作续写、产品揭晓、风景延长和创作者迭代。",
+      "description": "用一条短视频和一个衔接状态、下一个画面节拍，在开头或结尾自然地补上衔接画面。这个 AI 视频续写与延长工作流可以继续生成下一段，为片段的开头或结尾补充画面——延长一个瞬间、补全一个揭幕、添加前奏或创造一个自然结尾——同时保留人物、镜头、光影和氛围，并在交付后检查接缝、运动方向、人物特征、镜头和光影连贯性、声音效果和最终时长。适合视频结尾生成、更强的结尾、视频扩展、更长的镜头延展、动作续写、产品揭晓、风景延长和创作者迭代。",
       "display_name": "AI视频续写与延长",
       "summary": "给一条短视频在开头或结尾补上衔接画面——向后续写、向前补长、延长镜头、补全结尾，让画面自然延续。",
       "tags": [
@@ -71,5 +71,5 @@
   },
   "name": "ai-video-continuation",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.9"
 }

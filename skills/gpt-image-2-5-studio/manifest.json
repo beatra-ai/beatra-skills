@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "GPT Image 2.5 Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/gpt-image-2-5-studio",
@@ -41,7 +41,7 @@
       "title": "GPT Image 2.5画像生成｜ポスターと商品図"
     },
     "zh": {
-      "description": "GPT Image 2.5生图用 GPT-Image-2.5 和 ChatGPT Images 2.5 出一张图。GPT Image 2.5 Studio 支持 gpt-image-2.5-flare 与 gpt-image-2.5-sunburst，可文生图或参考图生图，做中文海报、商品图、信息图和社媒画面。",
+      "description": "GPT Image 2.5生图是一款 AI 工具，用 GPT-Image-2.5 和 ChatGPT Images 2.5 出一张图。GPT Image 2.5 Studio 支持 gpt-image-2.5-flare 与 gpt-image-2.5-sunburst，可文生图或参考图生图，做中文海报、商品图、信息图和社媒画面。",
       "display_name": "GPT Image 2.5生图",
       "summary": "用 GPT Image 2.5 Flare 或 Sunburst，从文字或参考图出一张中文海报、商品图或信息图。",
       "tags": [
@@ -68,5 +68,5 @@
   },
   "name": "gpt-image-2-5-studio",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

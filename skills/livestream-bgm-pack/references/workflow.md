@@ -25,7 +25,7 @@ hooks). Write one positive instrumental prompt per slot.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Low-distraction livestream waiting bed, warm ambient pop, loop-friendly, space for host talk, about 90 seconds, no vocals, no sudden hits",
   "instrumental": true,
   "title": "Waiting Bed 01",

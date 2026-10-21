@@ -46,7 +46,7 @@ free visible result. Planning is not approval.
 
 Safe defaults:
 
-- `model: "suno-5.5"`. Never omit the model and never silently use
+- `model: "suno-6"`. Never omit the model and never silently use
   `auto`.
 - `instrumental: false` with confirmed lyrics present.
 - `model_options.suno.custom_mode: true`.
@@ -57,14 +57,15 @@ Safe defaults:
 
 ## Confirm the first song, then the set
 
-Before any billable track, read the current `beatra.models.list` card
-for `text_to_music`. Show one current generate production card for the
-first knowledge-point song and wait:
+Before any billable track, call `beatra.models.list` with
+`{"capability":"text_to_music"}` and read the `suno-6` entry's `pricing`.
+Show one current generate production card for the first knowledge-point
+song and wait:
 
 1. Work — one exam mnemonic song for the named knowledge point, a
    generate call (`beatra.music.generate`).
-2. Credits — the live `text_to_music` price just read. Do not reuse a
-   remembered number.
+2. Credits — the live `suno-6` price just read from `beatra.models.list`,
+   per slot and in total. Do not reuse a remembered number.
 3. Count — one paid call for this first song. Do not batch the rest of
    the syllabus into this submit.
 4. Identity — one new opaque `client_request_id`. A changed lyric,
@@ -83,8 +84,8 @@ new pack. Show a fresh six-field card for that frozen set and wait:
 
 1. Work — one exam mnemonic song per remaining named knowledge point,
    each a generate call (`beatra.music.generate`).
-2. Credits — the live `text_to_music` price just read, times the
-   remaining slot count. Do not reuse a remembered number.
+2. Credits — the live `suno-6` price just read from `beatra.models.list`,
+   per slot and in total. Do not reuse a remembered number.
 3. Count — one paid call per remaining slot. Do not batch slots into
    one submit.
 4. Identity — one new opaque `client_request_id` per slot. A changed
@@ -123,7 +124,7 @@ python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 ```text
-printf '%s' '{"model":"suno-5.5","prompt":"Clear-diction mnemonic song, moderate tempo, memorable hook, about two minutes.","lyrics":"[Verse 1]\nApproved mnemonic lines\n[Chorus]\nApproved hook","instrumental":false,"title":"Knowledge Point Hook","model_options":{"suno":{"custom_mode":true}},"client_request_id":"opaque-exam-song-01"}' | python3 scripts/mcp_client.py call beatra.music.generate
+printf '%s' '{"model":"suno-6","prompt":"Clear-diction mnemonic song, moderate tempo, memorable hook, about two minutes.","lyrics":"[Verse 1]\nApproved mnemonic lines\n[Chorus]\nApproved hook","instrumental":false,"title":"Knowledge Point Hook","model_options":{"suno":{"custom_mode":true}},"client_request_id":"opaque-exam-song-01"}' | python3 scripts/mcp_client.py call beatra.music.generate
 ```
 
 Do not configure or call a host Beatra Connector, and do not use

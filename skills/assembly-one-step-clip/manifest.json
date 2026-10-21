@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Assembly One-Step Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/assembly-one-step-clip",
@@ -34,7 +34,7 @@
       "title": "組み立て手順動画・1ステップ1クリップ：静止画ごとに1本"
     },
     "zh": {
-      "description": "组装步骤视频按卖家提供的步骤事实，为每张静帧做成一条一步一镜短片。这个一步一镜工作室把产品组装短视频和步骤视频按步骤顺序交付。",
+      "description": "组装步骤视频借助 AI 按卖家提供的步骤事实，为每张静帧做成一条一步一镜短片。这个一步一镜工作室把产品组装短视频和步骤视频按步骤顺序交付。",
       "display_name": "组装步骤视频·一步一镜",
       "summary": "按卖家提供的步骤事实，为每张静帧做成一条一步一镜短片。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "assembly-one-step-clip",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

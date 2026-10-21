@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Community Site One-Shot Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/community-site-clip",
@@ -34,7 +34,7 @@
       "title": "現場ワンカット：写真1枚につき1本"
     },
     "zh": {
-      "description": "活动现场一镜按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。这个活动现场一镜工作室按拍摄顺序交付每条社区活动短片，可当作现场活动视频或现场动图使用。",
+      "description": "活动现场一镜借助 AI 按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。这个活动现场一镜工作室按拍摄顺序交付每条社区活动短片，可当作现场活动视频或现场动图使用。",
       "display_name": "活动现场一镜·现场照转一镜",
       "summary": "按已经拍好的现场照和窗口提供的事实，做成每张现场照转一镜短片。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "community-site-clip",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

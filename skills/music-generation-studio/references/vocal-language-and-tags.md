@@ -2,7 +2,7 @@
 
 Distinguish dedicated request fields from descriptive guidance.
 
-## Dedicated controls available with Suno 5.5 custom mode
+## Dedicated controls available with Suno 6 custom mode
 
 - `vocal_gender: "m"` requests a male lead.
 - `vocal_gender: "f"` requests a female lead.
@@ -15,7 +15,7 @@ These fields require:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "model_options": {
     "suno": {
       "custom_mode": true

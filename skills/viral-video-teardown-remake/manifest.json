@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Viral Video Teardown Remake",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
@@ -52,7 +52,7 @@
       "title": "バズ動画の分解とリメイク：構成を読み解き、自分の一本に作り替える"
     },
     "zh": {
-      "description": "把一条已经跑出来的短视频，变成你自己的那一条。参考视频可以是文件、截图或你自己的描述，也可以直接粘一个视频链接——抖音、TikTok、小红书、Instagram、YouTube、X 都能读到标题文案、作者、公开数据和评论区留言；YouTube 还支持字幕提取，拿到整段逐字稿。爆款短视频拆解与复刻工作流：逐段拆出钩子、中段节奏和转化引导，判定它属于哪一类脚本结构，说清它到底靠什么跑起来，再把这套骨架原样套到你的产品或选题上——交付画面与口播分开写的分镜表、优先取用你自己素材、必要时才生成的参考帧、选定音色的口播配音，以及一条动起来的竖屏短片，或者按分段交付的素材配上带时间码的剪辑清单。适合爆款拆解、对标爆款、抄爆款结构、二创改写、视频号、抖音、小红书、快手起号找对标，也适合把收藏夹里存了很久的参考视频，变成一套能反复复用的内容公式。",
+      "description": "把一条已经跑出来的短视频，变成你自己的那一条。参考视频可以是文件、截图或你自己的描述，也可以直接粘一个视频链接——抖音、TikTok、小红书、Instagram、YouTube、X 都能读到标题文案、作者、公开数据和评论区留言；YouTube 还支持字幕提取，拿到整段逐字稿。借助 AI 的爆款短视频拆解与复刻工作流：逐段拆出钩子、中段节奏和转化引导，判定它属于哪一类脚本结构，说清它到底靠什么跑起来，再把这套骨架原样套到你的产品或选题上——交付画面与口播分开写的分镜表、优先取用你自己素材、必要时才生成的参考帧、选定音色的口播配音，以及一条动起来的竖屏短片，或者按分段交付的素材配上带时间码的剪辑清单。适合爆款结构分析、评论分析、爆款拆解、对标爆款、抄爆款结构、二创改写、视频号、抖音、小红书、快手起号找对标，也适合把收藏夹里存了很久的参考视频，变成一套能反复复用的内容公式。",
       "display_name": "爆款视频拆解·短视频复刻",
       "summary": "粘一个视频链接，或者把文件截图交给它：把一条跑出来的短视频拆成钩子、中段和转化引导，再把这套结构套到你自己的选题上，出分镜表、分镜图、口播——镜头简单、时长在单条模型上限内就交付一条由开场画面动起来的竖屏短片，卡点多或时长超限就按分段交付素材，配一条完整口播音轨、字幕和带时间码的剪辑清单。",
       "tags": [
@@ -87,5 +87,5 @@
   },
   "name": "viral-video-teardown-remake",
   "schema_version": 1,
-  "version": "0.4.1"
+  "version": "0.4.2"
 }

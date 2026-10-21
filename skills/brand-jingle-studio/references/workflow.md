@@ -40,7 +40,7 @@ Ordinary sung 15-second sketch:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Bright compact brand jingle, one pop section, about 15 seconds, memorable hook, clean ending sting, radio-ready stereo mix",
   "lyrics": "[Hook]\nApproved brand line\n",
   "title": "Brand 15s Hook A",
@@ -54,7 +54,7 @@ Ordinary 30-second radio-style sketch. Put the timeline in the prompt:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "30-second radio brand jingle, intro plus body, 0-3 second hook, mid sell, closing brand sting, clean resolved ending",
   "lyrics": "[Hook]\nApproved brand line\n",
   "title": "Brand 30s Spot A",
@@ -67,7 +67,7 @@ Ordinary instrumental sting:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Short premium audio logo, three-note sting, about 3 seconds, clean silence after the last hit, polished wide mix",
   "instrumental": true,
   "title": "Brand Sting A",
@@ -75,7 +75,7 @@ Ordinary instrumental sting:
 }
 ```
 
-Set `model: "suno-5.5"` unless the user names another eligible model. Never
+Set `model: "suno-6"` unless the user names another eligible model. Never
 omit the model and never silently use `auto`. Call `beatra.models.list` with
 `{"capability":"text_to_music"}` before quoting limits, controls, or price.
 

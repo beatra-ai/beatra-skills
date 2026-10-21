@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "WeChat Channels Product Showcase Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-product-video",
@@ -42,7 +42,7 @@
       "title": "WeChat Channels 商品展示動画メーカー：商品写真から縦型動画"
     },
     "zh": {
-      "description": "把真实商品图和已确认商品信息制作成一条竖版视频号商品展示短视频。围绕清晰的商品开场、一个商品细节或使用瞬间和干净收尾，交付视频号商品视频、商品展示视频、商品介绍视频、商品细节展示和新品展示视频，并整理标题和发布文案，适合商品图转视频、竖版商品视频、视频号带货短视频、视频号商品内容与微信小店商品内容。",
+      "description": "把真实商品图和已确认商品信息借助 AI 制作成一条竖版视频号商品展示短视频。围绕清晰的商品开场、一个商品细节或使用瞬间和干净收尾，交付视频号商品视频、商品展示视频、商品介绍视频、商品细节展示和新品展示视频，并整理标题和发布文案，适合商品图转视频、竖版商品视频、视频号带货短视频、视频号商品内容与微信小店商品内容。",
       "display_name": "视频号商品视频制作",
       "summary": "把真实商品图和已确认商品信息制作成一条竖版视频号商品展示短视频，并准备标题与发布文案。",
       "tags": [
@@ -70,5 +70,5 @@
   },
   "name": "wechat-channels-product-video",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

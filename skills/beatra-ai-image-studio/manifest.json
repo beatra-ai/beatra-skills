@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Beatra AI Image Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-image-studio",
@@ -46,7 +46,7 @@
       "title": "AI画像スタジオ｜商品画像・広告・ブランドビジュアル | Beatra"
     },
     "zh": {
-      "description": "从文字描述、按顺序提供的一至四张参考图，或一张需要修改的原图出发，生成并完善图像。Beatra AI 图像工作室支持文生图、参考图创作和围绕指定部分进行的 AI 图片编辑，可用于产品图、广告创意、品牌视觉、海报、社交媒体配图、AI绘画、AI插画、概念图和照片背景修改。看到结果后，检查信息表达、主体是否符合要求、构图、风格、文字与发布场景，再选择最小有效的局部修改、重新构图或重新生成。",
+      "description": "从文字描述、按顺序提供的一至四张参考图，或一张需要修改的原图出发，生成并完善图像。Beatra AI 图像工作室支持文生图、参考图创作和围绕指定部分进行的 AI 图片编辑，可用于产品图、广告创意、品牌视觉、AI海报制作、社交媒体配图、AI绘画、AI插画、概念图和照片背景修改。看到结果后，检查信息表达、主体是否符合要求、构图、风格、文字与发布场景，再选择最小有效的局部修改、重新构图或重新生成。",
       "display_name": "Beatra AI图像工作室",
       "summary": "生成、合成并编辑产品图、品牌视觉、海报、社交媒体配图、插画和照片的不同版本。",
       "tags": [
@@ -76,5 +76,5 @@
   },
   "name": "beatra-ai-image-studio",
   "schema_version": 1,
-  "version": "1.2.3"
+  "version": "1.2.4"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Temu Main Image Motion",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/temu-main-image-motion",
@@ -34,7 +34,7 @@
       "title": "Temuメイン画像動画・テンプレートワンカット：1枚から1本"
     },
     "zh": {
-      "description": "Temu主图视频把要用的主图做成一条模板一镜。主图短片和主图动效都按同一张主图出，一张主图一条短片。",
+      "description": "Temu主图视频用 AI 把要用的主图做成一条模板一镜。主图短片和主图动效都按同一张主图出，一张主图一条短片。",
       "display_name": "Temu主图视频·模板一镜",
       "summary": "Temu主图视频把要用的主图做成一条模板一镜。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "temu-main-image-motion",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

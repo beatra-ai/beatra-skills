@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "Fixes the Chinese edition of the instructions: the missing example commands and the confirmation step before a paid video are restored. The English instructions are unchanged.",
   "display_name": "Talking Avatar & AI Presenter Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/talking-avatar-video",
@@ -45,7 +45,7 @@
       "title": "トーキングアバター・AIプレゼンター動画"
     },
     "zh": {
-      "description": "用一张人像和一段短脚本或语音，制作有明确讲述内容的数字人口播视频。可使用现成录音，也可以先选择音色，把脚本生成旁白，让画面中的人物随声音完成稳定、自然的口播。适合 AI 主播、虚拟主播视频、数字人讲解、让照片说话、照片说话视频、产品讲解视频、数字人培训视频、公告和社交口播，并在交付后检查人物一致性、声音清晰度、口型同步和动作稳定性。",
+      "description": "用一张人像和一段短脚本或语音，制作有明确讲述内容的数字人口播视频。可使用现成录音，也可以先选择音色，把脚本生成旁白，让画面中的人物随声音完成稳定、自然的口播。适合 AI 主播、虚拟主播视频、数字人讲解、让照片说话、照片说话视频、产品讲解视频、数字人培训视频、公告和社交口播，并在交付后检查人物一致性、声音清晰度、口型同步和动作稳定性。一节课的讲解也能做成课程口播。",
       "display_name": "AI数字人口播与虚拟主播视频",
       "summary": "把一张人像和短脚本或语音，制作成适合讲解、公告、课程和产品介绍的数字人口播视频。",
       "tags": [
@@ -73,5 +73,5 @@
   },
   "name": "talking-avatar-video",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.3"
 }

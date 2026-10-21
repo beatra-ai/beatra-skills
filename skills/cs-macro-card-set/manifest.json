@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "CS Macro Card Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/cs-macro-card-set",
@@ -34,7 +34,7 @@
       "title": "CSマクロカード図：マクロごとの図セット"
     },
     "zh": {
-      "description": "客服话术卡组按已经写好的话术标题和话术正文，做成一组话术转卡组静帧。这个客服话术工作室把确认过的话术排成客服话术卡和话术套图，一次给出客服话术卡组。",
+      "description": "客服话术卡组借助 AI 按已经写好的话术标题和话术正文，做成一组话术转卡组静帧。这个客服话术工作室把确认过的话术排成客服话术卡和话术套图，一次给出客服话术卡组。",
       "display_name": "客服话术卡组·话术转卡组",
       "summary": "按已经写好的话术标题和话术正文，做成一组话术转卡组静帧。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "cs-macro-card-set",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

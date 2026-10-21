@@ -22,13 +22,13 @@ the eye lands in the right sequence:
 1. **Hero visual** — the focal subject that stops the scroll. Largest, highest
    contrast, strongest placement (rule-of-thirds intersection or dead center).
 2. **Headline** — the event name, film title, or offer. Reserve the top band or
-   a bold center title-treatment zone with high contrast readiness.
-3. **Details** — date, venue, price, call-to-action. Place in a structured lower
-   band that stays clean and legible.
+   a bold center panel as a plain empty zone with high contrast readiness.
+3. **Details** — date, venue, price, call-to-action. Place in a plain reserved
+   lower band that stays empty and ready for later copy.
 
 Build this order into the prompt: "strong visual hierarchy with a dominant hero
-image, a clean headline band at the top, and a structured detail band at the
-bottom."
+image, a plain empty headline band at the top, and a plain reserved detail band
+at the bottom; the image contains no text, letters, numbers, or logos."
 
 ## Composition principles
 
@@ -45,21 +45,33 @@ bottom."
 
 ## Text-safe zone design
 
-The text-safe zone is where the user adds the headline, dates, prices, and
-call-to-action. Design it as part of the composition:
+By default, a reserved text zone stays empty — a plain solid color or soft
+gradient — with no letters, words, numbers, prices, percentages, logos, icons,
+watermarks or placeholder text anywhere in the image. The user adds all
+copy afterward.
 
-- **Clean band** — keep the chosen zone (top, center, or lower third) relatively
-  free of busy detail. A soft gradient, blurred backdrop, or solid color panel
-  works well.
+The only exception: when the user explicitly asks the poster itself to carry
+specific words, quote those exact words in the prompt, say they are the only
+text in the image, and check the rendered spelling character by character on
+review.
+
+The text-safe zone is where the user will later add the headline, dates,
+prices, and call-to-action. Design it as part of the composition:
+
+- **Clean band** — keep the chosen zone (top, center, or lower third) as a
+  plain solid color or soft gradient, empty of letters, words, numbers, logos,
+  icons, watermarks, and placeholder text.
 - **Contrast readiness** — the text-safe area should have enough brightness
   range to support both light and dark headline text without a separate text-box
   background.
 - **Subject offset** — when the text-safe zone is the top band, position the
   subject in the lower two-thirds. When it is the center, offset the subject
-  slightly. When it is the lower third, keep the lower band structured.
+  slightly. When it is the lower third, keep the lower band a plain reserved
+  panel.
 
-State the zone in the prompt: "reserve a clean high-contrast text-safe band
-across the top third for the headline overlay."
+State the zone in the prompt: "reserve a plain solid-color or soft-gradient
+band across the top third, empty of all text, letters, numbers, and logos; the
+image contains no text."
 
 ## Category styling
 
@@ -71,11 +83,11 @@ Match the visual treatment to the subject category:
 - **Food** — warm appetizing tones, natural window light, shallow depth of
   field, steam and freshness cues, the dish filling most of the frame.
 - **Fashion** — editorial bold composition, high-contrast or monochrome palette,
-  strong typographic mood, full-frame subject, clean studio or urban backdrop.
+  strong graphic contrast, full-frame subject, clean studio or urban backdrop.
 - **Music** — vibrant saturated color, stage glow, motion and energy, bold
-  dynamic type mood, performer as focal anchor.
+  graphic energy, performer as focal anchor.
 - **Corporate** — professional clean grid, restrained brand palette, structured
-  white space, logo and feature zones.
+  white space, reserved bands where a logo and feature lines will sit later.
 - **Education** — friendly approachable palette, rounded shapes, clear icon
   metaphors, generous text room.
 

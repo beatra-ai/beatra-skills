@@ -45,7 +45,14 @@ The canvas is decided by the opening frame, so choosing it late means producing 
 
 ## Decisions that require confirmation
 
-Confirm before spending in two stages: first the frame set, the narration, and any music bed together with every one of their priced calls, then the final video. The video confirmation comes after the user has seen the accessible frames and heard the narration, because that call costs the most.
+Confirm before spending in two stages: first the frame set, the narration, and any music bed together with every one of their priced calls, then the final video. The video confirmation comes after the user has seen the accessible frames and heard the narration, because that call costs the most. Each card names:
+
+1. Work — the frames, narration, and any music bed (then later the video) as the named generate, synthesize, or animate calls.
+2. Credits — the live prices just read from `beatra.models.list`, including the `suno-6` `pricing` when a music bed is on the card, per slot and in total. Never a remembered number.
+3. Count — one paid call per planned slot on that card.
+4. Identity — one new opaque `client_request_id` per slot.
+5. If we stop here — the approved shot list remains usable.
+6. If the balance is insufficient — relay the official message and its top-up URL exactly. Do not retry until the user says they have topped up.
 
 Also confirm, rather than deciding alone: a canvas other than 9:16, a target length at the 15-second ceiling, a claim about the subject the user has not verified, adding the music bed, and any change after an artifact is approved. Each changed argument is new paid work with a new request identifier and fresh approval.
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Publish Preflight Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/publish-preflight-studio",
@@ -46,7 +46,7 @@
       "title": "投稿前チェックスタジオ：表現を見て、直して、サムネイルも作り直す"
     },
     "zh": {
-      "description": "在发出去之前先查一遍，并且把查出来的问题直接改掉。把正文、标题、口播稿、封面文字或话题标签贴过来——这个发布前内容预检会对照广告法极限词与各监管品类的功效表述规则逐句筛查，每一条命中都给出可直接替换的写法；再按你写给谁把这条内容读一遍，点名是哪一句让哪类读者划走；然后给钩子强度和转发理由打分，并附上打分依据；最后交回改好的文案，并按修正后的文案把封面渲染出来。适合发布前内容质检与文案质检、广告法合规自查、敏感词违禁词检测与极限词筛查、文案风险检测、人群模拟反应测试、爆款预测评分，以及品牌与客户文案过审前的清理；抖音、小红书、微信、快手都能用。",
+      "description": "发布前审核，就是在发出去之前先查一遍，并且把查出来的问题直接改掉。把正文、标题、口播稿、封面文字或话题标签贴过来——这个发布前内容预检借助 AI，对照广告法极限词与各监管品类的功效表述规则逐句筛查，每一条命中都给出可直接替换的写法；再按你写给谁把这条内容读一遍，点名是哪一句让哪类读者划走；然后给钩子强度和转发理由打分，并附上打分依据；最后交回改好的文案，并按修正后的文案把封面渲染出来。适合发布前内容质检与文案质检、广告法合规自查、敏感词违禁词检测与极限词筛查、文案风险检测、人群模拟反应测试、爆款预测评分，以及品牌与客户文案过审前的清理；抖音、小红书、微信、快手都能用。",
       "display_name": "发布前内容预检",
       "summary": "把文案贴过来，拿回逐条带替换词的合规检查、点名哪句话把哪类读者劝退的人群试读、有依据的爆款评分、改好的文案，以及按新文案渲染的封面。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "publish-preflight-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

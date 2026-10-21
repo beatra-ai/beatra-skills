@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card lists the live credits per track and in total. You can also ask how many credits remain or what was charged.",
   "display_name": "Indie Game OST Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/indie-game-ost-pack",
@@ -39,7 +39,7 @@
       "title": "ゲームBGMパック：インディーゲーム向けオリジナルサウンドトラック"
     },
     "zh": {
-      "description": "为独立游戏一次做出8到15首原创游戏配乐。这个游戏原声带和游戏BGM工具会按标题、探索、战斗、商店和胜利写出可循环的游戏音乐，音乐归你所有、可直接商用，交付带标签的原声带，进引擎前先试听。适用于独立游戏配乐、游戏背景音乐、战斗音乐、探索音乐、商店音乐和原创游戏原声带。",
+      "description": "用 AI 为独立游戏一次做出8到15首原创游戏配乐。这个游戏原声带和游戏BGM工具会按标题、探索、战斗、商店和胜利写出可循环的游戏音乐，音乐归你所有、可直接商用，交付带标签的原声带，进引擎前先试听。适用于独立游戏配乐、游戏背景音乐、战斗音乐、探索音乐、商店音乐和原创游戏原声带。",
       "display_name": "游戏配乐·独立游戏原声带",
       "summary": "为独立游戏一次做出8到15首原创游戏配乐，进引擎前先试听。",
       "tags": [
@@ -65,5 +65,5 @@
   },
   "name": "indie-game-ost-pack",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.3"
 }

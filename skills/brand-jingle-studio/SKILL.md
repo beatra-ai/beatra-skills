@@ -56,7 +56,7 @@ Safe defaults:
 - Full 3 × 3 only when the user asks for every length in every style.
 - About-15-second prompts stay one section. About-30-second prompts use
   intro plus body. Stings describe two-to-four notes and a clean ending.
-- `model: "suno-5.5"` for ordinary music. Never omit the model and never
+- `model: "suno-6"` for ordinary music. Never omit the model and never
   silently use `auto`.
 - There is no `duration` field on `beatra.music.generate`. Write length
   only in the prompt. Do not add a duration argument.
@@ -74,8 +74,10 @@ Lyrics, slogan shaping, style cards, and planning are free. Each
    lyric with a repeated brand line. When the user wants a spoken tagline,
    write that line as speech, not as sung lyrics.
 2. Choose the primary length from the destination. Call
-   `beatra.models.list` with `{"capability":"text_to_music"}` and price the
-   three sketches.
+   `beatra.models.list` with `{"capability":"text_to_music"}`, read the
+   `pricing` of the chosen model's entry (`suno-6` unless the user named
+   another eligible model), and price the three sketches per slot and in
+   total. Never a remembered number.
 3. Confirm three frozen music payloads: prompt, lyrics or instrumental flag,
    title, model, current maximum charge, and one opaque stable
    `client_request_id` each. Planning is not approval. A sting path confirms
@@ -84,7 +86,7 @@ Lyrics, slogan shaping, style cards, and planning are free. Each
    `scripts/mcp_client.py`. Example:
 
    ```text
-   printf '%s' '{"model":"suno-5.5","prompt":"Bright brand jingle, one compact pop section, about 15 seconds, clean ending sting.","lyrics":"[Hook]\nApproved brand line\n","title":"Approved 15s Hook","model_options":{"suno":{"custom_mode":true}},"client_request_id":"opaque-jingle-15s-a"}' | python3 scripts/mcp_client.py call beatra.music.generate
+   printf '%s' '{"model":"suno-6","prompt":"Bright brand jingle, one compact pop section, about 15 seconds, clean ending sting.","lyrics":"[Hook]\nApproved brand line\n","title":"Approved 15s Hook","model_options":{"suno":{"custom_mode":true}},"client_request_id":"opaque-jingle-15s-a"}' | python3 scripts/mcp_client.py call beatra.music.generate
    ```
 
    Do not configure, call, or use a host Beatra Connector. Do not use
@@ -109,10 +111,34 @@ again at delivery: 0–3 hook, middle sell, closing brand line.
 ## Decisions that require confirmation
 
 Confirm the three sketches and the live music estimate before the first paid
-music call. Confirm each derived length before that call. Confirm the spoken
+music call. Show one current production card and wait:
+
+1. Work — the three style sketches in the user's words, each a
+   `beatra.music.generate` call (and, when chosen, the spoken tagline as
+   `beatra.speech.synthesize`).
+2. Credits — the live price of the chosen model (`suno-6` by default) just
+   read from `beatra.models.list`, per slot and in total. Never a remembered
+   number.
+3. Count — one paid call per sketch listed on the card. Each derived length
+   is another card.
+4. Identity — one new opaque `client_request_id` per slot. Any changed hook,
+   lyric, spoken line, prompt, length, style, model, voice, or instrumental
+   setting mints a new ID.
+5. If we stop here — the brand card, hook, and sung or spoken line remain
+   usable.
+6. If the balance is insufficient — relay the official message and its
+   top-up URL exactly. Translate the prose; keep the URL. Do not retry
+   until the user says they have topped up.
+
+Confirm each derived length before that call. Confirm the spoken
 tagline card before `beatra.speech.synthesize`. A changed hook, lyric, spoken
 line, prompt, length, style, model, voice, or instrumental setting is new
 paid work with a new request ID.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
 
 Requested length is arrangement guidance. Read the actual returned duration.
 Do not promise a sample-perfect 15.00-second cut, and do not force a

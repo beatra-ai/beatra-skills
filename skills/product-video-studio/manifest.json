@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Product Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/product-video-studio",
@@ -46,7 +46,7 @@
       "title": "商品動画スタジオ：商品写真1枚からナレーション付き縦型動画"
     },
     "zh": {
-      "description": "上传一张商品图，生成一条会说话的竖屏带货视频。这个商品视频生成与带货短视频制作工具，从你手里那张图出发——先做成 9:16 的竖屏首帧，再根据图上看得见的细节和你提供的商品信息写好口播文案，选一个合适的声音配上，直接出一条可以发布的成片。适合新品上架、商品主图视频、种草短视频、门店推广，以及把随手拍的商品照片变成一条能带货的视频——不用拍摄、不用请人、不用剪辑。",
+      "description": "借助 AI，上传一张商品图就能生成一条会说话的竖屏带货视频。这个商品视频生成与带货短视频制作工具，从你手里那张图出发——先做成 9:16 的竖屏首帧，再根据图上看得见的细节和你提供的商品信息写好口播文案，选一个合适的声音配上，直接出一条可以发布的成片。先确认口播和竖屏首帧，再生成成片。适合商品图转视频、电商短视频、新品上架、商品主图视频、种草短视频、门店推广，以及把随手拍的商品照片变成一条能带货的视频——不用拍摄、不用请人、不用剪辑。",
       "display_name": "商品视频工作室",
       "summary": "上传一张商品图，生成带口播的竖屏带货视频，拿到就能发。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "product-video-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

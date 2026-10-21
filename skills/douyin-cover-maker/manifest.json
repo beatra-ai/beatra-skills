@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Douyin Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-cover-maker",
@@ -39,7 +39,7 @@
       "title": "抖音動画カバー作成：縦型ショート動画カバー"
     },
     "zh": {
-      "description": "使用 AI 将短视频选题、脚本钩子、人物照、商品图或参考图制作成抖音封面、抖音短视频封面和竖版视频封面。用醒目主体、统一色彩和标题留白打造适合教程、好物展示、美食、生活方式、知识分享和账号系列的抖音爆款风格封面，也可围绕已选封面继续精修。",
+      "description": "使用 AI 将短视频选题、脚本钩子、人物照、商品图或参考图制作成抖音封面、抖音短视频封面和竖版视频封面。用醒目主体、统一色彩和标题留白，做出适合教程、好物展示、美食、生活方式、知识分享和账号系列的抖音封面设计与爆款风格封面，也可围绕已选封面继续精修。",
       "display_name": "抖音视频封面制作",
       "summary": "把短视频选题、钩子、人物照、商品图或参考图，制作成焦点明确、适合竖版展示并预留标题区域的抖音视频封面。",
       "tags": [
@@ -66,5 +66,5 @@
   },
   "name": "douyin-cover-maker",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

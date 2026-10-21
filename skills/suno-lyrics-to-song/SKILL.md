@@ -47,7 +47,7 @@ request.
 Use [song direction and request](references/song-direction-and-request.md) for
 the exact Suno request. The production route is always:
 
-- `model: "suno-5.5"`;
+- `model: "suno-6"`;
 - a 1..1000-character music-direction `prompt` with no lyric body inside it;
 - confirmed non-empty `lyrics` of at most 5000 characters;
 - `instrumental: false`;
@@ -67,11 +67,29 @@ lyrics, then present one song-generation confirmation card. Do not
 automatically redo the whole song.
 
 Planning, lyric work, structure, and music direction do not call the paid music
-tool. Before generation, present one final readable production card containing
-the complete lyrics, title, music direction, `suno-5.5`, relevant options, and
-the fact that the next action is paid. A clear approval of that complete card
-authorizes one generation; do not request a second confirmation or an extra
-“generate” command.
+tool. Before generation, call `beatra.models.list` with a copyable payload:
+
+```json
+{"capability": "text_to_music"}
+```
+
+Read the `suno-6` entry's `pricing`. Present one final readable production card
+containing the complete lyrics, title, music direction, `suno-6`, relevant
+options, and the six paid fields:
+
+1. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call.
+2. Credits — the live `suno-6` price just read, per slot and in total. Never a
+   remembered number.
+3. Count — one paid call for this song. A later revision is another slot.
+4. Identity — one new opaque `client_request_id`. Any changed lyric, title,
+   direction, model, or option mints a new ID.
+5. If we stop here — the structured lyrics remain usable.
+6. If the balance is insufficient — relay the official message and its top-up
+   URL exactly. Translate the prose; keep the URL. Do not retry until the user
+   says they have topped up.
+
+A clear approval of that complete card authorizes one generation; do not
+request a second confirmation or an extra “generate” command.
 
 Create the request identity only after the card is final. Call
 `beatra.music.generate` once, retain its `task_id`, and poll that same task with
@@ -87,9 +105,7 @@ are sent on stdin. Do not configure or call a host Beatra Connector, and do not
 use REST/OpenAPI as a fallback. For exact commands and troubleshooting, use
 [Bundled MCP Client diagnostics](references/mcp-connection.md).
 
-Call `beatra.models.list` only when the user asks for current availability,
-compatibility, model comparison, or price. Do not silently substitute another
-model for Suno 5.5.
+Do not silently substitute another model for Suno 6.
 
 ## Deliver the song and recover the task
 

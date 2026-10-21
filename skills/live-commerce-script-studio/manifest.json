@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Live Commerce Script Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/live-commerce-script-studio",
@@ -46,7 +46,7 @@
       "title": "ライブコマース台本スタジオ：本番でそのまま読める進行台本"
     },
     "zh": {
-      "description": "把一份排品清单，变成主播真的能在镜头前照着念的一整场直播脚本。这个直播带货脚本工作流会排出整场分钟级流程表，为每个主推品写出七步讲解话术，配一套涵盖开场、留人、互动、逼单、催单、收尾的十二类照念话术库，并对所有措辞做一遍合规检查；然后把主播和场控真正拿在手上的话术卡、倒计时卡渲染出来，再把那些靠语气而不是靠文字取胜的句子做成示范音。适合抖音、视频号、淘宝、快手、小红书的直播带货，也可以当成直播脚本模板一场场复用；覆盖品牌自播、达人合作、新品专场、清仓专场，产出主播口播稿与新手主播话术，并在写稿阶段就把直播违禁词挡掉。",
+      "description": "借助 AI 把一份排品清单变成主播真的能在镜头前照着念的一整场直播脚本。这个直播带货脚本工作流会排出整场分钟级流程表，为每个主推品写出七步讲解话术，配一套涵盖开场、留人、直播间互动话术、逼单、催单、收尾的十二类照念话术库，并对所有措辞做一遍合规检查；然后把主播和场控真正拿在手上的话术卡、倒计时卡渲染出来，再把那些靠语气而不是靠文字取胜的句子做成示范音。适合抖音、视频号、淘宝、快手、小红书的直播带货，也可以当成直播脚本模板一场场复用；覆盖品牌自播、达人合作、新品专场、清仓专场，产出主播口播稿与新手主播话术，并在写稿阶段就把直播违禁词挡掉。",
       "display_name": "直播带货脚本工作台",
       "summary": "把排品变成分钟级整场流程表、每个主推品的七步讲解话术、十二类照念话术库，以及直播间实际要用的话术卡和示范音。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "live-commerce-script-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

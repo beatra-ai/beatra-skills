@@ -23,7 +23,7 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "text_to_music"}
 ```
 
-Keep `model: "suno-5.5"`, `instrumental: false`, and
+Keep `model: "suno-6"`, `instrumental: false`, and
 `model_options.suno.custom_mode: true`. Confirm live prompt, lyrics,
 and title character limits. Put style only in `prompt`. Put the lyric
 body only in `lyrics`. There is no `duration` field.
@@ -36,7 +36,7 @@ billable generate. After approval, mint one opaque
 
 ```text
 printf '%s' '{
-  "model":"suno-5.5",
+  "model":"suno-6",
   "prompt":"Clear-diction mnemonic song, moderate tempo, memorable hook, about two minutes.",
   "lyrics":"[Verse 1]\nApproved mnemonic lines\n[Chorus]\nApproved hook",
   "instrumental":false,

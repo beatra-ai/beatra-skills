@@ -17,7 +17,7 @@ text-safe zone.
 
 ```json
 {
-  "prompt": "Scroll-stopping music festival poster, vertical 2:3 composition. Vibrant energetic stage scene with a single performer silhouette as the focal anchor, glowing magenta and cyan stage lights, motion and atmosphere. Strong visual hierarchy: dominant hero image, clean high-contrast text-safe band across the top third for the headline, structured detail band at the bottom for date and venue. Bold dynamic mood, deep cinematic contrast, photo-rich finish.",
+  "prompt": "Scroll-stopping music festival poster, vertical 2:3 composition. Vibrant energetic stage scene with a single performer silhouette as the focal anchor, glowing magenta and cyan stage lights, motion and atmosphere. Strong visual hierarchy: dominant hero image, a plain solid-color or soft-gradient band across the top third left empty for later headline, a plain reserved band at the bottom where date and venue will sit later. The image contains no text, letters, numbers, or logos. Bold graphic energy, deep cinematic contrast, photo-rich finish.",
   "model": "auto",
   "count": 1,
   "canvas": {
@@ -35,7 +35,7 @@ Use `beatra.images.generate` with the platform-native ratio.
 
 ```json
 {
-  "prompt": "Promotional sale graphic for social media, 1:1 square composition. Warm appetizing product hero centered, brand orange and cream palette, soft studio lighting with subtle contact shadow. Clean text-safe band across the lower third for the offer and call-to-action. High contrast readiness for bold headline text, friendly approachable mood.",
+  "prompt": "Promotional sale graphic for social media, 1:1 square composition. Warm appetizing product hero centered, brand orange and cream palette, soft studio lighting with subtle contact shadow. A plain solid-color or soft-gradient band across the lower third left empty for a later offer and call-to-action. The image contains no text, letters, numbers, or logos. High contrast readiness, friendly approachable mood.",
   "model": "auto",
   "count": 1,
   "canvas": {
@@ -55,7 +55,7 @@ text-safe zone.
 
 ```json
 {
-  "prompt": "Scroll-stopping product launch poster, vertical 3:4 composition. Image 1 is the hero product; preserve its shape, color, and details exactly. Clean futuristic dark gradient background with electric blue accents, product sharply in focus and filling 60% of the frame, subtle contact shadow for grounding. Strong visual hierarchy with a clean text-safe band across the top third for the headline and a structured detail band at the bottom for the date.",
+  "prompt": "Scroll-stopping product launch poster, vertical 3:4 composition. Image 1 is the hero product; preserve its shape, color, and details exactly. Clean futuristic dark gradient background with electric blue accents, product sharply in focus and filling 60% of the frame, subtle contact shadow for grounding. Strong visual hierarchy with a plain solid-color or soft-gradient band across the top third left empty for a later headline and a plain reserved band at the bottom where the date will sit later. The image contains no text, letters, numbers, or logos.",
   "model": "auto",
   "count": 1,
   "canvas": {
@@ -77,7 +77,7 @@ color or style references after. Label each image's role.
 
 ```json
 {
-  "prompt": "Scroll-stopping fashion promotional banner, 16:9 composition. Image 1 is the model wearing the collection; preserve their appearance exactly. Image 2 guides only the brand color palette and editorial mood. Editorial bold composition, high-contrast neutral palette with a single bold accent, full-frame subject, clean studio backdrop. Subject positioned left-of-center, clean text-safe zone on the right third for the headline and call-to-action.",
+  "prompt": "Scroll-stopping fashion promotional banner, 16:9 composition. Image 1 is the model wearing the collection; preserve their appearance exactly. Image 2 guides only the brand color palette and editorial mood. Editorial bold composition, high-contrast neutral palette with a single bold accent, full-frame subject, clean studio backdrop. Subject positioned left-of-center, a plain solid-color or soft-gradient zone on the right third left empty for a later headline and call-to-action. The image contains no text, letters, numbers, or logos.",
   "model": "auto",
   "count": 1,
   "canvas": {
@@ -106,7 +106,7 @@ adjustment.
 
 ```json
 {
-  "prompt": "Warm the overall color temperature slightly and increase contrast for stronger headline readability. Keep the composition, hero subject, and text-safe zone unchanged.",
+  "prompt": "Warm the overall color temperature slightly and increase contrast for stronger later headline readability. Keep the composition, hero subject, and plain empty text-safe zone unchanged. The image contains no text, letters, numbers, or logos.",
   "model": "auto",
   "count": 1,
   "images": [
@@ -121,7 +121,7 @@ the text band—use `edit_regions`:
 
 ```json
 {
-  "prompt": "Clean up the small cluttered detail in the lower-left corner so the detail band stays legible. Keep everything else unchanged.",
+  "prompt": "Clean up the small cluttered detail in the lower-left corner and repaint that reserved band as a plain solid color or soft gradient with no letters, numbers, or logos. The image contains no text. Keep everything else unchanged.",
   "model": "auto",
   "count": 1,
   "images": [

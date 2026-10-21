@@ -2,21 +2,21 @@
 
 ## Creative default and live discovery
 
-Set `model: "suno-5.5"` for every ordinary generation in this package. Do not
+Set `model: "suno-6"` for every ordinary generation in this package. Do not
 omit the field and do not use `auto` silently.
 
 Call `beatra.models.list` with `text_to_music` or
-`reference_audio_to_music` when the user names an alternative, asks for current
-price or availability, or needs model-specific behavior. Report only returned
-facts. If the default is unavailable, explain the result and ask before using a
-different model.
+`reference_audio_to_music` before every production card so the card can show
+the chosen model's live `pricing`. Call it again when the user names an alternative
+or needs model-specific behavior. Report only returned facts. If the default is
+unavailable, explain the result and ask before using a different model.
 
 The base request requires `prompt` and `client_request_id`. It may include
 `lyrics`, `instrumental`, `title`, `reference_audio`, and `model_options`.
 Outside family-specific limits, prompt is at most 2,000 characters, lyrics at
 most 5,000, and title at most 100.
 
-## Suno 5.5
+## Suno 6
 
 Use Suno custom mode for caller-supplied lyrics, dedicated Suno controls, or a
 reference with `audio_weight`.

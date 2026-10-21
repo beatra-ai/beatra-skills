@@ -40,7 +40,7 @@ Defaults that avoid extra questions:
 - A short, loop-friendly duration when the user did not name a length.
 - A calm-to-lift energy arc with a clean resolved ending, which suits a cut that
   has to end cleanly.
-- `model: "suno-5.5"` for ordinary generation. Never omit the model and never
+- `model: "suno-6"` for ordinary generation. Never omit the model and never
   silently use `auto`; pass a different model only when the user names one.
 - Room left for a voice, since most short-video BGM sits under narration.
 
@@ -54,14 +54,18 @@ Briefing and planning are free. Only the generation call is paid.
    top, and anything to avoid.
 2. Turn the card into one positive prompt that carries genre, mood, tempo feel,
    instrumentation, structure, and intended use in a single coherent direction.
-3. Call `beatra.models.list` for the text-to-music capability, or the
-   reference-audio-to-music capability when the user supplied a reference
-   recording, whenever compatibility, controls, or price matter. Read the live
-   card rather than assuming a model, a control, or an input limit.
+3. Call `beatra.models.list` with a copyable
+   `{"capability":"text_to_music"}` — or
+   `{"capability":"reference_audio_to_music"}` when the user supplied a
+   reference recording — before the production card. Read the `pricing` of
+   the chosen model's entry (`suno-6` unless the user named another eligible
+   model) and show those credits on the card per slot and in total. Never a
+   remembered number. Read the live card rather than assuming a model, a
+   control, or an input limit.
 4. **Confirm before paid work.** Show the frozen prompt, `instrumental: true`,
-   the title, the model, any accepted model options, the current maximum charge,
-   a commercial-clearance note for this original instrumental, and one opaque
-   stable `client_request_id`.
+   the title, the model, any accepted model options, the live credits just
+   read, a commercial-clearance note for this original instrumental, and one
+   opaque stable `client_request_id`.
 5. Submit `beatra.music.generate` exactly once for one instrumental track,
    record the task ID immediately, and poll that same task.
 6. Deliver every returned clip in order with its real duration, MIME type, size,
@@ -87,10 +91,29 @@ task: submit once, then follow that task to a terminal state.
 
 ## Decisions that require confirmation
 
-Confirm before submitting: the frozen prompt, the instrumental setting, the
-title, the model and any model options, and the current maximum charge. A
-changed prompt, title, model, option, reference track, or instrumental setting
-is new paid work with a new request ID.
+Confirm before submitting. Show one current production card and wait:
+
+1. Work — the instrumental bed in the user's words, a `beatra.music.generate`
+   call.
+2. Credits — the live price of the chosen model (`suno-6` by default) just
+   read from `beatra.models.list`, per slot and in total. Never a remembered
+   number.
+3. Count — one paid call for this track. A later revision is another slot.
+4. Identity — one new opaque `client_request_id`. A changed prompt, title,
+   model, option, reference track, or instrumental setting mints a new ID.
+5. If we stop here — the music card remains usable.
+6. If the balance is insufficient — relay the official message and its top-up
+   URL exactly. Translate the prose; keep the URL. Do not retry until the user
+   says they have topped up.
+
+Also freeze the prompt, the instrumental setting, the title, the model and any
+model options. A changed prompt, title, model, option, reference track, or
+instrumental setting is new paid work with a new request ID.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
 
 When the user supplies a reference recording, upload it once through the bundled
 client, state what should carry over and what should change, and keep that as

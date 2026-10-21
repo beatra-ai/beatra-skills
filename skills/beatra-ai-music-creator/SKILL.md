@@ -1,6 +1,6 @@
 ---
 name: "beatra-ai-music-creator"
-description: "Create original songs, AI-generated music, lyrics-to-song tracks, instrumentals, background music, video soundtracks, jingles, multilingual songs, and reference-led arrangements from a clear creative brief. This AI music generator and AI song maker develops genre, mood, structure, singable lyrics, vocal direction, and production style, then creates reviewable audio with Suno 5.5 or another model you explicitly choose. Use it as an AI music studio for songwriting, an AI lyrics writer, text-to-music creation, BGM generation, brand music, podcast themes, game music, bilingual songs, or focused new versions of reference audio. Review vocals, pronunciation, duration, loop points, and arrangement fit after generation, then refine the strongest result."
+description: "Create original songs, AI-generated music, lyrics-to-song tracks, instrumentals, background music, video soundtracks, jingles, multilingual songs, and reference-led arrangements from a clear creative brief. This AI music generator and AI song maker develops genre, mood, structure, singable lyrics, vocal direction, and production style, then creates reviewable audio with Suno 6 or another model you explicitly choose. Use it as an AI music studio for songwriting, an AI lyrics writer, text-to-music creation, BGM generation, brand music, podcast themes, game music, bilingual songs, or focused new versions of reference audio. Review vocals, pronunciation, duration, loop points, and arrangement fit after generation, then refine the strongest result."
 ---
 
 # AI Music Creator
@@ -67,11 +67,24 @@ tempo, instrumentation, harmony, vocal texture, phrasing, and mix attributes.
 
 ## Choose and validate the model
 
-Set `model: "suno-5.5"` for this package's ordinary generation. Never omit the
-model and never silently use `auto`. Call `beatra.models.list` with capability
-`text_to_music` or `reference_audio_to_music` when the user requests another
-model, asks about current availability or price, or needs a model-specific
-capability. Do not silently substitute a model.
+Set `model: "suno-6"` for this package's ordinary generation. Never omit the
+model and never silently use `auto`. Before every production card, call
+`beatra.models.list` with a copyable payload:
+
+```json
+{"capability": "text_to_music"}
+```
+
+When the route uses a reference recording, also call it with:
+
+```json
+{"capability": "reference_audio_to_music"}
+```
+
+Read the `pricing` of the chosen model's entry (`suno-6` unless the user named
+another eligible model) and show those credits on the card per slot and in
+total. Never a remembered number. Call it again when the user requests another
+model or needs a model-specific capability. Do not silently substitute a model.
 
 Use only controls returned or documented for the selected model family. Suno
 and MiniMax options are not interchangeable. Validate the exact payload using
@@ -99,10 +112,24 @@ instrumentation, and arrangement against that direction.
 
 ## Confirm the paid boundary once
 
-A direct, well-specified request to generate authorizes that exact request once.
-Approval of the complete production card also authorizes it once. Do not add a
+Even a direct, well-specified request gets the production card below first.
+Approval of the complete card authorizes that exact request once; do not add a
 second confirmation. An estimate, comparison, lyric review, direction choice,
 or “do not generate yet” is not approval.
+
+Show one current production card and wait:
+
+1. Work — what will be made in the user's words, a `beatra.music.generate` call.
+2. Credits — the live price of the chosen model (`suno-6` by default) just
+   read from `beatra.models.list`, per slot and in total. Never a remembered
+   number.
+3. Count — one paid call for this generation. A later revision is another slot.
+4. Identity — one new opaque `client_request_id`. Any changed prompt, lyrics,
+   file, model, or control mints a new ID.
+5. If we stop here — the production card and lyrics remain usable.
+6. If the balance is insufficient — relay the official message and its top-up
+   URL exactly. Translate the prose; keep the URL. Do not retry until the user
+   says they have topped up.
 
 Before a billable call, make model, title, lyrics or instrumental status,
 reference, important controls, and the one-generation scope visible. Create a
@@ -147,6 +174,11 @@ audio. Otherwise label listening review incomplete while still delivering the
 factual artifacts. Preserve successful qualities and turn the largest gap into
 one focused, newly approved generation. Follow
 [review and iteration](references/review-and-iteration.md).
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
 
 ## References by task
 

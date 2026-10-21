@@ -40,7 +40,8 @@ When the result is visible, review in this order:
 1. **Visual impact** — does the poster stop the scroll and read clearly at a
    glance? Imagine the poster at 300px wide in a feed.
 2. **Text readability** — is there a clean, high-contrast text-safe zone (top
-   band, center, or lower third) for the headline and details?
+   band, center, or lower third) left empty for the headline and details, with
+   no letters, words, numbers, logos, or watermarks in the image?
 3. **Brand consistency** — do the colors and mood match the category and brand
    direction supplied in the brief?
 4. **Canvas fit** — is the ratio correct for the destination (A-series print,
@@ -52,6 +53,13 @@ When the result is visible, review in this order:
    flat lighting, no oversaturation that hurts headline readability.
 7. **Background quality** — is the background supportive? No distracting
    objects or busy patterns competing with the text-safe zone.
+
+When the host can see the result, inspect the whole poster and every reserved
+zone for stray, garbled or invented text, numbers, logos or watermarks before
+delivering; report what and where. Offer one focused `beatra.images.edit` with
+an `edit_regions` box over that area to repaint it plain — a new paid call with
+its own confirmation and a new `client_request_id`. When the host cannot see
+the image, say the reserved zones were not checked.
 
 If the host cannot view the artifact, state that visual verification was not
 possible and deliver the result links for the user to review.

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "YouTube Lesson Card Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-lesson-card-set",
@@ -34,7 +34,7 @@
       "title": "YouTube授業の要点カード：授業字幕から要点図を作る"
     },
     "zh": {
-      "description": "YouTube知识点卡片按课文讲解字幕做成4到8张要点图，每个要点一张，适合课程讲解和教学视频总结。",
+      "description": "YouTube知识点卡片借助 AI 按课文讲解字幕做成4到8张要点图，每个要点一张，适合字幕转要点图、课程讲解和教学视频总结。",
       "display_name": "YouTube知识点卡片",
       "summary": "按课文讲解字幕做成4到8张知识点图。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "youtube-lesson-card-set",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

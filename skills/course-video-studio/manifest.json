@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Course Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-video-studio",
@@ -39,7 +39,7 @@
       "title": "講座ビデオ・デジタル講師：講義トーキングヘッド"
     },
     "zh": {
-      "description": "课程视频工作室把写好的讲稿和一张授权讲师人像做成讲师出镜的课程视频和课程旁白。先把每节课的讲稿配成旁白，再用数字人讲师交付可直接发布的培训视频和网课视频。",
+      "description": "AI课程视频工作室把写好的讲稿和一张授权讲师人像，做成数字人口播课程的课程视频和课程旁白。先把每节课的讲稿配成旁白，再用数字人讲师录成讲师口播，交付可直接发布的培训视频、培训口播视频、网课视频和课件视频。",
       "display_name": "课程视频·数字人讲师",
       "summary": "用讲稿和一张授权讲师人像，做成每一讲的数字人口播课程视频。",
       "tags": [
@@ -66,5 +66,5 @@
   },
   "name": "course-video-studio",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

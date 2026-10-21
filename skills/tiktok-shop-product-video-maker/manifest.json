@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "TikTok Shop Product Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-shop-product-video-maker",
@@ -38,7 +38,7 @@
       "title": "TikTok Shop商品動画作成：英語・日本語向け販売動画"
     },
     "zh": {
-      "description": "使用 AI 将商品信息、产品图、卖点和英语或日语受众需求制作成 TikTok Shop 商品视频方案。生成开场钩子、可直接拍摄的脚本、镜头节拍、字幕提示、本地化标题、话题标签和适合商品页事实的行动引导，适用于跨境短视频、商品展示、演示、开箱、测评和达人带货视频。",
+      "description": "使用 AI 将商品信息、产品图、卖点和英语或日语受众需求制作成 TikTok Shop 商品视频方案。生成开场钩子、可直接拍摄的脚本、镜头节拍、字幕提示、本地化标题、话题标签和适合商品页事实的行动引导，适用于跨境电商视频、跨境短视频、商品展示、演示、开箱、测评和达人带货视频。",
       "display_name": "TikTok Shop商品视频制作",
       "summary": "把商品信息、产品图和英日受众需求整理成 TikTok Shop 商品视频脚本、镜头节拍、字幕与本地化发布文案。",
       "tags": [
@@ -64,5 +64,5 @@
   },
   "name": "tiktok-shop-product-video-maker",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

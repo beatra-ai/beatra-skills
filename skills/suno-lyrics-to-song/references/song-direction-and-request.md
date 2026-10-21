@@ -23,7 +23,7 @@ Every request in this Skill uses:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "1..1000 characters of style, mood, arrangement, and vocal direction",
   "lyrics": "confirmed non-empty lyrics, at most 5000 characters",
   "instrumental": false,
@@ -49,8 +49,10 @@ ensembles, alternating roles, or any request that cannot be represented by one l
 ## Final production card
 
 Before generating audio, show the complete lyrics, title, and readable music
-direction—not raw implementation details. Include `suno-5.5`, relevant options, and the
-fact that approval starts one paid generation. Freeze the exact title, lyrics,
+direction—not raw implementation details. Include `suno-6`, relevant options, the
+live `suno-6` credits just read from `beatra.models.list`, one opaque
+`client_request_id`, what remains if they stop (the structured lyrics), and that
+insufficient balance relays the official message. Freeze the exact title, lyrics,
 direction, model, and options after the user approves this complete card, then create
 the request identity and submit. Do not require a second approval or an extra generate
 command.

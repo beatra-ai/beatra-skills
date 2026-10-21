@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Douyin Hot Search Hook Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-hot-to-hook-clip",
@@ -34,7 +34,7 @@
       "title": "抖音急上昇トーク：短いフックを写真ごとに渡す"
     },
     "zh": {
-      "description": "抖音热搜口播按公开热搜和人像或商品照片，做成一条可说的钩子口播。这个热搜转钩子和热搜口播工作室把抖音热搜写成口播稿，再做成2到15秒的钩子口播，也适合热搜口播视频。",
+      "description": "抖音热搜口播借助 AI 按公开热搜和人像或商品照片，做成一条可说的钩子口播。这个热搜转钩子和热搜口播工作室把抖音热搜写成口播稿，再做成2到15秒的钩子口播，也适合热搜口播视频。",
       "display_name": "抖音热搜口播·钩子口播",
       "summary": "按公开热搜和人像或商品照片，做成钩子口播，每张照片一条。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "douyin-hot-to-hook-clip",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

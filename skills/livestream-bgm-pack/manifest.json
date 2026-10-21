@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card lists the live credits per track and in total. You can also ask how many credits remain or what was charged.",
   "display_name": "Livestream BGM Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/livestream-bgm-pack",
@@ -39,7 +39,7 @@
       "title": "配信BGMパック：ライブと店舗用オリジナル音楽"
     },
     "zh": {
-      "description": "为直播间、带货场次或门店一次做出10到20首原创循环纯音乐。这个直播间BGM歌单和门店循环音乐生成工具会按候场、闲聊、讲品、高潮和夜场写出原创BGM，音乐归你所有、可直接商用，交付带标签的歌单，开播前先试听。适用于直播间背景音乐、直播带货BGM、门店循环音乐、候场音乐、直播BGM、直播配乐和直播间音乐。",
+      "description": "用 AI 为直播间、带货场次或门店一次做出10到20首原创循环纯音乐。这个直播间BGM歌单和门店循环音乐生成工具会按候场、闲聊、讲品、高潮和夜场写出原创BGM，音乐归你所有、可直接商用，交付带标签的歌单，开播前先试听。适用于直播间背景音乐、直播带货BGM、门店循环音乐、候场音乐、直播BGM、直播配乐和直播间音乐。",
       "display_name": "直播间BGM歌单",
       "summary": "为直播间、带货场次或门店一次做出10到20首原创循环纯音乐，先听再开播。",
       "tags": [
@@ -65,5 +65,5 @@
   },
   "name": "livestream-bgm-pack",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.4"
 }

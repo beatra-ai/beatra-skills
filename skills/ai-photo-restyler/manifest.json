@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "AI Photo Restyler",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-photo-restyler",
@@ -46,7 +46,7 @@
       "title": "AI写真イラスト化：写真をアニメ風・漫画風・カートゥーンに変換"
     },
     "zh": {
-      "description": "把一张照片转成漫画风、动漫风、卡通、水彩、手绘、黏土或 3D 角色画风，同时保住人物、宠物或商品的辨识度。这个 AI 照片转绘、照片转漫画工具从你自己的图出发，加一张画风参考图做风格迁移，配色、线条和上色方式都照着走，让自拍、人像、宠物照、商品图或旅行照变成二次元插画风作品，用在社交头像、朋友圈配图、表情包素材、海报和周边上，第一张满意之后整批照片都按同一画风出。",
+      "description": "把一张照片转成漫画风、动漫风、卡通化、水彩、手绘、黏土或 3D 角色画风，同时保住人物、宠物或商品的辨识度。这个 AI 照片转绘、照片转漫画工具从你自己的图出发，加一张画风参考图做风格迁移，配色、线条和上色方式都照着走，让自拍、人像、宠物照、商品图或旅行照变成二次元插画风作品，用在社交头像、朋友圈配图、表情包素材、海报和周边上，第一张满意之后整批照片都按同一画风出。",
       "display_name": "照片转绘",
       "summary": "把照片转成漫画风、动漫风、卡通、水彩、黏土或 3D 角色画风，保住人物、宠物和商品的辨识度，同一套画风还能批量复用。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "ai-photo-restyler",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

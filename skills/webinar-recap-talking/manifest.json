@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Webinar Recap Talking Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/webinar-recap-talking",
@@ -34,7 +34,7 @@
       "title": "ウェビナー要点トーク：静止画ごとに1本"
     },
     "zh": {
-      "description": "客户会议要点口播按会后对外稿和授权照片，为每张图做成一条要点口播。客户会议回放要点和客户培训口播按要点顺序逐条交付，每条只对应一张照片。",
+      "description": "客户会议要点口播借助 AI 按会后对外稿和授权照片，把会后稿转口播，为每张图做成一条要点口播。客户会议回放要点和客户培训口播按要点顺序逐条交付，每条只对应一张照片。",
       "display_name": "客户会议要点口播",
       "summary": "按会后对外稿和授权静帧，为每张图做成一条客户会议要点口播。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "webinar-recap-talking",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

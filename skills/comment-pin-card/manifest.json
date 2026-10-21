@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Pin Comment Cards",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/comment-pin-card",
@@ -34,7 +34,7 @@
       "title": "ピン留めコメントカード：原文のスクリーンショット"
     },
     "zh": {
-      "description": "置顶评论按卖家选定的原话，为每条可置顶评论做成一张置顶评论卡。这个置顶评论卡工作室把成片评论做成评论截图和评论卡片，只排卖家选定的置顶原话。",
+      "description": "置顶评论借助 AI 按卖家选定的原话，为每条可置顶评论做成一张置顶评论卡。这个置顶评论卡工作室把成片评论做成评论截图和评论卡片，只排卖家选定的置顶原话。",
       "display_name": "置顶评论卡",
       "summary": "把成片评论里卖家选定的原话，做成每条一张置顶评论卡。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "comment-pin-card",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "WeChat Moments Poster Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-moments-poster-maker",
@@ -38,7 +38,7 @@
       "title": "WeChatモーメンツポスターメーカー：SNS告知ビジュアル"
     },
     "zh": {
-      "description": "使用 AI 将活动主题、促销信息、产品图、品牌素材或参考图制作成朋友圈海报、微信朋友圈海报、朋友圈宣传图和朋友圈配图。打造适合朋友圈分享的方图或竖版营销海报，突出活动、产品、优惠或品牌信息，覆盖新品发布、活动邀请、促销、招聘、节日问候、社群通知和客户运营；已选海报还可继续精修并保持品牌视觉方向。",
+      "description": "使用 AI 将活动主题、促销信息、产品图、品牌素材或参考图制作成朋友圈海报、微信朋友圈海报、朋友圈宣传图、朋友圈配图和朋友圈广告图。打造适合朋友圈分享的方图或竖版营销海报，突出活动、产品、优惠或品牌信息，覆盖新品发布、活动邀请、促销、招聘、节日问候、社群通知和客户运营；已选海报还可继续精修并保持品牌视觉方向。",
       "display_name": "朋友圈海报制作器",
       "summary": "把活动主题、促销信息、产品图、品牌素材或参考图，制作成主体清晰、适合朋友圈分享并预留文案区域的营销海报。",
       "tags": [
@@ -64,5 +64,5 @@
   },
   "name": "wechat-moments-poster-maker",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

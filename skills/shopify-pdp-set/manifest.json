@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Shopify Product-Page Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/shopify-pdp-set",
@@ -34,7 +34,7 @@
       "title": "Shopify商品ページセット：テーマごとに1枚の商品画像"
     },
     "zh": {
-      "description": "Shopify详情套图按卖家提供的商品事实，给同一SKU做成一组商品详情图。详情图、商品图和Shopify套图都按同一份主题清单出，每个主题一张。",
+      "description": "Shopify详情套图借助 AI 按卖家提供的商品事实，给同一SKU做成一组商品详情图。详情图、商品图和Shopify套图都按同一份主题清单出，每个主题一张，可以直接放在 Shopify商品页上当详情页图片。",
       "display_name": "Shopify详情套图·上架静帧",
       "summary": "按卖家提供的商品事实，做成Shopify详情套图，同一SKU一组上架静帧。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "shopify-pdp-set",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

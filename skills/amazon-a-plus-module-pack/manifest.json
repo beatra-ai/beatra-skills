@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Amazon A+ Module Stills",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/amazon-a-plus-module-pack",
@@ -34,7 +34,7 @@
       "title": "A+ページ・アマゾンモジュール：訴求ポイントごとに1枚"
     },
     "zh": {
-      "description": "A+页面按卖家提供的卖点，为每个卖点做成一张亚马逊模块静帧。这个亚马逊A+工作室把卖家提供的卖点排成A+模块、A+静帧、卖点模块和品牌故事A+图。",
+      "description": "A+页面借助 AI 按卖家提供的卖点，为每个卖点做成一张亚马逊模块静帧。这个亚马逊A+工作室把卖家提供的卖点排成A+模块、A+静帧、卖点模块和品牌故事A+图。",
       "display_name": "A+页面·亚马逊模块",
       "summary": "按卖家提供的卖点，为每个卖点做成一张亚马逊模块静帧。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "amazon-a-plus-module-pack",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

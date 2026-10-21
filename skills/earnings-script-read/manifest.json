@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Earnings Script Reads",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/earnings-script-read",
@@ -34,7 +34,7 @@
       "title": "決算読み上げ：原稿の段落ごとに短い音声を渡す"
     },
     "zh": {
-      "description": "财报口播按公司已写好的财报稿，做成每段一条朗读。这个财报稿朗读和财报语音工作室把业绩说明会口播写成可说的段落，再录成8到20条财报朗读音频，也适合投资者更新语音。",
+      "description": "财报口播借助 AI 按公司已写好的财报稿，做成每段一条朗读。这个财报稿朗读和财报语音工作室把业绩说明会口播写成可说的段落，再录成8到20条财报朗读音频，也适合投资者更新语音。",
       "display_name": "财报口播·财报稿朗读",
       "summary": "按公司已写好的财报稿，做成每段一条朗读口播。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "earnings-script-read",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

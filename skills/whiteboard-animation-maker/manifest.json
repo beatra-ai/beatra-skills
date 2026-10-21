@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Whiteboard Animation Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/whiteboard-animation-maker",
@@ -44,7 +44,7 @@
       "title": "ホワイトボードアニメ作成：手描き解説動画メーカー"
     },
     "zh": {
-      "description": "把一个概念、一份写好的口播稿，或一条要对标的社媒视频，变成 1080×1920 竖屏白板手绘讲解片（白底黑线）。这个白板动画制作工具支持汉字与英文单词逐笔手绘、流程卡片等多种画面，支持口播配音与声音克隆，还能先读取小红书、抖音、TikTok、YouTube、Instagram 或 X 上的对标视频再拆解结构。适用于白板动画、手绘讲解视频、手绘视频、概念科普、什么是 X、口播配音等需求。",
+      "description": "用 AI 把一个概念、一份写好的口播稿，或一条要对标的社媒视频，变成 1080×1920 竖屏白板手绘讲解片（白底黑线）。这个白板动画制作工具支持汉字与英文单词逐笔手绘、流程卡片等多种画面，支持口播配音与声音克隆，还能先读取小红书、抖音、TikTok、YouTube、Instagram 或 X 上的对标视频再拆解结构。它也是一款白板动画软件：先看脚本和分镜，满意后一键成片。适用于白板动画、手绘讲解视频、手绘视频、概念科普、什么是 X、口播配音等需求。",
       "display_name": "白板动画制作",
       "summary": "给一个概念、一份口播稿或一条对标视频，产出竖屏白板手绘讲解片：汉字与英文逐笔手绘、卡片关系图、口播配音或克隆配音，本地成片。",
       "tags": [
@@ -74,5 +74,5 @@
   },
   "name": "whiteboard-animation-maker",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

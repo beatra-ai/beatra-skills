@@ -7,7 +7,7 @@ new stable `client_request_id` for each newly approved generation.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Contemporary English alt-pop single, intimate conversational verse, rising pre-chorus, wide vowel-led hook, warm female lead, pulsing synth bass, crisp restrained drums, bright guitar accents, final chorus gains harmony, polished modern mix",
   "lyrics": "[Verse 1]\nStreetlights draw a map across the glass\nI trace the road but let the moment pass\n\n[Pre-Chorus]\nIf I say it now, the night might change\n\n[Chorus]\nMeet me where the city turns to gold\n...",
   "instrumental": false,
@@ -32,7 +32,7 @@ concise chorus hook.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Elegant skincare film BGM, modern ambient pop, calm-to-luminous arc, 92 BPM feel, felt piano, airy pads and muted electronic pulse, space for narration, gentle lift at midpoint, clean resolved ending, polished wide mix",
   "instrumental": true,
   "title": "Quiet Radiance",
@@ -60,7 +60,7 @@ personal story and English for a shared chorus phrase:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Spanish-English contemporary Latin pop, warm expressive lead, Spanish narrative verses, bilingual pre-chorus, concise English-Spanish shared hook, acoustic guitar and modern percussion, open chorus, natural code-switching, polished radio mix",
   "lyrics": "[Verse 1 - Spanish]\nGuardé tu risa dentro del abrigo\npara cruzar la noche sin testigos\n\n[Pre-Chorus - Spanish to English]\nSi vuelves a mirar\nI'll meet you where we are\n\n[Chorus - Bilingual]\nStay, quédate un momento\nstay, que el mundo va más lento\n...",
   "instrumental": false,
@@ -87,7 +87,7 @@ Use `vocal_gender` only when a single male or female lead matters:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Japanese city-pop night drive, natural Japanese lyrics, agile warm male lead, syncopated bass, electric piano, clean guitar, compact verses, luminous melodic chorus, sophisticated but accessible production",
   "lyrics": "[Verse 1 - Male, close]\n交差点に雨がほどけて\n言えないままの朝を待つ\n\n[Chorus - Male, open]\n遠回りでも　光のほうへ\n...",
   "instrumental": false,
@@ -114,7 +114,7 @@ Do not set `vocal_gender`; one value cannot encode two leads.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Conversational pop duet, distinct warm Voice A and clear Voice B, opposed viewpoints in alternating verses, call-and-response pre-chorus, shared soaring chorus with close harmony, cinematic piano-pop arrangement, balanced vocal presence",
   "lyrics": "[Verse 1 - Voice A]\nI kept the ticket by the door\n...\n\n[Verse 2 - Voice B]\nYou kept the light on one night more\n...\n\n[Pre-Chorus - Alternating lines]\n[Voice A] I thought the road was closing\n[Voice B] I saw another way\n\n[Chorus - Duet, harmony]\nMeet me in the middle\n...",
   "instrumental": false,
@@ -142,7 +142,7 @@ grant, uploads the file, and returns an artifact:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Transform the reference into an upbeat synth-pop arrangement while retaining its broad melodic contour, brighter chorus, modern electronic drums, remove the acoustic folk texture, confident contemporary lead",
   "lyrics": "[Verse 1]\n...\n\n[Chorus]\n...",
   "instrumental": false,
@@ -193,7 +193,7 @@ Do not copy Suno controls into a MiniMax or newly discovered model request.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Contemporary Mandarin dream-pop ballad, warm clear female lead, intimate verse, rising pre-chorus, wide memorable chorus, piano and shimmering synths, restrained drums, emotional but not melodramatic, polished radio mix",
   "lyrics": "[Verse 1]\n雨停在玻璃的边缘\n...\n\n[Pre-Chorus]\n...\n\n[Chorus]\n...",
   "instrumental": false,
@@ -221,7 +221,7 @@ Hong Kong Cantonese to Traditional Chinese unless the user asks otherwise.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Modern Cantonese pop ballad, colloquial Cantonese lyrics, expressive male lead, close restrained verses, live bass and piano, subtle strings, chorus opens emotionally without shouting, clear diction, contemporary Hong Kong pop production",
   "lyrics": "[Verse 1 - Male, intimate]\n...\n\n[Pre-Chorus]\n...\n\n[Chorus - Male, open]\n...",
   "instrumental": false,

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Office Floor Tour",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/office-floor-tour",
@@ -32,7 +32,7 @@
       "title": "オフィスタワー案内：フロア写真を短いクリップで渡す"
     },
     "zh": {
-      "description": "办公楼讲房用已经拍好的楼层照，做成每张照片一条短片。楼层一镜按原照做成办公楼层视频，可作写字楼讲房素材或楼层短片，每条都是一张照片的办公楼一镜。",
+      "description": "办公楼讲房借助 AI 把已经拍好的楼层照做成每张照片一条短片。楼层一镜按原照做成办公楼层视频，可作写字楼讲房素材或楼层短片，每条都是一张照片的办公楼一镜。",
       "display_name": "办公楼讲房·楼层一镜",
       "summary": "按已经拍好的楼层照，做成每张照片一条短片。",
       "tags": [
@@ -55,5 +55,5 @@
   },
   "name": "office-floor-tour",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

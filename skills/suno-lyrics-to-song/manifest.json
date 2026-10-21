@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card shows the live credit price before a song is made.",
   "display_name": "Suno Lyrics to Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
@@ -74,5 +74,5 @@
   },
   "name": "suno-lyrics-to-song",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

@@ -23,7 +23,7 @@ hooks). Write one positive instrumental prompt per slot.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Indie game explore bed, warm acoustic fantasy, loop-friendly, about 90 seconds, no vocals, no sudden hits",
   "instrumental": true,
   "title": "Explore 01",

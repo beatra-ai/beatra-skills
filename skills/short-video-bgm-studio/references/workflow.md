@@ -24,7 +24,7 @@ Keep lyrics absent.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Calm skincare product BGM, modern ambient pop, calm-to-luminous arc, 92 BPM feel, felt piano, airy pads and a muted electronic pulse, space for narration, gentle lift at the midpoint, clean resolved ending, polished wide mix",
   "instrumental": true,
   "title": "Quiet Radiance",
@@ -32,7 +32,7 @@ Keep lyrics absent.
 }
 ```
 
-Set `model: "suno-5.5"` for ordinary generation. Never omit the model and never
+Set `model: "suno-6"` for ordinary generation. Never omit the model and never
 silently use `auto`; pass a different model only when the user names one, and
 never substitute one silently. Model-specific options are accepted only when the
 returned interface card documents them; never move an option between model
@@ -41,7 +41,7 @@ advertises it:
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Upbeat unboxing clip BGM, bright indie electronic, steady forward pulse, plucked synth and clean percussion, quick lift at the reveal, tidy ending",
   "instrumental": true,
   "title": "Open It Up",
@@ -57,10 +57,12 @@ advertises it:
 }
 ```
 
-Call `beatra.models.list` with the text-to-music capability — or with the
-reference-audio-to-music capability when a reference recording is supplied —
-before quoting compatibility, controls, price, or an input limit. Music
-generation is one billable asynchronous request.
+Call `beatra.models.list` with `{"capability":"text_to_music"}` — or with
+`{"capability":"reference_audio_to_music"}` when a reference recording is
+supplied — before every production card. Read the `pricing` of the chosen
+model's entry (`suno-6` unless the user named another eligible model) and
+show those credits on the card per slot and in total. Never a remembered
+number. Music generation is one billable asynchronous request.
 
 ## Length, loops, and narration space
 

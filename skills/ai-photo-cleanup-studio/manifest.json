@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Ai Photo Cleanup Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-photo-cleanup-studio",
@@ -46,7 +46,7 @@
       "title": "AI 写り込み消し：不要な人物・モノの除去"
     },
     "zh": {
-      "description": "指出要去掉的东西，还你一张没有它的照片。这个 AI 图片消除工具能去掉旅游照背后的路人、人像边上入镜的陌生人、街景里的垃圾桶和路障、产品图里多出来的手和反光，以及房间里的杂物，空出来的地方按画面周围补上，接得住原来的地面、墙面和天空。修哪块你说了算，你在意的人和主体不会被一起去掉；整个修图过程就用手上这张照片，做完先看再发。",
+      "description": "指出要去掉的东西，用图片编辑还你一张没有它的照片。这个 AI 图片消除工具能去掉旅游照背后的路人、人像边上入镜的陌生人、街景里的垃圾桶和路障、产品图里多出来的手和反光，以及房间里的杂物，空出来的地方按画面周围补上，接得住原来的地面、墙面和天空。修哪块你说了算，你在意的人和主体不会被一起去掉；整个修图过程就用手上这张照片，做完先看再发。",
       "display_name": "AI去路人·照片消除工作室",
       "summary": "指出要去掉的东西，还你一张没有它的照片，空出来的地方按周围补好。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "ai-photo-cleanup-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

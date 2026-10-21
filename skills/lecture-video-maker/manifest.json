@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Lecture Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/lecture-video-maker",
@@ -35,7 +35,7 @@
       "title": "スライド講義動画メーカー：スライドから講義動画へ"
     },
     "zh": {
-      "description": "数字人讲课把老师的PPT课件和讲稿做成整门课的讲课视频和课程视频：每页课件配上老师的声音和字幕，可以克隆老师自己的声音，也可以让数字人讲师在开场和结尾出镜。PPT转视频按知识点一讲一条，整门课批量做完，适合网课、慕课、教学视频、培训视频和录播课。",
+      "description": "数字人讲课借助 AI 把老师的PPT课件和讲稿做成整门课的讲课视频和课程视频：每页课件配上老师的声音和字幕，可以克隆老师自己的声音，也可以让数字人讲师在开场和结尾出镜。PPT转视频按知识点一讲一条，整门课批量做完，适合网课、慕课、教学视频、培训视频和录播课。",
       "display_name": "数字人讲课",
       "summary": "把课件和讲稿做成整门课的讲课视频：课件画面、老师自己的声音和字幕，需要时请数字人老师在开场和结尾出镜。",
       "tags": [
@@ -58,5 +58,5 @@
   },
   "name": "lecture-video-maker",
   "schema_version": 1,
-  "version": "0.1.7"
+  "version": "0.1.8"
 }

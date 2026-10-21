@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Bilibili Video Storyboard",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-video-storyboard",
@@ -42,7 +42,7 @@
       "title": "bilibili動画絵コンテ：ショットリストとキーフレーム"
     },
     "zh": {
-      "description": "使用 AI 将 B站选题、标题、视频大纲或完整脚本制作成 B站视频分镜、B站分镜头脚本、B站镜头表和 B站视频脚本。围绕开场钩子、章节推进、讲解与演示、口播、转场、B-roll 和收尾互动，规划镜头、景别、构图、机位、运镜、时长与声音提示，并为知识讲解、评测、教程、Vlog、游戏、动画和创意视频制作一至四张关键分镜图。",
+      "description": "这款 AI分镜生成器把 B站选题、标题、视频大纲或完整脚本制作成 B站视频分镜、B站分镜头脚本、B站镜头表和 B站视频脚本。围绕开场钩子、章节推进、讲解与演示、口播、转场、B-roll 和收尾互动，规划镜头、景别、构图、机位、运镜、时长与声音提示，并为知识讲解、评测、教程、Vlog、游戏、动画和创意视频制作一至四张关键分镜图。",
       "display_name": "视频脚本·B站视频分镜与镜头表",
       "summary": "将 B 站选题、标题、大纲或脚本，拆成按章节推进的分镜头脚本、镜头表和一至四张关键分镜图。",
       "tags": [
@@ -70,5 +70,5 @@
   },
   "name": "bilibili-video-storyboard",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

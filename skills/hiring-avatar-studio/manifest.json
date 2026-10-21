@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Hiring Avatar Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hiring-avatar-studio",
@@ -37,7 +37,7 @@
       "title": "採用アバタースタジオ：空きポジション1本の口演"
     },
     "zh": {
-      "description": "用一张人事或创始人人像和岗位说明，做成每个空缺岗位一条招聘视频。这个岗位口播和招聘数字人工作室会把岗位职责、要求和发展讲清楚，适合招聘口播、岗位视频和招聘讲解，新岗位开口就能再做一条。",
+      "description": "借助 AI 把一张人事或创始人人像和岗位说明做成每个空缺岗位一条招聘视频。这个岗位口播和招聘数字人工作室会把岗位职责、要求和发展讲清楚，适合招聘口播、岗位视频和招聘讲解，新岗位开口就能再做一条。",
       "display_name": "招聘视频·岗位口播",
       "summary": "用一张人事或创始人人像和岗位说明，做成每个空缺岗位一条口播视频。",
       "tags": [
@@ -60,5 +60,5 @@
   },
   "name": "hiring-avatar-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Stitch Prompt Card",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/stitch-prompt-card",
@@ -32,7 +32,7 @@
       "title": "引用返信：返事1つにつき1枚"
     },
     "zh": {
-      "description": "引用回复是按已经写好的回复句，把被引用成片做成一组引用提示卡。引用回复卡和引用提示卡都按同一套原话出，原话取自被引用成片和评论。",
+      "description": "引用回复是借助 AI 按已经写好的回复句，把被引用成片做成一组引用提示卡。引用回复卡和引用提示卡都按同一套原话出，原话取自被引用成片和评论。",
       "display_name": "引用回复·引用提示卡",
       "summary": "按已经写好的回复句，把被引用成片做成一组引用提示卡。",
       "tags": [
@@ -53,5 +53,5 @@
   },
   "name": "stitch-prompt-card",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

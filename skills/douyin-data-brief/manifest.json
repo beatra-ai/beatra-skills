@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Douyin Data Brief",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-data-brief",
@@ -30,7 +30,7 @@
       "title": "抖音データ：リンクまたはキーワードから一枚のブリーフへ"
     },
     "zh": {
-      "description": "把一条抖音链接或一个关键词做成一页抖音简报。给公开作品链接、搜索词，或你已经复制的文案、播放数和评论，就能拿到播放、点赞、评论、开头钩子、一句观众原话和跟或不跟。这个抖音数据和抖音数据分析工作流会读一条抖音作品、它的评论、作者，或热搜榜，也可以直接用你粘贴的内容，写成带出处的当天抖音作品数据简报，必要时对照抖音热搜。适合抖音数据、抖音数据分析、抖音简报、抖音作品数据和抖音热搜。",
+      "description": "用 AI 把一条抖音链接或一个关键词做成一页抖音简报。给公开作品链接、搜索词，或你已经复制的文案、播放数和评论，就能拿到播放、点赞、评论、开头钩子、一句观众原话和跟或不跟。这个抖音数据和抖音数据分析工作流会读一条抖音作品、它的评论、作者，或热搜榜，也可以直接用你粘贴的内容，写成带出处的当天抖音作品数据简报，必要时对照抖音热搜。适合抖音数据、抖音数据分析、抖音简报、抖音作品数据和抖音热搜。",
       "display_name": "抖音数据分析",
       "summary": "给抖音链接、关键词，或已经复制的数据，拿到带出处的一页简报。",
       "tags": [
@@ -52,5 +52,5 @@
   },
   "name": "douyin-data-brief",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

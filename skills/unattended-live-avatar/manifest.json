@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Unattended Live Avatar",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/unattended-live-avatar",
@@ -36,7 +36,7 @@
       "title": "無人配信アバター：夜勤トーキングヘッド"
     },
     "zh": {
-      "description": "用一张店员或主播人像和欢迎、讲品、问答、收播短稿，做成店铺可循环播放的无人直播口播片段。这个夜班数字人和无人直播数字人工作室会先备好声音，再按欢迎、讲品、问答、收播做成循环口播，适合夜班值守、无人值守直播间和店铺循环开播，也就是数字人直播、直播间数字人和可循环的夜班口播成片。",
+      "description": "用 AI 把一张店员或主播人像和欢迎、讲品、问答、收播短稿，做成店铺可循环播放的无人直播口播片段。这个夜班数字人和无人直播数字人工作室会先备好声音，再按欢迎、讲品、问答、收播做成循环口播，适合夜班值守、无人值守直播间和店铺循环开播，也就是数字人直播、直播间数字人和可循环的夜班口播成片。",
       "display_name": "无人直播·夜班数字人",
       "summary": "用一张店员或主播人像和欢迎、讲品、问答、收播短稿，做成店铺可循环播放的口播片段。",
       "tags": [
@@ -59,5 +59,5 @@
   },
   "name": "unattended-live-avatar",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

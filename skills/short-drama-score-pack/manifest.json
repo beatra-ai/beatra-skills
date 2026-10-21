@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card lists the live credits per track and in total. You can also ask how many credits remain or what was charged.",
   "display_name": "Short Drama Score Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-score-pack",
@@ -37,7 +37,7 @@
       "title": "短編ドラマBGMパック：縦型ドラマ向けオリジナルスコア"
     },
     "zh": {
-      "description": "为竖屏短剧一次做出8到15首原创短剧配乐。这个短剧BGM和短剧配乐工作室会按紧张、恋爱、喜感和虐心写出可循环的情绪床，音乐归你所有、可直接商用，交付带标签的短剧配乐，剪辑前先试听。适用于竖屏短剧配乐、短剧原声、恋爱底乐、紧张底乐和原创短剧音乐。",
+      "description": "借助 AI 为竖屏短剧一次做出8到15首原创短剧配乐。这个短剧BGM和短剧配乐工作室会按紧张、恋爱、喜感和虐心写出可循环的情绪床，音乐归你所有、可直接商用，交付带标签的短剧配乐，剪辑前先试听。适用于竖屏短剧配乐、短剧原声、恋爱底乐、紧张底乐和原创短剧音乐。",
       "display_name": "短剧配乐·情绪床",
       "summary": "为竖屏短剧一次做出8到15首原创短剧配乐，剪辑前先试听。",
       "tags": [
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-score-pack",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.3"
 }

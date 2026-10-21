@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "AI Character Design Sheet & Consistency Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ip-character-consistency-studio",
@@ -42,7 +42,7 @@
       "title": "AIキャラクター一貫性スタジオ：設定画・立ち絵・シーン素材"
     },
     "zh": {
-      "description": "根据角色设定和一至四张有序参考图，制作可持续复用的 AI IP 角色形象包。通过角色设定图、角色参考图、头像、半身、全身、表情、姿势和内容场景，整理角色外貌、服装、配色与标志元素，适合漫画、绘本、游戏概念、短视频、品牌吉祥物和内容系列持续出图。",
+      "description": "这个 AI角色生成工具根据角色设定和一至四张有序参考图，进行 IP角色设计，制作可持续复用的 AI IP 角色形象包与角色设定集。通过角色设定图、角色立绘、角色参考图、头像、半身、全身、表情、姿势和内容场景，整理角色外貌、服装、配色与标志元素，适合漫画、绘本、游戏概念、短视频、品牌吉祥物、漫画角色生成和内容系列持续出图。",
       "display_name": "角色一致性形象包",
       "summary": "基于角色设定和一至四张有序参考图，建立可复用的 IP 角色视觉资料，制作头像、全身、表情、姿势与内容场景。",
       "tags": [
@@ -69,5 +69,5 @@
   },
   "name": "ip-character-consistency-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

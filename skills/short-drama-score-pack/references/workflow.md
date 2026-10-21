@@ -24,7 +24,7 @@ slot.
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Vertical short-drama tension bed, low strings, room for dialogue, about 45 seconds, no vocals, no sudden hits",
   "instrumental": true,
   "title": "Tension 01",

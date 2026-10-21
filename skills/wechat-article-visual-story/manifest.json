@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "WeChat Article Visual Story",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-article-visual-story",
@@ -46,7 +46,7 @@
       "title": "WeChat記事まるごと制作：本文も挿絵も一度に仕上げる"
     },
     "zh": {
-      "description": "文章和配图，一次做完。给出选题、要推的东西和写给谁——这个公众号图文工作流会给出为信息流写的候选标题、摘要一句话，以及一篇按人在手机上真实阅读方式组织的完整正文；然后把 2.35:1 封面和一整组内文配图渲染出来，整组从头到尾保持同一套视觉。适合公众号文章创作、公众号爆款图文与推文生产、品牌与产品软文、长图文种草、创始人与专家专栏、客户案例，以及任何「文案和配图必须一起出、不能来回交接」的长图文全案。",
+      "description": "用公众号内容创作的方式，把文章和配图一次做完。给出选题、要推的东西和写给谁——这个公众号图文工作流会借助 AI 给出为信息流写的候选标题、摘要一句话，以及一篇按人在手机上真实阅读方式组织的完整正文；然后把 2.35:1 封面和一整组内文配图渲染出来，整组从头到尾保持同一套视觉。适合公众号文章生成、公众号标题生成、公众号文章创作、公众号爆款图文与推文生产、品牌与产品软文、长图文种草、创始人与专家专栏、客户案例，以及任何「文案和配图必须一起出、不能来回交接」的长图文全案。",
       "display_name": "公众号图文全案",
       "summary": "给一个选题，拿回候选标题、摘要、按手机阅读节奏写好的正文，以及 2.35:1 封面和逐段对应的内文配图。",
       "tags": [
@@ -76,5 +76,5 @@
   },
   "name": "wechat-article-visual-story",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

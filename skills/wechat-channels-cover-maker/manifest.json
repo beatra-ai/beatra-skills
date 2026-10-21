@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "WeChat Channels Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/wechat-channels-cover-maker",
@@ -38,7 +38,7 @@
       "title": "WeChat動画アカウント用カバー作成：AIサムネイル"
     },
     "zh": {
-      "description": "使用 AI 将视频号选题、标题、脚本、关键帧、人物照、商品图或参考图制作成视频号封面、视频号视频封面、微信视频号封面和视频号缩略图。突出主体、封面钩子和标题安全区，适用于知识分享、个人IP、门店推广、商品讲解和品牌内容；也可将已选封面精修为统一的视频号账号风格。",
+      "description": "使用 AI 将视频号选题、标题、脚本、关键帧、人物照、商品图或参考图制作成视频号封面、视频号视频封面、微信视频号封面和视频号缩略图。突出主体，把封面钩子和标题安全区一起排好，做成视频号封面设计，适用于知识分享、个人IP、门店推广、商品讲解和品牌内容；也可将已选封面精修为统一的视频号账号风格。",
       "display_name": "微信视频号封面制作",
       "summary": "把视频号选题、标题、脚本、关键帧、人物照、商品图或参考图，制作成主体清晰并预留标题区域的微信视频号封面。",
       "tags": [
@@ -65,5 +65,5 @@
   },
   "name": "wechat-channels-cover-maker",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

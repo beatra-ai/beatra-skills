@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "douyin-hot-to-hook-clip"
 PACKAGE_DISPLAY_NAME = "Douyin Hot Search Hook Clips"
-PACKAGE_VERSION = "0.2.3"
+PACKAGE_VERSION = "0.2.4"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

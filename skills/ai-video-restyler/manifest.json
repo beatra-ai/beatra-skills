@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "Fixes the Chinese edition of the instructions: the missing example commands and the confirmation step before a paid video are restored. The English instructions are unchanged.",
   "display_name": "AI Video Restyler",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-restyler",
@@ -42,7 +42,7 @@
       "title": "AI動画スタイル変換：動画をアニメ化・別の画風に変換"
     },
     "zh": {
-      "description": "用一条短视频和一个目标画风，把实拍画面转绘成全新的视觉风格。这个 AI 视频转绘与风格转换工作流可以把真人视频变成动漫、插画、国漫、水墨、黏土、剪纸、赛博朋克等风格，同时保留人物、动作、构图和镜头意图，并在交付后检查风格一致性、人物特征、动作连贯性和原声音效果。适合真人视频转动漫、广告视频风格改版、国漫风格、时尚短片、音乐视觉和创作者风格实验，每次只做一个主要视觉变化并如实复盘。",
+      "description": "用一条短视频和一个目标画风，通过视频风格迁移把实拍画面转绘成全新的视觉风格。这个 AI 视频转绘与风格转换工作流可以把真人视频变成动漫、插画、国漫、水墨、黏土、剪纸、赛博朋克等风格，同时保留人物、动作、构图和镜头意图，并在交付后检查风格一致性、人物特征、动作连贯性和原声音效果。适合真人视频转动漫、广告视频风格改版、国漫风格、时尚短片、音乐视觉和创作者风格实验，每次只做一个主要视觉变化并如实复盘。",
       "display_name": "AI视频转绘与风格转换",
       "summary": "上传一条短视频，选择目标画风，把实拍视频转绘成动漫、国漫、水墨、黏土、赛博朋克等风格，同时保留人物、动作和镜头。",
       "tags": [
@@ -71,5 +71,5 @@
   },
   "name": "ai-video-restyler",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.5"
 }

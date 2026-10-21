@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Zhongcao Cover Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-cover-maker",
@@ -52,7 +52,7 @@
       "title": "Zhongcao カバーメーカー：AI 小紅書 カバー＆投稿画像ジェネレーター"
     },
     "zh": {
-      "description": "将一张照片、一个选题想法或已认可的草稿转化为高点击率的小红书封面和配图。这款 AI封面生成器制作竖版 3:4 小红书图文封面，搭配干净背景、突出焦点构图和预留文字区域，覆盖美妆、美食、穿搭、旅行和知识科普内容。从一张实拍照片生成高点击封面、OOTD 穿搭配图、美食摄影封面、好物推荐视觉和生活笔记插画，也可以从选题描述出发生成封面概念，或在已认可封面上做定向精修，完成可发布的成品。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
+      "description": "将一张照片、一个选题想法或已认可的草稿转化为高点击率的小红书封面和配图。这款 AI封面生成器制作竖版 3:4 小红书图文封面，搭配小红书爆款封面常见的干净背景、突出焦点构图和预留文字区域，覆盖美妆、美食、穿搭、旅行和知识科普内容。从一张实拍照片生成高点击封面、OOTD 穿搭配图、美食摄影封面、好物推荐视觉和生活笔记插画，也可以从选题描述出发生成封面概念，或在已认可封面上做定向精修，完成可发布的成品。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
       "display_name": "小红薯·封面制作器",
       "summary": "将一张照片或一个选题想法转化为高点击率的竖版 3:4 小红书封面，搭配干净背景、突出焦点构图和预留文字区域，适配美妆、美食、穿搭和生活图文。",
       "tags": [
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-cover-maker",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

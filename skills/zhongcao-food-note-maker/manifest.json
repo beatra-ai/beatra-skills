@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Zhongcao Food Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-food-note-maker",
@@ -52,7 +52,7 @@
       "title": "Zhongcao グルメ投稿画像メーカー：料理写真と飲食店レビュー投稿"
     },
     "zh": {
-      "description": "把菜品照片、探店主题或餐厅氛围参考制作成一套小红书美食图、小红书探店配图和小红书菜品图。围绕一道主打菜或一次探店体验，完成竖版 3:4 首图、菜品特写、餐桌氛围图和推荐细节图，并整理标题灵感、食记文案角度和标签，适合餐厅探店、新店探店、美食种草、菜单上新、咖啡甜品和城市美食笔记。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
+      "description": "借助 AI 把菜品照片、探店主题或餐厅氛围参考制作成一套小红书美食图、小红书探店配图和小红书菜品图。围绕一道主打菜或一次探店体验，完成竖版 3:4 首图、菜品特写、餐桌氛围图和推荐细节图，并整理标题灵感、食记文案角度和标签，适合餐厅探店、新店探店、美食种草、菜单上新、咖啡甜品和城市美食笔记。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
       "display_name": "小红薯·美食图制作器",
       "summary": "把菜品照片、探店主题或餐厅氛围参考，制作成包含首图与连续配图的 3:4 小红书美食食记。",
       "tags": [
@@ -84,5 +84,5 @@
   },
   "name": "zhongcao-food-note-maker",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

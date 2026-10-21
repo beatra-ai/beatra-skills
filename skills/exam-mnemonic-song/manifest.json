@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card lists the live credits per track and in total.",
   "display_name": "Exam Mnemonic Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/exam-mnemonic-song",
@@ -35,7 +35,7 @@
       "title": "語呂合わせソング・試験暗記：論点を歌に"
     },
     "zh": {
-      "description": "口诀歌按已有知识点做成一首可跟唱的考证口诀，再把同一科目做成一套。这个记忆歌和知识点歌曲工作室适合法考口诀、教资口诀和会计证口诀。",
+      "description": "口诀歌借助 AI 按已有知识点做成一首可跟唱的考证口诀，再把同一科目做成一套。这个记忆歌和知识点歌曲工作室适合法考口诀、教资口诀和会计证口诀。",
       "display_name": "口诀歌·考证知识点成曲",
       "summary": "按已有知识点做成一首可跟唱的考证口诀，再把同一科目做成一套。",
       "tags": [
@@ -59,5 +59,5 @@
   },
   "name": "exam-mnemonic-song",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.5"
 }

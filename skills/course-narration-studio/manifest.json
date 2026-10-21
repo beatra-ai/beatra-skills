@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Course Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-narration-studio",
@@ -39,7 +39,7 @@
       "title": "講座ナレーションスタジオ：講義ごとのコース音声"
     },
     "zh": {
-      "description": "课程配音工作室把课件整理成可朗读的讲稿，为每个章节录制老师声音的课程旁白，交付可直接配幻灯片的课程音频、培训旁白和知识付费音频。",
+      "description": "课程配音工作室把课件整理成可朗读的讲稿，为每个章节录制老师声音的 AI课程配音和课程旁白，交付可直接配幻灯片的网课配音、课程音频、培训旁白和知识付费音频。",
       "display_name": "课程配音工作室",
       "summary": "把讲稿和课件做成按讲排列的课程配音，同一把老师声音先试听再录完全部课程。",
       "tags": [
@@ -66,5 +66,5 @@
   },
   "name": "course-narration-studio",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

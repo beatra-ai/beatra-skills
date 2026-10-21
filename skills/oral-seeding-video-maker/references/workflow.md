@@ -72,7 +72,7 @@ The optional bed is always instrumental, and its prompt asks for space under spe
 
 ```json
 {
-  "model": "suno-5.5",
+  "model": "suno-6",
   "prompt": "Soft seeding-video bed, warm modern pop, steady gentle pulse, felt piano and airy pads, wide space left for narration, small lift at the recommendation, clean resolved ending",
   "instrumental": true,
   "title": "Quiet Recommendation",

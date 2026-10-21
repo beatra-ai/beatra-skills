@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Taobao Product Main Image Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/taobao-main-video-maker",
@@ -42,7 +42,7 @@
       "title": "Taobao（淘宝）・Tmall（天猫）商品ページ用動画メーカー"
     },
     "zh": {
-      "description": "使用 AI 将商品图、商品卖点和品牌素材制作成淘宝主图视频、天猫主图视频、商品主图视频和宝贝主图视频。围绕淘宝商品详情页、天猫商品页、电商主图视频、新品上架和大促活动，呈现商品主体、细节或使用场景和干净收尾，打造适合商品浏览的电商商品视频。",
+      "description": "商品图转视频：使用 AI 将商品图、商品卖点和品牌素材制作成淘宝主图视频、天猫主图视频、商品主图视频、宝贝主图视频和商品展示视频。围绕淘宝商品详情页、天猫商品页、电商主图视频、新品上架和大促活动，呈现商品主体、细节或使用场景和干净收尾，打造适合商品浏览的电商商品视频。",
       "display_name": "淘宝天猫主图视频制作器",
       "summary": "把商品图、卖点和品牌素材制作成淘宝或天猫主图视频，清晰呈现商品开场、细节或使用场景和干净收尾。",
       "tags": [
@@ -71,5 +71,5 @@
   },
   "name": "taobao-main-video-maker",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

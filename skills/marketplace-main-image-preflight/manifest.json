@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Marketplace Main Image Preflight",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/marketplace-main-image-preflight",
@@ -46,7 +46,7 @@
       "title": "EC商品メイン画像プリフライト｜Amazon白背景画像チェック・部分修正"
     },
     "zh": {
-      "description": "为亚马逊（Amazon）、Shopify、Etsy 等目标站点准备一张更干净的商品主图。这个跨境电商主图预检工具会围绕你指定的站点、地区和类目整理上架要求，生成可追溯的主图预检卡，并对背景、边缘、杂物或构图完成一次定点修图。适合亚马逊主图检查与 Amazon 白底图要求核对、主图合规检查、Listing 上架准备、产品图精修和多站点商品图调整。",
+      "description": "为亚马逊（Amazon）、Shopify、Etsy 等目标站点准备一张更干净的商品主图。这个跨境电商主图预检工具借助 AI 围绕你指定的站点、地区和类目整理上架要求，生成可追溯的主图预检卡，并对产品图的背景、边缘、杂物或构图完成一次定点修图。适合亚马逊主图检查与 Amazon 白底图要求核对、主图合规检查、电商图片检查、Listing 上架准备、产品图精修、商品图片精修和多站点商品图调整。",
       "display_name": "跨境电商主图预检",
       "summary": "用一张已有商品主图生成清晰的上架预检卡，并完成一次定点精修。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "marketplace-main-image-preflight",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

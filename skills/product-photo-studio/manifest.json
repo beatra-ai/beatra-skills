@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "AI Product Photo Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/product-photo-studio",
@@ -46,7 +46,7 @@
       "title": "AI 商品写真スタジオ：EC製品画像作成と背景切り抜き"
     },
     "zh": {
-      "description": "将真实产品照片转化为影棚级电商主图、场景图或面向市场平台的高清商品图。这款 AI 商品图工作室可替换背景、改善光效、搭建场景，并以原图中的商品外观特征为依据——从一张手机随拍制作白底主图、生活场景图和高级广告图。适用于亚马逊白底产品图、淘宝主图、Shopify 产品大图和社交媒体商品图。从一张产品照片出发，组合多张参考图，或在选定草稿上做定向精修，完成适合上架使用的成品。",
+      "description": "将真实产品照片制作成影棚级电商主图、场景图或面向市场平台的高清商品图。这款 AI 商品图工作室用于商品图片处理和电商图片编辑，可替换背景、改善光效、搭建场景。它以原图中的商品外观特征为依据，从一张手机随拍就能做出白底主图、生活场景图和高级广告图。适用于亚马逊白底产品图、淘宝主图、Shopify 产品大图和社交媒体商品图。从一张产品照片出发，组合多张参考图，或在选定草稿上做定向精修，完成适合上架使用的成品；生活场景图和广告图也能直接用作商品详情页图片。",
       "display_name": "商品图",
       "summary": "将真实产品照片转化为影棚级电商主图、场景图或面向市场平台的高清商品图，支持换背景、改善光效和搭建场景，并延续已确认的商品外观特征。",
       "tags": [
@@ -76,5 +76,5 @@
   },
   "name": "product-photo-studio",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

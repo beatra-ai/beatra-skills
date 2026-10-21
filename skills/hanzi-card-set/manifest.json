@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Hanzi Card Set",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/hanzi-card-set",
@@ -34,7 +34,7 @@
       "title": "漢字カードセット：表からカードへ"
     },
     "zh": {
-      "description": "生字卡片组按用户提供的生字表，做成一组生字表转卡组静帧。这个认读卡工作室把已确认的生字排成生字卡、识字卡片和生字套图。",
+      "description": "生字卡片组用 AI 按用户提供的生字表，做成一组生字表转卡组静帧。这个认读卡工作室把已确认的生字排成生字卡、识字卡片和生字套图。",
       "display_name": "生字卡片组·生字表转卡组",
       "summary": "按用户提供的生字表，做成一组生字表转卡组静帧。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "hanzi-card-set",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

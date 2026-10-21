@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Influencer Fit Analyzer",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/influencer-fit-analyzer",
@@ -30,7 +30,7 @@
       "title": "インフルエンサー分析：アプローチできるショートリストを作る"
     },
     "zh": {
-      "description": "把品类、预算和市场，或你已经有的账号，做成一份能谈的达人短名单。给品类和预算，或已有的账号链接和@，就能拿到8到12人的达人分析备忘：粉丝量、近期播放、互动、内容支柱和谈或不谈。这个达人分析与达人匹配工作流会读TikTok、抖音、小红书、Instagram、YouTube和X上的公开主页和近作，也可以直接用你粘贴的简介、粉丝数和作品，做成达人调研和达人筛选备忘。适合达人分析、达人匹配、达人短名单、达人调研和达人筛选。",
+      "description": "用 AI 把品类、预算和市场，或你已经有的账号，做成一份能谈的达人短名单。给品类和预算，或已有的账号链接和@，就能拿到8到12人的达人分析备忘：粉丝量、近期播放、互动、内容支柱和谈或不谈。这个达人分析与达人匹配工作流会读TikTok、抖音、小红书、Instagram、YouTube和X上的公开主页和近作，也可以直接用你粘贴的简介、粉丝数和作品，做成达人调研和达人筛选备忘。适合达人分析、达人匹配、达人短名单、达人调研和达人筛选。",
       "display_name": "达人分析与匹配",
       "summary": "给品类、预算和市场，或已有的账号，拿到8到12人的短名单备忘。",
       "tags": [
@@ -52,5 +52,5 @@
   },
   "name": "influencer-fit-analyzer",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

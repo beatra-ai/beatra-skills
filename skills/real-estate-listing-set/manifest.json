@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Listing Still Sets",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/real-estate-listing-set",
@@ -32,7 +32,7 @@
       "title": "物件出品セット：部屋ごとに1枚"
     },
     "zh": {
-      "description": "房源上架套图是按已经写好的户型说明，给每个房间做成一张挂牌静帧。客厅图、卧室图、户型挂牌图和房源上架图都按同一套户型说明出。",
+      "description": "房源上架套图是借助 AI 按已经写好的户型说明，给每个房间做成一张挂牌静帧。客厅图、卧室图、户型挂牌图和房源上架图都按同一套户型说明出。",
       "display_name": "房源上架套图·房源挂牌静帧套",
       "summary": "按已经写好的户型说明，做成房源上架套图，每个房间一张。",
       "tags": [
@@ -55,5 +55,5 @@
   },
   "name": "real-estate-listing-set",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

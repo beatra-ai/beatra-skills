@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "YouTube Caption Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/youtube-caption-studio",
@@ -30,7 +30,7 @@
       "title": "動画字幕：字幕から話せるリメイク原稿へ"
     },
     "zh": {
-      "description": "把一条YouTube链接或已复制的字幕，做成能说的中文口播稿和复刻结构。给公开视频或你已经复制的文稿，就能拿到口播中文和顺着原片的复刻节拍。这个视频字幕和字幕提取工作流会读YouTube字幕，也可以按需要读评论，或直接用你粘贴的字幕，写成YouTube字幕和YouTube文稿上的口播复刻。适合视频字幕、字幕提取、YouTube字幕、YouTube文稿和口播复刻。",
+      "description": "借助 AI 把一条YouTube链接或已复制的字幕，做成能说的中文口播稿和复刻结构。给公开视频或你已经复制的文稿，就能拿到口播中文和顺着原片的复刻节拍。这个视频字幕和字幕提取工作流会读YouTube字幕，也可以按需要读评论，或直接用你粘贴的字幕，写成YouTube字幕和YouTube文稿上的口播复刻。适合视频字幕、字幕提取、YouTube字幕、YouTube文稿和口播复刻。",
       "display_name": "视频字幕提取",
       "summary": "给YouTube链接或已复制的字幕，拿到中文口播稿和复刻结构。",
       "tags": [
@@ -52,5 +52,5 @@
   },
   "name": "youtube-caption-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

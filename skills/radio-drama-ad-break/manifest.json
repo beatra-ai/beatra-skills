@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Radio Drama Ad Breaks",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/radio-drama-ad-break",
@@ -33,7 +33,7 @@
       "title": "ラジオドラマCM：提供読みを短い読み上げで渡す"
     },
     "zh": {
-      "description": "广播剧贴片口播按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。开场贴片、收听提示、下期预告和赞助口播都按贴片词来录，一次给出8到20条广播剧贴片，也适合剧场口播。",
+      "description": "广播剧贴片口播借助 AI 按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。开场贴片、收听提示、下期预告和赞助口播都按贴片词来录，一次给出8到20条广播剧贴片，也适合剧场口播。",
       "display_name": "广播剧贴片口播",
       "summary": "按已经写好的贴片词，做成每条剧前或剧后贴片一条口播。",
       "tags": [
@@ -56,5 +56,5 @@
   },
   "name": "radio-drama-ad-break",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

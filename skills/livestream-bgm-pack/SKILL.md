@@ -40,7 +40,7 @@ Safe defaults:
 - 12 tracks unless the user names a count between 10 and 20.
 - Slot mix: waiting, chat, product, hype, night, and reset beds.
 - `instrumental: true` with lyrics absent.
-- `model: "suno-5.5"`. Never omit the model and never silently use `auto`.
+- `model: "suno-6"`. Never omit the model and never silently use `auto`.
 - There is no `duration` field on `beatra.music.generate`. Write length
   only in the prompt. Do not add a duration argument.
 - Loop-friendly arrangement and room for a host voice, written as prompt
@@ -53,8 +53,9 @@ Playlist planning is free. Each `beatra.music.generate` call is paid.
 
 1. Write the room card and the labeled slot list. Each slot has a use, mood,
    tempo feel, instrumentation, energy, and intended length.
-2. Call `beatra.models.list` with `{"capability":"text_to_music"}` and price
-   the whole pack from the live card.
+2. Call `beatra.models.list` with `{"capability":"text_to_music"}`, read the
+   `suno-6` entry's `pricing`, and price the whole pack from that live card
+   per slot and in total. Never a remembered number.
 3. Confirm the frozen playlist: slot count, each slot's prompt and title,
    `instrumental: true`, model, the current maximum charge for the pack, and
    one opaque stable `client_request_id` per slot. Planning is not approval.
@@ -62,7 +63,7 @@ Playlist planning is free. Each `beatra.music.generate` call is paid.
    `scripts/mcp_client.py`. Example:
 
    ```text
-   printf '%s' '{"model":"suno-5.5","prompt":"Low-distraction livestream waiting bed, warm ambient pop, loop-friendly, space for host talk, about 90 seconds.","instrumental":true,"title":"Waiting Bed 01","client_request_id":"opaque-live-waiting-01"}' | python3 scripts/mcp_client.py call beatra.music.generate
+   printf '%s' '{"model":"suno-6","prompt":"Low-distraction livestream waiting bed, warm ambient pop, loop-friendly, space for host talk, about 90 seconds.","instrumental":true,"title":"Waiting Bed 01","client_request_id":"opaque-live-waiting-01"}' | python3 scripts/mcp_client.py call beatra.music.generate
    ```
 
    Do not configure, call, or use a host Beatra Connector. Do not use
@@ -76,8 +77,27 @@ Playlist planning is free. Each `beatra.music.generate` call is paid.
 ## Decisions that require confirmation
 
 Confirm the playlist size and live pack estimate before the first paid
-call. A changed slot prompt, title, model, or count is new paid work with
+call. Show one current production card and wait:
+
+1. Work — the labeled playlist in the user's words, each slot a
+   `beatra.music.generate` call.
+2. Credits — the live `suno-6` price just read from `beatra.models.list`,
+   per slot and in total. Never a remembered number.
+3. Count — one paid call per slot listed on the card.
+4. Identity — one new opaque `client_request_id` per slot. Any changed
+   prompt, title, model, or count mints a new ID for the changed slots.
+5. If we stop here — the labeled slot list remains usable.
+6. If the balance is insufficient — relay the official message and its
+   top-up URL exactly. Translate the prose; keep the URL. Do not retry
+   until the user says they have topped up.
+
+A changed slot prompt, title, model, or count is new paid work with
 new request IDs for the changed slots only.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
 
 ## Recovery
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Store PA Broadcast Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/store-pa-broadcast-pack",
@@ -36,7 +36,7 @@
       "title": "店舗放送プロモパック：開業から閉店までの日付付き読み上げ"
     },
     "zh": {
-      "description": "按活动档期做一套带日期的门店广播口播。这个促销口播和店内广播工具会录开业广播、门店促销语音、限时促销和打烊提示，并按促销广播窗口交付可循环播放的店内口播。适用于门店开业、档期促销和店内促销广播。",
+      "description": "按活动档期借助 AI 做一套带日期的门店广播口播。这个促销口播和店内广播工具会录开业广播、门店促销语音、限时促销和打烊提示，并按促销广播窗口交付可循环播放的店内口播。适用于门店开业、档期促销和店内促销广播。",
       "display_name": "门店广播·促销口播",
       "summary": "按活动档期做一套带日期的门店广播口播，开业、促销、限时和打烊一把声音录完。",
       "tags": [
@@ -59,5 +59,5 @@
   },
   "name": "store-pa-broadcast-pack",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

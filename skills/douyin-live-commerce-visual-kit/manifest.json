@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Douyin Live Commerce Visual Kit",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-live-commerce-visual-kit",
@@ -42,7 +42,7 @@
       "title": "抖音ライブコマース用ビジュアルキット作成"
     },
     "zh": {
-      "description": "使用 AI 将直播主题、商品信息、商品图和品牌素材制作成抖音直播封面、抖音直播间背景图、抖音直播贴片、直播间商品图和抖音直播预告图。围绕抖音店播、达人直播、新品发布、大促活动和限时福利，统一商品、主播、品牌色和标题留白，交付直播预热、商品讲解和直播间装修可用的一套直播电商视觉素材。",
+      "description": "使用 AI 将直播主题、商品信息、商品图和品牌素材制作成抖音直播封面、抖音直播间背景图、抖音直播贴片、直播间商品图、直播商品卖点卡和抖音直播预告图。直播电商视觉设计围绕抖音店播、达人直播、新品发布、大促活动和限时福利，统一商品、主播、品牌色和标题留白，交付直播预热、商品讲解和直播间装修可用的一套直播电商视觉素材。",
       "display_name": "抖音直播电商视觉套装",
       "summary": "把直播主题、商品信息、商品图和品牌素材，制作成一套抖音直播预告封面、商品卖点卡和直播间背景或贴片视觉。",
       "tags": [
@@ -69,5 +69,5 @@
   },
   "name": "douyin-live-commerce-visual-kit",
   "schema_version": 1,
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

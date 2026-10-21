@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Zhongcao Local Business Note Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/zhongcao-local-business-note-maker",
@@ -45,7 +45,7 @@
       "title": "Zhongcao 店舗集客投稿メーカー：RED 店舗紹介画像と中国SNS販促"
     },
     "zh": {
-      "description": "把门头照、店内或服务照片、商家信息或品牌参考制作成小红书本地生活笔记、本地生活配图、小红书门店种草图和小红书探店配图。围绕门店外观首图、门店或服务亮点和到店信息展示区，完成风格统一的竖版 3:4 小红书门店推广图，并整理标题灵感、文案角度和标签，适合零售店、美业门店、工作室、健身房、民宿、展览、景点和快闪活动，以及小红书同城笔记。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
+      "description": "把门头照、店内或服务照片、商家信息或品牌参考借助 AI 制作成小红书本地生活笔记、本地生活配图、小红书门店种草图和小红书探店配图。围绕门店外观首图、门店或服务亮点和到店信息展示区，完成风格统一的竖版 3:4 小红书门店推广图和门店宣传图，并整理标题灵感、文案角度和标签，适合零售店、美业门店、工作室、健身房、民宿、展览、景点和快闪活动，以及小红书同城笔记。还能选做一步：直接读小红书上同题材笔记正在跑的一页笔记、某一篇笔记的一页热门评论，以及账号自己近期的笔记，做小红书竞品笔记分析和评论区分析，让内容有依据而不是凭印象。",
       "display_name": "小红薯·本地生活笔记制作",
       "summary": "把门头照、店内或服务照片、商家信息或品牌参考，制作成包含首图、门店或服务亮点和到店信息展示区的竖版 3:4 小红书本地生活笔记。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "zhongcao-local-business-note-maker",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

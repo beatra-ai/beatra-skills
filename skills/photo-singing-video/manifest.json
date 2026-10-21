@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "Fixes the Chinese edition of the instructions: the missing example commands and the confirmation step before a paid video are restored. The English instructions are unchanged.",
   "display_name": "Photo Singing Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/photo-singing-video",
@@ -71,5 +71,5 @@
   },
   "name": "photo-singing-video",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "TikTok Hashtag Hook Clips",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/tiktok-hashtag-to-hook-clip",
@@ -34,7 +34,7 @@
       "title": "TikTokハッシュタグトーククリップ：タグごとに1本"
     },
     "zh": {
-      "description": "TikTok热门标签口播把热门话题和头部视频做成一组钩子口播。创作者把已经写好的钩子录成热门话题口播，每条钩子口播单独成片。",
+      "description": "TikTok热门标签口播借助 AI 把热门话题和头部视频做成一组钩子口播，适合热门标签转口播。创作者把已经写好的钩子录成热门话题口播，每条钩子口播单独成片。",
       "display_name": "TikTok热门标签口播",
       "summary": "TikTok热门标签口播把热门标签和头部视频做成一组钩子口播。",
       "tags": [
@@ -57,5 +57,5 @@
   },
   "name": "tiktok-hashtag-to-hook-clip",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

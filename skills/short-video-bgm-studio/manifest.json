@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card lists the live credits per track and in total. You can also ask how many credits remain or what was charged.",
   "display_name": "Short Video BGM Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-video-bgm-studio",
@@ -46,7 +46,7 @@
       "title": "ショート動画BGMスタジオ：商用利用できるAIオリジナルBGM"
     },
     "zh": {
-      "description": "描述一下画面，就能拿到一条专为它写的原创纯音乐，生成的音乐归你所有、可直接商用。这个 AI 背景音乐生成工具把场景、情绪和节奏感变成短视频配乐、vlog配乐、商品视频 BGM、教程视频背景音乐、直播间和门店循环音乐、播客片头以及相册回顾配乐，都是为你现写的原创免版权音乐，情绪起伏由你定：从哪儿开始、在哪儿抬起来、怎么收，给人声留出位置，做完先听再发。",
+      "description": "描述一下画面，就能拿到一条专为它写的原创纯音乐，生成的音乐归你所有、可直接商用。这个 AI 背景音乐生成工具把场景、情绪和节奏感变成器乐短视频配乐、vlog配乐、商品视频 BGM、教程视频背景音乐、直播间和门店循环音乐、播客片头以及相册回顾配乐，都是为你现写的原创免版权音乐，情绪起伏由你定：从哪儿开始、在哪儿抬起来、怎么收，给人声留出位置，做完先听再发。",
       "display_name": "短视频配乐工作室",
       "summary": "描述一下画面，就能拿到一条专为它写的原创纯音乐，生成的音乐归你所有、可直接商用。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "short-video-bgm-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.7"
 }

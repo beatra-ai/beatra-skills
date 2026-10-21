@@ -46,24 +46,24 @@ the result.
 Each poster type has a dominant layout pattern. When the user names a type but
 no style, infer the look and composition from the type.
 
-- **Event poster** — bold headline at the top, single hero visual below, date
-  and venue details in a clean lower band. Strong color, energetic mood, one
-  focal performer or scene.
-- **Promotional banner** — product or offer as hero, value line prominent,
-  horizontal-friendly composition, call-to-action space. High contrast, brand
-  colors, clean negative space.
+- **Event poster** — a plain reserved headline band at the top, single hero
+  visual below, a plain reserved lower band where date and venue will sit
+  later. Strong color, energetic mood, one focal performer or scene.
+- **Promotional banner** — product or offer as hero, a plain reserved band for
+  a later value line, horizontal-friendly composition, reserved call-to-action
+  space. High contrast, brand colors, clean negative space.
 - **Music or concert poster** — vibrant and energetic, stage or performer as
-  focal anchor, bold typographic mood, glow and stage-light atmosphere. 2:3 or
+  focal anchor, bold graphic energy, glow and stage-light atmosphere. 2:3 or
   3:4 vertical canvas.
-- **Movie poster** — cinematic, dramatic lighting, title-treatment space at the
-  bottom or center billing block, strong focal still or character composite.
-  2:3 vertical canvas with deep contrast.
+- **Movie poster** — cinematic, dramatic lighting, a plain reserved title band
+  at the bottom or center where billing will sit later, strong focal still or
+  character composite. 2:3 vertical canvas with deep contrast.
 - **Product launch** — clean futuristic or premium look, product centered as
-  hero, brand color integration, space for features and logo. Tech leans clean
-  and futuristic; lifestyle leans editorial.
-- **Sale or flyer** — warm and appetizing or high-energy, offer and discount as
-  hero text area, product photo supporting, bold price callout zone. Print A4
-  or square social.
+  hero, brand color integration, reserved bands where feature lines and a logo
+  will sit later. Tech leans clean and futuristic; lifestyle leans editorial.
+- **Sale or flyer** — warm and appetizing or high-energy, a plain reserved
+  band where the offer will sit later, product photo supporting, a plain
+  reserved band for a later price. Print A4 or square social.
 - **Social media graphic** — platform-native ratio (1:1 square, 9:16 story, 16:9
   banner), single focal subject, large text-safe zone, high contrast readiness.
 
@@ -79,10 +79,10 @@ category but not a style, infer from the category:
   electric accents, geometric shapes, generous negative space.
 - **Food** — warm and appetizing tones, natural light, shallow depth of field,
   steam and freshness cues, the dish as hero.
-- **Fashion** — editorial and bold, strong typography, high-contrast or
+- **Fashion** — editorial and bold, strong graphic contrast, high-contrast or
   monochrome palette, full-frame subject.
 - **Music** — vibrant and energetic, saturated color, glow, motion blur, stage
-  atmosphere, dynamic type.
+  atmosphere, dynamic graphic energy.
 - **Corporate** — professional and clean, restrained palette, structured grid,
   generous white space, brand color integration.
 - **Education** — friendly and approachable, rounded shapes, soft palette,
@@ -101,8 +101,9 @@ category but not a style, infer from the category:
 
 ## Text-safe zone
 
-A poster carries headline text, dates, prices, and call-to-action lines. The
-generated poster must preserve space for that text overlay:
+A poster will later carry headline text, dates, prices, and call-to-action
+lines. The generated image must keep those reserved bands plain and empty of
+letters, words, numbers, and logos:
 
 - **Top band** — the most common placement for the headline and event name.
   Keep the upper area clean and high-contrast.
@@ -111,8 +112,9 @@ generated poster must preserve space for that text overlay:
 - **Lower third** — common for dates, venue, price, and billing block. Keep the
   lower band structured and uncluttered.
 
-State the text-safe zone in the prompt: "reserve a clean text-safe band across
-the top third of the frame for the headline and date overlay."
+State the text-safe zone in the prompt: "reserve a plain solid-color or
+soft-gradient band across the top third of the frame, empty of all text,
+letters, numbers, and logos; the image contains no text."
 
 ## Visual access
 

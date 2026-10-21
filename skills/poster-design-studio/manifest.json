@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "Space reserved for your headline, prices and dates is now requested empty, and the finished poster is checked for stray text and numbers before delivery.",
   "display_name": "Poster Design Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/poster-design-studio",
@@ -46,7 +46,7 @@
       "title": "ポスターデザインスタジオ：AIポスター作成・チラシ・バナー生成"
     },
     "zh": {
-      "description": "将一段活动描述、一张产品照片或品牌参考图，转化为抓人眼球的活动海报、宣传 banner 或社交媒体配图。这款 AI海报设计与制作工具生成图片丰富的海报，搭配清晰视觉层级、按品类匹配的风格和预留文字区域，覆盖活动、音乐节、电影、产品发布和促销场景。你可以把它当作 AI宣传单制作工具来制作促销宣传单，当作活动海报设计工具，当作电影海报生成器，当作音乐节海报设计工具，当作产品发布会海报的 banner设计 AI，或当作平面设计海报工作室。从活动主题出发，用品牌风格参考图变换产品或场景照片，或在已认可草稿上做定向精修，完成可印刷或可分享的成品。",
+      "description": "将一段活动描述、一张产品照片或品牌参考图，转化为抓人眼球的活动海报、宣传 banner 或社交媒体配图。这款 AI海报设计与制作工具生成图片丰富的海报，在海报排版上搭配清晰视觉层级、按品类匹配的风格和预留文字区域，覆盖活动、音乐节、电影、产品发布和促销场景。你可以把它当作 AI宣传单制作工具来制作促销宣传单，当作活动海报设计工具，当作电影海报生成器，当作音乐节海报设计工具，当作产品发布会海报的 banner设计 AI，或当作平面设计海报工作室。从活动主题出发，用品牌风格参考图变换产品或场景照片，或在已认可草稿上做定向精修，完成可印刷或可分享的成品。",
       "display_name": "海报设计工作室",
       "summary": "将一段活动描述、一张产品照片或品牌参考图，转化为抓人眼球的活动海报、宣传 banner 或社交媒体配图，搭配清晰视觉层级、按品类匹配的风格和预留文字区域。",
       "tags": [
@@ -75,5 +75,5 @@
   },
   "name": "poster-design-studio",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.5"
 }

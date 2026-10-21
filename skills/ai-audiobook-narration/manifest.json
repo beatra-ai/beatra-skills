@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
@@ -36,7 +36,7 @@
       "title": "AIオーディオブック制作"
     },
     "zh": {
-      "description": "把最终长篇书稿或课程讲稿，通过 AI 有声书生成和长文本转语音，按章节制作成有声读物。先整理章节顺序和人名、术语的读法，选择适合长时间聆听的旁白，用一个有代表性的样章试听声音、节奏和音频格式，再按顺序完成其余内容。适合文字转有声书、AI 有声书制作、课程旁白和整本一致播读，并提供当前费用估算、按章节分段交付、音色试听与聚焦片段的读音调整。",
+      "description": "这个 AI有声书生成器是有声书制作工具，把最终长篇书稿或课程讲稿，通过 AI 有声书生成和长文本转语音，按章节制作成有声读物。先整理章节顺序和人名、术语的读法，选择适合长时间聆听的旁白，用一个有代表性的样章试听声音、节奏和音频格式，再按顺序完成其余内容。适合文字转有声书、AI 有声书制作、课程旁白和整本一致播读，并提供当前费用估算、按章节分段交付、音色试听与聚焦片段的读音调整。",
       "display_name": "AI有声书制作",
       "summary": "把最终书稿或课程讲稿制作成按章节排列的音频，选择适合长篇聆听的旁白，通过代表性样章校准读音和节奏，再把同一声音延续到整本内容。",
       "tags": [
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Micro-Lesson Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/micro-lesson-maker",
@@ -35,7 +35,7 @@
       "title": "マイクロレッスン動画メーカー：1回の授業を短い授業動画に"
     },
     "zh": {
-      "description": "微课制作把一节课的PPT课件或一个知识点做成5到10分钟的微课视频：没有课件时先按导入、讲解、例题、小结生成课件，再逐页写讲稿、配音、加字幕，可以放上老师照片，也可以让数字人老师开场。不用自己剪辑，一键生成微课视频，适合微课比赛、公开课视频、说课视频、复习课和课前预习。",
+      "description": "微课制作借助 AI 把一节课的PPT课件或一个知识点做成5到10分钟的微课视频：没有课件时先按导入、讲解、例题、小结生成课件，再逐页写讲稿、配音、加字幕，可以放上老师照片，也可以让数字人老师开场。不用自己剪辑，一键生成微课视频，适合微课比赛、公开课视频、说课视频、复习课和课前预习。",
       "display_name": "微课制作",
       "summary": "用一节课的PPT或一个知识点，做成带讲解配音和字幕的微课视频，可加老师照片或数字人老师开场。",
       "tags": [
@@ -58,5 +58,5 @@
   },
   "name": "micro-lesson-maker",
   "schema_version": 1,
-  "version": "0.1.8"
+  "version": "0.1.9"
 }

@@ -27,13 +27,21 @@ covering style, mood, tempo feel, instrumentation, arrangement arc, section cont
 lead-vocal treatment, and exclusions. Ask only when an unknown choice materially
 changes the lyric or paid payload.
 
-Show one final production card containing:
+Before that card, call `beatra.models.list` with `{"capability":"text_to_music"}`
+and read the `suno-6` entry's `pricing`. Show one final production card
+containing:
 
 1. the complete lyric text, including section labels;
 2. the title;
 3. the complete music direction;
 4. any single-lead gender field that will be used;
-5. `suno-5.5`, relevant options, and the fact that approval starts one paid generation.
+5. `suno-6`, relevant options, and the fact that approval starts one paid generation;
+6. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call;
+7. Credits — the live `suno-6` price just read, per slot and in total, never a remembered number;
+8. Count — one paid call for this song;
+9. Identity — one new opaque `client_request_id`; a changed lyric, title, direction, model, or option mints a new ID;
+10. If we stop here — the structured lyrics remain usable;
+11. If the balance is insufficient — relay the official message and its top-up URL exactly.
 
 A clear approval of this complete card accepts any shown Optimize changes and
 authorizes the paid step. Do not ask for another confirmation or require a separate

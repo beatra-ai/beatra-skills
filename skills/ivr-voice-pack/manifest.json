@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "IVR Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ivr-voice-pack",
@@ -36,7 +36,7 @@
       "title": "IVR音声パック：電話ツリーの案内をラベル付きで"
     },
     "zh": {
-      "description": "把热线话术做成带标签的客服语音包。这个IVR语音包和电话树语音工具会按欢迎、菜单、等待、转接、非工作时间和错误提示录完热线语音，并交付可导入交换机的语音菜单。适用于IVR语音、客服热线口播和分机引导音频。",
+      "description": "借助 AI 把热线话术做成带标签的客服语音包。这个IVR语音包和电话树语音工具会按欢迎、菜单、等待、转接、非工作时间和错误提示录完热线语音，并交付可导入交换机的语音菜单。适用于IVR语音、客服热线口播和分机引导音频。",
       "display_name": "客服语音·IVR语音包",
       "summary": "把热线话术做成带标签的客服语音包，欢迎、菜单、等待、转接、非工作时间和错误提示一把声音录完。",
       "tags": [
@@ -59,5 +59,5 @@
   },
   "name": "ivr-voice-pack",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

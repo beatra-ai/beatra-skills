@@ -59,6 +59,16 @@ Build the brief around:
 - ordered visual references when available (brand color reference, style
   inspiration, composition reference).
 
+By default, a reserved text zone stays empty — a plain solid color or soft
+gradient — with no letters, words, numbers, prices, percentages, logos, icons,
+watermarks or placeholder text anywhere in the image. The user adds all
+copy afterward.
+
+The only exception: when the user explicitly asks the poster itself to carry
+specific words, quote those exact words in the prompt, say they are the only
+text in the image, and check the rendered spelling character by character on
+review.
+
 If the user has already stated the topic or style, reuse it. If that choice is
 genuinely missing, propose the best default and include it in the single
 paid-call confirmation.
@@ -119,7 +129,13 @@ When the result is visible, review visual impact (does the poster stop the
 scroll and read clearly at a glance?), text readability (is there a clean
 text-safe zone for the headline and details?), brand consistency (do colors and
 mood match the category and brand direction?), canvas fit (is the ratio correct
-for print or social?), and overall craft. Deliver the artifact links, observed
+for print or social?), and overall craft. Inspect the whole poster and every
+reserved zone for stray, garbled or invented text, numbers, logos or
+watermarks before delivering; report what and where. Offer one focused
+`beatra.images.edit` with an `edit_regions` box over that area to repaint it
+plain — a new paid call with its own confirmation and a new
+`client_request_id`. When the host cannot see the image, say the reserved
+zones were not checked. Deliver the artifact links, observed
 dimensions, task ID, and `billing.net_charged_credits`. Offer at most one
 focused, unexecuted revision. When the poster is accepted and no revision is
 worth proposing, offer the one next step in [next step](references/next-step.md)

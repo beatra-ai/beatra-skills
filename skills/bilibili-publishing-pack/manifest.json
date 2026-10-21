@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "A clearer Chinese store description that names more of the words people search for. The Skill itself is unchanged.",
   "display_name": "Bilibili Publishing Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/bilibili-publishing-pack",
@@ -38,7 +38,7 @@
       "title": "bilibili投稿文作成：タイトル・概要欄・タグ"
     },
     "zh": {
-      "description": "使用 AI 将 B 站选题、标题、大纲或完整脚本制作成 B站投稿文案、B站视频标题和 B站视频简介。生成标题备选、相关标签、置顶评论互动引导和封面要点，并在你提供时间点时整理成放进简介或置顶评论的章节时间轴，适用于知识讲解、评测、教程、Vlog、游戏、动画和创意视频投稿。还能按选定的标题和封面要点，生成配套的横版 16:9 B站封面，并做好标题留白。",
+      "description": "使用 AI 将 B 站选题、标题、大纲或完整脚本制作成 B站投稿文案、B站视频标题和 B站视频简介。生成标题备选、相关标签、置顶评论互动引导和封面要点，并在你提供时间点时整理成放进简介或置顶评论的章节时间轴，适用于知识讲解、评测、教程、Vlog、游戏、动画和创意视频，也适合 UP主投稿。还能按选定的标题和封面要点，生成配套的横版 16:9 B站封面，并做好标题留白。",
       "display_name": "B站投稿文案制作",
       "summary": "把 B 站选题、标题、大纲或完整脚本整理成投稿标题、视频简介、标签、置顶评论、封面要点，以及在你提供时间点时放进简介或置顶评论的章节时间轴。",
       "tags": [
@@ -63,5 +63,5 @@
   },
   "name": "bilibili-publishing-pack",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

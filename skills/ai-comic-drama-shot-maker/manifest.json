@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "Fixes the Chinese edition of the instructions: the missing example commands and the confirmation step before a paid video are restored. The English instructions are unchanged.",
   "display_name": "AI Comic Drama Shot Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-comic-drama-shot-maker",
@@ -42,7 +42,7 @@
       "title": "AI漫画動画メーカー：漫画を動画に・モーションコミック生成"
     },
     "zh": {
-      "description": "用一张漫画分镜、人物设定或定稿的故事画面，制作一个动态的漫剧镜头。这个 AI 漫剧镜头生成与动态漫制作工作流可以把单张漫画分镜或漫画页变成一段动态镜头，在首尾两张漫画分镜之间生成过渡动作，把多张人物、画风、场景参考组合成全新的漫剧镜头，也可以先生成并确认一张原创漫画起始帧再让它动起来。适合小说转漫剧、动态漫画、漫画分镜转视频、漫画人物出场、情绪特写、打斗镜头、对话反应镜头和连载创作者工作流，每个镜头都冻结人物特征、确认画风方向，并独立生成和如实复盘。",
+      "description": "漫剧生成器用一张漫画分镜、人物设定或定稿的故事画面，制作一个动态的漫剧镜头。这个 AI 漫剧镜头生成与动态漫制作工作流可以把单张漫画分镜或漫画页变成一段动态镜头，在首尾两张漫画分镜之间生成过渡动作，把多张人物、画风、场景参考组合成全新的漫剧镜头，也可以先生成并确认一张原创漫画起始帧再让它动起来。适合小说转漫剧、动态漫画、漫画分镜转视频、漫画人物出场、情绪特写、打斗镜头、对话反应镜头和连载创作者工作流，每个镜头都冻结人物特征、确认画风方向，并独立生成和如实复盘。",
       "display_name": "漫剧镜头生成",
       "summary": "上传一张漫画分镜、人物设定或故事画面，把它变成一个动态的漫剧镜头——单张漫画动起来、首尾分镜过渡，或多张参考组合成全新的漫剧镜头。",
       "tags": [
@@ -71,5 +71,5 @@
   },
   "name": "ai-comic-drama-shot-maker",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.8"
 }
