@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "wechat-article-visual-story"
 PACKAGE_DISPLAY_NAME = "WeChat Article Visual Story"
-PACKAGE_VERSION = "0.2.6"
+PACKAGE_VERSION = "0.2.7"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

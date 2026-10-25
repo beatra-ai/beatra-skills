@@ -1,5 +1,5 @@
 {
-  "changelog": "Space reserved for your headline, prices and dates is now requested empty, and the finished poster is checked for stray text and numbers before delivery.",
+  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "Poster Design Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/poster-design-studio",
@@ -75,5 +75,5 @@
   },
   "name": "poster-design-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

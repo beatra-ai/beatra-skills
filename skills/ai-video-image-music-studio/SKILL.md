@@ -48,11 +48,12 @@ The browser supports sign-in or account creation and then one Allow decision.
 The helper prints the approval link at once, waits for Allow (leave it running),
 stores the Device Token privately, verifies it with one non-billable call, and
 prints `Beatra is ready`. When it prints `BEATRA_AUTH_PENDING`, show the user
-the approval link, then run the same command again until it prints
-`Beatra is ready`. Every run continues the same approval, so the user approves
-only once, and an Allow given while nothing runs connects on the next Beatra
-command. Never expose the approval code or
-ask the user to confirm approval in chat. Authorize once for the full Beatra
+the approval link, then run the same command at most once more in this turn;
+when it is still pending, deliver what needs no connection (below). Every run
+continues the same approval, so the user approves only once, and an Allow
+given while nothing runs connects on the next Beatra command. Share the
+approval link exactly as printed; never copy the code out of it, read it out,
+or ask the user to type or confirm it in chat. Authorize once for the full Beatra
 connection; changing between image, video, music, and speech does not need
 another media-specific grant. After installing or replacing the package, start
 a new agent session when the host discovers Skills only at session startup.
@@ -60,6 +61,18 @@ See [installation and authentication](references/installation-and-auth.md) for
 connection recovery and
 [installation registration](references/installation-registration.md) for the
 automatic non-billable registration behavior.
+
+## Before the connection is ready
+
+When Allow is still pending at the end of a turn, finish and deliver
+everything that needs no connection, in the format the user asked for.
+Image: the final prompt, canvas, and count. Video: the shot list, per-shot
+prompts, duration, and canvas. Music: the title, sectioned lyrics, and
+style notes. Narration: the prepared reading script and voice-selection
+criteria. Say in one line that the paid step continues on their next
+message after Allow; Allow only completes the connection, and a video or
+clone call still waits for its admission card on that next message. Do not
+fill the gap with another tool or service.
 
 ## Choose the smallest creation path
 
@@ -80,20 +93,24 @@ automatic non-billable registration behavior.
   `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
   `beatra.videos.edit`, or `beatra.videos.extend`, call `beatra.models.list`,
   admit the complete payload, write the shortest admitted duration (audio-led
-  and extend rules unchanged), and show the video admission card. Choose with
+  and extend rules unchanged), and show the video admission card. Without a
+  live card, do not name a model or a price. Choose with
   [videos](references/videos.md), then load
   [video controls](references/video-controls.md) or
   [video recipes](references/video-recipes.md) only when needed.
 - For a song, instrumental, or reference-guided track, use
   `beatra.music.generate`. Follow [music](references/music.md).
 - For narration, browse only when a voice is still needed with
-  `beatra.voices.list`, then use `beatra.speech.synthesize`. Create a reusable
+  `beatra.voices.list`, then use `beatra.speech.synthesize`. Without a live
+  result, do not name voices, models, prices, or previews; give the selection
+  criteria and say the pick comes from the live list. Create a reusable
   voice with `beatra.voices.clone` only after explicit voice-owner consent.
   Follow [speech and voices](references/speech-and-voices.md).
 - When model selection, compatibility, supported controls, or an estimate
   matters, use `beatra.models.list` and treat its returned interface card as
   current truth. Follow [models](references/models.md). Do not maintain model,
-  price, language, default, or reference-limit lists from memory.
+  price, language, default, or reference-limit lists from memory, and without
+  a live card do not name a model or a price.
 - When the user asks how many credits remain or whether a live estimate fits,
   call `beatra.wallet.get`. When they ask what was charged, call
   `beatra.wallet.ledger`. Both are read-only.
@@ -184,6 +201,9 @@ or the URL inside the 402 message. Connection revocation belongs in the Beatra
 Console.
 
 ## Deliver returned truth
+
+Lead the reply with the result and format the user asked for; the admission
+card, route choice, and cost notes follow it and never replace it.
 
 On completion, report the `task_id`, terminal status, resolved model, every
 returned result, and actual usage. For artifacts, include every returned link or

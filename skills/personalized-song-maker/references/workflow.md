@@ -39,7 +39,7 @@ Freeze the approved title, approved lyrics, and a production prompt that encodes
 }
 ```
 
-Show the exact approved title, approved lyrics, production prompt, model behavior, explicit controls, output count, and paid boundary. Freeze all arguments and one opaque stable request ID. Submit `beatra.music.generate` exactly once.
+Show the exact approved title, approved lyrics, production prompt, model behavior, explicit controls, output count, and paid boundary: one generation, its provisional live estimate, what the user keeps if they stop here, and the returned top-up message when the balance is short. Freeze all arguments and one opaque stable request ID. Submit `beatra.music.generate` exactly once.
 
 ## Poll, recover, and cancel
 

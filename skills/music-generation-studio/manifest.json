@@ -1,5 +1,5 @@
 {
-  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card shows the live credit price before a song is made. You can also ask how many credits remain or what was charged.",
+  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "Music Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/music-generation-studio",
@@ -75,5 +75,5 @@
   },
   "name": "music-generation-studio",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

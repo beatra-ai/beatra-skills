@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "While the connection is not ready, deliver the route, the shots, and the per-shot prompts first, and continue automatically after Allow. The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "Beatra AI Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-video-studio",
@@ -75,5 +75,5 @@
   },
   "name": "beatra-ai-video-studio",
   "schema_version": 1,
-  "version": "1.3.6"
+  "version": "1.3.7"
 }

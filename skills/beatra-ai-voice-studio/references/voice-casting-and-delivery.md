@@ -61,8 +61,10 @@ undocumented auto selection input.
 
 The text must be supplied or shown and approved. Preserve names, claims,
 pronunciations, and meaning. Convert written constructions into speakable
-phrasing only with approval when the edit is material. Use punctuation to
-express breaths and pauses.
+phrasing only with approval when the edit is material. Keep the user's
+characters and dialect wording as written; converting simplified and
+traditional characters or swapping dialect words is a material edit. Use
+punctuation to express breaths and pauses.
 
 Current synthesis controls are `format` (`mp3`, `wav`, `flac`, `opus`, or
 `pcm`), optional `sample_rate`, `speed` from 0.5 to 2.0, `volume` greater
@@ -91,11 +93,13 @@ or raw character count.
 
 The production card contains the exact approved text, exact current `voice_id`,
 language if supplied, model or honest auto set, format and controls, weighted
-quantity, live formula and estimate, one paid call, and delivery position.
-An explicit current “generate” or “make it” that fully covers this frozen card
-is approval; do not ask again. A price question, comparison, preparation
-request, or unfrozen batch is not. After approval, create one new local
-`client_request_id` and send exactly:
+quantity, live formula and estimate, one paid call, delivery position, what the
+user keeps if they stop here, and the returned top-up message when the balance
+is short.
+A well-specified synthesis request is the approval for this one call; show the
+card with the delivery and do not ask again. A price question, comparison,
+preparation request, or unfrozen batch is not approval. Then create one new
+local `client_request_id` and send exactly:
 
 ```json
 {

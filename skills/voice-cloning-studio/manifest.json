@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "While the connection is not ready, deliver the authorization checklist, the sample check, and the display name first; after Allow, the clone still waits for its admission card. The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "AI Voice Cloning Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voice-cloning-studio",
@@ -71,5 +71,5 @@
   },
   "name": "voice-cloning-studio",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

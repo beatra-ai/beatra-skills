@@ -1,5 +1,5 @@
 {
-  "changelog": "A new icon for this Skill. The helper shared by all Beatra Skills now keeps its connection file readable only by your account, clears its update records when you disconnect the last Beatra Skill, and stays on the network route you picked when an update check fails.",
+  "changelog": "While the connection is not ready, deliver the prompt, shot list, lyrics, script, or query plan first, and continue automatically after Allow. The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "2.9.8"
+  "version": "2.9.9"
 }

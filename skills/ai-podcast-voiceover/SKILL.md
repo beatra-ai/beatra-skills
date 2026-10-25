@@ -6,16 +6,17 @@ description: "Turn an article, notes, or a finished script into a listener-ready
 # AI Podcast Voiceover
 
 Work as an episode producer for one recurring host: begin with the show
-profile, turn supplied material into a listener-friendly script, freeze the
-host and model path, prove a new direction with a short sample, then create and
-record the episode audio.
+profile, turn supplied material or a named topic into a listener-friendly
+script, freeze the host and model path, prove a new direction with a short
+sample, then create and record the episode audio.
 
 ## Scope and routes
 
 Use this workflow for supplied articles, notes, outlines, newsletters, or final
-scripts that become a single-host podcast episode, trailer, opener, closer, or
-ordered episode parts. Keep the recurring host direction, pronunciation list,
-and delivery facts together when the show will continue.
+scripts, and for a topic alone, when they become a single-host podcast episode,
+trailer, opener, closer, or ordered episode parts. Keep the recurring host
+direction, pronunciation list, and delivery facts together when the show will
+continue.
 
 Route a manuscript or chapter-led course narration to
 `ai-audiobook-narration`; a standalone short social, ad, or promo read to
@@ -46,13 +47,21 @@ user accepts a paid generated track. Follow [the show profile](references/show-p
 
 ## Prepare the episode script
 
-Accept an article, notes, an outline, or final script and adapt it into an
-episode that listeners can follow. Start from the show's intended listener; if
-the supplied material could serve materially different listener goals, ask for
-the intended takeaway before drafting. Otherwise state the inferred episode
-focus in the draft for approval. Keep every fact, opinion, number, and claim
-grounded in the supplied material. When a request supplies only a topic, ask
-for the article, notes, or outline rather than writing the episode's content.
+Accept an article, notes, an outline, a final script, or a topic alone and
+adapt it into an episode that listeners can follow. Start from the show's
+intended listener; if the supplied material could serve materially different
+listener goals, ask for the intended takeaway before drafting. A topic alone
+does not wait on that question: infer the listener and draft in the same turn.
+Otherwise state the inferred episode focus in the draft for approval. When the user supplies
+material, every fact, opinion, number, and claim in the spoken script comes
+from that material or from an edit the user confirmed. An evergreen topic
+alone is drafted from widely accepted general knowledge, and a time-sensitive
+topic gets its opening, structure, transitions, and close without facts until
+the user chooses sources or pastes material. The three-way rule is in
+[episode script guidance](references/episode-script.md). If a supplied link or
+file cannot be read, stop and ask for the text; never switch the topic or the
+source. A topic-only request defaults to the bulletin tier, an estimated 3-5
+minutes, and the user can choose a longer tier.
 
 Show the episode focus and spoken draft section by section, including the
 opening, closer, and pronunciation list, then wait for approval before audio
@@ -64,7 +73,9 @@ length handling.
 ## Freeze the host and model path
 
 Use `beatra.voices.list` to compare available previews and freeze one opaque,
-ready `voice_id`; submit that ID, never a display name. Call
+ready `voice_id`; submit that ID, never a display name. Without a live
+result, do not name voices, models, prices, or previews; give the selection
+criteria and say the pick comes from the live list. Call
 `beatra.models.list` with `capability: "text_to_speech"` before deciding a
 model, language, or price. An explicit model must be current, compatible with
 the frozen voice, and support the target BCP-47 language. For `auto`, retain
@@ -77,7 +88,8 @@ explicit choice rather than an auto candidate.
 Default to `model: "auto"`, MP3, speed 1.0, volume 1.0, pitch 0, no emotion,
 and no explicit sample rate unless the profile or destination calls for a
 supported change. Follow [voice, delivery, and recovery](references/voice-and-delivery.md)
-for casting, live-card validation, and current price math.
+for casting, live-card validation, the weighted-character counter, and
+current price math.
 
 ## Golden path
 
@@ -88,6 +100,17 @@ music-bed confirmation card after that — never fold `beatra.music.generate`
 into the speech card. The direction is established only after the sample has
 been heard.
 
+## Before the connection is ready
+
+When Allow is still pending at the end of a turn, finish and deliver
+everything that needs no connection, in the format the user asked for:
+the show profile, the full episode script, the pronunciation list, three
+title options, the episode description and show notes, and estimated
+chapters. Synthesis waits until after Allow. Say in one line
+that Allow is the one-time sign-in that connects their Beatra account, not
+an approval of the paid card, and that the paid step continues on their
+next message after it. Do not fill the gap with another tool or service.
+
 ## Price and confirm
 
 Script preparation, voice previews, current model discovery, and price
@@ -95,7 +118,8 @@ estimation are free. Every `beatra.speech.synthesize` request is paid. Every
 `beatra.music.generate` request is a separate paid step with its own current
 production card. Present a speech production card with the exact text, frozen
 voice and settings, weighted-character total, live price calculation, expected
-request count, and one new opaque `client_request_id` for each logical request.
+request count, one new opaque `client_request_id` for each logical request,
+what the user keeps if they stop here, and how a short balance is handled.
 When a music bed is confirmed, present a second card that freezes the music
 prompt, style, model, and its own new opaque `client_request_id`. Do not
 automatically retry either paid call. A changed argument needs a new
@@ -110,6 +134,9 @@ authorizes the music bed. A script above 50,000 characters uses approved topic
 or section parts and the episode card lists every paid call.
 
 ## Create, deliver, and record
+
+Lead the reply with the result and format the user asked for; the production
+card, route choice, and cost notes follow it and never replace it.
 
 On first use or after the package version changes, make a best-effort
 non-billable installation registration. Its failure never blocks the episode
@@ -126,7 +153,10 @@ once under that card's identifier after the episode speech is approved.
 
 Deliver the returned episode audio with its real artifact ID, duration, MIME
 type, sample rate when present, resolved model, usage, and returned billing
-facts. When a music bed was generated, deliver that clip the same way, as its
+facts. With that audio, also deliver three title options, the episode
+description, show notes, and chapters re-timed in proportion to the returned
+duration; these text pieces add no charge. The closing only recaps what was
+said. When a music bed was generated, deliver that clip the same way, as its
 own artifact — do not claim a solo TTS file is a mixed final episode. When the host can listen, review the actual pacing, pronunciations, and
 host fit; otherwise make the outstanding listening review explicit. If the host
 has user-approved access to the show's working directory, append the delivered
@@ -137,12 +167,12 @@ recovery route in [voice, delivery, and recovery](references/voice-and-delivery.
 
 ## References by task
 
-- Making supplied writing natural to hear, approving sections, or capturing
-  pronunciations: [episode script guidance](references/episode-script.md)
-- Starting a show, reusing a host, or recording an accepted episode: [the show
-  profile](references/show-profile.md)
-- Choosing a voice and model, pricing a read, submitting audio, delivery, or
-  recovery: [voice, delivery, and recovery](references/voice-and-delivery.md)
+- Drafting from material or a topic, approving sections, titles, notes, and
+  chapters, or capturing pronunciations: [episode script guidance](references/episode-script.md)
+- Starting a show, reusing a host, or recording an accepted episode and its
+  one-line recap: [the show profile](references/show-profile.md)
+- Choosing a voice and model, counting weighted characters, pricing a read,
+  submitting audio, delivery, or recovery: [voice, delivery, and recovery](references/voice-and-delivery.md)
 - First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Non-billable package registration: [installation registration](references/installation-registration.md)
 - Task polling, artifacts, and result fields: [tasks and results](references/tasks-and-results.md)

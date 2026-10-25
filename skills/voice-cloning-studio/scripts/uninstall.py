@@ -31,7 +31,7 @@ sys.dont_write_bytecode = True  # never leave __pycache__ inside the installed S
 REVOKE_PATH = "/oauth/device/revoke"
 PACKAGE_SLUG = "voice-cloning-studio"
 PACKAGE_DISPLAY_NAME = "AI Voice Cloning Studio"
-PACKAGE_VERSION = "0.3.0"
+PACKAGE_VERSION = "0.3.1"
 HTTP_USER_AGENT = f"Beatra-Skill/{PACKAGE_SLUG}/{PACKAGE_VERSION}"
 
 #: Everything the connection owns inside ~/.beatra. Removal unlinks exactly

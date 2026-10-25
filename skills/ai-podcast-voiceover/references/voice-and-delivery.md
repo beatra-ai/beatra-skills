@@ -31,9 +31,26 @@ capabilities, decides every other control.
 Planning, script work, voice previews, model discovery, and price estimation
 are free. Each `beatra.speech.synthesize` request is billable. Count
 `beatra_weighted_characters` as two per Han ideograph and one per other
-character, then apply the live card's `estimate_formula`,
-`unit_price_credits`, and `scale`. When `auto` can resolve to more than one
-applicable card, show the current range or a clearly labelled upper bound.
+character. The card's weighted-character total is only the integer this
+program prints. Run it on a file that contains the frozen synthesis text and
+nothing else, including no trailing newline that is not part of that text.
+Do not hand-count the total.
+
+```text
+python3 -c "import sys;R=((0x3400,0x4DBF),(0x4E00,0x9FFF),(0xF900,0xFAFF),(0x20000,0x2EBEF),(0x30000,0x323AF));t=open(sys.argv[1],encoding='utf-8').read();print(sum(2 if any(a<=ord(c)<=b for a,b in R) else 1 for c in t))" script.txt
+```
+
+Without a runtime, report only the following line, with N replaced by the
+estimate. Do not present that line as a counted total, and do not add a
+second figure beside it.
+
+```text
+约 N 字（估算）
+```
+
+Apply the live card's `estimate_formula`, `unit_price_credits`, and `scale`
+to that total. When `auto` can resolve to more than one applicable card,
+show the current range or a clearly labelled upper bound.
 
 Every paid card states:
 
@@ -42,8 +59,12 @@ Every paid card states:
   BCP-47 language;
 - format, sample rate when set, speed, volume, pitch, and emotion when set;
 - the live pricing basis, formula, unit price or range, and estimated credits;
-  and
-- the exact number of paid requests that approval creates.
+- the exact number of paid requests that approval creates;
+- what the user keeps if they stop here: the approved script, titles, notes,
+  and any audio already delivered, or plainly nothing paid for yet on the first
+  paid read; and
+- that a short balance is relayed with the returned message and top-up link,
+  and nothing is submitted until the user says they have topped up.
 
 Wait for explicit approval of the current card. One approved card requires no
 second confirmation for the exact requests it lists, but approval of a sample
@@ -92,6 +113,15 @@ sample rate when present, resolved model, usage, and returned billing facts. If 
 can play the returned audio, review pacing, pronunciation, and host fit; if it
 cannot, state that listening review is still needed rather than inventing an
 audition result. A target duration remains a review goal.
+
+When the returned audio is the sample, measure the host's words per minute
+from the returned sample: divide the sample text's character count by the
+returned duration in minutes (`duration_seconds / 60`) and record that rate
+as `words_per_minute` on the show profile. That character count is the length
+of the sample text, not the weighted billing total. Later length estimates
+use the measured rate. Until a sample returns, estimate length at about 225
+characters per minute and label that figure as an estimate. If
+`duration_seconds` is missing, leave `words_per_minute` unset.
 
 One input within the limit produces one episode file. An over-limit episode is
 delivered in the approved order as separate audio parts. Do not represent the

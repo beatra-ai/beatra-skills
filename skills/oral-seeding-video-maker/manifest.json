@@ -1,5 +1,5 @@
 {
-  "changelog": "The optional music bed now uses the model's current name, Suno 6, and the confirmation card lists the live credits for every paid step.",
+  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "Spoken Seeding Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/oral-seeding-video-maker",
@@ -76,5 +76,5 @@
   },
   "name": "oral-seeding-video-maker",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

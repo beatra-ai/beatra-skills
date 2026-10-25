@@ -29,15 +29,24 @@ Ask only for a missing hard input. Reuse the known genre, mood, instrumentation,
 
 1. Collect the intake. Record the occasion, recipient, relationship, protagonist, turning point, memorable details, names or phrases that must appear, language, emotional direction, must-include facts, and private details to omit. Build a story map: protagonist, relationship, turning point, memorable details, core message, hook, emotional arc, and ending.
 2. Draft the creative direction for free. Write a title, full lyrics with section structure, and a production card: genre, mood, instrumentation, tempo feel, and vocal direction. Show the user the must-keep facts and the lyric draft for approval before any paid call. Revise the lyrics and direction until the user approves them; this revision is free.
-3. Call `beatra.models.list` with `{"capability":"text_to_music"}` to inspect the current music catalog. Confirm the live prompt, lyrics, and title character limits, supported languages, controls, and price basis. Keep the model at `auto` unless the user chose a concrete eligible model. Numeric estimates are provisional and require live catalog facts.
-4. Freeze the approved title, approved lyrics, production prompt, model behavior, and one opaque stable `client_request_id`. Show the exact paid boundary: one song generation from the approved inputs. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
+3. Call `beatra.models.list` with `{"capability":"text_to_music"}` to inspect the current music catalog. Without a live catalog, do not name a model or a price; say the pick comes from the live catalog. Confirm the live prompt, lyrics, and title character limits, supported languages, controls, and price basis. Keep the model at `auto` unless the user chose a concrete eligible model. Numeric estimates are provisional and require live catalog facts.
+4. Freeze the approved title, approved lyrics, production prompt, model behavior, and one opaque stable `client_request_id`. Show the exact paid boundary: one song generation from the approved inputs, its provisional estimate from the live catalog card, that nothing has been charged if the user stops here, and that a short balance is relayed with the returned top-up message. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
 
    ```text
    printf '%s' '{"prompt":"Warm acoustic pop, gentle guitar and piano, heartfelt mid-tempo vocal delivery.","lyrics":"[Verse 1]\n...approved lyrics...\n[Chorus]\n...approved lyrics...","title":"Approved Title","client_request_id":"opaque-song-id"}' | python3 scripts/mcp_client.py call beatra.music.generate
    ```
 
    Do not configure, call, or use a host Beatra Connector. Do not use REST/OpenAPI fallback. Submit `beatra.music.generate` exactly once.
-5. Record the returned task ID immediately and poll the same task with `beatra.tasks.get` until terminal. Deliver every returned audio artifact or link, and report only actual returned task status, resolved model, clip count, duration, usage, and `billing.net_charged_credits`. Review accessible output for story accuracy, name pronunciation, hook, lyric rendering, emotion, arrangement, vocal result, audio quality, and duration. State what the host Agent could and could not inspect.
+5. Record the returned task ID immediately and poll the same task with `beatra.tasks.get` until terminal. Deliver every returned audio artifact or link, and report only actual returned task status, resolved model, clip count, duration, usage, and `billing.net_charged_credits`. Lead the reply with the result and format the user asked for; the production card, route choice, and cost notes follow it and never replace it. Review accessible output for story accuracy, name pronunciation, hook, lyric rendering, emotion, arrangement, vocal result, audio quality, and duration. State what the host Agent could and could not inspect.
+
+## Before the connection is ready
+
+When Allow is still pending at the end of a turn, finish and deliver
+everything that needs no connection, in the format the user asked for:
+the drafted title, lyrics, and production card. That free draft is what
+this turn delivers. Say in one line that the paid step continues on their
+next message after Allow. Do not fill the gap with another tool or
+service.
 
 ## Paid changes, recovery, and cancellation
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "The music model now appears under its current name, Suno 6, and the confirmation card lists the live credits per track and in total. You can also ask how many credits remain or what was charged.",
+  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
   "display_name": "Brand Jingle Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/brand-jingle-studio",
@@ -72,5 +72,5 @@
   },
   "name": "brand-jingle-studio",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

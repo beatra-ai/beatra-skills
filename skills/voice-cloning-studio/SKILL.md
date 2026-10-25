@@ -24,6 +24,17 @@ standard input, for example:
 python3 scripts/mcp_client.py call beatra.voices.clone
 ```
 
+## Before the connection is ready
+
+When Allow is still pending at the end of a turn, finish and deliver
+everything that needs no connection, in the format the user asked for:
+the consent checklist, the sample-readiness checks that can be judged
+locally (duration, format, noise), and the display name. Cloning waits
+until after Allow. Say in one line that the paid step continues on their
+next message after Allow; Allow only completes the connection, and the
+clone still waits for its admission card on that next message. Do not fill
+the gap with another tool or service.
+
 ## Confirm consent before preparing the sample
 
 Reuse the sample, intended display name, language hint, intended reuse and any
@@ -51,7 +62,8 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "voice_clone"}
 ```
 
-Treat that card as truth. The supported source forms are a prior `artifact_id`, a `data_uri`, or
+Without a live card, do not name a model or a price; say the pick comes from
+the live card. Treat that card as truth. The supported source forms are a prior `artifact_id`, a `data_uri`, or
 an HTTPS `url`. A suitable sample is currently about 10 to 300 seconds, no
 larger than 20 MiB, and clean natural speech from one speaker. If the host
 cannot inspect or play it, say sample readiness is unverified rather than
@@ -149,7 +161,8 @@ The user may stop after a successful clone. If they ask to hear it, prepare a
 short final text and delivery direction first. The clone confirmation does not
 approve this second paid operation. Read live `beatra.voices.list` and
 `beatra.models.list` with `{"capability":"text_to_speech"}` and inspect every
-live candidate compatible with the returned voice. Read language support from
+live candidate compatible with the returned voice. Without those live results,
+do not name a model, a price, or a preview. Read language support from
 each text-to-speech model card's `constraints.supported_languages`. Keep
 `model: "auto"` only when every such
 candidate supports the target BCP-47 language there. Otherwise freeze one
@@ -168,6 +181,9 @@ a reason to clone again. Read [Test-reading review and voice reuse](references/r
 for pricing, delivery and focused revision.
 
 ## Recover and deliver factual results
+
+Lead the reply with the result and format the user asked for; the production
+card, route choice, and cost notes follow it and never replace it.
 
 For a known task, continue with `beatra.tasks.get`. If a clone task ID was
 lost, paginate `beatra.tasks.list` with the voice-clone capability and every

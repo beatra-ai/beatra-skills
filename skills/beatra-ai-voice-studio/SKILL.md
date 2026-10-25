@@ -56,7 +56,21 @@ Use restrained defaults when the destination does not require another choice:
 `model: "auto"`, `format: "mp3"`, `speed: 1.0`, `volume: 1.0`,
 `pitch: 0`, no `emotion`, and no `sample_rate`. Prepare numbers, names,
 abbreviations, units, and pauses for speech, but show any material rewrite
-before paid work.
+before paid work. Keep the user's characters and wording as written: never
+convert simplified and traditional characters or swap dialect words unless the
+user asks, and never call a changed text unchanged.
+
+## Before the connection is ready
+
+When Allow is still pending at the end of a turn, finish and deliver
+everything that needs no connection, in the format the user asked for:
+the prepared reading script (numbers, abbreviations, and pauses already
+shaped), voice-selection criteria (gender, timbre, language), and the
+control defaults. Name a voice only after `beatra.voices.list` returns.
+Say in one line that Allow is the one-time sign-in that connects their Beatra
+account, not a second confirmation of this request, and that the narration is
+made on their next message after it. Do not fill the gap with another tool or
+service.
 
 ## Golden path
 
@@ -71,19 +85,24 @@ before paid work.
    `ready`, do not submit; select another current ready voice or stop. When a
    voice still needs to be chosen, recommend only current ready candidates.
    A `preview_url` is an optional free aid only when the returned voice actually
-   has one; never synthesize a paid audition.
+   has one; never synthesize a paid audition. Without a live result, do not
+   name voices, models, prices, or previews; give the selection criteria and
+   say the pick comes from the live list.
 4. Freeze that exact current `voice_id` and its saved compatibility facts. Call
    `beatra.models.list` for `text_to_speech` before comparing models,
    validating a requested language, or estimating price.
 5. Prepare an exact production card: approved text or pilot text, voice ID,
    language when supplied, controls, weighted-character count, current model
-   choice, estimate, paid-call count, delivery order, and review target.
-6. Obtain approval for that card, create one new opaque local
-   `client_request_id` per logical paid request, submit each request once,
-   and poll only its returned task.
+   choice, estimate, paid-call count, delivery order, review target, what the
+   user keeps if they stop here, and that a short balance is relayed with the
+   returned top-up message.
+6. A well-specified synthesis request authorizes that one call. Show the
+   production card with the delivery; do not wait for a separate reply.
+   Create one new opaque local `client_request_id` per logical request,
+   submit each request once, and poll only its returned task.
 7. Deliver actual artifacts and facts in ledger order. A changed text, voice,
-   model, language, or control is new paid work with a new card, approval, and
-   request identity.
+   model, language, or control is a new call, authorized the same way, with a
+   new card and request identity.
 
 Use the bundled `scripts/mcp_client.py` for every Beatra operation:
 
@@ -141,7 +160,8 @@ Planning, script preparation, voice listing, preview links, model listing, and
 estimates are non-billable. `beatra.speech.synthesize` and
 `beatra.voices.clone` are billable.
 
-- A single approved script uses one approved synthesis card.
+- A well-specified synthesis request authorizes that one call. Show the
+  production card with the delivery; do not wait for a separate reply.
 - Long-form work uses one supplied and approved pilot passage before the
   separately approved remainder.
 - Multilingual work uses one supplied and approved pilot for every distinct
@@ -160,10 +180,11 @@ estimates are non-billable. `beatra.speech.synthesize` and
   spoken proof is a separate synthesis operation with its own approved text,
   card, approval, and request identity.
 
-A current explicit “generate” or “make it” instruction is approval when it
-fully covers the frozen card. Do not ask for redundant confirmation in that
-case. Price-only, comparison, preparation, general permission to “handle it,”
-and an unfrozen batch or variant set are not approval. Cancellation is
+A well-specified synthesis request — final text, a voice or selection
+criteria, and any format or control it names — is the approval for the one
+call it describes; do not ask again, and show the production card with the
+delivery. Price-only, comparison, preparation, general permission to “handle
+it,” and an unfrozen batch or variant set are not approval. Cancellation is
 requested only when the user asks; a conflict or unconfirmed remote stop means
 continue polling the same task.
 
@@ -174,8 +195,11 @@ sample upload or clone submission.
 
 ## Execution, recovery, and delivery
 
-Store locally, before submission, the route, exact JSON, production-card
-approval, `client_request_id`, and later `task_id`. The request identity is a
+Lead the reply with the result and format the user asked for; the production
+card, route choice, and cost notes follow it and never replace it.
+
+Store locally, before submission, the route, exact JSON, the request that
+authorized the call, `client_request_id`, and later `task_id`. The request identity is a
 local recovery key; `tasks.list` and `tasks.get` do not filter by or return it.
 
 If a response or task ID is lost, call `beatra.tasks.list` with the relevant
