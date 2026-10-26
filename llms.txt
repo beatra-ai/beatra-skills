@@ -1,0 +1,53 @@
+# Beatra
+
+> Agent-native multimodal creation through a Universal Skill, OAuth MCP, and REST/OpenAPI.
+
+Beatra gives AI agents one account and one workflow for image, video, music, speech, voice, and public social data lookup. Agents should prefer the Universal Skill; custom applications can use MCP or REST.
+
+## Start here
+
+- [Install Beatra](https://beatra.ai/install.md): Preferred cross-agent installation instructions
+- [Latest Universal Skill release](https://beatra.ai/install.json): Stable package metadata and integrity information
+- [Product overview](https://beatra.ai/en/product): How the Beatra capability and execution layers fit together
+
+## Product
+
+- [Homepage](https://beatra.ai/en): Agent-native multimodal product overview
+- [Use cases](https://beatra.ai/en/use-cases): Representative creative and automation workflows
+- [Pricing](https://beatra.ai/en/pricing): Credits, plans, and usage model
+- [Universal Skill catalog](https://beatra.ai/en/skills): Installable scenario packages for agents
+
+## Agent Skills
+
+- [Skill catalog](https://beatra.ai/en/skills): Every installable Beatra Skill, what it makes, and how to install it
+- [GitHub collection](https://github.com/beatra-ai/beatra-skills): The same Skill packages, verified against their release archives
+- [Full Skill reference](https://beatra.ai/llms-full.txt): Every public Skill in one file: purpose, use cases, install commands, and MCP tools
+
+## Delivery surfaces
+
+- [Documentation](https://docs.beatra.ai): Guides, mechanisms, model roster, and API reference
+- [REST API](https://api.beatra.ai): API-key integration under /v1 with OpenAPI contracts
+- [OAuth MCP server](https://mcp.beatra.ai): Agent connection and live MCP tool discovery
+- [Customer Console](https://console.beatra.ai): Sign-in, keys, wallet, tasks, artifacts, and account controls
+
+## Capabilities
+
+- [Capability map](https://docs.beatra.ai/en/docs/capabilities): Images, video, music, speech, voices, public social data, uploads, tasks, artifacts, and models
+- [Live model roster](https://docs.beatra.ai/en/docs/models): Selectable models and current pricing
+- [Shared mechanisms](https://docs.beatra.ai/en/docs/mechanisms/async-tasks): Async tasks, callbacks, billing, errors, and rate limits
+
+## Languages
+
+- [English](https://beatra.ai/en): Canonical English website
+- [简体中文](https://beatra.ai/zh): Simplified Chinese website
+- [日本語](https://beatra.ai/ja): Japanese website
+
+## Support
+
+- [Support email](mailto:support@beatra.ai): Independent email support channel
+
+## Conventions
+
+- Prefer the Universal Skill for autonomous agents, OAuth MCP for tool-based agent connections, and REST/OpenAPI for custom applications.
+- Treat the live model catalog as authoritative for availability and price; do not infer a fixed model or tool count from this file.
+- Use English links as canonical references; equivalent website and docs content is available under `/zh` and `/ja`.
