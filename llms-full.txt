@@ -1212,6 +1212,38 @@ Yes. Each named step becomes one classroom demo still.
 
 Use them as classroom art stills, step-by-step art demos, or a drawing step page set.
 
+## Assembly One-Step Clips (`assembly-one-step-clip`)
+
+Turn authorized stills and seller-supplied step facts into one assembly step video per still.
+
+Turn authorized stills and seller-supplied step facts into one assembly step video per still. This one-step clip studio turns each still into a product assembly clip. Use it for furniture assembly video and how-to step clip work that stays one photo one clip.
+
+Use cases:
+- Furniture assembly video — Turn each furniture still into its own short clip.
+- How-to step clip — Keep every how-to step on its own clip.
+- Product assembly clip — Use one product still per assembly step on the listing.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill assembly-one-step-clip`
+- Installer for any agent: https://beatra.ai/skills/assembly-one-step-clip/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/assembly-one-step-clip
+
+MCP tools: `beatra.videos.animate`
+
+FAQ:
+
+### What do I need to start?
+
+At least one authorized still plus the step facts the seller already supplied.
+
+### Is each step its own clip?
+
+Yes. Each still becomes one short assembly-step clip.
+
+### Where can I use the clips?
+
+Use them as assembly step videos, product assembly clips, or how-to step clips.
+
 ## Audio Drama Voice Studio (`audio-drama-voice-studio`)
 
 Give every character in your script its own voice and get the whole scene recorded line by line, in script order.
@@ -1457,6 +1489,38 @@ The plan organizes chapters, story beats, shots, composition, camera direction, 
 
 It works well for explainers, reviews, tutorials, Vlogs, gameplay, animation, and creative videos that benefit from a clear opening, chapter progression, visual proof, and closing beat.
 
+## Blackboard One-Shot Clips (`blackboard-one-shot`)
+
+Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo.
+
+Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo. This one-shot blackboard studio makes a silent 2-15s blackboard clip from each photo, so every board photo clip opens on the board exactly as captured. Use it for classroom blackboard video and lesson-board clip sets that stay one photo one clip.
+
+Use cases:
+- Classroom blackboard video — Turn a captured board into a short motion clip.
+- Lesson-board clip — Give each board photo its own clip in capture order.
+- Board photo clip — Keep one photo, one clip, with no joined film.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill blackboard-one-shot`
+- Installer for any agent: https://beatra.ai/skills/blackboard-one-shot/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/blackboard-one-shot
+
+MCP tools: `beatra.videos.animate`
+
+FAQ:
+
+### What do I need to start?
+
+At least one inspectable blackboard photo plus the teacher-supplied board facts.
+
+### Is each photo its own clip?
+
+Yes. Each named photo becomes one 2-15s silent clip. The clips stay unjoined.
+
+### Where can I use the clips?
+
+Use them as classroom blackboard video, lesson-board clips, or board photo clips.
+
 ## Brand Jingle Studio (`brand-jingle-studio`)
 
 Turn a brand name, slogan, and campaign use into a set of original brand jingles, ad songs, and audio-logo stings.
@@ -1552,6 +1616,38 @@ Public comments on Douyin, TikTok, Xiaohongshu, Instagram, YouTube, and X. Comme
 ### What do I get back?
 
 A grouped brief: objections, verbatim lines, FAQ answers, live-commerce replies, and spoken hooks.
+
+## Community Site One-Shot Clips (`community-site-clip`)
+
+Turn authorized community event site photos and office-supplied facts into one community site clip per photo.
+
+Turn authorized community event site photos and office-supplied facts into one community site clip per photo. This event site clip studio turns each event photo into one silent 2-15s site photo clip, in capture order. Use it for community event clip sets that stay one photo one clip.
+
+Use cases:
+- Community event clip — Turn a captured site still into a short motion clip.
+- Event site clip — Give each site photo its own clip in capture order.
+- Site photo clip — Keep one photo, one clip, with no joined film.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill community-site-clip`
+- Installer for any agent: https://beatra.ai/skills/community-site-clip/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/community-site-clip
+
+MCP tools: `beatra.videos.animate`
+
+FAQ:
+
+### What do I need to start?
+
+At least one inspectable event-site photo plus the office-supplied site facts.
+
+### Is each photo its own clip?
+
+Yes. Each named photo becomes one 2-15s silent clip. The clips stay unjoined.
+
+### Where can I use the clips?
+
+Use them as community event clips, event site clips, or site photo clips.
 
 ## Course Narration Studio (`course-narration-studio`)
 
@@ -3552,6 +3648,38 @@ The clip's first frame is your Temu main image — the same product and the same
 
 A short clip in the 2–15 second range; five seconds suits most listing video slots.
 
+## TikTok Comment Reply Voice (`tiktok-comment-reply-voice`)
+
+Turn public TikTok comments into one spoken reply clip per written line.
+
+Turn public TikTok comments into one spoken reply clip per written line. This TikTok comment reply voice studio reads the comments on a finished post, then records each TikTok comment reply from the reply lines you already wrote. Operators use it when they need TikTok comment replies as a comment reply voice pack, or spoken comment replies they can import one file at a time.
+
+Use cases:
+- Opening thanks — A short clip reads the opening thanks the operator already wrote.
+- First question — A short clip reads the first-question reply already on the list.
+- Close — A last clip reads the closing reply the operator already wrote.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill tiktok-comment-reply-voice`
+- Installer for any agent: https://beatra.ai/skills/tiktok-comment-reply-voice/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/tiktok-comment-reply-voice
+
+MCP tools: `beatra.social.tools.search`, `beatra.social.tools.get`, `beatra.social.execute`, `beatra.voices.list`, `beatra.voices.clone`, `beatra.speech.synthesize`
+
+FAQ:
+
+### What do I need to start?
+
+A TikTok share URL or comments you already copied, plus the reply lines you already wrote.
+
+### Is each reply its own clip?
+
+Each labeled reply becomes its own spoken clip. The files stay separate.
+
+### Can I use a studio voice?
+
+A studio voice sample can set the voice for these comment-reply clips.
+
 ## TikTok Creator Brief Stills (`tiktok-creator-to-brief-stills`)
 
 Turn a TikTok creator homepage and recent posts into a collaboration brief still set.
@@ -3791,6 +3919,38 @@ Yes. After the voice exists, each new script becomes the next episode, update, o
 
 Podcasts, course updates, creator episodes, and recurring brand messages that should sound like the same host.
 
+## Webinar Recap Talking Clips (`webinar-recap-talking`)
+
+Turn an authorized presenter still and a post-meeting external script into one webinar recap talking clip per still.
+
+Turn an authorized presenter photo and the post-meeting script into one webinar recap talking clip per photo. This talking clip studio writes a speakable recap line for each photo, records a 2 to 15 second talking clip, and delivers one file per photo for customer meeting recap videos and post-webinar follow-ups.
+
+Use cases:
+- Customer meeting recap video — Turn each presenter still into its own short talking recap clip.
+- Post-webinar talking clip — Share external recap lines as short talking clips.
+- Customer enablement recap — Use one still per labeled recap point in the external script.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill webinar-recap-talking`
+- Installer for any agent: https://beatra.ai/skills/webinar-recap-talking/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/webinar-recap-talking
+
+MCP tools: `beatra.voices.list`, `beatra.voices.clone`, `beatra.speech.synthesize`, `beatra.videos.animate`
+
+FAQ:
+
+### What do I need to start?
+
+At least one authorized presenter still plus the post-meeting external script the team already wrote.
+
+### Is each still its own clip?
+
+Yes. Each authorized still becomes one short talking recap clip.
+
+### Where can I use the clips?
+
+Use them as customer meeting recap videos, post-webinar talking clips, or customer enablement recaps.
+
 ## WeChat Article Visual Pack (`wechat-article-visual-pack`)
 
 Turn a WeChat Official Account article, outline, or brand imagery into a coordinated lead cover and supporting article-image set.
@@ -3953,6 +4113,38 @@ FAQ:
 
 Start with an event or promotion brief, product photo, recruiting or greeting message, brand assets, reference image, or an accepted draft.
 
+## Xiaohongshu Hall FAQ Stills (`xiaohongshu-hall-faq-stills`)
+
+Turn Xiaohongshu hall FAQ complaints into a 4 to 8 still materials set.
+
+Turn Xiaohongshu hall FAQ complaints into a 4 to 8 still materials set. This hall FAQ still studio reads public hall FAQ notes and complaints, then lays out a materials still pack from confirmed document facts. Use it for hall materials graphics, a Xiaohongshu hall FAQ still, and a document checklist set.
+
+Use cases:
+- Residence papers — A card lists the residence documents the hall already named.
+- Social insurance — A card prints the one insurance paper the published list already wrote.
+- Household register — A last card shows the household papers the hall already described.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill xiaohongshu-hall-faq-stills`
+- Installer for any agent: https://beatra.ai/skills/xiaohongshu-hall-faq-stills/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/xiaohongshu-hall-faq-stills
+
+MCP tools: `beatra.images.generate`, `beatra.images.transform`, `beatra.images.edit`, `beatra.social.tools.search`, `beatra.social.tools.get`, `beatra.social.execute`
+
+FAQ:
+
+### What do I need to start?
+
+A hall service name, a Xiaohongshu note or copied complaints, and the document facts you already confirmed.
+
+### Is each complaint its own still?
+
+Each picked complaint becomes its own materials still. The cards stay separate.
+
+### Can I match the hall's look?
+
+A hall image can set the look of these materials cards.
+
 ## Note Research Studio (`xiaohongshu-note-research`)
 
 Give a category, a note link, or notes you already copied, and get title patterns, structure, and followable angles.
@@ -4048,6 +4240,38 @@ YouTube captions and, when you ask, public comments. A transcript you already co
 ### What do I get back?
 
 A Chinese spoken script and a remake structure that follows the original.
+
+## YouTube Lesson Card Set (`youtube-lesson-card-set`)
+
+Turn YouTube lesson captions into a 4 to 8 takeaway card set.
+
+Turn public YouTube lesson captions into a set of 4 to 8 takeaway cards. This lesson card studio reads the lesson captions, pulls the key points, and lays out one card per point for lessons and tutorial videos.
+
+Use cases:
+- Literacy lesson — A card prints the reading point the lesson captions already said.
+- Science lesson — A card lists the science step the spoken lesson already covered.
+- History walkthrough — A last card shows the history beat the captions already named.
+
+Install:
+- `npx skills add beatra-ai/beatra-skills --skill youtube-lesson-card-set`
+- Installer for any agent: https://beatra.ai/skills/youtube-lesson-card-set/install.md
+- GitHub: https://github.com/beatra-ai/beatra-skills/tree/main/skills/youtube-lesson-card-set
+
+MCP tools: `beatra.images.generate`, `beatra.images.transform`, `beatra.images.edit`, `beatra.social.tools.search`, `beatra.social.tools.get`, `beatra.social.execute`
+
+FAQ:
+
+### What do I need to start?
+
+A lesson name, a YouTube video or copied captions, and how many takeaway cards you want.
+
+### Is each caption point its own still?
+
+Each picked caption point becomes its own takeaway card. The cards stay separate.
+
+### Can I match the school's look?
+
+A school image can set the look of these takeaway cards.
 
 ## YouTube Thumbnail Maker (`youtube-thumbnail-maker`)
 
