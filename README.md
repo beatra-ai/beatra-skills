@@ -33,10 +33,18 @@ Install one skill:
 npx skills add beatra-ai/beatra-skills --skill ai-logo-maker
 ```
 
-Install all of them:
+As a Claude Code plugin, one skill at a time:
 
 ```bash
-npx skills add beatra-ai/beatra-skills --all
+claude plugin marketplace add beatra-ai/beatra-skills
+claude plugin install ai-logo-maker@beatra-skills
+```
+
+As a GitHub Copilot CLI plugin:
+
+```bash
+copilot plugin marketplace add beatra-ai/beatra-skills
+copilot plugin install ai-logo-maker@beatra-skills
 ```
 
 Or copy a skill folder straight into your agent's skills directory —
@@ -110,7 +118,7 @@ As of 2026-10-18. Live list: https://docs.beatra.ai/en/docs/models
 | Models | Image understanding 1; Video understanding 1; Text to image 10; Image to image 10; Image editing 6; Text to video 9; Image to video 9; Reference to video 9; First and last frames to video 8; Video editing 8; Video extension 7; Text to music 2; Reference audio to music 2; Text to speech 2; Voice cloning 1 (MiniMax M3, Qwen Image 2.0 Fast, Qwen Image 3.0, Qwen Image 3.0 Pro, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst, GPT Image 2, Wan Image 2.7 Fast, Qwen Image 2.0 Pro, Wan Image 2.7 Pro, MiniMax Image 01 Live, Seedance 2.0 Mini, Wan 2.7, Wan 3.0 Video, MiniMax H3, HappyHorse 1.1, Seedance 2.0 Fast, Seedance 2.0, Wan 3.0 Video Prime, Seedance 2.5, Wan 2.7 Video Edit, HappyHorse 1.0 Video Edit, Suno 6, MiniMax Music 3.0, MiniMax Speech 2.8 HD, MiniMax Speech 2.8 Turbo, MiniMax Voice Clone) | CyberBara models: Nano Banana 2, GPT Image 2, Midjourney v7, Seedream 5 Pro, Sora 2, Seedance 2.5, Kling, Veo 3.1, MiniMax H3, Suno ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/blob/f28e58f2b9814b2056417377c46f34fd35219702/README.md#L172-L207)) | Image, video, audio and 3D models on Scenario, e.g. GPT Image, Seedream, Veo, Kling, Seedance, ElevenLabs, MiniMax music ([source](https://github.com/scenario-labs/skills/blob/49dd26e47371163ae0020c7f5627d0993626bfc2/README.md#L247-L299)) | Kling, Flux, ElevenLabs, Sora and more through the varg platform ([source](https://github.com/vargHQ/skills/blob/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d/README.md#L3)) |
 | Before spending | Paid renders run only when you ask for that exact render or approve its card, which shows the live credit estimate | `quote` CLI command returns `estimated_credits` and `can_afford` before submission ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/blob/f28e58f2b9814b2056417377c46f34fd35219702/README.md#L105-L115)) | Dry-run price estimates in its quality-gate and model-comparison skills ([source](https://github.com/scenario-labs/skills/blob/49dd26e47371163ae0020c7f5627d0993626bfc2/README.md#L208-L210)) | A free `--preview` render before the full render ([source](https://github.com/vargHQ/skills/blob/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d/README.md#L158-L160)) |
 | Agents | Claude Code, Cursor, Codex, Windsurf, Cline, OpenClaw | OpenClaw, Claude Code, Codex, Claude Cowork, Cursor, Antigravity ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/blob/f28e58f2b9814b2056417377c46f34fd35219702/README.md#L31-L36)) | Claude Code, Cursor, Codex, Copilot and 70+ others ([source](https://github.com/scenario-labs/skills/blob/49dd26e47371163ae0020c7f5627d0993626bfc2/README.md#L30)) | Claude Code, Cursor, Windsurf, OpenCode, ClawHub and any Agent Skills tool ([source](https://github.com/vargHQ/skills/blob/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d/README.md#L10)) |
-| Install | `npx skills add beatra-ai/beatra-skills --all` | `npx skills add ZeroLu/Ultimate-AI-Media-Generator-Skill --all` ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/blob/f28e58f2b9814b2056417377c46f34fd35219702/README.md#L60)) | `npx skills add scenario-labs/skills`, then connect the Scenario MCP server (https://mcp.scenario.com/mcp) ([source](https://github.com/scenario-labs/skills/blob/49dd26e47371163ae0020c7f5627d0993626bfc2/README.md#L89-L105)) | `npx skills add vargHQ/skills` ([source](https://github.com/vargHQ/skills/blob/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d/README.md#L59)) |
+| Install | `npx skills add beatra-ai/beatra-skills --skill <slug>` | `npx skills add ZeroLu/Ultimate-AI-Media-Generator-Skill --all` ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/blob/f28e58f2b9814b2056417377c46f34fd35219702/README.md#L60)) | `npx skills add scenario-labs/skills`, then connect the Scenario MCP server (https://mcp.scenario.com/mcp) ([source](https://github.com/scenario-labs/skills/blob/49dd26e47371163ae0020c7f5627d0993626bfc2/README.md#L89-L105)) | `npx skills add vargHQ/skills` ([source](https://github.com/vargHQ/skills/blob/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d/README.md#L59)) |
 | License | MIT-0 | MIT ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/blob/f28e58f2b9814b2056417377c46f34fd35219702/LICENSE)) | MIT ([source](https://github.com/scenario-labs/skills/blob/49dd26e47371163ae0020c7f5627d0993626bfc2/LICENSE)) | MIT ([source](https://github.com/vargHQ/skills/blob/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d/LICENSE)) |
 | Last updated | Updated with every release | 2026-09-08 ([source](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill/commit/f28e58f2b9814b2056417377c46f34fd35219702)) | 2026-10-15 ([source](https://github.com/scenario-labs/skills/commit/49dd26e47371163ae0020c7f5627d0993626bfc2)) | 2026-10-01 ([source](https://github.com/vargHQ/skills/commit/862c0297ba2063b10eeb5d4d1058b0f90dc9f92d)) |
 
@@ -142,7 +150,6 @@ Facts checked on 2026-10-16. Corrections: open an issue in [beatra-ai/beatra-ski
 | [`amazon-a-plus-module-pack`](skills/amazon-a-plus-module-pack) | Turn seller-supplied selling points into one Amazon A+ module still per point. | 0.2.5 |
 | [`amazon-main-image-motion`](skills/amazon-main-image-motion) | Turn one approved white-background main image into one short clip for the listing main video slot. | 0.2.6 |
 | [`art-demo-set`](skills/art-demo-set) | Turn user-supplied drawing steps into one still per art demo page. | 0.2.5 |
-| [`assembly-one-step-clip`](skills/assembly-one-step-clip) | Turn authorized stills and seller-supplied step facts into one assembly step video per still. | 0.2.5 |
 | [`audio-drama-voice-studio`](skills/audio-drama-voice-studio) | Give every character in your script its own voice and get the whole scene recorded line by line, in script order. | 0.2.8 |
 | [`beatra`](skills/beatra) | Create AI images, videos, music, and voice, look up public social data, edit supported visual results, and keep returned files and credit use easy to track through one shared connection. | 2.9.9 |
 | [`beatra-ai-image-studio`](skills/beatra-ai-image-studio) | Generate, compose, and edit product images, brand visuals, posters, social graphics, illustrations, and photo variations. | 1.2.5 |
@@ -152,11 +159,9 @@ Facts checked on 2026-10-16. Corrections: open an issue in [beatra-ai/beatra-ski
 | [`bilibili-publishing-pack`](skills/bilibili-publishing-pack) | Turn a Bilibili video topic, outline, or script into title options, a clear description, tags, a pinned comment, chapters when you supply timestamps, and a thumbnail brief. | 0.2.8 |
 | [`bilibili-thumbnail-maker`](skills/bilibili-thumbnail-maker) | Turn a Bilibili video topic, title, script, clip frame, portrait, product photo, or draft into a clear Bilibili video thumbnail with a strong visual hook and headline-safe space. | 0.2.5 |
 | [`bilibili-video-storyboard`](skills/bilibili-video-storyboard) | Turn a Bilibili topic, title, outline, or script into a chapter-led shot list and one to four key storyboard frames for an explainer, review, tutorial, vlog, gameplay, or creative video. | 0.2.6 |
-| [`blackboard-one-shot`](skills/blackboard-one-shot) | Turn authorized blackboard photos and teacher-supplied facts into one blackboard one-shot clip per photo. | 0.2.6 |
 | [`brand-jingle-studio`](skills/brand-jingle-studio) | Turn a brand name, slogan, and campaign use into a set of original brand jingles, ad songs, and audio-logo stings. | 0.2.3 |
 | [`comment-pin-card`](skills/comment-pin-card) | Turn a finished video's comments into one pin comment still per original quote. | 0.2.6 |
 | [`comment-voc-miner`](skills/comment-voc-miner) | Give a post link, a category, or comments you already copied, and get objections, verbatim lines, FAQ answers, and spoken hooks written in the audience's own words. | 0.2.6 |
-| [`community-site-clip`](skills/community-site-clip) | Turn authorized community event site photos and office-supplied facts into one community site clip per photo. | 0.2.6 |
 | [`course-narration-studio`](skills/course-narration-studio) | Turn lecture manuscripts and course slides into a lecture-by-lecture narration pack with one consistent teacher voice. | 0.2.8 |
 | [`course-video-studio`](skills/course-video-studio) | Turn lecture scripts and one authorized teacher portrait into talking-head lesson videos. | 0.2.9 |
 | [`cover-performance-preflight`](skills/cover-performance-preflight) | Review an existing thumbnail or cover, optionally against what already ranks for the same topic, receive a practical improvement plan, and create two or three visual candidates ready to compare. | 0.2.4 |
@@ -231,7 +236,6 @@ Facts checked on 2026-10-16. Corrections: open an issue in [beatra-ai/beatra-ski
 | [`talking-pet-video`](skills/talking-pet-video) | Turn one clear pet photo and a short message or voice clip into a shareable talking-pet clip. | 0.2.9 |
 | [`taobao-main-video-maker`](skills/taobao-main-video-maker) | Turn product photos and selling points into a concise Taobao or Tmall product main-image video with a clear opening, product details, and a clean finish. | 0.2.7 |
 | [`temu-main-image-motion`](skills/temu-main-image-motion) | Turn one Temu main image into one Temu main image video for the listing video slot. | 0.2.6 |
-| [`tiktok-comment-reply-voice`](skills/tiktok-comment-reply-voice) | Turn public TikTok comments into one spoken reply clip per written line. | 0.2.5 |
 | [`tiktok-creator-to-brief-stills`](skills/tiktok-creator-to-brief-stills) | Turn a TikTok creator homepage and recent posts into a collaboration brief still set. | 0.2.5 |
 | [`tiktok-hashtag-to-hook-clip`](skills/tiktok-hashtag-to-hook-clip) | Turn a TikTok hashtag trend into one talking hook clip per still. | 0.2.6 |
 | [`tiktok-shop-product-video-maker`](skills/tiktok-shop-product-video-maker) | Turn product facts, photos, and an English or Japanese audience brief into a TikTok Shop product-video script, shot plan, captions, and localized post copy. | 0.2.7 |
@@ -243,7 +247,6 @@ Facts checked on 2026-10-16. Corrections: open an issue in [beatra-ai/beatra-ski
 | [`voice-clone-series-studio`](skills/voice-clone-series-studio) | Clone one voice you own and keep using it for a series of episodes, updates, and lessons. | 0.2.4 |
 | [`voice-cloning-studio`](skills/voice-cloning-studio) | Create a reusable personal or brand voice from a clean audio sample, give it a memorable name, and hear it in a short test reading. | 0.3.1 |
 | [`voiceover-narration-studio`](skills/voiceover-narration-studio) | Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice. | 0.2.9 |
-| [`webinar-recap-talking`](skills/webinar-recap-talking) | Turn an authorized presenter still and a post-meeting external script into one webinar recap talking clip per still. | 0.2.6 |
 | [`wechat-article-visual-pack`](skills/wechat-article-visual-pack) | Turn a WeChat Official Account article, outline, or brand imagery into a coordinated lead cover and supporting article-image set. | 0.2.5 |
 | [`wechat-article-visual-story`](skills/wechat-article-visual-story) | Give a topic and get title candidates, the digest line, a full article body written for phone reading, a 2.35:1 cover, and in-body images that answer specific paragraphs. | 0.2.7 |
 | [`wechat-channels-cover-maker`](skills/wechat-channels-cover-maker) | Turn a video topic, title, script, key frame, portrait, product photo, or reference image into a clear WeChat Channels cover with a focal visual and text-safe space. | 0.2.5 |
@@ -252,11 +255,9 @@ Facts checked on 2026-10-16. Corrections: open an issue in [beatra-ai/beatra-ski
 | [`wechat-cover-maker`](skills/wechat-cover-maker) | Turn an article title, topic, or reference image into a WeChat Official Account cover, article hero image, post cover, or supporting article visual with headline-safe space and focused refinement. | 0.3.2 |
 | [`wechat-moments-poster-maker`](skills/wechat-moments-poster-maker) | Turn a campaign message, event, offer, product photo, or brand reference into a share-ready WeChat Moments poster with a clear visual hook and text-safe composition. | 0.2.3 |
 | [`whiteboard-animation-maker`](skills/whiteboard-animation-maker) | Turn a concept, a script, or a benchmark video into a vertical black-and-white hand-drawn whiteboard film, with stroke-by-stroke Chinese and English words, cards and diagrams, and spoken narration. | 0.2.3 |
-| [`xiaohongshu-hall-faq-stills`](skills/xiaohongshu-hall-faq-stills) | Turn Xiaohongshu hall FAQ complaints into a 4 to 8 still materials set. | 0.2.4 |
 | [`xiaohongshu-note-research`](skills/xiaohongshu-note-research) | Give a category, a note link, or notes you already copied, and get title patterns, structure, and followable angles. | 0.2.3 |
 | [`xiaohongshu-wealth-faq-talking`](skills/xiaohongshu-wealth-faq-talking) | Turn Xiaohongshu wealth FAQ notes into one talking FAQ clip per still. | 0.2.5 |
 | [`youtube-caption-studio`](skills/youtube-caption-studio) | Give a YouTube link or a pasted transcript and get a Chinese spoken script with remake beats. | 0.2.5 |
-| [`youtube-lesson-card-set`](skills/youtube-lesson-card-set) | Turn YouTube lesson captions into a 4 to 8 takeaway card set. | 0.2.6 |
 | [`youtube-thumbnail-maker`](skills/youtube-thumbnail-maker) | Turn a YouTube topic, title, script, key frame, portrait, product photo, or channel reference into three thumbnail directions described in text, then render the one you pick as a 16:9 image with the headline area kept clear. Leave with a title that matches the image and a channel rule the next video can reuse. | 0.3.4 |
 | [`zhongcao-beauty-note-maker`](skills/zhongcao-beauty-note-maker) | Turn beauty or skincare facts into a Xiaohongshu 3:4 note concept with review copy, usage scenes, titles, cover wording, and hashtags. | 0.2.3 |
 | [`zhongcao-carousel-maker`](skills/zhongcao-carousel-maker) | Turn a post outline, product details, photo set, or style reference into an ordered 3:4 Xiaohongshu carousel with a hook cover and coherent supporting slides. | 0.2.4 |
