@@ -46,37 +46,42 @@ benchmark video link**.
   list, do not invent figures and do not claim unrun work as tested.
 - **Output directory.** Default to a new `<slug>/` under the current working
   directory.
-- **Voiceover and duration.** Ask when unsaid. Default 1–3 minutes. For
+- **Voiceover and duration.** Reuse the user's choices; otherwise propose
+  a narrated 1–3 minute film in the direction card. For
   voice, offer exactly two paths: a Beatra library voice, or a clone
   (own voice or attested authorization). Do not list other TTS vendors.
 
-text versus program is decided at Gate A; never create a draft earlier.
+Choose text versus program in the direction card before creating the draft.
 
-## Create (no drawing before the gates)
+## Create
 
-Follow [the workflow](references/workflow.md); both gates need an explicit
-pass.
+Follow [the workflow](references/workflow.md). Direction and storyboard are
+visible planning artifacts. When the user delegates creative choices or asks
+for a finished film, continue through free planning and drawing. Pause when
+the user requested a review first, a hard input is missing, or a paid card
+needs approval. Clear approval such as "looks good" counts; do not ask again
+for a decision already made.
 
 1. **Tear down the topic.** One takeaway, the common confusion, 3–5 steps,
    one drawable example, one boundary, the cut list. Too much? Propose a
    series. Benchmarks are read before teardown: borrow the dual text tracks
    and one-object-per-sentence, refuse color clip-art, real-hand photos,
    and follow prompts.
-2. **Gate A · direction.** One card with the understanding, audience
+2. **Direction.** One card with the understanding, audience
    assumption, angle, duration, mode, voiceover decision, cut list, and an
-   honesty grade; stop for: pass / change angle / duration / mode / drop
-   voice / not this time.
+   honesty grade. Use the user's constraints and delegated choices.
 3. **Write narration and storyboard.** Per
    [script copywriting](references/script-copywriting.md): diagnose the
    opening first, hook with conflict, then evidence, then landing, then a
    closing action. Fill the storyboard's on-screen words and objects per
    [visual rules](references/visual-rules.md); one scene, one idea.
-4. **Gate B · script and storyboard.** Full narration plus storyboard table
-   with duration estimate; stop for: pass / change scenes / cut scenes /
-   rewrite / back to Gate A.
+4. **Script and storyboard.** Full narration plus storyboard table
+   with duration estimate. Honor a requested review before making the film;
+   otherwise proceed within the user's instructions.
 
-"You decide" is not a pass. After Gate B, "draw this table" starts the
-film. Angle changes reopen Gate A; narration changes reopen Gate B.
+"You decide" delegates creative choices. It does not authorize an unpriced
+paid call. Update the direction when the angle changes and the script when
+narration changes; changing paid work requires its own current card.
 
 ## Choose a mode
 
@@ -90,15 +95,16 @@ Latin proper nouns use Georgia in both modes. Captions and on-screen words
 are two separate tracks; people stay off screen by default; see
 [visual rules](references/visual-rules.md).
 
-## Film (after Gate B passes)
+## Film
 
 Follow [pipeline commands](references/pipeline-commands.md) for
 prerequisites (Node 18+, npm, ffmpeg) and the full command sequence:
 
 1. Create the draft and write the approved `script.txt` and `DESIGN.md`.
 2. Draw `<outdir>/index.html` per the mode reference.
-3. On-screen words come from stroke data, never system fonts — Chinese
-   and short English words alike:
+3. In text mode, Chinese characters and short English words come from
+   stroke data. Program mode uses readable diagram labels as specified in
+   its mode reference:
 
    ```bash
    python3 "$SKILL/scripts/text_svg.py" '目标' --id goalText --cx 540 --cy 280 --size 80
@@ -111,7 +117,7 @@ prerequisites (Node 18+, npm, ffmpeg) and the full command sequence:
 
 ## Paid changes, recovery, and cancellation
 
-Planning is free: the Gate A card and the Gate B script-plus-storyboard are
+Planning is free: the direction card and the script-plus-storyboard are
 delivered before any charge. They are not approval. Three separate paid
 calls exist. Each one gets its own six-field current production card and
 one `client_request_id` per logical request. Never fold lookup into
@@ -130,7 +136,7 @@ Show the synthesis card and wait:
    remembered number.
 3. Count — one paid synthesis call for the whole `script.txt`.
 4. Identity — one new opaque `client_request_id`.
-5. If we stop here — the Gate A direction and Gate B script-plus-storyboard
+5. If we stop here — the direction and script-plus-storyboard
    remain usable.
 6. If the balance is insufficient — relay the official message and its
    top-up URL exactly. Translate the prose; keep the URL. Do not retry
@@ -152,7 +158,7 @@ statement. Show the clone card and wait:
    remembered number.
 3. Count — one paid clone call for this sample.
 4. Identity — one new opaque `client_request_id`.
-5. If we stop here — the Gate A/B plan remains usable; a library voice can
+5. If we stop here — the plan remains usable; a library voice can
    still narrate.
 6. If the balance is insufficient — relay the official message and its
    top-up URL exactly. Translate the prose; keep the URL. Do not retry
@@ -174,6 +180,11 @@ A changed script, voice, or speed is a new card and a new id. An identical
 resubmission reuses its id. On an uncertain submit, reconcile with
 `beatra.tasks.list` and `beatra.tasks.get` before replaying byte-identical
 arguments under the same id; never auto-retry.
+
+Collection accepts only the task id already recorded for this draft. If the
+submission response lost that id, reconcile first, then use
+`voice.mjs recover <outdir>` to replay the saved request unchanged and record
+the returned id. Never attach an arbitrary task to the draft.
 
 If the tool returns insufficient credits: give the user the tool message in
 full. Do not change the URL. You may translate the other words. Do not replace
@@ -202,6 +213,14 @@ itself, use [installation and authentication](references/installation-and-auth.m
 [tasks and results](references/tasks-and-results.md),
 [billing, errors, and recovery](references/billing-errors-and-recovery.md),
 and [uninstall and disconnect](references/uninstall-and-disconnect.md).
+
+## Local rendering dependencies
+
+The local film pipeline installs its pinned npm dependencies into this
+package directory and runs the pinned renderer through npx on first use.
+This is the local-rendering exception to the bundled-client update behavior
+below; tell the user when those prerequisites need a network download. See
+[pipeline commands](references/pipeline-commands.md) for the exact versions.
 
 ## Updates and security
 

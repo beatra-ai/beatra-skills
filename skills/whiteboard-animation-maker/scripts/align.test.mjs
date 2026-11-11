@@ -7,6 +7,7 @@ import {
   weight,
   parseCues,
   parseSrt,
+  parseVtt,
   parseSilencedetect,
   speechIslands,
   weightedSplit,
@@ -71,6 +72,108 @@ test("matchCues maps MiniMax-style word list", () => {
   assert.equal(mapped[1].end, 0.9);
 });
 
+for (const time of [0, 50, 51]) {
+  test(`parseCues reads contract ${time}ms as milliseconds`, () => {
+    const cue = { text: "你好", time_begin: time, time_end: 100 };
+    assert.deepEqual(parseCues([cue]), [{ text: "你好", start: time / 1000, end: 0.1 }]);
+    assert.deepEqual(parseCues(JSON.stringify([cue]), "json"), parseCues([cue]));
+  });
+}
+
+test("JSON cue fields determine the unit without a numeric threshold", () => {
+  assert.deepEqual(parseCues([{ text: "a", start: 51, end: 52 }]), [{ text: "a", start: 51, end: 52 }]);
+  assert.deepEqual(parseCues({ subtitles: [{ text: "a", time_begin: 0, time_end: 50 }] }), [{ text: "a", start: 0, end: 0.05 }]);
+});
+
+for (const cue of [
+  null,
+  { text: "a", time_end: 100 },
+  { text: "a", time_begin: null, time_end: 100 },
+  { text: "a", time_begin: "", time_end: 100 },
+  { text: "a", time_begin: "50", time_end: 100 },
+  { text: "a", time_begin: false, time_end: 100 },
+  { text: "a", time_begin: -1, time_end: 100 },
+  { text: "a", time_begin: NaN, time_end: 100 },
+  { text: "a", time_begin: 0, time_end: Infinity },
+  { text: "a", time_begin: 100, time_end: 100 },
+  { text: "a", time_begin: 101, time_end: 100 },
+  { text: {}, time_begin: 0, time_end: 100 },
+  { text: " ", time_begin: 0, time_end: 100 },
+  { text: "a", start: "", end: 1 },
+]) {
+  test(`parseCues rejects malformed data ${JSON.stringify(cue)}`, () => {
+    assert.deepEqual(parseCues([cue]), []);
+    assert.deepEqual(parseCues([{ text: "valid", time_begin: 0, time_end: 10 }, cue]), []);
+  });
+}
+
+test("overlapping and unordered cues reject the whole optional file", () => {
+  const first = { text: "你", time_begin: 0, time_end: 200 };
+  assert.deepEqual(parseCues([first, { text: "好", time_begin: 100, time_end: 300 }]), []);
+  assert.deepEqual(parseCues([{ text: "好", time_begin: 300, time_end: 400 }, first]), []);
+  assert.deepEqual(parseCues("{not JSON}"), []);
+});
+
+test("coarser cues use the existing silence alignment instead", () => {
+  const scenes = [{ id: "s1", text: "你好" }, { id: "s2", text: "世界" }];
+  const cues = parseCues([{ text: "你好世界", time_begin: 0, time_end: 3900 }]);
+  assert.equal(matchCues(scenes, cues), null);
+  const result = alignScenes({ scenes, cues, duration: 4, islands: [{ start: 0.1, end: 1.8 }, { start: 2.1, end: 3.9 }] });
+  assert.equal(result.method, "silence");
+  assert.ok(result.scenes[0].end < result.scenes[1].end);
+});
+
+test("cue counts cannot hide a cue crossing a caption row", () => {
+  const scenes = [{ id: "s1", text: "你好" }, { id: "s2", text: "世界" }];
+  const cues = parseCues([
+    { text: "你", time_begin: 0, time_end: 200 },
+    { text: "好世", time_begin: 200, time_end: 600 },
+    { text: "界", time_begin: 600, time_end: 900 },
+  ]);
+  assert.equal(matchCues(scenes, cues), null);
+  assert.equal(alignScenes({ scenes, cues, duration: 2 }).method, "weighted");
+});
+
+test("script caption rows finer than a scene also require fallback", () => {
+  const scenes = [{ id: "s1", text: "你好世界", lines: ["你好", "世界"] }];
+  const cues = parseCues([{ text: "你好世界", time_begin: 0, time_end: 3900 }]);
+  const result = alignScenes({ scenes, cues, duration: 4 });
+  assert.equal(result.method, "weighted");
+  assert.deepEqual(buildCaptionCues(result.scenes, { linesById: { s1: scenes[0].lines }, wordCues: cues }), [
+    { id: "s1-0", scene: "s1", text: "你好", start: 0, end: 2 },
+    { id: "s1-1", scene: "s1", text: "世界", start: 2, end: 4 },
+  ]);
+});
+
+test("fine cues still align each caption row within a scene", () => {
+  const scenes = [{ id: "s1", text: "你好世界", lines: ["你好", "世界"] }];
+  const cues = parseCues([
+    { text: "你好", time_begin: 0, time_end: 800 },
+    { text: "世界", time_begin: 1200, time_end: 3900 },
+  ]);
+  const result = alignScenes({ scenes, cues, duration: 4 });
+  assert.equal(result.method, "cues");
+  const captions = buildCaptionCues(result.scenes, { linesById: { s1: scenes[0].lines }, wordCues: cues });
+  assert.equal(captions[0].end, 1);
+  assert.equal(captions[1].start, 1);
+  assert.equal(captions[1].end, 4);
+});
+
+test("wrong, incomplete, and out-of-duration cues fall back", () => {
+  const scenes = [{ id: "s1", text: "你好" }, { id: "s2", text: "世界" }];
+  for (const raw of [
+    [{ text: "甲乙", time_begin: 0, time_end: 1000 }, { text: "丙丁", time_begin: 1000, time_end: 2000 }],
+    [{ text: "你好", time_begin: 0, time_end: 1000 }],
+    [{ text: "你好", time_begin: 0, time_end: 1000 }, { text: "世界", time_begin: 1000, time_end: 3000 }],
+  ]) {
+    const cues = parseCues(raw);
+    const result = alignScenes({ scenes, cues, duration: 2 });
+    assert.equal(result.method, "weighted");
+    const captions = buildCaptionCues(result.scenes, { wordCues: cues });
+    assert.equal(captions[captions.length - 1].end, 2);
+  }
+});
+
 test("parseSrt", () => {
   const srt = `1
 00:00:00,000 --> 00:00:01,200
@@ -83,6 +186,14 @@ test("parseSrt", () => {
   const cues = parseSrt(srt);
   assert.equal(cues.length, 2);
   assert.equal(cues[1].start, 1.2);
+});
+
+test("SRT and VTT malformed ranges cannot supply partial alignment", () => {
+  for (const times of ["00:00:01,200 --> 00:00:01,000", "00:00:01,000 --> 00:00:01,000", "00:00:61,000 --> 00:01:02,000", "bad00:00:00,000 --> 00:00:01,000"]) {
+    const text = `1\n00:00:00,000 --> 00:00:00,500\n你好\n\n2\n${times}\n世界\n`;
+    assert.deepEqual(parseSrt(text), []);
+    assert.deepEqual(parseVtt(`WEBVTT\n\n${text}`), []);
+  }
 });
 
 test("silencedetect islands", () => {

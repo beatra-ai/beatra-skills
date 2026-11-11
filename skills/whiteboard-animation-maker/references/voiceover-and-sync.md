@@ -131,11 +131,14 @@ Self-supplied audio is supported: copy it to
 
 ## Where timestamps come from
 
-The MCP task does not always return per-word subtitles. Alignment takes the
-first available source and stops:
+Speech tasks include platform subtitles when available. The JSON uses sentence
+segments with `time_begin` and `time_end` in milliseconds. Alignment takes the
+first usable source and stops:
 
-1. **Subtitle cues** (when the task returned `subtitles`: MiniMax JSON,
-   SRT, or VTT). Map narration text onto cues for per-scene bounds.
+1. **Subtitle cues** (platform JSON, SRT, or VTT). Use them when the text
+   matches and their intervals fit the draft's caption boundaries.
+   A sentence spanning several shorter caption rows falls back to the next
+   source; do not assign its full interval to every row.
 2. **Silence segmentation** (`ffmpeg silencedetect`). When there are enough
    spoken segments, one segment maps to one scene.
 3. **Weighted split.** Hanzi weights plus punctuation pauses distribute
@@ -144,6 +147,23 @@ first available source and stops:
 
 Never hand-type millisecond timecodes. The method used is recorded in
 `voice/alignment.json` under `method`.
+
+Missing, invalid, or unreadable subtitles keep the delivered audio and use the
+same fallbacks. Collecting a pending or unknown task keeps its existing request
+identity; it does not permit another paid synthesis.
+
+Platform timing can itself be marked `estimated: true`; do not describe that
+as measured word timing. Silence and weighted alignment are also estimates.
+Review the rendered captions against the narration before delivery.
+
+Collection requires the task id already recorded in `voice/ledger.json`.
+If the submit response was lost before that id was saved, reconcile with
+`beatra.tasks.list` and `beatra.tasks.get` first. Those reads do not expose the
+request id, so matching text alone cannot establish ownership. Then run
+`node "$SKILL/scripts/voice.mjs" recover <outdir>` to replay the intact saved
+payload under its original `client_request_id` and record the returned task
+id. Poll that task and collect its result. Never copy another task id into
+the ledger or submit a new paid request merely to recover a lost response.
 
 ## How the picture follows
 

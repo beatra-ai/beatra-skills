@@ -9,6 +9,7 @@
  *   node voice.mjs voices [--language zh-CN] [--category cloned]
  *   node voice.mjs estimate <outdir>
  *   node voice.mjs submit <outdir> --voice <voice_id>
+ *   node voice.mjs recover <outdir>
  *   node voice.mjs collect <outdir>
  *   node voice.mjs clone-submit <sample> --name NAME --consent --draft <outdir>
  *   node voice.mjs align <outdir>
@@ -20,11 +21,14 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import https from "node:https";
 import path from "node:path";
+import { pipeline } from "node:stream";
 import { fileURLToPath } from "node:url";
 import { alignDraft, parseScript, weight } from "./align.mjs";
 
 const skillRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const mcpBin = path.join(skillRoot, "scripts/mcp_client.py");
+const collectionIdentityError = "Cannot collect this result: its task id is not the known synthesis task for this draft. Reconcile the saved request first; use `voice.mjs recover <outdir>` only for a lost submission response.";
+const recoveryError = "Cannot recover: this draft has no intact pending synthesis request. Keep the saved request unchanged and inspect voice/ledger.json.";
 
 function die(msg) {
   console.error(msg);
@@ -117,7 +121,8 @@ function readLedger(draft) {
   const p = ledgerPath(draft);
   if (!fs.existsSync(p)) return {};
   try {
-    return JSON.parse(fs.readFileSync(p, "utf8"));
+    const ledger = JSON.parse(fs.readFileSync(p, "utf8"));
+    return ledger && typeof ledger === "object" && !Array.isArray(ledger) ? ledger : {};
   } catch {
     return {};
   }
@@ -129,6 +134,60 @@ function writeLedger(draft, value) {
   fs.writeFileSync(p, `${JSON.stringify(value, null, 2)}\n`);
 }
 
+/** Only a matching terminal result can release an in-flight synthesis identity. */
+export function collectedLedger(ledger, speech) {
+  if (!matchesSynthesisTask(ledger, speech)) return ledger;
+  if (!["succeeded", "failed", "canceled"].includes(speech.status)) return ledger;
+  return {
+    ...ledger,
+    synth: {
+      ...ledger.synth,
+      status: speech.status === "succeeded" ? "succeeded" : "failed",
+      ...(speech.status === "succeeded" ? { duration_seconds: speech.duration } : {}),
+    },
+  };
+}
+
+function nonemptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function matchesSynthesisTask(ledger, speech) {
+  return nonemptyString(ledger?.synth?.task_id) && ledger.synth.task_id === speech?.task_id;
+}
+
+/** Explicit, single replay of the saved request after the agent reconciles a lost response. */
+export async function recoverDraft(draft, { callTool: invoke = callTool } = {}) {
+  const ledger = readLedger(draft);
+  const synth = ledger.synth;
+  if (nonemptyString(synth?.task_id)) {
+    return { task_id: synth.task_id, client_request_id: synth.client_request_id };
+  }
+  if (
+    !synth ||
+    !["submitting", "answer_unclear"].includes(synth.status) ||
+    (synth.task_id != null && synth.task_id !== "") ||
+    !nonemptyString(synth.client_request_id) ||
+    !synth.payload || typeof synth.payload !== "object" || Array.isArray(synth.payload) ||
+    synth.payload.client_request_id !== synth.client_request_id
+  ) {
+    throw new Error(recoveryError);
+  }
+
+  const original = JSON.stringify(synth);
+  const created = await invoke("beatra.speech.synthesize", synth.payload);
+  const current = readLedger(draft);
+  // A concurrent edit or another submit must never inherit this response.
+  if (JSON.stringify(current.synth) !== original) throw new Error(recoveryError);
+  const id = taskIdOf(created);
+  if (!nonemptyString(id)) {
+    writeLedger(draft, { ...current, synth: { ...current.synth, status: "answer_unclear" } });
+    throw new Error("The synthesis response still has no task id. Keep the original request identity and reconcile before trying recovery again.");
+  }
+  writeLedger(draft, { ...current, synth: { ...current.synth, task_id: id, status: "submitted" } });
+  return { task_id: id, client_request_id: current.synth.client_request_id };
+}
+
 function inputHash({ input, voice, speed, format, language }) {
   return crypto
     .createHash("sha256")
@@ -136,29 +195,121 @@ function inputHash({ input, voice, speed, format, language }) {
     .digest("hex");
 }
 
-export function download(url, dest) {
+export function download(url, dest, {
+  timeoutMs = 120_000,
+  get = https.get,
+  createWriteStream = fs.createWriteStream,
+} = {}) {
   // Artifact URLs are public CDN addresses; a plain GET needs no MCP client.
   return new Promise((resolve, reject) => {
-    fs.mkdirSync(path.dirname(dest), { recursive: true });
-    const finish = (err) => (err ? reject(err) : resolve(dest));
-    https
-      .get(url, { headers: { "User-Agent": "whiteboard-animation-maker/1.0.0" } }, (res) => {
-        if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-          download(new URL(res.headers.location, url).toString(), dest).then(finish, finish);
-          return;
+    const requests = new Set();
+    const responses = new Set();
+    const temp = `${dest}.part-${crypto.randomBytes(8).toString("hex")}`;
+    let file;
+    let settled = false;
+    const timer = setTimeout(() => finish(new Error("download_timeout")), timeoutMs);
+
+    async function finish(err) {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      if (err) {
+        for (const req of requests) req.destroy();
+        for (const res of responses) res.destroy();
+        if (file && !file.closed) {
+          // Wait for a pending open to close before removing its temporary file.
+          const closed = new Promise((done) => file.once("close", done));
+          file.destroy();
+          await closed;
         }
-        if (res.statusCode !== 200) {
-          res.resume();
-          reject(new Error(`download returned HTTP ${res.statusCode}`));
-          return;
-        }
-        const file = fs.createWriteStream(dest);
-        res.pipe(file);
-        file.on("finish", () => file.close(finish));
-        file.on("error", finish);
-      })
-      .on("error", finish);
+        try { fs.rmSync(temp, { force: true }); } catch { /* Preserve the transport error. */ }
+        reject(err);
+      } else {
+        resolve(dest);
+      }
+    }
+
+    function follow(address, redirects) {
+      if (settled) return;
+      let target;
+      try { target = new URL(address); } catch { finish(new Error("download_requires_https")); return; }
+      if (target.protocol !== "https:") { finish(new Error("download_requires_https")); return; }
+      let discarded = false;
+      let receivedResponse = false;
+      let req;
+      try {
+        req = get(target.toString(), { headers: { "User-Agent": "whiteboard-animation-maker/1.0.0" } }, (res) => {
+          receivedResponse = true;
+          responses.add(res);
+          res.on("error", (err) => { if (!discarded) finish(err); });
+          res.on("aborted", () => { if (!discarded) finish(new Error("download_aborted")); });
+          res.on("close", () => {
+            if (!discarded && (res.complete === false || !res.readableEnded)) finish(new Error("download_premature_close"));
+          });
+          if (settled) { res.destroy(); return; }
+          if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+            if (redirects >= 5) { finish(new Error("download_redirect_limit")); return; }
+            let next;
+            try { next = new URL(res.headers.location, target).toString(); } catch { finish(new Error("download_requires_https")); return; }
+            discarded = true;
+            res.destroy();
+            req?.destroy();
+            follow(next, redirects + 1);
+            return;
+          }
+          if (res.statusCode !== 200) {
+            finish(new Error(`download_http_status:${res.statusCode}`));
+            return;
+          }
+          try {
+            fs.mkdirSync(path.dirname(dest), { recursive: true });
+            file = createWriteStream(temp, { flags: "wx" });
+            pipeline(res, file, (err) => {
+              if (settled) return;
+              if (err) { finish(err); return; }
+              if (res.complete === false) { finish(new Error("download_premature_close")); return; }
+              // Rename only after both the response and the file have completed.
+              try { fs.renameSync(temp, dest); } catch (error) { finish(error); return; }
+              finish();
+            });
+          } catch (err) { finish(err); }
+        });
+        requests.add(req);
+        req.on("error", (err) => { if (!discarded) finish(err); });
+        req.on("close", () => {
+          if (!discarded && !receivedResponse) finish(new Error("download_premature_close"));
+        });
+        if (settled || discarded) req.destroy();
+      } catch (err) { finish(err); }
+    }
+
+    follow(url, 0);
   });
+}
+
+/** Collect the paid audio even when the optional subtitles cannot be downloaded. */
+export async function collectSpeechFiles(speech, voiceDir, {
+  downloadFile = download,
+  removeFile = (file) => fs.rmSync(file, { force: true }),
+} = {}) {
+  const audioPath = path.join(voiceDir, "narration.mp3");
+  await downloadFile(speech.url, audioPath);
+  // Another take's cues must not be used for this audio when its own cues are missing or unreadable.
+  for (const ext of ["json", "srt", "vtt"]) {
+    try { removeFile(path.join(voiceDir, `subtitles.${ext}`)); } catch { /* Optional files cannot block audio delivery. */ }
+  }
+  let subtitlePath = null;
+  if (speech.subtitles?.url) {
+    const ext = speech.subtitles.format === "srt" ? "srt" : speech.subtitles.format === "vtt" ? "vtt" : "json";
+    const dest = path.join(voiceDir, `subtitles.${ext}`);
+    try {
+      await downloadFile(speech.subtitles.url, dest);
+      subtitlePath = dest;
+    } catch {
+      try { removeFile(dest); } catch { /* alignDraft explicitly skips this file. */ }
+    }
+  }
+  return { audioPath, subtitlePath };
 }
 
 function cmdVoices(argv) {
@@ -289,55 +440,36 @@ function cmdSubmit(argv) {
   _print({ reused: false, task_id: id, client_request_id });
 }
 
-async function cmdCollect(argv) {
+async function cmdRecover(argv) {
+  if (argv.length !== 1 || argv[0].startsWith("--")) {
+    die("usage: voice.mjs recover <outdir>  (after reconciling a lost submission response)");
+  }
+  _print(await recoverDraft(path.resolve(argv[0])));
+}
+
+export async function cmdCollect(argv, { collectFiles = collectSpeechFiles } = {}) {
   const outArg = argv.find((a) => !a.startsWith("--"));
   if (!outArg) die("usage: voice.mjs collect <outdir>  (after saving the final tasks.get result as voice/task.json)");
   const draft = path.resolve(outArg);
   const taskPath = path.join(draft, "voice", "task.json");
   if (!fs.existsSync(taskPath)) die(`missing ${taskPath}; save the terminal beatra.tasks.get result there first`);
   const ledger = readLedger(draft);
-  if (!ledger.synth) {
-    die(
-      "no synthesis ledger for this draft. If this is self-supplied audio, copy it to " +
-        "voice/narration.mp3 and run `voice.mjs align <outdir>` instead."
-    );
-  }
   const speech = extractSpeech(JSON.parse(fs.readFileSync(taskPath, "utf-8")));
+  if (!matchesSynthesisTask(ledger, speech)) throw new Error(collectionIdentityError);
   if (speech.status !== "succeeded") {
-    // Record the terminal failure so a later submit may open a new confirmed
-    // request with a new id instead of staying blocked as in-flight.
-    writeLedger(draft, {
-      ...ledger,
-      synth: { ...ledger.synth, task_id: speech.task_id || ledger.synth.task_id, status: "failed" },
-    });
+    // A running or unknown answer still owns its request id. Only a terminal
+    // failure permits a later confirmed submit with a new identity.
+    const next = collectedLedger(ledger, speech);
+    if (next !== ledger) writeLedger(draft, next);
     die(`task ended ${speech.status}; see voice/task.json`);
   }
   if (!speech.url) die("task succeeded but returned no audio url");
-  if (ledger.synth.task_id && speech.task_id && ledger.synth.task_id !== speech.task_id) {
-    die(
-      `voice/task.json (task ${speech.task_id}) does not match the ledger's synthesis ` +
-        `(task ${ledger.synth.task_id}); save the result of the submitted task, not another one.`
-    );
-  }
 
   const voiceDir = path.join(draft, "voice");
-  const audioPath = path.join(voiceDir, "narration.mp3");
-  await download(speech.url, audioPath);
-  if (speech.subtitles?.url) {
-    const ext = speech.subtitles.format === "srt" ? "srt" : speech.subtitles.format === "vtt" ? "vtt" : "json";
-    await download(speech.subtitles.url, path.join(voiceDir, `subtitles.${ext}`));
-  }
-  writeLedger(draft, {
-    ...ledger,
-    synth: {
-      ...ledger.synth,
-      task_id: speech.task_id || ledger.synth.task_id,
-      status: "succeeded",
-      duration_seconds: speech.duration,
-    },
-  });
+  const { audioPath, subtitlePath } = await collectFiles(speech, voiceDir);
+  writeLedger(draft, collectedLedger(ledger, speech));
 
-  const alignment = alignDraft(draft);
+  const alignment = alignDraft(draft, { subtitlePath });
   console.error(`aligned via ${alignment.method}; duration ${alignment.duration}s`);
   _print({
     reused: false,
@@ -511,6 +643,7 @@ async function main() {
   if (cmd === "voices") cmdVoices(rest);
   else if (cmd === "estimate") cmdEstimate(rest);
   else if (cmd === "submit") cmdSubmit(rest);
+  else if (cmd === "recover") await cmdRecover(rest);
   else if (cmd === "collect") await cmdCollect(rest);
   else if (cmd === "clone-submit") cmdCloneSubmit(rest);
   else if (cmd === "align") cmdAlign(rest);
@@ -523,6 +656,7 @@ async function main() {
   node ${path.join(skillRoot, "scripts/voice.mjs")} voices [--language zh-CN] [--category cloned]
   node ${path.join(skillRoot, "scripts/voice.mjs")} estimate <outdir>
   node ${path.join(skillRoot, "scripts/voice.mjs")} submit <outdir> --voice <voice_id>
+  node ${path.join(skillRoot, "scripts/voice.mjs")} recover <outdir>
   node ${path.join(skillRoot, "scripts/voice.mjs")} collect <outdir>
   node ${path.join(skillRoot, "scripts/voice.mjs")} clone-submit <sample> --name NAME --consent --draft <outdir>
   node ${path.join(skillRoot, "scripts/voice.mjs")} align <outdir>

@@ -37,9 +37,11 @@ With voiceover there are two tracks — never write the same sentence twice:
   writes the noun.
 - Without voiceover the on-screen words are the reading track and no
   separate captions are attached.
-- On-screen words are stroke-drawn — Chinese characters and short English
+- In text mode, on-screen words are stroke-drawn — Chinese characters and short English
   words alike — through `text_svg.py`. `<text>` with a system font is
   forbidden for these; generating words with an image model is forbidden.
+- Program mode uses readable diagram labels with the fonts specified in
+  [program mode](mode-program.md).
 - Long English sentences use Georgia `<text>` with a wipe or fade (a
   sentence is too many strokes for one scene); the split rule lives in
   [text mode](mode-text.md). Write product names; never paste colored

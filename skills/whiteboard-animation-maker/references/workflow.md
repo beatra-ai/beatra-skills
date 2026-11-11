@@ -1,17 +1,18 @@
-# Whiteboard film workflow (draw only after confirmation)
+# Whiteboard film workflow
 
 The user brings a concept, a finished narration script, or a benchmark video
-link. Tear down, agree, finalize — then build the draft. Without an explicit
-Gate A and Gate B pass, do not create a draft, do not submit paid synthesis,
-and do not render.
+link. Show the direction, narration and storyboard, then build the draft.
+These free planning artifacts give the user a useful result before any paid
+call. Pause for editorial review when the user requests it; when they ask for
+a finished film or delegate creative choices, continue through the free
+steps without requiring separate approvals.
 
-"You decide" or "looks good" is not a pass. Without an approved narration and
-storyboard, "just make it" is not a pass either. Once the narration and the
-storyboard table (on-screen words and objects per scene) are approved, "draw
-this table" or "make me a version to watch" is a Gate B pass: start drawing.
-A new angle or duration reopens Gate A; a narration change reopens Gate B and
-re-synthesis; changing only the picture with an unchanged narration never
-re-synthesizes.
+"You decide" delegates creative choices and "looks good" approves what was
+shown. Neither authorizes an unpriced paid call: keep the separate current
+production card for synthesis, cloning or benchmark lookup. Update the plan
+when the angle or duration changes; a changed narration needs a new paid
+card before re-synthesis. Changing only the picture with unchanged narration
+never re-synthesizes.
 
 When the user asks how many credits remain or whether a live estimate fits
 the current balance, call `beatra.wallet.get`. When they ask what was
@@ -55,7 +56,7 @@ script.
 One scene carries one idea. If it does not fit, cut it or split the film into
 a series; never compress a ten-minute lecture into three minutes.
 
-## Tear down the concept (write it for yourself, then put it on the Gate A card)
+## Tear down the concept (write it for yourself, then put it on the direction card)
 
 Keep only the skeleton that can carry the whole film:
 
@@ -72,16 +73,16 @@ Keep only the skeleton that can carry the whole film:
 6. **Cut list.** What this film deliberately skips.
 
 Pick exactly one angle: misconception / mechanism / contrast /
-example-first-then-name. The hook style is fixed at Gate A. Do not write a
+example-first-then-name. Set the hook style in the direction card. Do not write a
 product ad arc (pain → solution → buy).
 
 Mode: exact flows, relationships, or labels that must be read precisely →
 program; words written stroke by stroke — Chinese or English → text. text
 is the default for social whiteboard explainers. Announce the choice.
 
-## Gate A · direction
+## Direction
 
-Write one short card and stop for a decision. The card carries:
+Write one short card. The card carries:
 
 - the concept as understood
 - the audience (mark whether assumed or user-supplied)
@@ -96,10 +97,9 @@ Write one short card and stop for a decision. The card carries:
 - honesty grade: researched public information / a stated view / something
   you actually ran. Never pass a view off as tested work.
 
-Ask for: pass / change angle / change duration / change mode / drop voiceover
-/ not this time.
-
-Only after a pass, write the narration and the storyboard.
+Reuse the user's decisions and any delegated choices. Ask only when a missing
+hard input changes the route or the user requested a direction review first.
+Otherwise continue to the narration and storyboard.
 
 ## Write the script
 
@@ -118,8 +118,7 @@ that narration line; one real example is fenced below):
 ```
 
 - **On-screen word**: 2–6 characters, the noun inside that narration line,
-  strong enough to be the cover frame. A scene without one cannot pass
-  Gate B.
+  strong enough to be the cover frame. Fill any missing word before drawing.
 - **Object**: draw that noun. People stay off screen by default.
 - Drawing rules live in [visual rules](visual-rules.md).
 
@@ -138,14 +137,15 @@ Without voiceover, the on-screen words are the reading track. With voiceover,
 narration plus captions are the reading track and the picture still shows the
 short words.
 
-## Gate B · script and storyboard
+## Script and storyboard
 
-Show the complete narration plus the storyboard table, then stop. State the
+Show the complete narration plus the storyboard table. State the
 character count and the duration estimate. If scenes are missing on-screen
-words or objects, fill the table first. Ask for: pass / change some scenes /
-cut scenes / rewrite narration / back to Gate A.
+words or objects, fill the table first. Pause if the user requested a script
+review; otherwise continue toward the requested film. A request for only a
+script or storyboard ends here.
 
-Only after a pass:
+To make the film:
 
 1. `new_draft.mjs`
 2. Write the approved `script.txt` and `DESIGN.md` into the draft
@@ -160,4 +160,4 @@ Only after a pass:
 ## Series
 
 A concept that needs more than five steps, or whose examples crowd out the
-definition, gets a split proposal at Gate A: this film covers one part.
+definition, gets a split proposal in the direction card: this film covers one part.

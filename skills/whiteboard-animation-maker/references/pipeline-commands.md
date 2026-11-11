@@ -20,7 +20,8 @@ model. `$SKILL` is this package directory.
 
 ## Draft lifecycle
 
-1. **Create the draft** (after Gate B only):
+1. **Create the draft** once the narration and storyboard are ready and any
+   user-requested review is complete:
 
    ```bash
    node "$SKILL/scripts/new_draft.mjs" <outdir> --mode text|program
@@ -39,8 +40,9 @@ model. `$SKILL` is this package directory.
    rendered timeline. Mode rules: [text mode](mode-text.md),
    [program mode](mode-program.md).
 
-3. **On-screen words** come from stroke data, never `<text>` with a system
-   font — Chinese characters and short English words alike:
+3. **Text-mode words** come from stroke data — Chinese characters and short
+   English words alike. Program mode uses readable diagram labels from its
+   mode reference:
 
    ```bash
    python3 "$SKILL/scripts/text_svg.py" '目标' --id goalText --cx 540 --cy 280 --size 80

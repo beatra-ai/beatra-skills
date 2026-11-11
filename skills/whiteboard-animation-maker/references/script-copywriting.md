@@ -170,4 +170,4 @@ Never invent prices, benchmark numbers, headcounts, or timelines. Never
 claim unrun work as run. Benefit promises state a judgment, not a fake
 result.
 
-Gate B shows this script to the user; never rewrite narration while drawing.
+Show this script with the storyboard; never rewrite narration while drawing.

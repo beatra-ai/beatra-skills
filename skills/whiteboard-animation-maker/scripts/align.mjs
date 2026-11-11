@@ -102,8 +102,12 @@ export function parseCues(raw, format = "") {
       return [];
     }
   }
-  if (Array.isArray(raw)) return raw.map(normalizeCue).filter(Boolean);
+  if (Array.isArray(raw)) {
+    const cues = raw.map(normalizeCue);
+    return validCues(cues) ? cues : [];
+  }
   if (typeof raw === "object") {
+    if (Array.isArray(raw.subtitles)) return parseCues(raw.subtitles, format);
     if (Array.isArray(raw.subtitle)) return parseCues(raw.subtitle, format);
     if (Array.isArray(raw.cues)) return parseCues(raw.cues, format);
     if (Array.isArray(raw.words)) return parseCues(raw.words, format);
@@ -113,32 +117,39 @@ export function parseCues(raw, format = "") {
 }
 
 function asSeconds(value) {
-  if (typeof value === "number" && Number.isFinite(value)) {
-    return value > 50 ? value / 1000 : value;
-  }
+  if (typeof value === "number" && Number.isFinite(value)) return value;
   if (typeof value === "string" && value.includes(":")) return clockToSec(value);
-  const n = Number(value);
-  if (!Number.isFinite(n)) return null;
-  return n > 50 ? n / 1000 : n;
+  return null;
 }
 
 function normalizeCue(item) {
   if (!item || typeof item !== "object") return null;
   const text = item.text ?? item.word ?? item.content ?? "";
-  const start = asSeconds(item.start ?? item.time_begin ?? item.begin ?? item.ts);
-  const end = asSeconds(item.end ?? item.time_end ?? item.stop ?? item.te);
-  if (!text || start == null || end == null) return null;
-  return { start, end, text: String(text) };
+  // The platform contract names milliseconds explicitly. Other JSON cue forms use seconds.
+  const milliseconds = "time_begin" in item || "time_end" in item;
+  const start = milliseconds ? asSeconds(item.time_begin) : asSeconds(item.start ?? item.begin ?? item.ts);
+  const end = milliseconds ? asSeconds(item.time_end) : asSeconds(item.end ?? item.stop ?? item.te);
+  if (milliseconds && (typeof item.time_begin !== "number" || typeof item.time_end !== "number")) return null;
+  return { start: milliseconds && start != null ? start / 1000 : start, end: milliseconds && end != null ? end / 1000 : end, text };
+}
+
+function validCues(cues) {
+  let previousEnd = 0;
+  for (const cue of cues) {
+    if (!cue || typeof cue.text !== "string" || !norm(cue.text) || !Number.isFinite(cue.start) || !Number.isFinite(cue.end) || cue.start < previousEnd || cue.end <= cue.start) return false;
+    previousEnd = cue.end;
+  }
+  return true;
 }
 
 function clockToSec(value) {
-  const m = String(value).trim().match(/(?:(\d+):)?(\d+):(\d+)[.,](\d+)/);
+  const m = String(value).trim().match(/^(?:(\d+):)?(\d{1,2}):(\d{2})[.,](\d+)$/);
   if (!m) return null;
   const h = Number(m[1] || 0);
   const min = Number(m[2]);
   const s = Number(m[3]);
   const frac = Number(`0.${m[4]}`);
-  return h * 3600 + min * 60 + s + frac;
+  return min < 60 && s < 60 ? h * 3600 + min * 60 + s + frac : null;
 }
 
 export function parseSrt(text) {
@@ -151,12 +162,12 @@ export function parseSrt(text) {
     if (!timeLine) continue;
     const [a, b] = timeLine.split("-->").map((s) => s.trim());
     const start = clockToSec(a);
-    const end = clockToSec(b);
+    const end = clockToSec(b?.split(/\s+/)[0]);
     const content = lines.filter((l) => l !== timeLine && !/^\d+$/.test(l)).join("");
-    if (start == null || end == null || !content) continue;
+    if (start == null || end == null || !content) return [];
     cues.push({ start, end, text: content });
   }
-  return cues;
+  return validCues(cues) ? cues : [];
 }
 
 export function parseVtt(text) {
@@ -217,12 +228,25 @@ export function weightedSplit(scenes, duration) {
 }
 
 export function matchCues(scenes, cues) {
-  if (!cues.length) return null;
+  if (!cues.length || !validCues(cues)) return null;
   const sceneNorm = scenes.map((s) => ({ id: s.id, text: s.text, n: norm(s.text) }));
   const cueNorm = cues.map((c) => ({ ...c, n: norm(c.text) }));
   const scriptJoined = sceneNorm.map((s) => s.n).join("");
   const cueJoined = cueNorm.map((c) => c.n).join("");
-  if (!scriptJoined || cueJoined.length < scriptJoined.length * 0.5) return null;
+  if (!scriptJoined || cueJoined !== scriptJoined) return null;
+
+  // A platform sentence may cover several of the draft's shorter caption rows. Sharing that
+  // sentence's complete time span across rows loses timing, so keep the existing fallback instead.
+  const captionEnds = [];
+  let captionOffset = 0;
+  for (const scene of scenes) {
+    const source = scene.lines?.length ? scene.lines.join("\n") : scene.text;
+    for (const line of splitCaptionLines(source)) {
+      captionOffset += norm(line).length;
+      captionEnds.push(captionOffset);
+    }
+  }
+  if (captionOffset !== scriptJoined.length) return null;
 
   const ranges = [];
   let off = 0;
@@ -232,7 +256,10 @@ export function matchCues(scenes, cues) {
   }
   const cueRanges = [];
   let cOff = 0;
+  let captionIndex = 0;
   for (const c of cueNorm) {
+    while (captionEnds[captionIndex] <= cOff) captionIndex += 1;
+    if (cOff + c.n.length > captionEnds[captionIndex]) return null;
     cueRanges.push({ start: cOff, end: cOff + c.n.length, t0: c.start, t1: c.end });
     cOff += c.n.length;
   }
@@ -312,7 +339,7 @@ export function stitch(aligned, duration) {
 export function alignScenes({ scenes, duration, cues = [], islands = [] }) {
   if (!scenes.length) throw new Error("no spoken scenes");
   if (!(duration > 0)) throw new Error("audio duration must be > 0");
-  let aligned = matchCues(scenes, cues);
+  let aligned = cues.every((cue) => cue && cue.end <= duration) ? matchCues(scenes, cues) : null;
   let method = aligned ? "cues" : null;
   if (!aligned) {
     aligned = snapToIslands(scenes, islands);
@@ -388,7 +415,7 @@ export function buildCaptionCues(scenes, { linesById = {}, wordCues = [], island
   }
   if (!parts.length) return [];
 
-  let timed = matchCues(parts, wordCues);
+  let timed = wordCues.every((cue) => cue && cue.end <= scenes[scenes.length - 1].end) ? matchCues(parts, wordCues) : null;
   if (timed) {
     timed = timed.map((row, i) => ({
       id: parts[i].id,
@@ -487,7 +514,7 @@ function readFirst(dir, names) {
   return null;
 }
 
-export function alignDraft(draft, { duration = null, audio = null } = {}) {
+export function alignDraft(draft, { duration = null, audio = null, subtitlePath = undefined } = {}) {
   const htmlPath = path.join(draft, "index.html");
   const scriptPath = path.join(draft, "script.txt");
   if (!fs.existsSync(htmlPath)) throw new Error(`missing ${htmlPath}`);
@@ -526,11 +553,15 @@ export function alignDraft(draft, { duration = null, audio = null } = {}) {
   if (!(dur > 0)) throw new Error("need audio duration (ffprobe, task.json, or --duration)");
 
   let cues = [];
-  const subPath = readFirst(voiceDir, ["subtitles.json", "subtitles.srt", "subtitles.vtt"]);
+  const subPath = subtitlePath === undefined ? readFirst(voiceDir, ["subtitles.json", "subtitles.srt", "subtitles.vtt"]) : subtitlePath;
   if (subPath) {
-    const raw = fs.readFileSync(subPath, "utf8");
-    const ext = path.extname(subPath).slice(1);
-    cues = parseCues(raw, ext);
+    try {
+      const raw = fs.readFileSync(subPath, "utf8");
+      const ext = path.extname(subPath).slice(1);
+      cues = parseCues(raw, ext);
+    } catch {
+      cues = [];
+    }
   }
 
   let islands = [];
