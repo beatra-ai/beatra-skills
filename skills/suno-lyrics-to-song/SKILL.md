@@ -55,10 +55,19 @@ the exact Suno request. The production route is always:
 - `model_options.suno.custom_mode: true`;
 - one stable opaque 1..128-character `client_request_id`.
 
-Treat pronunciation, vocal character, duets, ensembles, accents, and exact
-duration as production directions to pursue and review in the result. Use the
-single-lead `vocal_gender` control only when the user chooses one male or female
-lead; express other casting through the lyrics and music direction.
+Treat pronunciation, vocal character, duets, ensembles, and accents as
+production directions to pursue and review in the result. Length: when this
+account has the music tools (the bundled client's `tools` command lists
+`beatra.music.edit` and `beatra.audio.process`; see
+[music editing and audio](references/music-editing-and-audio.md)), send
+`duration_seconds` of 30 or more that the lyrics fit when the user names a
+length, without `duration_fit`: a shorter target, or `exact`, cuts the singing at
+the target, so cut afterwards with `beatra.audio.process` `trim` only when the
+user accepts losing the end; without the music tools, or when the user names no
+length, keep the length as direction in the prompt and do not add a duration
+argument. Always report the real returned length. Use the single-lead
+`vocal_gender` control only when the user chooses one male or female lead;
+express other casting through the lyrics and music direction.
 
 ## Confirm once, execute once
 
@@ -77,18 +86,21 @@ Read the `suno-6` entry's `pricing`. Present one final readable production card
 containing the complete lyrics, title, music direction, `suno-6`, relevant
 options, and the six paid fields:
 
-1. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call.
-2. Credits — the live `suno-6` price just read, per slot and in total. Never a
-   remembered number.
-3. Count — one paid call for this song. A later revision is another slot.
-4. Identity — one new opaque `client_request_id`. Any changed lyric, title,
+1. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call,
+   plus any finishing step the user asked for with it.
+2. Credits — the live `suno-6` price just read, per slot and in total, with
+   each finishing step as its own line at its live `audio_process` price; the
+   total includes every line on the card. Never a remembered number.
+3. Count — one paid call for this song, plus one per finishing line on this
+   card. A later revision is another slot.
+4. Identity — one new opaque `client_request_id` per line listed on the card. Any changed lyric, title,
    direction, model, or option mints a new ID.
 5. If we stop here — the structured lyrics remain usable.
 6. If the balance is insufficient — relay the official message and its top-up
    URL exactly. Translate the prose; keep the URL. Do not retry until the user
    says they have topped up.
 
-A clear approval of that complete card authorizes one generation; do not
+A clear approval of that complete card authorizes the paid calls it lists; do not
 request a second confirmation or an extra “generate” command.
 
 Create the request identity only after the card is final. Call
@@ -120,8 +132,21 @@ also be viewed and managed at [beatra.ai](https://beatra.ai).
 
 If the user changes lyrics, title, music direction, model, or options after a
 result, present the revised complete production card before starting new paid
-work. Use [review and recovery](references/review-and-recovery.md) for a lost
-task ID, uncertain delivery, cancellation, failure, or result review.
+work. When this account has the music tools, a change to one part of a chosen
+song is `beatra.music.edit` with `operation: "replace_section"` (`start_ms`,
+`end_ms`, and that range's `section_lyrics`, the user's own lines in Preserve
+mode; ask the user where the part plays, in minutes and seconds as their player
+shows it), and continuing a chosen song is `operation: "extend"`, which sings the
+`lyrics` the user wrote or approved. Always send that range's `section_lyrics`
+(its current lines when only the singing changes); when the words change, also
+send `full_lyrics`, the whole lyric with that range's lines replaced (the
+default is the track's old lyrics; it is required when the track's `editable`
+field is not `{"native": true}`). Each revision is its own confirmed
+call: show the time range and the changed or new lines on its card with the live
+price (capability `music_replace_section` or `music_extend`) and give it its own
+`client_request_id`. Never extend automatically or repeatedly. Use
+[review and recovery](references/review-and-recovery.md) for a lost task ID,
+uncertain delivery, cancellation, failure, or result review.
 
 If the tool returns insufficient credits: give the user the tool message in
 full. Do not change the URL. You may translate the other words. Do not replace
@@ -136,6 +161,7 @@ step before every paid submit.
 
 - Preserve, Optimize, must-keep lines, and section structure: [lyrics intake and modes](references/lyrics-intake-and-modes.md)
 - Style, arrangement, vocals, and exact Suno arguments: [song direction and request](references/song-direction-and-request.md)
+- Length, fixing one part of a chosen song, continuing it, and its extra files (a WAV version, cover art, lyric timing, a saved singer): [music editing and audio](references/music-editing-and-audio.md)
 - End-to-end preparation, confirmation, submission, and tracking: [workflow](references/workflow.md)
 - Lost tasks, cancellation, terminal results, and listening review: [review and recovery](references/review-and-recovery.md)
 - First installation or expired authorization: [installation and authentication](references/installation-and-auth.md)

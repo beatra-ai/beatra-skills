@@ -27,14 +27,16 @@ python3 scripts/mcp_client.py upload ./cover-art.png --mime-type image/png
 
 Upload is transport, not creative review. Retain the returned artifact reference and never pass a local path to a remote tool.
 
-Default to cutting the chorus or strongest 20–30 seconds rather than forcing the whole song into one clip. Keep `model: "auto"` and a source-appropriate aspect ratio. Build a compact audio-visual map before any paid call: hook or energy, dominant mood, pulse, visual motif, subject, movement, palette, camera, opening image, and landing image. Write the beat, phrase, or climax cut into the paid card. Route by visual control:
+Default to cutting the chorus or strongest 20–30 seconds rather than forcing the whole song into one clip. When this account has the music tools (the bundled client's `tools` command lists `beatra.music.edit` and `beatra.audio.process`; see [music editing and audio](references/music-editing-and-audio.md)), make that cut with `beatra.audio.process` `operation: "trim"` (`start_ms`, and `end_ms` or `target_duration_ms`; a paid call at the live `audio_process` price, on its own card with its own `client_request_id`) instead of asking the user for a new excerpt: take the section's start and end from the song's lyric timing when one was made, otherwise ask the user where it starts and ends in minutes and seconds as their player shows it ("chorus 1:05 to 1:35"), convert that to `start_ms`/`end_ms`, and name the part kept; without the music tools, work from the excerpt the user supplies. Keep `model: "auto"` and a source-appropriate aspect ratio. Build a compact audio-visual map before any paid call: hook or energy, dominant mood, pulse, visual motif, subject, movement, palette, camera, opening image, and landing image. Write the beat, phrase, or climax cut into the paid card. Route by visual control:
 
 - text plus compatible driving audio → `beatra.videos.generate`;
 - strict approved cover art or portrait opening → `beatra.videos.animate` with driving audio;
 - strict approved opening and ending art → `beatra.videos.interpolate`;
 - audio used only as loose mood reference → `beatra.videos.generate_from_references`.
 
-After a delivered gift cover, prefer `beatra.videos.animate` with driving audio when that still is the opening frame. Inspect the real audio duration and write the smallest admitted whole-second video `duration` at or above that length. Do not shorten the track to cheapen the clip. If no current card admits a duration that contains the excerpt in full, stop and ask for the smallest compatible excerpt change.
+After a delivered gift cover, prefer `beatra.videos.animate` with driving audio when that still is the opening frame. Inspect the real audio duration and write the smallest admitted whole-second video `duration` at or above that length. Do not shorten the track to cheapen the clip. If no current card admits a duration that contains the excerpt in full, stop and ask for the smallest compatible excerpt change, or, with the music tools, offer a `trim` to that length and name the part kept.
+
+For a song Beatra generated, offer a song video (MP4) as another option beside the generated clip, comparing the two live prices, when this account has the music tools: `beatra.music.edit` with `operation: "deliverable"` and `kind: "video_mp4"` makes a song video over its cover art, from the song as generated (not from the cut excerpt). Its `video_options.author` and `video_options.brand_text` carry only words the user gave. It needs the song exactly as Beatra generated it; a trimmed or uploaded song cannot take it. Its own card shows the work, the live price from `beatra.models.list` (capability `music_video`), one call, its own `client_request_id`, that the song stays usable if the user stops, and that a short balance is relayed with the returned message and its top-up URL exactly, with a retry of the same ID only after the user says they have topped up; the 600-credit line and the top-up confirmation belong only to the video clip's admission card.
 
 ## Golden path
 
@@ -77,7 +79,7 @@ After a delivered gift cover, prefer `beatra.videos.animate` with driving audio 
 
 ## Paid changes, recovery, and cancellation
 
-The optional cover stage and the video stage are separate paid requests with distinct IDs. A changed music excerpt, visual direction, cover image, prompt, model, selected duration, aspect ratio, or video control is new logical paid work: create a new ID, show the changed admission card, and obtain fresh top-up or balance confirmation. Never reuse an ID across changed arguments. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen ID only after the user says they have topped up.
+The section cut, the optional cover stage, the video stage, and the song video (MP4) are separate paid requests with distinct IDs. A changed music excerpt, visual direction, cover image, prompt, model, selected duration, aspect ratio, or video control is new logical paid work: create a new ID and show that stage's changed card; for the video clip, that is the admission card, with fresh top-up or balance confirmation. Never reuse an ID across changed arguments. On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen ID only after the user says they have topped up.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 
@@ -103,6 +105,7 @@ memory.
 ## References by task
 
 - Read [Music video clip workflow](references/workflow.md) when building an audio-visual map, choosing a route, checking live model facts, constructing exact payloads, polling, recovering, cancelling, or reviewing the visual response to the music.
+- Read [Music editing and audio](references/music-editing-and-audio.md) when the song needs cutting to the clip's section or the user wants a song video (MP4) of a Beatra song.
 - Read [Installation and authentication](references/installation-and-auth.md) only when authorization or shared credentials need attention.
 - Read [Installation registration](references/installation-registration.md) for the non-billable best-effort package registration step.
 - Read [Tasks and results](references/tasks-and-results.md) for shared terminal task and artifact semantics, and [Billing, errors, and recovery](references/billing-errors-and-recovery.md) for returned billing or error details.

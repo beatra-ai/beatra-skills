@@ -1,0 +1,8 @@
+interface:
+  display_name: "School Song Maker"
+  short_description: "Turn your school, class, motto, and memories into original lyrics and a sing-along class song, graduation song, or welcome song."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $school-song-maker to write a graduation song for the Class of 2027 at Riverside High, sung by a student choir."
+policy:
+  allow_implicit_invocation: true

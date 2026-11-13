@@ -35,11 +35,11 @@ containing:
 2. the title;
 3. the complete music direction;
 4. any single-lead gender field that will be used;
-5. `suno-6`, relevant options, and the fact that approval starts one paid generation;
-6. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call;
-7. Credits — the live `suno-6` price just read, per slot and in total, never a remembered number;
-8. Count — one paid call for this song;
-9. Identity — one new opaque `client_request_id`; a changed lyric, title, direction, model, or option mints a new ID;
+5. `suno-6`, relevant options, and the fact that approval starts the paid calls listed on the card;
+6. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call, plus any finishing step the user asked for with it;
+7. Credits — the live `suno-6` price just read, per slot and in total, with each finishing step as its own line at its live `audio_process` price, the total including every line, never a remembered number;
+8. Count — one paid call for this song, plus one per finishing line on the card;
+9. Identity — one new opaque `client_request_id` per line on the card; a changed lyric, title, direction, model, or option mints a new ID;
 10. If we stop here — the structured lyrics remain usable;
 11. If the balance is insufficient — relay the official message and its top-up URL exactly.
 
@@ -68,4 +68,8 @@ state, and explain how to resume the same task later.
 
 Any revised lyrics, title, music direction, model, or model option define a new paid
 request. Show the changed complete lyrics and direction, obtain new generation
-confirmation, and create a new request identity.
+confirmation, and create a new request identity. When only one part of the chosen
+song needs to change and this account has the music tools, use `replace_section`
+instead of a new song, and `extend` to continue it; each is its own confirmed
+call and never runs automatically or repeatedly (see
+[music editing and audio](music-editing-and-audio.md)).

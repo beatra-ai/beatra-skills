@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI Song Cover Studio"
+  short_description: "Upload a reference song and reimagine it as a new cover — change the genre, arrangement, and vocal direction into rock, acoustic, folk, jazz, or Chinese-style."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $ai-song-cover-studio to reimagine my folk song as a jazz cover. Recording attached; keep the melody recognizable."
+policy:
+  allow_implicit_invocation: true

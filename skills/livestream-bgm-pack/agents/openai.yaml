@@ -1,0 +1,8 @@
+interface:
+  display_name: "Livestream BGM Pack"
+  short_description: "Build an original livestream BGM playlist of 10 to 20 instrumental tracks for a room, store, or live-commerce shift."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $livestream-bgm-pack to make 12 soft, calm instrumentals for my jewelry livestream: waiting, chat, product, late night."
+policy:
+  allow_implicit_invocation: true

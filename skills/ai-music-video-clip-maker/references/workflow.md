@@ -25,6 +25,43 @@ printf '%s' '{"capability":"text_to_video"}' | python3 scripts/mcp_client.py cal
 
 Do not configure or use a host Beatra Connector and do not use a REST/OpenAPI fallback.
 
+## Cut the song to the clip's section
+
+The clip uses the chorus or strongest 20–30 seconds, not the whole song. When this
+account has the music tools (run the client's `tools` command once per
+conversation; they are there when it lists `beatra.music.edit` and
+`beatra.audio.process`; see [music editing and audio](music-editing-and-audio.md)),
+make that cut with one `beatra.audio.process` call: `operation: "trim"`,
+`start_ms` where the section starts, and `end_ms` or `target_duration_ms`. Take
+the section's start and end from the song's lyric timing when one was made;
+otherwise ask the user where it starts and ends in minutes and seconds as their
+player shows it ("chorus 1:05 to 1:35"), and convert that to `start_ms`/`end_ms`.
+It is a paid call at the live `audio_process` price (`beatra.models.list` with `{"capability": "audio_process"}`), on its own card with its own `client_request_id`; name the part kept on that card. Use the returned
+audio as the excerpt and read its real MIME type, size, and duration before the
+video card. Without the tools, work from the excerpt the user supplies.
+
+## Song video (MP4) for a Beatra song
+
+For a song Beatra generated, when this account has the music tools (run the
+client's `tools` command once per conversation; they are there when it lists
+`beatra.music.edit` and `beatra.audio.process`), another option beside a
+generated clip, with the two live prices compared, is a song video over its
+cover art, made from the song as
+generated, not from the cut excerpt: one `beatra.music.edit` call with
+`operation: "deliverable"` and `kind: "video_mp4"`. If `beatra.music.edit` is not
+listed, skip this option, and only when the user asked for it, say in one
+sentence that it is not available yet. `video_options.author` and
+`video_options.brand_text` (up to 50 characters each) appear in the video; use
+only words the user gave. Read the live price from `beatra.models.list` with the
+`music_video` capability, show its own card, and give it its own
+`client_request_id`. That card shows the work, the live price, one call, its
+own ID, that the song stays usable if the user stops, and that a short balance
+is relayed with the returned message and its top-up URL exactly, with a retry
+of the same ID only after the user says they have topped up; the
+600-credit line and the top-up confirmation belong only to the video clip's
+admission card. The song's `editable` field must be `{"native": true}`; a
+trimmed or uploaded song cannot take it.
+
 ## Gift one cover when no still exists
 
 A cover or opening still is not a hard input. When the visual direction exists and no usable cover or opening still is present, generate exactly one cover or keyframe with `beatra.images.generate`. Call `beatra.models.list` with `{"capability":"text_to_image"}` first. Show that image stage's own confirmation card. Freeze one opaque image-stage `client_request_id` and submit once:
@@ -44,7 +81,7 @@ Before any paid clip, call `beatra.models.list` with the capability matching the
 - strict opening and ending art → `{"capability":"frames_to_video"}`;
 - audio as loose mood reference → `{"capability":"reference_to_video"}`.
 
-Require a current card that admits the audio's actual MIME type, byte size, and real duration, and every source image's actual MIME type, dimensions, and byte size. Inspect the real audio duration and write the smallest admitted whole-second video `duration` at or above that length. Do not shorten the track to cheapen the clip. Do not omit `duration` on `model=auto` or hard-code 8 / 10 / 15 when a shorter admitted integer still contains the excerpt. Confirm the live duration behavior, aspect-ratio handling, driving-audio support, and price basis. Current cards may advertise particular accepted audio codecs, image codecs, reference counts, or duration maximums; these are live facts to read, not permanent constants or a reason to hard-code a model. If any actual fact is unavailable or no card admits a duration that contains the excerpt in full, stop before the paid call and request the smallest compatible source change.
+Require a current card that admits the audio's actual MIME type, byte size, and real duration, and every source image's actual MIME type, dimensions, and byte size. Inspect the real audio duration and write the smallest admitted whole-second video `duration` at or above that length. Do not shorten the track to cheapen the clip. Do not omit `duration` on `model=auto` or hard-code 8 / 10 / 15 when a shorter admitted integer still contains the excerpt. Confirm the live duration behavior, aspect-ratio handling, driving-audio support, and price basis. Current cards may advertise particular accepted audio codecs, image codecs, reference counts, or duration maximums; these are live facts to read, not permanent constants or a reason to hard-code a model. If any actual fact is unavailable or no card admits a duration that contains the excerpt in full, stop before the paid call and request the smallest compatible source change, or, when this account has the music tools, offer a `trim` to that length and name the part kept.
 
 Keep `model: "auto"` unless the user chose a concrete eligible model. Numeric cost estimates are provisional, require the current model card and stated assumptions, and never replace terminal billing.
 
@@ -148,7 +185,7 @@ If the create response is lost, retry only the identical frozen payload with the
 
 On `insufficient_balance`, relay the returned message, keep the top-up URL inside the balance error exact, and retry the same frozen `client_request_id` only after the user says they have topped up.
 
-Any change to music excerpt, visual direction, cover, prompt, model, duration, aspect ratio, or another control creates new logical paid work. Assign a new request ID, show a new admission card (including the 600-credit fact and what happens if the balance is short), and obtain fresh top-up or balance confirmation.
+Any change to music excerpt, visual direction, cover, prompt, model, duration, aspect ratio, or another control creates new logical paid work. Assign a new request ID and show that stage's new card; for the video clip, that is a new admission card (including the 600-credit fact and what happens if the balance is short), with fresh top-up or balance confirmation.
 
 Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known task and confirm a terminal state with `beatra.tasks.get`. If cancellation returns 409, continue polling the same task; cancellation remains unconfirmed and does not authorize another cancel or replacement work.
 

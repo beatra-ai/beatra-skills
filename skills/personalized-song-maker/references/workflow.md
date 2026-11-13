@@ -54,3 +54,11 @@ Cancel only at the user's request. Call `beatra.tasks.cancel` once for the known
 For a successful song, deliver every returned audio artifact or link and report only actual task status, resolved model, clip count, duration, format, usage, and `billing.net_charged_credits`.
 
 Review only media the host Agent can actually access. Listen for story accuracy against the approved must-keep facts, name pronunciation, the hook, lyric rendering, emotion, arrangement, vocal result, audio quality, and actual duration. If a must-include name or phrase was not rendered as expected, name the smallest change and wait for a new paid approval. State inspection limits honestly.
+
+## Extra files for the chosen song
+
+When this account has the music tools, offer these only after the user has listened and chosen a take, and only when the clip's `editable` field is `{"native": true}`. Each is one `beatra.music.edit` call with `operation: "deliverable"` and its own `kind`, and each is confirmed separately; none rides on the song's card (see [music editing and audio](music-editing-and-audio.md)).
+
+- Extra cover art, `kind: "cover_image"`: priced with the `music_cover_image` capability, on its own card with its own `client_request_id`.
+- A song video (MP4), `kind: "video_mp4"`: priced from `beatra.models.list` with the `music_video` capability, on its own card with its own `client_request_id`. `video_options.author` and `video_options.brand_text` (up to 50 characters each) appear in the video; use only words the user gave.
+- A WAV version, `kind: "wav"`: priced with the `music_wav` capability, on its own card with its own `client_request_id`.

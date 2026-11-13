@@ -1,0 +1,8 @@
+interface:
+  display_name: "Indie Game OST Pack"
+  short_description: "Build an original indie game OST pack of 8 to 15 instrumental tracks for title, explore, battle, shop, and victory."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $indie-game-ost-pack to score my island adventure: 10 tracks for title, explore, battle, shop, and victory, warm and cozy."
+policy:
+  allow_implicit_invocation: true

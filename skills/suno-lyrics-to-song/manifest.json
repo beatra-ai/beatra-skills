@@ -1,5 +1,5 @@
 {
-  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
+  "changelog": "Song edits and audio touch-ups such as trims, loops and fades are now each laid out as their own step.",
   "display_name": "Suno Lyrics to Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
@@ -74,5 +74,5 @@
   },
   "name": "suno-lyrics-to-song",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.3"
 }

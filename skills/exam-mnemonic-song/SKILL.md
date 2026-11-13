@@ -50,9 +50,19 @@ Safe defaults:
   `auto`.
 - `instrumental: false` with confirmed lyrics present.
 - `model_options.suno.custom_mode: true`.
-- There is no `duration` field on `beatra.music.generate`. Write length
-  only in the prompt. Do not add a duration argument. Read the actual
-  returned duration.
+- Length: when this account has the music tools (the bundled client's `tools`
+  command lists `beatra.music.edit` and `beatra.audio.process`; see
+  [music editing and audio](references/music-editing-and-audio.md)) and the
+  teacher names a length, send `duration_seconds` of 30 or more that the lyrics
+  fit, without `duration_fit`: a shorter target, or `exact`, cuts the singing at
+  the target and can take the last facts. For a request under about 30 seconds
+  (such as 20 seconds per point), say before the card that a sung song keeps its
+  ending only at about 30 seconds or more, write lyrics that fit about 30
+  seconds, send `duration_seconds: 30`, and write "about 30 seconds" on the
+  card's Work line. Cut afterwards with `beatra.audio.process` `trim` (a paid call at the live `audio_process` price, on its own card with its own `client_request_id`) only when
+  the teacher accepts losing the end. Without the music tools, or when the
+  teacher names no length, write length only in the prompt and do not add a
+  duration argument. Read the actual returned duration either way.
 - Put style only in `prompt`. Put the lyric body only in `lyrics`.
 
 ## Confirm the first song, then the set
@@ -69,7 +79,7 @@ song and wait:
 3. Count — one paid call for this first song. Do not batch the rest of
    the syllabus into this submit.
 4. Identity — one new opaque `client_request_id`. A changed lyric,
-   prompt, title, or model mints a new ID.
+   prompt, title, length, or model mints a new ID.
 5. If we stop here — the labeled lyric sheet remains usable.
 6. If the balance is insufficient — relay the official message and its
    top-up URL exactly. Translate the prose; keep the URL. Do not retry
@@ -79,8 +89,18 @@ Submit once through bundled `scripts/mcp_client.py`. Poll
 `beatra.tasks.get`. Deliver actual bytes, actual duration, and
 `billing.net_charged_credits`.
 
-After that first song is accepted, remaining knowledge points are a
-new pack. Show a fresh six-field card for that frozen set and wait:
+After that first song is accepted, when this account has the music tools,
+suggest saving its singer so later songs aim for the same singer:
+`beatra.music.edit` with `operation: "create_persona"` on that song (a paid call at the live `music_persona` price from `beatra.models.list`, on its own card with its own `client_request_id`; save it once and reuse the returned `persona_id`), from a song whose `editable` field is `{"native": true}` (a song
+cut to a requested length is not). Take the vocal window (`vocal_start_ms` and
+`vocal_end_ms`, 10 to 30 seconds) from the song's lyric timing when one exists;
+otherwise ask where the first verse starts. Each later song of the set then
+carries the returned `persona_id`; keep it in the conversation. The voice stays
+close, not identical: ask the user to listen across the set. See
+[music editing and audio](references/music-editing-and-audio.md).
+
+Remaining knowledge points are a new pack. Show a fresh six-field card for that
+frozen set and wait:
 
 1. Work — one exam mnemonic song per remaining named knowledge point,
    each a generate call (`beatra.music.generate`).
@@ -89,7 +109,8 @@ new pack. Show a fresh six-field card for that frozen set and wait:
 3. Count — one paid call per remaining slot. Do not batch slots into
    one submit.
 4. Identity — one new opaque `client_request_id` per slot. A changed
-   lyric, prompt, title, or model mints a new ID for the changed slots.
+   lyric, prompt, title, length, model, or persona mints a new ID for the
+   changed slots.
 5. If we stop here — the first accepted song and the remaining lyric
    sheets remain usable.
 6. If the balance is insufficient — relay the official message and its
@@ -101,8 +122,19 @@ Do not treat acceptance of the first song as approval of the rest.
 ## Review, deliver, and recover
 
 Review the sung lyric against the must-keep fact list. Report only
-what the host can actually hear. Do not promise perfect diction or
-exact seconds.
+what the host can actually hear. Do not promise perfect diction or exact
+seconds: with the music tools a sung song lands within about 10% of the
+length sent; without them the length is direction in the prompt.
+
+After the user chooses a take, and when this account has the music tools,
+offer lyric timing for each song of the set (an LRC file for lyric players and
+an SRT file for subtitles), and a song video (MP4) as an option. Each is its own
+paid call with its live price from `beatra.models.list` and its own
+`client_request_id`. A set of songs may share one six-field pack card with one
+line and one `client_request_id` per song; keep a separate card for any later
+paid step, and never put either on a song's generate card. Both need a song that
+was not cut to a length (its `editable` field is `{"native": true}`; see
+[music editing and audio](references/music-editing-and-audio.md)).
 
 After a returned `task_id`, poll that task. If the create response is
 lost, search with `beatra.tasks.list` and verify with
@@ -147,6 +179,8 @@ memory.
 
 - For lyric sheets, payloads, and recovery, read
   [Exam mnemonic workflow](references/workflow.md).
+- For the length field, a saved singer, and the extra files after a song is
+  chosen, read [music editing and audio](references/music-editing-and-audio.md).
 - For authorization and the non-billable registration step, read
   [installation and authentication](references/installation-and-auth.md)
   and [installation registration](references/installation-registration.md).

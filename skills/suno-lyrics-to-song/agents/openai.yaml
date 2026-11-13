@@ -1,0 +1,8 @@
+interface:
+  display_name: "Suno Lyrics to Song"
+  short_description: "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal…"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $suno-lyrics-to-song to shape my half-written graduation lyrics in Preserve mode, then set the style and vocals."
+policy:
+  allow_implicit_invocation: true

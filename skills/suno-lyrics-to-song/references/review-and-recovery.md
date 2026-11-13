@@ -65,4 +65,7 @@ this listening checklist:
 
 A requested lyric or direction change creates a new version that may also change the
 performance and arrangement. Show a revised complete production card, obtain one new
-paid approval, and use a new request identity.
+paid approval, and use a new request identity. To change only one part of a chosen
+song, or to continue it, use the music tools' `replace_section` or `extend` as the
+root describes: each is its own confirmed call, and a song is never extended
+automatically or repeatedly.

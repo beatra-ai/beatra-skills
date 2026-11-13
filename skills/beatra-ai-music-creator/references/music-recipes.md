@@ -36,6 +36,8 @@ concise chorus hook.
   "prompt": "Elegant skincare film BGM, modern ambient pop, calm-to-luminous arc, 92 BPM feel, felt piano, airy pads and muted electronic pulse, space for narration, gentle lift at midpoint, clean resolved ending, polished wide mix",
   "instrumental": true,
   "title": "Quiet Radiance",
+  "duration_seconds": 30,
+  "duration_fit": "exact",
   "model_options": {
     "suno": {
       "custom_mode": true,
@@ -48,10 +50,23 @@ concise chorus hook.
 }
 ```
 
+Send the two length fields only when this account has the music tools and the
+request has no reference recording; drop them otherwise.
+
 For game loops, ask for a loop-friendly arrangement without promising a
-sample-perfect loop point. Treat exact duration as arrangement guidance; final
-timing may need editing. “Space for narration” is creative direction, not
-automatic sidechain or final dialogue mixing.
+sample-perfect loop point. When this account has the music tools (see
+[music editing and audio](music-editing-and-audio.md)), send `duration_seconds`
+of 30 or more without `duration_fit`, even for a shorter loop (a shorter or
+exact take ends on a fade that the loop would repeat), generate the bed once,
+and make its length with `beatra.audio.process` `operation: "loop"` (a shorter
+loop ends its window with `loop_end_ms`, or is cut first with
+`operation: "trim"`; `format: "ogg"` for a game engine; when the engine
+repeats the file, `loop_count` with `end_with_fade: false`, as the shared reference says; a paid call at the live `audio_process` price with its own `client_request_id`, listed on the bed's card as its own line when the user asked for that length together with the bed, otherwise on its own card);
+report the real length and the loop's seam in plain words ("how smoothly it
+joins where it repeats: 0.91 out of 1, higher is smoother").
+Without the tools, treat the length as arrangement guidance; final timing may
+need editing. “Space for narration” is creative direction, not automatic
+sidechain or final dialogue mixing.
 
 ## Multilingual or bilingual song
 

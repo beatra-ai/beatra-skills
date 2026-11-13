@@ -184,16 +184,41 @@ For every returned take:
 Say which items the host actually heard. When it could not listen,
 hand the list to the user.
 
+## After the take is chosen
+
+When this account has the music tools (see
+[music editing and audio](music-editing-and-audio.md)), offer the extra files
+once the user has chosen a take. Both need a take Beatra generated and did not
+cut to length, so the clip's `editable` field must be `{"native": true}` (a take
+made with a requested length under 30 seconds, or cut by an exact fit, is not).
+
+- **Lyric timing.** One `beatra.music.edit` call with `operation: "deliverable"`
+  and `kind: "lyrics_timing"` returns an LRC file for lyric players and an SRT
+  file for subtitles in a video editor. It is paid: read the live price from
+  `beatra.models.list` with the `music_lyrics_timing` capability, show its own
+  card, and give it its own `client_request_id`.
+- **Extra cover art.** `kind: "cover_image"`: paid; read the live price from `beatra.models.list` with the `music_cover_image` capability, show its own card, and give it its own `client_request_id`.
+
 ## When the user asks for something adjacent
 
-- **A backing track of the delivered song for live singing.** The song
-  cannot be split into vocals and accompaniment here. Offer an
-  instrumental slot instead and explain it is a new piece in the same
-  style, not the same melody without vocals. A class that wants to sing
-  the delivered melody live can sing along with the full song in
-  rehearsal.
+- **A backing track of the delivered song for live singing.** When this
+  account has the music tools, make it from the delivered song with
+  `beatra.audio.process`, `operation: "separate_stems"`, and
+  `mode: "two_stem"`, and take the `instrumental` output. It is a paid step: read
+  the live price from `beatra.models.list` with the `audio_stem_separation`
+  capability and show its own card after the song exists. Say that a little of
+  one part can still be heard faintly in another, which is normal, so rehearse
+  with it before the event. Do not add the instrumental slot for this: that is a
+  new piece in the same style, not the same melody without vocals. Without the
+  tools, only the instrumental slot is offered, with that explanation on the
+  card's Work line; a class that wants to sing the delivered melody live can sing
+  along with the full song in rehearsal.
 - **Sheet music or a score.** Not produced here; the delivery is audio.
 - **A new arrangement of an existing recorded school anthem.** Route to
   `ai-song-cover-studio` with the recording as the reference.
-- **An exact duration.** Length is guided by the prompt; report the
+- **An exact duration.** With the music tools, send `duration_seconds` of 30 or
+  more that the lyrics fit, without `duration_fit` (a shorter target, or `exact`,
+  cuts the singing at the target), cut afterwards with `beatra.audio.process`
+  `trim` (a paid call at the live `audio_process` price, on its own card with its own `client_request_id`) only when the user accepts losing the end, and report the actual
+  duration returned. Without them, length is guided by the prompt; report the
   actual duration returned.

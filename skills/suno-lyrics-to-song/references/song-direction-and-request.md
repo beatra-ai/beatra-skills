@@ -42,8 +42,14 @@ whether the text came from the user, conversation context, or an authorized revi
 Never omit the explicit model or use `auto`.
 
 Do not pass `reference_audio`, `callback_url`, `callback_signing_key_id`, or `metadata`.
-Do not add speculative controls. If the user requests a single male or female lead,
-`model_options.suno.vocal_gender` may be `m` or `f`; omit it for no preference, duets,
+Do not add speculative controls. The one documented addition is the length: when
+this account has the music tools and the user names a length, add
+`duration_seconds` of 30 or more that the lyrics fit, without `duration_fit` (a
+shorter target, or `exact`, cuts the singing at the target; cut afterwards with
+`beatra.audio.process` `trim` only when the user accepts losing the end); see
+[music editing and audio](music-editing-and-audio.md). If the user requests a
+single male or female lead, `model_options.suno.vocal_gender` may be `m` or `f`;
+omit it for no preference, duets,
 ensembles, alternating roles, or any request that cannot be represented by one lead.
 
 ## Final production card

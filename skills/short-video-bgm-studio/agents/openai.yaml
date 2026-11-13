@@ -1,0 +1,8 @@
+interface:
+  display_name: "Short Video BGM Studio"
+  short_description: "Describe the footage and get an original instrumental track written for it, yours to keep and use commercially."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $short-video-bgm-studio to write an instrumental for my seaside cycling vlog: an evening coast road, free and relaxed."
+policy:
+  allow_implicit_invocation: true

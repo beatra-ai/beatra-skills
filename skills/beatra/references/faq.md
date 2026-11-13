@@ -58,10 +58,11 @@ paid tool that rewrites a brief by design, not a control.
 
 ## The user asks why a video needs a top-up when an image did not
 
-A direct, well-specified request authorizes one paid image, music, speech, or
-social execute, and one gift-sized video-prompt or keyframe stage. It does not
-authorize `beatra.videos.generate`, `animate`, `interpolate`,
-`generate_from_references`, `edit`, `extend`, or `beatra.voices.clone`.
+A direct, well-specified request authorizes one paid image, music generation,
+speech, or social execute, and one gift-sized video-prompt or keyframe stage. It
+does not authorize `beatra.videos.generate`, `animate`, `interpolate`,
+`generate_from_references`, `edit`, `extend`, `beatra.voices.clone`, or any
+`beatra.music.edit` or `beatra.audio.process` step.
 
 Those need the six-field production card in the main instructions first,
 carrying that route's tool name, its live-card duration, resolution and aspect,
@@ -166,7 +167,8 @@ failure.
 **Upload through the bundled client.** Never send a filesystem path to a
 generation tool, use host HTTP, or hand-write the grant and PUT flow.
 
-**Show the production card before paid video or clone work.** Planning is free
+**Show the production card before paid video, clone, music edit, or audio
+work.** Planning is free
 and unlimited; the card is what turns a plan into an authorized charge.
 
 **Report returned truth only.** Completion, file URLs, quality, usage, refunds,

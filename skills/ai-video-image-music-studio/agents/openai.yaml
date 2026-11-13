@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI Video, Image & Music Studio"
+  short_description: "Generate AI video, images, music, and voice-over in one creative flow, edit visual results, and keep every finished piece easy to find."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $ai-video-image-music-studio to make a promo clip for my yoga studio. Photos attached; add a calm instrumental track."
+policy:
+  allow_implicit_invocation: true

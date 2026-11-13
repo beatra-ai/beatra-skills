@@ -1,0 +1,8 @@
+interface:
+  display_name: "Short Drama Score Pack"
+  short_description: "Build an original short-drama score pack of 8 to 15 instrumental beds for tension, romance, comedy, and tearjerker scenes."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $short-drama-score-pack to make 10 labeled tracks for my romance drama episode: tension, romance, comedy, and tearjerker."
+policy:
+  allow_implicit_invocation: true

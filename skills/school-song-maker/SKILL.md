@@ -30,16 +30,18 @@ song, or a sports day or military training song.
 - **Song plus instrumental** — the same lyric sheet and song, plus one
   instrumental piece for the event. Both slots appear on one production
   card, each with its own request identity. The instrumental is a new
-  piece in the same style, not the delivered song without vocals: a song
-  cannot be split into vocals and accompaniment here. When the user asks
-  for a backing track to sing the song live, say so and write it on the
-  card's Work line. No sheet music or score is produced.
+  piece in the same style, not the delivered song without vocals. To sing
+  the delivered song live, see Backing version below. No sheet music or
+  score is produced.
 - **One song per class** — the same occasion for several classes (for
   example the welcome song for classes 1 to 4 of one year group). Make
   the first class's song first; the remaining classes become a labeled
   set after that first song is accepted.
 - **Lyrics only** — stop after the lyric sheet when the class will set or
   sing the words themselves.
+- **Backing version** — the delivered song's own accompaniment, to sing it live.
+- **Extra files** — for the chosen take: lyric timing (an LRC lyric file and an
+  SRT subtitle file) and extra cover art.
 
 ## Scope and adjacent routes
 
@@ -87,8 +89,16 @@ Safe defaults:
   approved lyrics are sung as written. Show the model on the production
   card; switch only when the user chooses another live model.
 - `instrumental: false` with the approved lyrics present. Style lives
-  only in `prompt`; the sung words live only in `lyrics`. There is no
-  `duration` field; write the target length in the prompt.
+  only in `prompt`; the sung words live only in `lyrics`.
+- Length: when this account has the music tools (the bundled client's `tools`
+  command lists `beatra.music.edit` and `beatra.audio.process`; see
+  [music editing and audio](references/music-editing-and-audio.md)), send
+  `duration_seconds` of 30 or more when the user names a length (a ceremony
+  slot, say) that the lyrics fit, without `duration_fit`: a shorter target, or
+  `exact`, cuts the singing at the target. Cut afterwards with
+  `beatra.audio.process` `trim` (a paid call at the live `audio_process` price, on its own card with its own `client_request_id`) only when the user accepts losing the end.
+  Without the music tools, or when the user names no length, write the target
+  length in the prompt, as before.
 
 ## Golden path
 
@@ -111,11 +121,14 @@ Safe defaults:
    every returned take with its link, actual duration, resolved model,
    and `billing.net_charged_credits`. Review it (see Review, deliver, and
    recover).
+7. **Offer the extra files.** After the user chooses a take, and when this
+   account has the music tools, offer its lyric timing (an LRC file and an SRT file) and extra cover art, each on its own card with its live price from `beatra.models.list` (`music_lyrics_timing`, `music_cover_image`). Neither rides on the song's card.
 
 ## Decisions that require confirmation
 
-Music generation is the only paid step. Before any billable call, show
-one current production card and wait for a clear yes:
+Music generation is the main paid step; when this account has the music
+tools, lyric timing, a backing version of the delivered song, and extra cover art are paid steps of their own. Before any billable call, show one current production card and wait
+for a clear yes:
 
 1. Work — what will be made in the user's words (for example "the
    2026 class 2 welcome song" and, when chosen, "one instrumental
@@ -134,7 +147,9 @@ one current production card and wait for a clear yes:
 
 One approval covers only the slots on that card. In the one-song-per-class
 mode, accepting the first song is not approval of the rest: show a fresh
-card for the remaining classes.
+card for the remaining classes. Lyric timing and a backing version each get
+their own card, with the live price for that step and their own
+`client_request_id`; they never ride on the song's card.
 
 ## Execution
 
@@ -203,6 +218,8 @@ step before every paid submit.
   group, building payloads for the instrumental slot or the per-class
   set, recovering a task, or answering a request for a backing track or
   a score.
+- Read [Music editing and audio](references/music-editing-and-audio.md)
+  for the length, lyric timing, cover art, and backing-version steps.
 - Read [Installation and authentication](references/installation-and-auth.md)
   only when authorization or shared credentials need attention, and
   [Installation registration](references/installation-registration.md)

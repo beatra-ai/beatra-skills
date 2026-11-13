@@ -9,9 +9,11 @@ Develop a theme, scene, lyric fragment, complete lyric, functional music brief,
 or reference recording into one coherent musical direction and,
 when the user wants audio, one intentional generation request. The deliverable
 may be a song, instrumental, BGM, soundtrack, jingle, multilingual track, or
-reference-led new arrangement. Treat singer identity, pronunciation, exact
-duration, loop points, melody carryover, and mastering as qualities to review
-after generation rather than guaranteed properties.
+reference-led new arrangement. Treat singer identity, pronunciation, loop
+points, melody carryover, and mastering as qualities to review after
+generation rather than guaranteed properties. A length is a control when this
+account has the music tools (see
+[music editing and audio](references/music-editing-and-audio.md)).
 
 Use the bundled `scripts/mcp_client.py` for every Beatra operation. Do not
 configure or use a host Beatra Connector. Never use REST/OpenAPI as a fallback.
@@ -37,8 +39,8 @@ vocal or instrumental route, exact paid payload, or another high-impact user
 choice.
 
 Follow this golden path: lock structure, write an executable caption, generate
-a limited set of takes, then make one focused revision. Do not automatically
-chain Extend.
+a limited set of takes, then make one focused revision. Never extend
+automatically or repeatedly; each revision is its own confirmed call.
 
 Before generation, prepare one compact production card:
 
@@ -86,6 +88,22 @@ another eligible model) and show those credits on the card per slot and in
 total. Never a remembered number. Call it again when the user requests another
 model or needs a model-specific capability. Do not silently substitute a model.
 
+Length: when this account has the music tools (the bundled client's `tools`
+command lists `beatra.music.edit` and `beatra.audio.process`; see
+[music editing and audio](references/music-editing-and-audio.md)), send
+`duration_seconds` when the user names a length (not with a reference
+recording; fit a reference-guided track afterwards with `trim` or `loop`). A song
+with lyrics gets `duration_seconds` of 30 or more that the lyrics fit, without
+`duration_fit`: a shorter target, or `exact`, cuts the singing at the target, so
+cut afterwards with `beatra.audio.process` `trim` only when the user accepts
+losing the end. An instrumental that needs exact seconds adds
+`duration_fit: "exact"`, and a bed that must run longer or loop (generated
+with `duration_seconds` of 30 or more and no `duration_fit`; see the shared
+reference) is lengthened with `beatra.audio.process`.
+[Creative brief and style](references/creative-brief-and-style.md) covers
+background music. Without the tools, keep the length as direction in the prompt
+and do not add a duration argument. Always report the real returned length.
+
 Use only controls returned or documented for the selected model family. Suno
 and MiniMax options are not interchangeable. Validate the exact payload using
 [model routing](references/model-routing.md) and use the examples in
@@ -119,12 +137,15 @@ or “do not generate yet” is not approval.
 
 Show one current production card and wait:
 
-1. Work — what will be made in the user's words, a `beatra.music.generate` call.
+1. Work — what will be made in the user's words, a `beatra.music.generate` call,
+   plus any finishing step the user asked for with it.
 2. Credits — the live price of the chosen model (`suno-6` by default) just
-   read from `beatra.models.list`, per slot and in total. Never a remembered
-   number.
-3. Count — one paid call for this generation. A later revision is another slot.
-4. Identity — one new opaque `client_request_id`. Any changed prompt, lyrics,
+   read from `beatra.models.list`, per slot and in total, with each finishing
+   step as its own line at its live `audio_process` price; the total includes
+   every line on the card. Never a remembered number.
+3. Count — one paid call for this generation, plus one per finishing line on
+   this card. A later revision is another slot.
+4. Identity — one new opaque `client_request_id` per line listed on the card. Any changed prompt, lyrics,
    file, model, or control mints a new ID.
 5. If we stop here — the production card and lyrics remain usable.
 6. If the balance is insufficient — relay the official message and its top-up
@@ -132,7 +153,7 @@ Show one current production card and wait:
    says they have topped up.
 
 Before a billable call, make model, title, lyrics or instrumental status,
-reference, important controls, and the one-generation scope visible. Create a
+reference, important controls, and the paid calls the card lists visible. Create a
 stable 1..128-character `client_request_id` only after that payload is final.
 Any change to prompt, lyrics, instrumental flag, title, model, reference,
 model options, or any other argument accepted by the current or a future MCP
@@ -172,7 +193,12 @@ Review composition, lyrics, vocal performance, pronunciation, role assignment,
 arrangement, ending, and production only when the host can actually play the
 audio. Otherwise label listening review incomplete while still delivering the
 factual artifacts. Preserve successful qualities and turn the largest gap into
-one focused, newly approved generation. Follow
+one focused, newly approved step: a new generation or, when this account has the
+music tools (see Choose and validate the model), `beatra.music.edit` with
+`operation: "replace_section"` to fix one part of a chosen song or
+`operation: "extend"` to continue it. Each is its own paid call with its own
+card, the live price for that step, and its own `client_request_id`; never extend
+automatically or repeatedly. Follow
 [review and iteration](references/review-and-iteration.md).
 
 When the user asks how many credits remain, call `beatra.wallet.get`. When they
@@ -185,6 +211,7 @@ step before every paid submit.
 - Intent, lyrics, instrumental, multilingual, and reference routes: [intent and routing](references/intent-and-routing.md)
 - Brief, style, lyrics craft, vocal direction, and language: [creative brief and style](references/creative-brief-and-style.md), [lyrics craft](references/lyrics-craft.md), and [vocal, language, and tags](references/vocal-language-and-tags.md)
 - Current model selection and exact payload controls: [model routing](references/model-routing.md)
+- Length, loops, fixing one part of a song, extending it, and extra files: [music editing and audio](references/music-editing-and-audio.md)
 - Request patterns and focused result review: [music recipes](references/music-recipes.md) and [review and iteration](references/review-and-iteration.md)
 - First installation or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Bundled command syntax and diagnostics: [Bundled MCP Client diagnostics](references/mcp-connection.md)

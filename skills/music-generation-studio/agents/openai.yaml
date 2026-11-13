@@ -1,0 +1,8 @@
+interface:
+  display_name: "Music Generation Studio"
+  short_description: "Turn a theme, lyric, scene, or reference audio into reviewable songs, instrumentals, BGM, and soundtracks with a clear creative direction and focused revisions."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $music-generation-studio to write a bright electro-pop song for our board game café's anniversary, with an easy chorus."
+policy:
+  allow_implicit_invocation: true

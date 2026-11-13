@@ -29,6 +29,8 @@ Map the next tool to `capability`:
 - `beatra.music.generate` → `text_to_music` or `reference_audio_to_music`
 - `beatra.speech.synthesize` → `text_to_speech`
 - `beatra.voices.clone` → `voice_clone`
+- `beatra.music.edit` and `beatra.audio.process` → the capability of the
+  operation, listed in [music editing and audio](music-editing-and-audio.md)
 - `beatra.images.understand` → `image_to_text`
 - `beatra.videos.understand` → `video_to_text`
 
@@ -95,5 +97,7 @@ success, use the task's returned usage and billing as truth:
 `charged_credits` includes all debits, `refunded_credits` includes any
 unused-estimate refund, and `net_charged_credits` is the final charge.
 
-Do not list model catalogs from memory and do not call model discovery as a
-routine prerequisite for generation.
+Do not list model catalogs from memory. Call model discovery when a production
+card needs a live price (every video, clone, music edit, and audio step) or when
+model choice, compatibility, or an estimate matters; it is not a routine
+prerequisite for a direct image, music, or speech request.

@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI Music Video Clip Maker"
+  short_description: "Create a short visual clip guided by a song's mood and rhythm — turn a music excerpt and visual direction into a cinematic promo clip, animate cover art in…"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $ai-music-video-clip-maker to make a teaser for my new song. I'll attach the chorus clip and cover art; neon night-city mood."
+policy:
+  allow_implicit_invocation: true

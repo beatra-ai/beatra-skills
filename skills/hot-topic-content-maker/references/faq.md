@@ -49,10 +49,11 @@ confirming each lookup on its own. See
 ## The finished video could not be joined
 
 When the day's allowance for joining is used up, the parts are delivered now
-and there is no retry. When the join task fails, it gets one more attempt with
-the identical payload under a new request ID, per
-[hot topic workflow](workflow.md), and if that fails too the parts are
-delivered. The parts are every clip, the narration, one music track, an SRT
+and there is no retry. When the join task fails, report the failure and the
+refund fields the task shows, and offer one new join on its own card at the
+live `video_compose` price with a new request ID, per
+[hot topic workflow](workflow.md); it is submitted only after the user
+approves, and otherwise the parts are delivered. The parts are every clip, the narration, one music track, an SRT
 subtitle file, and an edit list that says which clip goes where, whether its
 own sound is kept, and where the music is cut and faded.
 
@@ -76,7 +77,8 @@ it is cut and faded. Never generate it again to get a shorter track.
 
 The subtitles come from the approved narration, so first check the narration
 text. A wrong or mistimed line is fixed in the cue and the clips are joined
-again, and nothing paid is made again. When the narration itself was spoken
+again, which is a new paid join on its own card at the live `video_compose`
+price with a new request ID; no image, speech, or video call is made again. When the narration itself was spoken
 wrong, that is a new speech call, and for a presenter take a new video call
 too, each on its own card.
 

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Exam Mnemonic Song"
+  short_description: "Turn one exam knowledge point into a mnemonic song you can replay, then turn the rest of the syllabus into a set."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $exam-mnemonic-song to turn the matching principle from my accounting exam into a song. I'll attach the lines to memorize."
+policy:
+  allow_implicit_invocation: true

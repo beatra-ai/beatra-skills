@@ -44,11 +44,25 @@ Choose based on the purpose. Background music needs space for dialogue and
 visuals; a chorus-led single needs a strong melodic and lyrical hook; karaoke
 needs breathable phrases and a practical vocal range.
 
-For BGM, requested duration and “leave room for narration” are creative
-directions rather than dedicated duration or automatic mixing controls. Shape
-the energy curve and reduce lead density, sharp percussion, and busy midrange,
-but tell the user that exact timing, a sample-perfect loop, dialogue sidechain,
-or final frequency balance may require editing and mixing after generation.
+For BGM, “leave room for narration” is a creative direction rather than an
+automatic mixing control. Shape the energy curve and reduce lead density, sharp
+percussion, and busy midrange. Length: when this account has the music tools
+(the bundled client's `tools` command lists `beatra.music.edit` and
+`beatra.audio.process`; see [music editing and audio](music-editing-and-audio.md)),
+send `duration_seconds` for the length the user named (not with a reference
+recording; fit a reference-guided track afterwards with `trim` or `loop`), and
+add `duration_fit: "exact"` when the user needs exact seconds (an ad slot, a cue
+to picture). Without the music tools, or when the user names no length, keep
+the length as direction in the prompt. A bed that
+must run longer or loop cleanly is generated once with `duration_seconds` of 30
+or more and no `duration_fit` (a shorter or exact take ends on a fade that the
+loop would repeat), then lengthened with
+`beatra.audio.process` `operation: "loop"` to the target length (a paid call at the live `audio_process` price with its own `client_request_id`, listed on the bed's card as its own line when the user asked for that length together with the bed, otherwise on its own card); report the real length
+and the loop's seam in plain words ("how smoothly it joins where it repeats:
+0.91 out of 1, higher is smoother"). Always report the real returned length.
+Tell the user that a sample-perfect loop, dialogue sidechain, or final frequency
+balance may still require editing and mixing after generation, and without the
+music tools exact timing does too.
 
 ## Useful style vocabulary
 

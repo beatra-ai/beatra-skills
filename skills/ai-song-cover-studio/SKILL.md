@@ -40,7 +40,7 @@ Prepare a short production card before any paid call: song identity, language, m
    - vocal reinterpretation with user-supplied lyrics: the current `auto` reference route requires a 10–300-character prompt; supplied lyrics must contain 10–1000 characters and require a nonempty title;
    - instrumental reinterpretation: do not use `model: "auto"`; select an explicit live model family that affirmatively supports this combination;
    - model-family controls: send only controls published by the chosen live family and never mix family-specific options.
-5. Freeze the route, reference recording, production prompt, lyrics and title when supplied, model, and paid boundary with one opaque stable `client_request_id`; then submit one `beatra.music.generate` call exactly once. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
+5. Show the confirmation card below and wait for the user's reply. After they approve it, freeze the route, reference recording, production prompt, lyrics and title when supplied, model, and paid boundary with one opaque stable `client_request_id`; then submit one `beatra.music.generate` call exactly once. Invoke only the bundled `scripts/mcp_client.py`: the MCP tool name is the CLI argument and its arguments are JSON on standard input. For example:
 
    ```text
    printf '%s' '{"reference_audio":{"type":"artifact","artifact_id":"art_reference"},"prompt":"Reimagine this ballad as an upbeat acoustic folk cover with warm vocals and a lighter, brighter arrangement.","client_request_id":"opaque-cover-id"}' | python3 scripts/mcp_client.py call beatra.music.generate
@@ -48,10 +48,24 @@ Prepare a short production card before any paid call: song identity, language, m
 
    Do not configure, call, or use a host Beatra Connector. Do not use REST/OpenAPI fallback. Submit `beatra.music.generate` exactly once.
 6. Record the returned task ID immediately and poll the same task with `beatra.tasks.get` until terminal. Deliver every returned audio artifact or link. Report only actual returned task status, resolved model, duration, usage, and `billing.net_charged_credits`. Review accessible output for recognizable reference influence, freshness of arrangement, vocal delivery, lyrics, pronunciation, structure, and actual duration. State what the host Agent could and could not inspect.
+7. After the user has heard the cover, and only when this account has the music tools (the bundled client's `tools` command lists `beatra.music.edit` and `beatra.audio.process`; see [music editing and audio](references/music-editing-and-audio.md)), offer its backing version. Offer a re-sung version only when the user wants new words or a new voice, and only after they heard the backing version or have an instrumental of their own. These are two paid steps, each its own call on its own card, with the live price for that step from `beatra.models.list` (capability `audio_stem_separation` or `music_add_vocals`) and its own `client_request_id`; neither rides on the cover's card.
+   - A backing (instrumental) version of the cover is `beatra.audio.process` `operation: "separate_stems"` with `mode: "two_stem"`, taking the `instrumental` output. A newly generated instrumental through the instrumental reinterpretation route above stays the alternative, as a new piece rather than the cover without vocals.
+   - A re-sung version over an instrumental is `beatra.music.edit` with `operation: "add_vocals"`, the instrumental (the backing version, or one the user supplies) as `source`, and the user's approved `lyrics`, which are required. Beatra has no lyrics-transcription step, so the lyrics come from the user. A backing version split from the cover keeps faint traces of the cover's vocals, which stay under the new vocals: say so before this call.
+
+## Confirm before each paid call
+
+Before every paid call (the cover and each follow-up step above), show a current confirmation card and wait for the user's reply:
+
+1. Work — what this call makes, in the user's words, and which kind of call it is (a new generation for the cover, a split for the backing version, a vocal edit for a re-sung version).
+2. Credits — the live price for this step, just read from `beatra.models.list` (the capability step 3 read for the cover; `audio_stem_separation` or `music_add_vocals` for a follow-up; for the two-stem backing split, the `audio_stem_separation` price option without `dimensions`). Never a remembered number.
+3. Count — one paid call.
+4. Identity — one new opaque `client_request_id` for this step. Any changed argument mints a new ID.
+5. If we stop here — the production card and everything already delivered stay usable.
+6. If the balance is insufficient — relay the official message and its top-up URL exactly. Translate the prose; keep the URL. Do not retry until the user says they have topped up.
 
 ## Paid changes, recovery, and cancellation
 
-A cover is one paid stage. A revised reference recording, production prompt, supplied lyrics or title, genre, arrangement, vocal direction, model, or control is new logical paid work with a new ID and fresh approval.
+A cover is one paid stage, and each follow-up above is another. A revised reference recording, production prompt, supplied lyrics or title, genre, arrangement, vocal direction, model, or control is new logical paid work with a new ID and fresh approval.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 
@@ -69,6 +83,7 @@ step before every paid submit.
 ## References by task
 
 - Read [Song cover workflow](references/workflow.md) when building a production card, choosing the reference-audio route, checking live model facts, constructing exact payloads, polling, recovering, cancelling, or reviewing arrangement and vocal results.
+- Read [Music editing and audio](references/music-editing-and-audio.md) when the user wants a backing version of the cover or a re-sung version over an instrumental.
 - Read [Installation and authentication](references/installation-and-auth.md) only when authorization or shared credentials need attention.
 - Read [Installation registration](references/installation-registration.md) for the non-billable best-effort package registration step.
 - Read [Tasks and results](references/tasks-and-results.md) for shared terminal task and artifact semantics, and [Billing, errors, and recovery](references/billing-errors-and-recovery.md) for returned billing or error details.

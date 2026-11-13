@@ -12,9 +12,12 @@ or needs model-specific behavior. Report only returned facts. If the default is
 unavailable, explain the result and ask before using a different model.
 
 The base request requires `prompt` and `client_request_id`. It may include
-`lyrics`, `instrumental`, `title`, `reference_audio`, and `model_options`.
-Outside family-specific limits, prompt is at most 2,000 characters, lyrics at
-most 5,000, and title at most 100.
+`lyrics`, `instrumental`, `title`, `reference_audio`, and `model_options`, and,
+when this account has the music tools, `duration_seconds` and `duration_fit`.
+`duration_seconds`, `duration_fit`, `persona_id`, and `references` work only with
+`suno-6`; another model refuses them, so drop them and keep the chosen model, or
+ask the user before switching to `suno-6`. Outside family-specific limits, prompt
+is at most 2,000 characters, lyrics at most 5,000, and title at most 100.
 
 ## Suno 6
 

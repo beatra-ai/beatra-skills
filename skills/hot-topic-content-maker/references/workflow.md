@@ -22,7 +22,7 @@ in rather than the whole thing:
 | Production | The paid image, speech, and music calls |
 | Review point | Card text read back, the one carded fix, and what must be true before any video is offered |
 | Approval gate 2 | The video card: one call per take or shot |
-| Joining the finished video | The free join that turns the clips into one video, and what to deliver when it cannot run |
+| Joining the finished video | The paid join that turns the clips into one video, and what to deliver when it cannot run |
 | Saving the user's photo as an avatar | Only after its video, with the consent sentence |
 | Delivering, redoing, recovery, stopping | After the calls, and how to back out |
 
@@ -49,9 +49,10 @@ printf '%s' '{"capability":"text_to_image"}' | python3 scripts/mcp_client.py cal
 printf '%s' '{"capability":"text_to_speech"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_music"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"video_compose"}' | python3 scripts/mcp_client.py call beatra.models.list
 ```
 
-The image card is always needed; the other three only when a video is included. For a video, also freeze one `status: ready` opaque voice ID from `beatra.voices.list` together with its supported languages and compatible models. For a presenter video, list saved avatars first:
+The image card is always needed; the other four only when a video is included. For a video, also freeze one `status: ready` opaque voice ID from `beatra.voices.list` together with its supported languages and compatible models. For a presenter video, list saved avatars first:
 
 ```text
 printf '%s' '{}' | python3 scripts/mcp_client.py call beatra.avatars.list
@@ -86,14 +87,14 @@ When the `image_to_video` card read in this conversation carries a `free_first_v
 
 Show the plan in one block, then freeze:
 
-- the set being run and its estimated total, **including every video call that gate 2 will ask about**, so the user sees the whole cost before the first charge; a video call the live card's `free_first_video` offer may cover is counted at its normal estimate and marked as possibly covered, because the service charges that price when it cannot apply the offer;
+- the set being run and its estimated total, **including every video call and the join that the gate-2 card lists**, so the user sees the whole cost before the first charge; a video call the live card's `free_first_video` offer may cover is counted at its normal estimate and marked as possibly covered, because the service charges that price when it cannot apply the offer;
 - each gate-1 call with its current maximum price and its own stable request ID: the cover, each card, each shot still or the virtual presenter, the cutaway's still when one is planned, the narration (or one narration per presenter take), and the music;
 - the cover wording and every card's exact text;
 - the shots and their stills, or the presenter and the script per take;
 - the canvas — 3:4 for cards, 9:16 for video, and for the cover 3:4 whenever the image set is included or 9:16 for a video on its own — **with the statement that changing the ratio later means producing every affected paid artifact again**;
 - the ready voice ID, language, speech model behaviour, and controls, and the music brief, when a video is included;
 - that each video call is confirmed separately at gate 2;
-- that a video is delivered as one finished video, joined from its clips at no charge after gate 2, with every part also delivered;
+- that a video is delivered as one finished video, joined from its clips after gate 2 by one paid join listed on the gate-2 card, with every part also delivered;
 - that card and cover text is generated artwork and will be read back against the approved wording;
 - what happens if the balance is short partway: the call that meets it returns `insufficient_balance` without producing anything, the rest of the batch stops with it, everything already finished is delivered, and only the unfinished calls resume, each under its original request ID, after the user says they have topped up. Once every clip has succeeded, the clips are joined as usual (per Joining the finished video).
 
@@ -216,7 +217,7 @@ For per-shot clips, each shot's duration is within the card's supported duration
 
 ## Approval gate 2 — the video card
 
-Only when a video is included. Show one card before any video `client_request_id` or `beatra.videos.animate` call, listing every video call: route `image_to_video`, tool `beatra.videos.animate`, the still or presenter it animates, the narration it carries (if any), motion direction, selected model, duration, the provisional live estimate per call and in total, for each call whether the live card's `free_first_video` offer applies to it (per the rule under Selecting the video model). The card ends with the joining step: once every clip has succeeded, one `beatra.videos.compose` call joins them with the narration (for per-shot clips), the music, and the subtitles into the finished video; it costs no credits and needs no card of its own. A cutaway between presenter takes, when planned, is one more video call on this card. When the clips' ratio matches none of the compose canvases, the card says the finished video will show bars. The card also says what happens if they stop here (the approved images, narration, and music stay theirs to use), and what happens if the balance is short: the batch stops at the call that meets it with the official message and top-up URL relayed exactly, finished clips are delivered, and the unfinished calls resume under their original request IDs only after the user says they have topped up. Planning, comparison, or "make the video" is not approval. Approved images, narration, or music do not authorize the video. Do not submit until the user approves this card; for every call the offer does not cover, they also confirm they have topped up or already have enough credits for its estimate. Then freeze each call under its own new stable `client_request_id`.
+Only when a video is included. Show one card before any video `client_request_id` or `beatra.videos.animate` call, listing every video call: route `image_to_video`, tool `beatra.videos.animate`, the still or presenter it animates, the narration it carries (if any), motion direction, selected model, duration, the provisional live estimate per call, and a total that includes the join below, for each call whether the live card's `free_first_video` offer applies to it (per the rule under Selecting the video model). The card ends with the joining step: once every clip has succeeded, one `beatra.videos.compose` call joins them with the narration (for per-shot clips), the music, and the subtitles into the finished video; it is a paid call at the live `video_compose` price (`beatra.models.list` with `{"capability": "video_compose"}`), listed on this card as its own line with its own `client_request_id` and counted in the card's total, so it needs no card of its own. A cutaway between presenter takes, when planned, is one more video call on this card. When the clips' ratio matches none of the compose canvases, the card says the finished video will show bars. The card also says what happens if they stop here (the approved images, narration, and music stay theirs to use), and what happens if the balance is short: the batch stops at the call that meets it with the official message and top-up URL relayed exactly, finished clips are delivered, and the unfinished calls resume under their original request IDs only after the user says they have topped up. Planning, comparison, or "make the video" is not approval. Approved images, narration, or music do not authorize the video. Do not submit until the user approves this card; for every call the offer does not cover, they also confirm they have topped up or already have enough credits for its estimate. Then freeze each call under its own new stable `client_request_id`.
 
 A single take (scene video that fits one take) or a presenter take:
 
@@ -251,7 +252,7 @@ Submit each `beatra.videos.animate` exactly once. When the balance runs out part
 
 ## Joining the finished video
 
-**When.** After every clip of the video has succeeded — the shots of a scene video, the takes of a presenter video, or a single take. Do not join while any clip is missing or failed; deliver what finished as parts. The join costs no credits, so it has no approval card; it was named on the gate-2 card. Each account may run it 50 times per UTC day.
+**When.** After every clip of the video has succeeded — the shots of a scene video, the takes of a presenter video, or a single take. Do not join while any clip is missing or failed; deliver what finished as parts. The join is paid at its live `video_compose` price and has no approval card of its own: it was listed with that price on the gate-2 card. Each account may run it 50 times per UTC day.
 
 **Read the clips first.** Read each clip's returned duration from its task, and keep the narration's real duration from the speech call.
 
@@ -312,13 +313,13 @@ Submit the payload that matches the video:
 printf '%s' '<the payload above>' | python3 scripts/mcp_client.py call beatra.videos.compose
 ```
 
-**Submit and poll.** Give the join its own stable `client_request_id`, submit it once, record its task ID in the private ledger like every other call, and poll it with `beatra.tasks.get` until terminal. Reuse that same request ID only to retry the identical payload after a lost response. The terminal task returns one video artifact with its duration and dimensions, resolved model `beatra-compose-v1`, and `billing.net_charged_credits` of 0.
+**Submit and poll.** Give the join its own stable `client_request_id`, submit it once, record its task ID in the private ledger like every other call, and poll it with `beatra.tasks.get` until terminal. Reuse that same request ID only to retry the identical payload after a lost response. The terminal task returns one video artifact with its duration and dimensions, resolved model `beatra-compose-v1`, and its `billing.net_charged_credits`.
 
 **When it does not work.**
 
-- Refused as invalid: when the message names something in the payload you can correct (a span past a clip's end, a cue too long), correct it and submit once more under a new request ID; any other refusal ends the step.
+- Refused as invalid: when the message names something in the payload you can correct (a span past a clip's end, a cue too long), correct it, show the corrected join on its own card at the live `video_compose` price, and after the user approves submit it once under a new request ID; any other refusal ends the step.
 - Refused because the day's allowance for joining is used up (`rate_limited`): deliver the parts now with the edit list, and say the finished video can be asked for again the next day from the same parts.
-- The task fails: submit the identical payload once more under a new request ID; if that fails too, deliver the parts with the edit list.
+- The task fails: report the failure and the refund fields the task shows. Offer one new join on its own card at the live `video_compose` price with a new request ID, and submit it only after the user approves; otherwise deliver the parts with the edit list.
 
 The join never holds back delivery — every clip, still, narration and music track is already the user's.
 
@@ -369,8 +370,8 @@ Say with it that every video made from the avatar is AI-generated and is posted 
 | An image is wrong but its text is fine | That one `images.generate` | Everything else |
 | The narration is too long or mispronounced | Shorten the spoken field, then `speech.synthesize` | The images and the music |
 | The music does not fit the mood | `music.generate` with a revised brief | Everything else |
-| One shot or take is not right | That one `videos.animate`, then join again | Every other clip, the narration, and the music |
-| A subtitle line in the finished video is wrong | Correct that cue, then join again | Every clip, the narration, and the music |
+| One shot or take is not right | That one `videos.animate`, then a new join on its own card | Every other clip, the narration, and the music |
+| A subtitle line in the finished video is wrong | Correct that cue, then a new join on its own card | Every clip, the narration, and the music |
 | The angle was wrong | The plan, free, then whatever paid artifacts it changes | Anything the new angle still uses |
 
 ## Recovery

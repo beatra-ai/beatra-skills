@@ -23,7 +23,7 @@ The hard inputs are:
 - an emotional direction;
 - any private details to omit.
 
-Ask only for a missing hard input. Reuse the known genre, mood, instrumentation, tempo feel, and vocal direction preferences. Lyrics writing, title drafting, section planning, and creative direction are free preparation; only the music generation is paid.
+Ask only for a missing hard input. Reuse the known genre, mood, instrumentation, tempo feel, and vocal direction preferences. Lyrics writing, title drafting, section planning, and creative direction are free preparation; the song generation is paid, and so is each extra file offered after the song (extra cover art, a song video, a WAV version).
 
 ## Golden path
 
@@ -38,6 +38,7 @@ Ask only for a missing hard input. Reuse the known genre, mood, instrumentation,
 
    Do not configure, call, or use a host Beatra Connector. Do not use REST/OpenAPI fallback. Submit `beatra.music.generate` exactly once.
 5. Record the returned task ID immediately and poll the same task with `beatra.tasks.get` until terminal. Deliver every returned audio artifact or link, and report only actual returned task status, resolved model, clip count, duration, usage, and `billing.net_charged_credits`. Lead the reply with the result and format the user asked for; the production card, route choice, and cost notes follow it and never replace it. Review accessible output for story accuracy, name pronunciation, hook, lyric rendering, emotion, arrangement, vocal result, audio quality, and duration. State what the host Agent could and could not inspect.
+6. Once the user has listened and chosen a take, and when this account has the music tools (the bundled client's `tools` command lists `beatra.music.edit` and `beatra.audio.process`), offer extra cover art, a song video (MP4), and a WAV version of it. Each is paid and has its own card with its live price from `beatra.models.list`; none rides on the song's card. On each card, if the user stops, the chosen song stays theirs and nothing more is charged. They need a clip whose `editable` field is `{"native": true}`. See [music editing and audio](references/music-editing-and-audio.md).
 
 ## Before the connection is ready
 
@@ -50,7 +51,7 @@ service.
 
 ## Paid changes, recovery, and cancellation
 
-Song generation is one paid stage. A changed title, lyrics, production prompt, genre, mood, model, or control is new logical paid work with a new ID and fresh approval. Lyric revisions made before the single approved generation are free; regenerating after a paid run with changed inputs is a new paid request.
+Song generation is one paid stage. Each extra file offered after the user chooses a take, extra cover art included, is its own paid call on its own card with its own `client_request_id`. A changed title, lyrics, production prompt, genre, mood, model, or control is new logical paid work with a new ID and fresh approval. Lyric revisions made before the single approved generation are free; regenerating after a paid run with changed inputs is a new paid request.
 
 If a create response is lost, retry only the identical frozen payload with the same stage ID. If a task ID is lost, call `beatra.tasks.list` for the relevant capability, inspect plausible candidates with `beatra.tasks.get`, and match them against that stage's private ledger before considering an identical retry. Queued and running are progress states, not failures. Recover the original stage before planning changed work; never duplicate a paid submission or guess its charge or refund.
 
@@ -68,6 +69,7 @@ step before every paid submit.
 ## References by task
 
 - Read [Story-to-song workflow](references/workflow.md) when collecting a story brief, drafting lyrics and direction, checking live model facts, constructing exact payloads, polling, recovering, cancelling, or reviewing story accuracy and vocal result.
+- Read [Music editing and audio](references/music-editing-and-audio.md) when the user wants extra cover art, a song video (MP4), or a WAV version of the chosen song.
 - Read [Installation and authentication](references/installation-and-auth.md) only when authorization or shared credentials need attention.
 - Read [Installation registration](references/installation-registration.md) for the non-billable best-effort package registration step.
 - Read [Tasks and results](references/tasks-and-results.md) for shared terminal task and artifact semantics, and [Billing, errors, and recovery](references/billing-errors-and-recovery.md) for returned billing or error details.

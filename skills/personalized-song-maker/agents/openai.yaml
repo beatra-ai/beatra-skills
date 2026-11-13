@@ -1,0 +1,8 @@
+interface:
+  display_name: "Personalized Song Maker"
+  short_description: "Turn a person's story and occasion into original lyrics and a newly generated song."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $personalized-song-maker to write a 30th anniversary song for my parents. I'll share how they met and what must be in it."
+policy:
+  allow_implicit_invocation: true

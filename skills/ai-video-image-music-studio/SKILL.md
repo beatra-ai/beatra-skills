@@ -100,6 +100,28 @@ fill the gap with another tool or service.
   [video recipes](references/video-recipes.md) only when needed.
 - For a song, instrumental, or reference-guided track, use
   `beatra.music.generate`. Follow [music](references/music.md).
+- To revise a song Beatra made (extend it, replace one section, add vocals or
+  accompaniment, save its singer) or to make its extra files (lyric timing, cover
+  art, a song video (MP4), a WAV version), use `beatra.music.edit` when this
+  account has it (the `tools` command lists it). Each of these steps is paid and
+  has its own card. Follow
+  [music editing and audio](references/music-editing-and-audio.md).
+- To trim, loop, fade, set loudness, convert the format, split a song into stems,
+  or isolate a voice, use `beatra.audio.process` when this account has it (the
+  `tools` command lists it). Each of these steps is paid and has its own card. Follow
+  [music editing and audio](references/music-editing-and-audio.md). If those
+  tools are not exposed, skip these steps; only when the user asked for
+  something they would deliver, say in one sentence that the option is not
+  available yet.
+- A paid `beatra.music.edit` or `beatra.audio.process` step always gets its own
+  card first, even when the user asks for it together with the song, because a
+  song made on a direct request has no card to add it to. It never uses the
+  video or clone admission card. The card shows the work and which call, the
+  live price from `beatra.models.list` for that step's capability, one paid
+  call, one new `client_request_id`, what the user keeps if they stop, and that
+  a short balance is relayed with the returned message and its top-up link
+  exactly, then the agent waits. It has no signup-gift line and asks for no
+  balance confirmation.
 - For narration, browse only when a voice is still needed with
   `beatra.voices.list`, then use `beatra.speech.synthesize`. Without a live
   result, do not name voices, models, prices, or previews; give the selection
@@ -147,13 +169,13 @@ permission, and only then set `consent_attested: true`. See
 Creative planning, authorization, upload preparation, voice browsing, model
 discovery, recent-task listing, credit-balance and ledger reads, and estimates
 are non-billable. Image, video,
-music, speech, voice-clone, and video-prompt-enhancement creation consumes
-credits and returns an asynchronous task. Video-prompt enhancement is the
+music (including every `beatra.music.edit` and `beatra.audio.process` step),
+speech, voice-clone, and video-prompt-enhancement creation consumes credits and returns an asynchronous task. Video-prompt enhancement is the
 postpaid exception: it returns text only, never starts video generation, and a
 successful task settles from actual tokens after completion.
 
 A direct, well-specified request to create authorizes that exact paid request
-once for image, music, speech, or a gift-sized video-prompt or keyframe stage.
+once for image, music generation (`beatra.music.generate`), speech, or a gift-sized video-prompt or keyframe stage.
 It does not authorize `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
 `beatra.videos.edit`, `beatra.videos.extend`, or `beatra.voices.clone`. Before
@@ -221,7 +243,7 @@ Preserve structured errors and give the smallest recovery step.
 
 - Image generation, transformation, and editing: [images](references/images.md)
 - Video route selection, controls, and request patterns: [videos](references/videos.md), [video controls](references/video-controls.md), and [video recipes](references/video-recipes.md)
-- Songs, instrumentals, references, and music delivery: [music](references/music.md)
+- Songs, instrumentals, references, and music delivery: [music](references/music.md); revising, finishing, or splitting a song: [music editing and audio](references/music-editing-and-audio.md)
 - Narration, voice discovery, and consent-gated voice cloning: [speech and voices](references/speech-and-voices.md)
 - Local image, video, or audio preparation: [uploads](references/uploads.md)
 - Current model compatibility, controls, and estimates: [models](references/models.md)

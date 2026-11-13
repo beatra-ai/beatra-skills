@@ -1,0 +1,8 @@
+interface:
+  display_name: "Brand Jingle Studio"
+  short_description: "Turn a brand name, slogan, and campaign use into a set of original brand jingles, ad songs, and audio-logo stings."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $brand-jingle-studio to turn our pet grooming slogan, Fresh Paws Home, into a jingle and a short audio logo, bright pop."
+policy:
+  allow_implicit_invocation: true

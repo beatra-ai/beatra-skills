@@ -21,7 +21,8 @@ next refinements, not a generic “try again.”
 Include the task ID as a compact recovery handle. Unless the user asks to debug
 or integrate the call, do not show raw payloads, client request IDs, polling
 mechanics, or schema limits. Translate necessary constraints into ordinary
-creative language, such as “the requested 30 seconds may need a final trim.”
+creative language, such as “the track came out a little shorter than the 30
+seconds you asked for.”
 
 ## Listening review
 
@@ -56,7 +57,10 @@ Before another billable generation:
 - preserve what already works;
 - show material lyric changes to the user;
 - get approval when the user did not already request another version;
-- use a new `client_request_id` only for that newly approved generation.
+- use a new `client_request_id` only for that newly approved generation;
+- give each revision call its own card: a section fix or an extension is its own
+  paid call with the live price for that step, and a song is never extended
+  automatically or repeatedly.
 
 Do not resubmit an existing direction because polling is slow. Recover and poll
 the original task.
@@ -84,3 +88,18 @@ the original task.
   increase `weirdness_constraint` modestly only when that supports the brief.
 - **Too chaotic**: reduce competing genres, lower weirdness, simplify section
   count, and anchor the instrumentation.
+- **One section is weak** (a chorus without lift, a mispronounced line): when this
+  account has the music tools, replace only that part of the chosen song with
+  `beatra.music.edit` `operation: "replace_section"` (`start_ms`, `end_ms`, and
+  the part's `section_lyrics`) instead of regenerating the song. Ask the user
+  where the part plays (minutes and seconds in their player) and turn that into
+  `start_ms` and `end_ms`. Always send that range's `section_lyrics` (its current
+  lines when only the singing changes); when the words change, also send
+  `full_lyrics`: the whole lyric with that range's lines replaced (the default
+  is the track's old lyrics; it is required when the track's `editable` field is
+  not `{"native": true}`). If the result carries a `section_length_changed`
+  warning, tell the user.
+- **The song should continue**: with the music tools, `operation: "extend"`
+  continues a chosen song from `continue_at_ms` (default: just before its end)
+  and sings only `lyrics` the user wrote or approved. See
+  [music editing and audio](music-editing-and-audio.md).
