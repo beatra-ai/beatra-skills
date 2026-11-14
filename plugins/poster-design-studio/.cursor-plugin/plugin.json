@@ -1,0 +1,27 @@
+{
+  "name": "poster-design-studio",
+  "displayName": "AI Poster Maker",
+  "description": "Turn a topic description, a product photo, or brand references into a scroll-stopping event poster, promotional banner, or social media graphic with strong visual hierarchy, category-matched styling, and text-safe zones.",
+  "version": "0.2.6",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/poster-design-studio",
+  "repository": "https://github.com/beatra-ai/ai-poster-maker-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI poster maker",
+    "poster design generator",
+    "AI flyer maker",
+    "event poster design",
+    "promotional poster",
+    "poster creator",
+    "banner design AI",
+    "graphic design poster",
+    "music festival poster",
+    "movie poster generator",
+    "product launch poster",
+    "sale flyer maker"
+  ],
+  "logo": "assets/icon.png"
+}

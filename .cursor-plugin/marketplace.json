@@ -1,0 +1,126 @@
+{
+  "name": "beatra-skills",
+  "owner": {
+    "name": "Beatra AI"
+  },
+  "metadata": {
+    "description": "Beatra creative production skills. Each entry installs one skill from its own plugin directory."
+  },
+  "plugins": [
+    {
+      "name": "beatra",
+      "source": "plugins/beatra",
+      "description": "Create AI images, videos, music, and voice, look up public social data, edit supported visual results, and keep returned files and credit use easy to track through one shared connection."
+    },
+    {
+      "name": "talking-avatar-video",
+      "source": "plugins/talking-avatar-video",
+      "description": "Turn one portrait and a short script or speech track into a directed talking-avatar video for explainers, announcements, lessons, and product messages."
+    },
+    {
+      "name": "ai-logo-maker",
+      "source": "plugins/ai-logo-maker",
+      "description": "Turn a brand name, industry, or reference image into a professional AI logo, brand mark, or app icon with multi-concept exploration, precise brand colors, and scalable composition."
+    },
+    {
+      "name": "music-generation-studio",
+      "source": "plugins/music-generation-studio",
+      "description": "Turn a theme, lyric, scene, or reference audio into reviewable songs, instrumentals, BGM, and soundtracks with a clear creative direction and focused revisions."
+    },
+    {
+      "name": "product-photo-studio",
+      "source": "plugins/product-photo-studio",
+      "description": "Transform a real product photo into a studio-quality ecommerce image, lifestyle scene, or marketplace-ready hero shot with clean backgrounds, professional lighting, and composition guided by confirmed product details."
+    },
+    {
+      "name": "suno-lyrics-to-song",
+      "source": "plugins/suno-lyrics-to-song",
+      "description": "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal direction."
+    },
+    {
+      "name": "poster-design-studio",
+      "source": "plugins/poster-design-studio",
+      "description": "Turn a topic description, a product photo, or brand references into a scroll-stopping event poster, promotional banner, or social media graphic with strong visual hierarchy, category-matched styling, and text-safe zones."
+    },
+    {
+      "name": "ecommerce-listing-image-set",
+      "source": "plugins/ecommerce-listing-image-set",
+      "description": "Turn verified SKU facts and product photos into a cohesive ecommerce image set with a hero image, feature visuals, lifestyle scenes, size views, and in-box images."
+    },
+    {
+      "name": "ai-image-generation-studio",
+      "source": "plugins/ai-image-generation-studio",
+      "description": "Generate, compose, and edit product images, brand visuals, posters, social graphics, illustrations, and photo variations."
+    },
+    {
+      "name": "beatra-ai-video-studio",
+      "source": "plugins/beatra-ai-video-studio",
+      "description": "Generate, animate, edit, and extend short AI videos for ads, product stories, social posts, b-roll, transitions, and cinematic concepts."
+    },
+    {
+      "name": "ai-podcast-voiceover",
+      "source": "plugins/ai-podcast-voiceover",
+      "description": "Turn an article, notes, or finished script into a listenable solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and MP3 delivery."
+    },
+    {
+      "name": "voiceover-narration-studio",
+      "source": "plugins/voiceover-narration-studio",
+      "description": "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice."
+    },
+    {
+      "name": "ai-multilingual-dubbing",
+      "source": "plugins/ai-multilingual-dubbing",
+      "description": "Create reviewable multilingual voice-over audio from scripts for each language, with deliberate casting, pronunciation and timing pilots, and delivery organized by market and segment."
+    },
+    {
+      "name": "voice-cloning-studio",
+      "source": "plugins/voice-cloning-studio",
+      "description": "Create a reusable personal or brand voice from a clean audio sample, give it a memorable name, and hear it in a short test reading."
+    },
+    {
+      "name": "ai-photo-restyler",
+      "source": "plugins/ai-photo-restyler",
+      "description": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the subject stays recognisable, and repeat the same look across a whole set."
+    },
+    {
+      "name": "viral-video-teardown-remake",
+      "source": "plugins/viral-video-teardown-remake",
+      "description": "Paste the link or bring the file, break a short video that worked into its hook, beats, and call to action, then rebuild that structure around your own subject as a shot list, beat frames, and narration — delivered as one vertical clip animated from your opening frame, or, when the reference cuts too fast or runs too long for a single take, as segmented sources with captions and a timecoded edit list."
+    },
+    {
+      "name": "ai-headshot-studio",
+      "source": "plugins/ai-headshot-studio",
+      "description": "Turn a casual selfie into a studio-quality professional headshot with new backgrounds, professional attire, and studio lighting for LinkedIn, resume, company website, and social media."
+    },
+    {
+      "name": "ai-audiobook-narration",
+      "source": "plugins/ai-audiobook-narration",
+      "description": "Turn final manuscript or course text into ordered chapter audio with one narrator, a representative sample, clear pricing, and focused refinements."
+    },
+    {
+      "name": "ai-image-realism",
+      "source": "plugins/ai-image-realism",
+      "description": "Make existing AI portraits, product images, and marketing visuals look more natural by fixing plastic skin, malformed hands and faces, repeated textures, and inconsistent lighting."
+    },
+    {
+      "name": "ai-storyboard-generator",
+      "source": "plugins/ai-storyboard-generator",
+      "description": "Turn a script, scene, or ad brief into a practical shot list and one to four storyboard key-frame images."
+    },
+    {
+      "name": "wechat-cover-maker",
+      "source": "plugins/wechat-cover-maker",
+      "description": "Turn an article title, topic, or reference image into a WeChat Official Account cover, article hero image, post cover, or supporting article visual with headline-safe space and focused refinement."
+    },
+    {
+      "name": "zhongcao-cover-maker",
+      "source": "plugins/zhongcao-cover-maker",
+      "description": "Turn a photo or a topic idea into a scroll-stopping vertical 3:4 Xiaohongshu cover with clean backgrounds, bold focal composition, and text-safe areas for beauty, food, fashion, and lifestyle notes."
+    },
+    {
+      "name": "zhongcao-note-copywriter",
+      "source": "plugins/zhongcao-note-copywriter",
+      "description": "Turn a product, experience, topic, or audience brief into Xiaohongshu title options, a readable note body, cover text, hashtags, and a natural comment starter."
+    }
+  ]
+}

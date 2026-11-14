@@ -1,0 +1,25 @@
+{
+  "name": "ai-image-realism",
+  "displayName": "AI Image Realism",
+  "description": "Make existing AI portraits, product images, and marketing visuals look more natural by fixing plastic skin, malformed hands and faces, repeated textures, and inconsistent lighting.",
+  "version": "0.3.7",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ai-image-realism",
+  "repository": "https://github.com/beatra-ai/ai-image-realism-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI image realism",
+    "AI image editor",
+    "AI image humanizer",
+    "fix AI image artifacts",
+    "make AI images look realistic",
+    "remove AI look",
+    "AI image retouching",
+    "fix AI hands",
+    "fix extra fingers",
+    "AI product image retouching"
+  ],
+  "logo": "assets/icon.png"
+}

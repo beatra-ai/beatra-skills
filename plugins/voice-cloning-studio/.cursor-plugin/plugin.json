@@ -1,0 +1,26 @@
+{
+  "name": "voice-cloning-studio",
+  "displayName": "AI Voice Cloning",
+  "description": "Create a reusable personal or brand voice from a clean audio sample, give it a memorable name, and hear it in a short test reading.",
+  "version": "0.3.1",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/voice-cloning-studio",
+  "repository": "https://github.com/beatra-ai/ai-voice-cloning-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI voice cloning",
+    "voice cloning studio",
+    "clone my voice",
+    "custom AI voice",
+    "voice cloning software",
+    "AI voice clone",
+    "custom voice",
+    "voice clone from sample",
+    "reusable voice",
+    "voice cloning for narration",
+    "brand voice cloning"
+  ],
+  "logo": "assets/icon.png"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ai-photo-restyler",
+  "displayName": "Photo to Anime",
+  "description": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the subject stays recognisable, and repeat the same look across a whole set.",
+  "version": "0.2.5",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ai-photo-restyler",
+  "repository": "https://github.com/beatra-ai/photo-to-anime-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "photo to anime",
+    "AI cartoonizer",
+    "photo to cartoon",
+    "anime filter",
+    "photo to comic",
+    "photo to manga",
+    "AI photo style converter",
+    "cartoon avatar maker",
+    "anime avatar generator",
+    "photo to illustration",
+    "clay style portrait",
+    "watercolor photo art"
+  ],
+  "logo": "assets/icon.png"
+}

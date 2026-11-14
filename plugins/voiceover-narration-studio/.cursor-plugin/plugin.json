@@ -1,0 +1,29 @@
+{
+  "name": "voiceover-narration-studio",
+  "displayName": "AI Voiceover Generator",
+  "description": "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice.",
+  "version": "0.2.9",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
+  "repository": "https://github.com/beatra-ai/ai-voiceover-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI voice studio",
+    "AI voice generator",
+    "text to speech",
+    "AI voiceover generator",
+    "AI narration",
+    "voice cloning",
+    "multilingual text to speech",
+    "voice library",
+    "script to voiceover",
+    "short video voiceover",
+    "audiobook narration",
+    "course narration",
+    "Cantonese text to speech",
+    "reusable brand voice"
+  ],
+  "logo": "assets/icon.png"
+}

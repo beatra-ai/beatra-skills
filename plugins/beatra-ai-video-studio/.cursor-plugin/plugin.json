@@ -1,0 +1,27 @@
+{
+  "name": "beatra-ai-video-studio",
+  "displayName": "AI Video Generator",
+  "description": "Generate, animate, edit, and extend short AI videos for ads, product stories, social posts, b-roll, transitions, and cinematic concepts.",
+  "version": "1.3.7",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/beatra-ai-video-studio",
+  "repository": "https://github.com/beatra-ai/ai-video-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI video generator",
+    "text to video",
+    "image to video",
+    "AI video editing",
+    "AI video extender",
+    "product video maker",
+    "AI ad video",
+    "social video generator",
+    "first last frame video",
+    "AI b-roll",
+    "cinematic AI video",
+    "AI video studio"
+  ],
+  "logo": "assets/icon.png"
+}

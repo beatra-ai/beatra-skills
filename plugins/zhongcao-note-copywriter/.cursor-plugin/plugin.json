@@ -1,0 +1,27 @@
+{
+  "name": "zhongcao-note-copywriter",
+  "displayName": "小红书文案",
+  "description": "Turn a product, experience, topic, or audience brief into Xiaohongshu title options, a readable note body, cover text, hashtags, and a natural comment starter.",
+  "version": "0.2.7",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/zhongcao-note-copywriter",
+  "repository": "https://github.com/beatra-ai/xiaohongshu-copywriter-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "Xiaohongshu copywriter",
+    "REDnote note copywriter",
+    "Xiaohongshu title generator",
+    "Xiaohongshu post copy",
+    "Xiaohongshu product copy",
+    "Xiaohongshu recommendation copy",
+    "Xiaohongshu hashtags",
+    "Xiaohongshu cover text",
+    "Xiaohongshu note ideas",
+    "competitor note analysis",
+    "comment analysis",
+    "Xiaohongshu research"
+  ],
+  "logo": "assets/icon.png"
+}

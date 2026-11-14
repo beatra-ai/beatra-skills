@@ -1,0 +1,27 @@
+{
+  "name": "product-photo-studio",
+  "displayName": "AI Product Photography",
+  "description": "Transform a real product photo into a studio-quality ecommerce image, lifestyle scene, or marketplace-ready hero shot with clean backgrounds, professional lighting, and composition guided by confirmed product details.",
+  "version": "0.3.1",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/product-photo-studio",
+  "repository": "https://github.com/beatra-ai/ai-product-photography-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI product photography",
+    "product photo editor",
+    "product image background",
+    "ecommerce product photo",
+    "product photo background remover",
+    "AI product shoot",
+    "white background product photo",
+    "lifestyle product photography",
+    "product hero image",
+    "amazon product image",
+    "product photo studio",
+    "product listing photo"
+  ],
+  "logo": "assets/icon.png"
+}

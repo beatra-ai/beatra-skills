@@ -1,0 +1,27 @@
+{
+  "name": "suno-lyrics-to-song",
+  "displayName": "Lyrics to Song",
+  "description": "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal direction.",
+  "version": "0.3.3",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
+  "repository": "https://github.com/beatra-ai/lyrics-to-song-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "Suno lyrics to song",
+    "turn lyrics into a song",
+    "make a song from lyrics",
+    "lyrics to music",
+    "AI song generator from lyrics",
+    "AI music generator from lyrics",
+    "Suno custom lyrics",
+    "custom lyrics to song",
+    "lyrics songwriting assistant",
+    "song structure",
+    "style prompt for music",
+    "rough lyrics to song"
+  ],
+  "logo": "assets/icon.png"
+}

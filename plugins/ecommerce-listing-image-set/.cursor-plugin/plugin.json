@@ -1,0 +1,28 @@
+{
+  "name": "ecommerce-listing-image-set",
+  "displayName": "Ecommerce Product Images",
+  "description": "Turn verified SKU facts and product photos into a cohesive ecommerce image set with a hero image, feature visuals, lifestyle scenes, size views, and in-box images.",
+  "version": "0.3.0",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ecommerce-listing-image-set",
+  "repository": "https://github.com/beatra-ai/ecommerce-product-images-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI product listing images",
+    "ecommerce image set",
+    "product image set",
+    "product gallery generator",
+    "Amazon listing images",
+    "product hero image",
+    "product feature images",
+    "lifestyle product photography",
+    "product detail images",
+    "size and fit image",
+    "in-box image",
+    "Shopify product images",
+    "Etsy listing photos"
+  ],
+  "logo": "assets/icon.png"
+}

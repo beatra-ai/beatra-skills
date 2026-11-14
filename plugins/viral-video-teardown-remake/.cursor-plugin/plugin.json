@@ -1,0 +1,30 @@
+{
+  "name": "viral-video-teardown-remake",
+  "displayName": "Viral Video Remake",
+  "description": "Paste the link or bring the file, break a short video that worked into its hook, beats, and call to action, then rebuild that structure around your own subject as a shot list, beat frames, and narration — delivered as one vertical clip animated from your opening frame, or, when the reference cuts too fast or runs too long for a single take, as segmented sources with captions and a timecoded edit list.",
+  "version": "0.4.3",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/viral-video-teardown-remake",
+  "repository": "https://github.com/beatra-ai/viral-video-remake-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "viral video teardown",
+    "short video remake",
+    "viral video breakdown",
+    "recreate a viral video",
+    "competitor video analysis",
+    "video hook analysis",
+    "short form video script generator",
+    "TikTok viral video analysis",
+    "video shot list generator",
+    "storyboard from a reference video",
+    "benchmark video rebuild",
+    "short video remake with voiceover",
+    "analyze a video from its link",
+    "video comment analysis",
+    "YouTube transcript to script"
+  ],
+  "logo": "assets/icon.png"
+}

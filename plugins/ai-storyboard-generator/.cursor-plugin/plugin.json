@@ -1,0 +1,25 @@
+{
+  "name": "ai-storyboard-generator",
+  "displayName": "AI Storyboard Generator",
+  "description": "Turn a script, scene, or ad brief into a practical shot list and one to four storyboard key-frame images.",
+  "version": "0.2.8",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ai-storyboard-generator",
+  "repository": "https://github.com/beatra-ai/ai-storyboard-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI storyboard generator",
+    "script to storyboard",
+    "storyboard shot list",
+    "AI shot list generator",
+    "storyboard key frames",
+    "film storyboard",
+    "ad storyboard",
+    "animation storyboard",
+    "social video storyboard",
+    "camera shot planning"
+  ],
+  "logo": "assets/icon.png"
+}

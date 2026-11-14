@@ -1,0 +1,31 @@
+{
+  "name": "beatra",
+  "displayName": "AI Media Generator",
+  "description": "Create AI images, videos, music, and voice, look up public social data, edit supported visual results, and keep returned files and credit use easy to track through one shared connection.",
+  "version": "3.0.1",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai",
+  "repository": "https://github.com/beatra-ai/ai-media-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI media generator",
+    "AI creative suite",
+    "public social data",
+    "social media data",
+    "AI image generator",
+    "AI video generator",
+    "AI music generator",
+    "AI voice generator",
+    "YouTube data",
+    "TikTok data",
+    "text to image",
+    "image to video",
+    "AI video editor",
+    "text to speech",
+    "voice cloning",
+    "multimodal content creation"
+  ],
+  "logo": "assets/icon.png"
+}

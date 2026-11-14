@@ -1,0 +1,27 @@
+{
+  "name": "ai-image-generation-studio",
+  "displayName": "AI Image Generator",
+  "description": "Generate, compose, and edit product images, brand visuals, posters, social graphics, illustrations, and photo variations.",
+  "version": "0.2.6",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ai-image-generation-studio",
+  "repository": "https://github.com/beatra-ai/ai-image-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI image generator",
+    "text to image",
+    "AI image editor",
+    "AI product photo",
+    "product image generator",
+    "AI poster maker",
+    "brand visual generator",
+    "social media image generator",
+    "AI illustration generator",
+    "concept art generator",
+    "photo background editor",
+    "AI image studio"
+  ],
+  "logo": "assets/icon.png"
+}

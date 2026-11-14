@@ -1,0 +1,27 @@
+{
+  "name": "ai-multilingual-dubbing",
+  "displayName": "Multilingual Voiceover",
+  "description": "Create reviewable multilingual voice-over audio from scripts for each language, with deliberate casting, pronunciation and timing pilots, and delivery organized by market and segment.",
+  "version": "0.2.9",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ai-multilingual-dubbing",
+  "repository": "https://github.com/beatra-ai/multilingual-voiceover-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI multilingual dubbing",
+    "AI video dubbing",
+    "video dubbing",
+    "multilingual voiceover",
+    "AI voiceover",
+    "AI video translation audio",
+    "video localization voiceover",
+    "training video localization",
+    "global marketing voiceover",
+    "e-learning localization",
+    "multilingual narration",
+    "text to speech multiple languages"
+  ],
+  "logo": "assets/icon.png"
+}

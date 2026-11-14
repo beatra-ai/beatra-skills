@@ -1,0 +1,24 @@
+{
+  "name": "ai-podcast-voiceover",
+  "displayName": "AI Podcast Voiceover",
+  "description": "Turn an article, notes, or finished script into a listenable solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and MP3 delivery.",
+  "version": "0.2.8",
+  "author": {
+    "name": "Beatra AI"
+  },
+  "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
+  "repository": "https://github.com/beatra-ai/ai-podcast-voiceover-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI podcast voice generator",
+    "podcast voiceover AI",
+    "text to speech podcast",
+    "article to podcast audio",
+    "AI podcast narration",
+    "solo podcast voice",
+    "podcast script to audio",
+    "consistent podcast host voice",
+    "podcast MP3"
+  ],
+  "logo": "assets/icon.png"
+}
