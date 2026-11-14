@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-podcast-voiceover",
+  "version": "0.2.8",
+  "description": "Turn an article, notes, or finished script into a listenable solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and MP3 delivery.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
+  "repository": "https://github.com/beatra-ai/ai-podcast-voiceover-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI podcast voice generator",
+    "podcast voiceover AI",
+    "text to speech podcast",
+    "article to podcast audio",
+    "AI podcast narration",
+    "solo podcast voice",
+    "podcast script to audio",
+    "consistent podcast host voice",
+    "podcast MP3"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Podcast Voiceover",
+        "shortDescription": "Articles into podcast episodes",
+        "longDescription": "Turn an article, notes, or a finished script into a listener-ready solo podcast episode with a consistent host voice. This AI podcast voice generator and AI podcast narration service adapts supplied material into a speakable podcast script, sets names and specialist terms for clear pronunciation, and creates MP3 podcast audio with natural pacing. Use this podcast voiceover AI and text-to-speech podcast service for article-to-podcast audio, news briefings, expert commentary, and knowledge shows, then carry the host direction into the next episode.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/ai-podcast-voiceover",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

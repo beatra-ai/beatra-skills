@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "beatra-ai-video-studio",
+  "version": "1.3.7",
+  "description": "Generate, animate, edit, and extend short AI videos for ads, product stories, social posts, b-roll, transitions, and cinematic concepts.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/beatra-ai-video-studio",
+  "repository": "https://github.com/beatra-ai/ai-video-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI video generator",
+    "text to video",
+    "image to video",
+    "AI video editing",
+    "AI video extender",
+    "product video maker",
+    "AI ad video",
+    "social video generator",
+    "first last frame video",
+    "AI b-roll",
+    "cinematic AI video",
+    "AI video studio"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Video Generator",
+        "shortDescription": "Generate and edit short videos",
+        "longDescription": "Plan and create short AI videos from a written shot, a supplied image, exact first and last frames, multimodal references, or existing footage. Beatra AI Video Studio supports text-to-video, image-to-video, reference-guided generation, AI video editing, and AI video extension for product videos, ad creative, social clips, b-roll, transitions, reveals, and cinematic concepts. Review each delivered clip for action, subject stability, camera, continuity, audio when requested or returned, and destination fit, then choose the smallest useful edit, extension, or new render.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/beatra-ai-video-studio",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

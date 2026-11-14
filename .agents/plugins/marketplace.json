@@ -1,0 +1,284 @@
+{
+  "name": "beatra-skills",
+  "interface": {
+    "displayName": "Beatra Skills"
+  },
+  "plugins": [
+    {
+      "name": "beatra",
+      "source": {
+        "source": "local",
+        "path": "./plugins/beatra"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "talking-avatar-video",
+      "source": {
+        "source": "local",
+        "path": "./plugins/talking-avatar-video"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-logo-maker",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-logo-maker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "music-generation-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/music-generation-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "product-photo-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-photo-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "suno-lyrics-to-song",
+      "source": {
+        "source": "local",
+        "path": "./plugins/suno-lyrics-to-song"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "poster-design-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/poster-design-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ecommerce-listing-image-set",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ecommerce-listing-image-set"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-image-generation-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-image-generation-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "beatra-ai-video-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/beatra-ai-video-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-podcast-voiceover",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-podcast-voiceover"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "voiceover-narration-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/voiceover-narration-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-multilingual-dubbing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-multilingual-dubbing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "voice-cloning-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/voice-cloning-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-photo-restyler",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-photo-restyler"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "viral-video-teardown-remake",
+      "source": {
+        "source": "local",
+        "path": "./plugins/viral-video-teardown-remake"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-headshot-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-headshot-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-audiobook-narration",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-audiobook-narration"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-image-realism",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-image-realism"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "ai-storyboard-generator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-storyboard-generator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "wechat-cover-maker",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wechat-cover-maker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "zhongcao-cover-maker",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zhongcao-cover-maker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "zhongcao-note-copywriter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zhongcao-note-copywriter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    }
+  ]
+}

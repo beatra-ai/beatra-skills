@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "talking-avatar-video",
+  "version": "0.3.4",
+  "description": "Turn one portrait and a short script or speech track into a directed talking-avatar video for explainers, announcements, lessons, and product messages.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/talking-avatar-video",
+  "repository": "https://github.com/beatra-ai/talking-avatar-video-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "talking avatar",
+    "AI presenter",
+    "AI spokesperson video",
+    "digital human video",
+    "talking head video",
+    "talking photo",
+    "photo to talking video",
+    "avatar narration",
+    "lip sync video",
+    "product explainer avatar",
+    "training video presenter",
+    "virtual presenter"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Talking Avatar Video",
+        "shortDescription": "Portrait and script to video",
+        "longDescription": "Create a talking avatar from one portrait and a short script or speech track. This AI presenter and digital human video workflow can prepare narration with a selected voice or use a supplied recording, then direct a stable talking-head clip with restrained expression, natural movement, clear delivery, and focused lip-sync review. Use it for AI spokesperson videos, product explainers, training, course lessons, announcements, onboarding, social talking-head content, and photo-to-talking-video messages, with narration-driven facial motion and a focused review of identity, clarity, lip sync, and motion stability.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/talking-avatar-video",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

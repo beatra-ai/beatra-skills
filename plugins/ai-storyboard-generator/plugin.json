@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-storyboard-generator",
+  "version": "0.2.8",
+  "description": "Turn a script, scene, or ad brief into a practical shot list and one to four storyboard key-frame images.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/ai-storyboard-generator",
+  "repository": "https://github.com/beatra-ai/ai-storyboard-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI storyboard generator",
+    "script to storyboard",
+    "storyboard shot list",
+    "AI shot list generator",
+    "storyboard key frames",
+    "film storyboard",
+    "ad storyboard",
+    "animation storyboard",
+    "social video storyboard",
+    "camera shot planning"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Storyboard Generator",
+        "shortDescription": "Shot lists and key frames",
+        "longDescription": "Turn a script, scene, or ad brief into a structured AI storyboard plan with a practical shot list and one to four storyboard key-frame images. Plan shot types, camera angles and movement, action, timing, dialogue, and sound for short films, ads, animation, social video, motion comics, and creative pitches.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/ai-storyboard-generator",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

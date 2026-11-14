@@ -1,0 +1,185 @@
+---
+name: "suno-lyrics-to-song"
+description: "Turn complete lyrics, a rough lyric draft, loose lines, or an existing hook into a structured, listenable Suno song. This Suno lyrics-to-song workflow works as an AI song generator from lyrics and AI music generator from lyrics: choose Preserve mode to keep every original line or Refine mode to improve rhythm, rhyme, singability, and hook strength. Build the song structure across verses, chorus, bridge, and purposeful repetition, then create a style prompt for music with genre, mood, arrangement, and vocal direction for Suno custom lyrics. Use it to turn lyrics into a song, make a song from lyrics, convert lyrics to music, get help from a lyrics songwriting assistant, or take rough lyrics to song-ready form through a custom lyrics-to-song process."
+---
+
+# Suno Lyrics to Song
+
+Turn lyric material the user already has into a structured song direction and a
+listenable Suno track. Complete lyrics, a rough draft, loose lyric lines, or one
+existing hook are enough to begin. Reuse all lyrics and decisions already
+visible in the conversation and move by the shortest path to a finished song.
+
+## Choose how the lyrics may change
+
+If the user only wants the lyrics organized and does not ask to generate, stop
+at the lyrics. Generation on Beatra is `beatra.music.generate`; do not log into
+a Suno account.
+
+- **Preserve:** keep every lyric-body character, punctuation mark, complete
+  line, and the original line order. Add short section labels and arrange blank
+  lines around complete lyric lines without rewriting them.
+- **Optimize:** improve phrasing, rhythm, rhyme, repetition, hook strength, and
+  section balance while keeping every declared must-keep line exact. A request
+  to polish, rewrite, or optimize already grants this editing permission.
+
+Default to Preserve when the user asks to arrange, compose, generate, or make a
+song from the supplied lyrics without asking to change the words. Do not ask
+them to choose a mode. Use Optimize only when their request grants editing
+permission.
+
+Use [lyrics intake and modes](references/lyrics-intake-and-modes.md) for the
+complete edit contract. Include the full proposed lyric and any material edit
+summary in the final production card. Split lyric review into an earlier step
+only when the user explicitly asks to review first or says not to spend yet.
+
+## Shape a song-ready version
+
+The hard input is complete or scattered lyrics. Label verse, chorus, and bridge
+before any paid generation. Custom lyrics must carry section labels.
+
+Infer useful defaults from the lyrics instead of turning intake into a
+questionnaire. Propose a title, section structure, genre, mood, tempo feel,
+instrumentation, arrangement arc, section contrast, and vocal direction. Ask
+only when a missing choice would materially change the accepted lyrics or paid
+request.
+
+Use [song direction and request](references/song-direction-and-request.md) for
+the exact Suno request. The production route is always:
+
+- `model: "suno-6"`;
+- a 1..1000-character music-direction `prompt` with no lyric body inside it;
+- confirmed non-empty `lyrics` of at most 5000 characters;
+- `instrumental: false`;
+- a non-empty `title` of at most 80 characters;
+- `model_options.suno.custom_mode: true`;
+- one stable opaque 1..128-character `client_request_id`.
+
+Treat pronunciation, vocal character, duets, ensembles, and accents as
+production directions to pursue and review in the result. Length: when this
+account has the music tools (the bundled client's `tools` command lists
+`beatra.music.edit` and `beatra.audio.process`; see
+[music editing and audio](references/music-editing-and-audio.md)), send
+`duration_seconds` of 30 or more that the lyrics fit when the user names a
+length, without `duration_fit`: a shorter target, or `exact`, cuts the singing at
+the target, so cut afterwards with `beatra.audio.process` `trim` only when the
+user accepts losing the end; without the music tools, or when the user names no
+length, keep the length as direction in the prompt and do not add a duration
+argument. Always report the real returned length. Use the single-lead
+`vocal_gender` control only when the user chooses one male or female lead;
+express other casting through the lyrics and music direction.
+
+## Confirm once, execute once
+
+Organize the skeleton and section labels, obtain the user's confirmation of the
+lyrics, then present one song-generation confirmation card. Do not
+automatically redo the whole song.
+
+Planning, lyric work, structure, and music direction do not call the paid music
+tool. Before generation, call `beatra.models.list` with a copyable payload:
+
+```json
+{"capability": "text_to_music"}
+```
+
+Read the `suno-6` entry's `pricing`. Present one final readable production card
+containing the complete lyrics, title, music direction, `suno-6`, relevant
+options, and the six paid fields:
+
+1. Work — one Suno song from the approved lyrics, a `beatra.music.generate` call,
+   plus any finishing step the user asked for with it.
+2. Credits — the live `suno-6` price just read, per slot and in total, with
+   each finishing step as its own line at its live `audio_process` price; the
+   total includes every line on the card. Never a remembered number.
+3. Count — one paid call for this song, plus one per finishing line on this
+   card. A later revision is another slot.
+4. Identity — one new opaque `client_request_id` per line listed on the card. Any changed lyric, title,
+   direction, model, or option mints a new ID.
+5. If we stop here — the structured lyrics remain usable.
+6. If the balance is insufficient — relay the official message and its top-up
+   URL exactly. Translate the prose; keep the URL. Do not retry until the user
+   says they have topped up.
+
+A clear approval of that complete card authorizes the paid calls it lists; do not
+request a second confirmation or an extra “generate” command.
+
+Create the request identity only after the card is final. Call
+`beatra.music.generate` once, retain its `task_id`, and poll that same task with
+`beatra.tasks.get`. A slow or uncertain response is a recovery case, not a
+reason to create another song. Follow [workflow](references/workflow.md) and
+[review and recovery](references/review-and-recovery.md).
+
+## Use the bundled MCP Client
+
+Use only this Skill's bundled `scripts/mcp_client.py` for every remote MCP
+operation. The MCP tool name is passed as a CLI argument and the JSON arguments
+are sent on stdin. Do not configure or call a host Beatra Connector, and do not
+use REST/OpenAPI as a fallback. For exact commands and troubleshooting, use
+[Bundled MCP Client diagnostics](references/mcp-connection.md).
+
+Do not silently substitute another model for Suno 6.
+
+## Deliver the song and recover the task
+
+On success, present every actual entry in `task.output.clips` in returned order.
+For each clip, use `clip.audio.url` as the playable URL,
+`clip.audio.artifact_id` as its asset ID, and `clip.audio.duration_seconds` as
+its duration; include `clip.title` and `clip.lyrics` only when returned. Report
+the actual task ID and `billing.net_charged_credits`; do not infer charges from
+clip count or elapsed time. Review hook clarity, diction, section contrast, and
+emotion only when the host can actually play the clips. Generated assets can
+also be viewed and managed at [beatra.ai](https://beatra.ai).
+
+If the user changes lyrics, title, music direction, model, or options after a
+result, present the revised complete production card before starting new paid
+work. When this account has the music tools, a change to one part of a chosen
+song is `beatra.music.edit` with `operation: "replace_section"` (`start_ms`,
+`end_ms`, and that range's `section_lyrics`, the user's own lines in Preserve
+mode; ask the user where the part plays, in minutes and seconds as their player
+shows it), and continuing a chosen song is `operation: "extend"`, which sings the
+`lyrics` the user wrote or approved. Always send that range's `section_lyrics`
+(its current lines when only the singing changes); when the words change, also
+send `full_lyrics`, the whole lyric with that range's lines replaced (the
+default is the track's old lyrics; it is required when the track's `editable`
+field is not `{"native": true}`). Each revision is its own confirmed
+call: show the time range and the changed or new lines on its card with the live
+price (capability `music_replace_section` or `music_extend`) and give it its own
+`client_request_id`. Never extend automatically or repeatedly. Use
+[review and recovery](references/review-and-recovery.md) for a lost task ID,
+uncertain delivery, cancellation, failure, or result review.
+
+If the tool returns insufficient credits: give the user the tool message in
+full. Do not change the URL. You may translate the other words. Do not replace
+it with your own top-up copy. Point the user to pay using that message.
+
+When the user asks how many credits remain, call `beatra.wallet.get`. When they
+ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
+invent an account-balance or top-up tool. Do not make `wallet.get` a required
+step before every paid submit.
+
+## References by task
+
+- Preserve, Optimize, must-keep lines, and section structure: [lyrics intake and modes](references/lyrics-intake-and-modes.md)
+- Style, arrangement, vocals, and exact Suno arguments: [song direction and request](references/song-direction-and-request.md)
+- Length, fixing one part of a chosen song, continuing it, and its extra files (a WAV version, cover art, lyric timing, a saved singer): [music editing and audio](references/music-editing-and-audio.md)
+- End-to-end preparation, confirmation, submission, and tracking: [workflow](references/workflow.md)
+- Lost tasks, cancellation, terminal results, and listening review: [review and recovery](references/review-and-recovery.md)
+- First installation or expired authorization: [installation and authentication](references/installation-and-auth.md)
+- Bundled MCP Client commands and diagnostics: [Bundled MCP Client diagnostics](references/mcp-connection.md)
+- Installation registration: [installation registration](references/installation-registration.md)
+- Task lookup and result fields: [tasks and results](references/tasks-and-results.md)
+- Balance, validation, uncertain submissions, and errors: [billing, errors, and recovery](references/billing-errors-and-recovery.md)
+- Disconnecting the installation: [uninstall and disconnect](references/uninstall-and-disconnect.md)
+- Updates and security: [updates and security](references/updates-and-security.md)
+
+## Updates and security
+
+This Skill runs only the files installed with it and leaves them unchanged while
+it runs; it never downloads or executes other code. It talks to Beatra's official
+services over HTTPS, and a file you choose to upload goes only to the one-time
+upload address Beatra issues for it.
+
+Once a day at most, the bundled client reads Beatra's public version list. When
+the store or tool you installed from has a newer version, it prints one line with
+the command that updates it there. Updating stays your choice, through that store
+or tool. See [updates and security](references/updates-and-security.md).

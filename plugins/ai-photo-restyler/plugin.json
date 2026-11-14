@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-photo-restyler",
+  "version": "0.2.5",
+  "description": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the subject stays recognisable, and repeat the same look across a whole set.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/ai-photo-restyler",
+  "repository": "https://github.com/beatra-ai/photo-to-anime-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "photo to anime",
+    "AI cartoonizer",
+    "photo to cartoon",
+    "anime filter",
+    "photo to comic",
+    "photo to manga",
+    "AI photo style converter",
+    "cartoon avatar maker",
+    "anime avatar generator",
+    "photo to illustration",
+    "clay style portrait",
+    "watercolor photo art"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Photo to Anime",
+        "shortDescription": "Photos into anime and art",
+        "longDescription": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the person, pet, or product stays recognisable. This AI photo restyler works as a photo-to-anime converter and AI cartoonizer you can steer: apply a style like a filter over your own picture, or add style samples to steer the palette, line weight, and shading. A selfie, portrait, pet photo, product shot, or travel picture becomes illustration-style art for social avatars, profile pictures, sticker sets, posters, merchandise, and content series, with one chosen look repeated across a whole batch.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/ai-photo-restyler",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

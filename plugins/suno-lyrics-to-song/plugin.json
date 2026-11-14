@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "suno-lyrics-to-song",
+  "version": "0.3.3",
+  "description": "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal direction.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
+  "repository": "https://github.com/beatra-ai/lyrics-to-song-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "Suno lyrics to song",
+    "turn lyrics into a song",
+    "make a song from lyrics",
+    "lyrics to music",
+    "AI song generator from lyrics",
+    "AI music generator from lyrics",
+    "Suno custom lyrics",
+    "custom lyrics to song",
+    "lyrics songwriting assistant",
+    "song structure",
+    "style prompt for music",
+    "rough lyrics to song"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Lyrics to Song",
+        "shortDescription": "Turn your lyrics into a song",
+        "longDescription": "Turn complete lyrics, a rough lyric draft, loose lines, or an existing hook into a structured, listenable Suno song. This Suno lyrics-to-song workflow works as an AI song generator from lyrics and AI music generator from lyrics: choose Preserve mode to keep every original line or Refine mode to improve rhythm, rhyme, singability, and hook strength. Build the song structure across verses, chorus, bridge, and purposeful repetition, then create a style prompt for music with genre, mood, arrangement, and vocal direction for Suno custom lyrics. Use it to turn lyrics into a song, make a song from lyrics, convert lyrics to music, get help from a lyrics songwriting assistant, or take rough lyrics to song-ready form through a custom lyrics-to-song process.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/suno-lyrics-to-song",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

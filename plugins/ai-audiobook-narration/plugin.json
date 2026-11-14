@@ -1,0 +1,37 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-audiobook-narration",
+  "version": "0.3.3",
+  "description": "Turn final manuscript or course text into ordered chapter audio with one narrator, a representative sample, clear pricing, and focused refinements.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
+  "repository": "https://github.com/beatra-ai/ai-audiobook-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI audiobook generator",
+    "AI audiobook narration",
+    "audiobook narrator",
+    "manuscript to audiobook",
+    "chapter-by-chapter audiobook",
+    "consistent narrator voice",
+    "audiobook sample chapter"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Audiobook Generator",
+        "shortDescription": "Manuscripts into audiobooks",
+        "longDescription": "Turn final manuscript or course text into an audiobook with one consistent narrator. This AI audiobook generator and AI audiobook narration workflow organizes chapters, settles names and specialist pronunciations, shapes long-form pacing, helps choose a suitable audiobook narrator, and creates a representative sample before the remaining book. Use it for manuscript-to-audiobook production, chapter-by-chapter audiobooks, course narration, long-text-to-speech, and sample chapters, with up-to-date price estimates, ordered audio delivery, consistent narrator voice, and focused passage refinements.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/ai-audiobook-narration",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

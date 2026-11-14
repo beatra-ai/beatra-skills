@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zhongcao-note-copywriter",
+  "version": "0.2.7",
+  "description": "Turn a product, experience, topic, or audience brief into Xiaohongshu title options, a readable note body, cover text, hashtags, and a natural comment starter.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/zhongcao-note-copywriter",
+  "repository": "https://github.com/beatra-ai/xiaohongshu-copywriter-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "Xiaohongshu copywriter",
+    "REDnote note copywriter",
+    "Xiaohongshu title generator",
+    "Xiaohongshu post copy",
+    "Xiaohongshu product copy",
+    "Xiaohongshu recommendation copy",
+    "Xiaohongshu hashtags",
+    "Xiaohongshu cover text",
+    "Xiaohongshu note ideas",
+    "competitor note analysis",
+    "comment analysis",
+    "Xiaohongshu research"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "小红书文案",
+        "shortDescription": "小红书种草笔记标题与正文",
+        "longDescription": "Create Xiaohongshu or REDnote copy from a product, experience, topic, or audience brief. This AI Xiaohongshu copywriter produces title options, a structured note body, cover wording, relevant hashtags, and a natural comment starter for product discovery, local experiences, beauty, food, fashion, travel, and knowledge posts. It then renders a matching vertical 3:4 Xiaohongshu cover built around the chosen title, with a headline-safe composition. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/zhongcao-note-copywriter",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

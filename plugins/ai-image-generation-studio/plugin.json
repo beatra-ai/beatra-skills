@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-image-generation-studio",
+  "version": "0.2.6",
+  "description": "Generate, compose, and edit product images, brand visuals, posters, social graphics, illustrations, and photo variations.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/ai-image-generation-studio",
+  "repository": "https://github.com/beatra-ai/ai-image-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI image generator",
+    "text to image",
+    "AI image editor",
+    "AI product photo",
+    "product image generator",
+    "AI poster maker",
+    "brand visual generator",
+    "social media image generator",
+    "AI illustration generator",
+    "concept art generator",
+    "photo background editor",
+    "AI image studio"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Image Generator",
+        "shortDescription": "Generate and edit AI images",
+        "longDescription": "Create and refine images from a written brief, one to four ordered reference images, or an existing base image. AI Image Generation Studio supports text-to-image generation, reference-guided composition, and focused AI image editing for product photos, ad creative, brand visuals, posters, social graphics, illustrations, concept art, and photo background changes. Review each generated image for message, subject fidelity, composition, style, text, and destination fit, then choose the smallest useful edit, new composition, or new generation.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/ai-image-generation-studio",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

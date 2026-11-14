@@ -1,0 +1,44 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "voiceover-narration-studio",
+  "version": "0.2.9",
+  "description": "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
+  "repository": "https://github.com/beatra-ai/ai-voiceover-generator-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "AI voice studio",
+    "AI voice generator",
+    "text to speech",
+    "AI voiceover generator",
+    "AI narration",
+    "voice cloning",
+    "multilingual text to speech",
+    "voice library",
+    "script to voiceover",
+    "short video voiceover",
+    "audiobook narration",
+    "course narration",
+    "Cantonese text to speech",
+    "reusable brand voice"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AI Voiceover Generator",
+        "shortDescription": "Scripts into narration audio",
+        "longDescription": "Use Voiceover & Narration Studio as an AI voice generator, text-to-speech workspace, and AI voiceover generator. Choose from the current voice library, turn scripts into ready-to-edit AI narration and voiceover, or create and reuse a custom brand voice through voice cloning. It supports short-video voiceover, script-to-voiceover, course narration, ordered audiobook narration, supplied multilingual text to speech, Cantonese text to speech, and recurring brand audio, with current price estimates, clear output planning, and delivery organized by chapter, language, and use case.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/voiceover-narration-studio",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zhongcao-cover-maker",
+  "version": "0.2.9",
+  "description": "Turn a photo or a topic idea into a scroll-stopping vertical 3:4 Xiaohongshu cover with clean backgrounds, bold focal composition, and text-safe areas for beauty, food, fashion, and lifestyle notes.",
+  "author": {
+    "name": "Beatra AI",
+    "url": "https://github.com/beatra-ai"
+  },
+  "homepage": "https://beatra.ai/skills/zhongcao-cover-maker",
+  "repository": "https://github.com/beatra-ai/xiaohongshu-cover-maker-skill",
+  "license": "MIT-0",
+  "keywords": [
+    "REDnote cover maker",
+    "Xiaohongshu cover",
+    "AI cover generator",
+    "Xiaohongshu note cover",
+    "REDnote post image",
+    "AI thumbnail maker",
+    "Xiaohongshu image design",
+    "social media cover generator",
+    "REDnote cover template",
+    "Xiaohongshu beauty cover",
+    "food photography cover",
+    "OOTD post image",
+    "competitor note analysis",
+    "comment analysis",
+    "Xiaohongshu research"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "小红书封面制作",
+        "shortDescription": "小红书 3:4 竖版笔记封面",
+        "longDescription": "Turn a photo, a topic idea, or an accepted draft into a scroll-stopping REDnote (Xiaohongshu) cover and post image. This AI cover generator creates vertical 3:4 Xiaohongshu note covers with clean backgrounds, bold focal composition, and text-safe areas for beauty, food, fashion, travel, and knowledge content. Generate high-click Xiaohongshu note covers, OOTD post images, food photography covers, product recommendation visuals, and lifestyle note illustrations from one photo or a topic description. Start from a real photo, compose from multiple references, or refine an accepted cover toward a publish-ready result. Optionally it reads Xiaohongshu itself — the notes already running for the topic, one page of a note's top comments, and an account's own recent notes — so Xiaohongshu research, competitor note analysis and comment analysis rest on the platform instead of on guesswork.",
+        "developerName": "Beatra AI",
+        "category": "Creativity",
+        "websiteURL": "https://beatra.ai/skills/zhongcao-cover-maker",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms"
+      }
+    }
+  }
+}
