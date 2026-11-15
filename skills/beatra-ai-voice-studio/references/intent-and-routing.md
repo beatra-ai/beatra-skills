@@ -1,78 +1,56 @@
-# Intent and routing
+# Intent and Routing
 
-## Keep the Studio central only when it adds coordination
+Beatra AI Voice Studio is the flagship full-suite voice and audio hub covering
+script direction, TTS synthesis, multi-speaker dialogue, speech-to-speech,
+three-route cloning & voice slot lifecycle, transcription, SFX, voice isolation,
+stem separation, and loudness normalization.
 
-Choose one primary route, reuse known facts, and ask only for a missing hard
-input or a choice that changes paid work.
+## Route selection table
 
-| Request shape | Route | Minimum before a paid call |
-| --- | --- | --- |
-| One short-video, advertisement, social, or promo voiceover | `short-form-voiceover-audio` | Final supplied or approved text and an exact current voice |
-| Audiobook, course, serialized narration, or other ordered long-form work | `ai-audiobook-narration` | Approved segment plan, pilot text, and narrator |
-| Supplied target-language scripts for a multilingual production | `ai-multilingual-dubbing` | Approved text per language and one valid voice route per language |
-| One authorized reusable voice | `voice-cloning-studio` | Explicit speaker authorization, valid sample, and display name |
-| Mixed, ongoing, or cross-route production | This Studio | An ordered route ledger and the first exact paid card |
+| Request pattern | Recommended route |
+| --- | --- |
+| Single standalone short-video, social, or promo read | `short-form-voiceover-audio` |
+| Whole audiobook or chaptered one-narrator book | `ai-audiobook-narration` |
+| Single-host podcast episode | `ai-podcast-voiceover` |
+| Supplied multi-language scripts only | `ai-multilingual-dubbing` |
+| One standalone voice clone without multi-tool audio pipeline | `voice-cloning-studio` |
+| Dialogue, speech conversion, transcription, SFX, stem separation, noisy sample isolation, loudness normalization, or mixed multi-step voice work | Continue in `beatra-ai-voice-studio` |
 
-Do not move a mixed request wholesale into a focused package. Sequence its
-parts. For example, create and finish an authorized clone before resolving its
-returned `voice_id` for later synthesis; pilot each distinct multilingual
-route before approving its remainder.
+## Free planning vs. paid tools
 
-## Minimum questions and positive defaults
+Non-billable steps:
 
-For synthesis, ask for final text or permission to prepare a speakable version,
-and ask for a target language only when the user intends a language not already
-clear from the supplied text or context. Do not ask for language merely because
-the request omitted it. Ask for voice preferences only when no voice has been
-selected and “choose for me” is not already an answer.
+- `beatra.installations.register`
+- `beatra.voices.list` (11-dimension lookup) and `beatra.voices.preview`
+- `beatra.voices.update` (display metadata & `make_default`)
+- `beatra.models.list` (`speech_script`, `text_to_speech`, `text_to_dialogue`,
+  `speech_to_speech`, `voice_clone`, `speech_to_text`, `sound_effects`,
+  `audio_voice_isolation`, `audio_process`, `audio_stem_separation`)
+- `beatra.speech.validate` and `beatra.speech.validate_dialogue`
+- Free `beatra.voices.activate` re-quotes and `beatra.voices.delete` step-1
+  warning check
+- Optional read-only `beatra.wallet.get` and `beatra.wallet.ledger`
 
-Use `model: "auto"`, MP3, speed 1.0, volume 1.0, pitch 0, no emotion, and no
-sample rate unless the user's destination changes one of those choices. Treat
-duration as a review target, not a guarantee. Preserve supplied claims,
-pronunciations, names, ordering, and target-language text.
+Paid tools requiring a live model lookup and a six-field production card:
 
-For cloning, the one non-negotiable first fact is consent. A clear statement
-that it is the user's own voice is enough; otherwise obtain a clear statement
-that the speaker authorized cloning. Do not turn that confirmation into
-paperwork. Stop before upload while it is missing.
+- `beatra.speech.prepare_script` (Smart Voice Director; 48h free recompile only
+  when `input`, `instructions`, `language`, and `context` match identically and
+  only `voice` or `model` changes, subject to balance cover & max 2 concurrent
+  tasks)
+- `beatra.speech.synthesize` and `beatra.speech.synthesize_dialogue` (aligned
+  SRT/VTT captions via `subtitle_enable: true` add zero fee)
+- `beatra.speech.convert` (speech-to-speech conversion)
+- `beatra.voices.clone` and final confirmed `beatra.voices.activate`
+- `beatra.audio.transcribe`, `beatra.audio.generate_sfx`
+- `beatra.audio.process` (`isolate_voice`, `normalize_loudness`, `trim`,
+  `loop`, `fade`, `convert_format`, `separate_stems`)
 
-## Free planning and paid units
+## Approval boundary
 
-Free planning includes:
-
-- routing and ledger preparation;
-- speakable edits shown for approval;
-- `beatra.voices.list`, returned preview links, and casting comparison;
-- `beatra.models.list`, compatibility and language checks, and price estimates;
-- search and reconciliation of already-created tasks.
-
-Each `beatra.speech.synthesize` and `beatra.voices.clone` submission is a
-separate billable request. A card must state the exact approved text or sample,
-voice and model decision, controls, count, current estimate, delivery position,
-and what the user will review.
-
-## Pilot coverage
-
-- For one supplied and approved short script, the one synthesis is the complete
-  approved unit; do not add alternate takes.
-- For long-form work, select one representative supplied passage and obtain
-  approval for that pilot alone. Review it, then present the remaining ordered
-  segments and total estimate as a separate approval.
-- For multilingual work, define a distinct route by its voice, BCP-47 language,
-  and possible or explicit model set. Run one supplied and approved pilot for
-  every distinct route. Only after all required pilots are accepted may the
-  remaining language-by-segment matrix receive a separate approval.
-- A clone does not include a spoken proof. If the user wants one, it begins
-  after clone success as a separate text-to-speech card.
-
-Never use invented text for a paid sample. General permission, earlier pilot
-approval, or clone approval does not approve a remainder, another language,
-an alternate take, or a spoken proof.
-
-## Adjacent outcomes
-
-Keep this package's result at ready-to-edit speech audio or a returned reusable
-voice. A request for transcription needs text first. Existing-audio repair,
-mixing, synchronization, video, avatar, lip-sync, music, and publication use
-their own workflows. Preserve and complete the voice component rather than
-claiming those adjacent deliverables.
+A well-specified single `text_to_speech` request—final text, voice or explicit
+criteria, and named format/controls—authorizes that single call (show the
+six-field card with delivery). Every other billable workflow (cloning consent &
+submission, activation, deletion, Smart Voice Director, dialogue, conversion,
+transcription, SFX, audio processing, pilots, and batch remainders) stops for
+explicit confirmation on its six-field card first. Never synthesize invented
+or unapproved copy.

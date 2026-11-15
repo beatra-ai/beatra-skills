@@ -5,133 +5,226 @@ description: "Turn an article, notes, or a finished script into a listener-ready
 
 # AI Podcast Voiceover
 
-Work as an episode producer for one recurring host: begin with the show
-profile, turn supplied material or a named topic into a listener-friendly
-script, freeze the host and model path, prove a new direction with a short
-sample, then create and record the episode audio.
+Work as an episode producer for one recurring host or a multi-host show:
+begin with the show profile, turn supplied material or a named topic into a
+listener-friendly script, prepare expressive pacing with Smart Voice Director,
+freeze the host cast and model path, prove a new direction with a short audition
+or sample, then synthesize and record the episode audio, optional music bed,
+stingers, and loudness finishing.
 
 ## Scope and routes
 
 Use this workflow for supplied articles, notes, outlines, newsletters, or final
-scripts, and for a topic alone, when they become a single-host podcast episode,
-trailer, opener, closer, or ordered episode parts. Keep the recurring host
-direction, pronunciation list, and delivery facts together when the show will
-continue.
+scripts, and for a topic alone, when they become a solo podcast episode, a
+two-host or guest dialogue episode, trailer, opener, closer, or ordered episode
+parts. Keep recurring host directions, pronunciation glossaries, and delivery
+facts together when the show will continue.
+
+- **Single-host episodes and narration segments**: use
+  `beatra.speech.synthesize` (with `beatra.speech.prepare_script` and free
+  `beatra.speech.validate`).
+- **Multi-host or guest conversations**: use native
+  `beatra.speech.synthesize_dialogue` (with free
+  `beatra.speech.validate_dialogue`) for cohesive scenes of `2–50` turns and
+  `<= 2,000` characters across up to `10` voices with
+  `capabilities.supports_dialogue == true` (`<= 4` ready clones). Chunk longer
+  episodes scene-by-scene passing `previous_text` and `next_text` across scene
+  boundaries, or fall back to segmented `beatra.speech.synthesize` per turn when
+  speakers exceed limits or require unsupported dialects.
 
 Route a manuscript or chapter-led course narration to
 `ai-audiobook-narration`; a standalone short social, ad, or promo read to
-`short-form-voiceover-audio`; supplied approved scripts across several
-languages to `ai-multilingual-dubbing`; and a custom host voice or a mixed
-voice project to `beatra-ai-voice-studio` and its focused cloning route. Keep
-the supplied material, episode order, language, and show direction available
-when changing routes.
+`short-form-voiceover-audio`; and supplied approved scripts across several
+languages to `ai-multilingual-dubbing`. When a user wants to clone their own
+podcast host or guest voice for this show, clone and manage that voice directly
+here (`beatra.voices.clone` / `beatra.voices.activate` / `beatra.voices.delete`);
+route standalone clone-only work to `voice-cloning-studio` or
+`beatra-ai-voice-studio`. Keep supplied material, episode order, language, and
+show direction intact when switching routes.
 
-This package delivers single-host episode audio. Route multi-host mixing, RSS
-listing, and professional mastering out. When the user wants a music bed, keep
-that work here — do not send it to another music package. When the requested
-episode requires named speakers or a mixed or assembled final episode,
-preserve that production requirement and choose the appropriate production or
-editing route. Offer a solo host narration only when the user chooses that
-smaller audio deliverable.
+Keep music beds (`beatra.music.generate`), transition stingers or looping
+ambient beds (`beatra.audio.generate_sfx`), and single-file loudness, trim,
+fade, or vocal pre-cleaning (`beatra.audio.process`) here as explicitly scoped
+paid steps — never send those requests away just because audio finishing is
+involved, and never call any paid finishing step free. Route multi-track mixdown
+or ducking across tracks, RSS feed hosting, and distribution publishing out to
+dedicated post-production or podcast-hosting workflows, keeping the user's
+multi-track requirements intact (offer unmixed ordered dialogue/music/SFX
+stems only when the user accepts assembling them in their editor).
 
 ## Open the show
 
 The hard inputs are the show and its audience: who is listening, and what this
 episode should accomplish. Look first for `./<show>/show-profile.json` and
-reuse that archive when it exists. Reuse the show direction only after its
-frozen host is re-validated against the current voice list and model path. For
-a new show, establish the intended listener, host, language, recurring opener
-and closer, pronunciation list, and delivery convention in a user-owned
-working directory. If a music bed is wanted, confirm the style and whether the
-user accepts a paid generated track. Follow [the show profile](references/show-profile.md).
+reuse that archive when it exists. Reuse stored directions only after each
+frozen `voice_id` is re-validated against the current `beatra.voices.list` and
+`beatra.models.list` output. For a new show, establish the intended listener,
+host cast, language, recurring opener and closer, pronunciation glossary, and
+delivery conventions in a user-owned working directory. Confirm separately if the
+user wants intro/outro music (`beatra.music.generate`), transition stingers or
+looping ambience (`beatra.audio.generate_sfx`), or broadcast loudness finishing
+(`beatra.audio.process`). Follow [the show profile](references/show-profile.md).
 
 ## Prepare the episode script
 
 Accept an article, notes, an outline, a final script, or a topic alone and
-adapt it into an episode that listeners can follow. Start from the show's
-intended listener; if the supplied material could serve materially different
-listener goals, ask for the intended takeaway before drafting. A topic alone
-does not wait on that question: infer the listener and draft in the same turn.
-Otherwise state the inferred episode focus in the draft for approval. When the user supplies
+adapt it into an episode listeners can follow. Start from the show's intended
+listener; if supplied material could serve materially different listener goals,
+ask for the intended takeaway before drafting. A topic alone does not wait on
+that question: infer the listener and draft in the same turn. Otherwise state
+the inferred episode focus in the draft for approval. When the user supplies
 material, every fact, opinion, number, and claim in the spoken script comes
-from that material or from an edit the user confirmed. An evergreen topic
-alone is drafted from widely accepted general knowledge, and a time-sensitive
-topic gets its opening, structure, transitions, and close without facts until
-the user chooses sources or pastes material. The three-way rule is in
+from that material or from an edit the user confirmed. An evergreen topic alone
+is drafted from widely accepted general knowledge, and a time-sensitive topic
+gets its opening, structure, transitions, and close without facts until the
+user chooses sources or pastes material. The three-way rule is in
 [episode script guidance](references/episode-script.md). If a supplied link or
 file cannot be read, stop and ask for the text; never switch the topic or the
 source. A topic-only request defaults to the bulletin tier, an estimated 3-5
 minutes, and the user can choose a longer tier.
 
 Show the episode focus and spoken draft section by section, including the
-opening, closer, and pronunciation list, then wait for approval before audio
-is proposed. If the user wants only a script, deliver the approved script and
-stop. Use [episode script guidance](references/episode-script.md) for the
+opening, closer, and pronunciation glossary, then wait for approval before paid
+audio is proposed. If the user wants only a script, deliver the approved script
+and stop. Use [episode script guidance](references/episode-script.md) for the
 material boundary, listener focus, spoken adaptation, pronunciation, and
 length handling.
 
-## Freeze the host and model path
+Before synthesizing speech, use **Smart Voice Director**
+(`beatra.speech.prepare_script`, `{"capability": "speech_script"}`) when
+pacing, pause planning, emotional arc, or pronunciation compilation benefits
+from AI speech direction rather than guessing pauses or manually authoring
+braced performance tags (never write braced tags by hand).
+`beatra.speech.prepare_script` preserves every spoken word untouched, inspects
+voice/model capabilities, and returns `directed` plus `scripts[]` (inspect
+`warnings` if any `synthesis` is `null`; pass ready `scripts[].synthesis`
+unchanged plus a fresh `client_request_id` to `beatra.speech.synthesize`). Keep
+at most `2` concurrent `beatra.speech.prepare_script` tasks; within 48 hours for
+identical text, `instructions`, `language`, and `context`, calling
+`beatra.speech.prepare_script` again changing only `voice` (and `model`) reuses
+the earlier direction at zero charge (the balance must still cover admission).
 
-Use `beatra.voices.list` to compare available previews and freeze one opaque,
-ready `voice_id`; submit that ID, never a display name. Without a live
-result, do not name voices, models, prices, or previews; give the selection
-criteria and say the pick comes from the live list. Call
-`beatra.models.list` with `capability: "text_to_speech"` before deciding a
-model, language, or price. An explicit model must be current, compatible with
-the frozen voice, and support the target BCP-47 language. For `auto`, retain
-only the live available models in
-`models.list.auto.candidate_order ∩ voice.compatible_models`, preserving the
-catalogue order. Use `auto` only when that set is nonempty and every member supports the
-target language; a compatible live model outside `candidate_order` is an
-explicit choice rather than an auto candidate.
+## Freeze voices, optional clones, and model paths
 
-Default to `model: "auto"`, MP3, speed 1.0, volume 1.0, pitch 0, no emotion,
-and no explicit sample rate unless the profile or destination calls for a
-supported change. Follow [voice, delivery, and recovery](references/voice-and-delivery.md)
-for casting, live-card validation, the weighted-character counter, and
-current price math.
+Browse presets and existing clones with `beatra.voices.list` (bilingual
+`search`, `limit` up to `500`, `cursor`, plus filters such as `language`,
+`gender`, `age_group`, `use_case`, `emotion`, `model`, `supports_dialogue`,
+`supports_direction`, `supports_performance_tags`, `supports_context`) and inspect
+all `11` `capabilities.*` metadata fields returned for each voice. Call free
+`beatra.voices.preview` (`preview_url`, `kind`) so the user can audition voices
+before committing credits. Freeze opaque, ready `voice_id` handles — never
+submit a display name or guess from memory. Without a live result, do not name
+voices, models, prices, or previews.
+
+If the user wants to clone a host or guest voice for this show, follow the three
+mandatory confirmations in
+[speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
+
+1. **Sample noise check**: if the sample has background music or room/street
+   noise, propose **paid** `beatra.audio.process` (`operation="isolate_voice"`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
+   its own production card before cloning.
+2. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
+   user confirmation in the current conversation that they own the voice or hold
+   permission to clone it before uploading (`scripts/mcp_client.py upload`).
+   Access to a file or public recording is never consent.
+3. **Choose among the 3 cloning routes live**: call `beatra.models.list` with
+   `{"capability": "voice_clone", "include_activation_required": true}` — fast
+   `auto` clone (`status="ready"` immediately), 10-language expressive/dialogue/
+   conversion clone, or free-trial precision training (`status="pending_activation"`).
+4. **Confirmation #2 — Trial activation (`beatra.voices.activate`)**: if
+   `beatra.voices.clone` returns `status="pending_activation"`, show the live
+   quote (`activation.quote`, or refresh free with `voice_id` and
+   `client_request_id` omitting `confirmation_token` if the 24-hour token
+   expires), obtain explicit credit and terms approval, and call
+   `beatra.voices.activate` with `voice_id`, `confirmation_token`,
+   `confirm_credits`, and a fresh `client_request_id`.
+5. **Confirmation #3 — Two-step deletion (`beatra.voices.delete`)**: to delete a
+   cloned voice later, first call `beatra.voices.delete` with `voice_id` only
+   (no `confirmation_token`), show the returned `paid_slot_warning`,
+   `irreversible_notice`, and 15-minute expiry, wait for explicit user approval,
+   then call `beatra.voices.delete` with `voice_id` and `confirmation_token`.
+
+Before quoting models or prices, call `beatra.models.list` for the exact
+capability (`text_to_speech`, `text_to_dialogue`, `speech_script`,
+`voice_clone`, `text_to_music`, `sound_effects`, `audio_process`, or
+`audio_voice_isolation`). An explicit model must be current, compatible with
+every selected `voice_id`, and support the target BCP-47 language. For `auto` in
+single-speaker synthesis, retain only live models in
+`models.list.auto.candidate_order ∩ voice.compatible_models` and use `auto`
+only when nonempty and every candidate supports the language. Default to
+`model: "auto"`, MP3, speed `1.0`, volume `1.0`, pitch `0`, `subtitle_enable: true`
+(never pass `subtitles`), and no explicit sample rate or emotion unless needed.
+Follow [voice, delivery, and recovery](references/voice-and-delivery.md) and
+[speech, voices, cloning, and audio finishing](references/speech-and-audio.md).
 
 ## Golden path
 
-Lock the show and its audience first. Write the episode for the ear. Prove the
-direction with a short sample the user has heard. Then present the episode
-synthesis confirmation card. When a music bed is wanted, present a separate
-music-bed confirmation card after that — never fold `beatra.music.generate`
-into the speech card. The direction is established only after the sample has
-been heard.
+Lock the show and audience first. Write the episode for the ear (and attribute
+each speaker cleanly for multi-host episodes). Direct complex pacing with
+`beatra.speech.prepare_script` when helpful, run free `beatra.voices.preview`
+and free `beatra.speech.validate` or `beatra.speech.validate_dialogue`, then
+confirm the production card. Prove a new direction with a short sample when
+applicable, then run episode synthesis or scene-chunked dialogue. Present any
+`beatra.music.generate`, `beatra.audio.generate_sfx`, or paid
+`beatra.audio.process` finishing step (`normalize_loudness`, `trim`, `fade`) on
+separate cards or itemized paid lines — never fold them into a speech approval
+and never label them free.
 
 ## Before the connection is ready
 
-When Allow is still pending at the end of a turn, finish and deliver
-everything that needs no connection, in the format the user asked for:
-the show profile, the full episode script, the pronunciation list, three
-title options, the episode description and show notes, and estimated
-chapters. Synthesis waits until after Allow. Say in one line
-that Allow is the one-time sign-in that connects their Beatra account, not
-an approval of the paid card, and that the paid step continues on their
-next message after it. Do not fill the gap with another tool or service.
+When Allow is still pending at the end of a turn, finish and deliver everything
+that needs no connection, in the format the user asked for: the show profile,
+the full episode script, speaker turns if multi-host, the pronunciation
+glossary, three title options, the episode description and show notes, and
+estimated chapters. All Beatra MCP calls wait until after Allow. Say in one line
+that Allow is the one-time sign-in that connects their Beatra account, not an
+approval of any paid card, and that the workflow continues on their next message
+after it. Do not fill the gap with another tool or service.
 
 ## Price and confirm
 
-Script preparation, voice previews, current model discovery, and price
-estimation are free. Every `beatra.speech.synthesize` request is paid. Every
-`beatra.music.generate` request is a separate paid step with its own current
-production card. Present a speech production card with the exact text, frozen
-voice and settings, weighted-character total, live price calculation, expected
-request count, one new opaque `client_request_id` for each logical request,
-what the user keeps if they stop here, and how a short balance is handled.
-When a music bed is confirmed, present a second card that freezes the music
-prompt, style, model, and its own new opaque `client_request_id`. Do not
-automatically retry either paid call. A changed argument needs a new
-`client_request_id` and a fresh card.
+Free tools cost zero credits: `beatra.voices.list`, `beatra.voices.preview`,
+`beatra.models.list`, `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
+`beatra.voices.delete` step 1, tokenless `beatra.voices.activate` quote refresh,
+`beatra.tasks.get`, `beatra.tasks.list`, `beatra.wallet.get`, and
+`beatra.wallet.ledger`. Keep `beatra.wallet.get` and `beatra.wallet.ledger` as
+optional read-only lookups when the user asks about balance or charges — never
+make `beatra.wallet.get` a mandatory gate before submit, and never ask the user
+to confirm they have enough credits.
 
-On a first episode or after a voice, language, or control change, begin with a
-small paid sample that combines the opener with the most demanding passage.
-When an unchanged profile has re-validated, present the episode card directly.
-The episode has its own approval; a sample approval never authorizes it. A
-music-bed approval never authorizes speech, and a speech approval never
-authorizes the music bed. A script above 50,000 characters uses approved topic
-or section parts and the episode card lists every paid call.
+Every call to `beatra.speech.prepare_script`, `beatra.speech.synthesize`,
+`beatra.speech.synthesize_dialogue`, `beatra.voices.clone`,
+`beatra.voices.activate` (with `confirmation_token` and `confirm_credits`),
+`beatra.music.generate`, `beatra.audio.generate_sfx`, and `beatra.audio.process`
+is paid (never quote hardcoded prices or call finishing steps free). Before the
+first paid step, show a clear production card stating all six fields:
+
+1. **Work**: exact capability, text/scene/clip scope, weighted characters or
+   clip duration, frozen `voice_id`(s) and settings, plus any music bed, SFX,
+   or `beatra.audio.process` operation (`trim`, `fade`, `normalize_loudness`,
+   `isolate_voice`).
+2. **Credits**: live quote from `beatra.models.list` / `beatra.speech.validate` /
+   `beatra.speech.validate_dialogue` (never guess; show range or upper bound
+   when `auto` resolves across multiple cards).
+3. **Count**: exact number of paid calls approval authorizes (including separate
+   scene dialogue chunks or finishing calls).
+4. **Identity**: one fresh caller-generated opaque `client_request_id` per paid
+   call. Do not automatically retry any paid step; changed parameters require a
+   new card and new ID.
+5. **If we stop here**: name what the customer keeps at zero additional charge
+   (approved script, titles, notes, pronunciation glossary, audition picks, any
+   delivered clips, or plainly nothing paid yet before the first submit).
+6. **If the balance is insufficient**: relay Beatra's official message and exact
+   top-up URL verbatim without modifying the URL, wait until the user confirms
+   they have topped up, then retry the same frozen `client_request_id`.
+
+On a first solo episode or after a host/control/language change, begin with a
+small paid sample card (opener plus hardest passage). Sample approval never
+authorizes the episode; speech never authorizes music/SFX/finishing; and
+music/SFX/finishing never authorize speech. A script above 50,000 characters
+(single-speaker) or above `2,000` characters / `50` turns (multi-host dialogue)
+is split at natural section/scene boundaries with every chunk listed upfront.
 
 ## Create, deliver, and record
 
@@ -139,8 +232,8 @@ Lead the reply with the result and format the user asked for; the production
 card, route choice, and cost notes follow it and never replace it.
 
 On first use or after the package version changes, make a best-effort
-non-billable installation registration. Its failure never blocks the episode
-workflow.
+non-billable installation registration (`beatra.installations.register`). Its
+failure never blocks the episode workflow.
 
 Invoke every remote Beatra tool only through the bundled
 `scripts/mcp_client.py`, with the tool name as the CLI argument and its
@@ -148,38 +241,56 @@ arguments as JSON on standard input. Do not configure or call a host Beatra
 Connector, and do not use REST/OpenAPI as a fallback. Submit each approved
 logical paid request once under its stable request ID, record its returned task
 ID immediately, and poll that task with `beatra.tasks.get` until it is terminal.
-When a music bed was confirmed on its own card, submit `beatra.music.generate`
-once under that card's identifier after the episode speech is approved.
 
-Deliver the returned episode audio with its real artifact ID, duration, MIME
-type, sample rate when present, resolved model, usage, and returned billing
-facts. With that audio, also deliver three title options, the episode
-description, show notes, and chapters re-timed in proportion to the returned
-duration; these text pieces add no charge. The closing only recaps what was
-said. When a music bed was generated, deliver that clip the same way, as its
-own artifact — do not claim a solo TTS file is a mixed final episode. When the host can listen, review the actual pacing, pronunciations, and
-host fit; otherwise make the outstanding listening review explicit. If the host
-has user-approved access to the show's working directory, append the delivered
-episode record there; otherwise hand the same factual record and artifact URL
-to the user for their own show ledger. For a lost task ID, reconcile through
-`beatra.tasks.list` before considering an identical replay. Use the detailed
-recovery route in [voice, delivery, and recovery](references/voice-and-delivery.md).
+For optional finishing (`beatra.music.generate`, `beatra.audio.generate_sfx`
+with `prompt`, `duration_seconds` `0.5–30.0`, optional `loop=true`, and
+`beatra.audio.process` `normalize_loudness` `-14 LUFS`, `trim`, `fade` — up to
+`60` min / `300 MB`, min result `>= 1 s`, `50` calls/day, one operation per call),
+submit each approved call once under its own frozen card and ID. See
+[music editing and audio](references/music-editing-and-audio.md).
+
+Deliver returned episode audio with its real artifact ID, duration, MIME type,
+sample rate when present, `speech_start_seconds` / `speech_end_seconds` /
+`integrated_loudness_lufs` when present, free `output.subtitles` (including
+dialogue `segments[]` when using `beatra.speech.synthesize_dialogue`), resolved
+model, usage, and returned billing facts. Re-time chapter timestamps from real
+returned durations and subtitle segment timing (zero extra subtitle cost).
+Also deliver three title options, the episode description, and show notes; the
+closing only recaps what was said. Deliver any music bed, SFX stinger/ambient
+loop, or finished audio clip honestly as its own artifact — never claim unmixed
+stems are a mixed multi-track final episode. When the host can listen, review
+pacing, pronunciations, speaker turns, and loudness fit; otherwise make the
+outstanding listening review explicit. Update the user's show ledger if permitted,
+or hand the factual record back. For a lost task ID or error recovery, follow
+[voice, delivery, and recovery](references/voice-and-delivery.md) and
+[speech, voices, cloning, and audio finishing](references/speech-and-audio.md).
 
 ## References by task
 
-- Drafting from material or a topic, approving sections, titles, notes, and
-  chapters, or capturing pronunciations: [episode script guidance](references/episode-script.md)
-- Starting a show, reusing a host, or recording an accepted episode and its
-  one-line recap: [the show profile](references/show-profile.md)
-- Choosing a voice and model, counting weighted characters, pricing a read,
-  submitting audio, delivery, or recovery: [voice, delivery, and recovery](references/voice-and-delivery.md)
-- First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
-- Non-billable package registration: [installation registration](references/installation-registration.md)
-- Task polling, artifacts, and result fields: [tasks and results](references/tasks-and-results.md)
-- Balance, validation, and structured errors: [billing, errors, and recovery](references/billing-errors-and-recovery.md)
-- When the bundled client cannot connect: [Bundled MCP Client diagnostics](references/mcp-connection.md)
+- Speech capabilities, Smart Voice Director, dialogue bounds, cloning & 3
+  confirmations, SFX, finishing, and structured errors:
+  [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+- Drafting from material or a topic, Smart Voice Director prep, titles, notes,
+  and chapters: [episode script guidance](references/episode-script.md)
+- Starting a show, reusing hosts, or recording an accepted episode and recap:
+  [the show profile](references/show-profile.md)
+- Choosing voices/models, validating, cloning, pricing, dialogue, recovery:
+  [voice, delivery, and recovery](references/voice-and-delivery.md)
+- Music duration, trim, fade, and `-14 LUFS` finishing:
+  [music editing and audio](references/music-editing-and-audio.md)
+- First install or expired authorization:
+  [installation and authentication](references/installation-and-auth.md)
+- Non-billable package registration:
+  [installation registration](references/installation-registration.md)
+- Task polling, artifacts, and result fields:
+  [tasks and results](references/tasks-and-results.md)
+- Balance, validation, and structured errors:
+  [billing, errors, and recovery](references/billing-errors-and-recovery.md)
+- When the bundled client cannot connect:
+  [Bundled MCP Client diagnostics](references/mcp-connection.md)
 - Updates and security: [updates and security](references/updates-and-security.md)
-- Removing the package or shared credentials: [uninstall and disconnect](references/uninstall-and-disconnect.md)
+- Removing the package or shared credentials:
+  [uninstall and disconnect](references/uninstall-and-disconnect.md)
 
 ## Updates and security
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
+  "changelog": "Adds Smart Voice Director pacing preparation, native multi-character chapter dialogue scenes (up to 2,000 characters per scene), voice previews and narrator profile updates, voice cloning with owner-consent safeguards and optional sample noise isolation, chapter SFX stingers, -14 LUFS loudness finishing, and aligned subtitles.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.3.3"
+  "version": "0.3.4"
 }

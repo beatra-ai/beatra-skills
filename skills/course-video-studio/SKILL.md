@@ -5,172 +5,58 @@ description: "Turn finished lecture scripts into presenter-led course videos wit
 
 # Course Video Studio
 
-Turn finished lecture scripts and one authorized teacher portrait into
-lesson videos. Each lesson is narration first, then talking-head clips
-that fully contain the speech.
+Use this Skill to turn finished lecture scripts and an authorized instructor portrait into presenter-led talking-head lesson videos with consistent teacher voice, loudness normalization, and synced subtitles.
 
-## Scope and adjacent routes
+## What you get
 
-Use this Skill when a course or training team wants talking-head lesson
-videos from a stable portrait plus lecture text.
+- Narrated course lesson audio and talking-avatar instructor MP4 clips aligned per lesson segment.
+- **Free aligned subtitle files** (`JSON`, `SRT`, and `VTT` from `output.subtitles`) plus `speech_start_seconds` and `speech_end_seconds` for each lesson take.
+- Optional reusable cloned instructor voice (`beatra.voices.update` to label and pin as course default), pre-cleaned sample audio (`isolate_voice`), and loudness-normalized speech tracks (`normalize_loudness`).
 
-Route audio-only course work to `course-narration-studio`. Route a single
-presenter clip to `talking-avatar-video`. Route a founder weekly update to
-`founder-ip-avatar-studio`. Without authorization for the likeness and the
-voice, stop at confirmation.
+## Ways to run it
 
-When the teacher has a slide deck (PowerPoint, WPS, or PDF) and wants the
-videos made from the slides themselves, point to Lecture Video Maker
-(`lecture-video-maker`) for a whole course or Micro-Lesson Maker
-(`micro-lesson-maker`) for one lesson; when there are no slides yet, AI
-Courseware Maker (`ai-courseware-maker`) builds the deck first. Use the
-install message in
-[Course video workflow](references/workflow.md#pointing-to-another-skill)
-and install it only after the user asks. Talking-head lessons from a
-portrait and final lecture text stay here.
+- **Lesson scripts + cloned instructor voice + portrait**: Pre-clean noisy voice sample if needed (paid `beatra.audio.process` `operation="isolate_voice"`), clone with explicit authorization (`beatra.voices.clone`), audition free (`beatra.voices.preview`) and pin (`beatra.voices.update`), shape pauses per lesson with **Smart Voice Director** (`beatra.speech.prepare_script`, paid), run free duration preflight (`beatra.speech.validate`) so every lesson segment fits live `image_to_video` clip limits before paying, synthesize with free `SRT`/`VTT` subtitles (`beatra.speech.synthesize`), optionally normalize loudness (paid `normalize_loudness`), and animate (`beatra.videos.animate`).
+- **Lesson scripts + catalog voice + portrait**: Browse and audition preset instructor voices free (`beatra.voices.list` + `beatra.voices.preview`), prepare script pacing (`prepare_script`), verify clip fit free (`speech.validate`), synthesize + optionally normalize loudness, and animate.
 
-## Inputs and defaults
+## Before the connection is ready
 
-The hard inputs are:
+Use the bundled `scripts/mcp_client.py` for every Beatra call (using only tools listed by `scripts/mcp_client.py tools`). Do not configure or use a host Beatra Connector. Do not use REST/OpenAPI as a fallback. Keep diagnostics in [Bundled MCP Client diagnostics](references/mcp-connection.md), speech and audio finishing specs in [Speech, Voices, and Audio Finishing](references/speech-and-audio.md), billing help in [Billing errors and recovery](references/billing-errors-and-recovery.md), and lifecycle controls in [uninstall and disconnect](references/uninstall-and-disconnect.md).
 
-- one accessible teacher portrait;
-- final lecture text for at least the pilot lesson;
-- lesson order;
-- likeness and voice rights;
-- a pronunciation table whenever the lecture contains recurring names,
-  terms, or acronyms.
+When authorization is pending, run connection checks at most twice per turn, deliver zero-connection script segmentation and pacing notes first, and continue paid steps on the next reply after approval.
 
-If those terms exist and the table is empty, stop and collect the readings.
-Do not guess them. Final lecture text is the spoken source. A deck is
-useful only after the user extracts the spoken script; this Skill does not
-parse slides.
+## Hard inputs and 3 mandatory voice safety confirmations
 
-Reuse the frozen `voice_id`, language, and framing. Default to
-`model: "auto"` for video and a source-derived aspect ratio. Split a
-lesson into sequential containable clips when planned speech is longer
-than the longest video duration that can hold it.
+Verify these before launching any paid voice or video operation:
 
-## Golden path
+1. **Lecture script(s)**: One or more approved lesson scripts (not raw topic brainstorming; segment at sentence boundaries if longer than one avatar clip).
+2. **Authorized instructor portrait**: Uploaded via `beatra.assets.upload`.
+3. **Voice choice**: A `ready` preset/cloned voice ID or a 10-300 s clean recording for cloning (propose paid `isolate_voice` if background noise/echo affects a 4.6 s - 5 min sample).
+4. **Mandatory Confirmation #1 — Ownership, consent, and anti-impersonation (`consent_attested: true`)**: Before calling `beatra.voices.clone`, obtain explicit confirmation that the instructor portrait and voice sample belong to the user or carry verifiable rightsholder permission, with zero impersonation, fraud, or unlawful use.
+5. **Mandatory Confirmation #2 — Pending-activation gate (`voices.activate` awareness)**: Query `{"capability": "voice_clone"}` (without `include_activation_required: true`) to keep immediately `ready` clone models in this package; if a voice is `pending_activation`, explain that separate quote + token + exact `confirm_credits` approval is required through [Speech, Voices, and Audio Finishing](references/speech-and-audio.md) before activation can occur.
+6. **Mandatory Confirmation #3 — Irreversible voice slot permanence & deletion rule**: Cloned instructor voices hold persistent slots, and permanent deletion (`voices.delete`) requires the two-step `paid_slot_warning` + `irreversible_notice` confirmation workflow documented in [Speech, Voices, and Audio Finishing](references/speech-and-audio.md).
 
-1. Inspect the portrait. Record MIME type, width, height, aspect ratio, byte
-   size, and whether it has an alpha channel. Build the lesson ledger. For a
-   local portrait or sample, upload only through the bundled client after
-   inspection. Never pass a local path to a remote tool.
-2. Select or clone a teacher voice. A clone requires consent first;
-   access to a file is not consent. A suitable sample is currently about
-   10 to 300 seconds, no larger than 20 MiB, and clean single-speaker
-   speech. Use the live `voice_clone` admission card before any clone
-   `client_request_id` or `beatra.voices.clone` call: route
-   `voice_clone`, tool `beatra.voices.clone`, live price for one
-   successful activated voice, the provisional estimate, the 600-credit
-   signup gift usually cannot start this clone, and what happens if the
-   balance is short. Do not create `client_request_id` or submit until
-   the user confirms they have topped up or already have enough credits.
-   Do not offer a free clone. Submit `beatra.voices.clone` exactly once:
+## Avatar Duration Critical Chain & Loudness Normalization
 
-   ```json
-   {
-     "sample": {"type": "artifact", "artifact_id": "artifact_..."},
-     "display_name": "Course Teacher",
-     "consent_attested": true,
-     "model": "auto",
-     "client_request_id": "opaque-course-video-clone"
-   }
-   ```
+Follow this sequence for every lesson video:
 
-   Poll with `beatra.tasks.get` until terminal, then freeze the returned
-   `voice_id`. Without a clone, call
-   `beatra.voices.list` when a catalog voice still needs to be selected.
-   Never put a display name in `voice`.
-3. Call `beatra.models.list` for `text_to_speech` and `image_to_video`.
-   Confirm the video route admits `[image, driving_audio]`. Compare the
-   portrait's actual MIME, dimensions, byte size, and alpha-channel
-   presence with every advertised image constraint. Read the longest
-   video duration that can fully contain speech. Split the pilot lecture
-   into sequential containable segments at sentence or section
-   boundaries. Do not shorten the lecture to cheapen a clip. Do not ship
-   a truncated lesson. Use `mp3` only
-   when the live speech card supports it and the live video card accepts
-   `audio/mpeg`. If the user requested `flac`, `opus`, or `pcm` and the
-   video route does not accept the resulting format, explain the
-   incompatibility before any paid call and obtain the user's choice. Do
-   not silently change the format. If any required media fact is
-   unavailable or incompatible, stop before TTS. Keep each speech
-   `input` at or below 50,000 characters.
-4. Confirm the pilot speech card: script segments, voice, format, live
-   estimate, and one `client_request_id` per `beatra.speech.synthesize`
-   call. Submit each segment once through the bundled client. Poll each
-   narration task with `beatra.tasks.get` until terminal. Read the
-   returned artifact plus actual `task.output.audio.mime_type`,
-   `duration_seconds`, and `size_bytes`. Approve the real audio before
-   that segment's video. Never treat a script preview as an audio review.
-5. Refresh the `image_to_video` cards and admit the actual portrait plus
-   that segment's approved speech. Recheck every image and driving-audio
-   fact. If terminal audio size remains unavailable, stop before video.
-   Use the smallest supported integer video duration at or above the
-   actual speech length. Show the video admission card before
-   `beatra.videos.animate`: route `image_to_video`, tool
-   `beatra.videos.animate`, approved portrait and speech artifacts,
-   prompt, audio-led duration, resolution if set, output count,
-   provisional live estimate, the 600-credit gift usually cannot start
-   this video, and what happens if the balance is short. Do not submit
-   until the user confirms they have topped up or already have enough
-   credits. Approved narration does not authorize the video call. Each
-   segment video has its own `client_request_id`.
-6. After the pilot lesson's clips are accepted, repeat
-   segment-narration-then-video for remaining lessons. Each paid stage
-   has its own `client_request_id`. Submit only through the bundled
-   `scripts/mcp_client.py`. Do not configure a host Beatra Connector. Do not use REST/OpenAPI as a fallback. Poll every video task with
-   `beatra.tasks.get` until terminal.
-7. Deliver labeled lesson videos in teaching order, with segment order
-   inside a lesson, plus actual dimensions, duration, usage, and
-   `billing.net_charged_credits`. Review identity, term readings, and
-   lip timing.
+1. **Discover live models and clip ceilings (`beatra.models.list`)**:
+   - Inspect `{"capability": "image_to_video"}` first (max whole-second clip duration and `driving_audio` rules), plus `{"capability": "speech_script"}`, `{"capability": "text_to_speech"}`, and when cloning/cleaning/normalizing, `{"capability": "voice_clone"}`, `{"capability": "audio_voice_isolation"}`, and `{"capability": "audio_process"}`.
+   - Use free `beatra.voices.preview` to audition voices and free `beatra.voices.update` (`display_name`, `make_default: true`, tags) to pin the course voice.
+2. **Prepare pacing with Smart Voice Director (`beatra.speech.prepare_script`, PAID)**:
+   - Run `beatra.speech.prepare_script` (`{"capability": "speech_script"}`, max **2 concurrent**) to place natural teaching pauses and emphasis cues without changing the instructor's approved words. Inspect `directed` and `scripts[]` (`synthesis`, `summary`, `warnings`), resolving `synthesis: null` via `warnings` and passing `scripts[].synthesis` unchanged + fresh `client_request_id` to `beatra.speech.synthesize`.
+   - Never hand-write braced performance tags in lesson scripts or prompts.
+   - To try another voice within 48 hours for identical wording, instructions, language, and context, call `beatra.speech.prepare_script` again with the same arguments changing only `voice` (and `model` if needed) at no extra charge (balance must cover the initial estimate and concurrency cap). Never label fresh director runs or `audio.process` steps free.
+3. **Mandatory free duration preflight BEFORE spending (`beatra.speech.validate`)**:
+   - Call **`beatra.speech.validate`** (free, NO `client_request_id`) on every planned lesson segment before calling `beatra.speech.synthesize` or `beatra.videos.animate`.
+   - Check `estimated_duration_seconds` against the live `{"capability": "image_to_video"}` clip ceiling! If a lesson exceeds one clip's limit, split at clean sentence/slide pauses first and re-validate each segment free **before** spending credits.
+4. **Present the 6-field production card before the first paid step**:
+   - Present the 6-field production card (**Work**, **Credits**, **Count**, **Identity**, **If stop**, **If balance short**) before launching paid steps, listing `isolate_voice`, `voices.clone`, `prepare_script`, `speech.synthesize`, `normalize_loudness`, and `videos.animate` as explicit paid items when used. Keep `beatra.wallet.get` and `beatra.wallet.ledger` as optional read-only tools for user balance or charge questions — never a mandatory gate before submit. State plainly in **If stop** which free/already-delivered artifacts the customer keeps at zero extra fee; on `insufficient_balance`, relay Beatra's official message and exact verbatim top-up URL and wait until top-up is confirmed before retrying with the same `client_request_id`.
+5. **Synthesize (`output.subtitles`), normalize loudness (optional PAID), and animate**:
+   - Keep `subtitle_enable: true` (default) on `beatra.speech.synthesize` for **free `JSON` / `SRT` / `VTT` subtitles** plus `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs`.
+   - When producing multi-lesson series that need uniform level (sources/outputs up to **60 min / 300 MB**, min result >= 1 s, 50 calls/day, one at a time), run **PAID** `beatra.audio.process` (`operation="normalize_loudness"`, `{"capability": "audio_process"}`, `-14` LUFS default, `-1` dBTP) before animating.
+   - Verify final `driving_audio` format/duration/size and run `beatra.videos.animate` once per clip with its own `client_request_id`.
 
-## Decisions that require confirmation
-
-Confirm rights, the voice, the pilot, and every video admission card. A
-changed lecture is new narration and, if the audio changes, a new video.
-
-## Recovery
-
-Recover each stage only with its identical frozen payload and ID. Recover
-a lost task ID through `beatra.tasks.list` and `beatra.tasks.get`. On
-`insufficient_balance`, keep the top-up URL inside the balance error
-exact and retry the same frozen `client_request_id` only after the user
-says they have topped up.
-
-## Account balance
-
-When the user asks how many credits remain or whether a live estimate fits,
-call `beatra.wallet.get`. When they ask what was charged, call
-`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
-top-up tool. Do not make `wallet.get` a required step before every paid submit.
-
-When a model card comes back carrying a `top_up` block, relay its tiers as the
-card lists them and in that order. Do not rank them, do not talk one down, and
-do not pick one for the user. Which tier suits them is their call, made on
-the wallet page with the whole list in front of them. Never quote a tier from
-memory.
-
-## References by task
-
-- Read [Course video workflow](references/workflow.md) for ledgers,
-  admission cards, payloads, and review.
-- Read [Installation and authentication](references/installation-and-auth.md)
-  only when authorization needs attention.
-- Read [Installation registration](references/installation-registration.md)
-  for first-use registration.
-- Read [Tasks and results](references/tasks-and-results.md) and
-  [Billing, errors, and recovery](references/billing-errors-and-recovery.md)
-  for task and billing facts.
-- Read [Bundled MCP Client diagnostics](references/mcp-connection.md) when
-  the bundled client cannot connect.
-- Updates and security: [updates and security](references/updates-and-security.md)
-- Read [Uninstall and disconnect](references/uninstall-and-disconnect.md)
-  only when the user asks to remove the package.
-
-Use or invoke the bundled `scripts/mcp_client.py` for every Beatra operation.
+See [Workflow and Payloads](references/workflow.md) for JSON templates and error recovery.
 
 ## Updates and security
 

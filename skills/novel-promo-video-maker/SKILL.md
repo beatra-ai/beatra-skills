@@ -20,10 +20,7 @@ serial daily posting.
 
 Route a shot list or storyboard with no footage to `ai-storyboard-generator`.
 Route one cinematic live-action beat to `ai-short-drama-shot-maker`, and
-animated comic panels to `ai-comic-drama-shot-maker`. Route whole-book audio
-with no visuals to `ai-audiobook-narration`, and a multi-voice cast performance
-to `beatra-ai-voice-studio`. Route a music-led montage to
-`ai-music-video-clip-maker`.
+animated comic panels to `ai-comic-drama-shot-maker`. Route whole-book audio with no visuals to `ai-audiobook-narration`, and an audio-only multi-voice cast performance with no video scenes to `beatra-ai-voice-studio` (dialogue beats inside a story promo video are produced directly here). Route a music-led montage to `ai-music-video-clip-maker`.
 
 ## Inputs and defaults
 
@@ -41,44 +38,66 @@ Defaults that avoid extra questions:
 - A vertical `9:16` canvas, because the destination is a short-video feed.
 - Four to six beats: one hook beat, two to four development beats, and one
   cliffhanger or turn to close.
-- One narrator voice for the whole piece.
+- One narrator voice for the whole piece, or a multi-voice cast (`supports_dialogue=true`) when a beat includes character dialogue.
 - `count: 1` per shot image, so the user judges a look before the batch runs.
 - An illustrated cinematic look, unless the text or the user names another.
 
 ## Golden path
 
-Planning is free. Only image, speech, and video calls are paid.
+Planning, voice browsing (`beatra.voices.list`), free voice previews (`beatra.voices.preview`), speech/dialogue preflight (`beatra.speech.validate`, `beatra.speech.validate_dialogue`), and aligned subtitles (`subtitle_enable: true`) are free. Image, optional Smart Voice Director (`beatra.speech.prepare_script`), speech or dialogue synthesis, optional atmospheric SFX (`beatra.audio.generate_sfx`), and video calls are paid.
 
 1. Read the passage. Write a beat sheet: the hook, each beat's action and
    emotion, the visible setting, and which characters appear.
 2. Build a cast sheet before any shot. For each recurring character, create one
    reference image and keep its artifact; every later shot carries that
    reference so the character stays the same person across beats.
-3. Draft the narration line for each beat in the author's voice, and keep it
-   short enough to sit under one shot.
-4. Read the live cards with `beatra.models.list` for all four capabilities a run
+3. Draft the narration line (or multi-character dialogue turns) for each beat in
+   the author's voice, and keep it short enough to sit under one shot.
+4. Read the live cards with `beatra.models.list` for every capability the run
    touches — `text_to_image` for cast references, `image_to_image` for shots
-   carrying a cast reference, `text_to_speech`, and `image_to_video` — and take
-   every price from them. For image stages, match the admitted request to the
-   current `pricing.options` dimensions and use the highest eligible option as
-   the approval ceiling when admission cannot identify one in advance; never
-   multiply image price by reference count. Images bill per successfully persisted image, speech
-   bills linearly per 1,000 weighted characters where each Han ideograph counts
-   as two, and video pricing uses the returned billable basis.
-5. **Confirm the plan.** Show the beat sheet, cast sheet, narration lines,
-   canvas, the exact number of image, speech, and video calls, the current
-   maximum charge per stage, and one opaque stable `client_request_id` per
-   paid call.
+   carrying a cast reference, `text_to_speech` for single-voice narration (plus
+   `text_to_dialogue` when dialogue beats are included), optional
+   `speech_script` if Smart Voice Director will be used, optional
+   `sound_effects` if atmospheric foley/SFX is requested, and `image_to_video` —
+   and take every price from them. For image stages, match the admitted request
+   to the current `pricing.options` dimensions and use the highest eligible
+   option as the approval ceiling when admission cannot identify one in advance;
+   never multiply image price by reference count. Images bill per successfully
+   persisted image, speech and dialogue bill linearly per 1,000 weighted
+   characters where each Han ideograph counts as two, Smart Voice Director
+   bills per call (identical `input`, `instructions`, `language`, and `context`
+   re-called within 48 hours changing only `voice` or `model` carries zero
+   extra charge), sound effects bill per requested clip (`0.5–30 s`), and
+   video pricing uses the returned billable basis.
+5. **Confirm the plan.** Show the beat sheet, cast sheet, narration or dialogue
+   lines, canvas, the exact number of image, optional `prepare_script`,
+   speech/dialogue, optional SFX, and video calls, the current maximum charge
+   per stage (listing free voice discovery/previews, preflight validation, and
+   aligned `output.subtitles` at zero credits), and one opaque stable
+   `client_request_id` per paid call.
 6. Create the cast references and then the per-beat shot images with
    `beatra.images.generate` for a fresh composition or
    `beatra.images.transform` when a cast reference must carry through.
-7. Synthesize each beat's narration with `beatra.speech.synthesize`, then read
-   the actual returned duration, size, and MIME type.
+7. Audition candidate voices freely with `beatra.voices.preview`
+   (`{"voice_id": "..."}`) when picking voices. When pacing, breaths, emotion,
+   or polyphonic/foreign names need direction without altering prose or writing
+   hand-authored brace markup, optionally run paid Smart Voice Director
+   (`beatra.speech.prepare_script`, `{"capability": "speech_script"}`). Run free
+   preflight `beatra.speech.validate` before `beatra.speech.synthesize` (or
+   free `beatra.speech.validate_dialogue` before
+   `beatra.speech.synthesize_dialogue` for 2–50 turns / `<= 2,000` chars across
+   `<= 10` `supports_dialogue=true` voices including at most 4 custom voices),
+   keeping `subtitle_enable: true` by default so free aligned JSON/SRT/VTT
+   `output.subtitles` arrive with the audio, then read the actual returned
+   duration, size, and MIME type. If atmospheric sound effects are part of the
+   confirmed plan, generate each `0.5–30 s` cue with `beatra.audio.generate_sfx`
+   (`{"capability": "sound_effects"}`) and deliver them alongside the beats for
+   post-cut mixing (since `beatra.videos.animate` takes one `driving_audio`).
 8. After the shot image and narration exist, show a video admission card
    before any video `client_request_id` or `beatra.videos.animate` call: route
    `image_to_video`, tool `beatra.videos.animate`, that beat's image and
    narration, audio-led duration, resolution if set, provisional live
-   estimate, the fact that the 600-credit signup gift usually cannot start
+   estimate, the fact that the signup gift usually cannot start
    this video, and what happens if the balance is short. Planning, comparison,
    or “make the clip” is not approval. Approved stills or narration do not
    authorize the video. Do not submit until the user confirms they have topped
@@ -130,8 +149,9 @@ card. On `insufficient_balance`, relay the returned message, keep the top-up
 URL inside the balance error exact, and retry the same frozen
 `client_request_id` only after the user says they have topped up.
 
-Because one beat spans an image, a speech, and a video call, keep a separate
-stable request ID per call and never reuse one across stages.
+Because one beat can span an image, an optional `prepare_script`, a speech or
+dialogue call, an optional SFX call, and a video call, keep a separate stable
+request ID per call and never reuse one across stages.
 
 ## Recovery
 
@@ -164,8 +184,9 @@ memory.
 ## References by task
 
 - [Novel promo workflow](references/workflow.md): beat sheet, live price cards,
-  cast consistency, exact payloads, narration duration matching, extending one
+  cast consistency, exact payloads, narration and dialogue timing, SFX, extending one
   clip, recovery, and delivery review.
+- [Speech and audio](references/speech-and-audio.md): voice previews, Smart Voice Director, dialogue turns, preflight validation, aligned subtitles, and sound effects limits.
 - [Installation and authentication](references/installation-and-auth.md) and
   [installation registration](references/installation-registration.md): first
   use and shared credentials.

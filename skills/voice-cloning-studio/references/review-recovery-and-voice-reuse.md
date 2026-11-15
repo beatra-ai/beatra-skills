@@ -1,80 +1,99 @@
-# Test-reading review and voice reuse
+# Test-reading review, conversion, and audio finishing
 
-## Keep the proof separate from the clone
+## Keep downstream operations separate from cloning
 
-A successful clone may be the final result. Clone approval never authorizes a
-paid test reading. If the user wants one, settle the final short text and
-delivery direction, then locate the saved voice with `beatra.voices.list`,
-`category: "cloned"`, and the exact returned `voice_id`. Preserve its
-`compatible_models`; do not select by display name alone.
+Clone or activation approval never authorizes speech synthesis, script direction,
+speech-to-speech conversion, transcription, or loudness normalization. Always
+check live voice compatibility and capabilities with `beatra.voices.list`
+(matching exact `voice_id`, bilingual `search`, facet filters, or query
+capability filters) and listen freely with `beatra.voices.preview` before paid calls.
 
-Read live text-to-speech cards with `beatra.models.list` and inspect every live
-candidate named by the voice's `compatible_models`:
+Inspect the returned 11 `capabilities.*` metadata fields before planning downstream work:
+- `supports_direction`, `supported_emotions`, `supports_performance_tags`
+- `supported_dialects`, `supports_context`, `supports_previous_text`, `supports_next_text`
+- `supports_pronunciation_pinyin`, `supports_pronunciation_ipa`
+- `supports_speech_to_speech`, `supports_dialogue`
 
-```bash
-python3 scripts/mcp_client.py call beatra.models.list
-```
+Update profile labels or default pinning at zero cost anytime via `beatra.voices.update`.
+
+## Smart Voice Director and free speech preflight
+
+For a short test reading or narration script, use **Smart Voice Director**
+(`beatra.speech.prepare_script`, `{"capability": "speech_script"}`) to add
+pacing, pauses, and expressive cues from `instructions` **without altering spoken
+words**. Never teach manual `/` pause stripping or manually author braced performance
+tags. Inspect the returned `directed` flag and `scripts[]`: pass each ready
+script's `synthesis` object unchanged with a fresh `client_request_id` to
+`beatra.speech.synthesize`, or check `warnings` when `synthesis` is `null`. To
+try a different `voice` within **48 hours** for identical wording, instructions,
+language, and `context`, re-call `beatra.speech.prepare_script` changing only
+`voice`/`model` to re-compile at zero extra charge (wallet balance must still
+cover initial estimate); keep concurrency to at most **2 tasks** at a time.
+Never describe paid `beatra.speech.prepare_script` calls as free.
+
+Always run **free** `beatra.speech.validate` before submitting `beatra.speech.synthesize`:
+verify `valid: true`, inspect `warnings`, `weighted_characters`,
+`estimated_duration_seconds`, live `price_credits`, and `execution`.
+
+Then query `beatra.models.list` (`{"capability": "text_to_speech"}`) for voice
+compatibility and `constraints.supported_languages`. Present a six-field production
+card, obtain explicit confirmation, create a new `client_request_id`, and call
+`beatra.speech.synthesize` once with `subtitle_enable: true` (default; never
+send `subtitles` on `beatra.speech.synthesize`) so aligned `output.subtitles`
+(`JSON`, `SRT`, `VTT`) and `speech_start_seconds`, `speech_end_seconds`, and
+`integrated_loudness_lufs` arrive **at zero extra cost**.
+
+## Speech-to-speech performance conversion (`beatra.speech.convert`)
+
+When the user brings a guide vocal performance and wants it spoken in a saved
+or cloned voice (`1 s – 5 min`, `<= 50 MB`), ensure the target voice has
+`capabilities.supports_speech_to_speech == true`, check live pricing via
+`beatra.models.list` (`{"capability": "speech_to_speech"}`), confirm a six-field
+card, and call `beatra.speech.convert` using `audio` (and optional
+`remove_background_noise: true`, `format`, `stability`, `similarity_boost`,
+`style`, `use_speaker_boost`, `seed`):
 
 ```json
-{"capability": "text_to_speech"}
+{
+  "audio": {"type": "artifact", "artifact_id": "artifact_..."},
+  "voice": "voice_...",
+  "model": "auto",
+  "remove_background_noise": true,
+  "format": "mp3",
+  "client_request_id": "new-local-convert-id"
+}
 ```
 
-When the user supplies a target BCP-47 language, compare its primary language
-with each candidate's `constraints.supported_languages`, using only documented
-aliases. This is the text-to-speech model-card path; do not infer a top-level
-language field. Keep
-`model: "auto"` only when every live voice-compatible candidate supports that
-target language in `constraints.supported_languages`. If any candidate does
-not, select and freeze one live, voice-compatible, language-supported explicit
-model in the proof card. If no candidate satisfies both voice compatibility
-and language support, stop before approval or submission and offer the
-positive options of another saved compatible voice, a supported target
-language if the user wants it, or finishing with the clone without a proof.
+## Optional transcription and paid loudness normalization
 
-Count billable text using the live `beatra_weighted_characters` rule: each Han
-ideograph counts as 2 and every other character as 1. Apply every applicable
-candidate's exact estimate formula, unit price and scale. When auto remains
-valid but its candidates have different prices, show the range or upper bound
-rather than a fabricated single estimate.
+- **Transcription (`beatra.audio.transcribe`):** Query `beatra.models.list`
+  (`{"capability": "speech_to_text"}`). Accepts `audio` up to 60 min (`<= 100 MiB`),
+  optional `language`, `diarize`, `num_speakers`, `tag_audio_events`, and free
+  `subtitles: true` (JSON/SRT/VTT). Ideal for producing verbatim `prompt.text`
+  transcripts from clean samples or delivering transcripts alongside cloned audio.
+- **Loudness normalization (`beatra.audio.process`):** When the user requests
+  platform loudness calibration (`-14 LUFS`, `-1 dB` true peak) after synthesis
+  or conversion (`<= 60 min`, `<= 300 MB`, output `>= 1 s`, `50 calls/day`, one
+  finishing call at a time), inspect `beatra.models.list` (`{"capability": "audio_process"}`),
+  confirm a new six-field card (always paid, never free), and send `operation` + `source`:
 
-Prepare a separate card with final text, exact `voice_id`, language, the
-validated `auto` choice or frozen explicit model, delivery controls, current
-estimate, one synthesis call and its success-basis billing rule. Only explicit
-approval of that card authorizes the proof.
-
-## Synthesize once and recover the same task
-
-For an approved proof, make a new opaque local `client_request_id`, then invoke:
-
-```bash
-python3 scripts/mcp_client.py call beatra.speech.synthesize
+```json
+{
+  "operation": "normalize_loudness",
+  "source": {"type": "artifact", "artifact_id": "artifact_..."},
+  "loudness_lufs": -14,
+  "true_peak_db": -1,
+  "format": "mp3",
+  "client_request_id": "new-local-process-id"
+}
 ```
 
-Supply at least `voice`, `input`, and `client_request_id`, plus only the
-approved optional language, model, format, sample-rate, speed, volume, pitch or
-emotion controls. Submit once and poll the returned task with
-`beatra.tasks.get`.
+## Deliver factual results
 
-If the task ID is lost, paginate `beatra.tasks.list` for text-to-speech through
-all `next_cursor` values and verify candidates with `beatra.tasks.get`. Reuse
-the same local request ID only for a field-for-field identical replay while
-transport or creation remains uncertain. Changed text, voice, language or
-delivery is new paid work with a new card, approval and ID.
-
-## Deliver and review only returned facts
-
-Return the actual task status, audio URL, artifact, duration, MIME type, sample
-rate, asset links, resolved model, usage and billing when present. If the host
-cannot play the audio, label it not auditioned. If it can, review only the
-returned clip for clarity, intended readings, pace, tone and fit for the stated
-destination.
-
-The clip demonstrates only that particular reading; it does not prove a
-universal similarity score, every language, or future output. If the user
-wants changed wording or delivery, propose only the smallest affected proof
-segment and wait for a new paid approval. Never re-clone to alter a script,
-pace or emotion.
-
-On terminal failure, preserve the provider-neutral `TaskError` and actual
-billing values. Missing fields stay unknown. Do not invent an upstream
-provider, listening result, refund or reason to re-clone.
+Report returned `task_id`, status, media URL, `artifact_id`, duration,
+`speech_start_seconds` / `speech_end_seconds`, `integrated_loudness_lufs`,
+aligned subtitle links/files when returned, resolved model, usage, and actual
+billing (preserving missing fields as unknown, never zero). If playback is
+unavailable on the host, state that audio was not auditioned rather than
+claiming a listening review. Never re-clone to alter script wording, pace, or
+delivery — revise only the affected speech or finishing call after fresh approval.

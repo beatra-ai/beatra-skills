@@ -39,28 +39,32 @@ not part of this Skill: Lecture Video Maker or Micro-Lesson Maker makes them.
 
 ## Production cards
 
-Show a card before every paid call and wait. Each card has six fields:
+Show a six-field production card before every paid call and wait:
 
-1. **Work:** in the user's words, which call: narration
-   (`beatra.speech.synthesize`) or voice cloning (`beatra.voices.clone`).
-2. **Credits:** the live price just read from `beatra.models.list`, with the
-   estimate from `lesson_kit.py estimate` for narration, never a remembered
-   number.
-3. **Count:** one charge per slide of narration, one per cloned voice.
-4. **Identity:** slide narration uses the `client_request_id` that
-   `lesson_kit.py next` returns for that slide; a clone gets one new opaque ID.
-5. **If they stop:** the scripts, the course project, and every slide's audio
-   already made stay usable.
-6. **If the balance is short:** relay the official message and top-up URL,
-   and continue only after the user says they topped up.
+1. **Route & Model / Work:** in the user's words, which paid step: narration
+   (`beatra.speech.synthesize`), Smart Voice Director (`beatra.speech.prepare_script`),
+   loudness normalization (`beatra.audio.process` `operation: "normalize_loudness"`),
+   or voice cloning (`beatra.voices.clone`).
+2. **Exact Scope:** exact slides/scripts, target voice or loudness level, and
+   whether free `subtitle_enable: true` aligned captions are requested.
+3. **Price & Basis:** live pricing from `beatra.models.list`
+   (`{"capability": "text_to_speech"}`, `speech_script`, `voice_clone`, or
+   `audio_process`), with `lesson_kit.py estimate` weighted characters (`Han` = 2,
+   others = 1). Never hardcode credit figures or expose vendor names/internal IDs.
+4. **Duration / Quantity:** slide count, call count, and free
+   `beatra.speech.validate` `estimated_duration_seconds`.
+5. **Pay Mode & Request Identity:** slide narration uses the `client_request_id`
+   that `lesson_kit.py next` returns; `prepare_script`, `voices.clone`, and
+   `normalize_loudness` use one new opaque ID per logical call.
+6. **If stop:** the slide scripts, voice shortlist/previews, validation checks,
+   course project, and any slides already narrated stay usable at zero extra cost.
 
 When the user stops partway, deliver the slides narrated so far as in
 Delivery, limited to them: `plan --lesson L01 --pages 1-N --audio-only`, where
 N is the last slide of the run narrated from slide 1, then run the job path it
 prints.
 
-Read the live cards; the bundled client takes the arguments as JSON on
-stdin:
+Read live model cards via stdin JSON:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.models.list
@@ -70,15 +74,26 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "text_to_speech"}
 ```
 
-and, before a clone, `{"capability": "voice_clone"}` the same way.
+Also query `{"capability": "voice_clone", "include_activation_required": true}`,
+`{"capability": "speech_script"}`, or `{"capability": "audio_process"}` when
+those capabilities are selected. Never quote remembered credit figures; when a
+card carries a `top_up` block, relay its tiers in returned order verbatim.
 
-The 600-credit signup gift covers the first slides, about three minutes of
-narration. Cloning a voice usually needs a top-up; say so on its card. When a
-card carries a `top_up` block, relay its tiers as listed.
+## Narration payload, Smart Voice Director, and loudness normalization
 
-## Narration payload
+Before paid synthesis, filter ready voices via 11-dimension `beatra.voices.list`
+and audition free with returned `preview_url` or `beatra.voices.preview`
+(`{"voice_id": "..."}`). Never manually strip `/` markers or invent custom bracketed vocal-effect
+tags. If natural teacher pacing or breath breaks help, run approved
+`beatra.speech.prepare_script`, handle `synthesis: null` via `warnings`, and
+pass `scripts[i].synthesis` cleanly (48h free recompile holds only for exact same
+`input`/`instructions`/`language`/`context` changing just `voice`/`model`,
+subject to balance coverage & <= 2 concurrent tasks; never say `prepare_script`
+is generally free). Always run free `beatra.speech.validate` before paying.
 
-`lesson_kit.py next` prints the exact arguments. They look like this:
+`lesson_kit.py next` prints the exact synthesis arguments (pass
+`subtitle_enable: true` when aligned SRT/VTT output helps; never pass
+`subtitles`):
 
 ```json
 {
@@ -87,9 +102,26 @@ card carries a `top_up` block, relay its tiers as listed.
   "model": "auto",
   "format": "mp3",
   "language": "zh-CN",
+  "subtitle_enable": true,
   "client_request_id": "lk-3f9a1c2e-L01-p001-5c1d2e3f4a5b"
 }
 ```
+
+When unifying output volume across slides (e.g. `-14 LUFS`), approve a paid
+`normalize_loudness` card and run one serialized `beatra.audio.process` call at
+a time (`source` field, <= 60 min / <= 300 MB / >= 1 s output, 50/day cap):
+
+```json
+{
+  "operation": "normalize_loudness",
+  "source": {"type": "artifact", "artifact_id": "artifact_slide_01"},
+  "loudness_lufs": -14,
+  "format": "mp3",
+  "client_request_id": "opaque-slide01-norm"
+}
+```
+
+Never present `normalize_loudness` as a mastering service or free.
 
 Submit through the bundled client, poll with `beatra.tasks.get` until
 terminal, save the final result to `tasks/L01-p001.json`, then `record` it.
@@ -167,9 +199,16 @@ resumes exactly where it stopped.
 
 When the teacher wants their own voice from the start, clone it before the
 first slides so nothing is narrated twice. Consent first: the teacher says the
-sample is their own voice, or that the speaker authorized this use. A
-suitable sample is currently about 10 to 300 seconds, no larger than 20 MiB,
-clean single-speaker speech. Upload it:
+sample is their own voice, or that the speaker authorized this use. A suitable
+sample is currently about 10 to 300 seconds, no larger than 20 MiB, clean
+single-speaker speech. Query
+`{"capability": "voice_clone", "include_activation_required": true}` without
+exposing upstream vendor names or internal model IDs; use an immediate-ready
+route (`auto` or expressive multilingual) directly here, or hand noisy-sample
+`isolate_voice`, two-step `pending_activation` (`voices.activate`), and slot
+deletion (`voices.delete`) cleanly to `voice-cloning-studio` /
+`beatra-ai-voice-studio` (`scripts/mcp_client.py tools` is authoritative). Upload
+only after consent:
 
 ```text
 python3 scripts/mcp_client.py upload ./teacher-sample.wav --mime-type audio/wav

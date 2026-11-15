@@ -39,7 +39,14 @@ Safe defaults:
 - Slot mix: tension, romance, comedy, tearjerker, chase, reveal, and
   end-card beds.
 - `instrumental: true` with lyrics absent.
-- `model: "suno-6"`. Never omit the model and never silently use `auto`.
+- `model: "suno-6"` for music slots. Never omit the model on music slots and
+  never silently use `auto` there.
+- Sound effects and room tone: when the episode brief asks for dramatic
+  tension hits, transition whooshes, impact cues, or quiet room tone, use
+  `beatra.audio.generate_sfx` (`{"capability": "sound_effects"}`) with
+  `model: "auto"` and `duration_seconds` from `0.5` to `30` (setting
+  `loop: true` for repeating room tone or exterior ambience beds). Never write
+  a concrete vendor or internal SFX model ID.
 - Length: when this account has the music tools (the bundled client's `tools`
   command lists `beatra.music.edit` and `beatra.audio.process`; see
   [music editing and audio](references/music-editing-and-audio.md)), send each
@@ -50,19 +57,35 @@ Safe defaults:
   Never promise a seamless loop or sample-perfect seconds: with the music tools,
   report how smoothly each loop joins; without them, ask for a loop-friendly
   arrangement. Read the actual returned duration.
+- Follow-up native edits: when a delivered bed carries
+  `editable: {"native": true}`, offer `beatra.music.edit` (priced live by
+  operation, e.g. `{"capability": "music_extend"}` or
+  `{"capability": "music_replace_section"}`) for extending a cue or revising a
+  section on its own confirmed card.
 
-Score planning is free. Each `beatra.music.generate` call and each finishing call is paid.
+Score planning is free. Each `beatra.music.generate`, `beatra.music.edit`,
+`beatra.audio.generate_sfx`, and `beatra.audio.process` finishing call is paid.
 
 ## Golden path
 
-1. Write the episode card and the labeled slot list. Each slot has a use,
-   mood, tempo feel, instrumentation, energy, and intended length.
+1. Write the episode card and the labeled slot list (music beds plus any
+   requested tension hits, transition cues, or room-tone SFX slots). Each slot
+   has a use, mood, tempo feel, instrumentation or sound source, energy, and
+   intended length.
 2. Call `beatra.models.list` with `{"capability":"text_to_music"}`, read the
-   `suno-6` entry's `pricing`, and price the whole pack from that live card per slot and in total, adding, with the music tools, each slot's finishing call at the live `audio_process` price (`beatra.models.list` with `{"capability": "audio_process"}`). Never a remembered number.
-3. Confirm the frozen score: slot count, each slot's prompt, title, and length,
-   `instrumental: true`, model, the current maximum charge for the pack, and
-   one opaque stable `client_request_id` per slot and per finishing call.
-   Planning is not approval.
+   `suno-6` entry's `pricing`, and price the music beds from that live card per
+   slot and in total. With the music tools, add each slot's finishing call at
+   the live `audio_process` price (`beatra.models.list` with
+   `{"capability": "audio_process"}`). When the pack includes SFX hits or room
+   tone, call `beatra.models.list` with `{"capability": "sound_effects"}` and
+   price those lines from the live card (plus the operation capability such as
+   `{"capability": "music_extend"}` or `{"capability": "music_replace_section"}`
+   if quoting a native edit). Never a remembered number.
+3. Confirm the frozen score: slot count, each music slot's prompt, title, and
+   length, `instrumental: true`, music model (`suno-6`), any SFX cues (`prompt`,
+   `duration_seconds`, `loop`, `model: "auto"`), any finishing calls, the
+   current maximum charge for the pack, and one opaque stable
+   `client_request_id` per slot and per finishing call. Planning is not approval.
 4. Submit each slot exactly once through the bundled
    `scripts/mcp_client.py`. Example:
 
@@ -70,8 +93,11 @@ Score planning is free. Each `beatra.music.generate` call and each finishing cal
    printf '%s' '{"model":"suno-6","prompt":"Vertical short-drama tension bed, low strings, room for dialogue, about 45 seconds, no vocals.","instrumental":true,"title":"Tension 01","duration_seconds":45,"client_request_id":"opaque-drama-tension-01"}' | python3 scripts/mcp_client.py call beatra.music.generate
    ```
 
-   Without the music tools, drop `duration_seconds` and keep "about 45
-   seconds" in the prompt.
+   Submit any confirmed tension hits, transitions, or room-tone beds with
+   `beatra.audio.generate_sfx` (`model: "auto"`, `duration_seconds` `0.5`–`30`,
+   and `loop: true` for repeating room tone). Without the music tools, drop
+   `duration_seconds` on `beatra.music.generate` and keep "about 45 seconds" in
+   the prompt.
 
    Do not configure, call, or use a host Beatra Connector. Do not use
    REST/OpenAPI as a fallback.
@@ -99,15 +125,27 @@ Score planning is free. Each `beatra.music.generate` call and each finishing cal
    sentence that this option is not available yet.
 7. Review each bed for dialogue room and slot fit. Read actual durations.
    State what the host Agent could not hear.
+8. When a delivered bed carries `editable: {"native": true}` and needs a bridge
+   extension or section tweak, or when a room-tone SFX bed needs `> 30` s
+   looping or `-14 LUFS` matching via `beatra.audio.process`, run it as its own
+   paid line on a confirmed card.
 
 ## Decisions that require confirmation
 
 Confirm the score size and live pack estimate before the first paid
 call. Show one current production card and wait:
 
-1. Work — the labeled score in the user's words, each slot a `beatra.music.generate` call, and with the music tools each slot's finishing `beatra.audio.process` call on its own line.
-2. Credits — the live `suno-6` price just read from `beatra.models.list` and, with the music tools, the live `audio_process` price of each finishing call, per line and in total. Never a remembered number.
-3. Count — one paid call per line listed on the card: each slot, and with the music tools each slot's finishing call.
+1. Work — the labeled score in the user's words: each music slot a
+   `beatra.music.generate` call, each requested SFX/room-tone slot a
+   `beatra.audio.generate_sfx` call, any `beatra.music.edit` revision, and with
+   the music tools each finishing `beatra.audio.process` call on its own line.
+2. Credits — the live `suno-6` price just read from `beatra.models.list`
+   (`text_to_music`), the live `sound_effects` or matching edit-operation price
+   (`music_extend`, `music_replace_section`, and related operation capabilities)
+   when used, and with the music tools the live `audio_process` price of each
+   finishing call, per line and in total. Never a remembered number.
+3. Count — one paid call per line listed on the card: each music or SFX slot,
+   any native music edit, and each finishing call.
 4. Identity — one new opaque `client_request_id` per line listed on the card. Any changed
    prompt, title, length, model, or count mints a new ID for each changed line.
 5. If we stop here — the labeled slot list remains usable.
@@ -116,7 +154,8 @@ call. Show one current production card and wait:
    until the user says they have topped up.
 
 A changed slot prompt, title, length, model, or count is new paid work with
-new request IDs for the changed slots only.
+new request IDs for the changed slots only. An add-on SFX cue batch or native
+`beatra.music.edit` is its own paid step and its own card.
 
 When the user asks how many credits remain, call `beatra.wallet.get`. When they
 ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not

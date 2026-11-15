@@ -46,13 +46,15 @@ Read the live cards with `beatra.models.list`:
 
 ```text
 printf '%s' '{"capability":"text_to_image"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"speech_script"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_speech"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_music"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"audio_process"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"video_compose"}' | python3 scripts/mcp_client.py call beatra.models.list
 ```
 
-The image card is always needed; the other four only when a video is included. For a video, also freeze one `status: ready` opaque voice ID from `beatra.voices.list` together with its supported languages and compatible models. For a presenter video, list saved avatars first:
+The image card is always needed; the others only when a video is included (`speech_script` when running Smart Voice Director; `audio_process` when finishing standalone BGM). For a video, discover ready voices with 11-dimension `beatra.voices.list` (bilingual `search` plus `supports_direction`, `supports_emotion`, `supports_performance_tags`, and `supports_context`, inspecting the 11 `capabilities.*` fields), optionally audition free via `beatra.voices.preview` (`{"voice_id": "..."}`), and freeze one `status: ready` opaque voice ID together with its supported languages and compatible models. Keep spoken text free of manual `/` pause marks or invented `{}` tags; when pacing or pronunciation direction is needed, prepare the script once with `beatra.speech.prepare_script` (preserving exact approved wording and topic facts; 48h re-call on identical copy changing only voice/model is free; max 2 concurrent), and always verify `estimated_duration_seconds` and live credits with free `beatra.speech.validate` so each take fits the 15-second limit (30-second scene video ceiling) before Gate 1 spend. For a presenter video, list saved avatars first:
 
 ```text
 printf '%s' '{}' | python3 scripts/mcp_client.py call beatra.avatars.list
@@ -88,7 +90,7 @@ When the `image_to_video` card read in this conversation carries a `free_first_v
 Show the plan in one block, then freeze:
 
 - the set being run and its estimated total, **including every video call and the join that the gate-2 card lists**, so the user sees the whole cost before the first charge; a video call the live card's `free_first_video` offer may cover is counted at its normal estimate and marked as possibly covered, because the service charges that price when it cannot apply the offer;
-- each gate-1 call with its current maximum price and its own stable request ID: the cover, each card, each shot still or the virtual presenter, the cutaway's still when one is planned, the narration (or one narration per presenter take), and the music;
+- each gate-1 call with its current maximum price and its own stable request ID: the cover, each card, each shot still or the virtual presenter, the cutaway's still when one is planned, any planned `beatra.speech.prepare_script` call (as its own paid line at live `speech_script` price, never free), the free `beatra.speech.validate` duration & credit check, the narration (or one narration per presenter take), the music, and any planned paid `beatra.audio.process` BGM finishing (`trim`, `fade`, `normalize_loudness` for standalone BGM delivery — its own paid line at live `audio_process` price, never free);
 - the cover wording and every card's exact text;
 - the shots and their stills, or the presenter and the script per take;
 - the canvas — 3:4 for cards, 9:16 for video, and for the cover 3:4 whenever the image set is included or 9:16 for a video on its own — **with the statement that changing the ratio later means producing every affected paid artifact again**;
@@ -141,21 +143,22 @@ A virtual presenter, when no photo or saved avatar is used:
 }
 ```
 
-Narration, one call for a scene video's whole narration, or one per presenter take:
+Narration, one call for a scene video's whole narration, or one per presenter take (passing `scripts[].synthesis` unchanged if Smart Voice Director `beatra.speech.prepare_script` ran, and keeping `subtitle_enable: true` default — never pass `"subtitles"` — for free aligned `output.subtitles` in `JSON`, `SRT`, and `VTT`):
 
 ```json
 {
   "voice": "voice_selected",
-  "input": "The approved narration for this video or this take.",
+  "input": "The approved narration for this video or this take (or scripts[0].synthesis unchanged when prepared by Smart Voice Director).",
   "language": "the admitted BCP-47 language",
   "format": "mp3",
+  "subtitle_enable": true,
   "client_request_id": "opaque-narration-id"
 }
 ```
 
-Use `mp3` when the live speech card supports it and the live video card accepts the resulting `audio/mpeg`. Do not substitute a format silently. On success, read the **actual** `audio.artifact_id`, `audio.duration_seconds`, `audio.mime_type`, and `audio.size_bytes`.
+Use `mp3` when the live speech card supports it and the live video card accepts the resulting `audio/mpeg`. Do not substitute a format silently. On success, read the **actual** `audio.artifact_id`, `audio.duration_seconds`, `audio.mime_type`, `audio.size_bytes`, `audio.speech_start_seconds`, `audio.speech_end_seconds`, `audio.integrated_loudness_lufs`, and `output.subtitles.files` (`json`, `srt`, `vtt`).
 
-Music, one call, with `beatra.music.generate`:
+Music, one call, with `beatra.music.generate` (check the live `text_to_music` card first for whether `duration_seconds` / `duration_fit` are advertised):
 
 ```json
 {
@@ -165,7 +168,21 @@ Music, one call, with `beatra.music.generate`:
 }
 ```
 
-The model decides the music's length and the join trims and fades it; it is also delivered as its own track.
+`beatra.videos.compose` trims, fades, and lowers the music inside the joined video; when the user also wants a finished standalone music track pre-trimmed, faded, and loudness-normalized (`trim`, `fade`, `normalize_loudness`) for external re-cut or parts delivery, run one combined paid `beatra.audio.process` call (`<= 60 min / 300 MB / >= 1 s / 50 calls/day`, sequential, never free):
+
+```json
+{
+  "source": { "type": "artifact", "artifact_id": "art_music" },
+  "operation": "trim",
+  "start_ms": 0,
+  "end_ms": 20000,
+  "fade_in_ms": 400,
+  "fade_out_ms": 1500,
+  "loudness_lufs": -14,
+  "true_peak_db": -1,
+  "client_request_id": "opaque-bgm-finish-id"
+}
+```
 
 ## Review point
 
@@ -260,7 +277,7 @@ Submit each `beatra.videos.animate` exactly once. When the balance runs out part
 
 **Presenter takes and a single take.** Every take is passed with `"keep_audio": true`, because the speech is inside it, lip-synced. Its span runs from 0 to the real duration of the narration slice it was made from (the take was requested at the next whole second; the span trims the silent remainder). Do not pass `narration`: the takes already speak it, and passing it again plays every line twice. A single take of a scene video is the same: one clip with `"keep_audio": true`, span 0 to the narration's real duration, no `narration`. An optional cutaway between two takes is passed muted, spanning its planned length, and has no subtitle.
 
-**Subtitles.** The cues are the same lines and times as the SRT built from the approved narration (see [content pack](content-pack.md)). For takes, time each take's lines within that take's narration slice, then add the take's start on the joined timeline (the sum of the spans before it, cutaways included). At most 200 cues of at most 80 characters each.
+**Subtitles.** Pass the free aligned `output.subtitles` cues (`json`/`srt`) returned by `beatra.speech.synthesize` into `beatra.videos.compose` (see [content pack](content-pack.md)). For multi-take presenter videos, offset each take's returned subtitle timestamps by the cumulative sum of preceding take and cutaway spans on the joined timeline. At most 200 cues of at most 80 characters each.
 
 **Music.** Always `"volume": 0.25`. The join trims it to the video's length, fades it out over the last 1.5 seconds, and lowers it under speech; never generate the music again to fit.
 
@@ -313,7 +330,7 @@ Submit the payload that matches the video:
 printf '%s' '<the payload above>' | python3 scripts/mcp_client.py call beatra.videos.compose
 ```
 
-**Submit and poll.** Give the join its own stable `client_request_id`, submit it once, record its task ID in the private ledger like every other call, and poll it with `beatra.tasks.get` until terminal. Reuse that same request ID only to retry the identical payload after a lost response. The terminal task returns one video artifact with its duration and dimensions, resolved model `beatra-compose-v1`, and its `billing.net_charged_credits`.
+**Submit and poll.** Give the join its own stable `client_request_id`, submit it once, record its task ID in the private ledger like every other call, and poll it with `beatra.tasks.get` until terminal. Reuse that same request ID only to retry the identical payload after a lost response. The terminal task returns one video artifact with its duration, dimensions, resolved model, and `billing.net_charged_credits`.
 
 **When it does not work.**
 
@@ -327,7 +344,7 @@ The join never holds back delivery — every clip, still, narration and music tr
 
 Record each task ID immediately and poll it with `beatra.tasks.get` until terminal. `queued` and `running` mean wait.
 
-Deliver the angles considered, the chosen one and why, the cover with its wording, every card with its text in order, the caption as one pasteable block, the hashtags in posting order, and for a video the finished video first (its task ID, artifact link, resolved model, returned duration and dimensions, and `billing.net_charged_credits`), then the plan, every still, each clip, the narration, the music, and the subtitles as an SRT block, as the user's own files for a re-cut. The edit list from [content pack](content-pack.md) is delivered only when the finished video could not be made or the user asks to cut it themselves. For every generation task, deliver its task ID, the returned artifact links, the resolved model, the returned dimensions and duration, and `billing.net_charged_credits`. A trend lookup is delivered differently and has no resolved model, dimensions, or duration; see [looking up what is trending](trend-lookup.md).
+Deliver the angles considered, the chosen one and why, the cover with its wording, every card with its text in order, the caption as one pasteable block, the hashtags in posting order, and for a video the finished video first (its task ID, artifact link, resolved model, returned duration and dimensions, and `billing.net_charged_credits`), then the plan, every still, each clip, the narration, the music (or `audio.process`-finished standalone BGM track), and the free aligned `output.subtitles` (`JSON`, `SRT`, and `VTT` files), as the user's own files for a re-cut. The edit list from [content pack](content-pack.md) is delivered only when the finished video could not be made or the user asks to cut it themselves. For every generation task, deliver its task ID, the returned artifact links, the resolved model, the returned dimensions and duration, and `billing.net_charged_credits`. A trend lookup is delivered differently and has no resolved model, dimensions, or duration; see [looking up what is trending](trend-lookup.md).
 
 When a presenter or any generated person appears in a video, tell the user to switch on the platform's AI-generated content label when they post it.
 
@@ -368,8 +385,9 @@ Say with it that every video made from the avatar is AI-generated and is posted 
 | --- | --- | --- |
 | Cover or card text did not render | One carded `images.edit` for that image; if still wrong, the user's choice of taking it as returned or one carded text-free base | Everything else |
 | An image is wrong but its text is fine | That one `images.generate` | Everything else |
-| The narration is too long or mispronounced | Shorten the spoken field, then `speech.synthesize` | The images and the music |
-| The music does not fit the mood | `music.generate` with a revised brief | Everything else |
+| The narration is too long or mispronounced | Shorten the spoken field, check `estimated_duration_seconds` via free `speech.validate`, run optional `speech.prepare_script` (48h voice/model swap on identical script free), then `speech.synthesize` | The images and the music |
+| The standalone BGM track needs trimming, fading, or loudness leveling (music mood itself works) | One paid `audio.process` call (`trim`/`fade`/`normalize_loudness`) on its own card | Generated music, images, narration, clips |
+| The music does not fit the mood | `music.generate` with a revised brief (plus `audio.process` if standalone finishing was requested) | Everything else |
 | One shot or take is not right | That one `videos.animate`, then a new join on its own card | Every other clip, the narration, and the music |
 | A subtitle line in the finished video is wrong | Correct that cue, then a new join on its own card | Every clip, the narration, and the music |
 | The angle was wrong | The plan, free, then whatever paid artifacts it changes | Anything the new angle still uses |

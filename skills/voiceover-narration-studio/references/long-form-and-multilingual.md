@@ -1,90 +1,50 @@
-# Long-form and multilingual production
+# Long-Form and Multilingual Production
 
-## Build one ordered ledger
+Maintain a clear local ledger for every chapter, lesson, language track, script
+direction pass, and loudness normalization job.
 
-Split only at natural chapter, lesson, scene, or paragraph boundaries. One
-request accepts at most 50,000 characters, but the approved editorial
-boundaries and review cost normally justify smaller segments. Record:
+## Production ledger fields
 
-- route, language, segment number, title, and exact approved text;
-- exact `voice_id`, possible auto set or explicit model, format, and controls;
-- weighted-character count, current formula, price or range, and approval;
-- local `client_request_id`, returned `task_id`, terminal state, artifact,
-  and billing facts when they exist.
+Store locally before sending any billable call:
 
-Every segment is one logical paid request. Generate IDs only after approval.
-Do not submit the next batch merely because the ledger has been prepared.
+- logical item name (chapter, lesson, or BCP-47 language branch)
+- tool name (`beatra.speech.prepare_script`, `beatra.audio.process`,
+  `beatra.voices.clone`, `beatra.speech.synthesize`)
+- normalized language tag (when supplied), exact `voice_id`, exact `model`
+- whether the block is free planning (`validate`, `voices.preview`) or paid
+- local `client_request_id`, returned `task_id`, and terminal `artifact_id`
+- measured duration / `billing.net_charged_credits` once complete
 
-## Pilot a long-form route
+`beatra.tasks.list` and `beatra.tasks.get` do not search by `client_request_id`;
+your local ledger is the sole recovery map connecting business items to IDs.
 
-Choose one representative passage from text the user supplied and approved.
-The pilot card covers only that passage. After the returned audio is reviewed
-for narrator fit, readings, pacing, tone, and destination, freeze any accepted
-settings.
+## Pilots before bulk batches
 
-Then present the remaining ordered segment count, exact or ranged total
-estimate, paid-call count, and delivery order for a separate approval. A pilot
-approval never authorizes the remainder. Keep a single accepted narrator and
-settings unless the user explicitly approves a route change.
+- **Ordered chapters / courses**: validate with free `beatra.speech.validate`,
+  align pacing on a representative passage (optionally using approved Smart Voice
+  Director `prepare_script`), obtain approval on the six-field card for one
+  pilot, deliver the pilot audio + duration + cost, and only then present the
+  remaining batch production card for approval.
+- **Multilingual scripts**: collect all target-language scripts supplied by the
+  user, confirm `voices.list` readiness and `models.list` support per normalized
+  language tag, run one pilot per distinct `(voice, language, model)` route, and
+  keep separate output folders/lists per language.
+- **Loudness normalization**: normalize approved delivered narration artifacts
+  through `beatra.audio.process` (`operation: "normalize_loudness"`, using
+  `source`, target `loudness_lufs` e.g. `-14`) one task at a time after explicit
+  approval of the finishing card. Do not batch multiple overlapping finishing
+  calls blindly.
 
-## Pilot every distinct multilingual route
+## Interruption and partial-failure recovery
 
-The target-language texts must already be supplied or shown and approved.
-This workflow does not silently translate, invent, or merge scripts.
-
-Define a route by:
-
-- exact voice ID;
-- supplied BCP-47 language;
-- ordered possible auto set or explicit model;
-- controls and output format.
-
-Validate both layers: the selected voice must list the language, and the live
-model decision must follow `constraints.supported_languages`. One voice may
-serve several languages only when each route passes independently.
-
-Run one approved pilot for every distinct route. A pilot in one language or
-with one voice/model route does not authorize another. After all required
-pilots are accepted, present the complete language-by-segment remainder,
-weighted totals, price per route, total range or upper bound, paid-call count,
-and delivery order for separate approval.
-
-## Submit in controlled order
-
-Submit each approved JSON once and poll its task to terminal before moving
-beyond the concurrency and order the user approved. Keep results grouped by
-route and language, then ordered by segment:
-
-```text
-<language-or-route>/01-<segment>
-<language-or-route>/02-<segment>
-```
-
-Do not represent the audio as synchronized, mixed, merged, or published.
-Deliver ready-to-edit artifacts with their actual media facts.
-
-## Continue after interruption
-
-Start from the ledger. Poll every known `task_id` before looking for more work.
-For a lost task ID, call `beatra.tasks.list` with
-`capability: "text_to_speech"` and paginate through every `next_cursor` needed
-to cover the relevant window. Verify candidates with `beatra.tasks.get`,
-comparing capability, time, returned input, voice, settings, and task facts.
-
-The local `client_request_id` is not a remote filter or returned task field.
-Do not resubmit while the original may exist. Reuse it only for an identical
-JSON replay when task creation remains genuinely uncertain after
-reconciliation. Any changed text, language, voice, model, or control is a new
-paid request with a new card, approval, and ID.
-
-Resume only ledger rows with no completed artifact and no known queued or
-running task. Accepted rows remain final. If the user requests cancellation,
-call `beatra.tasks.cancel` for the exact task; a conflict or unconfirmed stop
-means continue polling that same task rather than create a replacement.
-
-## Correct only the approved segment
-
-For a misread word, correct the supplied reading and show the changed segment.
-For pace or tone, adjust the smallest relevant control. Present the affected
-text, new settings, incremental estimate, and one new paid request. After
-approval, use a new identity and preserve every accepted segment.
+1. Poll every known pending `task_id` via `beatra.tasks.get` until terminal
+   before concluding anything failed.
+2. If a submission response dropped before recording `task_id`, paginate
+   `beatra.tasks.list` across every `next_cursor` covering the submit window and
+   inspect matching tasks with `beatra.tasks.get`.
+3. Replay an identical payload with the same `client_request_id` ONLY when no
+   matching task exists or after confirming `insufficient_balance` has been
+   topped up by the user (always keep Beatra's exact `topup_url`).
+4. Never edit already-accepted chapters silently. Any adjusted line, voice,
+   speed, format, or target loudness uses a fresh six-field card, explicit user
+   approval, and a new `client_request_id`.

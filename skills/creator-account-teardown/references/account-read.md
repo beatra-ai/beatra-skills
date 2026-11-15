@@ -13,6 +13,7 @@ Build it first, before any read. Nothing later may reason from anything that is 
 | Handle, display name, bio, link | The profile, verbatim — looked up or as supplied |
 | Follower count, total posts | Only if a lookup returned it or the user supplied it |
 | Post title or caption | Verbatim — looked up or as supplied |
+| Spoken hook & cadence (optional clip) | Only if user pastes transcript or confirms paid `beatra.audio.transcribe` (`speech_to_text`) on a clip they supplied — never infer audio from screenshots or link lookups alone |
 | Views, likes, comments, saves, shares | Only the numbers a lookup returned or that are visible in what the user supplied |
 | Post date or ordinal position | Looked up, as supplied, or "position N in the list" |
 | Format | Read from the post itself: talking head, voiceover over B-roll, text-on-screen, skit, tutorial, montage |

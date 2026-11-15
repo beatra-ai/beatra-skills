@@ -38,7 +38,7 @@ requests a concrete model. A concrete model is never silently replaced. Before
 `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
 `beatra.videos.edit`, or `beatra.videos.extend`, show the admission card:
 route, tool, duration, resolution, aspect, provisional estimate, the fact that
-the 600-credit signup gift usually cannot start this video, and what happens
+the signup gift usually cannot start this video, and what happens
 if the balance is short. Planning, comparison, or “make the clip” is not
 approval. Do not create `client_request_id` or submit until the user confirms
 they have topped up or already have enough credits for this estimate. Any

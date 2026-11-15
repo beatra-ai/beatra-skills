@@ -33,8 +33,8 @@ model. `$SKILL` is this package directory.
 2. **Draw the composition** in `<outdir>/index.html`. `#root` carries
    `data-composition-id="main"`, `data-duration`, `data-width="1080"`,
    `data-height="1920"`. The GSAP timeline must be `paused: true` and
-   assigned to `window.__timelines.main`. Keep the `@font-face { src:
-   local(...) }` blocks. Drive time with `sceneT` / `sceneStart` /
+   assigned to `window.__timelines.main`. Keep the
+   `@font-face { src: local(...) }` blocks. Drive time with `sceneT` / `sceneStart` /
    `sceneDraw`; never hardcode absolute seconds. Call `mountCaptions(tl)`
    before assigning `window.__timelines.main`, or captions freeze out of the
    rendered timeline. Mode rules: [text mode](mode-text.md),

@@ -69,27 +69,51 @@ Safe defaults:
 
 Before setting a concrete still, speech, or video model, canvas,
 format, duration, or price, read the current `beatra.models.list`
-cards for `text_to_image`, `text_to_speech`, and `image_to_video`.
-Call `beatra.voices.list` only when a catalog voice still needs to be
-selected. Never put a display name in `voice`. Use `mp3` only when the
-live speech card supports it and the live video card accepts the
-expected `audio/mpeg`.
+cards for `text_to_image`, `text_to_speech`, and `image_to_video` (plus
+`{"capability": "speech_script"}` when using Smart Voice Director for
+spoken pacing). Filter ready voices with `beatra.voices.list` (bilingual
+`search` and `supports_direction`, `supports_emotion`,
+`supports_performance_tags`, `supports_context`, inspecting all 11
+`capabilities.*` metadata fields) and optionally audition candidates
+free with `beatra.voices.preview`. Never put a display name in `voice`.
+Use `mp3` only when the live speech card supports it and the live video
+card accepts the expected `audio/mpeg`.
+
+When pacing, pauses, or pronunciation cues help delivery, run
+`beatra.speech.prepare_script` (Smart Voice Director, keeping your
+verbatim mileage, accident, and maintenance wording intact; pass ready
+`scripts[].synthesis` unchanged, or if `scripts[].synthesis` is `null`, inspect
+`warnings`; 48h re-call with identical copy changing only `voice`/`model` charges zero
+extra credits; max 2 concurrent; never hand-author braced tags or strip
+`/` pauses manually). Before confirming spend, always run free
+`beatra.speech.validate` with the planned voice, script, model,
+language, and format to inspect `valid`, `weighted_characters`, live
+`price_credits`, and `estimated_duration_seconds`: confirm the walkaround
+narration fits cleanly inside the 2–15s clip cut window before paying
+for synthesis. Keep `subtitle_enable: true` (default) on synthesis for
+free aligned `output.subtitles` (`JSON`/`SRT`/`VTT`) plus
+`speech_start_seconds`, `speech_end_seconds`, and
+`integrated_loudness_lufs`.
 
 ## Confirm the lead still and speech, then the walkaround clip
 
-Before any billable still or speech, show one current six-field lead
-card for two slots and wait:
+Before any billable still, script prep, or speech, show one current
+six-field lead card and wait (`voices.list`, `voices.preview`, and
+`speech.validate` run free beforehand):
 
-1. Work — one listing hero still (`beatra.images.generate`) and one
-   walkaround speech track (`beatra.speech.synthesize`) for this named
-   car.
-2. Credits — the live `text_to_image` price plus the live
-   `text_to_speech` price just read. Do not reuse a remembered number.
-3. Count — two paid calls, two slots. Do not batch remaining stock
-   into this submit.
-4. Identity — two new opaque `client_request_id` values, one per slot.
+1. Work — one listing hero still (`beatra.images.generate`), optional
+   Smart Voice Director script preparation (`beatra.speech.prepare_script`
+   when needed), and one walkaround speech track (`beatra.speech.synthesize`)
+   for this named car.
+2. Credits — the live `text_to_image` price plus `text_to_speech` price
+   (and live `speech_script` estimate if `prepare_script` is on the
+   card). Do not reuse a remembered number.
+3. Count — two paid calls (`images.generate` and `speech.synthesize`),
+   or three when `prepare_script` is included, one per slot. Do not
+   batch remaining stock into this submit.
+4. Identity — one new opaque `client_request_id` per paid slot.
    A changed prompt, fact line, voice, format, file, model, or canvas
-   mints a new ID for the changed slot.
+   mints a new ID only for the changed slot.
 5. If we stop here — the labeled listing still plan and the speakable
    walkaround script remain usable.
 6. If the balance is insufficient — relay the official message and its
@@ -140,9 +164,10 @@ against the condition sheet. Report only what the host can actually
 see or hear. Unread small type is unread. Do not treat the still or
 clip as a certified vehicle history.
 
-Deliver the still, the speech, and the clip with actual dimensions,
-duration, usage, and `billing.net_charged_credits`. Never invent a
-stitch, concat, or editor tool.
+Deliver the still, the speech (with free aligned `output.subtitles`
+`JSON`/`SRT`/`VTT` files when generated), and the clip with actual
+dimensions, duration, usage, and `billing.net_charged_credits`. Never
+invent a stitch, concat, or editor tool.
 
 After a returned `task_id`, poll that task. If the create response is
 lost, search with `beatra.tasks.list` and verify with
@@ -168,6 +193,14 @@ python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 ```json
+{"capability": "speech_script"}
+```
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
 {"capability": "text_to_speech"}
 ```
 
@@ -184,7 +217,23 @@ python3 scripts/mcp_client.py call beatra.voices.list
 ```
 
 ```json
-{}
+{"language": "zh", "use_case": "narration", "limit": 20}
+```
+
+```bash
+python3 scripts/mcp_client.py call beatra.voices.preview
+```
+
+```json
+{"voice_id": "voice_selected"}
+```
+
+```bash
+python3 scripts/mcp_client.py call beatra.speech.validate
+```
+
+```json
+{"voice": "voice_selected", "input": "The speakable walkaround with verbatim mileage, accident, and maintenance lines.", "model": "auto", "format": "mp3"}
 ```
 
 ```text
@@ -192,7 +241,7 @@ printf '%s' '{"prompt":"Create the listing hero still for this named used car. P
 ```
 
 ```text
-printf '%s' '{"voice":"voice_selected","input":"The speakable walkaround with verbatim mileage, accident, and maintenance lines.","client_request_id":"opaque-used-car-speech-01"}' | python3 scripts/mcp_client.py call beatra.speech.synthesize
+printf '%s' '{"voice":"voice_selected","input":"The speakable walkaround with verbatim mileage, accident, and maintenance lines.","subtitle_enable":true,"client_request_id":"opaque-used-car-speech-01"}' | python3 scripts/mcp_client.py call beatra.speech.synthesize
 ```
 
 ```text
@@ -220,6 +269,10 @@ memory.
 - For still plans, scripts, payloads, confirmation, polling, recovery,
   and review, read
   [Used-car walkaround workflow](references/workflow.md).
+- For Smart Voice Director, 11-dimension voice discovery and free audition,
+  free `beatra.speech.validate` pacing fit, and free aligned `SRT`/`VTT`
+  subtitles, read
+  [speech, voices, and audio finishing](references/speech-and-audio.md).
 - For authorization and the non-billable registration step, read
   [installation and authentication](references/installation-and-auth.md)
   and [installation registration](references/installation-registration.md).

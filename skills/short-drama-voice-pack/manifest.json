@@ -1,5 +1,5 @@
 {
-  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
+  "changelog": "Adds Smart Voice Director pacing while keeping script lines unchanged, native multi-character episode scenes, voice audition and activation or delete controls, aligned dialogue subtitles, dramatic sound effects and room tone, and audio loudness matching, trimming, and fades.",
   "display_name": "Short Drama Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-voice-pack",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-voice-pack",
   "schema_version": 1,
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

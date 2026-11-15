@@ -1,5 +1,5 @@
 {
-  "changelog": "Song edits and audio touch-ups such as trims, loops and fades are now each laid out as their own step.",
+  "changelog": "Adds Smart Voice Director pacing without altering your words, aligned subtitles for narration and dialogue, multi-speaker dialogue, voice audition, cloning activation, and management, expressive voice conversion, noisy-recording voice isolation, sound effects and loopable ambience, long-form speech transcription with subtitles, saved presenter portraits, and combining video clips, narration, music, and subtitles into a finished MP4.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "3.0.1"
+  "version": "3.0.2"
 }

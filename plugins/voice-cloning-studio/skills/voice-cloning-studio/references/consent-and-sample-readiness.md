@@ -2,41 +2,58 @@
 
 ## Reuse a clear current authorization
 
-Before upload or cloning, retain a plain statement that the sample is the
-user's own voice or that the speaker authorized this cloning use. A request to
-“clone my voice” with the user's current sample is enough. Record the useful
-fact without collecting or repeating sensitive detail, and do not add legal
-formality after the required meaning is clear.
+Before upload, voice isolation, or cloning, retain a plain statement that the
+sample is the user's own voice or that the speaker authorized this cloning use.
+A request to "clone my voice" with the user's current sample is enough. Record
+the useful fact without collecting unnecessary sensitive detail, and do not add
+legal formality after the required meaning is clear.
 
 For another person's voice, ask whether that speaker gave explicit permission
 for cloning. Possessing a file, finding it online, seeing a public post, having
-a publication right, reading a contract-like filename or recognizing a public
+a publication right, reading a contract-like filename, or recognizing a public
 figure does not establish that permission. Without the statement, stop before
 local upload and before `beatra.voices.clone`; do not set
 `consent_attested: true`.
 
-## Read current sample conditions
+## Inspect sample quality and clean noisy recordings first
 
-Use the live voice-clone card from `beatra.models.list` as the source of truth:
+Use the live voice-clone cards from `beatra.models.list` as the source of truth:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 ```json
-{"capability": "voice_clone"}
+{"capability": "voice_clone", "include_activation_required": true}
 ```
 
-The current card accepts clean, natural, single-speaker speech from about 10 to
-300 seconds and no more than 20 MiB. Music, multiple speakers, pronounced echo
-or heavy noise make readiness uncertain. If the host cannot inspect or play
-the source, say that the readiness check is unverified and let the user decide
-whether to supply a known-clean recording.
+Clean, natural, single-speaker speech without music, background noise, or heavy
+echo works best; honor each route's duration and byte bounds from the live card
+(for voice isolation pre-clean via `beatra.audio.process`, `4.6 s – 5 min` and
+`<= 100 MB`). If the host cannot inspect or play the sample, state honestly
+that listening verification was not performed and let the user decide whether
+to run paid voice isolation or supply a known-clean recording.
 
-Do not claim this workflow will denoise, separate, trim, transcribe, repair or
-delete a recording. Do not promise storage or retention behavior that the
-returned contract does not state. The positive next step for an unsuitable
-sample is a clean recording from the authorized speaker.
+When background noise, room tone, or music is present on an authorized recording,
+offer paid voice isolation before cloning:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "audio_voice_isolation"}
+```
+
+Present a six-field production card, obtain explicit user confirmation, and
+submit `beatra.audio.process` with `operation: "isolate_voice"` and `source`.
+Never describe `isolate_voice` as free, and do not invoke operations outside this
+Skill's active tool list (such as stem separation or SFX generation).
+
+If preparing an optional short `< 8 s` reference `prompt` for a fast clone and
+the user has not supplied verbatim transcript text, you may transcribe the clean
+authorized prompt clip first via paid `beatra.audio.transcribe` (`audio` input,
+`{"capability": "speech_to_text"}`).
 
 ## Preserve one discriminated source
 
@@ -54,9 +71,8 @@ Use exactly one accepted media reference:
 {"type": "url", "url": "https://..."}
 ```
 
-The shared media interface limits the encoded data URI to 256 KB. Use an
-artifact upload or HTTPS URL for a larger otherwise-valid sample; the live
-voice-clone card's overall sample ceiling is 20 MiB.
+Keep encoded data URIs within transport size limits and use `upload` or an HTTPS
+URL for larger valid samples within the live `voice_clone` card's maximum file size.
 
 After consent, upload a local sample only through the bundled command:
 
@@ -64,15 +80,14 @@ After consent, upload a local sample only through the bundled command:
 python3 scripts/mcp_client.py upload <path> --mime-type <exact MIME>
 ```
 
-Record the exact source filename, exact MIME type, byte length and returned
+Record the exact source filename, exact MIME type, byte length, and returned
 `artifact_id`. Do not imitate the underlying upload protocol or teach a raw
-PUT. Keep the source reference, chosen display name, readiness result and
-consent fact together in the local clone card.
+PUT.
 
-## Set only useful identity hints
+## Set only useful identity and profile hints
 
-Ask for the display name the user wants to see later. It is a label, not the
-voice's opaque handle and not proof that the voice is unique. `language` is an
-optional BCP-47 hint: preserve a supplied value, or omit it when unknown. The
-clone model card does not expose `supported_languages`, so do not turn the hint
-into a language-coverage claim.
+Require a recognizable `display_name`. It is a label, not the voice's opaque
+`voice_id` and not proof of uniqueness. Optional profile metadata (`language`,
+`gender`, `age_group`, `use_case`, `persona`) helps later catalog discovery via
+`beatra.voices.list` and can be refined at zero cost later with
+`beatra.voices.update`. Omit unknown hints rather than guessing.

@@ -8,12 +8,12 @@ description: "Create AI images, videos, music, and voice, look up public social 
 **What you end up with.** Per run, one of:
 
 - **Images** — one to four, one by default.
-- **Video** — a clip, plus a separate last-frame still you can ask for on the
-  models that offer one.
+- **Video** — a generated, animated, edited, extended, or composed clip, plus a separate last-frame still you can ask for on the models that offer one.
 - **Music** — a song or instrumental, delivered as every clip the model returns.
-- **Narration** — an audio file.
-- **A reusable cloned voice.**
-- **A rewritten production prompt**, as text.
+- **Speech & dialogue** — single-speaker narration or multi-speaker dialogue audio with optional free aligned subtitles (`output.subtitles`), converted speech, or generated sound effects.
+- **Transcripts & subtitles** — timestamped text, speaker labels, audio event tags, and JSON/SRT/VTT files.
+- **A reusable cloned voice or saved presenter avatar.**
+- **A rewritten production prompt or Smart Voice Director reading script.**
 - **Public social data**, returned as JSON.
 
 A returned file is delivered with whichever of its real dimensions, duration,
@@ -88,9 +88,10 @@ prompts, duration, and canvas. Music: the title, sectioned lyrics, and
 style notes. Narration: the prepared reading script and voice-selection
 criteria. Social lookup: the target, fields, and query plan. Say in one
 line that the paid step continues on their next message after Allow;
-Allow only completes the connection, and a video or clone call still waits
-for its production card on that next message. Do not fill the gap with
-another tool or service.
+Allow only completes the connection, and a card-gated video, compose, script,
+dialogue, clone, activation, conversion, transcription, sound-effect, or audio
+processing call still waits for its production card on that next message. Do not
+fill the gap with another tool or service.
 
 ## Choose the smallest path
 
@@ -107,25 +108,32 @@ another tool or service.
   `beatra.images.edit`. Follow [images](references/images.md).
 - For video-prompt enhancement, text-to-video, opening-image animation, ordered
   references, a required last frame with an optional first frame, source editing,
-  or extension, use `beatra.videos.enhance_prompt`,
+  extension, or composing your own clips into one MP4 with narration, music, and
+  burned-in subtitles, use `beatra.videos.enhance_prompt`,
   `beatra.videos.generate`, `beatra.videos.animate`,
   `beatra.videos.generate_from_references`,
-  `beatra.videos.interpolate`, `beatra.videos.edit`, or
-  `beatra.videos.extend`. When the request is text-led and there is no usable
+  `beatra.videos.interpolate`, `beatra.videos.edit`,
+  `beatra.videos.extend`, or `beatra.videos.compose`. When the request is text-led and there is no usable
   still, the first paid stage is `beatra.videos.enhance_prompt` or one
   `beatra.images.generate` keyframe. That gift does not authorize a later video
-  call. Before generate, animate, interpolate, reference, edit, or extend, call
-  `beatra.models.list` with that route's exact capability (for example
-  `{"capability":"text_to_video"}` or `{"capability":"image_to_video"}`), admit
-  the payload, write the shortest admitted duration (audio-led and extend rules
-  unchanged), and show the production card. Without a live card, do not name a
-  model or a price.
+  call. Before generate, animate, interpolate, reference, edit, extend, or
+  compose, call `beatra.models.list` with that route's exact capability (for example
+  `{"capability":"text_to_video"}`, `{"capability":"image_to_video"}`, or
+  `{"capability":"video_compose"}`), admit the payload, write the shortest admitted
+  duration (audio-led and extend rules unchanged), and show the production card.
+  Without a live card, do not name a model or a price.
   Choose with [videos](references/videos.md), then load
   [video controls](references/video-controls.md) or
   [video recipes](references/video-recipes.md) only when needed.
-- For a talking presenter, spoken delivery, or digital-human clip, synthesize the
-  narration first with `beatra.speech.synthesize`, then animate a portrait with
-  `beatra.videos.animate`, passing that narration as `driving_audio`. The video
+- For a talking presenter, spoken delivery, or digital-human clip, inspect saved
+  portraits first with free `beatra.avatars.list` (or save a user-approved
+  portrait with free `beatra.avatars.save` only after explicit portrait consent
+  `consent_attested: true` and `consent_subject`: `"self"` or
+  `"authorized_other"`). Prepare and validate narration cleanly (`beatra.speech.prepare_script`
+  when helpful, then free `beatra.speech.validate`, then `beatra.speech.synthesize`),
+  then animate a portrait with `beatra.videos.animate`, passing that narration
+  as `driving_audio` (and use `beatra.videos.compose` on its own card when
+  joining multiple clips, ducked music, and subtitles). The video
   card's admitted formats and durations both constrain what you synthesize, so
   read `{"capability":"image_to_video"}` and `{"capability":"text_to_speech"}`
   before the speech call. Those two free reads surface every conflict this route
@@ -154,19 +162,48 @@ another tool or service.
 - To trim, loop, fade, set loudness, convert the format, split a song into stems,
   or isolate a voice, use `beatra.audio.process` when this account has it (the
   `tools` command lists it). Each of these steps is paid and has its own card,
-  even when the user asks for it together with the song, because a song made on
-  a direct request has no card to add it to. Follow
-  [music editing and audio](references/music-editing-and-audio.md). If those
+  even when the user asks for it together with the song or voiceover, because a
+  direct creation call has no card to add finishing to. Generate sound effects
+  or loopable ambient beds with `beatra.audio.generate_sfx` and transcribe
+  speech up to 60 minutes (with speaker diarization, audio event tags, and free
+  JSON/SRT/VTT subtitles) with `beatra.audio.transcribe`, each on its own
+  production card. Follow
+  [music editing and audio](references/music-editing-and-audio.md) and
+  [speech and audio](references/speech-and-audio.md). If those
   tools are not exposed, skip these steps; only when the user asked for
   something they would deliver, say in one sentence that the option is not
   available yet.
-- For narration, browse only when a voice is still needed with
-  `beatra.voices.list`, then use `beatra.speech.synthesize`. Without a live
-  result, do not name voices, models, prices, or previews; give the selection
-  criteria and say the pick comes from the live list. Create a reusable
-  voice with `beatra.voices.clone` only after explicit voice-owner consent and
-  the production card. Follow
-  [speech and voices](references/speech-and-voices.md).
+- For narration, dialogue, voice audition/management, or cloning:
+  - Discover voices with free `beatra.voices.list` (866 presets + owned clones,
+    bilingual `search`, facet filters, and 11 `capabilities.*` signals) and
+    audition candidates at zero charge with `beatra.voices.preview`. Update
+    owned voice metadata or default selection for free with
+    `beatra.voices.update`, and run two-step permanent deletion (`beatra.voices.delete`)
+    only after explicit user confirmation of the 15-minute warning token.
+    Without a live result, do not name voices, models, prices, or previews.
+  - For expressive phrasing, pauses, or pronunciation control (replacing manual
+    slash stripping or hand-written performance tags), use Smart Voice Director
+    (`beatra.speech.prepare_script`, `{"capability": "speech_script"}`, max 2
+    concurrent, 48-hour reuse when changing only `voice`/`model`) and always
+    verify with free `beatra.speech.validate` (`estimated_duration_seconds`,
+    `price_credits`) before `beatra.speech.synthesize` (keep `subtitle_enable`
+    enabled; never send `subtitles` on `beatra.speech.synthesize`).
+  - For multi-speaker scenes (2–50 turns, <= 2,000 chars, <= 10
+    `supports_dialogue=true` voices including <= 4 ready clones), run free
+    `beatra.speech.validate_dialogue` then `beatra.speech.synthesize_dialogue`
+    (chunk longer scripts scene-by-scene, or fall back to segmented
+    `beatra.speech.synthesize` when exceeding cast or dialect limits). For
+    speech-to-speech performance transfer (1 s – 5 min,
+    `supports_speech_to_speech=true`), use `beatra.speech.convert`.
+  - Before `beatra.voices.clone`, optionally propose paid `isolate_voice`
+    cleanup for noisy samples, obtain explicit owner consent
+    (`consent_attested: true`), query `{"capability": "voice_clone", "include_activation_required": true}`
+    to choose among the 3 capability routes strictly by capability, show the
+    production card, and — when `status="pending_activation"` returns — obtain
+    explicit approval of the activation quote and terms before calling
+    `beatra.voices.activate`. Follow
+    [speech and voices](references/speech-and-voices.md) and
+    [speech and audio](references/speech-and-audio.md).
 - When model selection, compatibility, supported controls, or an estimate
   matters for image, video, music, or speech, copy an exact
   `{"capability":"..."}` payload from [models](references/models.md) and treat
@@ -219,30 +256,47 @@ the 100 MB general ceiling and any lower limit returned for the selected model.
 Ordinary media upload has no generic rights-attestation step. A sample for
 `beatra.voices.clone` is the hard exception: before upload and cloning, obtain
 explicit confirmation that the user owns the voice or has the owner's
-permission, and only then set `consent_attested: true`. See
-[uploads](references/uploads.md).
+permission, and only then set `consent_attested: true`. Saving a presenter
+image via `beatra.avatars.save` also requires explicit user agreement and
+portrait consent (`consent_attested: true`, `consent_subject`: `"self"` or
+`"authorized_other"`). See [uploads](references/uploads.md).
 
 ## Keep the paid boundary clear
 
-Creative planning, authorization, upload preparation, voice browsing, model
-discovery, public social tool search and inspection, recent-task listing,
-credit-balance and ledger reads, and estimates are non-billable. Image, video, music (including every `beatra.music.edit` and
-`beatra.audio.process` step), speech, voice-clone, video-prompt-enhancement,
-and public social execute consume credits and return
+Creative planning, authorization, upload preparation, voice browsing/audition,
+voice metadata updates, two-step voice deletion, saved avatar list/save, speech
+and dialogue preflight validation (`beatra.speech.validate`,
+`beatra.speech.validate_dialogue`), model discovery, public social tool search
+and inspection, recent-task listing, credit-balance and ledger reads, and
+tokenless `beatra.voices.activate` activation re-quotes (`voice_id` +
+`client_request_id`, omitting `confirmation_token`) are non-billable. Image,
+video, music (including every `beatra.music.edit` and `beatra.audio.process`
+step), speech, Smart Voice Director (`beatra.speech.prepare_script`), native
+dialogue (`beatra.speech.synthesize_dialogue`), speech conversion
+(`beatra.speech.convert`), voice cloning, clone activation
+(`beatra.voices.activate` with `confirmation_token` and `confirm_credits`),
+transcription (`beatra.audio.transcribe`), sound effects
+(`beatra.audio.generate_sfx`), video composition (`beatra.videos.compose`),
+video-prompt-enhancement, and public social execute consume credits and return
 an asynchronous task. Public social execute is prepaid. Video-prompt
-enhancement is the postpaid exception: it
-returns text only, never starts video generation, and a successful task
-settles from actual tokens after completion.
+enhancement and Smart Voice Director (`beatra.speech.prepare_script`) are
+postpaid exceptions: they return text/scripts only, settle from actual tokens
+after completion (never starting media generation), and charge nothing when
+`prepare_script` returns `directed: false` or reuses an earlier reading within
+48 hours.
 
 A direct, well-specified request to create or look up authorizes that exact
-paid request once for image, music generation (`beatra.music.generate`), speech,
-social execute, or a gift-sized
-video-prompt or keyframe stage. It does not authorize
+paid request once for image, music generation (`beatra.music.generate`),
+single-speaker speech (`beatra.speech.synthesize`), social execute, or a
+gift-sized video-prompt or keyframe stage. It does not authorize
 `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
-`beatra.videos.edit`, `beatra.videos.extend`, or `beatra.voices.clone`. Before
-those video or clone calls, show the production card and wait for the user's
-answer:
+`beatra.videos.edit`, `beatra.videos.extend`, `beatra.videos.compose`,
+`beatra.voices.clone`, `beatra.voices.activate`, `beatra.speech.prepare_script`,
+`beatra.speech.synthesize_dialogue`, `beatra.speech.convert`,
+`beatra.audio.transcribe`, `beatra.audio.generate_sfx`, `beatra.music.edit`, or
+`beatra.audio.process`. Before any of those paid calls, show the production card
+and wait for the user's answer:
 
 1. Work — what will be made, in the user's own words, and which call makes it.
 2. Credits — the provisional estimate from the live card just read, never a
@@ -258,13 +312,13 @@ answer:
 6. If the balance is insufficient — relay the returned message and its top-up
    URL exactly, and wait.
 
-Show the route's live-card duration, resolution, and aspect beside the estimate,
-taking the shortest admitted duration and lowest admitted resolution unless the
-user named a higher tier; audio-led and extend rules are unchanged. Planning,
-comparison, or “make the clip” is not approval; approving this card is. Do not
-ask the user to confirm they have enough credits — the connection reports the
-balance itself — and do not create `client_request_id` or submit before they
-approve.
+For video calls, show the route's live-card duration, resolution, and aspect
+beside the estimate, taking the shortest admitted duration and lowest admitted
+resolution unless the user named a higher tier; audio-led and extend rules are
+unchanged. Planning, comparison, or “make the clip” is not approval; approving
+this card is. Do not ask the user to confirm they have enough credits — the
+connection reports the balance itself — and do not create `client_request_id`
+or submit before they approve.
 
 Public social lookup is never folded into a video or clone production card. When it needs
 confirmation, it gets its own card. For it, copy the `schema_hash` from
@@ -337,7 +391,10 @@ and actual usage. For media generation, also report the resolved model. For
 artifacts, include every returned link or ID plus dimensions, duration, MIME
 type or format, and size when present. For public social lookup, deliver the
 inline JSON or JSON artifact; do not look for a resolved model or a generated
-media file. Deliver non-artifact results such as an activated cloned `voice_id`
+media file. Deliver non-artifact results such as an activated cloned `voice_id`, saved
+avatar record, Smart Voice Director script output, transcript text, audio
+loudness/timing bounds (`speech_start_seconds`, `speech_end_seconds`,
+`integrated_loudness_lufs`), or free aligned `output.subtitles` (JSON/SRT/VTT)
 when returned. Report `billing.net_charged_credits`; include gross charge and
 refund only when present. Use the exact returned `task.links.assets`
 destination for asset management.
@@ -362,7 +419,8 @@ and the third only when something needs diagnosis or recovery.
 - Image generation, transformation, and editing: [images](references/images.md)
 - Video route selection, controls, and request patterns: [videos](references/videos.md), [video controls](references/video-controls.md), and [video recipes](references/video-recipes.md)
 - Songs, instrumentals, references, and music delivery: [music](references/music.md); revising, finishing, or splitting a song: [music editing and audio](references/music-editing-and-audio.md)
-- Narration, voice discovery, and consent-gated voice cloning: [speech and voices](references/speech-and-voices.md)
+- Narration, dialogue, voice discovery/audition/management, and consent-gated voice cloning: [speech and voices](references/speech-and-voices.md)
+- Speech, Smart Voice Director, dialogue, 3 cloning routes, speech conversion, transcription, sound effects, and audio finishing: [speech and audio](references/speech-and-audio.md)
 - Local image, video, or audio preparation: [uploads](references/uploads.md)
 - Current model compatibility, controls, and estimates: [models](references/models.md)
 

@@ -67,3 +67,38 @@ Read the actual returned duration. Do not promise a sample-perfect loop point or
 platform takedown safety, and without the tools do not promise exact seconds
 either. Public ownership language stays in SEO; Agent review reports the real
 audio only.
+
+## Dramatic hits, transitions, and room tone (SFX)
+
+When a short-drama cut also needs cliffhanger tension hits, scene transitions,
+impact cues, or quiet interior room tone, generate them with
+`beatra.audio.generate_sfx` after checking live pricing via
+`beatra.models.list` with `{"capability": "sound_effects"}`.
+
+```json
+{
+  "prompt": "Low dramatic tension hit with deep sub boom and short metallic tail, clean cut, no music",
+  "duration_seconds": 3,
+  "loop": false,
+  "model": "auto",
+  "client_request_id": "opaque-drama-sfx-hit-01"
+}
+```
+
+- Set `duration_seconds` from `0.5` to `30`, using `loop: true` only for
+  continuous room tone or ambient city/night beds and `loop: false` for stings,
+  impacts, and transitions.
+- Use `model: "auto"` (or a catalog ID returned by `models.list`) — never write a
+  hardcoded vendor or internal SFX model ID.
+- If a room-tone bed must exceed `30` seconds or match the score at `-14 LUFS`,
+  run `beatra.audio.process` (`loop` or `normalize_loudness`) on its own paid
+  card line.
+
+## Native structural edits on editable beds
+
+If a delivered score bed returns `editable: {"native": true}` and needs an
+extended outro or section replacement without regenerating from scratch, quote
+`beatra.music.edit` live by operation (`{"capability": "music_extend"}`,
+`{"capability": "music_replace_section"}`, or matching `music_*` capability)
+on its own card and `client_request_id` (see
+[music editing and audio](music-editing-and-audio.md)).

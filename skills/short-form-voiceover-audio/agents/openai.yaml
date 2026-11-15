@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI Voiceover for Short Videos"
+  short_description: "Turn a final short-video script into ready-to-edit voiceover audio, with a suitable voice, pronunciation control, current price estimate, and duration review."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $short-form-voiceover-audio to voice my pour-over tutorial script in a calm female voice. Script attached."
+policy:
+  allow_implicit_invocation: true

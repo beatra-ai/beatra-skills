@@ -27,10 +27,10 @@ The line will be read aloud by a voice. Written register is audible immediately.
 
 - Short sentences. Under fifteen characters, or under ten words, most of the time.
 - One idea per sentence. A sentence carrying two ideas loses one of them in the ear.
-- Mark the pauses where a person would breathe, and let the punctuation carry them.
+- Let natural punctuation carry pauses and keep spoken copy clean: do not add manual `/` pause markers or invent `{}` performance tags in text — when breathing pauses, emphasis, or pronunciation cues need explicit direction, keep your exact words and let Smart Voice Director (`beatra.speech.prepare_script`) prepare the synthesis input.
 - No written connectives — furthermore, therefore, in summary, and their equivalents. People do not say these.
 - No advertising register. A line that sounds like a banner reads as a banner.
-- Read it aloud once, in your head, at speaking pace. Anything you stumble over gets rewritten.
+- Read it aloud once, in your head, at speaking pace, then verify `estimated_duration_seconds` with free `beatra.speech.validate` before committing any spend so anything over the 12-second target (15-second ceiling) is tightened for free.
 
 ## Where the facts come from
 

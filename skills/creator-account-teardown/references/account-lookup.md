@@ -14,14 +14,14 @@ teardown built from screenshots is a real teardown.
 Only these operations. Do not invent an `operation_key`, and do not reach for one that
 is not on this list even when `beatra.social.tools.search` returns it.
 
-| Platform | The account | Its posts | Its audience | Credits |
-| --- | --- | --- | --- | --- |
-| TikTok | `social.tiktok.user.get`, `social.tiktok.user.search` | `social.tiktok.user.posts.list` | `social.tiktok.video.comments.list` | 6 |
-| Douyin | `social.douyin.user.get`, `social.douyin.user.search` | `social.douyin.user.posts.list` | `social.douyin.video.comments.list` | 6 |
-| YouTube | `social.youtube.channel.get`, `social.youtube.channel.resolve` | `social.youtube.channel.videos.list`, `social.youtube.channel.shorts.list` | — | 6 |
-| X | `social.twitter.user.get` | `social.twitter.user.tweets.list` | — | 6 |
-| Instagram | `social.instagram.user.get` | `social.instagram.user.posts.list`, `social.instagram.user.reels.list` | — | 12 |
-| Xiaohongshu | `social.xiaohongshu.user.get` | `social.xiaohongshu.user.notes.list` | `social.xiaohongshu.note.comments.list` | **60** |
+| Platform | The account | Its posts | Its audience |
+| --- | --- | --- | --- |
+| TikTok | `social.tiktok.user.get`, `social.tiktok.user.search` | `social.tiktok.user.posts.list` | `social.tiktok.video.comments.list` |
+| Douyin | `social.douyin.user.get`, `social.douyin.user.search` | `social.douyin.user.posts.list` | `social.douyin.video.comments.list` |
+| YouTube | `social.youtube.channel.get`, `social.youtube.channel.resolve` | `social.youtube.channel.videos.list`, `social.youtube.channel.shorts.list` | — |
+| X | `social.twitter.user.get` | `social.twitter.user.tweets.list` | — |
+| Instagram | `social.instagram.user.get` | `social.instagram.user.posts.list`, `social.instagram.user.reels.list` | — |
+| Xiaohongshu | `social.xiaohongshu.user.get` | `social.xiaohongshu.user.notes.list` | `social.xiaohongshu.note.comments.list` |
 
 Twenty operations, and each one is here because a stage of the teardown consumes it: the
 account read needs the profile, the content matrix and cadence read needs a page of
@@ -29,13 +29,13 @@ posts, the audience read needs comments, the Shorts and Reels lists separate sho
 from long-form inside one account's matrix, and the two search operations are how an
 account gets found when the user knows a name rather than a link.
 
-Prices are what the catalog charges today; read the live price from
-`beatra.social.tools.get` and quote that, not this table.
+Read each operation's current price live from `beatra.social.tools.get` and quote what
+it returns, never a number from memory.
 
-**Xiaohongshu costs 60 credits for every one of its three operations, ten times Douyin
-and TikTok.** Reading one Xiaohongshu account's profile, one page of its notes, and one
-page of comments is 180 credits; the same three reads on Douyin are 18. Never quote one
-number for "reading an account."
+**Rates vary widely across platforms — Xiaohongshu lookups cost much more per operation
+than Douyin or TikTok.** Reading one account's profile, one page of its posts or notes,
+and one page of comments incurs three separate lookup charges summed from their live
+`beatra.social.tools.get` prices. Never quote one flat number for "reading an account."
 
 ## The platform this route cannot reach
 
@@ -72,7 +72,7 @@ whitelisted call returned.
   `channel_url` argument documents full channel URL forms, so ask for the URL rather
   than a bare `@handle`, and count the resolve as its own charge. **The Shorts list is
   the exception**: `social.youtube.channel.shorts.list` accepts a `channel_url` directly,
-  so resolving first before a Shorts-only read spends six credits for nothing.
+  so resolving first before a Shorts-only read spends an unnecessary lookup charge for nothing.
 - **X** takes the `screen_name` directly.
 - **Comments** need the post's own id — `aweme_id` on TikTok and Douyin — read from the
   posts list that was already fetched. Read it off a returned post; if a returned post

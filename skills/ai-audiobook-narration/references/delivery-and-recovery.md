@@ -15,8 +15,10 @@ reconcile first with `beatra.tasks.list`, then either drop the row or resubmit
 it with a NEW `client_request_id`. Poll only rows whose `task_id` came from a
 successful creation response.
 
-If the task ID was lost, call `beatra.tasks.list` with
-`capability: "text_to_speech"`. The default page is not the entire history, so
+If the task ID was lost, call `beatra.tasks.list` with the matching capability
+(`"text_to_speech"`, `"text_to_dialogue"`, `"speech_script"`, `"voice_clone"`,
+`"sound_effects"`, `"audio_process"`, or `"audio_voice_isolation"`). The
+default page is not the entire history, so
 follow `next_cursor` page by page until the relevant time window has been
 searched or no cursor remains. `tasks.list` does not filter by
 `client_request_id`, and neither the list item nor the remote task envelope from
@@ -28,21 +30,25 @@ ledger. Do not claim the remote task proved the locally stored request identity.
 
 Only when transport or task creation left the original outcome genuinely
 unknown may the original `client_request_id` be replayed, and only with JSON
-that is identical field for field. A text, voice, model, language, format,
-sample-rate, speed, volume, pitch, or emotion change creates a new paid request
-that requires a new ID and explicit confirmation. Slow polling, authorization
-failure, client update failure, or a known terminal task never authorizes an
-automatic retry.
+that is identical field for field. On `insufficient_balance`, relay the
+returned message and verbatim `topup_url`, wait until the user confirms top-up,
+and replay the same frozen ID. On `price_confirmation_required` (expired 24h
+activation token), refresh free via `beatra.voices.activate` (`voice_id` +
+`client_request_id`, omitting `confirmation_token`). A text, voice, model,
+language, format, sample-rate, speed, volume, pitch, or emotion change creates
+a new paid request that requires a new ID and explicit confirmation. Slow
+polling, authorization failure, client update failure, or a known terminal
+task never authorizes an automatic retry.
 
 ## Report terminal facts without filling gaps
 
 On success, attach the returned audio artifact to its ordered ledger entry. When
 present, deliver `task_id`, the audio URL, `artifact_id`, `duration_seconds`,
-actual `mime_type`, actual sample rate, `task.links.assets`, resolved model,
-usage, and billing. `charged_credits`, `refunded_credits`, and
-`net_charged_credits` may be missing or not yet settled. Distinguish not returned
-or not settled from a returned numeric zero; never fill a missing value with
-zero.
+actual `mime_type`, actual sample rate, `task.links.assets`, free aligned
+`output.subtitles` (and dialogue `segments[]`), resolved model, usage, and
+billing. `charged_credits`, `refunded_credits`, and `net_charged_credits` may
+be missing or not yet settled. Distinguish not returned or not settled from a
+returned numeric zero; never fill a missing value with zero.
 
 On failure or cancellation, quote the provider-neutral task error facts that
 were actually returned. These can include `code`, `message`, `retryable`,

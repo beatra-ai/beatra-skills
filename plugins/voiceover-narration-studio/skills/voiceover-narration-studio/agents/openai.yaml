@@ -1,0 +1,8 @@
+interface:
+  display_name: "Voiceover & Narration Studio"
+  short_description: "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $voiceover-narration-studio to record a calm male narration for our smart lock install video. Script attached."
+policy:
+  allow_implicit_invocation: true

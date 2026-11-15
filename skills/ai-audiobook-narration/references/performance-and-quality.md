@@ -1,12 +1,32 @@
 # Performance, cost, and quality
 
-## Freeze compatible delivery controls
+## Freeze compatible delivery controls and free subtitles
 
 Use a selected voice's returned opaque `voice_id` as synthesis `voice`. Keep the
 accepted voice, valid BCP-47 language, format, and baseline speed stable across
 the book. Default to `model: "auto"`, `format: "mp3"`, `speed: 1.0`,
-`volume: 1.0`, `pitch: 0`, no emotion, and no explicit sample rate. Change a
-default only when the user or destination requires a supported alternative.
+`volume: 1.0`, `pitch: 0`, `subtitle_enable: true` (never pass `subtitles` —
+returns JSON/SRT/VTT subtitles and dialogue `segments[]` free of charge), no
+emotion, and no explicit sample rate unless required. Check `beatra.speech.validate`
+or `beatra.speech.validate_dialogue` for free preflight duration/credit checks
+and warnings before confirmation.
+
+## Optional chapter SFX and loudness finishing (paid)
+
+- If chapters call for transition chimes, subtle scene stingers, or looping
+  room tone, quote paid `beatra.audio.generate_sfx` (`{"capability": "sound_effects"}`,
+  `prompt` `1–2,000` chars, `duration_seconds` `0.5–30.0`, optional `loop=true`,
+  `model: "auto"`) on its own itemized paid line/card.
+- If chapters need uniform listening loudness across sessions, quote paid
+  `beatra.audio.process` (`{"capability": "audio_process"}`,
+  `operation="normalize_loudness"`, default `-14 LUFS`, or `trim`/`fade`,
+  `<= 60 min` / `300 MB` / `50 calls/day`, one operation at a time) on its own
+  paid line/card — never describe finishing steps as free.
+- Keep noisy clone sample cleaning (`operation="isolate_voice"`, `4.6 s – 5 min`,
+  `<= 100 MB`) and all 3 voice-cloning confirmations (`consent_attested`,
+  `voices.activate` on `pending_activation`, 2-step `voices.delete`) strictly
+  separate from synthesis. See
+  [speech, voices, cloning, and audio finishing](speech-and-audio.md).
 
 The frozen voice's `compatible_models` and the current cards from
 `beatra.models.list` are the source of truth. For an explicit model, require a
@@ -76,9 +96,13 @@ the target and state the drift. If an adjustment is worthwhile, propose the
 smallest change to speed, punctuation, or segment text that preserves meaning;
 the changed request needs a new production card, confirmation, and request ID.
 
-If the user asks for multiple voices, first test whether one narrator can meet
-the creative goal through dialogue performance, supported controls, and pacing.
-If true mixed multi-cast audio or voice-by-voice editing is essential, keep that
-requirement intact and route the production to another suitable workflow that
-can mix and edit multiple voices. Do not present single-voice audio as a
-multi-cast result.
+If the user asks for multiple voices inside chapter dialogue scenes, first check
+whether `beatra.speech.synthesize_dialogue` fits (`2–50` turns per call,
+`<= 2,000` chars chunked with `previous_text`/`next_text`, `<= 10`
+`supports_dialogue=true` voices, `<= 4` ready clones) after running free
+`beatra.speech.validate_dialogue`, or clarify whether one narrator performing
+dialogue is preferred. If > 10 speakers, specialty dialects, or true
+multi-track voice+music DAW mixing or M4B packaging are required, preserve that
+requirement cleanly (using segmented `beatra.speech.synthesize` clips for editor
+assembly or routing DAW/M4B mastering out). Do not present unmixed tracks or a
+single-voice read as mixed multi-cast audio.

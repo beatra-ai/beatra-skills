@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI Multilingual Dubbing"
+  short_description: "Create reviewable multilingual voice-over audio from scripts for each language, with deliberate casting, pronunciation and timing pilots, and delivery…"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $ai-multilingual-dubbing to voice our travel mug promo in English and Japanese. Script attached; match the video's length."
+policy:
+  allow_implicit_invocation: true

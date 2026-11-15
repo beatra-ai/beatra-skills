@@ -131,16 +131,39 @@ charge:
 ## Approve the spoken draft
 
 Present the listener focus and episode script section by section, with the
-titles, description, show notes, and estimated chapters. Confirm the title,
-opening, closer, substantive claims, and any pronunciations that affect the
-read before proposing paid synthesis. On the speech production card, state how
-many specific facts are still on the please-check list. When the user wants
-only a speakable script, stop at the approved script and create no audio.
+titles, description, show notes, and estimated chapters. For multi-host shows or
+guest conversations, attribute every turn explicitly (`speaker`, spoken text,
+and optional delivery cue) so scenes can pass `beatra.speech.validate_dialogue`
+cleanly. Confirm the title, opening, closer, substantive claims, and any
+pronunciations that affect the read before proposing paid synthesis. On the
+speech production card, state how many specific facts are still on the
+please-check list. When the user wants only a speakable script, stop at the
+approved script and create no audio.
 
 Build a pronunciation list for proper nouns, foreign words, acronyms, and
 polyphonic characters. Record each written term and the spoken form the user
 confirms, then carry it forward in the show profile.
 
-Keep one synthesis input at or below 50,000 characters. For material above
-that limit, split only at a topic or section boundary; never split a sentence
-or force a listener through an abrupt cut.
+Keep one single-speaker synthesis input at or below `50,000` characters, and
+keep one native multi-host `beatra.speech.synthesize_dialogue` scene at `2–50`
+turns and at or below `2,000` characters. Split longer material or multi-host
+episodes only at natural topic or scene boundaries; never split mid-sentence or
+force a listener through an abrupt cut.
+
+## Smart Voice Director and free aligned subtitles
+
+When natural phrasing, pause holds, dramatic beats, or pronunciation
+compilation needs active performance direction, run paid
+`beatra.speech.prepare_script` (`{"capability": "speech_script"}`) on plain
+spoken text plus `instructions` (`<= 2,000` chars) rather than guessing or
+hand-writing braced performance markup (never invent braced tags). Smart Voice
+Director preserves spoken words untouched and returns `directed` plus
+`scripts[]`; verify every ready `scripts[].synthesis` payload with free
+`beatra.speech.validate` before confirming synthesis.
+
+Keep `subtitle_enable: true` (default; never pass `subtitles`) on
+`beatra.speech.synthesize` and `beatra.speech.synthesize_dialogue`. Beatra
+returns `output.subtitles` (JSON, SRT, VTT, and dialogue `segments[]` with
+`turn_index`, `speaker`, `start_seconds`, `end_seconds`) free of charge, which
+supports exact chapter re-timing from returned durations and segment timing
+without paying for a separate transcription call.

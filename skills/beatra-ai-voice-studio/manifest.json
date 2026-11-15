@@ -1,5 +1,5 @@
 {
-  "changelog": "Allow is explained as a one-time sign-in, not a second confirmation of your request, and your characters and dialect wording are kept as written unless you ask for a change.",
+  "changelog": "Upgrades Beatra AI Voice Studio into the complete voice and audio suite: adds Smart Voice Director script direction, preflight script/dialogue checks and voice auditions, multi-speaker dialogue, speech-to-speech voice conversion, speech transcription with timestamps, sound effects, stem separation, noisy-sample voice isolation, loudness normalization, three-route cloning with trial-then-activate cloning and safe voice removal, voice metadata updates, and aligned SRT/VTT subtitles.",
   "display_name": "Beatra AI Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-voice-studio",
@@ -80,5 +80,5 @@
   },
   "name": "beatra-ai-voice-studio",
   "schema_version": 1,
-  "version": "0.3.8"
+  "version": "0.3.9"
 }

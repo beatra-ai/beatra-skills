@@ -1,18 +1,55 @@
 # Speech and voices
 
-## Synthesize speech
+## Discover, preview, and direct speech
 
 Speech synthesis requires text and an opaque Beatra voice ID.
 
 1. Reuse a voice ID the user already selected or that is present in current
    context.
-2. Call `beatra.voices.list` only when a voice is still needed or the user asks
-   to browse or compare. Apply only filters the user actually supplied.
-3. Call `beatra.speech.synthesize` with the chosen voice ID and exact text.
+2. Call `beatra.voices.list` when a voice is still needed or the user asks to
+   browse or compare (filter `supports_dialogue=true` for multi-speaker dialogue).
+   Apply only filters the user actually supplied, and audition candidate voices
+   at zero charge with `beatra.voices.preview` (`{"voice_id": "..."}`).
+3. When dramatic pauses, emphasis, breath cues, or polyphonic/foreign names
+   benefit from direction without rewriting user prose or hand-authoring braced
+   tags (`{pause}` or `{pron}`), confirm and run Smart Voice
+   Director (`beatra.speech.prepare_script`, `{"capability": "speech_script"}`,
+   max 2 concurrent). It returns `directed` and `scripts[]` (`synthesis` text or
+   `null` plus `warnings`); fall back cleanly to the plain text when `directed`
+   is `false`. Re-calling within 48 hours with identical `input`, `instructions`,
+   `language`, and `context` while swapping only `voice` or `model` carries zero
+   extra charge.
+4. Always run free `beatra.speech.validate` (`estimated_duration_seconds`,
+   `price_credits`) before `beatra.speech.synthesize` (`{"capability": "text_to_speech"}`).
+   Keep `subtitle_enable: true` by default (never send `subtitles` on speech
+   calls) so free aligned JSON/SRT/VTT `output.subtitles` return with the audio.
    Include delivery controls only when they matter to the requested result and
    the current model interface supports them.
-4. Submit exactly once and poll the returned asynchronous task with
+5. Submit exactly once and poll the returned asynchronous task with
    `beatra.tasks.get`.
+
+## Multi-speaker dialogue scenes
+
+For multi-character scenes (`2–50` turns, `<= 2,000` characters, at most `10`
+distinct `supports_dialogue=true` voices including at most `4` ready custom
+voices):
+
+1. Validate turns for free with `beatra.speech.validate_dialogue`.
+2. Show the dialogue production card (`{"capability": "text_to_dialogue"}`),
+   wait for approval, then submit `beatra.speech.synthesize_dialogue` with
+   `subtitle_enable: true` so aligned speaker-turn subtitles arrive with the audio.
+
+## Sound effects and audio finishing
+
+- Generate standalone `0.5–30 s` sound effects or `loop: true` ambient beds on
+  their own production card with `beatra.audio.generate_sfx`
+  (`{"capability": "sound_effects"}`).
+- Use `beatra.audio.process` with `"operation"` (never `"action"`) and `"source"`
+  for `trim`, `loop`, `fade`, `normalize_loudness` (default `-14 LUFS`,
+  `true_peak_db` `-9` to `0`, default `-1`), `convert_format`, `separate_stems`,
+  or `isolate_voice` (never call finishing outputs mastered). See
+  [speech and audio](speech-and-audio.md) and
+  [music editing and audio](music-editing-and-audio.md).
 
 Omit `model` by default so Beatra can choose a compatible route. All customer
 requests remain asynchronous tasks while Beatra applies automatic execution
@@ -47,7 +84,7 @@ owner's permission. Possession of an audio file is not consent.
 3. Call `beatra.models.list` for the voice-clone capability, admit the sample,
    and show the clone admission card before any `client_request_id`: route,
    tool `beatra.voices.clone`, provisional estimate, the fact that the
-   600-credit signup gift usually cannot start this clone, and what happens if
+   signup gift usually cannot start this clone, and what happens if
    the balance is short. Do not submit until the user confirms they have topped
    up or already have enough credits for this estimate.
 4. Set `consent_attested: true` only after confirmation. Include the requested

@@ -5,92 +5,115 @@ description: "Turn final short-video scripts into ready-to-edit voiceover audio 
 
 # AI Voiceover for Short Videos
 
-Turn a final short-form script into ready-to-edit narration audio. Work as a
-voiceover director: preserve the intended claim and hook, make the words
-speakable, freeze one viable voice and model path, and generate only the exact
-read the user approves.
+Turn a final short-form script into ready-to-edit narration audio—optionally
+directed with Smart Voice Director, pre-checked for duration, paired with free
+aligned captions, and loudness-normalized for social feeds. Work as a voiceover
+director: preserve the intended claim and hook, make words speakable, freeze one
+viable voice and model path, and generate only the exact audio the user approves.
 
 ## Establish the smallest complete brief
 
 Reuse everything already supplied. Obtain only missing choices that materially
 change the audio:
 
-- the final script, or permission to make a clearly shown speakable edit;
+- the final script, or permission to make a clearly shown speakable edit (or run
+  Smart Voice Director when dramatic phrasing helps);
 - the platform or use, audience, and tone when they guide the voice direction;
-- the target BCP-47 language or dialect and important pronunciations;
+- the target BCP-47 language or dialect only when relevant, plus important
+  pronunciations (keep simplified/traditional characters and dialect wording
+  verbatim unless asked to change them);
 - a duration target when useful, treating it as a review goal rather than a
   guarantee; and
-- the output format or other delivery requirement when the default MP3 is not
-  suitable.
+- the output format (`mp3` default; `wav`/`flac`/`opus`/`pcm` if requested) and
+  whether free aligned `SRT`/`VTT` captions or `-14 LUFS` loudness normalization
+  are wanted.
 
 Platform context guides the voiceover; it is not permission to create or
 publish a video. If the user wants only a material script rewrite, show the
 spoken draft, obtain approval when its meaning or claims changed, and stop at
-the approved script without creating paid audio. Follow [voiceover
+the approved script without creating paid audio. Follow [speech and audio
+guide](references/speech-and-audio.md) and [voiceover
 workflow](references/workflow.md) for script preparation, timing, casting,
 pricing, recovery, and handoff.
 
-By default, prepare one logical short read and keep one synthesis `input` at or
-below 50,000 characters. Split longer text only at natural sentence or section
-boundaries. Do not invent extra hooks, alternate takes, or A/B variants. Each
-variant the user requests is a separate paid request whose exact text and count
-must appear in the production card.
+Never hand-strip `/` pause markers or invent bracketed vocal-effect cues. By default,
+prepare one logical short read (`<= 50,000` characters); do not invent extra
+hooks, alternate takes, or A/B variants unless the user approves each separate
+variant and count in the production card.
 
-## Freeze a real voice and viable model path
+## Cast free, validate free, and freeze a viable model path
 
-If no voice is frozen, call `beatra.voices.list` and offer a small set of
-relevant voices with their returned previews. Treat each returned `voice_id` as
-an opaque value and record its `preview_url` and `compatible_models`; never use
-a display name or prose preference as synthesis `voice`.
+Filter `beatra.voices.list` across its 11 capability and style dimensions
+(`category`, `language`, `gender`, `age_group`, `use_case`, `emotion`,
+`supports_context`, `supports_direction`, `supports_performance_tags`,
+`supports_dialogue`, `supports_speech_to_speech`), match exact `voice_id` and
+`status == "ready"`, and audition free using returned `preview_url` or
+`beatra.voices.preview` (`{"voice_id": "..."}`). Never synthesize paid audio
+merely to audition voices.
 
-Call `beatra.models.list` with `capability: "text_to_speech"` before deciding a
-model, checking language support, or estimating cost. An explicit model must be
-live, available, in the frozen voice's `compatible_models`, and support the
-requested language. For `auto`, first form the complete set of live available
-voice-compatible candidates. Language is validated after voice-first auto
-resolution, so compare the valid BCP-47 request's primary language with every
-candidate's `constraints.supported_languages`, using only documented aliases.
-Keep `auto` only when every potential candidate supports the language;
-otherwise present viable explicit models and ask the user to confirm one.
+Call `beatra.models.list` with exact capability keys (`text_to_speech`,
+`speech_script` when using Smart Voice Director, or `audio_process` when
+normalizing loudness) before deciding models or quoting estimates. Never name
+upstream vendor brands, internal model IDs, or hardcoded credit numbers:
 
-Unless the user or destination requires another supported setting, use
-`model: "auto"`, `format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`, no
-emotion, and no explicit sample rate.
+- An explicit model must be live, available, in the frozen voice's
+  `compatible_models`, and support any requested normalized BCP-47 primary tag
+  (`nb` -> `no`, `tl` -> `fil`).
+- For `model: "auto"`, keep only when every live candidate in
+  `models.list.auto.candidate_order ∩ selected_voice.compatible_models` supports
+  any requested language; otherwise offer live compatible explicit options.
+- Use restrained defaults unless needed otherwise: `model: "auto"`,
+  `format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`, no forced
+  `emotion`, and no `sample_rate`.
 
-## Price and confirm the exact read
+## Smart Voice Director, validation, pricing, and loudness normalization
 
-Planning, voice previews, script preparation, and estimates are free.
-`beatra.speech.synthesize` is paid. Count the exact final text using the live
-`beatra_weighted_characters` rule: each Han ideograph weighs 2 and every other
-character weighs 1. Apply each applicable live card's `estimate_formula`,
-`unit_price_credits`, and `scale`. If `auto` can resolve to more than one
-candidate, show the full range or a clearly labeled upper bound.
+- **Planning, voice previews, and `beatra.speech.validate` are free.**
+  `beatra.speech.prepare_script`, `beatra.speech.synthesize`, and
+  `beatra.audio.process` (`normalize_loudness`) are paid. Never claim paid
+  steps are free.
+- **Smart Voice Director (`beatra.speech.prepare_script`)**: when expressive
+  hooks or rhythmic pauses would elevate delivery, query
+  `{"capability": "speech_script"}`, approve its six-field card first, inspect
+  `directed` and `scripts[]`, resolve `synthesis: null` from `warnings`, and
+  pass `scripts[i].synthesis` unchanged plus a fresh `client_request_id` into
+  synthesis. Re-calling `prepare_script` within 48 hours with exact same
+  `input`/`instructions`/`language`/`context` changing only `voice`/`model`
+  recompiles at zero extra charge (balance cover and max-2 concurrency limits
+  still apply; never describe `prepare_script` as generally free).
+- **Mandatory free check (`beatra.speech.validate`)**: preflight every read
+  before `speech.synthesize` to check `estimated_duration_seconds` and controls
+  at zero cost.
+- **Weighted character pricing**: count exact approved text with
+  `beatra_weighted_characters` (Han ideographs = 2, others = 1) against the live
+  card's `estimate_formula`, `unit_price_credits`, and `scale`. Show the full
+  range or upper bound when `auto` spans multiple candidates.
 
-Before any paid call, present one production card containing:
+Before any paid call, show one **six-field production card**:
 
-- exact approved script or segment and every approved variant;
-- opaque `voice_id`, model or `auto` candidate range, BCP-47 language, format,
-  sample rate if set, speed, volume, pitch, and emotion if set;
-- weighted-character count, live formula, unit price or range, and estimated
-  credits;
-- exact paid-request count; and
-- the requested duration target, clearly labeled as not guaranteed.
+1. Route & Model
+2. Exact Scope (script, variant count, captions/loudness step if separate)
+3. Price & Basis (weighted-character count and live formula/rate)
+4. Duration / Quantity (free `validate` duration target, explicitly not a timing guarantee)
+5. Pay Mode & Call Count
+6. If stop (exact free assets kept at zero extra charge—such as prepared
+   scripts, shortlisted voices/previews, and duration check—with `0` charged if
+   this is the first paid step)
 
-One explicit approval of that exact current card is sufficient; do not ask for
-a duplicate confirmation. Any change to script, segment, variant count, voice,
-model, language, format, or another control creates a new card and requires new
-approval and a new request identity. Never automatically retry a paid call.
+One explicit approval of that current card covers its exact listed calls; any
+changed text, variant, voice, model, language, control, or LUFS target creates a
+new card, approval, and `client_request_id`.
 
 ## Execute each approved request once
 
-Use only the bundled `scripts/mcp_client.py` for Beatra operations. Pass the
-tool name as the CLI argument and its JSON arguments on stdin. Do not configure
-or call a host Beatra Connector and do not use REST/OpenAPI as a fallback. For
-exact commands and troubleshooting, use [Bundled MCP Client diagnostics](references/mcp-connection.md).
+Use only the bundled `scripts/mcp_client.py` for Beatra operations
+(`call <tool-name>` with one JSON object on stdin). Do not configure or call a
+host Beatra Connector and do not use REST/OpenAPI as a fallback. For diagnostics,
+use [Bundled MCP Client diagnostics](references/mcp-connection.md).
 
-For each newly approved execution, create a new opaque `client_request_id` and
-call `python3 scripts/mcp_client.py call beatra.speech.synthesize` once with
-the frozen JSON on stdin:
+Generate one new opaque `client_request_id` per approved paid call and submit
+`beatra.speech.synthesize` once (pass `subtitle_enable: true` when free aligned
+`SRT`/`VTT` captions help; NEVER pass `subtitles`):
 
 ```json
 {
@@ -102,60 +125,45 @@ the frozen JSON on stdin:
   "format": "mp3",
   "speed": 1.0,
   "volume": 1.0,
-  "pitch": 0
+  "pitch": 0,
+  "subtitle_enable": true
 }
 ```
 
-Record the returned `task_id` immediately and poll only that task with
-`beatra.tasks.get` until it is terminal. A queued or running task is not a
-reason to submit again.
+Poll only the returned `task_id` via `beatra.tasks.get`. When normalizing the
+finished read to a social target level (e.g. `-14 LUFS`), inspect
+`{"capability": "audio_process"}`, approve its separate finishing card, and run
+serialized `beatra.audio.process` (`operation: "normalize_loudness"`, **`source`**
+field—never `audio`, `<= 60 min`, `<= 300 MB`, `>= 1 s` output, `50` calls/day
+limit) one track at a time. Never present this as free or as a mastering service.
 
-## Recover without duplicating paid audio
+## Recover, manage balance, and deliver only returned facts
 
-When `task_id` is known, use `beatra.tasks.get`. If it was lost, use
-`beatra.tasks.list` with `capability: "text_to_speech"`, follow `next_cursor`
-through every relevant page, and inspect plausible candidates with
-`beatra.tasks.get`. The remote list/get envelope does not expose the locally
-stored `client_request_id`; match by capability, time window, returned input,
-settings, and other returned task facts without claiming remote ID proof.
+If `task_id` was lost, paginate `beatra.tasks.list` across every `next_cursor`
+and verify plausible candidates with `beatra.tasks.get`; replay the identical
+frozen payload with the same `client_request_id` only when creation remained
+genuinely uncertain or after the user confirms topping up an
+`insufficient_balance` error (keep Beatra's message and exact `topup_url`
+verbatim). Never make `beatra.wallet.get` a mandatory gate before paid submits
+and never ask the user to confirm sufficient credits; only call read-only
+`beatra.wallet.get` / `beatra.wallet.ledger` if the user explicitly asks, and
+relay any returned `top_up` tiers verbatim in returned order. Cancel only at
+the user's request.
 
-Only when transport or task creation left the original outcome genuinely
-unknown may the same `client_request_id` be replayed, and then only with JSON
-that is field-for-field identical. Any changed field is a new paid execution
-with a new card, approval, and ID. A known task, slow polling, authorization or
-update trouble, and terminal failure never authorize an automatic replacement.
-
-Use `beatra.tasks.cancel` only when the user requests cancellation. If the
-request conflicts, continue reconciling the same task and do not promise a stop
-or refund.
-
-## Deliver only returned facts
-
-On success, return every available actual fact: `task_id`, audio URL,
-`artifact_id`, `duration_seconds`, actual `mime_type`, actual sample rate,
-`task.links.assets`, resolved model, usage, and billing. Compare returned
-`duration_seconds` with any target and report drift. If the host can play the
-audio, review pronunciation, pauses, clarity, energy, and format; otherwise say
-it was not auditioned and ask the user to review it.
-
-On failure or cancellation, report only returned provider-neutral `TaskError`
-facts such as `code`, `message`, `retryable`, `param`, and `details`. Billing
-fields may be absent or unsettled: distinguish missing values from numeric zero
-and never invent a charge, refund, or net result. Any adjustment is separately
-confirmed paid work.
-
-The deliverable is audio only: not video creation, captions, avatars, lip-sync,
-or publishing. Do not promise exact duration. For a complete video, preserve
-the platform, duration, and script requirements and offer this voiceover as the
-audio subtask or route to an appropriate video workflow. For a custom cloned
-voice, preserve the sample and consent requirements and route to the voice
-cloning workflow.
+Deliver actual `task_id`, `audio.url`, `artifact_id`, `duration_seconds`
+compared against target, `mime_type`, sample rate when present, optional
+`subtitles`, resolved model, usage, and billing (distinguishing missing fields
+from numeric zero). Do not claim video editing, avatars, lip-sync, publication,
+or exact sync guarantees. Route voice cloning or noisy sample cleanup to
+`voice-cloning-studio` / `voiceover-narration-studio`, and multi-speaker
+dialogue or SFX to `beatra-ai-voice-studio` (`scripts/mcp_client.py tools` is
+authoritative).
 
 ## Installation and account operations
 
-For first use and shared operations, follow [installation and
-authentication](references/installation-and-auth.md), [installation
-registration](references/installation-registration.md), [tasks and
+For first use and shared guidance, follow [speech and audio guide](references/speech-and-audio.md),
+[installation and authentication](references/installation-and-auth.md),
+[installation registration](references/installation-registration.md), [tasks and
 results](references/tasks-and-results.md), [billing, errors, and
 recovery](references/billing-errors-and-recovery.md), and [uninstall and
 disconnect](references/uninstall-and-disconnect.md).

@@ -31,8 +31,9 @@ facts. Never pass a local path to a remote tool.
 ## Read the live model cards
 
 Call `beatra.models.list` with `text_to_image`, `text_to_speech`, and
-`image_to_video` before choosing model, canvas, format, duration, or
-price:
+`image_to_video` (plus `{"capability": "speech_script"}` when Smart
+Voice Director is used) before choosing model, canvas, format, duration,
+or price:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.models.list
@@ -58,24 +59,67 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "image_to_video"}
 ```
 
-Call `beatra.voices.list` only when a catalog voice still needs to be
-selected:
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "speech_script"}
+```
+
+Discover voices with `beatra.voices.list` (bilingual `search` plus
+`supports_direction`, `supports_emotion`, `supports_performance_tags`,
+`supports_context`, inspecting all 11 `capabilities.*` metadata fields)
+and optionally audition candidates free with `beatra.voices.preview`
+(`{"voice_id": "voice_selected"}`):
 
 ```bash
 python3 scripts/mcp_client.py call beatra.voices.list
 ```
 
 ```json
-{}
+{"language": "zh", "use_case": "narration", "limit": 20}
+```
+
+```bash
+python3 scripts/mcp_client.py call beatra.voices.preview
+```
+
+```json
+{"voice_id": "voice_selected"}
 ```
 
 Never put a display name in `voice`. Use `model: "auto"` for the still
 and for speech unless the dealer chose a concrete compatible model.
-Use `mp3` only when the live speech card supports it and the live
-video card accepts the expected `audio/mpeg`. Require a current video
-card whose `input_combinations` admits `[image, driving_audio]`. If
-the planned speech cannot fit one containable clip, stop and ask which
-verbatim lines belong in this clip. Do not invent a stitch.
+When pacing beats, pauses, or pronunciation cues help delivery, prepare
+the script via `beatra.speech.prepare_script` (Smart Voice Director,
+keeping every verbatim mileage, accident, and maintenance line intact;
+pass ready `scripts[].synthesis` unchanged, or if `scripts[].synthesis`
+is `null`, inspect `warnings`; 48h re-call with identical copy changing only `voice`/`model` charges zero
+extra credits; max 2 concurrent; never hand-author braced tags or strip
+`/` pauses manually). Before freezing spend on the lead card, always run
+free `beatra.speech.validate` to inspect `valid`, `weighted_characters`,
+live `price_credits`, and **`estimated_duration_seconds`**: ensure the
+estimated walkaround length fits comfortably inside the 2–15s walkaround
+clip cut window *before* spending a credit. Use `mp3` only when the
+live speech card supports it and the live video card accepts the expected
+`audio/mpeg`. Require a current video card whose `input_combinations`
+admits `[image, driving_audio]`. If `estimated_duration_seconds` exceeds
+one containable clip, stop and ask which verbatim lines belong in this
+clip before paying. Do not invent a stitch.
+
+```bash
+python3 scripts/mcp_client.py call beatra.speech.validate
+```
+
+```json
+{
+  "voice": "voice_selected",
+  "input": "The speakable walkaround with verbatim mileage, accident, and maintenance lines.",
+  "model": "auto",
+  "format": "mp3"
+}
+```
 
 ## Freeze and submit the lead still and speech
 
@@ -97,18 +141,22 @@ printf '%s' '{
 printf '%s' '{
   "voice":"voice_selected",
   "input":"The speakable walkaround with verbatim mileage, accident, and maintenance lines.",
+  "subtitle_enable":true,
   "client_request_id":"opaque-used-car-speech-01"
 }' | python3 scripts/mcp_client.py call beatra.speech.synthesize
 ```
 
 A changed fact line, language, canvas, voice, format, model, or prompt
 is new work: new card, new ID for the changed slot. Keep at most two
-lead tasks in flight.
+concurrent Smart Voice Director (`prepare_script`) tasks in flight and
+run only confirmed lead slots.
 
 Poll each lead task with `beatra.tasks.get` until terminal. Read
 actual still bytes. Read actual `task.output.audio.mime_type`,
-`task.output.audio.duration_seconds`, and `task.output.audio.size_bytes`
-when present. Present or play the real audio when accessible. A script
+`task.output.audio.duration_seconds`, `task.output.audio.size_bytes`,
+`speech_start_seconds`, `speech_end_seconds`, `integrated_loudness_lufs`,
+and free aligned `task.output.subtitles` (`JSON`/`SRT`/`VTT`) when
+present. Present or play the real audio when accessible. A script
 preview is not an audio review. Lead acceptance is not video approval.
 
 ## Fit accepted speech to the walkaround clip

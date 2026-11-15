@@ -13,9 +13,16 @@ subtitles, and a digital-human teacher only where the teacher wants one.
 
 - One MP4 per lesson, 1920×1080, in teaching order; by default one lesson
   per knowledge point, 5–15 minutes each.
-- Subtitles on screen in every video, and one SRT subtitle file per lesson
-  beside its MP4 (or the SRT alone, for a platform that takes subtitles as a
-  separate file).
+- Optional **Smart Voice Director** (`beatra.speech.prepare_script`)
+  prosody shaping that keeps spoken wording exact, free
+  `beatra.speech.validate` preflight checks, voice auditions (`voices.preview`),
+  voice metadata/default updates (`voices.update`), and clean-sample prep or
+  loudness normalization (`beatra.audio.process`).
+- Subtitles on screen in every video, one SRT subtitle file per lesson beside
+  its MP4 (or the SRT alone), plus free `SRT`/`VTT` subtitle tracks and
+  `speech_start_seconds` / `speech_end_seconds` returned by
+  `beatra.speech.synthesize` (`output.subtitles` when `subtitle_enable` is `true`,
+  the default).
 - The spoken script for every slide, approved by the teacher before any
   voice is made.
 - A course list: each lesson's title, length, and status.
@@ -70,7 +77,7 @@ mark the gap for the teacher instead.
 
 ## Golden path
 
-Run every Beatra call through the bundled `scripts/mcp_client.py`. Do not
+Use the bundled `scripts/mcp_client.py` for every Beatra call. Do not
 configure a host Beatra Connector. Do not use REST/OpenAPI as a fallback.
 Slides are read and videos are assembled on this computer with the bundled
 scripts in [Deck files](references/deck-files.md) and
@@ -86,24 +93,40 @@ scripts in [Deck files](references/deck-files.md) and
 2. **Write the scripts.** Fill every page's script in the teacher's register
    and the chosen style: rigorous lecture, warm explanation, or concise. Show
    the first lesson's scripts and the reading list. Nothing is submitted.
-3. **Pilot about three minutes.** Pick the voice, read the live speech card,
-   estimate only the pilot pages (`--pages`), and show the production card
-   for those pages. After the user agrees, narrate those pages one at a time,
-   record each, render only those pages locally (`plan --pages`), and
-   deliver the pilot. From lecture text alone, the pilot is those pages'
-   audio files.
-4. **Settle the voice and the presence.** Offer, each as its own card: cloning
-   the teacher's voice (consent first) and on-camera openings and closings
-   from one authorized photo. The corner photo needs no card. Pages already
-   narrated in another voice are narrated again in the new one.
+3. **Pilot about three minutes.** Read live capabilities with `beatra.models.list` (`{"capability": "text_to_speech"}`, `{"capability": "speech_script"}`, and for on-camera clips `{"capability": "image_to_video"}`), then pick the voice (audition candidates for free
+   with `beatra.voices.preview` before committing), optionally shape prosody
+   with Smart Voice Director (`beatra.speech.prepare_script`, **paid** under
+   `{"capability": "speech_script"}`, max 2 concurrent; keeps exact wording;
+   for a fresh audio-only or page check pass `scripts[].synthesis` unchanged and
+   preflight duration via free `beatra.speech.validate`), estimate only the
+   pilot pages (`--pages`), and show the production card for those pages. After
+   the user agrees, narrate those pages one at a time, record each, render only
+   those pages locally (`plan --pages`), and deliver the pilot. From lecture text
+   alone, the pilot is those pages' audio files.
+4. **Settle the voice and the presence.** Offer, each as its own paid card:
+   cleaning noisy teacher samples (`isolate_voice` via `beatra.audio.process`,
+   **paid** under `{"capability": "audio_voice_isolation"}`, 4.6 s – 5 min,
+   <= 100 MB), loudness normalization across tracks (`normalize_loudness` via
+   `beatra.audio.process`, **paid** under `{"capability": "audio_process"}`, up
+   to 60 min / 300 MB, min >= 1 s, 50/day, one at a time), cloning the
+   teacher's voice (`beatra.voices.clone` after confirming the three mandatory
+   voice safety checks: explicit ownership/rightsholder consent and
+   anti-impersonation/fraud attestation before `consent_attested: true`, live
+   slot/activation quote awareness, and permanent slot/irreversible deletion
+   notice; tune saved profile later with free `beatra.voices.update`), and
+   on-camera openings and closings from one authorized photo. Before paying to
+   synthesize or animate any on-camera opening/closing clip, run free
+   `beatra.speech.validate` so `estimated_duration_seconds` fits the live
+   `image_to_video` clip limit first! The corner photo needs no card. Pages
+   already narrated in another voice are narrated again in the new one.
 5. **Batch the course.** Show the whole-course estimate once. Then, chapter
    by chapter, show that chapter's scripts (free) with its card (each lesson a
    line, with its pages and estimate) and wait for the teacher's changes
    before narrating it. Narrate page by page in lesson order, record each
    page, render each finished lesson, and report progress per lesson. On
-   `insufficient_balance`, stop the whole batch, relay that error's message
-   and URL, and resume at the next page without narration only after the user
-   says they topped up.
+   `insufficient_balance`, stop the whole batch, relay that error's official
+   message and verbatim `topup_url` without changing the URL, and resume at the
+   next page without narration only after the user says they topped up.
 6. **Deliver.** One MP4 per lesson in teaching order, its subtitles on screen
    and its SRT beside it, plus the course list,
    the actual durations, and the summed `billing.net_charged_credits`. Every
@@ -112,12 +135,21 @@ scripts in [Deck files](references/deck-files.md) and
 
 ## Decisions that require confirmation
 
-- Every paid call follows the current production card in
-  [Course video workflow](references/workflow.md#production-cards): pilot
-  narration, voice cloning, on-camera clips, and each chapter of the batch.
-  Scripts, estimates, and the pilot plan are free and are not approval.
+- Every paid call (`beatra.speech.prepare_script`, `beatra.speech.synthesize`,
+  `beatra.voices.clone`, `beatra.audio.process`, `beatra.videos.animate`) follows
+  its current production card in
+  [Course video workflow](references/workflow.md#production-cards): Smart Voice
+  Director direction, pilot narration, audio cleanup or loudness normalization,
+  voice cloning, on-camera clips, and each chapter of the batch. Scripts,
+  `beatra.speech.validate` preflights, `beatra.voices.preview`,
+  `beatra.voices.update`, estimates, and the pilot plan are free and are not
+  approval.
+- Only invoke Beatra tools listed by the bundled `scripts/mcp_client.py tools`
+  command (`beatra.wallet.get` / `beatra.wallet.ledger` only when answering
+  balance or charge questions, never as a mandatory pre-submit gate).
 - Likeness and voice: the teacher's own, or with the speaker's permission.
-  Access to a file is not consent.
+  Access to a file is not consent. Never use voice cloning for impersonation or
+  fraud.
 - A changed script is new narration for that page only, on its own card; a
   changed reading applies to the whole course and is new narration for every
   narrated page that contains the term, so run `estimate` first and quote how
@@ -159,6 +191,10 @@ memory.
   only when authorization needs attention.
 - Read [Installation registration](references/installation-registration.md)
   for first-use registration.
+- Read [Speech, Voices, and Audio Processing](references/speech-and-audio.md)
+  for Smart Voice Director, `speech.validate`, `voices.preview` / `update` /
+  clone safety confirmations, `audio.process` bounds, and free `SRT`/`VTT`
+  subtitle fields.
 - Read [Tasks and results](references/tasks-and-results.md) and
   [Billing, errors, and recovery](references/billing-errors-and-recovery.md)
   for task and billing facts.

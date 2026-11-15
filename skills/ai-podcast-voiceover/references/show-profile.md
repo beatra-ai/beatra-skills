@@ -44,8 +44,16 @@ owned by the bundled client.
     "volume": 1.0,
     "pitch": 0,
     "emotion": null,
-    "sample_rate": null
+    "sample_rate": null,
+    "subtitle_enable": true
   },
+  "co_hosts": [
+    {
+      "role": "<co-host or recurring guest name>",
+      "voice_id": "<opaque supports_dialogue=true id when multi-host>",
+      "display_name_at_freeze": "<snapshot>"
+    }
+  ],
   "opener": "<recurring cold open>",
   "closer": "<recurring sign-off>",
   "words_per_minute": null,

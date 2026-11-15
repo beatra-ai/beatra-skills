@@ -13,6 +13,9 @@ subtitles, and the teacher's photo or a digital-human opening when wanted.
 
 - One MP4, 1920×1080, 5–10 minutes by default, with its subtitles on screen
   and its SRT subtitle file beside it.
+- Free `output.subtitles` (`JSON`, `SRT`, `VTT`) plus `speech_start_seconds`
+  and `speech_end_seconds` from `beatra.speech.synthesize` (`subtitle_enable: true`)
+  at zero extra charge for on-camera clips and standalone slide audio checks.
 - The spoken script for every slide, approved before any voice is made.
 - When there were no slides: an editable 6–10-slide deck (`.pptx`) built from
   the lesson outline.
@@ -80,20 +83,30 @@ Slides are read, drafted, and assembled on this computer with
    unless the teacher wants a video and a deck is drafted from the text.
 2. **Write the scripts** for every slide in the chosen style (rigorous, warm,
    or concise) and show them with the reading list. Nothing is submitted.
-3. **Narrate the first part.** Pick the voice (the teacher's own voice is
-   cloned first, on its own card), read the live speech card, estimate only
-   the first slides, about three minutes (`estimate --pages`), and show the
-   card for them. After the user agrees, narrate them one at a time, record
-   each, render only those slides locally (`plan --pages`), run the job path
-   `plan` prints, and deliver that part. A lesson made from lecture text, or
-   one wanted as audio only, delivers those slides' tagged audio
-   (`plan --pages --audio-only`) instead of rendering.
+3. **Pick, audition, prepare, and preflight before the first part.** Browse
+   voices (`beatra.voices.list`) and audition candidates free with
+   `beatra.voices.preview` before committing (or clone the teacher's own voice
+   first via `beatra.voices.clone` on its own card with explicit consent). Read `beatra.models.list`
+   (`{"capability": "text_to_speech"}`, `{"capability": "speech_script"}`, and
+   for on-camera clips `{"capability": "image_to_video"}`). Optionally shape
+   pauses and phrasing without altering spoken wording via **Smart Voice
+   Director** (`beatra.speech.prepare_script`, paid; max 2 concurrent; 48-hour
+   reuse only by re-calling with identical arguments changing `voice`/`model`;
+   never invent braced tags). Always run free `beatra.speech.validate`
+   (free, no `client_request_id`) alongside `estimate --pages`
+   before paid calls, show the card for the pilot slides, narrate one at a
+   time keeping `subtitle_enable: true` (default -> free `output.subtitles`
+   `JSON`/`SRT`/`VTT`), record each, render locally (`plan --pages`), and
+   deliver that part. A lesson made from lecture text alone, or wanted as
+   audio only, delivers tagged audio (`plan --pages --audio-only`).
 4. **Finish the lesson** after one card for the remaining slides, narrated
-   page by page; offer the on-camera opening, and a closing, when the teacher
-   wants them, each on two cards of its own: its narration and the clip. On
-   `insufficient_balance` at any paid step, stop the whole run, relay that
-   error's message and URL, and resume only after the user says they topped
-   up.
+   page by page. When adding an on-camera opening (and closing), always run
+   free `beatra.speech.validate` first and verify `estimated_duration_seconds`
+   fits the live `{"capability": "image_to_video"}` clip ceiling **before**
+   paying to synthesize or animate (`beatra.videos.animate`; each clip gets two cards of its own: its
+   narration, then the clip). On `insufficient_balance` at any paid step, stop
+   the whole run, relay Beatra's official message and verbatim top-up URL
+   without altering it, and resume only after the user says they topped up.
 5. **Deliver** the MP4 with its subtitles on screen and its SRT beside it,
    the length, and the summed `billing.net_charged_credits`. The video
    carries the AI badge and metadata. For audio only, deliver the tagged
@@ -101,17 +114,28 @@ Slides are read, drafted, and assembled on this computer with
 
 ## Decisions that require confirmation
 
-Every paid call follows the current production card in
-[Micro-lesson workflow](references/workflow.md#production-cards): the first
-part, the rest of the lesson, voice cloning, and the on-camera opening and
-closing, each of which takes two cards (its narration, then the clip). The
-outline, the deck, and the scripts are free and are not approval. Likeness and
-voice are the teacher's own or used with permission; access to a file is not
-consent. A changed script is new narration for that slide only, on its own
-card; a changed reading applies to the whole lesson and is new narration for
-every narrated slide that contains the term, so run `estimate` first and quote
-how many slides it re-opens; a new voice is new narration for every slide
-already narrated.
+- Every paid call follows the current production card in
+  [Micro-lesson workflow](references/workflow.md#production-cards): the first
+  part, the rest of the lesson, optional `beatra.speech.prepare_script`, voice
+  cloning, and the on-camera opening and closing (two cards each). The outline,
+  the deck, scripts, voice audition (`beatra.voices.preview`), and
+  `beatra.speech.validate` quotes are free and are not approval; stopping at
+  a card leaves what is already built usable at zero extra charge.
+- **3 mandatory voice safety rules** (when cloning the teacher's voice):
+  (1) obtain explicit user confirmation in the conversation that likeness and
+  voice belong to the user/authorized teacher with zero impersonation, fraud,
+  or unlawful use before passing `consent_attested: true`; (2) query
+  `{"capability": "voice_clone"}` to keep immediately `ready` clones (any
+  `pending_activation` voice requires separate quote/token/exact-credit
+  activation approval per [Speech, Voices, and Audio Finishing](references/speech-and-audio.md));
+  (3) cloned voices occupy persistent slots and permanent removal
+  (`voices.delete`) requires two-step `paid_slot_warning` +
+  `irreversible_notice` confirmation.
+- A changed script is new narration for that slide only, on its own card; a
+  changed reading applies to the whole lesson and is new narration for every
+  narrated slide that contains the term, so run `estimate` first and quote how
+  many slides it re-opens; a new voice is new narration for every slide already
+  narrated.
 
 ## Recovery
 
@@ -149,9 +173,10 @@ memory.
   only when authorization needs attention.
 - Read [Installation registration](references/installation-registration.md)
   for first-use registration.
-- Read [Tasks and results](references/tasks-and-results.md) and
+- Read [Tasks and results](references/tasks-and-results.md),
+  [Speech, Voices, and Audio Finishing](references/speech-and-audio.md), and
   [Billing, errors, and recovery](references/billing-errors-and-recovery.md)
-  for task and billing facts.
+  for speech, cloning, task, and billing facts.
 - Read [Bundled MCP Client diagnostics](references/mcp-connection.md) when
   the bundled client cannot connect.
 - Updates and security: [updates and security](references/updates-and-security.md)

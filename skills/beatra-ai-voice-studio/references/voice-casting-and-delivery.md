@@ -1,144 +1,118 @@
-# Voice casting and delivery
+# Voice Casting, Audio Suites, and Delivery
 
-## Resolve an exact current voice
+Reference every exact MCP capability key, field name (`audio` vs `source`,
+`subtitle_enable` vs `subtitles`), and payload layout across the flagship suite.
 
-Always call `beatra.voices.list`, even when the user or conversation already
-contains a `voice_id`. Match that opaque ID exactly and save its current
-`status`, `language`, `languages_supported`, and `compatible_models`. If the
-ID is absent or not `ready`, do not submit; offer another returned current ready
-voice or stop. Use `language`, `gender`, `category`, or `query` only when the
-user's preferences justify the filter. A returned voice may
-contain `display_name`, `category`, `language`, `languages_supported`,
-`gender`, `age`, `accent`, `use_case`, `preview_url`,
-`compatible_models`, `status`, and `created_at`.
+## 11-dimension voice search, free preview, and metadata updates
 
-Recommend only ready candidates. Keep the opaque `voice_id` exactly; a display
-name, description, or previously remembered voice fact is not a substitute for
-the fresh exact-ID lookup. Offer
-`preview_url` only when it is returned, and never synthesize a paid audition.
+Always call `beatra.voices.list` fresh—never trust remembered IDs or invent
+voice names before live return—saving `status`, `language`,
+`languages_supported`, and `compatible_models`. Filter freely with `category`,
+`language`, `gender`, `age_group`, `use_case`, `emotion`, `supports_context`,
+`supports_direction`, `supports_performance_tags`, `supports_dialogue`, and
+`supports_speech_to_speech`. Audition free via `preview_url` or
+`beatra.voices.preview` (`{"voice_id": "..."}`). Update saved voice metadata or
+default pin with non-billable `beatra.voices.update`.
 
-## Build the possible auto set
+## Language normalization and weighted pricing
 
-Call `beatra.models.list` with:
+Normalize supplied BCP-47 tags by lowercasing the primary subtag and mapping
+`nb` -> `no`, `tl` -> `fil` (for example `yue-HK` -> `yue`) against
+`voice.language` and `voice.languages_supported`. Preserve the user's exact
+simplified/traditional characters and dialect vocabulary verbatim unless asked.
 
-```json
-{"capability":"text_to_speech"}
-```
+For `model: "auto"` on TTS, intersect `models.list.auto.candidate_order` with
+`selected_voice.compatible_models`, excluding explicit-only cards, and verify
+every candidate's `constraints.supported_languages` covers any supplied
+language tag. Estimate speech credits dynamically from `estimate_formula`,
+`unit_price_credits`, `scale`, and `billing_basis: "beatra_weighted_characters"`
+(Han = 2, others = 1). Never cite remembered rates.
 
-Define the possible auto set as the ordered intersection of
-`auto.candidate_order` and the exact current voice's `compatible_models`, using
-only currently available model cards. Separately build an explicit pool from
-every live available card in `compatible_models`. A compatible card outside
-`candidate_order` is explicit-only and must never be mixed into the auto set.
-Do not infer an auto result before admission.
+## Smart Voice Director & free validation
 
-Validate a supplied language against the BCP-47 shape used by the current
-contract: a 2-to-8-letter primary tag followed by optional 1-to-8-character
-alphanumeric subtags. Lowercase the primary tag and normalize the documented
-aliases `nb` to `no` and `tl` to `fil`; normalize catalog values the same way,
-so `yue-HK` compares as `yue`.
+Check `{"capability": "speech_script"}` via `beatra.models.list`. Never hand-strip
+`/` tags or custom bracketed vocal-effect cues. After card approval, submit
+`beatra.speech.prepare_script`, inspect `directed` and `scripts[]`, resolve
+`synthesis: null` from `warnings`, and pass `scripts[i].synthesis` unchanged
+plus a fresh `client_request_id` to synthesis (48h free recompile holds only for
+identical `input`/`instructions`/`language`/`context` changing just
+`voice`/`model`, still requiring initial balance cover and <= 2 concurrent
+tasks).
 
-When the user supplied a valid BCP-47 language:
+Always run free `beatra.speech.validate` (`estimated_duration_seconds`) before
+`beatra.speech.synthesize`, and `beatra.speech.validate_dialogue` before
+`beatra.speech.synthesize_dialogue`. Use `subtitle_enable: true` ONLY on TTS and
+dialogue (never `subtitles`).
 
-1. Confirm either the returned `voice.language` or one entry in
-   `voice.languages_supported` has the same normalized primary tag.
-2. Read `constraints.supported_languages` from every model in the possible
-   auto set and compare their normalized primary tags.
-3. Keep `model: "auto"` only when every candidate supports the target.
-4. If the auto set is empty or any candidate fails, select one qualifying card
-   from the full live voice-compatible explicit pool and obtain confirmation.
-5. If the explicit pool has no qualifying card, propose another current ready
-   voice, let the user voluntarily choose another supported target, or make no
-   submission.
+## Multi-speaker dialogue (`text_to_dialogue`)
 
-If no language was supplied, omit `language`. Do not ask for one only to make
-the catalog decision. Keep a nonempty voice-first auto set; if it is empty,
-propose one live card from the explicit pool. If that pool is also empty, offer
-another current ready voice or no submission. Do not treat language as an
-undocumented auto selection input.
-
-## Controls and approved text
-
-The text must be supplied or shown and approved. Preserve names, claims,
-pronunciations, and meaning. Convert written constructions into speakable
-phrasing only with approval when the edit is material. Keep the user's
-characters and dialect wording as written; converting simplified and
-traditional characters or swapping dialect words is a material edit. Use
-punctuation to express breaths and pauses.
-
-Current synthesis controls are `format` (`mp3`, `wav`, `flac`, `opus`, or
-`pcm`), optional `sample_rate`, `speed` from 0.5 to 2.0, `volume` greater
-than 0 and at most 10, `pitch` from -1 to 1 (normalized: 0 keeps the
-voice's original pitch; use decimals like 0.25 for subtle tuning), and
-optional `emotion` from the live supported values. Keep defaults unless the
-destination or user requires a change.
-
-## Calculate the current estimate
-
-Count `beatra_weighted_characters` exactly: each Han ideograph weighs 2 and
-every other character weighs 1. For every applicable model, use the card's
-`estimate_formula`:
-
-```text
-(unit_price_credits * billable_quantity) / scale
-```
-
-Preserve its current `meter`, `unit`, `billing_basis`,
-`unit_price_credits`, and `scale`. An explicit model produces one estimate.
-Auto produces one exact estimate only if all possible candidates have the same
-result; otherwise show the minimum and maximum. Never quote a remembered price
-or raw character count.
-
-## Freeze and submit one request
-
-The production card contains the exact approved text, exact current `voice_id`,
-language if supplied, model or honest auto set, format and controls, weighted
-quantity, live formula and estimate, one paid call, delivery position, what the
-user keeps if they stop here, and the returned top-up message when the balance
-is short.
-A well-specified synthesis request is the approval for this one call; show the
-card with the delivery and do not ask again. A price question, comparison,
-preparation request, or unfrozen batch is not approval. Then create one new
-local `client_request_id` and send exactly:
+Check `{"capability": "text_to_dialogue"}` and verify speakers support dialogue.
+After free `validate_dialogue` and card approval:
 
 ```json
 {
-  "voice": "voice_...",
-  "input": "The exact approved text.",
+  "turns": [
+    {"voice": "voice_host_1", "text": "Welcome to episode five."},
+    {"voice": "voice_guest_2", "text": "Glad to be here—let's unpack the rollout."}
+  ],
   "model": "auto",
   "format": "mp3",
-  "speed": 1.0,
-  "volume": 1.0,
-  "pitch": 0,
-  "client_request_id": "local-opaque-id"
+  "subtitle_enable": true,
+  "client_request_id": "opaque-dialogue-01"
 }
 ```
 
-Include `language`, `emotion`, or `sample_rate` only when frozen in the card.
-Pass this JSON on standard input to:
+## Speech-to-speech (`speech_to_speech`), transcribe (`speech_to_text`), and SFX (`sound_effects`)
 
-```text
-python3 scripts/mcp_client.py call beatra.speech.synthesize
+- `beatra.speech.convert` (uses **`audio`**, requires `supports_speech_to_speech: true`, confirm source speaker rights):
+
+```json
+{
+  "audio": {"type": "artifact", "artifact_id": "artifact_src_01"},
+  "voice": "voice_target_sts",
+  "remove_background_noise": true,
+  "format": "mp3",
+  "client_request_id": "opaque-sts-01"
+}
 ```
 
-Submit once and poll the returned `task_id` with `beatra.tasks.get` until a
-terminal state. Do not create an alternate take or automatic retry.
+- `beatra.audio.transcribe` (uses **`audio`** and **`subtitles`**):
 
-## Review and deliver returned facts
+```json
+{
+  "audio": {"type": "artifact", "artifact_id": "artifact_rec_01"},
+  "diarize": true,
+  "subtitles": true,
+  "tag_audio_events": true,
+  "client_request_id": "opaque-stt-01"
+}
+```
 
-A successful `SpeechOutput` contains:
+- `beatra.audio.generate_sfx`:
 
-- `type: "text_to_speech"`, concrete `model`, and `voice_id`;
-- `audio.url`, `audio.artifact_id`, `audio.duration_seconds`,
-  `audio.mime_type`, `audio.size_bytes`, and optional `audio.sample_rate`;
-- `characters` and optional `subtitles`.
+```json
+{
+  "prompt": "Warm wooden door latch closing gently in a quiet library",
+  "duration_seconds": 3.0,
+  "format": "mp3",
+  "client_request_id": "opaque-sfx-01"
+}
+```
 
-Return those facts with the task's actual status, resolved model, usage, and
-billing when present. Compare returned duration with a target without claiming
-exact timing. Ask the user to listen for readings, pauses, pace, tone, and
-destination fit; do not claim to have heard audio unless it was actually
-available for review.
+## Audio processing & stem separation (`beatra.audio.process`)
 
-A revision changes the production card, needs a new approval and request
-identity, and re-synthesizes only the approved affected segment. Keep every
-accepted artifact unchanged.
+Always use **`source`** (NEVER `audio`) on `beatra.audio.process`:
+
+- **`isolate_voice`** (`{"capability": "audio_voice_isolation"}`, 4.6 s–5 min, <= 100 MB).
+- **`normalize_loudness`** (`{"capability": "audio_process"}`, <= 60 min / <= 300 MB / >= 1 s output, 50/day cap; serialize one call at a time; present strictly as loudness normalization, never free or a mastering service), plus `trim`, `loop`, `fade`, `convert_format`.
+- **`separate_stems`** (`{"capability": "audio_stem_separation"}` with NO `dimensions` input arg on `models.list`—read `pricing[].dimensions.stem_mode`, <= 10 min, <= 100 MB, 20/day cap):
+
+```json
+{
+  "operation": "normalize_loudness",
+  "source": {"type": "artifact", "artifact_id": "artifact_tts_01"},
+  "loudness_lufs": -14,
+  "format": "mp3",
+  "client_request_id": "opaque-norm-01"
+}
+```

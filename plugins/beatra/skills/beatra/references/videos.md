@@ -13,6 +13,19 @@ Choose exactly one video action from the transformation the user wants.
 - Use `beatra.videos.edit` to change an existing video's content or style.
 - Use `beatra.videos.extend` to generate footage immediately before or after one source
   clip.
+- Use `beatra.videos.compose` to join 1–12 of the account's own video clips into one MP4
+  (`canvas`: `9:16`, `16:9`, `1:1`, `3:4`) with optional `narration`, ducked `music`
+  (`{source, volume}`), and up to 200 burned-in `subtitles` (`{start, end, text <= 80}`).
+  Each clip keeps its own trimmed audio only when `keep_audio: true` (for example, a
+  lip-synced presenter take); other clips are muted. Query `{"capability": "video_compose"}`
+  on `beatra.models.list` for live pricing.
+- Use free **`beatra.avatars.list`** before talking-presenter runs to inspect saved
+  portraits (`image.artifact_id` and paired `voice_id`, default first) so returning
+  customers do not need to re-upload their portrait. Use free **`beatra.avatars.save`**
+  to save an uploaded or generated `artifact_id` (`display_name`, optional `purpose`,
+  optional `voice_id`, `make_default`) ONLY after the user agrees to save it and
+  confirms portrait consent (`consent_attested: true`, `consent_subject`: `"self"` or
+  `"authorized_other"`).
 
 These operations are not interchangeable. Editing transforms source content; extension
 adds footage immediately before or after one source clip; reference generation uses media
@@ -46,8 +59,8 @@ That gift delivery does not authorize any later video call.
 Upload local media before generation. Omit `model` unless the user explicitly requests a
 concrete model. A concrete model is never silently replaced. Before
 `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`,
-`beatra.videos.generate_from_references`, `beatra.videos.edit`, or
-`beatra.videos.extend`, show the six-field production card from the main
+`beatra.videos.generate_from_references`, `beatra.videos.edit`,
+`beatra.videos.extend`, or `beatra.videos.compose`, show the six-field production card from the main
 instructions and wait for the user's answer. Carry this route's own facts into
 it: the tool being called, and the duration, resolution, and aspect read from
 the live card beside the provisional estimate. Planning, comparison, or “make
@@ -67,3 +80,21 @@ When polling ends with `status: "failed"`, preserve the complete `Task.error`, i
 `code`, `type`, `message`, `retryable`, `param`, `details`, and `request_id`.
 `model_output_invalid` means the generated artifact could not be downloaded after three
 attempts; report the failure because there is no result artifact to deliver.
+
+```bash
+python3 scripts/mcp_client.py call beatra.videos.compose
+```
+
+```json
+{
+  "clips": [
+    {
+      "source": {"type": "artifact", "artifact_id": "art_clip_1"},
+      "keep_audio": true
+    }
+  ],
+  "narration": {"type": "artifact", "artifact_id": "art_voice_1"},
+  "canvas": "9:16",
+  "client_request_id": "compose-opaque-1"
+}
+```

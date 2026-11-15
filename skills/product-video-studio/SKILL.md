@@ -25,15 +25,15 @@ Claims split by source. What the photo shows — shape, colour, finish, apparent
 
 ## Golden path
 
-1. Inspect the photo and record its real MIME type, alpha channel, dimensions, aspect ratio, and byte size. Read the live `image_to_image`, `text_to_speech`, and `image_to_video` cards with `beatra.models.list`; compare every planned image, speech, and video fact against the relevant card.
+1. Inspect the photo and record its real MIME type, alpha channel, dimensions, aspect ratio, and byte size. Read the live `image_to_image`, `text_to_speech`, and `image_to_video` cards with `beatra.models.list` (and read `{"capability": "speech_script"}` when using Smart Voice Director for pacing, or `{"capability": "sound_effects"}` when adding product foley/SFX hits); compare every planned image, speech, SFX, and video fact against the relevant card.
 2. Upload the admitted photo through the bundled client with its detected MIME type, complete the returned upload flow, and retain its artifact ID. Use that one artifact for the direct-frame route or the opening-frame transform.
 3. Prepare the 9:16 opening frame with `beatra.images.transform`, or use the uploaded photo directly when it is already vertical, admissible, and clean.
-4. Write the script from visible facts plus merchant-supplied claims, budgeted to about 12 seconds. Select a voice with `beatra.voices.list`.
-5. **Confirm preparation.** Show the script, the 9:16 canvas and what changing it later would cost, the selected ready voice, and the exact paid preparation route: a direct opening photo plus narration, a transformed opening frame plus narration, or that route plus an approved related last-frame edit for a two-frame video. State the current estimate and a stable request ID for every planned paid call.
-6. Synthesize narration with `beatra.speech.synthesize`, then read the actual returned duration, size, and MIME type.
-7. **Show the merchant the real materials.** Display the frame and play the narration whenever the host can access them, report the true duration, and re-check it against the live card before going further. Clearly distinguish returned task facts from media details that the host could not inspect.
-8. **Show the video admission card.** After `beatra.models.list` admits the accepted frame plus the actual narration, show route `image_to_video`, tool `beatra.videos.animate`, frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the frame, the narration, an explicitly selected model, and that audio-led duration.
-9. Poll that task with `beatra.tasks.get` until terminal, deliver the video, and review what you can actually see.
+4. Write the script from visible facts plus merchant-supplied claims, budgeted to about 12 seconds. Discover voices with `beatra.voices.list` (bilingual `search` plus `supports_direction`, `supports_emotion`, `supports_performance_tags`, `supports_context`, inspecting all 11 `capabilities.*` flags) and optionally audition candidates free with `beatra.voices.preview`. When spoken pauses, dramatic beats, or pronunciation notes are needed, run `beatra.speech.prepare_script` (Smart Voice Director, preserving your exact wording; pass ready `scripts[].synthesis` unchanged, or if `scripts[].synthesis` is `null`, inspect `warnings`; 48h re-call with identical copy changing only `voice`/`model` runs at zero extra charge; max 2 concurrent; never hand-author braced tags or strip `/` pauses manually). Always run free `beatra.speech.validate` first so `valid`, weighted characters, live `price_credits`, and `estimated_duration_seconds` fit under the 15-second limit before committing synthesis.
+5. **Confirm preparation.** Show the script, the 9:16 canvas and what changing it later would cost, the selected ready voice, and the exact paid preparation route: direct opening photo or transformed opening frame, `beatra.speech.prepare_script` when run, narration (`beatra.speech.synthesize`, keeping `subtitle_enable: true` for free `output.subtitles` JSON/`SRT`/`VTT`), any optional product foley/SFX clip (`beatra.audio.generate_sfx` after `{"capability": "sound_effects"}`, listed as its own paid line, never free), or that route plus an approved related last-frame edit for a two-frame video. State the live estimate and a fresh opaque `client_request_id` for every planned paid call (`voices.list`, `voices.preview`, and `speech.validate` run free beforehand).
+6. Synthesize narration with `beatra.speech.synthesize` (and any confirmed `beatra.audio.generate_sfx` clip), then read the actual returned duration, size, MIME type, and free aligned `output.subtitles` (`JSON`/`SRT`/`VTT`) plus `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs`.
+7. **Show the merchant the real materials.** Display the frame and play the narration (plus any SFX clip) whenever the host can access them, report the true duration, and re-check it against the live card before going further. Clearly distinguish returned task facts from media details that the host could not inspect.
+8. **Show the video admission card.** After `beatra.models.list` admits the accepted frame plus the actual narration, show route `image_to_video`, tool `beatra.videos.animate`, frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, live credit estimate, and what happens if the balance is short (never assume or hardcode credit numbers). Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the frame, the narration, an explicitly selected model, and that audio-led duration.
+9. Poll that task with `beatra.tasks.get` until terminal, deliver the video (plus any SFX clip and free aligned `SRT`/`VTT` subtitle files from narration), and review what you can actually see.
 
 Select the video model explicitly rather than leaving it to `auto`: only some models on this capability accept supplied narration, and one that does not will discard it.
 
@@ -50,7 +50,9 @@ Invoke every remote Beatra tool only through the bundled `scripts/mcp_client.py`
 ```text
 printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_image"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"speech_script"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_speech"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"sound_effects"}' | python3 scripts/mcp_client.py call beatra.models.list
 python3 scripts/mcp_client.py upload ./product.jpg --mime-type image/jpeg
 ```
 
@@ -82,7 +84,8 @@ memory.
 ## References by task
 
 - Inspecting a photo, handling transparency, producing the 9:16 opening frame, or keeping the product consistent across two frames: [the first frame](references/first-frame.md)
-- Writing the script, sourcing claims, budgeting length, screening copy, or choosing a voice: [writing the narration](references/copy-craft.md)
+- Writing the script, sourcing claims, budgeting length with free preflight, screening copy, or choosing and auditioning a voice: [writing the narration](references/copy-craft.md)
+- Smart Voice Director, 11-dimension voice discovery and free audition, free `beatra.speech.validate`, free `SRT`/`VTT` subtitles, and paid `beatra.audio.generate_sfx` foley: [speech, voices, and audio finishing](references/speech-and-audio.md)
 - Exact payloads, what each confirmation freezes, polling, redoing one stage, recovery, and cancellation: [commerce video workflow](references/workflow.md)
 - First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Non-billable package registration: [installation registration](references/installation-registration.md)

@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI Voice Cloning Studio"
+  short_description: "Create a reusable personal or brand voice from a clean audio sample, give it a memorable name, and hear it in a short test reading."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $voice-cloning-studio to make a reusable voice named Shop Host from my recording, then play a test line. Sample attached."
+policy:
+  allow_implicit_invocation: true

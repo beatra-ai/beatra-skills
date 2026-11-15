@@ -19,20 +19,24 @@ a larger charge.
 
 ## Read the live cards before quoting a price
 
-A run touches four separately priced capabilities. Read each card before the
-confirmation, because the maximum charge per stage spans two image cards:
+A run touches at least four separately priced capabilities (plus optional Smart Voice Director, multi-speaker dialogue, and sound effects when selected). Read every needed card before confirmation:
 
 ```text
 printf '%s' '{"capability":"text_to_image"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_image"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"speech_script"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_speech"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"text_to_dialogue"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"sound_effects"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 `text_to_image` prices the cast references and any character-free shot,
 `image_to_image` prices every shot that carries a cast reference,
-`text_to_speech` prices the narration, and `image_to_video` prices the animated
-beats. For each image stage, inspect `pricing.options` and match every option
+`speech_script` prices optional Smart Voice Director (`beatra.speech.prepare_script`),
+`text_to_speech` prices single-voice narration, `text_to_dialogue` prices
+multi-speaker dialogue beats, `sound_effects` prices optional atmospheric foley
+(`beatra.audio.generate_sfx`), and `image_to_video` prices the animated beats. For each image stage, inspect `pricing.options` and match every option
 dimension against the admitted request. A preset canvas tier supplies a returned
 `resolution` dimension; an empty dimensions object is the default. If a target
 canvas or request-dependent model cannot resolve to one option before admission,
@@ -86,21 +90,45 @@ python3 scripts/mcp_client.py upload ./character-sheet.png --mime-type image/png
 Never send a local path to a remote tool, and keep an existing HTTPS URL or
 Beatra artifact reference as its typed media input instead of re-uploading it.
 
-## Record the narration
+## Record the narration, dialogue, and atmospheric SFX
 
-Reuse one narrator voice for the whole piece. Call `beatra.voices.list` only
-when a voice is still needed or the user asks to compare, then synthesize each
-beat separately so every clip has its own audio artifact:
+Reuse one narrator voice for the whole piece, or pick a multi-voice cast when a
+beat pairs narrator and character dialogue. Call `beatra.voices.list` when a
+voice is still needed or the user asks to compare (filter `supports_dialogue=true`
+for dialogue turns), and audition candidate voices free with `beatra.voices.preview`
+(`{"voice_id": "..."}`). When dramatic pauses, breaths, or polyphonic/foreign
+names benefit from direction without editing the prose or writing hand-authored
+brace markup (`{pause}`, `{pron}`), confirm and call optional paid Smart Voice
+Director (`beatra.speech.prepare_script`, `{"capability": "speech_script"}`): it
+returns `directed` and `scripts[]` (`synthesis` text or `null` plus `warnings`),
+falls back cleanly to the plain text when `directed` is `false`, and carries
+zero extra charge when re-called within 48 hours with identical `input`,
+`instructions`, `language`, and `context` changing only `voice` or `model` (max 2
+concurrent).
+
+Run free `beatra.speech.validate` before each `beatra.speech.synthesize` call,
+keeping `subtitle_enable: true` by default so aligned JSON/SRT/VTT
+`output.subtitles` return free alongside each beat audio artifact:
 
 ```text
-printf '%s' '{"voice":"<opaque voice_id>","input":"她没有回头。身后的门在火里塌了一半，而她只是把刀又握紧了一点。","client_request_id":"opaque-beat-03-speech-id"}' | python3 scripts/mcp_client.py call beatra.speech.synthesize
+printf '%s' '{"voice":"<opaque voice_id>","input":"她没有回头。身后的门在火里塌了一半，而她只是把刀又握紧了一点。","subtitle_enable":true,"client_request_id":"opaque-beat-03-speech-id"}' | python3 scripts/mcp_client.py call beatra.speech.synthesize
 ```
+
+For multi-character dialogue scenes (`2–50` turns, `<= 2,000` characters, at
+most `10` distinct `supports_dialogue=true` voices including at most `4` custom
+voices), run free `beatra.speech.validate_dialogue` first, then synthesize with
+`beatra.speech.synthesize_dialogue` (`{"capability": "text_to_dialogue"}`,
+keeping `subtitle_enable: true`). For optional atmospheric foley (`0.5–30 s`,
+`loop: true` optional), call confirmed `beatra.audio.generate_sfx`
+(`{"capability": "sound_effects"}`) and deliver those ambient tracks alongside the
+beats for post-cut mixing, because `beatra.videos.animate` takes one
+`driving_audio`. See [speech and audio](speech-and-audio.md).
 
 Read the actual returned duration, size, and MIME type from the terminal task.
 That real duration, not the drafted line length, decides the video duration for
-the matching beat. Speech is billed per 1,000 weighted characters, where each
-Han ideograph counts as two and every other character counts as one, so a
-request below 1,000 is charged for its actual weighted characters.
+the matching beat. Speech and dialogue are billed per 1,000 weighted characters,
+where each Han ideograph counts as two and every other character counts as one,
+so a request below 1,000 is charged for its actual weighted characters.
 
 ## Set each beat to its narration
 
@@ -141,7 +169,7 @@ rather than ignored.
 Before creating a video `client_request_id` or submitting
 `beatra.videos.animate` or `beatra.videos.extend`, show the admission card:
 route and MCP tool name, audio-led or extend duration, resolution if set,
-provisional estimate, the fact that the 600-credit signup gift usually cannot
+provisional estimate, the fact that the signup gift usually cannot
 start this video, and what happens if the balance is short. Do not submit until
 the user confirms they have topped up or already have enough credits for this
 estimate. Approved stills or narration do not authorize the video. A request to
@@ -179,11 +207,15 @@ each already carrying its own narration.
 
 ## Confirm before paying
 
-One beat spans three paid calls. Before the first submission show: the frozen
-beat sheet, the cast references, every narration line, the canvas, the
-explicitly selected video model, the count of image, speech, and video calls,
-the current maximum charge for each stage, and a separate opaque stable
-`client_request_id` per call. Never reuse one ID across stages.
+One beat can span an image, an optional `prepare_script`, a speech or dialogue
+call, an optional SFX call, and a video call. Before the first submission show:
+the frozen beat sheet, the cast references, every narration or dialogue line,
+the canvas, the explicitly selected video model, the count of image,
+`prepare_script`, speech/dialogue, SFX, and video calls, the current maximum
+charge for each paid stage (explicitly noting free `voices.list`,
+`voices.preview`, `speech.validate`/`validate_dialogue`, and aligned
+`output.subtitles`), and a separate opaque stable `client_request_id` per paid
+call. Never reuse one ID across stages.
 
 Any changed passage, beat, cast reference, narration line, canvas, model,
 or control is new paid work with a new ID and a fresh approval. A

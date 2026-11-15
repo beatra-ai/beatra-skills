@@ -1,0 +1,8 @@
+interface:
+  display_name: "Whiteboard Animation Maker"
+  short_description: "Turn a concept, a script, or a benchmark video into a vertical black-and-white hand-drawn whiteboard film, with stroke-by-stroke Chinese and English words…"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $whiteboard-animation-maker to make a vertical hand-drawn explainer on what photosynthesis is, narrated in a calm voice."
+policy:
+  allow_implicit_invocation: true

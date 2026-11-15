@@ -15,19 +15,19 @@ This package uses only these operations (one "read a single item" per
 platform, no searches, no comment threads):
 
 ```text
-social.xiaohongshu.note.video.get   (Xiaohongshu video note; share_text or note_id; 60 credits)
-social.douyin.video.get_by_url      (Douyin; share_url; 6 credits)
-social.tiktok.video.get_by_url      (TikTok; share_url; 6 credits)
-social.youtube.video.get            (YouTube; video_id; 6 credits)
-social.instagram.post.get           (Instagram post or reel; code_or_url; 12 credits)
-social.twitter.tweet.get            (X/Twitter; tweet_id; 6 credits)
+social.xiaohongshu.note.video.get   (Xiaohongshu video note; share_text or note_id; live quote via beatra.social.tools.get)
+social.douyin.video.get_by_url      (Douyin; share_url; live quote via beatra.social.tools.get)
+social.tiktok.video.get_by_url      (TikTok; share_url; live quote via beatra.social.tools.get)
+social.youtube.video.get            (YouTube; video_id; live quote via beatra.social.tools.get)
+social.instagram.post.get           (Instagram post or reel; code_or_url; live quote via beatra.social.tools.get)
+social.twitter.tweet.get            (X/Twitter; tweet_id; live quote via beatra.social.tools.get)
 ```
 
 A platform with no operation in this whitelist has no lookup — say so once,
 in words, and never enumerate the gap as a list. Each operation returns one
 result and is not paginated; there is no next-page charge on this whitelist.
-Credit figures above are catalog facts; the price on the confirmation card is
-always the one `beatra.social.tools.get` just returned.
+Never quote remembered or static prices; the price on the confirmation card is
+always the live credit price `beatra.social.tools.get` just returned.
 
 ## The route
 

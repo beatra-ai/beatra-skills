@@ -59,10 +59,17 @@ paid tool that rewrites a brief by design, not a control.
 ## The user asks why a video needs a top-up when an image did not
 
 A direct, well-specified request authorizes one paid image, music generation,
-speech, or social execute, and one gift-sized video-prompt or keyframe stage. It
-does not authorize `beatra.videos.generate`, `animate`, `interpolate`,
-`generate_from_references`, `edit`, `extend`, `beatra.voices.clone`, or any
-`beatra.music.edit` or `beatra.audio.process` step.
+single-speaker speech, or social execute, and one gift-sized video-prompt or
+keyframe stage. It does not authorize `beatra.videos.generate`, `animate`,
+`interpolate`, `generate_from_references`, `edit`, `extend`,
+`beatra.videos.compose`, `beatra.voices.clone`, `beatra.voices.activate`,
+`beatra.speech.prepare_script`, `beatra.speech.synthesize_dialogue`,
+`beatra.speech.convert`, `beatra.audio.transcribe`, `beatra.audio.generate_sfx`,
+or any `beatra.music.edit` or `beatra.audio.process` step (only read-only/free
+tools such as `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
+`beatra.voices.list`, `beatra.voices.preview`, `beatra.voices.update`,
+`beatra.voices.delete`, `beatra.avatars.list`, and `beatra.avatars.save` run
+without charging credits).
 
 Those need the six-field production card in the main instructions first,
 carrying that route's tool name, its live-card duration, resolution and aspect,
@@ -126,14 +133,22 @@ suggest changing a model, and do not turn the lookup into generation. Copy
 it, and never invent an `operation_key`. See
 [public social data](social.md).
 
-## The user wants a voice cloned
+## The user wants a voice cloned, activated, or deleted
 
-Voice cloning is the one route with a rights gate before the upload. Obtain
+Voice cloning is the route with a rights gate before the upload. Obtain
 explicit confirmation that the user owns the voice or has the owner's
-permission, show the production card, and only then set
-`consent_attested: true`. Ordinary media upload has no equivalent step, so do
-not add one. See [uploads](uploads.md) and
-[speech and voices](speech-and-voices.md).
+permission, optionally propose paid `beatra.audio.process`
+`operation="isolate_voice"` cleanup if the sample is noisy, show the production
+card, and only then set `consent_attested: true` on `beatra.voices.clone`. If
+the clone returns `status="pending_activation"`, show the activation quote and
+terms first and run `beatra.voices.activate` only after explicit approval. Never
+chain both steps of `beatra.voices.delete` without explicit confirmation of the
+returned warning and 15-minute `confirmation_token`. Ordinary media upload has
+no clone rights gate, while saving a presenter portrait via `beatra.avatars.save`
+also requires explicit portrait consent (`consent_attested: true`,
+`consent_subject`). See [uploads](uploads.md),
+[speech and voices](speech-and-voices.md), and
+[speech and audio](speech-and-audio.md).
 
 ## The user asks whether a returned file is any good
 

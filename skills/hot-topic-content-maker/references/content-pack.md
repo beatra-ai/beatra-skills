@@ -67,7 +67,7 @@ Do not put a real public figure's face or name on a presenter, and do not descri
 
 ## Subtitles, the finished video, and the edit list
 
-Subtitles come from the approved narration, never from a transcript of the audio: the approved text is already exact, and nothing in this route transcribes speech. Split the narration at sentence or clause boundaries into lines of up to about 16 Chinese characters or 7 English words. Time each line from the real narration duration returned by the speech call: share the duration in proportion to each line's length, then move each boundary to the nearest clause end. Deliver them as an SRT file:
+With `subtitle_enable: true` (the default on `beatra.speech.synthesize` — never pass `"subtitles"`), synthesis automatically returns free aligned `output.subtitles` (`url`, `format`, `segment_count`, and `files: {"json": ..., "srt": ..., "vtt": ...}`) alongside `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs`. Use those returned timestamps and files directly rather than dividing narration length proportionally by hand:
 
 ```text
 1
@@ -79,7 +79,7 @@ Subtitles come from the approved narration, never from a transcript of the audio
 门窗、车辆、贵重物品各一张
 ```
 
-The same lines and times are passed to the join as cues, which burns them into the picture. The join trims the music to the video, fades it out, and lowers it under speech.
+Pass the cue lines and timestamps from `output.subtitles` into `beatra.videos.compose` as `subtitles` (for multi-take presenter videos, offset each take's cues by the cumulative duration of preceding takes and cutaways; keep within `videos.compose`'s 200 cues and 80 characters per cue). When a finished video is joined, `videos.compose` burns those subtitles in and trims/fades/ducks the music; when standalone BGM delivery is prepared for parts/re-cut (or when the finished video cannot be joined), paid `beatra.audio.process` (`trim`, `fade`, `normalize_loudness`) can finish the standalone BGM track before handover alongside the returned `JSON`/`SRT`/`VTT` subtitle files.
 
 The edit list is the fallback: it is delivered when the finished video could not be made, or when the user wants to cut the parts themselves. One row per shot or take, and the clip-audio column says whether the clip's own sound is kept.
 

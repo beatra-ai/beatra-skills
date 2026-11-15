@@ -22,25 +22,38 @@ printf '%s' '{"query":"video by url","platform":"tiktok","capability_family":"co
 
 One `beatra.social.execute` is one lookup and one charge; a second page of comments is a second charge and a second decision for the user. Carry every returned figure into the teardown with its read time attached.
 
-## Reading the reference — a gate when the reference is a video file
+## Reading the reference — optional visual and audio transcription gates
 
-Only when the reference is a video file whose actual frames still need reading. For screenshots, a transcript, or the user's own account of it, this cost never arises, and the teardown from those is just as real.
+Only when the reference is a video or audio file whose visual frames or verbatim speech still need reading. For screenshots, a user-pasted transcript, or the user's own account of it, these costs never arise, and the teardown from those is just as real.
 
-Reading those frames is one `beatra.videos.understand` call, billed per admitted input-video second, per [reading the reference](teardown.md). **It admits at most 50 MiB and 360 seconds of input video — a fixed tool limit, not a live-card figure — and rejects anything past either one before any charge is made.** State both limits before the price is quoted, so a long or heavy reference is ruled in or out before the user commits to anything. It is prepaid and confirmed on its own, separately from the frames and the video, the same way the lookup above is: read the live per-second price from `beatra.models.list` with capability `video_to_text`, quote that — never a number from memory — and say plainly that the teardown can still run at no cost from screenshots, a transcript, or the user's own account instead. Only once the user agrees, and the file is confirmed to sit inside both limits, does `beatra.videos.understand` run.
+Reading the visual frames is one `beatra.videos.understand` call, billed per admitted input-video second, per [reading the reference](teardown.md). **It admits at most 50 MiB and 360 seconds of input video — a fixed tool limit, not a live-card figure — and rejects anything past either one before any charge is made.** State both limits before the price is quoted, so a long or heavy reference is ruled in or out before the user commits to anything. It is prepaid and confirmed on its own, separately from the frames and the video, the same way the lookup above is: read the live per-second price from `beatra.models.list` with capability `video_to_text`, quote that — never a number from memory — and say plainly that the teardown can still run at no cost from screenshots, a transcript, or the user's own account instead. Only once the user agrees, and the file is confirmed to sit inside both limits, does `beatra.videos.understand` run.
 
 ```text
 printf '%s' '{"capability":"video_to_text"}' | python3 scripts/mcp_client.py call beatra.models.list
 ```
 
-Once that call has run — or once the user has supplied screenshots, a transcript, or their own account instead — nothing further is charged until approval gate 1: the teardown, the rewrite, the shot list, and the route decision are all free.
+When an uploaded video or audio reference lacks both a supplied transcript and YouTube captions and the user wants exact verbatim hooks, speaker diarization, or non-speech audio events transcribed, quote the live per-second price from `beatra.models.list` with `{"capability": "speech_to_text"}`, state its limits (`<= 60 min`, `<= 100 MiB`), note the free alternative (user transcript/screenshots), and wait for separate explicit confirmation before calling `beatra.audio.transcribe`. Pass `diarize: true` (plus `num_speakers` when known), `tag_audio_events: true`, and `subtitles: true` (free JSON/SRT/VTT subtitle outputs alongside the verbatim text).
+
+```json
+{
+  "audio": {"type": "artifact", "artifact_id": "art_reference_clip"},
+  "model": "<speech_to_text model id from live card>",
+  "diarize": true,
+  "tag_audio_events": true,
+  "subtitles": true,
+  "client_request_id": "opaque-transcribe-id"
+}
+```
+
+Once those confirmed reads finish — or once the user has supplied screenshots, a transcript, or their own account instead — nothing further is charged until approval gate 1: the teardown, the rewrite, the shot list, and the route decision are all free.
 
 ## Free stage
 
-Produce the teardown from whatever reference material is now in hand — the paid `beatra.videos.understand` read if it ran, or the screenshots, transcript, or account the user gave instead — per [reading the reference](teardown.md). Rewrite it onto the user's subject and produce the shot list per [rewriting onto your subject](remake-plan.md). Select a voice with `beatra.voices.list`.
+Produce the teardown from whatever reference material is now in hand — the confirmed `beatra.videos.understand` / `beatra.audio.transcribe` reads if they ran, or the screenshots, transcript, or account the user gave instead — per [reading the reference](teardown.md). Rewrite it onto the user's subject and produce the shot list per [rewriting onto your subject](remake-plan.md). Browse preset voices with `beatra.voices.list` and audition candidates free with `beatra.voices.preview` (`{"voice_id": "<id>"}`).
 
-Read the live cards with `beatra.models.list` for `text_to_image` and `text_to_speech`: the image card admits the canvas and count, the speech card admits the selected voice, language, and output format. Also read the live card for whichever video capability the shoot call will actually use — `image_to_video` for `beatra.videos.animate`, `frames_to_video` for `beatra.videos.interpolate`, `reference_to_video` for `beatra.videos.generate_from_references` on a segmented rebuild's unit built from ordered references, or `video_extend` when a shot must be continued past the unit ceiling — since that is the card whose admitted input combination and supported duration actually govern this route's video call, not any other capability's.
+Read the live cards with `beatra.models.list` for `text_to_image` and `text_to_speech` — plus `speech_script` if using **Smart Voice Director**, `audio_voice_isolation` if cleaning a noisy clone sample, and `audio_process` if normalizing or trimming final audio: the image card admits the canvas and count, the speech card admits the selected voice, language, and output format. Also read the live card for whichever video capability the shoot call will actually use — `image_to_video` for `beatra.videos.animate`, `frames_to_video` for `beatra.videos.interpolate`, `reference_to_video` for `beatra.videos.generate_from_references` on a segmented rebuild's unit built from ordered references, or `video_extend` when a shot must be continued past the unit ceiling — since that is the card whose admitted input combination and supported duration actually govern this route's video call, not any other capability's.
 
-From `beatra.voices.list`, freeze one `status: ready` opaque voice ID together with its current supported languages and compatible models. Use the live text-to-speech card to confirm the requested BCP-47 language, model behaviour, output format, and current weighted-character price.
+From `beatra.voices.list`, freeze one `status: ready` opaque voice ID together with its current supported languages and compatible models. Use `beatra.speech.validate` (free preflight) and the live text-to-speech card to confirm the requested BCP-47 language, model behaviour, output format, `estimated_duration_seconds`, and current weighted-character price.
 
 Everything in this stage is free and revisable. The shot list is approved here, before any estimate is shown, because revising it later means redoing paid artifacts. A lookup already run cannot be un-run, and neither can a `beatra.videos.understand` read already run — that is why each has its own gate above rather than sitting inside this one.
 
@@ -68,26 +81,34 @@ Show the selected route in one block, then freeze:
 
 - the approved shot list, which beats become generated frames, and — per the chosen route — either that only the opening frame is animated into the clip while every other marked frame is delivered as a still for the user's own edit, or that each unit in the sequence gets its own reference frame and its own generation call, delivered as segment sources with captions and a timecoded edit list, per [three rebuild routes](rebuild-routes.md);
 - the 9:16 canvas, **with the statement that changing the ratio later means producing every paid artifact again**;
-- the ready voice ID, language, speech model behaviour, and controls — or, when the user chose to clone one instead, the live `voice_clone` price and that clone's own stable request ID;
-- every paid preparation call, each with its current maximum price and stable request ID — a voice clone included, whenever one ran;
+- the ready voice ID, language, speech model behaviour, and controls (after free `beatra.voices.preview` auditioning and free `beatra.speech.validate` preflight) — or, when the user chose to clone one instead, the live `voice_clone` price (plus optional `isolate_voice` pre-clean price if needed) and its own stable request ID;
+- every paid preparation call, each with its current maximum price and stable request ID — including optional `beatra.speech.prepare_script`, optional `beatra.voices.clone` / `isolate_voice`, and any confirmed `beatra.audio.process` finishing step;
 - that the video itself is confirmed separately.
 
 A clear instruction to proceed counts as approval. Planning, comparing options, or an unresolved voice choice does not.
 
 ## Preparation — the paid frame and narration calls
 
-**When the voice lock is satisfied by cloning instead of a ready pick.** The default costs nothing: pick one `status: ready` voice with `beatra.voices.list` and reuse that id for the whole clip — offer this first. Only when the user explicitly asks for a voice built from their own sample does `beatra.voices.clone` run, and it is gated exactly like every other paid call here: read the live `voice_clone` card with `beatra.models.list`, quote its current price, and get the user's explicit confirmation before submitting. Set `consent_attested: true` only once the user attests they hold the rights to clone that sample — never set it on their behalf. Give the clone its own stable `client_request_id`, submit it once, and poll it with `beatra.tasks.get` to terminal before using its returned voice id as `voice` in the narration call below.
+**When the voice lock is satisfied by cloning instead of a ready pick.** The default costs nothing: pick one `status: ready` voice with `beatra.voices.list`, audition with free `beatra.voices.preview`, and reuse that id for the whole clip — offer this first. Only when the user explicitly asks for a voice built from their own sample does `beatra.voices.clone` run, and it is gated like every other paid call here: if the sample (`4.6 s – 5 min`, `<= 100 MiB`) has background noise or music, offer optional paid `beatra.audio.process` (`operation: "isolate_voice"`, `source`, capability `audio_voice_isolation`) first on its own confirmed line; then read the live `voice_clone` card with `beatra.models.list`, quote its current price, and get the user's explicit confirmation before submitting. Set `consent_attested: true` only once the user attests they hold the rights to clone that sample — never set it on their behalf. Give each step its own stable `client_request_id`, submit once, and poll `beatra.tasks.get` to terminal before using the instant-ready returned voice id as `voice` in the narration call below. See [speech and audio](speech-and-audio.md).
 
 ```json
 {
-  "sample": { "type": "artifact", "artifact_id": "art_voice_sample" },
+  "operation": "isolate_voice",
+  "source": { "type": "artifact", "artifact_id": "art_noisy_voice_sample" },
+  "client_request_id": "opaque-isolate-voice-id"
+}
+```
+
+```json
+{
+  "sample": { "type": "artifact", "artifact_id": "art_clean_voice_sample" },
   "display_name": "Cloned voice for this remake",
   "consent_attested": true,
   "client_request_id": "opaque-voice-clone-id"
 }
 ```
 
-One `beatra.images.generate` call per marked beat, and one `beatra.speech.synthesize` call for the whole narration. Give each its own stable opaque `client_request_id` and submit it exactly once.
+When the narration script needs natural pauses, hook emphasis, or polyphonic reading fixes, run confirmed paid **Smart Voice Director** (`beatra.speech.prepare_script`, capability `speech_script`; re-calling within 48 hours with the same `input`, `instructions`, `language`, and `context` changing only `voice` or `model` carries zero extra charge, max 2 concurrent, balance still covers initial estimate). Inspect `directed` and `scripts[]` (follow `warnings` when `synthesis` is `null`), never hand-author braced markup, then run free `beatra.speech.validate` (`subtitle_enable: true`) to get `estimated_duration_seconds`, weighted characters, and live credits before submitting one `beatra.images.generate` call per marked beat and one `beatra.speech.synthesize` call for the whole narration (keeping `subtitle_enable: true` so free aligned JSON/SRT/VTT subtitles and sentence timings return with the audio). Give each its own stable opaque `client_request_id` and submit it exactly once. Optional paid audio finishing (`beatra.audio.process`, `normalize_loudness` default `-14 LUFS`, `trim`, `fade`, up to 60 minutes and `<= 300 MB`, min output `>= 1 s`, always passing `"operation"` and `"source"`) takes its own confirmed card at live `audio_process` price and is never called free or `"mastered"`.
 
 ```json
 {
@@ -101,9 +122,10 @@ One `beatra.images.generate` call per marked beat, and one `beatra.speech.synthe
 ```json
 {
   "voice": "voice_selected",
-  "input": "The approved narration, all beats joined in order.",
+  "input": "The approved narration (or synthesis text returned by prepare_script).",
   "language": "the admitted BCP-47 language",
   "format": "mp3",
+  "subtitle_enable": true,
   "client_request_id": "opaque-narration-id"
 }
 ```
@@ -267,7 +289,7 @@ A variant — a different hook, a different language — is not a fresh rebuild.
 Stop, say what is missing, and propose the smallest fix when:
 
 - the reference is too thin to segment even after the one hook-and-ending question, and the user does not want a link looked up;
-- the user wants a transcript for a platform other than YouTube, where no transcript operation exists — say so, and fall back to the remaining tiers of the four-tier dialogue ladder: a transcript the user supplies directly, hard-burned subtitles read from the frames (mark them approximate), or record the line as missing — never a guess about the clip's audio, which the vision model cannot hear;
+- the user wants a transcript for a platform other than YouTube, where no link-based transcript operation exists — say so, and fall back to the remaining tiers of the five-tier dialogue ladder: a transcript the user supplies directly, optional paid `beatra.audio.transcribe` (`speech_to_text`) on a provided clip file, hard-burned subtitles read from the frames (mark them approximate), or record the line as missing — never a guess about audio from `beatra.videos.understand`;
 - a claim the user wants stated about their own subject has not been supplied;
 - a media fact cannot be established, or fails the live card;
 - for a single continuous take, the narration came back shorter than the selected card's minimum or longer than its longest supported duration — say so, rewrite the spoken fields to the live budget, and synthesize again rather than shortening the video to the ceiling; for a segmented rebuild, a unit's own slice of table 3 runs longer than the card allows — repack the unit boundaries, or use `beatra.videos.extend` to continue within that one shot, per [three rebuild routes](rebuild-routes.md), rather than truncating it;

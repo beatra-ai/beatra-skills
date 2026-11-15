@@ -30,12 +30,26 @@ from `script.txt` lines (splitting long lines at pauses) and writes
 `voice.js`; `captions.js` shows one line per timestamp. No timecodes, no
 full paragraphs.
 
-## Choosing a voice or cloning
+## Choosing a voice, preflight checks, or cloning
 
-`beatra.speech.synthesize` and `beatra.voices.clone` are billable. Before
-each paid call, show the six-field current production card from the package
-root and wait. A changed script, voice, or speed is new paid work: new
-card, new `client_request_id`, never an automatic resubmit.
+`beatra.voices.list` (11-dimension filters: `category`, `language`, `gender`,
+`age_group`, `use_case`, `emotion`, `supports_context`, `supports_direction`,
+`supports_performance_tags`, `supports_dialogue`, `supports_speech_to_speech`),
+`preview_url` / `beatra.voices.preview` (`{"voice_id": "..."}`), and
+`beatra.speech.validate` (`estimated_duration_seconds`) are free planning/audit
+tools. `beatra.speech.prepare_script`, `beatra.speech.synthesize`,
+`beatra.voices.clone`, and `beatra.audio.process` (`normalize_loudness`) are
+billable. Before each paid call, show the six-field current production card from
+the package root and wait. A changed script, voice, speed, or loudness target is
+new paid work: new card, new `client_request_id`, never an automatic resubmit.
+
+Never strip `/` pause markers manually or insert custom bracketed vocal-effect syntax. If pacing
+direction helps `script.txt`, inspect `{"capability": "speech_script"}`, approve
+its six-field card, run `beatra.speech.prepare_script` (handling `synthesis: null`
+via `warnings`; 48h same-inputs `voice`/`model`-only free recompile holds only
+when initial balance covers the estimate and <= 2 concurrent tasks run—never
+claim `prepare_script` is free in general). Always run free
+`beatra.speech.validate` before `speech.synthesize` to check duration and fit.
 
 Weighted characters: Hanzi count 2, everything else 1. Before quoting a
 synthesis price, call `beatra.models.list`:
@@ -44,14 +58,28 @@ synthesis price, call `beatra.models.list`:
 {"capability": "text_to_speech"}
 ```
 
-Before quoting a clone price, call `beatra.models.list`:
+Before quoting a clone price, inspect capability options without upstream
+vendor names or internal IDs:
 
 ```json
-{"capability": "voice_clone"}
+{"capability": "voice_clone", "include_activation_required": true}
 ```
 
-Never quote a remembered number. `voice.mjs estimate` prints character
-counts only; it is not the live credit figure.
+Use immediate-ready cloning (`auto` or expressive multilingual) via
+`voice.mjs clone-submit --consent` here; route noisy-sample `isolate_voice`,
+two-step `pending_activation` activation (`voices.activate`), or deletion
+(`voices.delete`) to `voice-cloning-studio` / `beatra-ai-voice-studio`
+(`scripts/mcp_client.py tools` is authoritative). Never quote a remembered
+number. `voice.mjs estimate` prints character counts only; it is not the live
+credit figure.
+
+For broadcast volume consistency (e.g. `-14 LUFS`) before muxing
+`voice/narration.mp3`, inspect `{"capability": "audio_process"}`, approve its
+finishing card, and run serialized `beatra.audio.process`
+(`operation: "normalize_loudness"`, **`source`** field, <= 60 min, <= 300 MB,
+>= 1 s output, 50/day cap) one job at a time—never present it as a mastering service
+or free. Pass `subtitle_enable: true` on synthesis (never `subtitles`) when
+aligned platform caption cues are needed for `align.mjs`.
 
 ```bash
 node "$SKILL/scripts/voice.mjs" voices --language zh-CN

@@ -1,81 +1,72 @@
-# Voiceover workflow
+# Short-Form Voiceover Workflow
 
-## Prepare the final spoken script
+## Prepare, direct, and preflight the spoken script
 
-Keep the listener's first reason to continue near the opening and one useful
-idea per short sentence. Decide how names, numbers, dates, amounts, units,
-acronyms, and brands should sound. Use punctuation and sentence breaks for
-natural pauses. Remove links, headings, shot directions, and performance notes
-that would otherwise be spoken aloud. Never invent product claims.
+Keep the hook near line one and one clear idea per sentence. Expand numbers,
+dates, units, brands, and acronyms into natural speech without inventing claims
+or modifying simplified/traditional characters or dialect phrasing unless asked.
+Never strip `/` pause markers manually or insert custom bracketed vocal-effect cues.
 
-If the user gave permission only to make the text speakable, preserve the
-meaning and claims. Show and confirm a material rewrite before any audio is
-made. If script editing is the entire request, deliver the approved spoken
-script and stop before paid synthesis.
+- If dramatic hooks, breaths, or comedic pauses need orchestration, check live
+  `{"capability": "speech_script"}` pricing, present a six-field production
+  card, and after approval run `beatra.speech.prepare_script`. Inspect
+  `directed` and `scripts[]`: handle `synthesis: null` from `warnings`, and
+  pass `scripts[i].synthesis` unchanged plus a fresh `client_request_id` into
+  `beatra.speech.synthesize`. Re-calling within 48 hours with exact same
+  `input`/`instructions`/`language`/`context` changing only `voice`/`model`
+  recompiles at zero extra charge (initial balance coverage and <= 2 concurrent
+  tasks apply; never describe `prepare_script` as free in general).
+- Before any paid synthesis, call free `beatra.speech.validate` (`voice`,
+  `input`, `model`, controls—no `client_request_id`) to read
+  `estimated_duration_seconds` and check compatibility.
 
-Treat a requested runtime as a target, not a promise. First adjust writing,
-pauses, and only then a supported speed control. Prepare the smallest useful
-read, then compare returned `duration_seconds` with the target. Any further
-adjustment is a new production card, approval, and paid request.
+## Cast across 11 dimensions and audition free
 
-## Cast and price from live facts
+Call `beatra.voices.list` (`category`, `language`, `gender`, `age_group`,
+`use_case`, `emotion`, `supports_context`, `supports_direction`,
+`supports_performance_tags`, `supports_dialogue`, `supports_speech_to_speech`),
+confirm `status == "ready"`, and audition candidates at zero cost with returned
+`preview_url` or `beatra.voices.preview` (`{"voice_id": "..."}`).
 
-Prefer an already approved opaque `voice_id`. Otherwise use
-`beatra.voices.list` and the current voice cards' preview, language, accent,
-use cases, and `compatible_models` to offer a few suitable choices without
-stereotypes. A preview is a free casting aid; do not synthesize paid audio only
-to audition a voice.
+Query `beatra.models.list` with exact capability keys (`speech_script`,
+`text_to_speech`, `audio_process`) and never expose upstream vendor names,
+internal model IDs, or hardcoded credit figures. Calculate TTS estimates using
+`beatra_weighted_characters` (Han = 2, others = 1).
 
-Use `beatra.models.list` with `capability: "text_to_speech"` before a model,
-language, or cost decision. An explicit choice must be available, compatible
-with the selected voice, and support the requested BCP-47 language. For
-voice-first `auto`, validate the requested primary language against every live
-available compatible candidate, using documented aliases only. If any
-candidate lacks it, use a confirmed viable explicit model instead.
+## Exact scope, captions, and broadcast loudness normalization
 
-Count billable text with `beatra_weighted_characters`: Han ideographs count as
-2 and all other characters as 1. Apply the current `estimate_formula`,
-`unit_price_credits`, and `scale`. Preserve every possible `auto` candidate in
-the range or upper bound rather than quoting a fabricated single price.
+Keep each variant (hook A/B, locale read) as its own listed line item and
+`client_request_id`. Pass `subtitle_enable: true` on `beatra.speech.synthesize`
+when free aligned `SRT` / `VTT` captions are useful for short-form video edits
+(never pass `subtitles`).
 
-MP3 is the normal editing handoff. Use WAV or FLAC only for an explicit audio
-post-production path, Opus for explicit web delivery, and PCM for an explicit
-raw pipeline. Start with speed 1.0, volume 1.0, pitch 0, no forced emotion, and
-no sample rate unless the destination requires one.
+When normalizing audio volume for TikTok/Reels/Shorts (`-14 LUFS`), check
+`{"capability": "audio_process"}`, present a dedicated six-field card, wait for
+approval, and run one finishing task at a time within limits (`<= 60 min`,
+`<= 300 MB`, output `>= 1 s`, `50` calls/day):
 
-## Keep paid scope exact
+```json
+{
+  "operation": "normalize_loudness",
+  "source": {"type": "artifact", "artifact_id": "artifact_short_01"},
+  "loudness_lufs": -14,
+  "format": "mp3",
+  "client_request_id": "opaque-short-norm-01"
+}
+```
 
-One logical short read is one paid request by default. Multiple hook options,
-A/B alternatives, language variants, or alternate deliveries are separate
-requests. Include their exact texts, settings, weighted-character totals,
-estimates, and paid-call count in the current production card. Never generate
-an unapproved extra take.
+Always pass **`source`** (never `audio`) and never refer to this as "loudness
+mastering" or free work. Route custom voice cloning or noisy sample `isolate_voice`
+cleanup to `voice-cloning-studio` / `voiceover-narration-studio`.
 
-After approval, freeze the exact JSON and one new local
-`client_request_id` per request. Submit once and record the returned `task_id`.
-If task creation or transport is genuinely uncertain, exact replay may reuse
-that ID only when every JSON field is identical.
+## Recovery, optional wallet inspection, and factual delivery
 
-## Recover and hand off factual results
-
-For a known task, poll with `beatra.tasks.get`. For a lost reference, list
-`text_to_speech` tasks and follow every relevant `next_cursor`, then inspect
-plausible candidates. The client request identity is local-only; compare
-capability, time window, returned input, settings, and task facts.
-
-On success, present the actual artifact, duration, media facts, resolved model,
-usage, and billing when returned. If playback is available, check the hook,
-readings, pauses, clarity, energy, and format. Otherwise state that the audio
-was not auditioned. Preserve accepted audio and propose only the smallest
-affected correction under a new paid confirmation.
-
-On terminal failure, report returned provider-neutral error and billing facts.
-Do not infer an upstream supplier or turn a `retryable` flag into permission to
-retry. Missing billing values are unknown or unsettled, not zero. Cancel only
-at the user's request; a conflict means the original task still needs
-reconciliation.
-
-This workflow creates voiceover audio, not a video, captions, avatar, lip-sync,
-publication, or an exact synchronization guarantee. Preserve broader video
-requirements when routing them elsewhere. Route an authorized custom-voice
-request to a cloning workflow rather than implying this package clones voices.
+Never require `beatra.wallet.get` before quoting/submitting or ask users to
+pre-confirm sufficient credits; call read-only `beatra.wallet.get` /
+`beatra.wallet.ledger` only if the user asks, and relay `top_up` tiers verbatim
+in returned order. On `insufficient_balance`, preserve Beatra's message and
+exact `topup_url` verbatim and wait for top-up confirmation before replaying the
+exact frozen JSON with the same `client_request_id`. Reconcile lost IDs with
+paginated `beatra.tasks.list` (`next_cursor`) + `beatra.tasks.get`. Report only
+returned URLs, `duration_seconds`, optional `subtitles`, resolved model, and
+billing facts.

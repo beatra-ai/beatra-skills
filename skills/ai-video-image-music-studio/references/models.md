@@ -39,16 +39,22 @@ When the user supplies a concrete model, pass that concrete model unchanged.
 Do not continue down `candidate_order` and do not silently replace it when the
 request is incompatible or temporarily unavailable.
 
-For text-to-speech, customer pricing is linear per 1,000 weighted characters:
+For text-to-speech (`text_to_speech`) and multi-speaker dialogue
+(`text_to_dialogue`), customer pricing is linear per 1,000 weighted characters:
 each Han ideograph counts as two and every other character counts as one.
-Requests below 1,000 are not rounded to a full block. The customer-facing task
-contract remains asynchronous while Beatra performs automatic execution
-routing internally. The exact TTS model card's
+Requests below 1,000 are not rounded to a full block. Smart Voice Director
+(`speech_script`) bills per call (48-hour identical `input`/`instructions`/`language`/`context`
+re-calls swapping only `voice` or `model` add zero charge), sound effects
+(`sound_effects`) bill per generated `0.5–30 s` clip, and audio finishing or
+music editing bills under its exact capability (`audio_process`,
+`audio_stem_separation`, `audio_voice_isolation`, `music_edit`). The
+customer-facing task contract remains asynchronous while Beatra performs
+automatic execution routing internally. The exact TTS model card's
 `constraints.supported_languages` is the source of truth for the
-public BCP-47 `language` field; see `speech-and-voices.md` for the
-current canonical language codes. Voice cloning is priced once per successful
-activated voice, including activation. Read both rates from
-`beatra.models.list`; do not reuse remembered model or price data.
+public BCP-47 `language` field; see [speech and voices](speech-and-voices.md) and
+[speech and audio](speech-and-audio.md) for current rules. Voice cloning is
+priced once per successful activated voice, including activation. Read all
+live rates from `beatra.models.list`; do not reuse remembered model or price data.
 
 For a preflight estimate, use the returned price options for the relevant
 candidate or concrete model and state that request-dependent auto selection is

@@ -12,18 +12,18 @@ It is optional and it is paid. A run that never touches it is a complete run.
 Only these operations. Do not invent an `operation_key`, and do not reach for one that
 is not on this list even when `beatra.social.tools.search` returns it.
 
-| What you want | Operation | Credits |
+| What you want | Operation | Pricing lookup |
 | --- | --- | --- |
-| The Douyin hot-search board | `social.douyin.hot_search.list` | 6 |
-| TikTok trending hashtags | `social.tiktok.hashtag.trends.list` | 6 |
-| X trends | `social.twitter.trends.list` | 6 |
-| Posts about a named topic, TikTok | `social.tiktok.video.search` | 6 |
-| Posts about a named topic, X | `social.twitter.tweet.search.top` | 6 |
-| Posts about a named topic, Douyin | `social.douyin.video.search` | **60** |
-| Notes about a named topic, Xiaohongshu | `social.xiaohongshu.note.search` | **60** |
+| The Douyin hot-search board | `social.douyin.hot_search.list` | Live `beatra.social.tools.get` (board tier) |
+| TikTok trending hashtags | `social.tiktok.hashtag.trends.list` | Live `beatra.social.tools.get` (board tier) |
+| X trends | `social.twitter.trends.list` | Live `beatra.social.tools.get` (board tier) |
+| Posts about a named topic, TikTok | `social.tiktok.video.search` | Live `beatra.social.tools.get` (board/light search tier) |
+| Posts about a named topic, X | `social.twitter.tweet.search.top` | Live `beatra.social.tools.get` (board/light search tier) |
+| Posts about a named topic, Douyin | `social.douyin.video.search` | Live `beatra.social.tools.get` (higher search tier) |
+| Notes about a named topic, Xiaohongshu | `social.xiaohongshu.note.search` | Live `beatra.social.tools.get` (higher search tier) |
 
-Prices are what the catalog charges today; read the live price from
-`beatra.social.tools.get` and quote that, not this table.
+Prices are never memorized or hardcoded; read the live credit price from
+`beatra.social.tools.get` and quote that live value before running.
 
 The three board operations answer "what is moving"; the four searches answer "what are
 people saying about this one topic". There is no Xiaohongshu board on this list — a
@@ -61,10 +61,10 @@ not a degraded one.
 ## Confirming it
 
 **Every lookup is confirmed on its own before it runs, without exception.** There is no
-request specific enough to skip the price: the operations on this list range from 6 to
-60 credits, and "see what people are posting about this" costs ten times more on Douyin
-and Xiaohongshu than the same request on TikTok or X. A user who has not been shown the
-number cannot have agreed to it.
+request specific enough to skip the price: operations on this list vary widely by tier
+(always inspect the live `beatra.social.tools.get` price first; topic searches on
+Douyin and Xiaohongshu cost many times more than public trending boards or TikTok/X
+requests). A user who has not been shown the live number cannot have agreed to it.
 
 State, before the call:
 
@@ -75,7 +75,8 @@ State, before the call:
 - that the angles can be produced from what the user already gave, at no cost.
 
 When the user asks for "whatever is trending" without naming a platform, offer the
-6-credit boards first and name the 60-credit price before running
+lower-priced public trending boards first with their live `beatra.social.tools.get` prices,
+and quote the exact live price returned by `beatra.social.tools.get` before running
 `social.douyin.video.search` or `social.xiaohongshu.note.search`.
 
 ## Delivering the lookup

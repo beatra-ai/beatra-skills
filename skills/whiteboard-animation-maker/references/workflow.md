@@ -15,14 +15,15 @@ card before re-synthesis. Changing only the picture with unchanged narration
 never re-synthesizes.
 
 When the user asks how many credits remain or whether a live estimate fits
-the current balance, call `beatra.wallet.get`. When they ask what was
-charged, call `beatra.wallet.ledger`. Do not invent an account-balance tool,
-a top-up tool, or an account mutation. Use the `topup_url` returned by
-`beatra.wallet.get` or the URL inside an `insufficient_balance` error. Live
-synthesis prices come from `beatra.models.list` with
-`{"capability": "text_to_speech"}`; clone prices from
-`{"capability": "voice_clone"}`; lookup prices from
-`beatra.social.tools.get`. Never from ledger rows.
+the current balance, call read-only `beatra.wallet.get`. When they ask what was
+charged, call read-only `beatra.wallet.ledger`. Never require `wallet.get`
+before quoting or submitting, and never ask the user to confirm sufficient
+credits. Use the `topup_url` returned inside an `insufficient_balance` error
+(or `wallet.get` if requested), and relay any `top_up` tiers verbatim in
+returned order. Live voice/audio prices come from `beatra.models.list`
+(`{"capability": "text_to_speech"}`, `"speech_script"`, `"audio_process"`, or
+`{"capability": "voice_clone", "include_activation_required": true}`); lookup
+prices from `beatra.social.tools.get`. Never from ledger rows or remembered numbers.
 
 ## Inputs
 

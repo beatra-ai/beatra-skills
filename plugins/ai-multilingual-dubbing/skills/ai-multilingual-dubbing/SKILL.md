@@ -5,110 +5,145 @@ description: "Create multilingual voice-over audio from prepared scripts for vid
 
 # AI Multilingual Dubbing
 
-Create organized narration audio for every target market from scripts the user
-provides or approves. Reuse the message, destination, languages, voice direction,
+Create organized, loudness-consistent localized narration or speech-converted
+tracks for every target market from approved scripts or authorized source
+recordings. Reuse the message, destination, languages, voice direction,
 segment boundaries, and timing targets already visible in the conversation. Move
-by the shortest route to a representative pilot, then produce the rest of the
-approved audio scope.
+by the shortest route to a representative pilot per locale, then produce the
+remaining approved cells.
 
-## Start from the spoken scripts
+## Start from source transcripts or approved spoken scripts
 
 Build a `segment × locale` production matrix. Each cell records the locale and
-BCP-47 tag, approved text, protected terms, pronunciation notes, voice, delivery
-direction, format, timing target, and status. Use natural segments such as a
-scene, lesson, chapter, ad, or publishable message—never a mid-sentence split.
+normalized BCP-47 tag, approved text (or source conversion cell), protected
+terms, pronunciation notes, exact `voice_id`, delivery direction, format,
+timing target, and status. Use natural segments such as a scene, lesson,
+chapter, ad, or publishable message—never a mid-sentence split.
 
-If the source exists only as video or audio, use an actually available host
-capability to obtain a transcript or ask the user for one. Keep that transcript
-as draft text until the user approves what will be spoken. The speech operation
-accepts text, not source media. When localization is requested, help draft the
-target-language wording in the conversation, preserve product names, claims,
-numbers, units, URLs, and calls to action, and obtain content approval. Do not
-claim professional or native-language review unless the user supplies that fact.
+- If the source exists only as audio or extracted video audio and you need a
+  base script with timestamps, check `beatra.models.list` with
+  `{"capability": "speech_to_text"}`, present a six-field production card, and
+  after approval call `beatra.audio.transcribe` (upload local media via
+  `scripts/mcp_client.py upload` first; pass **`audio`**, not `source`, plus
+  optional `subtitles: true`, `diarize`, `num_speakers`, `tag_audio_events`,
+  `language`). Keep the returned transcript strictly as draft text until the
+  user approves localized spoken copy.
+- When localization or adaptation is requested, preserve product names, claims,
+  numbers, units, URLs, and calls to action, and preserve simplified/traditional
+  characters and dialect wording unless asked. Do not claim professional or
+  native-language review unless the user supplies that fact.
+- Never manually strip `/` pause tags or invent bracketed vocal-effect cues. When
+  dramatic pacing or breathing cues help a localized performance, inspect
+  `{"capability": "speech_script"}`, approve its six-field card, and run
+  Smart Voice Director (`beatra.speech.prepare_script`), passing
+  `scripts[i].synthesis` unchanged plus a fresh `client_request_id` (and fixing
+  any `synthesis: null` from `warnings`). Re-calling `prepare_script` within
+  48 hours with exact same `input`/`instructions`/`language`/`context` changing
+  only `voice` or `model` recompiles at zero extra charge (balance cover & max-2
+  concurrency limits still apply; never call `prepare_script` generally free).
 
-Use [matrix design](references/matrix-design.md) and [locale readiness and
-quality](references/locale-readiness-and-quality.md) for the complete preparation
-and review gates.
+Read [speech and audio guide](references/speech-and-audio.md), [matrix
+design](references/matrix-design.md), and [locale readiness and
+quality](references/locale-readiness-and-quality.md) before casting or sizing
+batches.
 
-## Choose a voice and a useful pilot
+## Cast voices, clone authorized talent, or convert existing speech
 
-Reuse an accepted voice when its returned card supports the target language.
-Otherwise call `beatra.voices.list`, filter by language and expressed preferences,
-and recommend two or three suitable candidates from their live cards. Use the
-available preview URLs for an unpaid audition; do not synthesize paid audio only
-to discover a voice.
+Reuse an accepted `voice_id` after verifying its live card via
+`beatra.voices.list`. Search candidates using all 11 capability filters
+(`category`, `language`, `gender`, `age_group`, `use_case`, `emotion`,
+`supports_context`, `supports_direction`, `supports_performance_tags`,
+`supports_dialogue`, `supports_speech_to_speech`), confirm `status == "ready"`,
+and audition free with `preview_url` or `beatra.voices.preview`
+(`{"voice_id": "..."}`). Never pay to audition voices.
 
-Default to `model: "auto"`, speed `1.0`, `mp3` for direct delivery, no emotion,
-and unchanged pitch, volume, and sample rate. Use `wav` or `flac` for downstream
-editing when that destination is known. Call `beatra.models.list` with
-`capability: "text_to_speech"` only when the user asks about current models or
-cost, selects a model, or language compatibility needs live confirmation.
-Every speech request uses the approved cell text as `input`, the selected
-returned voice ID as `voice`, and the cell's target BCP-47 tag as `language`.
+- **Authorized voice cloning (`beatra.voices.clone`)**: confirm plain speaker
+  consent BEFORE any `scripts/mcp_client.py upload`. If a sample carries
+  background noise or music, offer paid pre-cleaning first via
+  `beatra.audio.process` (`operation: "isolate_voice"`, **`source`** field,
+  4.6 s–5 min, <= 100 MB, checked via `{"capability": "audio_voice_isolation"}`).
+  Inspect
+  `beatra.models.list({"capability": "voice_clone", "include_activation_required": true})`
+  and choose by capability only—never
+  mention upstream vendor names or internal IDs. Use immediate-ready routes
+  (`auto` or expressive multilingual) directly here; if the user picks a
+  two-step trial-then-activate route (`pending_activation`) or wants to edit or
+  delete slots (`voices.activate`, `voices.update`, `voices.delete`), verify
+  `scripts/mcp_client.py tools` and hand that slot lifecycle step to
+  `voice-cloning-studio` or `beatra-ai-voice-studio`. Show the six-field clone
+  card before calling `voices.clone`.
+- **Speech-to-speech delivery transfer (`beatra.speech.convert`)**: when
+  preserving source delivery timing and cadence across a target voice, confirm
+  rights to transform the source recording, check
+  `{"capability": "speech_to_speech"}` and verify target voice has
+  `supports_speech_to_speech: true`, approve its six-field card, and pass
+  **`audio`** (not `source`) with optional `remove_background_noise`.
 
-For a multi-cell release, choose one representative high-risk segment per locale
-as the pilot. Prefer names, numbers, technical terms, offers, or calls to action.
-For timing-sensitive work, record the target duration, compare it with the
-returned pilot duration, and adjust the smallest useful script or speed decision
-after approval. Treat timing as a design constraint, not a promise of exact
-synchronization.
+For TTS synthesis, default to `model: "auto"` (only when every live
+voice-compatible candidate supports the normalized BCP-47 primary tag, mapping
+`nb` -> `no`, `tl` -> `fil`), speed `1.0`, `mp3` (or `wav`/`flac` for studio
+editing), no emotion, and unchanged pitch/volume/sample rate. Call
+`beatra.models.list` (`{"capability": "text_to_speech"}`) before deciding models
+or estimating `beatra_weighted_characters` (Han = 2, others = 1). Never
+hardcode credit figures. Always run free `beatra.speech.validate`
+(`estimated_duration_seconds`) before each paid `beatra.speech.synthesize`. Use
+`subtitle_enable: true` (NEVER `subtitles`) when free aligned `SRT` / `VTT`
+captions are needed for editing or lip-sync alignment.
 
-## Confirm the paid scope once
+## Confirm pilots, full scope, and loudness finishing
 
-Planning, copy drafting, voice discovery, and previews do not use the paid speech
-operation. Before any `beatra.speech.synthesize` call, present the complete paid
-scope in one readable matrix: every included pilot or production cell, its locale,
-approved text, voice, format, delivery direction, and timing target. State that
-each listed cell is one paid render. Clear approval of the complete matrix
-authorizes every listed cell once; do not ask for a second confirmation. A changed
-or newly added cell is new paid work and needs a revised scope and approval.
+Planning, copy drafting, voice search, `voices.preview`, `speech.validate`, and
+estimates are free. Before any paid step (`audio.transcribe`, `prepare_script`,
+`isolate_voice`, `voices.clone`, `speech.convert`, `speech.synthesize`, or
+`normalize_loudness`), present its six-field production card: Route & Model,
+Exact Scope, Price & Basis, Duration / Quantity, Pay Mode & Call Count, and
+If stop (stating clearly what free assets stay usable at zero extra cost).
 
-Create one stable opaque `client_request_id` for each approved locale/segment
-render. Submit every approved cell once, retain its `task_id`, and poll that same
-task with `beatra.tasks.get`. Honor `deadline_at` when it is returned by the
-task; when none is present, stop active polling after 30 minutes, report the
-current task state, and resume later instead of waiting indefinitely or creating
-a replacement. The
-bundled client handles its own cached, best-effort, non-billable installation
-registration; do not add a manual registration step to this creative workflow.
+For multi-cell localization, pilot one high-risk segment per locale first
+(names, numbers, offers), compare returned duration against target timing, and
+approve the remaining matrix card explicitly afterward. When unifying output
+volume across languages (e.g. `-14 LUFS`), inspect
+`{"capability": "audio_process"}`, approve its finishing card, and run
+serialized `beatra.audio.process` (`operation: "normalize_loudness"`, **`source`**
+field, <= 60 min / <= 300 MB / >= 1 s output, 50/day cap) one track at a time.
+Never claim finishing is free or present it as a mastering service.
+
+Create one stable opaque `client_request_id` per logical paid cell, submit once,
+and poll only that `task_id` via `beatra.tasks.get` (stopping active wait at 30
+min if no `deadline_at` is set). The bundled client handles non-billable
+installation registration automatically.
 
 ## Use the bundled MCP Client
 
 Use only this Skill's bundled `scripts/mcp_client.py` for every remote MCP
-operation. Pass the MCP tool name as the CLI argument and send one JSON object on
-stdin. Do not configure or call a host Beatra Connector, and do not use
+operation (`call` passing one JSON object on stdin, or `upload` for local
+media). Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback. For exact commands and troubleshooting, use
 [Bundled MCP Client diagnostics](references/mcp-connection.md).
 
-## Recover the task and deliver the audio
+## Recover the task, handle balance, and deliver audio
 
-A queued or running task is work in progress, not a reason to submit again. If a
-response is uncertain but every generation argument is identical, retry with the
-same `client_request_id`. Any change to text, voice, language, model, speed,
-format, pitch, volume, sample rate, or emotion creates a new request identity and
-new paid work. If the task ID is lost, use `beatra.tasks.list` with the
-`text_to_speech` capability, call `beatra.tasks.get` for every plausible
-candidate, and compare its complete `task.input`, resolved model, and timing to
-the saved matrix cell before creating anything. A list item alone is not enough
-to identify the original request. Cancel only when the user asks; if
-`beatra.tasks.cancel` conflicts, continue polling the same task.
+Never make `beatra.wallet.get` a mandatory gate before paid submits and never ask
+users to confirm they have enough credits. Call read-only `beatra.wallet.get`
+when asked about balance/fit and `beatra.wallet.ledger` when asked what was
+charged; relay `top_up` tiers in returned order verbatim. On
+`insufficient_balance`, relay Beatra's message and exact `topup_url` verbatim,
+wait until the user confirms topping up, and replay the exact frozen payload
+with the same `client_request_id`.
 
-On success, deliver the actual `task.output.audio.url`, artifact ID, MIME type,
-size, sample rate when returned, and `task.output.audio.duration_seconds`, grouped
-by locale and segment. Include the actual task identity and billing result. Review
-pronunciation, register, pauses, voice fit, pace, tone, and timing only when the
-host can actually play the audio; otherwise say listening review is incomplete
-and deliver the factual result. Revise only the affected cell after a new paid
-confirmation. Keep accepted cells untouched and do not claim translation,
-captions, lip sync, voice preservation, audio/video editing, or exact timing.
-
-Use [recovery and delivery](references/recovery-and-delivery.md) for the detailed
-task and acceptance path.
+If a task ID is lost, paginate `beatra.tasks.list` across `next_cursor` and
+inspect candidates via `beatra.tasks.get`. Any changed text, voice, language,
+model, control, or LUFS target creates a new card, approval, and
+`client_request_id`. Deliver returned URLs, `artifact_id`, MIME type, duration,
+optional subtitles, resolved model, and `billing.net_charged_credits` grouped
+by locale and segment without claiming listening review or exact lip-sync
+unless verified. See [recovery and delivery](references/recovery-and-delivery.md).
 
 ## References by task
 
+- Cross-tool limits, 3-route cloning, Smart Voice Director, and field truth: [speech and audio guide](references/speech-and-audio.md)
 - Matrix, segmentation, casting, defaults, and pilots: [matrix design](references/matrix-design.md)
-- Locale-copy readiness and listening review: [locale readiness and quality](references/locale-readiness-and-quality.md)
+- Source transcription draft rules, STS, subtitle/loudness finishing, and quality: [locale readiness and quality](references/locale-readiness-and-quality.md)
 - Exact retry, cancellation, terminal results, and delivery: [recovery and delivery](references/recovery-and-delivery.md)
 - First installation or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Bundled MCP Client commands and diagnostics: [Bundled MCP Client diagnostics](references/mcp-connection.md)

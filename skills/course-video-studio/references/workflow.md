@@ -1,83 +1,165 @@
-# Course video workflow
+# Course Video Studio Workflow and Payloads
 
-## Lesson ledger
+Detailed step sequence, JSON request templates, and recovery guidance for `course-video-studio`. See also [Speech, Voices, and Audio Finishing](speech-and-audio.md) and [Billing errors and recovery](billing-errors-and-recovery.md).
 
-Record lesson title, teaching order, and a segment list. Each segment
-has its own narration request ID, approved audio artifact, video request
-ID, and terminal task IDs. Keep one portrait and one `voice_id` for the
-whole course unless the user changes them. Split a lesson when planned
-speech is longer than the longest containable video duration.
+## 1. Live Models & Wallet Discovery
 
-## Narration before video
+Check capabilities before drafting production cards:
 
-Each lesson is narration first, one containable segment at a time. Poll
-each `beatra.speech.synthesize` task with `beatra.tasks.get` until
-terminal. Read the returned artifact plus actual audio MIME type,
-duration, and size. Approve the real audio before that segment's video
-admission. Refresh `image_to_video` cards and re-admit the actual
-portrait plus that audio. If terminal audio size remains unavailable,
-stop before video.
+```json
+{"capability": "image_to_video"}
+```
 
-## Admission
+```json
+{"capability": "speech_script"}
+```
 
-Clone, if used, requires consent first. Access to a file is not consent.
-A suitable sample is currently about 10 to 300 seconds, no larger than 20
-MiB, and clean single-speaker speech. Use the live `voice_clone` card
-before any clone request ID: route `voice_clone`, tool
-`beatra.voices.clone`, live price for one successful activated voice, the
-provisional estimate, the 600-credit gift usually cannot start this
-clone, and what happens if the balance is short. Submit
-`beatra.voices.clone` exactly once:
+```json
+{"capability": "text_to_speech"}
+```
+
+```json
+{"capability": "voice_clone"}
+```
+
+```json
+{"capability": "audio_voice_isolation"}
+```
+
+```json
+{"capability": "audio_process"}
+```
+
+Check balance only when answering a customer balance or charge question (`beatra.wallet.get`):
+
+```json
+{}
+```
+
+## 2. Voice Audition, Profile Pinning & Optional Paid Sample Pre-Clean
+
+Search preset or cloned instructor voices (`beatra.voices.list`), audition free (`beatra.voices.preview`), and label/pin the chosen course voice (`beatra.voices.update`):
 
 ```json
 {
-  "sample": {"type": "artifact", "artifact_id": "artifact_..."},
-  "display_name": "Course Teacher",
+  "voice_id": "<instructor_voice_id>"
+}
+```
+
+```json
+{
+  "voice_id": "<instructor_voice_id>",
+  "display_name": "Lead Instructor Voice",
+  "make_default": true,
+  "use_case": ["education", "course"]
+}
+```
+
+If cloning a noisy classroom or office recording (`4.6 s - 5 min`, `<= 100 MB`), confirm paid `isolate_voice` (`{"capability": "audio_voice_isolation"}`) first:
+
+```json
+{
+  "operation": "isolate_voice",
+  "source": {"type": "artifact", "artifact_id": "<raw_sample_artifact_id>"},
+  "format": "wav",
+  "client_request_id": "2d8f4a19-7c30-4e6b-9f12-5b8d3c1a4e70"
+}
+```
+
+After Mandatory Confirmation #1 (verifiable authorization + anti-impersonation declaration), clone with `consent_attested: true`:
+
+```json
+{
+  "sample": {"type": "artifact", "artifact_id": "<clean_sample_artifact_id>"},
+  "display_name": "Instructor Voice",
+  "model": "<selected model from voice_clone card or auto>",
+  "language": "zh-CN",
   "consent_attested": true,
-  "model": "auto",
-  "client_request_id": "opaque-course-video-clone"
+  "client_request_id": "4a1e7b90-8c34-4f21-b9e5-2d6f1a8c3b47"
 }
 ```
 
-Poll with `beatra.tasks.get` until terminal, then freeze the returned
-`voice_id`. Without a clone, call
-`beatra.voices.list` when a catalog voice still needs to be selected.
-Never put a display name in `voice`.
+Note Mandatory Confirmations #2 and #3: immediately-ready `voice_clone` routes are preferred here since activation/deletion require dedicated flows documented in [Speech, Voices, and Audio Finishing](speech-and-audio.md).
 
-Every `beatra.videos.animate` call uses its own admission card: route
-`image_to_video`, tool `beatra.videos.animate`, approved portrait and
-speech artifacts, prompt, audio-led duration, resolution if set, output
-count, provisional live estimate, the 600-credit gift usually cannot
-start this video, and what happens if the balance is short. Duration is
-the smallest admitted whole second at or above real speech length. Do
-not shorten the lecture to cheapen the clip.
+## 3. Smart Voice Director (`prepare_script`, PAID) & Free Clip-Fit Check (`validate`)
+
+Prepare teaching rhythm and natural pauses without changing any lecture words (`beatra.speech.prepare_script`, max 2 concurrent). Inspect `directed` and `scripts[]` (`synthesis`, `summary`, `warnings`), resolving `synthesis: null` via `warnings` and passing `scripts[].synthesis` unchanged + fresh `client_request_id` when calling `beatra.speech.synthesize`:
 
 ```json
 {
-  "image": {"type": "artifact", "artifact_id": "art_teacher"},
-  "driving_audio": {"type": "artifact", "artifact_id": "art_lesson_01_seg_01"},
-  "prompt": "A calm teacher delivery with steady eye line, restrained expression, and a stable camera.",
-  "duration": 12,
-  "client_request_id": "opaque-course-video-01-seg-01"
+  "input": "<finished lesson segment script>",
+  "instructions": "Clear instructional lecture tone with thoughtful pauses after definitions and examples.",
+  "voice": "<instructor_voice_id>",
+  "model": "auto",
+  "language": "auto",
+  "client_request_id": "7f3c2d81-5e14-4a99-9b60-1c4e8a2f7d33"
 }
 ```
 
-Call `beatra.models.list` for both capabilities before quoting price.
-Treat identity, clothing, and board or slide details named as must-keeps,
-then review drift after delivery.
+To try another voice within 48 hours for identical wording, instructions, language, and context, call `beatra.speech.prepare_script` again changing only `voice` (and `model` if needed) at no extra charge (balance must cover the initial estimate).
 
-## Pointing to another Skill
+Run free **`beatra.speech.validate`** (free, NO `client_request_id`) BEFORE paid synthesis or video generation:
 
-Suggest Lecture Video Maker for a course made from the teacher's slides,
-Micro-Lesson Maker for one lesson from slides or a topic, and AI Courseware
-Maker when there are no slides yet. Use the website wording exactly and install only after the user asks. Send the line
-in the user's language:
-
-```text
-请安装 数字人讲课；需要登录授权时告诉我：https://beatra.ai/skills/lecture-video-maker/install.md
-请安装 微课制作；需要登录授权时告诉我：https://beatra.ai/skills/micro-lesson-maker/install.md
-请安装 AI课件；需要登录授权时告诉我：https://beatra.ai/skills/ai-courseware-maker/install.md
-Install Lecture Video Maker and tell me when I need to sign in: https://beatra.ai/skills/lecture-video-maker/install.md
-Install Micro-Lesson Maker and tell me when I need to sign in: https://beatra.ai/skills/micro-lesson-maker/install.md
-Install AI Courseware Maker and tell me when I need to sign in: https://beatra.ai/skills/ai-courseware-maker/install.md
+```json
+{
+  "voice": "<instructor_voice_id>",
+  "input": "<prepared segment script>",
+  "model": "auto",
+  "language": "zh-CN",
+  "format": "mp3",
+  "subtitle_enable": true
+}
 ```
+
+Verify `estimated_duration_seconds` fits inside the live `image_to_video` max clip duration before paying. If longer, segment the lecture script into smaller teaching beats cleanly first and re-run free `speech.validate`.
+
+## 4. Synthesize (`output.subtitles`), Normalize Loudness (PAID) & Animate
+
+Generate narration keeping `subtitle_enable: true` (default -> free `JSON`/`SRT`/`VTT` subtitles + `speech_start_seconds` / `speech_end_seconds` / `integrated_loudness_lufs`):
+
+```json
+{
+  "voice": "<instructor_voice_id>",
+  "input": "<validated segment script>",
+  "model": "auto",
+  "language": "zh-CN",
+  "format": "mp3",
+  "subtitle_enable": true,
+  "client_request_id": "8b6e1f29-3a45-4c72-9d04-6f2e8a1b5c99"
+}
+```
+
+For cross-lesson loudness uniformity (sources/outputs up to `60 min` and `300 MB`, min output `>= 1 s`, `50 calls/day`, one at a time, **PAID**, `{"capability": "audio_process"}`):
+
+```json
+{
+  "operation": "normalize_loudness",
+  "source": {"type": "artifact", "artifact_id": "<lesson_speech_artifact_id>"},
+  "loudness_lufs": -14,
+  "true_peak_db": -1,
+  "format": "mp3",
+  "client_request_id": "9c1a5d47-2e83-4f16-a831-3b7f9e2d4a62"
+}
+```
+
+Confirm driving audio matches live `image_to_video` limits and submit `beatra.videos.animate`:
+
+```json
+{
+  "image": {"type": "artifact", "artifact_id": "<instructor_portrait_artifact_id>"},
+  "driving_audio": {"type": "artifact", "artifact_id": "<final_lesson_audio_artifact_id>"},
+  "model": "<selected model from image_to_video card>",
+  "prompt": "Instructor delivering lecture to camera, composed posture, steady eye contact, consistent likeness and attire.",
+  "duration": 20,
+  "client_request_id": "0e5d7a31-9b62-4f88-a140-4c9e2b6f8d15"
+}
+```
+
+## 5. Recovery Checklist
+
+Explain any error to the customer in plain words without exposing tool names, field names, or raw codes:
+
+- **Segment duration exceeds clip ceiling**: Caught free at `beatra.speech.validate`; split into clean segments before paying.
+- **`insufficient_balance`**: Relay Beatra's official message and exact verbatim top-up URL; wait until customer confirms top-up before retrying with the same `client_request_id`.
+- **Noisy sample rejected by clone**: Propose paid `isolate_voice` pre-clean before re-cloning.
+- **Transport drop or partial lesson failure**: Check `beatra.tasks.list` first (`idempotency_conflict` / `request_in_progress`: reuse same ID only for identical payload); reuse completed speech/normalized artifacts without re-paying for narration when retrying a failed video animation.

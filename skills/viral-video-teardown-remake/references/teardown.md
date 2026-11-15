@@ -5,7 +5,7 @@ The teardown draws on three sources, and it keeps them separate because their re
 | Layer | Source | Reliability |
 | --- | --- | --- |
 | Picture semantics — shots, framing, on-screen text | `beatra.videos.understand`, one call, `response_format` set to `json` | High for what it sees; **timings need a rescale before they mean anything** |
-| Dialogue | The four-tier ladder below | Depends on which tier supplied the line |
+| Dialogue & audio cues | The five-tier ladder below (optional `beatra.audio.transcribe` when verbatim audio/speaker turns are needed from a clip) | Depends on which tier supplied the line |
 | Public metrics and comments | `beatra.social.execute` | A snapshot taken at read time |
 
 **Call `beatra.videos.understand` once, not once per question.** It is billed per second of input video. Four separate questions against the same clip are not four small charges — each one recomputes the whole clip, so four questions cost four times the price of one. Put every field the teardown needs into a single JSON structure and ask for it in one call.
@@ -31,20 +31,21 @@ Table 1 records `T`, `T_reported`, `k`, and that end-of-last-shot check. Every o
 
 State the precision ceiling out loud: the model samples one frame per second internally, so no rescaled timing is more precise than a second. That is enough for an ordinary clip; a clip with cuts inside the same one-second window will not show them apart, and the teardown should say so rather than let table 3 imply a precision it does not have.
 
-## Dialogue: a four-tier ladder
+## Dialogue: a five-tier ladder
 
-**The model cannot hear.** It receives sampled frames, not an audio track, so dialogue never comes from `beatra.videos.understand`. It comes from one of four sources, taken in this order:
+**`beatra.videos.understand` cannot hear.** It receives sampled frames, not an audio track, so dialogue never comes from `beatra.videos.understand`. It comes from one of five sources, taken in this order:
 
 1. A transcript the user supplies directly. Highest reliability, no extra cost.
-2. The YouTube captions operation — YouTube only. No other platform this package can reach has an equivalent operation.
-3. Hard-burned subtitles read from the frames. The text itself is real, but there is no precise per-line start and end time behind it — mark these lines **approximate**.
-4. Nothing available. Record the line as missing in table 2. **Never invent a line of dialogue.**
+2. The YouTube captions operation (`social.youtube.video.captions.get`) — YouTube links only, paid lookup.
+3. Paid **`beatra.audio.transcribe`** (`{"capability": "speech_to_text"}`, up to 60 minutes and `<= 100 MiB`, per-second pricing read live from `beatra.models.list`) on an uploaded video or audio reference — confirmed on its own gate before running. Returns exact verbatim speech, optional speaker diarization (`diarize: true`, optional `num_speakers`), audio-event tags (`tag_audio_events: true` for hooks, laughter, applause, music stings), and free aligned `subtitles: true` (JSON/SRT/VTT).
+4. Hard-burned subtitles read from the frames. The text itself is real, but there is no precise per-line start and end time behind it — mark these lines **approximate**.
+5. Nothing available. Record the line as missing in table 2. **Never invent a line of dialogue.**
 
 ### Never ask the vision model about sound
 
 On the same probe clip — one that had background music — `beatra.videos.understand` returned `spoken_audio_detected: false`. It has no audio track; that boolean is a guess dressed up as an observation, and here it was a **false negative**, the dangerous kind: acting on it would put the entire rewrite layer on the premise that the clip has no dialogue to work from.
 
-Keep every audio field out of the JSON structure you request, and out of the prompt. Whether the clip has speech, music, both, or neither is answered only by the four-tier ladder above, never by the vision model.
+Keep every audio field out of the `beatra.videos.understand` JSON structure you request, and out of its prompt. Whether the clip has speech, music, both, or neither is answered only by the five-tier ladder above (using `beatra.audio.transcribe` when confirmed on an uploaded clip), never by the vision model.
 
 ## Table 2 — per-line script evidence
 

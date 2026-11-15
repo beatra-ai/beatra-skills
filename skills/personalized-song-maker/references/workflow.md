@@ -55,10 +55,39 @@ For a successful song, deliver every returned audio artifact or link and report 
 
 Review only media the host Agent can actually access. Listen for story accuracy against the approved must-keep facts, name pronunciation, the hook, lyric rendering, emotion, arrangement, vocal result, audio quality, and actual duration. If a must-include name or phrase was not rendered as expected, name the smallest change and wait for a new paid approval. State inspection limits honestly.
 
-## Extra files for the chosen song
+## Extra files and audio finishing for the chosen song
 
-When this account has the music tools, offer these only after the user has listened and chosen a take, and only when the clip's `editable` field is `{"native": true}`. Each is one `beatra.music.edit` call with `operation: "deliverable"` and its own `kind`, and each is confirmed separately; none rides on the song's card (see [music editing and audio](music-editing-and-audio.md)).
+Offer these only after the user has listened and chosen a take. Every step below is paid, never free, requires its own live price check from `beatra.models.list`, and gets its own six-field production card with its own `client_request_id` (none rides on the song's card; see [music editing and audio](music-editing-and-audio.md)).
 
-- Extra cover art, `kind: "cover_image"`: priced with the `music_cover_image` capability, on its own card with its own `client_request_id`.
-- A song video (MP4), `kind: "video_mp4"`: priced from `beatra.models.list` with the `music_video` capability, on its own card with its own `client_request_id`. `video_options.author` and `video_options.brand_text` (up to 50 characters each) appear in the video; use only words the user gave.
-- A WAV version, `kind: "wav"`: priced with the `music_wav` capability, on its own card with its own `client_request_id`.
+### Native deliverables (`beatra.music.edit`)
+
+Only when the chosen clip's `editable` field is `{"native": true}`, offer `beatra.music.edit` with `operation: "deliverable"`:
+
+- Extra cover art, `kind: "cover_image"`: priced with `{"capability": "music_cover_image"}`, on its own card with its own `client_request_id`.
+- A song video (MP4), `kind: "video_mp4"`: priced with `{"capability": "music_video"}`, on its own card with its own `client_request_id`. `video_options.author` and `video_options.brand_text` (up to 50 characters each) appear in the video; use only words the user gave.
+- A WAV version, `kind: "wav"`: priced with `{"capability": "music_wav"}`, on its own card with its own `client_request_id` (not mastered).
+
+### Audio finishing (`beatra.audio.process`)
+
+Check the live price with `{"capability": "audio_process"}` before presenting the card. Use `operation` (never `action`) and `source` (`{"type": "artifact", "artifact_id": "..."}` or URL). Fade, loudness, and format options supplied inside the same `trim`, `loop`, `fade`, or `normalize_loudness` call add no separate charge, while the finishing call itself is billed at `audio_process`:
+
+- **`trim`** (`start_ms`/`end_ms` or `target_duration_ms`, plus optional `fade_in_ms`, `fade_out_ms`, `fade_curve`, `loudness_lufs`, `format`): extract a short chorus or wedding-entrance excerpt from the chosen take.
+- **`fade`** (`fade_in_ms`, `fade_out_ms`, `fade_curve`: `tri`/`exp`/`log`/`qsin`) and **`normalize_loudness`** (`loudness_lufs` `-30` to `-9`, default `-14`; `true_peak_db` `-9` to `0`, default `-1`): finish endings or playback loudness.
+- **`loop`** (`target_duration_ms` or `loop_count`, `crossfade_ms`, `end_with_fade`): repeat a background clip cleanly; report the returned seam smoothness score plainly without promising an inaudible seam.
+- **`convert_format`** (`format`: `mp3`/`wav`/`ogg`/`flac`/`m4a`/`ulaw_8k_wav`): convert format, or export WAV when `editable` is not `{"native": true}` — tell the user plainly it is a WAV container of the same audio rather than a mastered or higher-quality source.
+
+Example `beatra.audio.process` trim with fade-out:
+
+```json
+{
+  "operation": "trim",
+  "source": {"type": "artifact", "artifact_id": "artifact_song_take"},
+  "start_ms": 42000,
+  "target_duration_ms": 60000,
+  "fade_out_ms": 1500,
+  "fade_curve": "exp",
+  "client_request_id": "opaque-song-trim-01"
+}
+```
+
+Pass the JSON on standard input to `python3 scripts/mcp_client.py call beatra.audio.process`, poll `beatra.tasks.get` until terminal, and recover lost IDs under `capability: "audio_process"`.

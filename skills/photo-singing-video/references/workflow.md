@@ -25,11 +25,43 @@ printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py ca
 
 Do not configure or use a host Beatra Connector and do not use a REST/OpenAPI fallback.
 
-## Prepare a new song as a separate stage
+## Prepare a new song or clean/trim the singing excerpt first
 
-When the user does not have a singing excerpt yet, route the new-song stage to personalized-song-maker or ai-song-cover-studio. Before paying for that upstream music, prove the singing-photo video is reachable: call `beatra.models.list` with `{"capability":"image_to_video"}` and confirm a current card admits the portrait plus the planned audio format and a duration envelope the route can fully contain. An audio-accepting model card proves only that submission is allowed, not that the full audio will be present in the returned video, so verify the duration behavior now.
+When the user does not have a singing excerpt yet, route the new-song stage to personalized-song-maker or ai-song-cover-studio. Before paying for that upstream music, prove the singing-photo video is reachable: call `beatra.models.list` with `{"capability":"image_to_video"}` and confirm a current card admits the portrait plus the planned audio format and a duration envelope the route can contain (or trim to after generation). An audio-accepting model card proves only that submission is allowed, not that the full audio will be present in the returned video, so verify duration bounds now.
 
-Because Beatra does not trim a returned song, the singing-photo video proceeds only once the user supplies a singing excerpt whose real duration fits a supported video duration and the current maximum. The upstream song stage is a separate paid request with its own frozen payload, stable request ID, and approval. Resume this workflow once an approved excerpt exists, then repeat live admission with its actual file.
+When the user supplies a full song or a singing track mixed with heavy backing instrumentation, prepare the driving vocal excerpt first using `beatra.audio.process` (see [music editing and audio](music-editing-and-audio.md)):
+
+- **Trim to the chorus window (`operation: "trim"`):** query `{"capability": "audio_process"}` on `beatra.models.list` right before the card. Pass `operation: "trim"`, `source`, `start_ms` and `end_ms` (or `target_duration_ms`, plus optional `fade_in_ms` / `fade_out_ms` in the same call at no extra charge) so the excerpt matches a supported video duration.
+- **Isolate singing vocals (`operation: "isolate_voice"` or `operation: "separate_stems"`):**
+  - For single-track noise/backing cleanup (`4.6 s – 5 min` input, default WAV output), query `{"capability": "audio_voice_isolation"}` and run `operation: "isolate_voice"`.
+  - For two-stem `[vocals, accompaniment]` separation (or six-stem `"multi_stem"`), query `{"capability": "audio_stem_separation"}`, pick the pricing entry whose `pricing[].dimensions.stem_mode` equals the requested `mode` (`"two_stem"` or `"multi_stem"`), or fall back to the option without `dimensions` when no option names that mode, and submit ONLY `operation: "separate_stems"`, `source`, `mode`, and `client_request_id` (never pass `format` to `separate_stems`).
+- **Format check & conversion:** stem separation and voice isolation return in their own output format, and faint backing bleed may remain audible. Always inspect the resulting excerpt's real MIME type, duration, and byte size against `image_to_video` `driving_audio` constraints before video animation, running `operation: "convert_format"` (`{"capability": "audio_process"}`) on its own paid card if format adaptation is needed.
+
+Every audio-preparation call is paid on its own six-field card (`Work`, live `Credits`, `Count`, new opaque `client_request_id`, `If we stop here`, `If balance fails`) — never free and never silently bundled onto the video card. Example trim payload:
+
+```json
+{
+  "operation": "trim",
+  "source": {"type": "artifact", "artifact_id": "art_full_song"},
+  "start_ms": 48000,
+  "target_duration_ms": 10000,
+  "fade_out_ms": 500,
+  "client_request_id": "opaque-chorus-trim-01"
+}
+```
+
+Example stem-separation payload:
+
+```json
+{
+  "operation": "separate_stems",
+  "source": {"type": "artifact", "artifact_id": "art_chorus_excerpt"},
+  "mode": "two_stem",
+  "client_request_id": "opaque-vocal-stems-01"
+}
+```
+
+Pass the JSON on standard input to `python3 scripts/mcp_client.py call beatra.audio.process`, poll `beatra.tasks.get` until terminal, and resume the singing-photo video preflight with the prepared vocal excerpt.
 
 ## Preflight the complete media chain
 
@@ -61,7 +93,7 @@ Build a concise performance prompt from engaged facial energy, natural mouth mov
 }
 ```
 
-Before creating `client_request_id` or submitting `beatra.videos.animate`, show the admission card with every field: route, tool, audio-led duration, resolution if set, provisional estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. A request to make the clip is not approval. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.animate` exactly once.
+Before creating `client_request_id` or submitting `beatra.videos.animate`, show the admission card with every field: route, tool, portrait, prepared singing audio, audio-led duration, resolution if set, output count, provisional live estimate, that starter gift credits alone usually cannot cover video animation, what the user keeps if they stop here, and what happens if the balance is short (`insufficient_balance` top-up link). Do not submit until the user confirms the card and confirms they have topped up or already have enough credits for this estimate. A request to make the clip is not approval. Freeze all arguments and one opaque stable request ID. Submit `beatra.videos.animate` exactly once.
 
 ## Poll, recover, and cancel each stage
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "A topic alone now gets a complete spoken draft, with titles, a description, show notes and chapters; time-sensitive topics start from sources you choose. The production card states what you keep if you stop and how a short balance is handled, and the weighted-character total is counted by code.",
+  "changelog": "Adds Smart Voice Director script preparation, native multi-host dialogue (up to 2,000 characters per scene with scene chunking), aligned subtitles for chapter timing, voice previews, optional voice cloning with owner-consent safeguards and noisy-sample cleanup, transition stingers/ambient beds, and loudness/trim/fade finishing.",
   "display_name": "AI Podcast Voiceover",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
@@ -72,5 +72,5 @@
   },
   "name": "ai-podcast-voiceover",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

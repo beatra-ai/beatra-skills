@@ -1,0 +1,8 @@
+interface:
+  display_name: "Course Narration Studio"
+  short_description: "Turn lecture manuscripts and course slides into a lecture-by-lecture narration pack with one consistent teacher voice."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $course-narration-studio to narrate my phone photography course. Lesson 1 and key terms attached; one calm teacher voice."
+policy:
+  allow_implicit_invocation: true

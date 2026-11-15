@@ -18,13 +18,17 @@ Do not configure or call a host Beatra Connector. Do not fall back to REST or Op
 
 ## Free stage
 
-Inspect the photo and prepare the frame plan per [the first frame](first-frame.md). Once it is admitted, upload it with the detected MIME type through `scripts/mcp_client.py upload`, complete the returned upload flow, and retain the resulting artifact ID. The direct-frame route and every transform request use that one artifact; do not substitute a local path in a remote payload. Collect claims and write the script per [writing the narration](copy-craft.md). Select a voice with `beatra.voices.list`.
+Inspect the photo and prepare the frame plan per [the first frame](first-frame.md). Once it is admitted, upload it with the detected MIME type through `scripts/mcp_client.py upload`, complete the returned upload flow, and retain the resulting artifact ID. The direct-frame route and every transform request use that one artifact; do not substitute a local path in a remote payload. Collect claims and write the script per [writing the narration](copy-craft.md). Discover voices with `beatra.voices.list` (bilingual `search` and `supports_*` capability filters, checking the 11 `capabilities.*` fields), optionally audition free via `beatra.voices.preview`, and run free `beatra.speech.validate` to verify `estimated_duration_seconds` fits inside the clip budget before asking the merchant to confirm spend.
 
 Read the live cards with `beatra.models.list` for `image_to_image`,
-`text_to_speech`, and `image_to_video`. The image-to-image card admits the
-opening-frame transform; the speech card admits the selected voice and
-language; the video card admits the returned image and narration pair.
-Everything in this stage is free and revisable.
+`speech_script` (when Smart Voice Director is used), `text_to_speech`,
+`sound_effects` (when product foley/SFX hits are planned), and `image_to_video`.
+The image-to-image card admits the opening-frame transform; the speech card
+admits the selected voice and language; the sound-effects card admits any SFX
+duration (`0.5–30.0 s`) and format; the video card admits the returned image and
+narration pair. Everything in voice discovery, audition, and `speech.validate`
+is free and revisable; `speech.prepare_script`, `speech.synthesize`, and
+`audio.generate_sfx` are paid steps confirmed before launch.
 
 From `beatra.voices.list`, freeze one `status: ready` opaque voice ID together
 with its current supported languages and compatible models. Use the live
@@ -85,18 +89,34 @@ explicit vertical canvas selected from its live card:
   "language": "the admitted BCP-47 language",
   "format": "mp3",
   "model": "the admitted speech model or auto after live-card verification",
+  "subtitle_enable": true,
   "client_request_id": "opaque-narration-id"
 }
 ```
 
-Use `mp3` when the live speech card supports it and the live video card accepts the resulting `audio/mpeg`. If the merchant asked for a format the video route will not accept, explain that before synthesizing and settle on a compatible one. Do not substitute silently.
+Use `mp3` when the live speech card supports it and the live video card accepts the resulting `audio/mpeg`. If the merchant asked for a format the video route will not accept, explain that before synthesizing and settle on a compatible one. Do not substitute silently. Keep `subtitle_enable: true` (never send `subtitles`) to obtain free aligned `output.subtitles` (`JSON`/`SRT`/`VTT`) alongside `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs`.
+
+When optional product foley or reveal sound effects strengthen the clip (for example a lid click, bottle pour, box open, or tactile UI chime), read `beatra.models.list` with `{"capability": "sound_effects"}`, list `beatra.audio.generate_sfx` as its own **paid** line on the confirmation card (never free) with its own `client_request_id`, and submit once (`0.5–30.0 s`, `loop: false` for hits or `true` for ambient beds):
+
+```json
+{
+  "prompt": "Crisp ceramic lid snap and gentle tabletop placement, close dry studio foley, no music.",
+  "model": "auto",
+  "duration_seconds": 1.5,
+  "loop": false,
+  "format": "mp3",
+  "client_request_id": "opaque-sfx-id"
+}
+```
+
+Note that `beatra.videos.animate` takes the single `driving_audio` narration artifact; deliver generated SFX hits as standalone cut-ready product audio assets alongside the clip (never pass them instead of narration or claim a combined mix inside `videos.animate`).
 
 The transform call and the synthesis call are independent; either order is fine.
 For a two-frame route, the paid last-frame `images.edit` call is prepared only
 from the accepted opening-frame artifact, with its focused edit prompt and
 current price already covered by the selected preparation route.
 
-On narration success, read the **actual** returned values: `audio.artifact_id`, `audio.duration_seconds`, `audio.mime_type`, `audio.size_bytes`. A script preview or an expected duration is not a result.
+On narration success, read the **actual** returned values: `audio.artifact_id`, `audio.duration_seconds`, `audio.mime_type`, `audio.size_bytes`, `audio.speech_start_seconds`, `audio.speech_end_seconds`, `audio.integrated_loudness_lufs`, and `subtitles` (`JSON`/`SRT`/`VTT`). A script preview or an expected duration is not a result.
 
 ## Review point
 
@@ -119,7 +139,7 @@ Any failure stops here. Shortening an over-long script and synthesizing again co
 
 ## Approval gate 2 — the shoot
 
-Show an admission card before any video `client_request_id` or `beatra.videos.animate` / `beatra.videos.interpolate` call: route and MCP tool name, approved frame and narration artifacts, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze the exact payload under a new stable `client_request_id`.
+Show an admission card before any video `client_request_id` or `beatra.videos.animate` / `beatra.videos.interpolate` call: route and MCP tool name, approved frame and narration artifacts, motion direction, selected model, audio-led duration, resolution if set, live credit estimate, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze the exact payload under a new stable `client_request_id`.
 
 ## The shoot — one paid call
 
@@ -182,7 +202,7 @@ Each paid artifact stands alone. Redoing one never means regenerating the others
 | What went wrong | Redo | Reuse unchanged |
 | --- | --- | --- |
 | The first frame is not right | `images.transform` | The narration |
-| The narration is too long or mispronounced | Shorten the script, then `speech.synthesize` | The first frame |
+| The narration is too long or mispronounced | Shorten or polish (`prepare_script`), re-verify free via `speech.validate`, then `speech.synthesize` | The first frame |
 | The video is not right | `videos.animate` | The first frame and the narration |
 | The canvas ratio must change | Everything | Nothing — the ratio lives in the frame |
 

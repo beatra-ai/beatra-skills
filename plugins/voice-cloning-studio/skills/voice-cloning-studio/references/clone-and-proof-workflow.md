@@ -1,53 +1,63 @@
 # Clone execution and recovery
 
-## Resolve the live model and price
+## Discover all three cloning capability routes
 
-Read the available voice-clone card with `beatra.models.list`:
+Query `beatra.models.list` with `include_activation_required: true`:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 ```json
-{"capability": "voice_clone"}
+{"capability": "voice_clone", "include_activation_required": true}
 ```
 
-Prefer `model: "auto"`. Under the current contract, automatic selection is not
-request-dependent and the omitted request has one declared default, so use
-that resolved model and its single current price. If a future live card makes
-selection request-dependent or leaves multiple candidates, show the honest
-price range rather than guessing a route.
+Never name upstream providers or expose internal model IDs. Explain routes by
+their live capabilities:
 
-Use the exact live billing contract. The current clone meter and unit are
-`task`; the basis is `successful_activated_voice`; the quantity for one clone
-is `1`. Apply the returned estimate formula, unit price and scale literally.
-Planning or a price lookup creates no clone and no charge.
+1. **Fast everyday clone (`model: "auto"`):** Immediate `status: "ready"`,
+   supports optional `prompt` (`sample` < 8 s + verbatim `text`) and profile
+   metadata (`gender`, `age_group`, `use_case`, `persona`).
+2. **10-language expressive, dialogue, and speech-to-speech clone:** Chosen
+   from the live `{"capability": "voice_clone"}` cards when the user needs
+   10-language expressive output, `supports_dialogue: true`, or
+   `supports_speech_to_speech: true` (`beatra.speech.convert`). Immediate
+   `status: "ready"`.
+3. **Free-trial training + paid activation precision clone:** Surfaced when
+   `include_activation_required: true`. Creates `status: "pending_activation"`
+   so the user can preview the trained voice before deciding whether to confirm
+   and pay for permanent activation via `beatra.voices.activate`.
 
-## Freeze and approve one clone card
+Use live pricing metadata (`meter`, `unit`, `billing_basis`, `unit_price_credits`,
+`scale`, `estimate_formula`, or activation quote fields). Never hardcode credit
+numbers, treat promotional balances as guaranteed sufficient, or quote remembered prices.
 
-The card should identify the sample source, readiness state, authorization
-fact, `display_name`, selected `model`, optional BCP-47 `language`, current
-sample limits, exact live estimate and the fact that approval covers one
-billable clone. Do not expose unnecessary sample or consent detail.
+## Freeze and approve one six-field clone card
 
 Before creating `client_request_id` or submitting `beatra.voices.clone`, show
-the clone admission card with every field: route `voice_clone`, tool
-`beatra.voices.clone`, live `beatra.models.list` price for one successful
-activated voice, the provisional estimate, the fact that the 600-credit
-signup gift usually cannot start this clone, and what happens if the balance
-is short. Do not submit until the user confirms they have topped up or
-already have enough credits for this estimate. Do not offer a free clone or a
-free sample that replaces the clone.
+the six-field production card:
 
-A consent statement alone is not paid approval; paid approval alone does not
-replace the required consent statement. Planning, comparison, or “clone it
-now” is not approval.
+1. **Work:** chosen cloning capability route, `beatra.voices.clone`, sample
+   reference, `display_name`, and optional profile metadata.
+2. **Credits:** live `beatra.models.list` estimate (or free-trial training +
+   activation quote terms for route 3). Keep `beatra.wallet.get` optional for
+   balance Q&A; never require balance pre-confirmation as a mandatory gate.
+3. **Count:** one cloning request (`quantity: 1`).
+4. **Identity:** fresh opaque local `client_request_id` minted once final.
+5. **If stop:** state what free work remains usable at zero extra charge (consent
+   check, readiness review, quote; nothing spent if this is the first paid step).
+6. **If balance short:** relay Beatra's official `insufficient_balance` message
+   and verbatim top-up URL (`topup_url`), and wait until the user confirms they
+   have topped up before retrying with the same frozen `client_request_id`.
+
+Consent alone is not paid approval; paid approval never replaces consent.
+Planning, comparison, or "clone it now" never substitutes for explicit confirmation
+after seeing live pricing.
 
 ## Submit one exact request
 
-After that top-up or balance confirmation, create one new, opaque, locally
-stored `client_request_id`. Invoke the tool by name through the bundled
-client, with the JSON body on standard input:
+After approval, create one new, opaque, locally stored `client_request_id` and
+invoke `beatra.voices.clone`:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.voices.clone
@@ -64,49 +74,65 @@ python3 scripts/mcp_client.py call beatra.voices.clone
 }
 ```
 
-The sample, display name, consent attestation and request ID are required.
-`model` and `language` are optional; omit an unknown language. Submit once and
-store the returned `task_id` immediately.
+Include optional `prompt`, `gender`, `age_group`, `use_case`, or `persona` only
+when agreed in the card; omit unknown `language`. Store the returned `task_id`
+immediately and poll with `beatra.tasks.get`.
 
-## Poll, reconcile and cancel without duplication
+## Mandatory confirmation: Activate a pending trial clone (`beatra.voices.activate`)
 
-For a known task, call `beatra.tasks.get` until the returned task is terminal.
-A slow, queued or running task remains the same work. Call
-`beatra.tasks.cancel` only at the user's request; if cancellation is rejected
-or not confirmed, continue polling that task.
+If `beatra.voices.clone` returns `status: "pending_activation"`:
 
-If the initial transport or task-creation response is uncertain, keep the
-original JSON and local request ID. If the task ID is lost, call
-`beatra.tasks.list` for the voice-clone capability, follow every
-`next_cursor`, and verify plausible candidates with `beatra.tasks.get`. The
-remote list/get envelope does not filter on or return the local
-`client_request_id`, so match by the relevant time window, capability and
-returned request/output facts; never pretend the display name proves identity.
+1. Read embedded `activation.quote` (`price_credits` / `confirm_credits`, terms,
+   `preview_url`, and 24-hour `confirmation_token` expiry). If expired
+   (`price_confirmation_required`) or missing, call `beatra.voices.activate` with
+   `voice_id` and a `client_request_id` (**omit `confirmation_token`**) for a
+   **free** refreshed quote and token.
+2. Present the quote and terms to the user and wait for explicit approval of both
+   the credit amount and terms.
+3. Call `beatra.voices.activate` with `voice_id`, `confirmation_token`,
+   `confirm_credits`, and a fresh `client_request_id`:
 
-Only when transport or task creation is still genuinely uncertain may the
-field-for-field identical JSON be replayed with the same local request ID. A
-new sample, name, model or language is different paid work and needs a new
-card, a new admission card, top-up or balance confirmation, and request ID.
-Do not automatically retry a terminal failed or canceled task, even if its
-error says it may be retryable. On `insufficient_balance`, relay the returned
-public message, keep the top-up URL inside the balance error exact, and retry
-the same frozen `client_request_id` only after the user says they have topped
-up.
+```bash
+python3 scripts/mcp_client.py call beatra.voices.activate
+```
 
-## Preserve the reusable voice result
+```json
+{
+  "voice_id": "voice_...",
+  "confirmation_token": "tok_...",
+  "confirm_credits": 1,
+  "client_request_id": "new-local-activate-id"
+}
+```
 
-On success, retain actual `task_id`, status, output type, `voice_id`, display
-name, resolved model, usage, billing and returned links. Lead the customer
-response with the named voice being ready, while preserving the exact opaque
-`voice_id` in the handoff. A display name is not a technical substitute or
-uniqueness proof.
+(Pass the exact live quoted `confirm_credits`, never a remembered figure.)
 
-For a later session, use `beatra.voices.list` with `category: "cloned"` and
-match the exact voice ID. Preserve its `compatible_models` for subsequent
-speech planning. Do not re-clone because a previous conversation lost the
-handle.
+## Mandatory confirmation: Two-step permanent deletion (`beatra.voices.delete`)
 
-For failure, report provider-neutral `TaskError` fields and actionable facts.
-Use returned charged, refunded and net billing values; preserve absent or
-unsettled values as unknown rather than zero. Never infer a provider, refund,
-activation, similarity, persistence or retention result.
+Deleting a voice permanently removes it (`deleted: true` cannot be reversed) and
+relinquishes an active cloned voice slot:
+
+1. Call `beatra.voices.delete` with `voice_id` only (**omit `confirmation_token`**).
+2. Present `voice`, `paid_slot_warning`, `irreversible_notice`, and the 15-minute
+   `confirmation_token` expiry.
+3. Only after the user explicitly confirms irreversible deletion in a reply, call
+   `beatra.voices.delete` with `voice_id` and `confirmation_token`. If 15 minutes
+   expire before confirmation (`invalid_request` on `confirmation_token`), repeat step 1.
+
+## Poll, reconcile, and preserve the voice handle
+
+For a known task, poll `beatra.tasks.get` until terminal. A slow, queued, or
+running task is still the same job. Call `beatra.tasks.cancel` only when the
+user requests it; on conflict, continue polling the same task.
+
+If `task_id` was lost, paginate `beatra.tasks.list` for `capability: "voice_clone"`
+across every `next_cursor` and verify candidates with `beatra.tasks.get`.
+`client_request_id` stays local-only and is not filterable remotely. Replay the
+field-for-field identical JSON with the same `client_request_id` only while
+creation remains genuinely uncertain (if `request_in_progress`, poll instead);
+any changed argument requires a new card, confirmation, and new ID. Never
+auto-retry failed or canceled tasks.
+
+On success, preserve the opaque `voice_id`, `status`, `display_name`, resolved
+capabilities, usage, and actual billing (`null`/missing values stay unknown,
+never zero). Never claim auditioning, similarity, or retention unless verified.

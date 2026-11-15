@@ -6,7 +6,8 @@ description: "Narrate a slide deck page by page. It writes a spoken script for e
 # Slide Narration Studio
 
 Give every slide of a deck its spoken explanation: a script per slide in the
-teacher's register, read in the teacher's own voice or a chosen voice.
+teacher's register, read in the teacher's own voice or a chosen voice,
+validated free before synthesis, and optionally normalized across slides.
 
 ## What you get
 
@@ -37,86 +38,109 @@ another Skill with the install message in
 [Narration workflow](references/workflow.md#pointing-to-another-skill)
 and install it only after the user asks.
 
+For noisy clone sample isolation (`isolate_voice`), two-step trial clone
+activation (`voices.activate`), slot deletion (`voices.delete`), or
+multi-speaker dialogue or SFX production beyond `scripts/mcp_client.py tools`,
+route to `voice-cloning-studio` or `beatra-ai-voice-studio`.
+
 ## Inputs and defaults
 
 Hard inputs: the deck (`.pptx`, PDF, or exported slide images), or the final
 lecture text when there are no slides, and the spoken language. Ask for a
-voice sample and the speaker's consent only when the teacher wants their own
-voice, and for readings of recurring names, terms, and acronyms. Defaults: the
-speaker notes as each slide's script when present, otherwise a script written
-from the slide; a catalog voice that suits the subject; audio per slide. Never
-add facts the slides and notes do not support; mark the gap for the teacher
-instead.
+voice sample and plain speaker consent ONLY before uploading a sample for custom
+voice cloning, and for readings of recurring names, terms, and acronyms.
+Defaults: speaker notes as each slide's script when present (otherwise a
+script written from the slide), a ready catalog voice suited to the subject,
+and audio per slide. Preserve original simplified/traditional characters and
+dialect wording unless asked, never hand-strip `/` pause markers or invent
+custom bracketed vocal-effect cues, and never add facts the slides and notes do not support.
 
 ## Golden path
 
 Run every Beatra call through the bundled `scripts/mcp_client.py`. Do not
-configure a host Beatra Connector. Do not use REST/OpenAPI as a fallback.
-Slides are read and videos assembled on this computer with
+configure or call a host Beatra Connector. Do not use REST/OpenAPI as a fallback.
+Check [speech and audio guide](references/speech-and-audio.md) for cross-tool
+limits and payload details; slides are read and videos assembled locally with
 [Deck files](references/deck-files.md) and
 [Lesson video assembly](references/lesson-video.md).
 
 1. **Read the deck** and create the course project (one lesson for the deck).
    From lecture text alone, each paragraph becomes one page.
-2. **Write the scripts** for every slide and show them with the reading list.
-   Nothing is submitted.
-3. **Narrate the first slides.** Pick the voice (the teacher's own voice is
-   cloned first, on its own card), read the live speech card, estimate only
-   the first three to six slides (`--pages`), show the card for them, narrate
-   them one at a time, record each, and deliver their audio. Render those
-   slides as video (`plan --pages`) only when the user asks.
-4. **Narrate the rest** after one card for the remaining slides, page by page.
-   On `insufficient_balance` at any paid step, stop the whole run, relay that
-   error's message and URL, and resume only after the user says they topped up.
-5. **Deliver** the audio per slide in order, how to place it in PowerPoint or
-   WPS, and, when asked, the narrated video (subtitles on screen) and its SRT
-   rendered locally; report durations and the summed
-   `billing.net_charged_credits`. Say that the audio files are AI-generated
-   narration.
+2. **Write and preflight the scripts** for every slide and show them with the
+   pronunciation list (nothing submitted yet). If dramatic rhythm helps, check
+   `{"capability": "speech_script"}`, approve its six-field card, and run Smart
+   Voice Director (`beatra.speech.prepare_script`), handling `synthesis: null`
+   via `warnings` and keeping the 48-hour same-inputs `voice`/`model`-only
+   recompile rule strictly distinct from calling `prepare_script` generally free.
+3. **Cast and clone safely**: filter `beatra.voices.list` across 11 capability
+   and style dimensions (`category`, `language`, `gender`, `age_group`,
+   `use_case`, `emotion`, `supports_context`, `supports_direction`,
+   `supports_performance_tags`, `supports_dialogue`, `supports_speech_to_speech`)
+   and audition free via `preview_url` or `beatra.voices.preview`
+   (`{"voice_id": "..."}`). For the teacher's voice, obtain plain consent BEFORE
+   upload, inspect `{"capability": "voice_clone", "include_activation_required": true}`
+   without vendor names or internal IDs (choosing an immediate-ready route here,
+   or routing noisy isolation / trial activation / deletion to `voice-cloning-studio`),
+   and clone on its own six-field card before any slide synthesis.
+4. **Narrate the first slides (3–6 pilot pages)** after reading live
+   `{"capability": "text_to_speech"}` cards (never hardcoded credit numbers),
+   estimating `--pages`, validating each slide free via `beatra.speech.validate`
+   (`estimated_duration_seconds`), and showing the six-field production card
+   (If stop lists kept scripts/previews/checks at zero extra cost). Pass
+   `subtitle_enable: true` when free aligned `SRT`/`VTT` captions are needed
+   (never `subtitles` on `speech.synthesize`). Render pilot video (`plan --pages`)
+   only when asked.
+5. **Narrate the rest and optionally normalize loudness**: approve one six-field
+   card for remaining slides page by page (`insufficient_balance` stops the run,
+   relays Beatra's message and exact `topup_url` verbatim, and resumes only
+   after user top-up confirmation with identical IDs). If unifying audio volume
+   across slides (`-14 LUFS`), inspect `{"capability": "audio_process"}`,
+   approve its finishing card, and run serialized `beatra.audio.process`
+   (`operation: "normalize_loudness"`, **`source`** field, `<= 60 min` /
+   `<= 300 MB` / `>= 1 s` output, `50` calls/day) one track at a time (never call
+   finishing free or a mastering service).
+6. **Deliver** audio per slide in order, PowerPoint/WPS placement instructions,
+   and optional narrated video + SRT, reporting returned durations and summed
+   `billing.net_charged_credits`, clearly labelling audio as AI-generated narration.
 
 ## Decisions that require confirmation
 
-Every paid call follows the current production card in
-[Narration workflow](references/workflow.md#production-cards): the first
-slides, the rest of the deck, and voice cloning. Scripts and estimates are
-free and are not approval. The voice is the teacher's own or used with the
-speaker's permission; access to a file is not consent. A changed script or
-a retake is new narration for that slide only, on its own card; a changed
-reading applies to the whole deck and is new narration for every narrated
-slide that contains the term, so run `estimate` first and quote how many
-slides it re-opens; a new voice is new narration for every slide already
-narrated.
+Every paid call follows its current six-field card in
+[Narration workflow](references/workflow.md#production-cards): pilot slides,
+remaining deck, Smart Voice Director, voice cloning, and optional loudness
+normalization. Scripts, previews, `validate`, and estimates are free and never
+constitute approval. Access to a sample file is never consent. A changed slide
+script or retake creates new paid work on its own card; a changed pronunciation
+reading re-opens every matching slide; a new voice re-opens previously narrated
+slides.
 
 ## Recovery
 
-Each slide's narration has one `client_request_id` from the course project;
-it stays the same while the script, reading, voice, and take are unchanged.
-Recover a lost response with `beatra.tasks.list` and `beatra.tasks.get` before
-anything is submitted again. A narration task that ends `failed` or
-`canceled` gets `retake` for that slide and a new card; its ID is never sent
-again. A failed render is local and is re-run with no paid call.
+Each slide uses one `client_request_id` from the course project while inputs
+remain identical. Reconcile lost responses across paginated `beatra.tasks.list`
+(`next_cursor`) plus `beatra.tasks.get` before resubmitting anything. A `failed`
+or `canceled` task uses `retake` with a new card and new ID. A failed local
+video render retries locally at zero cost.
 
 ## Account balance
 
-When the user asks how many credits remain or whether a live estimate fits,
-call `beatra.wallet.get`. When they ask what was charged, call
-`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
-top-up tool. Do not make `wallet.get` a required step before every paid submit.
-
-When a model card comes back carrying a `top_up` block, relay its tiers as the
-card lists them and in that order. Do not rank them, do not talk one down, and
-do not pick one for the user. Which tier suits them is their call, made on
-the wallet page with the whole list in front of them. Never quote a tier from
-memory.
+Never make `beatra.wallet.get` a mandatory gate before paid submission and never
+ask users to confirm they have enough credits. Only call read-only
+`beatra.wallet.get` when asked about balance/fit, and `beatra.wallet.ledger`
+when asked what was charged. When a model card returns a `top_up` block, relay
+its tiers verbatim in returned order without ranking or picking one.
 
 ## References by task
 
+- Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
+  limits, 3 cloning routes, Smart Voice Director, and production-card standards.
 - Read [Narration workflow](references/workflow.md) for production cards,
-  payloads, placing audio in PowerPoint or WPS, cloning, and delivery.
+  payloads (`prepare_script`, `validate`, `synthesize`, `normalize_loudness`),
+  PowerPoint/WPS placement, cloning, and delivery.
 - Read [Deck files](references/deck-files.md) when reading slides, exporting
-  slide images, or installing the reader's optional helpers.
+  slide images, or installing optional deck helpers.
 - Read [Lesson video assembly](references/lesson-video.md) for the course
-  project, readings, subtitles, layouts, the AI badge, and rendering.
+  project, readings, subtitles, layouts, AI badge, and local rendering.
 - Read [Installation and authentication](references/installation-and-auth.md)
   only when authorization needs attention.
 - Read [Installation registration](references/installation-registration.md)
@@ -128,7 +152,7 @@ memory.
   the bundled client cannot connect.
 - Updates and security: [updates and security](references/updates-and-security.md)
 - Read [Uninstall and disconnect](references/uninstall-and-disconnect.md)
-  only when the user asks to stop using it and remove its credentials.
+  only when the user asks to stop using it and remove credentials.
 
 Use or invoke the bundled `scripts/mcp_client.py` for every Beatra operation.
 

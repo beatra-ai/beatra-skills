@@ -30,6 +30,7 @@ Before paid work, read the current cards:
 
 ```text
 printf '%s' '{"capability":"image_to_image"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"speech_script"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_speech"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py call beatra.models.list
 ```
@@ -61,7 +62,20 @@ If an optional creator reference is admitted by the selected card, add it as the
 
 Use `beatra.images.edit` only when an accepted first-frame artifact needs one focused change. Put that accepted artifact at `images[0]`, name no more than two normalized edit regions, and confirm its separate price and request ID before submission.
 
-Write a short pitch with one natural hook, one product moment, one merchant-approved benefit, and one clear recommendation. Select a ready voice with `beatra.voices.list` only when the user has not chosen an available voice. The narration request is:
+Write a short pitch with one natural hook, one product moment, one merchant-approved benefit, and one clear recommendation. Discover voices with `beatra.voices.list` (bilingual `search` plus `supports_direction`, `supports_emotion`, `supports_performance_tags`, `supports_context`, and check all 11 `capabilities.*` metadata fields) and optionally audition candidates free with `beatra.voices.preview` (`{"voice_id": "voice_selected"}`). When spoken pacing, pauses, or pronunciation notes are needed, run `beatra.speech.prepare_script` (Smart Voice Director, keeping exact words; 48h re-call on identical copy changing only voice/model is free, max 2 concurrent; never hand-author braced tags or strip `/` pauses manually; listed as its own paid line when run):
+
+```json
+{
+  "input": "The approved conversational product pitch.",
+  "instructions": "Natural conversational creator tone with a crisp opening hook pause.",
+  "voice": "voice_selected",
+  "model": "auto",
+  "language": "zh",
+  "client_request_id": "opaque-ugc-script-id"
+}
+```
+
+Before confirming paid synthesis, pass any `prepare_script` result (`scripts[].synthesis`) verbatim into `beatra.speech.validate` (`input`) alongside `voice`, `model`, `language`, and `format`, and always run free `beatra.speech.validate` to verify `valid`, `warnings` (`null` means no warnings), `weighted_characters`, live `price_credits`, and `estimated_duration_seconds` against the short clip window. Keep `subtitle_enable: true` on `beatra.speech.synthesize` (passing `scripts[].synthesis` verbatim as `input` when used) to receive free aligned `output.subtitles` (`JSON`/`SRT`/`VTT`) plus `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs`. The narration request is:
 
 ```json
 {
@@ -70,6 +84,7 @@ Write a short pitch with one natural hook, one product moment, one merchant-appr
   "language": "the admitted BCP-47 language when required",
   "format": "mp3",
   "model": "the live admitted text-to-speech model or auto after live verification",
+  "subtitle_enable": true,
   "client_request_id": "opaque-ugc-narration-id"
 }
 ```
@@ -84,7 +99,7 @@ Refresh the live `image_to_video` cards after preparation. Re-admit the exact ap
 
 Choose the smallest integer duration at or above the actual narration duration that the selected live model card supports. A fractional narration can leave the shortest unavoidable tail pause or held frame, so include that in the review after delivery.
 
-Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved frame and narration, product and creator must-keeps, motion direction, selected model, audio-led duration, resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze a new opaque request ID.
+Show an admission card before any video `client_request_id` or `beatra.videos.animate` call: route `image_to_video`, tool `beatra.videos.animate`, approved frame and narration, product and creator must-keeps, motion direction, selected model, audio-led duration, resolution if set, live credit estimate, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved preparation does not authorize the video. Do not submit until the user confirms they have topped up or already have enough credits for this estimate. Then freeze a new opaque request ID.
 
 ```json
 {

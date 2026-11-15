@@ -42,7 +42,13 @@ Safe defaults:
 - Slot mix: title, explore, battle, shop, victory, game-over, and quiet
   hub beds.
 - `instrumental: true` with lyrics absent.
-- `model: "suno-6"`. Never omit the model and never silently use `auto`.
+- `model: "suno-6"` for music slots. Never omit the model on music slots and
+  never silently use `auto` there.
+- Sound effects and ambience beds: when the brief includes biome ambience, UI
+  clicks, combat foley, or stingers, use `beatra.audio.generate_sfx` with
+  `model: "auto"` and `duration_seconds` between `0.5` and `30`, setting
+  `loop: true` for repeating biome ambience beds. Never write a concrete vendor
+  or internal SFX model ID.
 - Length: when this account has the music tools (the bundled client's `tools`
   command lists `beatra.music.edit` and `beatra.audio.process`; see
   [music editing and audio](references/music-editing-and-audio.md)), send
@@ -56,19 +62,35 @@ Safe defaults:
   path, step 7). Never promise a seamless loop or sample-perfect seconds: with
   the music tools, report how smoothly each loop joins; without them, ask for a
   loop-friendly arrangement.
+- Follow-up native edits: when a generated track returns
+  `editable: {"native": true}`, offer `beatra.music.edit` (priced live by
+  operation, e.g. `{"capability": "music_extend"}` or
+  `{"capability": "music_replace_section"}`) for extending, replacing a section, or
+  building a combat variation without starting from scratch.
 
-Soundtrack planning is free. Each `beatra.music.generate` call and each finishing call is paid.
+Soundtrack planning is free. Each `beatra.music.generate`, `beatra.music.edit`,
+`beatra.audio.generate_sfx`, and `beatra.audio.process` finishing call is paid.
 
 ## Golden path
 
-1. Write the game card and the labeled slot list. Each slot has a use,
-   mood, tempo feel, instrumentation, energy, and intended length.
+1. Write the game card and the labeled slot list (music beds plus any optional
+   biome ambience, UI, combat foley, or stinger SFX slots). Each slot has a use,
+   mood, tempo feel, instrumentation or sound source, energy, and intended
+   length.
 2. Call `beatra.models.list` with `{"capability":"text_to_music"}`, read the
-   `suno-6` entry's `pricing`, and price the whole pack from that live card per slot and in total, adding, with the music tools, each slot's finishing call at the live `audio_process` price (`beatra.models.list` with `{"capability": "audio_process"}`). Never a remembered number.
-3. Confirm the frozen soundtrack: slot count, each slot's prompt, title, and
-   length, `instrumental: true`, model, the current maximum charge for the pack,
-   and one opaque stable `client_request_id` per slot and per finishing call.
-   Planning is not approval.
+   `suno-6` entry's `pricing`, and price the music slots from that live card
+   per slot and in total. With the music tools, add each slot's finishing call
+   at the live `audio_process` price (`beatra.models.list` with
+   `{"capability": "audio_process"}`). When the pack includes SFX or ambience
+   slots, call `beatra.models.list` with `{"capability": "sound_effects"}` and
+   price those slots from the live card (plus the operation capability such as
+   `{"capability": "music_extend"}` or `{"capability": "music_replace_section"}`
+   if quoting a native edit). Never a remembered number.
+3. Confirm the frozen soundtrack: slot count, each music slot's prompt, title,
+   and length, `instrumental: true`, music model (`suno-6`), any SFX slots
+   (`prompt`, `duration_seconds`, `loop`, `model: "auto"`), any finishing calls,
+   the current maximum charge for the pack, and one opaque stable
+   `client_request_id` per slot and per finishing call. Planning is not approval.
 4. Submit each slot exactly once through the bundled
    `scripts/mcp_client.py`. Example:
 
@@ -76,8 +98,11 @@ Soundtrack planning is free. Each `beatra.music.generate` call and each finishin
    printf '%s' '{"model":"suno-6","prompt":"Indie game explore bed, warm acoustic fantasy, loop-friendly, about 90 seconds, no vocals.","instrumental":true,"title":"Explore 01","duration_seconds":90,"client_request_id":"opaque-game-explore-01"}' | python3 scripts/mcp_client.py call beatra.music.generate
    ```
 
-   Without the music tools, drop `duration_seconds` and keep "about 90
-   seconds" in the prompt.
+   Submit any confirmed SFX or biome ambience slots with
+   `beatra.audio.generate_sfx` (`model: "auto"`, `duration_seconds` `0.5`–`30`,
+   and `loop: true` for repeating ambience beds). Without the music tools, drop
+   `duration_seconds` on `beatra.music.generate` and keep "about 90 seconds" in
+   the prompt.
 
    Do not configure, call, or use a host Beatra Connector. Do not use
    REST/OpenAPI as a fallback.
@@ -111,15 +136,28 @@ Soundtrack planning is free. Each `beatra.music.generate` call and each finishin
    in another, which is normal. An instrumental bed's vocals stem is near
    silent, and strings, synths, pads and chiptune leads land in the "other"
    stem. Stems come back in the split's own format, not OGG. When the engine needs OGG, convert each one with `convert_format`: one paid `audio_process` call per stem, each listed as its own line on the split's card.
+9. When an ambience SFX bed needs more than 30 seconds or engine OGG export,
+   extend or convert it with `beatra.audio.process` (`loop` or
+   `convert_format` to `ogg`) as its own paid line on the card. When a track
+   with `editable: {"native": true}` needs an arrangement change or combat
+   variant, run `beatra.music.edit` on its own confirmed card.
 
 ## Decisions that require confirmation
 
 Confirm the soundtrack size and live pack estimate before the first paid
 call. Show one current production card and wait:
 
-1. Work — the labeled soundtrack in the user's words, each slot a `beatra.music.generate` call, and with the music tools each slot's finishing `beatra.audio.process` call on its own line.
-2. Credits — the live `suno-6` price just read from `beatra.models.list` and, with the music tools, the live `audio_process` price of each finishing call, per line and in total. Never a remembered number.
-3. Count — one paid call per line listed on the card: each slot, and with the music tools each slot's finishing call.
+1. Work — the labeled soundtrack in the user's words: each music slot a
+   `beatra.music.generate` call, each requested SFX/ambience slot a
+   `beatra.audio.generate_sfx` call, any `beatra.music.edit` revision, and with
+   the music tools each finishing `beatra.audio.process` call on its own line.
+2. Credits — the live `suno-6` price just read from `beatra.models.list`
+   (`text_to_music`), the live `sound_effects` or matching edit-operation price
+   (`music_extend`, `music_replace_section`, and related operation capabilities)
+   when used, and with the music tools the live `audio_process` price of each
+   finishing call, per line and in total. Never a remembered number.
+3. Count — one paid call per line listed on the card: each music or SFX slot,
+   any native music edit, and each finishing call.
 4. Identity — one new opaque `client_request_id` per line listed on the card. Any changed
    prompt, title, length, model, or count mints a new ID for each changed line.
 5. If we stop here — the labeled slot list remains usable.
@@ -128,8 +166,8 @@ call. Show one current production card and wait:
    until the user says they have topped up.
 
 A changed slot prompt, title, length, model, or count is new paid work with
-new request IDs for the changed slots only. A stem split is its own paid step
-and its own card.
+new request IDs for the changed slots only. A stem split, native
+`beatra.music.edit`, or add-on SFX batch is its own paid step and its own card.
 
 When the user asks how many credits remain, call `beatra.wallet.get`. When they
 ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not

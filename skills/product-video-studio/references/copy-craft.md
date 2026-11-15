@@ -14,13 +14,13 @@ When the merchant does not supply them, write around them. "A matte-looking fini
 
 If the merchant asks you to state a claim they have not verified, say plainly that you will include it once they confirm it, and offer the claim-free version meanwhile.
 
-## Length is a budget, and it is spent before you know the price
+## Length is a budget — verify it free with `beatra.speech.validate` before paying
 
-The finished video runs at most 15 seconds, and the video cannot be shorter than the narration without cutting the last words off. But the narration's real duration is only known after it is synthesized and paid for.
+The finished video runs at most 15 seconds, and the video cannot be shorter than the narration without cutting the last words off. Always write to about **12 seconds** first (roughly 55 to 60 Simplified Chinese characters, or a little over one English sentence), leaving a three-second reserve so the cut lands cleanly.
 
-So write to about **12 seconds**, not to the ceiling. In Simplified Chinese that is roughly 55 to 60 characters; in English, a little over a sentence. The three-second reserve absorbs the difference between how you imagine the line and how the voice actually says it.
+When pacing, pauses, dramatic emphasis, or pronunciation notes would help the read, call **`beatra.speech.prepare_script`** (Smart Voice Director, after `{"capability": "speech_script"}`, listed as its own paid line when run; never alters the merchant's approved wording; re-calling `prepare_script` within 48 hours with the same script and instructions when changing only `voice`/`model` charges zero credits; max 2 concurrent). Never hand-author braced markup or strip `/` slashes manually.
 
-Tell the merchant this number is an estimate and that the real duration comes back with the audio. If the synthesized narration overruns, shorten the script and synthesize again — the first frame is unaffected and is reused.
+Before committing to paid synthesis, run free **`beatra.speech.validate`** with the chosen voice, prepared `input`, `model`, `language`, and `format`. Read `valid`, `warnings`, `weighted_characters`, live `price_credits`, and **`estimated_duration_seconds`** at zero charge: if `estimated_duration_seconds` threatens the 15-second video ceiling, tighten the line before paying to synthesize. Keep `subtitle_enable: true` (default) on `beatra.speech.synthesize` to receive free aligned `output.subtitles` (`JSON`/`SRT`/`VTT`) and check the returned `audio.duration_seconds` before the video stage. If the actual rendered audio still overruns, shorten the script, re-validate free, and re-synthesize only speech — the first frame is unaffected and reused.
 
 ## Shape of a 12-second commerce script
 
@@ -56,10 +56,8 @@ Write "made for vertical short-video feeds" rather than naming them.
 
 **Anything you cannot point at.** If you cannot name where a statement came from — the photo, or the merchant — it does not go in.
 
-## Choosing the voice
+## Choosing and auditioning the voice
 
-Call `beatra.voices.list` and match on `use_case`. Commerce narration wants a voice built for short social content, not an audiobook or a news reader; the catalogue labels these.
+Call `beatra.voices.list` using bilingual `search` plus `use_case` and capability filters (`supports_direction`, `supports_emotion`, `supports_performance_tags`, `supports_context`). Commerce narration wants a crisp short-video voice, not an audiobook or news reader; check all 11 `capabilities.*` metadata fields returned on the candidate voice before combining expressive markup or delivery cues.
 
-Match the language to the destination market, and confirm the selected speech model supports that language before synthesizing.
-
-When the merchant has not expressed a preference, choose a sensible default and name it in the confirmation rather than asking. One fewer question is worth more than a marginally better match.
+Match the language to the destination market, confirm the selected speech model supports that language, and run free **`beatra.voices.preview`** (`{"voice_id": "..."}`) so the merchant can audition the voice at zero charge before committing synthesis credits. When the merchant has not expressed a preference, pick a sensible default, audition/validate it cleanly, and name it in the preparation confirmation rather than stalling for another round.

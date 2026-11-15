@@ -1,5 +1,5 @@
 {
-  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
+  "changelog": "Adds noisy instructor-sample voice isolation, voice audition and default naming, Smart Voice Director pacing preparation, pre-synthesis avatar duration checks, uniform lesson loudness normalization, and aligned SRT and VTT subtitles.",
   "display_name": "Course Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-video-studio",
@@ -66,5 +66,5 @@
   },
   "name": "course-video-studio",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

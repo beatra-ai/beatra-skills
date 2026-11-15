@@ -138,14 +138,35 @@ python3 scripts/mcp_client.py call beatra.models.list
 and, before a clone or a clip, `{"capability": "voice_clone"}` or
 `{"capability": "image_to_video"}` the same way.
 
-The 600-credit signup gift covers the first part of a micro-lesson in slides
+The initial signup gift covers the first part of a micro-lesson in slides
 and voice, about three minutes. A whole 10-minute lesson, cloning a voice, and
 the on-camera opening usually need a top-up; say so on their cards. When a
 card carries a `top_up` block, relay its tiers as listed.
 
 ## Narration payload
 
-`lesson_kit.py next` prints the exact arguments. They look like this:
+First discover live models (`beatra.models.list` with `{"capability": "text_to_speech"}` and `{"capability": "speech_script"}`) and audition voices free (`beatra.voices.preview`, no charge):
+
+```json
+{
+  "voice_id": "<selected voice_id>"
+}
+```
+
+Optionally shape pauses and delivery cues without changing spoken words using paid **Smart Voice Director** (`beatra.speech.prepare_script`, max 2 concurrent; inspect `directed` and `scripts[]`, resolving `warnings` if `synthesis` is `null` or reusing via identical call changing only `voice`/`model` within 48h):
+
+```json
+{
+  "input": "<slide or opening script text>",
+  "instructions": "Warm, clear classroom pacing with short pauses at key terms.",
+  "voice": "voice_teacher",
+  "model": "auto",
+  "language": "zh-CN",
+  "client_request_id": "1c8a9d2e-4f5b-43a1-9d20-6e7f8a1b2c3d"
+}
+```
+
+Always run free preflight `beatra.speech.validate` (free, NO `client_request_id`) before paid TTS to inspect `valid`, `warnings`, `price_credits`, and `estimated_duration_seconds`:
 
 ```json
 {
@@ -154,6 +175,20 @@ card carries a `top_up` block, relay its tiers as listed.
   "model": "auto",
   "format": "mp3",
   "language": "zh-CN",
+  "subtitle_enable": true
+}
+```
+
+`lesson_kit.py next` prints the exact synthesis arguments (or pass `scripts[].synthesis` from Smart Voice Director with `lesson_kit.py next`'s `client_request_id` and keep `"subtitle_enable": true` for free `output.subtitles` `JSON`/`SRT`/`VTT` + `speech_start_seconds`/`speech_end_seconds`). They look like this:
+
+```json
+{
+  "voice": "voice_teacher",
+  "input": "一次函数的图像是一条直线。先看这个例子。",
+  "model": "auto",
+  "format": "mp3",
+  "language": "zh-CN",
+  "subtitle_enable": true,
   "client_request_id": "lk-3f9a1c2e-L01-p001-5c1d2e3f4a5b"
 }
 ```
@@ -261,7 +296,7 @@ clean single-speaker speech. Upload it:
 python3 scripts/mcp_client.py upload ./teacher-sample.wav --mime-type audio/wav
 ```
 
-Show the clone card, then submit `beatra.voices.clone` once:
+Show the clone card after explicit user rights/anti-impersonation confirmation (Mandatory Confirmation #1) and note Mandatory Confirmations #2 (using `{"capability": "voice_clone"}` immediate-ready models; any `pending_activation` clone requires separate quote/token/exact-credit activation) and #3 (persistent slot permanence and two-step irreversible deletion in [Speech, Voices, and Audio Finishing](speech-and-audio.md)), then submit `beatra.voices.clone` once:
 
 ```json
 {
@@ -273,7 +308,7 @@ Show the clone card, then submit `beatra.voices.clone` once:
 }
 ```
 
-Poll to terminal, save the final result to `tasks/clone.json`, and write the
+Poll to terminal, audition free with `beatra.voices.preview`, save the final result to `tasks/clone.json`, and write the
 returned `voice_id` into `voice.voice_id`. Every slide already narrated with
 another voice then goes back in `next` with a new ID, and `plan` refuses it
 until it is narrated again, so the whole lesson ends up in one voice. Tell the
@@ -291,10 +326,7 @@ Check that the card returns the clip with its sound (`output_audio`), since
 the render plays the clip's own audio track; when no current card does, say
 so and make no clip.
 
-Then narrate the opening script as its own request with a new opaque ID
-(card, submit, poll), upload or reuse the photo, confirm the photo and the
-narration's actual length and size fit the card, show the clip card, then
-submit `beatra.videos.animate` once:
+Then run optional paid `beatra.speech.prepare_script` (never invent braced tags) followed by **mandatory free `beatra.speech.validate`** BEFORE paying to synthesize or animate: verify `estimated_duration_seconds` fits inside the `image_to_video` card's longest clip limit, and shorten/re-pace free if needed. Once fit is confirmed, narrate the opening script with `subtitle_enable: true` as its own request with a new opaque ID (card, submit, poll -> collect free `output.subtitles` `SRT`/`VTT` and `speech_start_seconds`/`speech_end_seconds` alongside audio), upload or reuse the photo, confirm the photo and the narration's actual length and size fit the card, show the clip card, then submit `beatra.videos.animate` once:
 
 ```json
 {
@@ -344,8 +376,7 @@ left for them; then ask for a portrait or square photo, or plan with
 
 ## Subtitles
 
-The video shows its subtitles on screen, and the SRT ships beside the MP4.
-Drawing them into the picture needs Pillow and a font with the subtitles'
+The video shows its subtitles on screen, and the full-lesson SRT ships beside the MP4; additionally, every `beatra.speech.synthesize` response (`subtitle_enable: true`) includes **free `output.subtitles`** (`JSON`, `SRT`, `VTT`) plus `speech_start_seconds` and `speech_end_seconds` at zero extra fee for on-camera clips and per-page verification. Drawing them into the picture needs Pillow and a font with the subtitles'
 characters on this computer (see [Lesson video assembly](lesson-video.md));
 when `plan` reports either one missing, follow that reference, and ask the
 user before installing anything. When the teacher uploads subtitles to a

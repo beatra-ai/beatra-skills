@@ -20,38 +20,41 @@ Maintain one ordered ledger with:
 
 ## Prepare text for speech
 
-A single synthesis `input` is limited to 50,000 characters. Split large
-chapters at natural chapter, section, scene, paragraph, or sentence boundaries,
-never mid-sentence. Use stable labels such as `01-opening`,
-`02-chapter-one-a`, and `02-chapter-one-b` so the output can be restored to
-listening order.
+Keep each single-speaker `beatra.speech.synthesize` `input` at or below
+`50,000` characters, and keep each native multi-cast
+`beatra.speech.synthesize_dialogue` chapter scene at `2–50` turns and
+`<= 2,000` characters (chunk longer chapter dialogues scene-by-scene passing
+`previous_text` / `next_text` across boundaries). Split large chapters at
+natural chapter, section, scene, paragraph, or sentence boundaries, never
+mid-sentence. Use stable labels such as `01-opening`, `02-chapter-one-a`, and
+`02-chapter-one-b` so audio restores to listening order.
 
-The voice reads the submitted text. Remove only citations, URLs, stage notes,
-or headings the user does not want spoken. Use punctuation and sentence breaks
-to express pauses. Decide readings for names, dates, numbers, currencies, units,
-initials, acronyms, and foreign terms. Preserve the manuscript's meaning and
-keep a pronunciation glossary beside the ledger.
+Keep spoken text clean: remove only citations, URLs, stage notes, or headings
+the user does not want spoken, and never manually write braced performance
+tags. When pausing, expressive pacing, or polyphonic pronunciation needs
+directing, quote and use **Smart Voice Director**
+(`beatra.speech.prepare_script`, word-preserving) and verify with free
+`beatra.speech.validate` / `beatra.speech.validate_dialogue`. Decide readings
+for names, dates, numbers, currencies, units, initials, acronyms, and foreign
+terms, preserving the manuscript's meaning in the glossary.
 
-## Cast with live voice facts
+## Cast with live voice facts and previews
 
-When a narrator has not been frozen, call `beatra.voices.list` with the useful
-language or preference filters. Treat each returned `voice_id` as an opaque
-handle. A `display_name`, prose preference, remembered label, or preview name is
-never a substitute for `voice_id`. Use `preview_url` for free comparison and
-freeze the chosen voice's actual `voice_id`, returned language information, and
-`compatible_models`.
+When a narrator or scene cast has not been frozen, call `beatra.voices.list`
+with bilingual `search`, facet filters, or `supports_dialogue=true` (when
+planning `synthesize_dialogue`), and inspect all `11` `capabilities.*` metadata
+fields. Call free `beatra.voices.preview` (`preview_url`, `kind`) so the user
+can audition candidates at zero cost, and use free `beatra.voices.update` when
+renaming or pinning a recurring narrator (`make_default=true`). Treat every
+returned `voice_id` as an opaque handle — never substitute a `display_name` or
+remembered label.
 
-Call `beatra.models.list` with `capability: "text_to_speech"` before a model,
-language, or price decision. An explicit model must be available in its live
-card, present in the voice's `compatible_models`, and support the requested
-language. Language is not an `auto` routing input; the service first resolves
-from the voice and then validates language. For `auto`, collect all live
-available voice-compatible candidates and compare the requested BCP-47 primary
-language with every candidate's `constraints.supported_languages`, using
-documented aliases only. If any candidate lacks that language, do not use
-`auto`; ask the user to confirm a viable explicit model. Only when every
-candidate supports the language may `auto` remain and the complete candidate
-set define the price range.
+Call `beatra.models.list` with `capability: "text_to_speech"` (or
+`"text_to_dialogue"`) before any model, language, or price decision. Require an
+explicit single-speaker model to be live, present in `compatible_models`, and
+support the requested BCP-47 language. For `auto`, collect all live available
+voice-compatible candidates and check `constraints.supported_languages` across
+every candidate before retaining `auto`.
 
 ## Separate the pilot from the book
 

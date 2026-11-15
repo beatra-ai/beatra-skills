@@ -1,5 +1,5 @@
 {
-  "changelog": "Each cue's finishing steps (its length, its fades, and one level across the score) are now planned with the score from the start.",
+  "changelog": "Now also generates dramatic tension hits, scene transitions, and looping room-tone sound effects alongside your episode score, plus follow-up edits on editable beds.",
   "display_name": "Short Drama Score Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-score-pack",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-score-pack",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

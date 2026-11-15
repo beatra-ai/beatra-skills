@@ -32,11 +32,11 @@ Stages 1 to 3 cost nothing. No paid call happens before the user has approved th
 1. **Choose the pattern.** Read the subject and select one of the six script patterns in [choosing the pattern](references/script-patterns.md). The pattern sets the beat count and what each beat does.
 2. **Write the shot list.** The spoken structure is hook → evidence or experience → call to action, each with second-level in and out points and two separate fields — what is on screen, and what is said. Screen the copy as described in [writing the spoken lines](references/spoken-lines.md). If the first 3 seconds do not carry the hook, revise that still-free shot list before any generation confirmation.
 3. **Show the shot list and get it approved.** This is what the rest of the run is built from, and it is free to revise.
-4. Read the live `text_to_image`, `text_to_speech`, and `image_to_video` cards with `beatra.models.list` — plus `text_to_music` when a bed was requested — and check every planned image, speech, video, and music fact against the relevant card.
-5. **Confirm preparation.** Show which beats become frames, the 9:16 canvas and what changing it later would cost, the selected ready voice from `beatra.voices.list`, whether a music bed is included, the current estimate, and a stable request ID for every planned paid call.
-6. Generate the beat frames with `beatra.images.generate`, one call per frame. Synthesize the narration with `beatra.speech.synthesize`, then read the actual returned duration, size, and MIME type. Produce the music bed with `beatra.music.generate` only when it was confirmed.
-7. **Show the real materials.** Display the frames and play the narration whenever the host can access them, and report the true duration. Distinguish returned task facts from media the host could not inspect.
-8. **Show the video admission card.** Show route `image_to_video`, tool `beatra.videos.animate`, approved opening frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, provisional live estimate, the fact that the 600-credit signup gift usually cannot start this video, and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved frames or narration do not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the approved opening frame, the narration, an explicitly selected model, and that audio-led duration.
+4. Discover ready voices with `beatra.voices.list` (bilingual CN/EN `search` plus `supports_direction`, `supports_emotion`, `supports_performance_tags`, and `supports_context`, inspecting the 11 `capabilities.*` fields) and optionally audition candidates free with `beatra.voices.preview`. Read the live `text_to_image`, `text_to_speech`, and `image_to_video` cards with `beatra.models.list` — plus `speech_script` when running Smart Voice Director, `text_to_music` when a bed was requested, and `audio_process` when the bed needs trimming, fading, or loudness normalization — and check every planned image, speech, script-direction, video, and music fact against the relevant card. When pacing, pauses, or pronunciation notes are needed without manual `/` pause marks or invented `{}` tags, prepare the script once with `beatra.speech.prepare_script` (preserving your exact approved words and verified figures; 48h re-call on identical copy changing only voice/model is free; max 2 concurrent). Always run free `beatra.speech.validate` first to verify `valid`, `weighted_characters`, live credits, and `estimated_duration_seconds` fit the 12-second target (15-second max ceiling) before spending.
+5. **Confirm preparation.** Show which beats become frames, the 9:16 canvas and what changing it later would cost, the selected ready voice from `beatra.voices.list`, any planned `beatra.speech.prepare_script` call, the free `beatra.speech.validate` preflight check, whether a music bed and any paid `beatra.audio.process` finishing (`trim`, `fade`, `normalize_loudness`) are included, the current live estimate, and a stable request ID for every planned paid call.
+6. Generate the beat frames with `beatra.images.generate`, one call per frame. Synthesize the narration with `beatra.speech.synthesize` (passing `scripts[].synthesis` unchanged when directed, and keeping `subtitle_enable: true` default so free aligned `output.subtitles` in `JSON`, `SRT`, and `VTT` return alongside `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs`), then read the actual returned duration, size, and MIME type. Produce the music bed with `beatra.music.generate` only when it was confirmed, and finish it in one combined paid `beatra.audio.process` call (`trim`, fade, and loudness normalization within `<= 60 min`, `<= 300 MB`, `>= 1 s`, 50 calls/day, sequential) when finishing was confirmed.
+7. **Show the real materials.** Display the frames and play the narration whenever the host can access them, and report the true duration and delivered subtitle files. Distinguish returned task facts from media the host could not inspect.
+8. **Show the video admission card.** Show route `image_to_video`, tool `beatra.videos.animate`, approved opening frame, narration, audio-led duration (smallest whole second at or above the real narration length), resolution if set, provisional live estimate, whether any `free_first_video` offer on the live card applies (welcome signup credits alone usually cannot start a paid video call), and what happens if the balance is short. Planning, comparison, or “make the clip” is not approval. Approved frames or narration do not authorize the video. Do not create a video `client_request_id` or submit until the user confirms they have topped up or already have enough credits for this estimate. Then call `beatra.videos.animate` once with the approved opening frame, the narration, an explicitly selected model, and that audio-led duration.
 9. Poll that task with `beatra.tasks.get` until terminal, deliver the clip, and review what you can actually see.
 
 Select the video model explicitly rather than leaving it to `auto`: only some models on this capability accept supplied narration, and one that does not will discard it.
@@ -45,18 +45,18 @@ The canvas is decided by the opening frame, so choosing it late means producing 
 
 ## Decisions that require confirmation
 
-Confirm before spending in two stages: first the frame set, the narration, and any music bed together with every one of their priced calls, then the final video. The video confirmation comes after the user has seen the accessible frames and heard the narration, because that call costs the most. Each card names:
+Confirm before spending in two stages: first any Smart Voice Director call (`beatra.speech.prepare_script`), the frame set, the narration, any music bed, and any BGM finishing call (`beatra.audio.process`) together with every one of their priced calls, then the final video. The video confirmation comes after the user has seen the accessible frames and heard the narration, because that call costs the most. Each card names:
 
-1. Work — the frames, narration, and any music bed (then later the video) as the named generate, synthesize, or animate calls.
-2. Credits — the live prices just read from `beatra.models.list`, including the `suno-6` `pricing` when a music bed is on the card, per slot and in total. Never a remembered number.
+1. Work — any `beatra.speech.prepare_script` direction call, the frames, narration, optional music bed, and optional BGM `beatra.audio.process` finishing (`trim`, `fade`, `normalize_loudness`) — then later the video — as the named generate, prepare, synthesize, process, or animate calls.
+2. Credits — the live prices just read from `beatra.models.list` (and free `beatra.speech.validate` for narration), including the explicitly selected music model's live `pricing` when a music bed is on the card plus `speech_script` / `audio_process` prices when used, per slot and in total. Never a remembered number and never mark `prepare_script` or `audio.process` free.
 3. Count — one paid call per planned slot on that card.
 4. Identity — one new opaque `client_request_id` per slot.
 5. If we stop here — the approved shot list remains usable.
-6. If the balance is insufficient — relay the official message and its top-up URL exactly. Do not retry until the user says they have topped up.
+6. If the balance is insufficient — relay the official message and its top-up URL verbatim. Do not retry until the user says they have topped up.
 
-Also confirm, rather than deciding alone: a canvas other than 9:16, a target length at the 15-second ceiling, a claim about the subject the user has not verified, adding the music bed, and any change after an artifact is approved. Each changed argument is new paid work with a new request identifier and fresh approval.
+Also confirm, rather than deciding alone: a canvas other than 9:16, a target length at the 15-second ceiling, a claim about the subject the user has not verified, adding the music bed or `beatra.audio.process` finishing, and any change after an artifact is approved. Each changed argument is new paid work with a new request identifier and fresh approval.
 
-The music bed is delivered as its own audio track for the user to lay under the clip in their editor. Its length is arrangement direction inside the prompt rather than a control, so report the returned duration and expect trimming. Say both when it is confirmed, so its role is clear before it is paid for.
+The music bed is delivered as its own audio track for the user to lay under the clip in their editor. Check the live `text_to_music` card to see whether `duration_seconds` / `duration_fit` are advertised; otherwise length acts as prompt direction, so report the returned duration and either use one confirmed `beatra.audio.process` call (`trim`, fade-in/out, loudness normalization) to fit the track to clip length or state clearly before paying that trimming stays in the user's editor.
 
 ## Execution
 
@@ -64,17 +64,19 @@ Invoke every remote Beatra tool only through the bundled `scripts/mcp_client.py`
 
 ```text
 printf '%s' '{"capability":"text_to_image"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"capability":"speech_script"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_speech"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"image_to_video"}' | python3 scripts/mcp_client.py call beatra.models.list
 printf '%s' '{"capability":"text_to_music"}' | python3 scripts/mcp_client.py call beatra.models.list
-printf '%s' '{"language":"zh-CN"}' | python3 scripts/mcp_client.py call beatra.voices.list
+printf '%s' '{"capability":"audio_process"}' | python3 scripts/mcp_client.py call beatra.models.list
+printf '%s' '{"language":"zh-CN","supports_direction":true}' | python3 scripts/mcp_client.py call beatra.voices.list
 ```
 
 Do not configure or call a host Beatra Connector, and do not use REST/OpenAPI as a fallback. Give each logical paid request one stable opaque `client_request_id` and submit it exactly once.
 
 ## Delivery and review
 
-Deliver the selected pattern, the shot list, every frame as a delivered still, the narration, any music bed with its returned duration, the finished clip, each task ID, the returned artifact links, the resolved model, the returned dimensions and duration, and `billing.net_charged_credits`. Report only facts the task actually returned.
+Deliver the selected pattern, the shot list, every frame as a delivered still, the narration plus its free aligned `output.subtitles` (`JSON`, `SRT`, and `VTT` files), any music bed (raw or finished via `audio.process`) with its returned duration, the finished clip, each task ID, the returned artifact links, the resolved model, the returned dimensions and duration, and `billing.net_charged_credits`. Report only facts the task actually returned.
 
 When the host can view or play the returned media, check that each frame matches the beat it was written for, that the narration is present and finishes cleanly, and that the clip fits the canvas. State which media details could not be inspected instead of inferring them from task metadata.
 
@@ -99,6 +101,7 @@ memory.
 
 - Selecting among the six patterns, setting the beat count, and naming what each beat does: [choosing the pattern](references/script-patterns.md)
 - Writing spoken lines to a length budget, sourcing claims, and screening the copy: [writing the spoken lines](references/spoken-lines.md)
+- Voice search, free audition, Smart Voice Director, free validation, aligned subtitles, and BGM finishing: [Speech, Voices & Audio Finishing](references/speech-and-audio.md)
 - Exact payloads, what each confirmation freezes, polling, redoing one stage, recovery, and cancellation: [seeding video workflow](references/workflow.md)
 - First install or expired authorization: [installation and authentication](references/installation-and-auth.md)
 - Non-billable package registration: [installation registration](references/installation-registration.md)

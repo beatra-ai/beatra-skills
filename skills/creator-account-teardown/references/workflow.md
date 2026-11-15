@@ -1,6 +1,17 @@
 # Account teardown workflow
 
-One account becomes an evidence table, a diagnosis, a build template, and one produced first post. One approval gate for production, and everything before it is free — with one exception: an optional account lookup that reads the profile, its posts, and its comments from a handle. That lookup is paid, it runs only when the user asked for it, and it carries its own approval ahead of stage 1. See [reading the account from a handle](account-lookup.md).
+One account becomes an evidence table, a diagnosis, a build template, and one produced first post. One approval gate for production, and everything before it is free — with two optional paid exceptions that run only when the user asked for them and after their own live confirmation ahead of stage 1: an account lookup (profile, posts, comments from a handle, per [reading the account from a handle](account-lookup.md)) and verbatim clip transcription (`beatra.audio.transcribe`, `{"capability": "speech_to_text"}`, up to 60 minutes and `<= 100 MiB`, live per-second price from `beatra.models.list`) when the user provides benchmark video/audio clips and wants verbatim opening hooks, cadence, speaker diarization (`diarize`, `num_speakers`), sound cues (`tag_audio_events: true`), and free aligned `subtitles: true` (JSON/SRT/VTT).
+
+```json
+{
+  "audio": { "type": "artifact", "artifact_id": "art_benchmark_clip" },
+  "model": "<speech_to_text model id from live card>",
+  "diarize": true,
+  "tag_audio_events": true,
+  "subtitles": true,
+  "client_request_id": "opaque-account-transcribe-id"
+}
+```
 
 Invoke every remote Beatra tool through the bundled client only. The tool name is the CLI argument; the arguments are JSON on standard input:
 
@@ -14,11 +25,11 @@ Do not configure or call a host Beatra Connector. Do not fall back to REST or Op
 
 Build the evidence table and produce the diagnosis per [reading the account](account-read.md). Produce the template, the opening plan, and the first post per [building your own account](build-template.md).
 
-Then read the live cards. `beatra.models.list` for `text_to_image` admits the canvas and the count for a fresh cover render. The edit route is a separate capability with its own models, controls, and price, so when the user uploaded their own cover or avatar to build from, read `beatra.models.list` for `image_edit` instead and quote that card's price at the gate. `beatra.models.list` for `text_to_speech` admits the selected voice, language, output format, and the current weighted-character price.
+Then read the live cards. `beatra.models.list` for `text_to_image` admits the canvas and the count for a fresh cover render. The edit route is a separate capability with its own models, controls, and price, so when the user uploaded their own cover or avatar to build from, read `beatra.models.list` for `image_edit` instead and quote that card's price at the gate. `beatra.models.list` for `text_to_speech` admits the selected voice, language, output format, and the current weighted-character price (plus `speech_script` if using optional **Smart Voice Director** `beatra.speech.prepare_script`).
 
-From `beatra.voices.list`, freeze one `status: ready` opaque voice ID together with its current supported languages and compatible models.
+From `beatra.voices.list`, freeze one `status: ready` opaque voice ID together with its current supported languages and compatible models, auditioning candidates free with `beatra.voices.preview` (`{"voice_id": "<id>"}`). This package stays on catalog voices (no voice cloning of another creator). Use free `beatra.speech.validate` (`subtitle_enable: true`) before confirming to read `estimated_duration_seconds`, weighted characters, live credits, and `warnings`.
 
-Everything in this stage is free and revisable. The one paid call that can precede it is the optional account lookup, which the user agreed to and approved on its own. The first post is approved at the end of this stage, before any estimate is shown.
+Everything in this stage is free and revisable. The optional account lookup and optional `beatra.audio.transcribe` run only if the user agreed to and approved each on its own. The first post is approved at the end of this stage, before any estimate is shown.
 
 ## Uploading the user's own image
 
@@ -37,14 +48,14 @@ Show the selected route in one block, then freeze:
 - the exact cover wording, character for character, and the art direction it will be rendered from;
 - whether the cover is a fresh render or an edit of the user's uploaded image;
 - the 9:16 canvas, **with the statement that changing the ratio later means producing the cover again**;
-- the ready voice ID, language, speech model behaviour, and the approved script;
-- both paid calls, each with its current maximum price and stable request ID.
+- the ready voice ID, language, speech model behaviour, and the approved script (plus optional confirmed **Smart Voice Director** `beatra.speech.prepare_script` line item at live `speech_script` price — re-calling within 48 hours with the same `input`, `instructions`, `language`, and `context` changing only `voice`/`model` carries zero extra charge, max 2 concurrent, balance still covers initial estimate; never hand-author braced markup);
+- every paid call in production, each with its current maximum price (from `beatra.models.list` / `beatra.speech.validate` / `beatra.speech.prepare_script`) and stable request ID. See [speech and audio](speech-and-audio.md).
 
 A clear instruction to proceed counts as approval. Planning, comparing options, or an unresolved voice choice does not.
 
 ## The paid calls
 
-One `beatra.images.generate` call for the cover, and one `beatra.speech.synthesize` call for the script. Give each its own stable opaque `client_request_id` and submit it exactly once. They are independent; either order is fine.
+One `beatra.images.generate` call for the cover, optional confirmed `beatra.speech.prepare_script` (inspect `directed` and `scripts[]`; follow `warnings` if `synthesis` is `null`), free `beatra.speech.validate`, and one `beatra.speech.synthesize` call for the script with `subtitle_enable: true` (so free aligned JSON/SRT/VTT `output.subtitles` return alongside the audio). Give each paid call its own stable opaque `client_request_id` and submit it exactly once. They are independent; either order is fine.
 
 ```json
 {
@@ -58,9 +69,10 @@ One `beatra.images.generate` call for the cover, and one `beatra.speech.synthesi
 ```json
 {
   "voice": "voice_selected",
-  "input": "The approved script, spoken fields only, joined in order.",
+  "input": "The approved script (or synthesis returned by prepare_script), spoken fields only, joined in order.",
   "language": "the admitted BCP-47 language",
   "format": "mp3",
+  "subtitle_enable": true,
   "client_request_id": "opaque-narration-id"
 }
 ```
@@ -118,9 +130,13 @@ If a create response is lost, resubmit only the identical frozen payload under t
 
 An account lookup goes in the same ledger and recovers the same way, with one difference in how a candidate is identified: list the tasks, then match against the recorded `operation_key`, arguments and `schema_hash` rather than against a prompt and a canvas. Reconcile and inspect before repeating anything; only then replay the byte-identical arguments under the same `client_request_id`. Running the same lookup with any argument changed, the next page included, is a second charge, not a retry. A failed lookup keeps its `error.code` and the platform's own wording in `error.message`; do not call `beatra.models.list` and do not offer a different model, because public social lookup has no `model` field.
 
-`insufficient_balance` means the request was not started and nothing was charged. It is not a failed generation. The user tops up and the identical request is resubmitted under the same ID.
+`insufficient_balance` means the request was not started and nothing was charged. It is not a failed generation. Relay the returned message and exact `topup_url`, wait until the user confirms they have topped up, and resubmit the identical request under the same ID.
 
 Cancel only when the user asks. Call `beatra.tasks.cancel` once and confirm the terminal state with `beatra.tasks.get`. A 409 means cancellation is unconfirmed: keep polling that same task and create no replacement work.
+
+## Account balance
+
+When the user asks how many credits remain or whether a live estimate fits, call `beatra.wallet.get`. When they ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Never invent a balance or top-up tool, never quote prices from ledger rows, and do not make `wallet.get` a mandatory step before every submit. Use `topup_url` from `beatra.wallet.get` or the URL inside an `insufficient_balance` error verbatim, and relay any `top_up` tiers in the exact order returned without ranking or choosing one.
 
 ## Stopping before a paid call
 

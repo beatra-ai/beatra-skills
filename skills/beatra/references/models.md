@@ -25,12 +25,21 @@ Map the next tool to `capability`:
 - `beatra.videos.interpolate` → `frames_to_video`
 - `beatra.videos.edit` → `video_edit`
 - `beatra.videos.extend` → `video_extend`
+- `beatra.videos.compose` → `video_compose`
 - `beatra.videos.enhance_prompt` → `video_prompt_enhancement`
 - `beatra.music.generate` → `text_to_music` or `reference_audio_to_music`
+- `beatra.speech.prepare_script` → `speech_script`
 - `beatra.speech.synthesize` → `text_to_speech`
-- `beatra.voices.clone` → `voice_clone`
+- `beatra.speech.synthesize_dialogue` → `text_to_dialogue`
+- `beatra.voices.clone` → `voice_clone` (also pass `"include_activation_required": true`
+  when inspecting free-trial training + paid activation cloning)
+- `beatra.speech.convert` → `speech_to_speech`
+- `beatra.audio.transcribe` → `speech_to_text`
+- `beatra.audio.generate_sfx` → `sound_effects`
 - `beatra.music.edit` and `beatra.audio.process` → the capability of the
-  operation, listed in [music editing and audio](music-editing-and-audio.md)
+  operation (`music_*`, `audio_process`, `audio_stem_separation`, `audio_voice_isolation`),
+  listed in [music editing and audio](music-editing-and-audio.md) and
+  [speech and audio](speech-and-audio.md)
 - `beatra.images.understand` → `image_to_text`
 - `beatra.videos.understand` → `video_to_text`
 
@@ -75,11 +84,13 @@ For text-to-speech, customer pricing is linear per 1,000 weighted characters:
 each Han ideograph counts as two and every other character counts as one.
 Requests below 1,000 are not rounded to a full block. The customer-facing task
 contract remains asynchronous while Beatra performs automatic execution
-routing internally. The exact TTS model card's
-`constraints.supported_languages` is the source of truth for the
-public BCP-47 `language` field; see `speech-and-voices.md` for the
-current canonical language codes. Voice cloning is priced once per successful
-activated voice, including activation. Read both rates from
+routing internally. The exact TTS model card's `constraints.supported_languages` is the source of truth
+for the public BCP-47 `language` field; see [speech and voices](speech-and-voices.md)
+and [speech and audio](speech-and-audio.md). For voice cloning, pass
+`{"capability": "voice_clone", "include_activation_required": true}`: direct
+one-step routes charge on completion, while free-trial training + paid activation
+precision clones create a `pending_activation` voice first and charge only when
+explicitly confirmed and run with `beatra.voices.activate`. Read live rates from
 `beatra.models.list`; do not reuse remembered model or price data.
 
 For a preflight estimate, use the returned price options for the relevant
@@ -98,6 +109,8 @@ success, use the task's returned usage and billing as truth:
 unused-estimate refund, and `net_charged_credits` is the final charge.
 
 Do not list model catalogs from memory. Call model discovery when a production
-card needs a live price (every video, clone, music edit, and audio step) or when
-model choice, compatibility, or an estimate matters; it is not a routine
-prerequisite for a direct image, music, or speech request.
+card needs a live price (every video, compose, clone, clone activation, Smart
+Voice Director script prep, dialogue, speech-to-speech, transcription, SFX,
+music edit, and audio processing step) or when model choice, compatibility, or an
+estimate matters; it is not a routine prerequisite for a direct image, music, or
+single-speaker speech request.

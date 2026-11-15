@@ -13,24 +13,23 @@ teardown from screenshots is a real teardown.
 Only these operations. Do not invent an `operation_key`, and do not reach for one that
 is not on this list even when `beatra.social.tools.search` returns it.
 
-| Platform | The post itself | Its comments | Credits |
-| --- | --- | --- | --- |
-| TikTok | `social.tiktok.video.get_by_url` | `social.tiktok.video.comments.list` | 6 |
-| Douyin | `social.douyin.video.get_by_url` | `social.douyin.video.comments.list` | 6 |
-| X | `social.twitter.tweet.get` | `social.twitter.tweet.comments.list` | 6 |
-| YouTube | `social.youtube.video.get` | `social.youtube.video.comments.list` | 6 |
-| Instagram | `social.instagram.post.get` | `social.instagram.post.comments.list` | 12 |
-| Xiaohongshu | `social.xiaohongshu.note.video.get`, `social.xiaohongshu.note.image.get` | `social.xiaohongshu.note.comments.list` | **60** |
+| Platform | The post itself | Its comments |
+| --- | --- | --- |
+| TikTok | `social.tiktok.video.get_by_url` | `social.tiktok.video.comments.list` |
+| Douyin | `social.douyin.video.get_by_url` | `social.douyin.video.comments.list` |
+| X | `social.twitter.tweet.get` | `social.twitter.tweet.comments.list` |
+| YouTube | `social.youtube.video.get` | `social.youtube.video.comments.list` |
+| Instagram | `social.instagram.post.get` | `social.instagram.post.comments.list` |
+| Xiaohongshu | `social.xiaohongshu.note.video.get`, `social.xiaohongshu.note.image.get` | `social.xiaohongshu.note.comments.list` |
 
-Plus one transcript operation: `social.youtube.video.captions.get`, **60 credits**,
-YouTube only. No other platform on this list returns a transcript.
+Plus one transcript operation: `social.youtube.video.captions.get`, YouTube only. No
+other platform on this list returns a transcript.
 
 Plus two account-level operations, **Douyin only**, used together for the same-account
-comparison below: `social.douyin.user.search` and `social.douyin.user.posts.list`, 6
-credits each.
+comparison below: `social.douyin.user.search` and `social.douyin.user.posts.list`.
 
-Prices are what the catalog charges today; read the live price from
-`beatra.social.tools.get` and quote that, not this table.
+Read each operation's current price live from `beatra.social.tools.get` and quote
+what it returns, never a number from memory.
 
 ## A same-account comparison — Douyin only, two lookups
 
@@ -127,25 +126,27 @@ fall back to REST or OpenAPI.
 
 ## The captions trap
 
-`social.youtube.video.captions.get` costs 60 credits per call, and **calling it with an
+`social.youtube.video.captions.get` is a paid lookup per call, and **calling it with an
 empty `language_code` returns the list of available captions rather than a transcript**.
 That listing call is billed like any other. Pass the language you expect on the first
 call, and only fall back to the empty-code listing when that returns nothing — otherwise
-one transcript costs 120 credits instead of 60.
+one transcript incurs two paid lookup calls instead of one.
 
-Say plainly that a transcript is available for YouTube only. On every other platform,
-the spoken track still has to come from the remaining tiers of the four-tier dialogue
-ladder — a transcript the user supplies directly, hard-burned subtitles read from the
-frames, or recorded as missing — never from the video's own audio track, which the
-vision model cannot hear; see [reading the reference](teardown.md) for the full ladder.
+Say plainly that a link transcript is available for YouTube only. On every other platform,
+the spoken track still has to come from the remaining tiers of the five-tier dialogue
+ladder — a transcript the user supplies directly, optional paid `beatra.audio.transcribe`
+(`speech_to_text`) when the user provides the clip file, hard-burned subtitles read from
+the frames, or recorded as missing — never from `beatra.videos.understand`'s guess about
+sound; see [reading the reference](teardown.md) for the full ladder.
 
 ## Confirming it
 
 **Every lookup is confirmed on its own before it runs, without exception.** There is no
-request specific enough to skip the price: the operations on this list range from 6 to
-60 credits, so the same sentence — "read this link for me" — costs ten times more on
-Xiaohongshu than on TikTok, and a transcript costs ten times more than the post it
-belongs to.
+request specific enough to skip the price: lookup prices read from `beatra.social.tools.get`
+vary widely across platforms and operations (for instance, Xiaohongshu reads and YouTube
+caption lookups are priced substantially higher than standard TikTok post reads), so the same
+sentence — "read this link for me" — carries very different totals across platforms and
+between reading a post vs. its transcript.
 
 State, before the call:
 

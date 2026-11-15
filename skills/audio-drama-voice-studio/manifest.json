@@ -1,5 +1,5 @@
 {
-  "changelog": "The helper shared by all Beatra Skills now runs its connection step at most twice in one turn. While your approval is still pending, the Skill delivers the part of your request that needs no connection and continues the paid step on your next message after Allow.",
+  "changelog": "Adds native multi-speaker dialogue scenes (up to 2,000 characters and 2-50 turns with scene chunking), Smart Voice Director script preparation, voice previews and aligned subtitles, voice cloning with owner-consent safeguards and noisy-sample isolation, sound effects/ambience beds, and loudness/trim/fade finishing.",
   "display_name": "Audio Drama Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/audio-drama-voice-studio",
@@ -97,5 +97,5 @@
   },
   "name": "audio-drama-voice-studio",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

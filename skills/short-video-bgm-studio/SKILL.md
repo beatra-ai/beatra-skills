@@ -46,12 +46,12 @@ Defaults that avoid extra questions:
 
 ## Golden path
 
-Briefing and planning are free. The generation call and every cut, loop, or WAV step are paid.
+Briefing and planning are free. The generation call, every sound-effect call, and every cut, loop, or WAV step are paid.
 
 1. Lock the scene and the length in seconds, then write a short music card from
    the footage: use and destination, mood, genre, tempo feel, instrumentation,
    the energy arc across the cut, the intended length, whether narration sits on
-   top, and anything to avoid.
+   top, any transitions/stingers or ambient beds wanted, and anything to avoid.
 2. Turn the card into one positive prompt that carries genre, mood, tempo feel,
    instrumentation, structure, and intended use in a single coherent direction.
 3. Call `beatra.models.list` with a copyable
@@ -61,22 +61,37 @@ Briefing and planning are free. The generation call and every cut, loop, or WAV 
    the chosen model's entry (`suno-6` unless the user named another eligible
    model) and show those credits on the card per slot and in total. When the
    card will list a cut or a loop, also read `{"capability":"audio_process"}`
-   and count each cut or loop in that total. Never a remembered number. Read the live card rather than assuming a model, a
+   and count each cut or loop in that total. When the card also includes
+   transitions, stingers, or looping ambient beds, read live pricing for sound
+   effects too:
+
+   ```bash
+   python3 scripts/mcp_client.py call beatra.models.list
+   ```
+
+   ```json
+   {"capability": "sound_effects"}
+   ```
+
+   Never a remembered number. Read the live card rather than assuming a model, a
    control, or an input limit.
 4. **Confirm before paid work.** Show the frozen prompt, `instrumental: true`,
    the title, the length fields when sent (for a target under 30 seconds, with
    the user's number: "made at 30 seconds, then cut to your 15 seconds; the
    cut ends on a short fade, the full take keeps its written ending", with the
    cut as its own line below), the model, any accepted model options, the live
-   credits just read, each cut or loop as its own line with its live
-   `audio_process` price and its own `client_request_id`, a
-   commercial-clearance note for this original instrumental, and one opaque
-   stable `client_request_id` for the generation.
-5. Submit `beatra.music.generate` exactly once for one instrumental track,
-   record the task ID immediately, and poll that same task.
+   credits just read, each cut, loop, or sound-effect line on its own row with
+   its live price (`audio_process` or `sound_effects`) and its own
+   `client_request_id`, a commercial-clearance note for this original
+   instrumental, and one opaque stable `client_request_id` for the generation.
+5. Submit `beatra.music.generate` (and any confirmed `beatra.audio.generate_sfx`
+   calls) once per confirmed line, record each returned task ID immediately, and
+   poll each task with `beatra.tasks.get`.
 6. Deliver every returned clip in order with its real duration, MIME type, size,
    and URL or artifact ID, plus the returned title when present, the resolved
-   model, the actual usage, and `billing.net_charged_credits`.
+   model, the actual usage, and `billing.net_charged_credits`. Deliver sound
+   effects or ambient beds as separate clips beside the BGM; Beatra does not
+   mix them into one file.
 7. Review the result against the music card. Read the actual returned duration
    rather than the requested one, and say plainly what the host Agent could not
    hear.
@@ -85,11 +100,27 @@ Briefing and planning are free. The generation call and every cut, loop, or WAV 
    `operation: "trim"`
    (`target_duration_ms`, a short `fade_out_ms`; a paid call at the live `audio_process` price (`beatra.models.list` with `{"capability": "audio_process"}`), listed on the track's card as its own line with its own `client_request_id`) and deliver it beside the uncut take: the cut is exact and ends on a
    short fade; the uncut take keeps its written ending. A take that already falls
-   short of the length keeps its real length: say the difference. Then offer a
-   WAV version made from the uncut take (`beatra.music.edit` `deliverable`
-   `kind: "wav"`, own card, live `music_wav` price, own `client_request_id`), and
-   cut the WAV the same way afterwards (one more paid cut, listed on the WAV's card; a WAV stays WAV). See
+   short of the length keeps its real length: say the difference. Fade,
+   loudness (`normalize_loudness`), or format flags passed inside that same
+   `trim` or `loop` call add no separate charge, whereas standalone `fade`,
+   `normalize_loudness`, or `convert_format` calls are each paid at
+   `audio_process` on their own card. Then offer a WAV version made from the
+   uncut take (`beatra.music.edit` `deliverable` `kind: "wav"`, own card, live
+   `music_wav` price, own `client_request_id`), and cut the WAV the same way
+   afterwards (one more paid cut, listed on the WAV's card; a WAV stays WAV). See
    [music editing and audio](references/music-editing-and-audio.md).
+9. **Add transitions, stingers, or looping ambient beds (optional).** Use
+   `beatra.audio.generate_sfx` with `model: "auto"` (read the live
+   `{"capability": "sound_effects"}` card first; never name an internal sound-effect
+   model ID) for scene transitions (whoosh, riser, reveal hit), short stingers,
+   or `loop: true` environmental beds (`0.5` to `30.0` seconds; omit
+   `duration_seconds` for the ~5-second default; set `prompt_influence` between
+   `0.0` and `1.0`, default `0.3`). To extend a `loop: true` ambient bed past
+   30 seconds, follow up with `beatra.audio.process` `operation: "loop"` as its
+   own paid `audio_process` line. Sound effects requested after music delivery
+   always use their own six-field confirmation card and their own
+   `client_request_id` per clip — never free and never covered by the earlier
+   BGM approval.
 
 Length: when this account has the music tools (the bundled client's `tools`
 command lists `beatra.music.edit` and `beatra.audio.process`; see
@@ -131,13 +162,10 @@ task: submit once, then follow that task to a terminal state.
 
 Confirm before submitting. Show one current production card and wait:
 
-1. Work — the instrumental bed in the user's words, a `beatra.music.generate` call, and with the music tools and a length from the user, the cut or loop of the chosen take as its own `beatra.audio.process` line.
-2. Credits — the live price of the chosen model (`suno-6` by default) just read from `beatra.models.list`, and the live `audio_process` price of a cut or loop listed, per line and in total. Never a remembered
-   number.
-3. Count — one paid call for this track, plus its cut or loop when listed. A later revision is another slot.
-4. Identity — one new opaque `client_request_id` per line listed on the card (the track, and its cut or loop when listed). A changed prompt, title,
-   length, model, option, reference track, or instrumental setting mints a new
-   ID.
+1. Work — the instrumental bed in the user's words, a `beatra.music.generate` call, plus any listed `beatra.audio.process` cut or loop line and any listed `beatra.audio.generate_sfx` transition, stinger, or ambient-bed line.
+2. Credits — the live price of the chosen model (`suno-6` by default) just read from `beatra.models.list`, plus the live `audio_process` price of each cut or loop line and the live `sound_effects` price of each SFX line, per line and in total. Never a remembered number.
+3. Count — one paid call per line listed on the card (generation, plus any listed cut, loop, or SFX clip). A later revision or separately requested sound effect is another card.
+4. Identity — one new opaque `client_request_id` per line listed on the card (the track, and each cut, loop, or SFX line when listed). A changed prompt, title, length, model, option, reference track, loop setting, or instrumental setting mints a new ID.
 5. If we stop here — the music card remains usable.
 6. If the balance is insufficient — relay the official message and its top-up
    URL exactly. Translate the prose; keep the URL. Do not retry until the user

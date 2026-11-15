@@ -29,4 +29,7 @@ change the returned headers, or alter the file bytes.
 Ordinary image, video, and audio upload does not require a generic rights
 attestation. A voice sample intended for `beatra.voices.clone` is different:
 obtain explicit confirmation that the user owns the voice or has the owner's
-permission before upload and before setting `consent_attested: true`.
+permission before upload and before setting `consent_attested: true`. Saving a
+portrait as a reusable presenter avatar via `beatra.avatars.save` likewise
+requires explicit user agreement and portrait consent (`consent_attested: true`,
+`consent_subject`: `"self"` or `"authorized_other"`).

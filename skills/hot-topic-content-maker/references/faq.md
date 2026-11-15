@@ -53,8 +53,7 @@ and there is no retry. When the join task fails, report the failure and the
 refund fields the task shows, and offer one new join on its own card at the
 live `video_compose` price with a new request ID, per
 [hot topic workflow](workflow.md); it is submitted only after the user
-approves, and otherwise the parts are delivered. The parts are every clip, the narration, one music track, an SRT
-subtitle file, and an edit list that says which clip goes where, whether its
+approves, and otherwise the parts are delivered. The parts are every clip, the narration, one music track (or its `audio.process`-finished version if already processed), the free aligned `output.subtitles` (`JSON`, `SRT`, and `VTT` files), and an edit list that says which clip goes where, whether its
 own sound is kept, and where the music is cut and faded.
 
 - **Scene video:** the shots are muted and the narration is its own track. Lay
@@ -69,23 +68,15 @@ The edit list's rows are that order. See [content pack](content-pack.md).
 
 ## The music is longer than the video
 
-The music model decides the length. The join trims it to the video and fades it
-out at the end. When the parts are delivered instead, the edit list says where
-it is cut and faded. Never generate it again to get a shorter track.
+Check the live `text_to_music` card first to see whether it advertises `duration_seconds` / `duration_fit`. Otherwise the music model decides the length, and `beatra.videos.compose` trims it to the video, fades it out at the end, and ducks it under speech. When the user wants a standalone or parts-delivered BGM track pre-trimmed, faded in/out, or loudness-normalized (`trim`, `fade`, `normalize_loudness`) for external editing, confirm one combined paid `beatra.audio.process` call (`{"capability": "audio_process"}`, own card & live price, never free, within `60 min / 300 MB / >= 1 s / 50 calls/day`, sequential). Never generate the music track again just to get a shorter file.
 
 ## A subtitle in the finished video is wrong
 
-The subtitles come from the approved narration, so first check the narration
-text. A wrong or mistimed line is fixed in the cue and the clips are joined
-again, which is a new paid join on its own card at the live `video_compose`
-price with a new request ID; no image, speech, or video call is made again. When the narration itself was spoken
-wrong, that is a new speech call, and for a presenter take a new video call
-too, each on its own card.
+The free `output.subtitles` (`JSON`, `SRT`, `VTT`) files follow the approved narration, so first check the narration text. A mistimed cue line or wrap adjustment is fixed in the `beatra.videos.compose` `subtitles` array and the clips are joined again on a new paid join card at the live `video_compose` price with a new request ID; no image, speech, or video call is made again. When the narration itself was spoken wrong, that is a new speech call (checking pacing/pronunciation with `beatra.speech.prepare_script` and free `beatra.speech.validate` first), and for a presenter take a new video call too, each on its own card.
 
 ## The user wants to cut the video themselves
 
-Every clip, the narration, the music, and the SRT are delivered beside the
-finished video. Give the edit list too, per [content pack](content-pack.md).
+Every clip, the narration, the music (optionally pre-finished via paid `beatra.audio.process` if requested and confirmed), and the free aligned `JSON`/`SRT`/`VTT` subtitle files are delivered beside the finished video. Give the edit list too, per [content pack](content-pack.md).
 
 ## The user offers someone else's photo as the presenter
 

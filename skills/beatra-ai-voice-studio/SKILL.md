@@ -5,258 +5,233 @@ description: "Use Beatra AI Voice Studio as an AI voice generator, text-to-speec
 
 # Beatra AI Voice Studio
 
-Choose the smallest voice workflow that completes the user's approved text:
-one voiceover, an ordered long-form production, supplied multilingual versions,
-or an authorized reusable voice. Keep this Studio as the coordinating route
-when a request mixes those outcomes or will continue across several sessions.
+Choose the smallest voice or audio workflow that delivers the user's goal:
+single voiceover, Smart Voice Director pacing, multi-speaker dialogue,
+speech-to-speech conversion, ordered long-form or multilingual tracks, three-route
+voice cloning and slot lifecycle, speech transcription, sound effects, stem
+separation, voice isolation, or broadcast loudness normalization. Keep this
+flagship Studio as the coordinating hub across mixed audio workflows.
 
 ## Scope and routes
 
-At the unified entrance, split first to audiobook, podcast, short voiceover,
-clone, or multilingual. This package only handles voice selection and scenes
-those focused packages do not cover.
-
-Reuse every decision already present in the conversation. Route a focused,
-standalone request to the narrower package when it is available:
+At the unified entrance, split focused requests to narrower specialized Skills
+when appropriate, or coordinate full audio pipelines directly here:
 
 | User outcome | Best route |
 | --- | --- |
-| One short-video, ad, social, or promo read | `short-form-voiceover-audio` |
-| An audiobook or other ordered long-form narration | `ai-audiobook-narration` |
+| One standalone short-video, ad, or promo read | `short-form-voiceover-audio` |
+| An audiobook or one-narrator chaptered manuscript | `ai-audiobook-narration` |
 | A single-host podcast episode or recurring show | `ai-podcast-voiceover` |
-| Multilingual dubbing with the target-language scripts already supplied and approved | `ai-multilingual-dubbing` |
-| Creation of one authorized reusable voice | `voice-cloning-studio` |
-| Voice selection, mixed work, or a scene those routes do not cover | Continue here and maintain one production ledger |
+| Multilingual dubbing with target-language scripts supplied | `ai-multilingual-dubbing` |
+| Focused one-off cloning without mixing other audio tasks | `voice-cloning-studio` |
+| Multi-speaker dialogue, speech-to-speech, transcription, sound effects, stem separation, voice isolation, loudness normalization, or mixed audio production | Continue here and maintain one production ledger |
 
-This Studio creates speech from supplied or approved text. It does not make a
-finished video, lip-sync a speaker, publish media, transcribe a recording, or
-edit an existing waveform. Preserve the useful voice subtask and route those
-adjacent outcomes to their focused workflows.
+Verify active tools via `scripts/mcp_client.py tools`. This flagship Studio
+does not render video frames, lip-sync faces, or publish to external feeds;
+route video/avatar finishes separately while keeping all voice and audio work here.
 
-Read [intent and routing](references/intent-and-routing.md) when deciding
-between a focused package and a mixed Studio project.
+Read [intent and routing](references/intent-and-routing.md) and the shared
+[speech and audio guide](references/speech-and-audio.md) before mixing multiple
+audio tools.
 
 ## Inputs and defaults
 
-For synthesis, the hard inputs are:
+Require these hard inputs before billable execution:
 
-- final supplied text, or permission to prepare a speakable version and show
-  it for approval;
-- an exact current `voice_id`, looked up again with `beatra.voices.list`
-  whether it came from the user, the conversation, or a new recommendation;
-- the target language only when the user specifies one; otherwise omit
-  `language` and do not interrupt merely to ask for it.
+- **Synthesis / dialogue / direction**: final approved text or multi-turn lines
+  (or permission to draft/direct speakable copy and show it first), an exact
+  current `voice_id` looked up fresh with `beatra.voices.list`, and `language`
+  ONLY when the user supplies one—never interrupt simply to ask for a language.
+- **Voice cloning**: clean single-speaker sample, `display_name`, and explicit
+  confirmation that it is the user's own voice or explicitly authorized by the
+  speaker—confirmed before any local sample upload.
+- **Audio tools (`convert`, `transcribe`, `process`)**: valid uploaded artifact
+  or public HTTPS source URL, exact consent where voice identity matters, and
+  target operation parameters (`prompt` for `generate_sfx`).
 
-For voice cloning, also require a sample, a display name, and the user's plain
-confirmation that it is their own voice or that the speaker explicitly
-authorized cloning. Consent must be confirmed before a local sample is
-uploaded.
-
-Use restrained defaults when the destination does not require another choice:
-`model: "auto"`, `format: "mp3"`, `speed: 1.0`, `volume: 1.0`,
-`pitch: 0`, no `emotion`, and no `sample_rate`. Prepare numbers, names,
-abbreviations, units, and pauses for speech, but show any material rewrite
-before paid work. Keep the user's characters and wording as written: never
-convert simplified and traditional characters or swap dialect words unless the
-user asks, and never call a changed text unchanged.
+Use restrained defaults unless the user asks otherwise: `model: "auto"`,
+`format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`, no `emotion`, and no
+`sample_rate`. Keep the user's characters and wording as written: never convert
+simplified and traditional characters or swap dialect words unless the user asks,
+and never call a changed text unchanged. Never manually strip `/` pause tags or
+invent custom bracketed vocal-effect cues—use Smart Voice Director (`prepare_script`)
+for expressive pacing and delivery direction.
 
 ## Before the connection is ready
 
-When Allow is still pending at the end of a turn, finish and deliver
-everything that needs no connection, in the format the user asked for:
-the prepared reading script (numbers, abbreviations, and pauses already
-shaped), voice-selection criteria (gender, timbre, language), and the
-control defaults. Name a voice only after `beatra.voices.list` returns.
-Say in one line that Allow is the one-time sign-in that connects their Beatra
-account, not a second confirmation of this request, and that the narration is
-made on their next message after it. Do not fill the gap with another tool or
-service.
+When Allow is still pending at the end of a turn, finish and deliver everything
+that needs no connection, in the format the user asked for: the prepared
+reading script, voice-selection criteria (gender, timbre, language), and the
+control defaults. Name a voice only after `beatra.voices.list` returns. Say in
+one line that Allow is the one-time sign-in that connects their Beatra account,
+not a second confirmation of this request, and that the audio runs on their
+next message after it. Do not fill the gap with another tool or service.
 
 ## Golden path
 
-1. Identify one route or an ordered set of routes. For mixed work, keep
-   clone, language, chapter, and revision steps distinct in the ledger.
-2. Make a best-effort non-billable installation registration on first use or
-   after the package version changes. Registration failure never blocks the
-   user's voice work.
-3. Call `beatra.voices.list` even when a voice ID was supplied earlier. Match
-   the opaque ID exactly and save its current `status`, `language`,
-   `languages_supported`, and `compatible_models`. If it is absent or not
-   `ready`, do not submit; select another current ready voice or stop. When a
-   voice still needs to be chosen, recommend only current ready candidates.
-   A `preview_url` is an optional free aid only when the returned voice actually
-   has one; never synthesize a paid audition. Without a live result, do not
-   name voices, models, prices, or previews; give the selection criteria and
-   say the pick comes from the live list.
-4. Freeze that exact current `voice_id` and its saved compatibility facts. Call
-   `beatra.models.list` for `text_to_speech` before comparing models,
-   validating a requested language, or estimating price.
-5. Prepare an exact production card: approved text or pilot text, voice ID,
-   language when supplied, controls, weighted-character count, current model
-   choice, estimate, paid-call count, delivery order, review target, what the
-   user keeps if they stop here, and that a short balance is relayed with the
-   returned top-up message.
-6. A well-specified synthesis request authorizes that one call. Show the
-   production card with the delivery; do not wait for a separate reply.
-   Create one new opaque local `client_request_id` per logical request,
-   submit each request once, and poll only its returned task.
-7. Deliver actual artifacts and facts in ledger order. A changed text, voice,
-   model, language, or control is a new call, authorized the same way, with a
-   new card and request identity.
-
+1. Identify the minimal tool chain (`speech_script`, `text_to_speech`,
+   `text_to_dialogue`, `speech_to_speech`, `voice_clone`, `speech_to_text`,
+   `sound_effects`, `audio_voice_isolation`, `audio_process`, or
+   `audio_stem_separation`). Keep distinct steps in one local ledger.
+2. Make a best-effort non-billable `beatra.installations.register` on first use
+   or version upgrade (registration failure never blocks work).
+3. Cast and maintain voices live: call `beatra.voices.list` using any of its 11
+   dimensions (`category`, `language`, `gender`, `age_group`, `use_case`,
+   `emotion`, `supports_context`, `supports_direction`,
+   `supports_performance_tags`, `supports_dialogue`,
+   `supports_speech_to_speech`), confirm `status == "ready"` and exact
+   `compatible_models`, audition free via returned `preview_url` or
+   `beatra.voices.preview` (`{"voice_id": "..."}`), and maintain saved voices
+   with non-billable `beatra.voices.update`. Never name voices, models, or
+   prices before live lookup returns.
+4. Query `beatra.models.list` with exact capability keys (`{"capability": "..."}`
+   — never pass `dimensions` on `models.list`; for `audio_stem_separation`, read
+   `pricing[].dimensions.stem_mode` from the returned card). Never expose
+   upstream vendor names, internal model IDs, or hardcoded credit numbers.
+5. Prepare and preflight accurately:
+   - **Smart Voice Director (`beatra.speech.prepare_script`)**: check
+     `{"capability": "speech_script"}` and approve its six-field card first.
+     Inspect `directed` and `scripts[]`: pass `scripts[i].synthesis` unchanged
+     plus a fresh `client_request_id` to synthesis, and resolve
+     `synthesis: null` via `warnings`. Re-calling within 48 hours with exact
+     same `input`/`instructions`/`language`/`context` changing only
+     `voice`/`model` recompiles at zero extra charge (balance cover & max-2
+     concurrency still apply; never claim `prepare_script` is generally free).
+   - **Free preflight**: run `beatra.speech.validate` before `speech.synthesize`
+     and `beatra.speech.validate_dialogue` before `speech.synthesize_dialogue`
+     to verify `estimated_duration_seconds` and controls at zero cost.
+   - **Free aligned subtitles**: pass `subtitle_enable: true` on
+     `speech.synthesize` / `speech.synthesize_dialogue` (NEVER `subtitles`), and
+     use `subtitles: true` on `audio.transcribe`.
+6. Apply the confirmation rule honestly:
+   - A well-specified single `text_to_speech` request—final text, a voice or
+     selection criteria, and any named format or control—authorizes that one
+     synthesis call; show the six-field production card (Route & Model,
+     Exact Scope, Price & Basis, Duration / Quantity,
+     Pay Mode & Call Count, and If stop detailing free deliverables kept
+     at zero extra charge) alongside the delivery without asking twice.
+   - Obtain explicit approval on the six-field card BEFORE calling
+     `prepare_script`, `synthesize_dialogue`, `speech.convert`, `voices.clone`,
+     `voices.activate`, `voices.delete`, `audio.transcribe`, `audio.generate_sfx`,
+     `audio.process` (`isolate_voice`, `normalize_loudness`, `trim`, `loop`,
+     `fade`, `convert_format`, `separate_stems`), pilots, or batch remainders.
+     Price questions, comparisons, drafts, general "handle it" prompts, or
+     unfrozen batches are never approval.
 Use the bundled `scripts/mcp_client.py` for every Beatra operation:
 
 ```text
 python3 scripts/mcp_client.py call <tool-name>
 ```
 
-Pass one JSON object to standard input. Use
-`python3 scripts/mcp_client.py upload <path> --mime-type <exact MIME>` for a
-local sample. Never configure or call a host Beatra Connector. Never use
-REST/OpenAPI as a fallback, and never imitate the upload protocol.
+Pass one JSON object to standard input, and use
+`python3 scripts/mcp_client.py upload <path> --mime-type <exact MIME>` for
+local audio. Store the local ledger and unique opaque `client_request_id`
+before sending, poll only the returned `task_id` via `beatra.tasks.get`, run
+finishing calls (`normalize_loudness`, `trim`, etc.) one call at a time, lead
+the reply with the deliverable the user asked for, and report only returned tool
+and billing facts.
 
-## Voice, language, and price truth
+Never configure or call a host Beatra Connector. Never use REST/OpenAPI as a
+fallback, never imitate the upload protocol, and never call any paid audio
+finishing or processing step free.
 
-Validate a supplied language as a BCP-47 tag before using it. Lowercase its
-primary tag, map the documented aliases `nb` to `no` and `tl` to `fil`, and
-apply the same normalization to catalog values; for example, `yue-HK` becomes
-`yue`. The current voice supports the target only when either `voice.language`
-or one entry in `voice.languages_supported` has the same normalized primary
-tag.
+## Dialogue, voice conversion, transcription, SFX, and audio processing
 
-For `model: "auto"`, derive the live possible model set as:
+- **Multi-speaker dialogue (`beatra.speech.synthesize_dialogue`)**: check
+  `{"capability": "text_to_dialogue"}` and verify each turn's `voice` supports
+  dialogue (`supports_dialogue` / `supports_context`). Validate free with
+  `beatra.speech.validate_dialogue`, show the six-field card, and pass
+  `turns: [{"voice": "...", "text": "..."}]` + optional `subtitle_enable: true`.
+- **Speech-to-speech (`beatra.speech.convert`)**: check
+  `{"capability": "speech_to_speech"}` and verify target `voice` has
+  `supports_speech_to_speech: true`. Confirm source-speaker permission, pass
+  **`audio`** (not `source`), optional `remove_background_noise`, `stability`,
+  `similarity_boost`, `style`, `use_speaker_boost`.
+- **Transcription (`beatra.audio.transcribe`)**: check
+  `{"capability": "speech_to_text"}`; pass **`audio`** (not `source`),
+  `subtitles: true` (when SRT/VTT requested), `diarize`, `num_speakers`,
+  `tag_audio_events`, and optional `language`.
+- **Sound effects (`beatra.audio.generate_sfx`)**: check
+  `{"capability": "sound_effects"}`; pass `prompt`, optional `duration_seconds`,
+  `loop`, `prompt_influence`, `format`.
+- **Audio processing (`beatra.audio.process`)**: always pass **`source`** (NEVER
+  `audio`):
+  - `isolate_voice`: `{"capability": "audio_voice_isolation"}`, `4.6 s - 5 min`,
+    `<= 100 MB`. Cleans noisy clone samples or voice recordings.
+  - `normalize_loudness` (present strictly as loudness normalization, never free or a mastering service),
+    `trim`, `loop`, `fade`, `convert_format`: `{"capability": "audio_process"}`,
+    `<= 60 min`, `<= 300 MB`, output `>= 1 s`, `50` calls/day; serialize one
+    finishing job at a time.
+  - `separate_stems`: `{"capability": "audio_stem_separation"}` (no
+    `dimensions` param on `models.list`; read `pricing[].dimensions.stem_mode`),
+    `<= 10 min`, `<= 100 MB`, `20` calls/day.
 
-```text
-models.list.auto.candidate_order ∩ selected_voice.compatible_models
-```
+## Three-route cloning and mandatory confirmations
 
-preserving candidate order and keeping only live available cards. Separately
-build the explicit pool from every live card in the exact current voice's
-`compatible_models`; a compatible card outside `candidate_order` is
-explicit-only and never enters the auto set. When the user supplied a language,
-check its normalized primary tag against `constraints.supported_languages` on
-every auto candidate. Keep `auto` only when every candidate supports it. If the
-auto set is empty or any candidate fails, propose one language-compatible card
-from the explicit pool and obtain approval. Without a supplied language, keep a
-nonempty auto set; if it is empty, propose one card from the explicit pool. If
-no applicable explicit card exists, offer another current voice, a user-chosen
-supported language when relevant, or no submission. Language is not a hidden
-auto-selection input.
+1. **Mandatory Confirmation 1 (`beatra.voices.clone`)**: confirm plain consent
+   before any sample upload; inspect live
+   `{"capability": "voice_clone", "include_activation_required": true}` cards
+   without vendor names or internal IDs (fast everyday `auto` ready at once;
+   10-language expressive ready at once; or two-step trial-then-activate ending
+   in `pending_activation`); offer paid `isolate_voice` pre-clean if noisy;
+   approve the six-field card before `voices.clone`. Spoken proof is always a
+   separate validated TTS workflow.
+2. **Mandatory Confirmation 2 (`beatra.voices.activate`)**: when
+   `status == "pending_activation"`, inspect returned `activation.quote` (or
+   tokenless re-quote passing BOTH `voice_id` and `client_request_id` without
+   `confirmation_token`), present the six-field activation card, wait for
+   explicit confirmation, then submit `confirmation_token`, `confirm_credits`,
+   and `client_request_id`. On 24-hour expiry (`price_confirmation_required`),
+   re-quote free before re-confirming.
+3. **Mandatory Confirmation 3 (`beatra.voices.delete`)**: confirm explicit
+   intent first, call tokenless `{"voice_id": "..."}`, relay Beatra's warning
+   verbatim with `confirmation_token`, and execute only on explicit final
+   confirmation.
 
-Speech is estimated from each applicable live card's `estimate_formula`,
-`unit_price_credits`, `scale`, and
-`billing_basis: "beatra_weighted_characters"`. Each Han ideograph counts as
-2 and every other character as 1. Quote one exact estimate when the frozen
-explicit model—or every possible auto model—has the same result; otherwise
-quote the live range. Never invent an auto-resolved model or use remembered
-prices.
+## Voice, language, price truth, and recovery
 
-Read [voice casting and delivery](references/voice-casting-and-delivery.md)
-for exact model, language, pricing, request, and output handling.
+Normalize supplied BCP-47 tags by lowercasing the primary subtag and mapping
+aliases (`nb` -> `no`, `tl` -> `fil`; e.g. `yue-HK` -> `yue`) against
+`voice.language` and `voice.languages_supported`. Intersect
+`models.list.auto.candidate_order` with `selected_voice.compatible_models` for
+`model: "auto"`, keeping outside compatible models explicit-only, and calculate
+speech estimates via `estimate_formula`, `unit_price_credits`, `scale`, and
+`billing_basis: "beatra_weighted_characters"` (Han = 2, others = 1).
 
-## Pilots and paid confirmation
-
-Planning, script preparation, voice listing, preview links, model listing, and
-estimates are non-billable. `beatra.speech.synthesize` and
-`beatra.voices.clone` are billable.
-
-- A well-specified synthesis request authorizes that one call. Show the
-  production card with the delivery; do not wait for a separate reply.
-- Long-form work uses one supplied and approved pilot passage before the
-  separately approved remainder.
-- Multilingual work uses one supplied and approved pilot for every distinct
-  voice/language/model route before a separately approved remainder.
-- A clone is one paid operation. Before any `client_request_id` or
-  `beatra.voices.clone` call, show the clone admission card: route
-  `voice_clone`, tool `beatra.voices.clone`, live `beatra.models.list` price
-  for one successful activated voice, the provisional estimate, the fact that
-  the 600-credit signup gift usually cannot start this clone, and what
-  happens if the balance is short. Do not create `client_request_id` or
-  submit until the user confirms they have topped up or already have enough
-  credits for this estimate. Do not offer a free clone or a free sample that
-  replaces the clone. On `insufficient_balance`, relay the returned public
-  message, keep the URL exact, translate the rest, and retry the same frozen
-  `client_request_id` only after the user says they have topped up. Any
-  spoken proof is a separate synthesis operation with its own approved text,
-  card, approval, and request identity.
-
-A well-specified synthesis request — final text, a voice or selection
-criteria, and any format or control it names — is the approval for the one
-call it describes; do not ask again, and show the production card with the
-delivery. Price-only, comparison, preparation, general permission to “handle
-it,” and an unfrozen batch or variant set are not approval. Cancellation is
-requested only when the user asks; a conflict or unconfirmed remote stop means
-continue polling the same task.
-
-Read [long-form and multilingual
-production](references/long-form-and-multilingual.md) before any ordered batch,
-and [voice cloning and review](references/voice-cloning-and-review.md) before
-sample upload or clone submission.
-
-## Execution, recovery, and delivery
-
-Lead the reply with the result and format the user asked for; the production
-card, route choice, and cost notes follow it and never replace it.
-
-Store locally, before submission, the route, exact JSON, the request that
-authorized the call, `client_request_id`, and later `task_id`. The request identity is a
-local recovery key; `tasks.list` and `tasks.get` do not filter by or return it.
-
-If a response or task ID is lost, call `beatra.tasks.list` with the relevant
-capability and follow every `next_cursor` needed to cover the time window.
-Verify plausible candidates with `beatra.tasks.get` using returned task facts.
-Do not submit while a matching task may be queued or running. Reuse the same
-request identity only for a field-for-field identical replay after task
-creation remains genuinely uncertain; any changed field needs new approval
-and a new identity. A slow, failed, canceled, authorization, or update result
-does not authorize an automatic replacement.
-
-For successful speech, report only returned facts: `type`, `model`,
-`voice_id`, `audio.url`, `audio.artifact_id`,
-`audio.duration_seconds`, `audio.mime_type`, `audio.size_bytes`, optional
-`audio.sample_rate`, `characters`, optional `subtitles`, task status,
-resolved model, and billing when present. For a successful clone, preserve the
-exact four-field output: `type`, `voice_id`, `status`, and `display_name`.
-Never claim listening, synchronization, publication, accuracy, durability,
-deletion, or a refund that the returned result does not establish.
-
-Deliver long-form and multilingual results in the approved route, language,
-and segment order. Keep accepted audio unchanged. A correction re-synthesizes
-only an explicitly approved affected segment.
-
-## Account balance
-
-When the user asks how many credits remain or whether a live estimate fits,
-call `beatra.wallet.get`. When they ask what was charged, call
-`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
-top-up tool. Do not make `wallet.get` a required step before every paid submit.
-
-When a model card comes back carrying a `top_up` block, relay its tiers as the
-card lists them and in that order. Do not rank them, do not talk one down, and
-do not pick one for the user. Which tier suits them is their call, made on
-the wallet page with the whole list in front of them. Never quote a tier from
-memory.
+Never make `beatra.wallet.get` a mandatory gate before paid submission and never
+ask users to confirm they have enough credits. Call read-only `beatra.wallet.get`
+when asked about balance/fit and `beatra.wallet.ledger` when asked what was
+charged; relay `top_up` tiers in returned order verbatim. On
+`insufficient_balance`, relay Beatra's message and exact `topup_url` verbatim,
+stop until the user confirms topping up, and replay the identical payload with
+the same `client_request_id`. Recover lost task IDs via paginated
+`beatra.tasks.list` (`next_cursor`) plus `beatra.tasks.get`; any changed text,
+voice, language, model, or control requires a new card, approval, and
+`client_request_id`.
 
 ## References by task
 
-- Read [intent and routing](references/intent-and-routing.md) for the Studio
-  matrix, minimum inputs, free planning, and paid pilot boundaries.
+- Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
+  limits, exact tool field contracts (`audio` vs `source`, `subtitle_enable` vs
+  `subtitles`), 3 cloning routes, and 6-field production cards.
+- Read [intent and routing](references/intent-and-routing.md) for the routing
+  matrix, minimum inputs, free planning, and confirmation boundaries.
 - Read [voice casting and delivery](references/voice-casting-and-delivery.md)
-  for exact voice identity, live model/language checks, price math, synthesis
-  JSON, and result review.
-- Read [long-form and multilingual
-  production](references/long-form-and-multilingual.md) for route ledgers,
-  pilot coverage, ordered batches, and interruption recovery.
+  for 11-dimension casting, live model/language math, Smart Voice Director,
+  validation, dialogue, STS, transcription, SFX, stem separation, and loudness
+  normalization payloads.
+- Read [long-form and multilingual production](references/long-form-and-multilingual.md)
+  for route ledgers, pilots, ordered batches, and interruption recovery.
 - Read [voice cloning and review](references/voice-cloning-and-review.md) for
-  consent, sample transport, clone JSON, exact output, and optional proof.
+  consent, `isolate_voice` pre-clean, 3-route cloning, `voices.activate`,
+  `voices.update`, `voices.delete`, and separate spoken proof.
 - Read [bundled MCP Client diagnostics](references/mcp-connection.md) only for
   bundled-client verification and transport troubleshooting.
 - Read [installation and authentication](references/installation-and-auth.md),
   [installation registration](references/installation-registration.md),
   [tasks and results](references/tasks-and-results.md), [billing, errors, and
   recovery](references/billing-errors-and-recovery.md), and [uninstall and
-  disconnect](references/uninstall-and-disconnect.md) only when that
-  operational branch is active.
+  disconnect](references/uninstall-and-disconnect.md) only when active.
 
 ## Updates and security
 

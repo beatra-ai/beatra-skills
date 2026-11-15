@@ -2,7 +2,7 @@
   "name": "ai-podcast-voiceover",
   "displayName": "AI Podcast Voiceover",
   "description": "Turn an article, notes, or finished script into a listenable solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and MP3 delivery.",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "author": {
     "name": "Beatra AI"
   },

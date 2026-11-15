@@ -1,0 +1,8 @@
+interface:
+  display_name: "Beatra AI Voice Studio"
+  short_description: "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $beatra-ai-voice-studio to voice my flower shop's Mother's Day video. Script attached; warm, gentle female voice."
+policy:
+  allow_implicit_invocation: true

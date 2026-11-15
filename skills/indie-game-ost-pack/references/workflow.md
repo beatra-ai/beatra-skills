@@ -76,3 +76,40 @@ Read the actual returned duration. Do not promise a sample-perfect loop point or
 platform takedown safety, and without the tools do not promise exact seconds
 either. Public ownership language stays in SEO; Agent review reports the real
 audio only.
+
+## Game biome ambience, foley, and stingers (SFX)
+
+When the game brief also asks for biome ambience beds, UI chimes, combat
+impacts, or short stingers, generate them with `beatra.audio.generate_sfx`
+after reading live pricing from `beatra.models.list` with
+`{"capability": "sound_effects"}`.
+
+```json
+{
+  "prompt": "Distant forest wind and soft leaf rustle, subtle night insects, game biome ambience, no music",
+  "duration_seconds": 15,
+  "loop": true,
+  "model": "auto",
+  "client_request_id": "opaque-game-sfx-forest-01"
+}
+```
+
+- Set `duration_seconds` from `0.5` to `30`, and set `loop: true` only for
+  seamless biome ambience beds (leave `loop: false` or omitted for one-shot
+  combat hits, UI clicks, and stingers).
+- Use `model: "auto"` (or a catalog ID returned by `models.list`) — never write a
+  hardcoded vendor or internal SFX model ID.
+- If an ambient bed needs to run longer than `30` seconds or needs engine-ready
+  `ogg` delivery, finish it on its own paid card line with
+  `beatra.audio.process` (`loop` with `loop_count` / `end_with_fade: false` or
+  `convert_format` to `ogg`).
+
+## Follow-up native edits on editable tracks
+
+If a delivered music slot carries `editable: {"native": true}`, follow-up
+structural changes (for example extending a bridge, replacing a weak section,
+or building an alternate intensity variation) can use `beatra.music.edit` after
+reading live per-operation pricing (`{"capability": "music_extend"}`,
+`{"capability": "music_replace_section"}`, or matching `music_*` capability)
+and confirming its own production card line and `client_request_id` (see
+[music editing and audio](music-editing-and-audio.md)).

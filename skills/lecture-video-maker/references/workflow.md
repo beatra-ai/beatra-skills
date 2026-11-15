@@ -84,24 +84,31 @@ and run `init` again with `--replace`.
 
 Show a card before every paid call and wait. Each card has six fields:
 
-1. **Work:** in the user's words, which call: narration
-   (`beatra.speech.synthesize`), voice cloning (`beatra.voices.clone`), or an
-   on-camera clip (`beatra.videos.animate`).
+1. **Work:** in the user's words, which call: Smart Voice Director
+   (`beatra.speech.prepare_script`), audio cleanup / loudness normalization
+   (`beatra.audio.process`), narration (`beatra.speech.synthesize`), voice
+   cloning (`beatra.voices.clone`), or an on-camera clip
+   (`beatra.videos.animate`).
 2. **Credits:** the live price just read from `beatra.models.list`, with the
-   estimate from `lesson_kit.py estimate` for narration, never a remembered
-   number.
-3. **Count:** one charge per page of narration, per clip script's narration,
-   per cloned voice, per clip.
+   estimate from `lesson_kit.py estimate` (or free `beatra.speech.validate`
+   preflight) for narration, never a remembered number.
+3. **Count:** one charge per Smart Voice Director call (max 2 concurrent), per
+   audio processing call (`audio.process`, one at a time, 50/day), per page of
+   narration, per clip script's narration, per cloned voice, per clip.
 4. **Identity:** page narration uses the `client_request_id` that
-   `lesson_kit.py next` returns for that page; a clone, a clip script's
-   narration, and a clip each get one new opaque ID.
-5. **If they stop:** the scripts, the course project, and everything already
-   rendered stay usable.
-6. **If the balance is short:** relay the official message and top-up URL,
-   and continue only after the user says they topped up.
+   `lesson_kit.py next` returns for that page; a Smart Voice Director call,
+   audio processing job, clone, clip script's narration, and clip each get one
+   new opaque ID.
+5. **If they stop:** the scripts, prepared direction, preflight checks, the
+   course project, and everything already rendered stay usable at zero extra
+   charge.
+6. **If the balance is short:** relay the official `insufficient_balance`
+   message and verbatim `topup_url` without changing the link, and wait until
+   the user says they topped up before retrying with the same frozen
+   `client_request_id`.
 
-Read the live cards; the bundled client takes the arguments as JSON on
-stdin:
+Read the live cards using only tools listed by `scripts/mcp_client.py tools`;
+the bundled client takes the arguments as JSON on stdin:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.models.list
@@ -111,17 +118,42 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "text_to_speech"}
 ```
 
-and, before a clone or a clip, `{"capability": "voice_clone"}` or
-`{"capability": "image_to_video"}` the same way.
+and, as needed, `{"capability": "speech_script"}` before Smart Voice Director,
+`{"capability": "voice_clone"}` before a clone,
+`{"capability": "audio_voice_isolation"}` before `isolate_voice`,
+`{"capability": "audio_process"}` before `normalize_loudness`, or
+`{"capability": "image_to_video"}` before an on-camera clip. Call
+`beatra.voices.preview`, `beatra.voices.update`, and `beatra.speech.validate`
+for free without a production card, and call `beatra.wallet.get` /
+`beatra.wallet.ledger` only when the user asks about remaining credits or
+charges (never as a mandatory pre-submit gate).
 
-The 600-credit signup gift covers a pilot of about three minutes of slides
+The initial signup gift covers a pilot of about three minutes of slides
 and voice. Cloning a voice and on-camera clips usually need a top-up; say so
 on their cards. When a card carries a `top_up` block, relay its tiers as
 listed.
 
 ## Narration payload
 
-`lesson_kit.py next` prints the exact arguments. They look like this:
+First audition voices for free with `beatra.voices.preview`, and preflight text
+for free with `beatra.speech.validate` (`estimated_duration_seconds`, character
+or segment checks) before any paid synthesis. When the teacher wants Smart Voice
+Director prosody shaping without changing spoken words, show
+its own card and run **paid** `beatra.speech.prepare_script`
+(`{"capability": "speech_script"}`, max **2 concurrent**; never manually write
+braced cues): it returns `directed` and `scripts[]` (`synthesis`, `summary`,
+`voice_selection`, `alternatives`, `estimate`, `warnings`); pass
+`scripts[].synthesis` unchanged with a fresh `client_request_id` to
+`beatra.speech.synthesize` (or inspect `warnings` when `synthesis` is `null`).
+Switching only `voice` (and `model` if needed) with identical arguments within
+48 hours reuses direction at no extra charge (balance must still cover the initial
+estimate), whereas fresh `prepare_script` runs are always paid.
+
+`lesson_kit.py next` prints the exact base narration arguments.
+`subtitle_enable` defaults to `true` (never pass `subtitles`), so
+`beatra.speech.synthesize` also returns free `output.subtitles`
+(`JSON`/`SRT`/`VTT`) and `speech_start_seconds` / `speech_end_seconds`. Base
+arguments look like this:
 
 ```json
 {
@@ -130,6 +162,7 @@ listed.
   "model": "auto",
   "format": "mp3",
   "language": "zh-CN",
+  "subtitle_enable": true,
   "client_request_id": "lk-3f9a1c2e-L01-p001-5c1d2e3f4a5b"
 }
 ```
@@ -224,9 +257,19 @@ resumes exactly where it stopped.
 
 ## The teacher's own voice
 
-Consent first: the teacher says the sample is their own voice, or that the
-speaker authorized this use. A suitable sample is currently about 10 to 300
-seconds, no larger than 20 MiB, clean single-speaker speech. Upload it:
+Before any sample upload or `consent_attested: true`, confirm all three voice
+safety gates with the user: (1) explicit ownership or rightsholder permission
+and attestation against impersonation or fraud (access to a file or public video
+is not consent), (2) any live clone activation fee/quote awareness if a route
+surfaces `pending_activation`, and (3) permanent voice-slot usage and the
+irreversible two-step warning if a voice is later deleted. A suitable sample is
+10 to 300 seconds, no larger than 20 MB, clean single-speaker speech (checked
+against the live `voice_clone` card). If the recording has background noise or
+level swings, clean it first under its own paid card via `beatra.audio.process`:
+`isolate_voice` (`{"capability": "audio_voice_isolation"}`, **paid**, `4.6 s –
+5 min`, `<= 100 MB`), and match clip or lesson levels with `normalize_loudness`
+(`{"capability": "audio_process"}`, **paid**, up to `60 min` / `300 MB`, min
+output `>= 1 s`, max **50 calls/day**, run one at a time). Upload the clean sample:
 
 ```text
 python3 scripts/mcp_client.py upload ./teacher-sample.wav --mime-type audio/wav
@@ -244,7 +287,10 @@ Show the clone card, then submit `beatra.voices.clone` once:
 }
 ```
 
-Poll to terminal, write the returned `voice_id` into `voice.voice_id`. Every
+Poll to terminal, audition the ready voice for free with
+`beatra.voices.preview` (and tune saved metadata/defaults for free with
+`beatra.voices.update`), then write the returned `voice_id` into
+`voice.voice_id`. Every
 page already narrated with another voice then goes back in `next` with a new
 ID, and `plan` refuses it until it is narrated again, so the whole course
 ends up in one voice. Tell the teacher and put those pages on the next card.
@@ -261,7 +307,10 @@ Check that the card returns the clip with its sound (`output_audio`), since
 the render plays the clip's own audio track; when no current card does, say
 so and make no clip.
 
-Then narrate the clip's script as its own request with a new opaque ID
+First run free `beatra.speech.validate` on the clip script (and check the
+live `image_to_video` card's maximum clip duration) so `estimated_duration_seconds`
+fits inside the avatar clip limit BEFORE paying to synthesize speech or animate
+video. Then narrate the clip's script as its own request with a new opaque ID
 (card, submit, poll), upload or reuse the photo, confirm the photo and the
 narration's actual length and size fit the card, show the clip card, then
 submit `beatra.videos.animate` once:
@@ -315,8 +364,11 @@ left for them; then ask for a portrait or square photo, or plan with
 
 ## Subtitles
 
-Every video shows its subtitles on screen, and the SRT ships beside each
-MP4. Drawing them into the picture needs Pillow and a font with the
+Every `beatra.speech.synthesize` response with `subtitle_enable: true` (default)
+returns free `output.subtitles` (`JSON`/`SRT`/`VTT`) and
+`speech_start_seconds` / `speech_end_seconds` at no extra charge. Locally,
+every rendered video shows its subtitles on screen, and the SRT ships beside
+each MP4. Drawing them into the picture needs Pillow and a font with the
 subtitles' characters on this computer (see
 [Lesson video assembly](lesson-video.md)); when `plan` reports either one
 missing, follow that reference, and ask the user before installing anything.

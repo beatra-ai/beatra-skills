@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-podcast-voiceover",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Turn an article, notes, or finished script into a listenable solo podcast episode with a consistent host voice, natural pacing, pronunciation control, and MP3 delivery.",
   "author": {
     "name": "Beatra AI",

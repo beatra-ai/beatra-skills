@@ -1,59 +1,89 @@
-# Course narration workflow
+# Course Narration Workflow
 
 ## Lecture ledger
 
-Record every lesson title, teaching order, block labels, character counts,
-pronunciations, frozen `voice_id`, and each block's request ID and task ID.
-Preserve the intended listening order.
+Record every lesson title, teaching order, block labels, weighted-character
+counts (`beatra_weighted_characters`: Han = 2, others = 1), pronunciations,
+frozen `voice_id`, script direction `task_id` (if used), synthesis
+`client_request_id` + `task_id`, and finishing `task_id`.
 
-Turn each lecture into speakable text before pricing:
+Turn each lecture into speakable text before preflight/pricing:
 
-- keep one section to one teaching point;
-- use short spoken sentences;
-- explain a new term in plain language on first mention, using the
-  pronunciation table;
-- extract only spoken words into synthesis `input`;
-- remove page headings, field labels, picture notes, and bracket stage
-  directions.
+- keep one section to one teaching point in short spoken sentences;
+- explain new terms plainly on first mention using the pronunciation table;
+- preserve simplified/traditional characters and dialect wording verbatim unless
+  asked; never hand-strip `/` pause markers or invent bracketed vocal-effect cues;
+- strip slide titles, field labels, picture notes, and bracket stage
+  directions out of synthesis `input`.
 
-If the lecture has names, terms, or acronyms and the pronunciation table is
-empty, stop and collect those readings. Do not invent them.
+If recurring names, terms, or acronyms lack agreed readings, stop and collect
+them without guessing.
 
-## Optional narrator clone
+## Optional narrator clone & voice maintenance
 
-If the user brought a narrator sample, upload it only through the bundled
-client after inspection. Show the clone admission card before creating a
-clone request ID: route `voice_clone`, tool `beatra.voices.clone`, live
-price for one successful activated voice, the provisional estimate, the
-600-credit gift usually cannot start this clone, and what happens if the
-balance is short. Do not create `client_request_id` until the user
-confirms they have topped up or already have enough credits.
+Confirm plain speaker consent BEFORE `scripts/mcp_client.py upload` (possession
+is not consent). Check live limits via `beatra.models.list` with
+`{"capability": "voice_clone", "include_activation_required": true}` without
+naming upstream vendors or internal IDs.
 
-## Pilot then pack
+- If the sample has café noise or background buzz, offer paid pre-clean via
+  `beatra.audio.process` (`operation: "isolate_voice"`, **`source`** field,
+  `4.6 s–5 min`, `<= 100 MB`, priced via `{"capability": "audio_voice_isolation"}`)
+  on its own six-field card first.
+- Choose an immediate-ready cloning route (`auto` or expressive multilingual)
+  directly here, or route trial-first `pending_activation` activation
+  (`voices.activate`) or slot deletion (`voices.delete`) to
+  `voice-cloning-studio` / `beatra-ai-voice-studio` (`scripts/mcp_client.py tools`
+  is authoritative).
+- Present the six-field clone card (`If stop` states kept free deliverables at
+  zero charge—never hardcoding credit counts or asking users to pre-confirm
+  sufficient credits) before generating a clone `client_request_id`.
+- Once ready, maintain display metadata or set default with non-billable
+  `beatra.voices.update` (`make_default: true`), and audition candidates free
+  with `preview_url` or `beatra.voices.preview` (`{"voice_id": "..."}`).
 
-The pilot is the hardest lecture: dense terms, numbers, or bilingual
-labels. Synthesize only that lecture first. Listen to the returned audio.
-Revise unclear or misread blocks in the spoken text, then regenerate only
-those blocks with new request IDs. Do not generate the remaining pack until
-the user accepts the pilot voice, pacing, and term readings.
+## Pilot, Smart Voice Director, validation, and pack loudness finishing
 
-Speech price comes from the live `text_to_speech` card. Weighted-character
-math follows that card. Confirm the remaining-pack estimate before the
-second wave of submits.
+- **Optional Smart Voice Director (`beatra.speech.prepare_script`)**: check
+  live `{"capability": "speech_script"}`, approve its six-field card, handle
+  `synthesis: null` from `warnings`, and pass `scripts[i].synthesis` verbatim +
+  fresh `client_request_id` into synthesis (48h free recompile holds only for
+  exact same `input`/`instructions`/`language`/`context` changing just
+  `voice`/`model`, subject to balance coverage and <= 2 concurrent tasks; never
+  describe `prepare_script` as generally free).
+- **Mandatory free check (`beatra.speech.validate`)**: preflight every block
+  before paying to check `estimated_duration_seconds` and compatibility.
+- **Hardest lecture pilot**: synthesize ONLY the term/number-dense pilot first
+  (`subtitle_enable: true` when aligned SRT/VTT study captions help; NEVER
+  `subtitles`), review readings, revise only misread blocks under new IDs, then
+  approve the remaining pack card.
+- **Broadcast loudness normalization**: check live `{"capability": "audio_process"}`,
+  approve a finishing card, and run serialized `beatra.audio.process`
+  (`operation: "normalize_loudness"`, **`source`** field, e.g. `-14 LUFS`,
+  `<= 60 min`, `<= 300 MB`, output `>= 1 s`, `50` calls/day) one track at a time—never
+  call finishing free or a mastering service.
 
-## One block
+## One block & normalization payloads
 
 ```json
 {
   "voice": "voice_...",
   "input": "Approved lecture block",
   "format": "mp3",
+  "subtitle_enable": true,
   "client_request_id": "opaque-lesson-01-a"
 }
 ```
 
-Never put a display name in `voice`. Revise one block at a time. Keep the
-same `voice_id` for the whole course.
+```json
+{
+  "operation": "normalize_loudness",
+  "source": {"type": "artifact", "artifact_id": "artifact_lesson_01_a"},
+  "loudness_lufs": -14,
+  "format": "mp3",
+  "client_request_id": "opaque-lesson-01-a-norm"
+}
+```
 
 ## Pointing to another Skill
 

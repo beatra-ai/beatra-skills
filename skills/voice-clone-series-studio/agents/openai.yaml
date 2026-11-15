@@ -1,0 +1,8 @@
+interface:
+  display_name: "Voice Clone Series Studio"
+  short_description: "Clone one voice you own and keep using it for a series of episodes, updates, and lessons."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $voice-clone-series-studio to clone my voice for every episode of my gardening podcast. Sample and episode one attached."
+policy:
+  allow_implicit_invocation: true

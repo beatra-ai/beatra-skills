@@ -117,41 +117,69 @@ prerequisites (Node 18+, npm, ffmpeg) and the full command sequence:
 
 ## Paid changes, recovery, and cancellation
 
-Planning is free: the direction card and the script-plus-storyboard are
-delivered before any charge. They are not approval. Three separate paid
-calls exist. Each one gets its own six-field current production card and
-one `client_request_id` per logical request. Never fold lookup into
-synthesis.
+Planning is free: the direction card, script-plus-storyboard, 11-dimension
+`beatra.voices.list` filtering, `preview_url` / `beatra.voices.preview`
+auditions, and `beatra.speech.validate` (`estimated_duration_seconds`) cost zero
+credits and are not approval. Never manually strip `/` pause markers or invent
+custom bracketed vocal-effect cues; preserve original simplified/traditional characters and
+dialect phrasing verbatim. Separate paid operations exist (`speech.synthesize`,
+`voices.clone`, `social.execute`, optional Smart Voice Director
+`speech.prepare_script`, and optional `normalize_loudness`). Each paid step
+gets its own six-field production card and one `client_request_id` per logical
+request. Never fold lookup into synthesis, and never call paid steps free.
 
-Before narration synthesis, call `beatra.models.list` for `text_to_speech`:
+When dramatic pauses or coaching help, check `beatra.models.list` with
+`{"capability": "speech_script"}`, approve its six-field card, inspect
+`directed` and `scripts[]` (handling `synthesis: null` from `warnings`), and
+pass `scripts[i].synthesis` cleanly; re-calling `prepare_script` within 48 hours
+with identical `input`/`instructions`/`language`/`context` changing only `voice`
+or `model` recompiles at zero extra charge (initial balance coverage and <= 2
+concurrent tasks still apply). Before every paid `beatra.speech.synthesize`,
+always run free `beatra.speech.validate`, pass `subtitle_enable: true` when
+aligned sentence timestamps/SRT feed `align.mjs` (never `subtitles`), and call
+`beatra.models.list` for `text_to_speech`:
 
 ```json
 {"capability": "text_to_speech"}
 ```
 
-Show the synthesis card and wait:
+Show the synthesis card (If stop states the free direction, storyboard, voice
+shortlist, and script stay usable at zero charge) and wait:
 
 1. Work — this film's narration (`beatra.speech.synthesize`).
 2. Credits — the live `text_to_speech` price just read. Do not reuse a
-   remembered number.
+   remembered number or hardcode credits.
 3. Count — one paid synthesis call for the whole `script.txt`.
 4. Identity — one new opaque `client_request_id`.
-5. If we stop here — the direction and script-plus-storyboard
-   remain usable.
+5. If we stop here — the direction, storyboard, and validated script remain
+   usable at zero charge.
 6. If the balance is insufficient — relay the official message and its
-   top-up URL exactly. Translate the prose; keep the URL. Do not retry
+   top-up URL verbatim. Translate the prose; keep the URL. Do not retry
    until the user says they have topped up.
 
-Before cloning, call `beatra.models.list` for `voice_clone`:
+When broadcast loudness consistency (e.g. `-14 LUFS`) is requested on the
+synthesized narration before rendering `out.mp4`, inspect
+`{"capability": "audio_process"}`, approve its separate six-field finishing
+card, and run one serialized `beatra.audio.process` call
+(`operation: "normalize_loudness"`, **`source`** field, `<= 60 min`, `<= 300 MB`,
+output `>= 1 s`, `50` calls/day). Never label finishing free or "loudness
+mastering."
+
+Before cloning, call `beatra.models.list` with
+`{"capability": "voice_clone", "include_activation_required": true}`:
 
 ```json
-{"capability": "voice_clone"}
+{"capability": "voice_clone", "include_activation_required": true}
 ```
 
-Clone only after the user states it is their voice or the speaker
-authorized it. Submit through the guarded `voice.mjs clone-submit
---consent` subcommand, which refuses to run without the consent
-statement. Show the clone card and wait:
+Compare routes by capability only—never expose upstream vendor names or internal
+model IDs. Immediate-ready routes (`auto` or expressive multilingual) run
+directly through the guarded `voice.mjs clone-submit --consent` subcommand; if a
+sample needs noisy `isolate_voice` cleanup, trial-first `pending_activation`
+(`voices.activate`), or deletion (`voices.delete`), route that step to
+`voice-cloning-studio` / `beatra-ai-voice-studio` (`scripts/mcp_client.py tools`
+is authoritative). Clone only after plain speaker consent BEFORE sample upload.
+Show the six-field clone card and wait:
 
 1. Work — one authorized voice sample (`beatra.voices.clone`).
 2. Credits — the live `voice_clone` price just read. Do not reuse a
@@ -193,15 +221,19 @@ it with your own top-up copy. Point the user to pay using that message.
 ## Account balance
 
 When the user asks how many credits remain or whether a live estimate fits
-the current balance, call `beatra.wallet.get`. When they ask what was
-charged, call `beatra.wallet.ledger`. Live synthesis and clone prices come
-from `beatra.models.list` with `{"capability": "text_to_speech"}` or
-`{"capability": "voice_clone"}`; lookup prices from
-`beatra.social.tools.get`. Never from ledger rows.
+the current balance, call read-only `beatra.wallet.get`. When they ask what
+was charged, call read-only `beatra.wallet.ledger`. Never make `wallet.get` a
+mandatory gate before submitting or ask users to confirm sufficient credits;
+when a model card returns `top_up`, relay tiers verbatim in returned order. Live
+synthesis, script direction, loudness normalization, and clone prices come from
+`beatra.models.list` with `{"capability": "text_to_speech"}`, `"speech_script"`,
+`"audio_process"`, or `{"capability": "voice_clone", "include_activation_required": true}`;
+lookup prices from `beatra.social.tools.get`. Never quote prices from ledger rows.
 
 ## References by task
 
-Use [the workflow](references/workflow.md),
+Use [the speech and audio guide](references/speech-and-audio.md),
+[the workflow](references/workflow.md),
 [script copywriting](references/script-copywriting.md),
 [visual rules](references/visual-rules.md), [text mode](references/mode-text.md),
 [program mode](references/mode-program.md),

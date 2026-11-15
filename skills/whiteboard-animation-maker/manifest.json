@@ -1,5 +1,5 @@
 {
-  "changelog": "Voiceover captions follow the spoken text more reliably in whiteboard films.",
+  "changelog": "Adds Smart Voice Director expressive narration pacing, preflight script checks and voice auditions, aligned SRT/VTT caption support, three-route custom voice cloning guidance, and optional -14 LUFS loudness normalization for whiteboard audio.",
   "display_name": "Whiteboard Animation Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/whiteboard-animation-maker",
@@ -74,5 +74,5 @@
   },
   "name": "whiteboard-animation-maker",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

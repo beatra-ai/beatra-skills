@@ -5,32 +5,55 @@ description: "Give every character in your script its own voice and get the whol
 
 # Audio Drama Voice Studio
 
-Give a script a cast. Assign one voice per character, record every line in that
-character's voice, and hand back the clips in script order so the scene can be
-assembled and posted.
+Give a script a cast. Assign one voice per character, plan expressive pacing
+without rewriting dialogue, record scenes natively with multi-speaker dialogue
+or block-by-block synthesis, add scene foley/ambience and `-14 LUFS` finishing
+when requested, and hand back ordered clips and aligned subtitles ready to
+assemble in your editor.
 
 ## What you get
 
 A finished run returns:
 
-- One numbered audio clip per speech block, labelled with the speaking
-  character, in script order
-- A cast sheet: each speaker, how they sound relative to the others, and the
-  voice kept for the whole piece
-- The real duration, size, and format the model returned for every clip
+- Numbered scene takes (`beatra.speech.synthesize_dialogue`) or per-block clips
+  (`beatra.speech.synthesize`), labelled with speaking roles in script order
+- A cast sheet: each speaker, age/temperament, how they contrast relative to
+  the others, and the opaque `voice_id` kept for the whole piece
+- Free aligned subtitles (`output.subtitles`: JSON, SRT, VTT, and dialogue
+  `segments[]`) when `subtitle_enable: true` (default; never pass `subtitles`)
+- Optional separately confirmed foley/ambience beds (`beatra.audio.generate_sfx`)
+  and finished clips (`beatra.audio.process`)
+- Actual returned duration, size, MIME type, resolved model, and
+  `billing.net_charged_credits` for every delivered clip
 
-It does not mix the clips into one episode file. Assembly stays in the user's
-editor. The rendered type comes from the model and is reported on delivery.
+It does not mix multiple audio tracks into one layered episode master. Multi-track
+timeline mixing and SFX layering stay in the user's editor.
 
 ## Ways to run it
 
-- **Cast and record** — default. Read the script, freeze one voice per
-  character, synthesize each block, deliver labelled clips.
-- **Add an owned voice** — optional. Clone a sample the user owns or has
-  permission to use, then put that voice on the cast sheet like any other.
+- **Cast, direct, and record** — default. Build the cast sheet, optionally run
+  **Smart Voice Director** (`beatra.speech.prepare_script`), audition free
+  `beatra.voices.preview` clips, validate free with
+  `beatra.speech.validate_dialogue` or `beatra.speech.validate`, then synthesize
+  scenes via `beatra.speech.synthesize_dialogue` (or segmented
+  `beatra.speech.synthesize` when cast limits or isolated-line control require
+  it).
+- **Add foley, ambience, and loudness finishing** — optional, separately quoted.
+  Generate scene foley, stingers, or `loop=true` ambient beds
+  (`beatra.audio.generate_sfx`) and run `beatra.audio.process`
+  (`isolate_voice`, `normalize_loudness`, `trim`, `fade`). Never call any paid
+  finishing or script-direction step free.
+- **Add an owned voice** — optional. Pre-clean noisy samples if needed
+  (`isolate_voice`), then clone a voice with explicit owner consent and full
+  lifecycle confirmations (`consent_attested`, `beatra.voices.activate` when
+  `pending_activation`, two-step `beatra.voices.delete`).
 
-Casting and script preparation are free. Synthesis is paid. Cloning is a
-separate paid step with its own confirmation.
+Casting, script drafting, `beatra.voices.list`, `beatra.voices.preview`,
+`beatra.models.list`, `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
+`beatra.voices.delete` step 1, and tokenless `beatra.voices.activate` quote
+refreshes are free. Smart Voice Director (`beatra.speech.prepare_script`),
+synthesis, dialogue synthesis, cloning, trial activation, SFX, and
+`beatra.audio.process` are paid steps.
 
 ## Scope and routing
 
@@ -40,12 +63,12 @@ two-host or panel show, a dialogue-driven course or training scene, a scripted
 ad with two or more roles, or an interactive story with distinct characters.
 
 Route a single-narrator book or course to `ai-audiobook-narration`. Route a
-podcast episode read by one host to `ai-podcast-voiceover`, and a short-video
-voiceover to `short-form-voiceover-audio`. Route creating a reusable voice from
-a sample to `voice-cloning-studio` when cloning is the whole job. If a character
-on this cast needs a cloned voice, clone it in this Skill. Route general
-single-voice work to `beatra-ai-voice-studio`. Route a narrated video with
-pictures to `novel-promo-video-maker`.
+podcast episode to `ai-podcast-voiceover`, and a short-video voiceover to
+`short-form-voiceover-audio`. Route standalone cloning-only work to
+`voice-cloning-studio` when cloning is the whole job; if a character on this
+cast needs a cloned voice, clone and manage it right here. Route general
+single-voice work to `beatra-ai-voice-studio`, and narrated video with pictures
+to `novel-promo-video-maker`.
 
 ## Inputs and defaults
 
@@ -57,132 +80,136 @@ passage is prose with no speaker attribution and the text does not settle it.
 
 Defaults that avoid extra questions:
 
-- One voice per named character, plus one narrator voice when the script has
-  narration.
+- One opaque `voice_id` per named character, plus one narrator voice when the
+  script has narration.
 - Speaker order follows the script; nothing is reordered.
-- `model` omitted so Beatra can route, unless the user names one.
-- `language` omitted for automatic detection, unless the user asks for a
-  specific language or the script mixes several.
-- One synthesis call per speech block, so a single line can be redone without
-  paying for the whole scene again.
+- `model` omitted or `"auto"` unless a capability requires an explicit choice.
+- `language` omitted for automatic detection unless the user specifies one or
+  the script mixes several.
+- `subtitle_enable: true` (never pass `subtitles`) to obtain free timestamps and
+  aligned JSON/SRT/VTT subtitles (`segments[]` on dialogue).
+- Use native `beatra.speech.synthesize_dialogue` when the scene fits `2–50`
+  turns, `<= 2,000` characters, `<= 10` voices with
+  `capabilities.supports_dialogue == true`, and `<= 4` ready clones (chunk
+  longer scenes cleanly with `previous_text` / `next_text`). Fall back to
+  segmented `beatra.speech.synthesize` when cast limits, dialect constraints,
+  or single-line isolation apply.
 
 ## Golden path
 
-1. Read the script and build a cast sheet: every speaking character, their age
-   and temperament, and the narrator if there is one. Split the script into
-   speech blocks, each block belonging to exactly one character. Show that
-   numbered cast sheet and block list to the user. That sheet is the free
-   visible result. Planning is not approval.
-2. Call `beatra.voices.list` only when a voice is still needed or the user asks
-   to browse or compare, then assign one voice ID per character and keep that
-   assignment fixed for the whole piece.
-3. Read the live `text_to_speech` card with `beatra.models.list`:
+1. Read the script and build the cast sheet: every speaking character, age,
+   temperament, relative contrast, and narrator if present. Split the script
+   into speaker-attributed turns/scenes (noting `<= 2,000`-char dialogue scenes
+   for native `beatra.speech.synthesize_dialogue` or individual blocks for
+   `beatra.speech.synthesize`). Show the numbered cast sheet and script layout
+   to the user as the free visible deliverable. Planning is not approval.
+2. Call `beatra.voices.list` (bilingual `search`, `limit <= 500`, `cursor`, facet
+   filters, `supports_dialogue=true` when targeting dialogue, inspecting all `11`
+   `capabilities.*` metadata fields) only when voices are still needed or the
+   user asks to browse/compare. Run free `beatra.voices.preview` (`preview_url`,
+   `kind`) to audition picks and freeze one opaque `voice_id` per role.
+3. Optional **Smart Voice Director**: if dramatic beats, pause holds, or
+   expressive timing need compilation without changing dialogue words (never
+   hand-author braced tags), quote and run paid `beatra.speech.prepare_script`
+   (`{"capability": "speech_script"}`, max `2` concurrent; 48-hour same-script
+   voice swap reuse when balance covers admission), inspect `directed` and
+   `scripts[]` (resolving any `synthesis: null` from `warnings`), then pass
+   ready `scripts[].synthesis` unchanged + fresh `client_request_id`.
+4. Read live cards via `beatra.models.list` (`text_to_dialogue`,
+   `text_to_speech`, `speech_script`, `sound_effects`, `audio_process`,
+   `audio_voice_isolation`) and run **free preflight**
+   (`beatra.speech.validate_dialogue` for dialogue scenes or
+   `beatra.speech.validate` for single blocks) for live pricing, duration
+   estimates, weighted characters (Han ideographs = 2, others = 1; linear per
+   1,000 with exact fractional charge under 1,000), and warnings.
+5. Show one current six-field production card covering the approved scene/blocks
+   (plus separate cards or itemized paid lines for any optional SFX or finishing
+   steps) and wait. Never treat free planning as approval.
+6. Submit each approved call once via bundled `scripts/mcp_client.py` with its
+   own opaque `client_request_id` (`beatra.speech.synthesize_dialogue` or
+   `beatra.speech.synthesize`, plus optional `beatra.audio.generate_sfx` or
+   `beatra.audio.process`) and poll `beatra.tasks.get` until terminal.
+7. Deliver ordered clips, speaker labels, free aligned subtitles (`segments[]`),
+   actual duration, size, MIME type, artifact ID/URL, resolved model, and
+   `billing.net_charged_credits`. Review only audio the host can actually play.
 
-   ```bash
-   python3 scripts/mcp_client.py call beatra.models.list
-   ```
-
-   ```json
-   {"capability": "text_to_speech"}
-   ```
-
-   Take the rate from the returned card. Speech is charged linearly per 1,000
-   weighted characters where each Han ideograph counts as two and every other
-   character counts as one, and a block under 1,000 is charged for its actual
-   weighted characters rather than a full block.
-4. Show one current production card for the whole scene and wait. The free
-   cast sheet stays usable if they stop here.
-5. Synthesize each block with `beatra.speech.synthesize`, one call per block,
-   submitting each exactly once and polling its own task.
-6. Deliver the blocks in script order, numbered, each labelled with its
-   character. Report the actual returned duration, size, MIME type, and URL or
-   artifact for every block, plus the resolved model and
-   `billing.net_charged_credits`.
-7. Review what the host Agent can actually play. Check that each block carries
-   the assigned voice, that pronunciation and pacing suit the line, and that the
-   order matches the script.
-
-A revision is one block, not the scene: re-synthesize only the changed block
-with a new request ID, and leave the accepted blocks untouched. Read
-[the audio drama workflow](references/workflow.md) for cast-sheet shape, payload
-details, per-character voice discipline, recovery, and delivery review.
+A single-line revision re-runs only the affected line or scene chunk under a new
+production card and `client_request_id`, leaving accepted clips untouched. See
+[the audio drama workflow](references/workflow.md) and
+[speech, voices, cloning, and audio finishing](references/speech-and-audio.md).
 
 ## Decisions that require confirmation
 
-Planning, the cast sheet, and live price quotes are free. They are not approval.
+Planning, cast sheets, voice previews, and preflight quotes are free and never
+constitute approval. Before the first paid call, show a six-field production card:
 
-Before the first paid `beatra.speech.synthesize` submit, show one current
-production card for the scene and wait:
-
-1. Work — the scene in the user's words, and that this is a generate call for
-   the listed blocks.
-2. Credits — the live price just read from the `text_to_speech` card. Do not
-   reuse a remembered number.
-3. Count — one paid call per speech block. A revision of one line is another
-   call.
-4. Identity — one new opaque `client_request_id` per block. If script, speaker,
-   voice, language, or model change, mint a new ID. Never reuse an ID across
-   blocks or for different arguments.
-5. If we stop here — the cast sheet and split script remain usable.
-6. If the balance is insufficient — relay the official message and its top-up
-   URL exactly. Translate the prose; keep the URL. Do not retry until the
-   user says they have topped up.
+1. **Work** — exact scene/block scope, voices, language/format/controls, and any
+   requested `prepare_script`, `audio.generate_sfx` (`prompt`,
+   `duration_seconds` `0.5–30.0`, `loop=true`), or `beatra.audio.process` step
+   (`isolate_voice`, `normalize_loudness` `-14 LUFS`, `trim`, `fade`).
+2. **Credits** — live rate/quote from `beatra.models.list`,
+   `beatra.speech.validate_dialogue`, or `beatra.speech.validate`. Never guess or
+   promise an estimate is final.
+3. **Count** — exact number of paid calls approval creates. A changed line or
+   parameter is a new call.
+4. **Identity** — one fresh caller-generated opaque `client_request_id` per paid
+   call. Never reuse an ID across clips or changed parameters.
+5. **If we stop here** — the cast sheet, script layout, audition picks, and any
+   already-delivered clips remain usable at zero extra charge (or nothing paid
+   yet before the first submit).
+6. **If the balance is insufficient** — relay Beatra's official message and exact
+   top-up URL verbatim without modifying the URL, and wait until the user says
+   they have topped up before retrying with the same frozen `client_request_id`.
 
 Submit once through bundled `scripts/mcp_client.py`. Poll `beatra.tasks.get`.
-Deliver actual bytes plus `billing.net_charged_credits`. Do not promise the
-prepaid estimate is the final charge.
 
-Voice cloning needs its own explicit consent confirmation and its own six-field
-production card, separately from synthesis. A synthesis confirmation never
-authorizes `beatra.voices.clone`.
+Voice cloning requires three separate mandatory confirmations alongside its own
+card (`voice_clone`, `voices.activate`, `voices.delete`); a synthesis card never
+authorizes cloning, SFX, or finishing steps not listed on that card.
 
-## Using a cloned voice
+## Using a cloned voice (3 mandatory confirmations)
 
-Use `beatra.voices.clone` only when the user wants a reusable voice from a
-sample and explicitly confirms that they own the voice or have the owner's
-permission. Possession of an audio file is not consent. Obtain that confirmation
-before uploading, set `consent_attested: true` only afterwards, and submit once.
+Follow the full consent and activation flow in
+[speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
 
-Read the live `voice_clone` card before quoting anything:
+1. **Noisy sample check (paid)**: if a recording has music, street noise, or
+   room echo, propose paid `beatra.audio.process` (`operation="isolate_voice"`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
+   its own card first.
+2. **Confirmation #1 — Consent (`consent_attested: true`)**: obtain explicit
+   confirmation in this conversation that the user owns the voice or holds the
+   speaker's permission before uploading via `scripts/mcp_client.py upload`.
+   Possession of an audio file is never consent.
+3. **Inspect all 3 cloning routes live**: call `beatra.models.list` with
+   `{"capability": "voice_clone", "include_activation_required": true}` (fast
+   `auto` ready immediately, 10-language expressive/dialogue/S2S clone, or
+   free-trial training returning `status="pending_activation"`). Present the
+   six-field clone card and wait before calling `beatra.voices.clone`.
+4. **Confirmation #2 — Trial activation (`beatra.voices.activate`)**: a clone is
+   NOT guaranteed to be immediately activated — if `beatra.voices.clone` returns
+   `status="pending_activation"`, show the live activation quote
+   (`activation.quote`, or refresh free using `voice_id` + `client_request_id`
+   omitting `confirmation_token` if the 24-hour token expires), obtain explicit
+   user approval of both credits and terms, then call `beatra.voices.activate`
+   with `voice_id`, `confirmation_token`, `confirm_credits`, and a fresh
+   `client_request_id`.
+5. **Confirmation #3 — Two-step permanent deletion (`beatra.voices.delete`)**:
+   when deleting a clone, first call `beatra.voices.delete` with `voice_id`
+   only, display `paid_slot_warning`, `irreversible_notice`, and 15-minute
+   `token_expires_at`, wait for explicit confirmation, then call step 2 with
+   `voice_id` and `confirmation_token`.
 
-```bash
-python3 scripts/mcp_client.py call beatra.models.list
-```
-
-```json
-{"capability": "voice_clone"}
-```
-
-Show the clone production card and wait:
-
-1. Work — one authorized voice sample (`beatra.voices.clone`) for a named
-   character on the cast sheet.
-2. Credits — the live `voice_clone` price just read. Do not reuse a remembered
-   number.
-3. Count — one paid clone call for this sample.
-4. Identity — one new opaque `client_request_id`.
-5. If we stop here — the cast sheet remains usable with catalog voices.
-6. If the balance is insufficient — relay the official message and its top-up
-   URL exactly. Translate the prose; keep the URL. Do not retry until the
-   user says they have topped up.
-
-Do not offer a free clone or a free sample that replaces the clone. A successful
-clone is already activated and returns a `voice_id` that this cast sheet can
-use like any other voice. Sample limits and live-card fields live in
-[the audio drama workflow](references/workflow.md).
+Do not offer a free clone or a free sample that replaces a paid clone. Detailed
+payloads and sample bounds live in [the audio drama workflow](references/workflow.md).
 
 ## Account balance
 
-When the user asks how many credits remain or whether a live estimate fits,
-call `beatra.wallet.get`. When they ask what was charged, call
-`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
-top-up tool. Do not make `wallet.get` a required step before every paid submit.
-
-When a model card comes back carrying a `top_up` block, relay its tiers as the
-card lists them and in that order. Do not rank them, do not talk one down, and
-do not pick one for the user. Which tier suits them is their call, made on
-the wallet page with the whole list in front of them. Never quote a tier from
-memory.
+When the user asks how many credits remain or whether a live estimate fits, call
+read-only `beatra.wallet.get`. When they ask what was charged, call
+`beatra.wallet.ledger`. Never make `beatra.wallet.get` a mandatory gate before
+submitting, and never ask the user to confirm they have enough credits. If a
+model card carries a `top_up` block, relay its tiers verbatim in listed order
+without ranking or picking one.
 
 ## How this Skill executes
 
@@ -190,31 +217,33 @@ Use the bundled `scripts/mcp_client.py` for every remote Beatra operation: the
 MCP tool name is the CLI argument after `call`, and one JSON object goes on
 standard input. Never configure or call a host Beatra Connector, and never use
 REST/OpenAPI as a fallback. Register the package with
-`beatra.installations.register` on first use. Every creation is an asynchronous
-task: submit once, then follow that task to a terminal state.
+`beatra.installations.register` on first use. Submit paid operations once, then
+poll to terminal state.
 
 ## Recovery
 
-Save every task ID the moment it returns and poll with `beatra.tasks.get`;
+Save every returned `task_id` immediately and poll with `beatra.tasks.get`;
 `queued` and `running` mean wait. Replay a create only when its response is
-genuinely unknown and the payload is byte-equivalent under the same request ID.
-If a task ID is lost, use `beatra.tasks.list` with the capability of that call
-(`text_to_speech` for synthesis, `voice_clone` for a clone), follow every
-returned `next_cursor` needed to cover the submission window, confirm candidates
-with `beatra.tasks.get`, and recover the original before considering new work. If a
-request ID itself is lost, do not invent a new one and do not replay. Call
-`beatra.tasks.cancel` only at the user's request; on `409`, keep polling the
-original task and report cancellation only when its terminal status is
-`canceled`.
-
-When one block fails and the rest succeed, recover that block alone. The
-delivered blocks stay valid and are not re-synthesized.
+genuinely unknown and the payload is identical field-for-field under the same
+`client_request_id`. If a `task_id` is lost, call `beatra.tasks.list` scoped to
+the exact capability (`text_to_dialogue`, `text_to_speech`, `speech_script`,
+`voice_clone`, `sound_effects`, `audio_process`, `audio_voice_isolation`), follow
+every `next_cursor` across the submission window, confirm candidates with
+`beatra.tasks.get`, and stop if ambiguous or if `client_request_id` itself was
+lost. Call `beatra.tasks.cancel` only on user request; on `409`, keep polling
+the original task. Recover only failed or missing segments while keeping valid
+delivered clips untouched. See
+[speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+for exact structured error handling (`voice_model_incompatible`,
+`price_confirmation_required`, `daily_limit`, `insufficient_balance`).
 
 ## References by task
 
-- [Audio drama workflow](references/workflow.md): cast sheet, block splitting,
-  exact payloads, per-character voice discipline, cloned voices, recovery,
-  delivery review, and balance questions.
+- [Speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
+  Smart Voice Director, dialogue bounds, 11 voice metadata fields, 3 clone
+  confirmations, SFX, audio finishing, and recovery error codes.
+- [Audio drama workflow](references/workflow.md): cast sheet, dialogue vs
+  segmented payloads, cloning, SFX/finishing steps, recovery, and review.
 - [Installation and authentication](references/installation-and-auth.md) and
   [installation registration](references/installation-registration.md): first
   use and shared credentials.

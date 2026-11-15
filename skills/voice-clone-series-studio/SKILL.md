@@ -5,120 +5,160 @@ description: "Clone one voice you own and keep using it for a series of episodes
 
 # Voice Clone Series Studio
 
-Create one authorized reusable voice, then keep synthesizing new episodes in
-that same voice. The clone is the setup. The series ledger is the product.
+Create one authorized reusable voice (or freeze an existing slot), manage its
+metadata and lifecycle safely, and synthesize every recurring episode at steady
+broadcast loudness in that same voice. The clone is the setup. The series
+ledger is the product.
 
 ## Scope and adjacent routes
 
-Use this Skill when the user wants their own voice, or an authorized brand
-voice, reused across a podcast, course, creator series, or recurring update.
+Use this Skill when the user wants their own voice—or an authorized brand
+voice—reused across a podcast, course, creator series, or recurring update. Check
+`scripts/mcp_client.py tools` so active tools match the request.
 
 Route a one-off clone with no series plan to `voice-cloning-studio`. Route a
 whole book or one-narrator manuscript to `ai-audiobook-narration`. Route a
-lecture pack without a clone to `course-narration-studio`. Route a
-multi-character script to `audio-drama-voice-studio` or
-`game-script-voice-pack`. Route a talking-head video to
+lecture pack without a clone to `course-narration-studio`. Route multi-character
+dialogue, voice conversion, transcription, SFX, or stem separation to
+`beatra-ai-voice-studio`. Route a talking-head video to
 `founder-ip-avatar-studio` or `talking-avatar-video`.
 
 ## Inputs and defaults
 
 The hard inputs are:
 
-- a clean single-speaker sample, or an already activated `voice_id`;
-- explicit consent that this is the user's voice or that the speaker
-  authorized this cloning use. Access to a file is not consent;
-- the first episode script, or the next episode script once the voice exists.
+- a clean single-speaker sample, or an already ready `voice_id`;
+- explicit consent that this is the user's voice or that the speaker explicitly
+  authorized cloning (access to a file or URL is never consent, and consent must
+  precede any local file upload);
+- the first or next episode script, or permission to prepare a speakable version
+  and show it before paid work.
 
-A suitable sample is currently about 10 to 300 seconds, no larger than
-20 MiB, and clean single-speaker speech. Treat live `voice_clone`
-constraints as truth.
+Check live `voice_clone` constraints from `beatra.models.list` (typical single-speaker
+sample: roughly 10–300 s, up to 20 MiB). Use restrained defaults
+(`model: "auto"`, `format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`),
+preserve original simplified/traditional characters and dialect wording, and
+never hand-strip `/` markers or invent custom bracketed vocal-effect tags. Reuse the saved
+`display_name`, `language`, series name, and pronunciation glossary across episodes.
 
-Reuse the display name, language hint, series name, and pronunciation table.
-Ask only for a missing hard input.
-
-A short test reading is optional, separate paid work, and never part of
-clone approval.
+A short spoken test reading after cloning is always separate paid work with its
+own production card and `client_request_id`—never part of clone approval.
 
 ## Golden path
 
-1. If a `voice_id` is already frozen for this series, skip to episode work.
-   If the series uses a catalog voice and no clone is requested, select it
-   with `beatra.voices.list` and skip clone work. Never put a display name
-   in `voice`. Otherwise confirm consent, inspect the sample, and upload a
-   local file only through the bundled client:
+1. **Freeze or establish the series voice**:
+   - If a `voice_id` is already pinned for the series, verify its current `status`
+     and `compatible_models` via `beatra.voices.list` (`category`, `language`,
+     `gender`, `age_group`, `use_case`, `emotion`, `supports_context`,
+     `supports_direction`, `supports_performance_tags`, `supports_dialogue`,
+     `supports_speech_to_speech`) and audition free with `preview_url` or
+     `beatra.voices.preview` (`{"voice_id": "..."}`) before jumping to episodes.
+   - Never pass a display name in `voice`. If retiring an older series slot, run
+     **Mandatory Confirmation 3 (`beatra.voices.delete`)**: confirm explicit user
+     intent, request a tokenless check with `voice_id`, relay the warning verbatim
+     with `confirmation_token`, and only submit the permanent deletion after
+     explicit confirmation.
+2. **Pre-clean noisy samples & inspect three cloning capability routes** (when
+   creating a new series clone):
+   - Confirm explicit speaker consent BEFORE uploading via
+     `python3 scripts/mcp_client.py upload ./voice-sample.wav --mime-type audio/wav`.
+   - If background noise or music hurts clarity, offer paid pre-clean using
+     `beatra.audio.process` (`operation: "isolate_voice"`, `source` field,
+     4.6 s–5 min, <= 100 MB), priced live from
+     `beatra.models.list` (`{"capability": "audio_voice_isolation"}`) on its own
+     six-field production card before calling `isolate_voice`.
+   - Query `beatra.models.list` with
+     `{"capability": "voice_clone", "include_activation_required": true}` and
+     choose solely by capabilities (never vendor names or internal IDs):
+     - **Fast everyday cloning (`auto`)**: fast creation, broad languages,
+       immediately `ready`.
+     - **Expressive multilingual cloning**: richer emotional range across major
+       languages, immediately `ready`.
+     - **Two-step trial-then-activate cloning**: low-cost trial voice in
+       `pending_activation` that lets the series audition before locking in
+       permanent activation.
+   - Show the six-field production card (Route & Model, Exact Scope,
+     Price & Basis, Duration / Quantity, Pay Mode & Call Count, and If stop
+     naming free assets kept at zero extra charge) before creating a clone
+     `client_request_id` or calling `beatra.voices.clone` (**Mandatory
+     Confirmation 1**). Never hardcode credit numbers, never ask the user to
+     confirm they have enough credits, and never offer a free clone.
+3. **Activate trial clones & pin series defaults**:
+   - Submit `beatra.voices.clone` once with `consent_attested: true` and poll
+     `beatra.tasks.get`. If `status == "ready"`, move on.
+   - If `status == "pending_activation"`, follow **Mandatory Confirmation 2
+     (`beatra.voices.activate`)**: inspect the returned `activation.quote` (or
+     fetch a fresh quote via `beatra.voices.activate` passing `voice_id` and a
+     `client_request_id` without `confirmation_token`), show its six-field
+     activation card, obtain explicit confirmation, then submit
+     `confirmation_token`, `confirm_credits` matching the quote, and
+     `client_request_id`. On 24-hour expiry (`price_confirmation_required`),
+     re-quote free before re-asking.
+   - Once ready, use non-billable `beatra.voices.update` (`voice_id`,
+     `display_name`, `persona`, `use_case`, `make_default: true`) so future
+     episodes stay pinned to this host voice cleanly.
+4. **Prepare and validate each episode**:
+   - When pacing, dramatic breaks, or breath nuance matter across an episode,
+     offer paid Smart Voice Director (`beatra.speech.prepare_script`) checked
+     against `{"capability": "speech_script"}`. Inspect `directed` and
+     `scripts[]`, handle `synthesis: null` from `warnings`, and pass
+     `scripts[i].synthesis` unchanged + fresh `client_request_id` into
+     synthesis. Re-calling `prepare_script` within 48 hours with identical
+     text/instructions/language/context while changing only `voice`/`model`
+     recompiles at zero extra charge (initial balance check and max-2
+     concurrency limit still apply; never call `prepare_script` generally free).
+   - Check live `text_to_speech` pricing from `beatra.models.list`
+     (`beatra_weighted_characters`: Han = 2, others = 1) and run free
+     `beatra.speech.validate` (`estimated_duration_seconds`, control fit) on
+     every episode block before paying.
+5. **Synthesize, normalize loudness, and deliver in episode order**:
+   - Show the episode's six-field production card and obtain explicit approval.
+   - Call `beatra.speech.synthesize` once per block (pass `subtitle_enable: true`
+     for free aligned `SRT`/`VTT` captions; never pass `subtitles`), polling only
+     its returned `task_id`.
+   - When the series keeps a consistent podcast/course target level (e.g.
+     `-14 LUFS`), inspect `{"capability": "audio_process"}`, approve its
+     six-field finishing card, and run serialized `beatra.audio.process`
+     (`operation: "normalize_loudness"`, `source` field, <= 60 min / <= 300 MB /
+     >= 1 s output, 50/day limit) one episode track at a time. Never claim
+     finishing is free or present it as a mastering service.
+   - Deliver labeled episode audio, duration, subtitles when requested, and
+     actual `billing.net_charged_credits`. Store every task ID in the local
+     episode ledger; reuse the pinned `voice_id` for subsequent episodes.
 
-   ```text
-   python3 scripts/mcp_client.py upload ./voice-sample.wav --mime-type audio/wav
-   ```
-
-2. Call `beatra.models.list` with `{"capability":"voice_clone"}`. Show the
-   clone admission card before any clone `client_request_id` or
-   `beatra.voices.clone` call: route `voice_clone`, tool
-   `beatra.voices.clone`, live price for one successful activated voice, the
-   provisional estimate, the fact that the 600-credit signup gift usually
-   cannot start this clone, and what happens if the balance is short. Do not
-   submit until the user confirms they have topped up or already have enough
-   credits. Do not offer a free clone.
-3. Freeze `display_name`, sample source, `consent_attested: true`, model
-   from the live card, and one opaque stable clone `client_request_id`.
-   Submit `beatra.voices.clone` exactly once:
-
-   ```json
-   {
-     "sample": {"type": "artifact", "artifact_id": "artifact_..."},
-     "display_name": "Series Host",
-     "consent_attested": true,
-     "model": "auto",
-     "client_request_id": "opaque-series-clone"
-   }
-   ```
-
-   Poll with `beatra.tasks.get` until terminal and freeze the returned
-   `voice_id`.
-4. For each episode, split the script into synthesis blocks, call
-   `beatra.models.list` with `{"capability":"text_to_speech"}`, and confirm
-   the episode estimate. Each block has its own `client_request_id`.
-5. Synthesize with `beatra.speech.synthesize` using only the frozen
-   `voice_id`. Submit each block once through the bundled client. Poll each
-   speech task with `beatra.tasks.get` until terminal. Do not
-   configure a host Beatra Connector. Do not use REST/OpenAPI as a fallback.
-6. Deliver labeled episode audio in order with actual duration, usage, and
-   `billing.net_charged_credits`. Review pronunciation and series
-   consistency. Later episodes reuse the same `voice_id` without cloning
-   again.
+Use the bundled `scripts/mcp_client.py` for every Beatra operation. Never
+configure or call a host Beatra Connector. Never use REST/OpenAPI as a fallback.
 
 ## Decisions that require confirmation
 
-Consent, the clone admission card, and each episode's paid block list all
-require confirmation. A changed sample, display name, or clone model is new
-clone work. A changed episode script is new synthesis work.
+Speaker consent + six-field card for `voices.clone`, two-step `voices.activate`
+token + `confirm_credits`, two-step `voices.delete` token, Smart Voice Director
+`prepare_script` cards, noisy sample `isolate_voice` cards, episode synthesis
+block lists, and `normalize_loudness` finishing cards all require explicit
+approval. Any changed sample, voice, text, model, or target LUFS is new paid
+work with a new card and `client_request_id`.
 
-## Recovery
+## Recovery and account balance
 
-Recover a lost create response only with the identical frozen payload and
-ID. Recover a lost task ID through `beatra.tasks.list` plus
-`beatra.tasks.get` before any retry. Cancel only at the user's request.
-On `insufficient_balance` for clone or a TTS block, keep the top-up URL
-inside the balance error exact and retry the same frozen ID only after
-the user says they have topped up.
+Never make `beatra.wallet.get` a mandatory gate before submit, and never ask the
+user to confirm they have enough credits. Only call `beatra.wallet.get` when
+asked about balance/fit, and `beatra.wallet.ledger` when asked what was charged
+(both are read-only). When `models.list` carries a `top_up` block, relay tiers
+verbatim in returned order without ranking or picking one.
 
-## Account balance
-
-When the user asks how many credits remain or whether a live estimate fits,
-call `beatra.wallet.get`. When they ask what was charged, call
-`beatra.wallet.ledger`. Both are read-only. Do not invent an account-balance or
-top-up tool. Do not make `wallet.get` a required step before every paid submit.
-
-When a model card comes back carrying a `top_up` block, relay its tiers as the
-card lists them and in that order. Do not rank them, do not talk one down, and
-do not pick one for the user. Which tier suits them is their call, made on
-the wallet page with the whole list in front of them. Never quote a tier from
-memory.
+On `insufficient_balance`, relay Beatra's official message and exact `topup_url`
+verbatim, pause until the user says they have topped up, and replay the exact
+frozen payload with the same `client_request_id`. Recover lost tasks through
+paginated `beatra.tasks.list` (`next_cursor`) plus `beatra.tasks.get`; never
+resubmit a changed payload under an old `client_request_id`.
 
 ## References by task
 
-- Read [Series voice workflow](references/workflow.md) for consent, clone
-  admission, episode ledgers, payloads, and review.
+- Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
+  limits, 3 cloning routes, Smart Voice Director, and mandatory confirmations.
+- Read [Series voice workflow](references/workflow.md) for series ledger fields,
+  JSON payloads for `isolate_voice`, `voices.clone`, `voices.activate`,
+  `prepare_script`, `validate`, `synthesize`, and `normalize_loudness`.
 - Read [Installation and authentication](references/installation-and-auth.md)
   only when authorization needs attention.
 - Read [Installation registration](references/installation-registration.md)

@@ -1,52 +1,36 @@
-# Locale readiness and quality
+# Locale Readiness and Quality
 
-## Readiness gate for one locale
+Prepare localized scripts accurately, preflight every TTS call free, and keep
+finishing steps disciplined.
 
-Before speech is generated, confirm each statement below or put the cell back
-into drafting/review:
+## Source transcription, Smart Voice Director, and STS payloads
 
-1. The locale is specific enough for the intended market and has a BCP-47 tag
-   when the request is submitted.
-2. The words are approved for that audience—not merely copied word for word
-   from another language.
-3. Brand names, product terms, required claims, prices, dates, and calls to
-   action preserve the intended meaning and any approved local wording.
-4. Names, acronyms, foreign words, numbers, currency, dates, measurements,
-   and URLs have a speaking decision. Remove headings, citations, link text,
-   and stage directions that must not be spoken.
-5. Punctuation creates natural breath groups. Split an overlong written
-   sentence rather than relying on a voice to find its own pauses.
-6. A proposed voice visibly supports the locale and its perceived age, accent,
-   energy, and use case suit the audience.
-7. The delivery decision has a publishing reason: format, pace, and any mood
-   are appropriate for a video, course, product demo, campaign, or series.
+- **Transcribe source media (`beatra.audio.transcribe`)**: check
+  `{"capability": "speech_to_text"}`, approve its six-field card, and upload
+  local files first via `scripts/mcp_client.py upload`. Use **`audio`** (not
+  `source`), optional `subtitles: true`, `diarize`, `num_speakers`,
+  `tag_audio_events`, and `language`. Never pass an unapproved raw transcript
+  straight to synthesis—localize and confirm target text first.
+- **Smart Voice Director (`beatra.speech.prepare_script`)**: check
+  `{"capability": "speech_script"}`, approve its card, never strip `/` markers
+  manually or invent bracketed vocal-effect cues, inspect `directed` / `scripts[]`, resolve
+  `synthesis: null` from `warnings`, and pass `scripts[i].synthesis` verbatim
+  with a fresh `client_request_id`. Re-calling within 48 hours with identical
+  text/instructions/language/context changing only `voice`/`model` recompiles at
+  zero extra charge (balance cover and <= 2 concurrent task limits apply).
+- **Speech-to-speech (`beatra.speech.convert`)**: check
+  `{"capability": "speech_to_speech"}` and `supports_speech_to_speech: true`,
+  confirm source speaker permission, approve card, and pass **`audio`** (not
+  `source`).
 
-## Professional review
+## Free validation, aligned captions, and serialized loudness normalization
 
-Evaluate a returned pilot as a local release, not as a generic synthetic-audio
-sample:
-
-| Check | Reviewer question | Focused correction |
-| --- | --- | --- |
-| Meaning | Did a protected term, offer, CTA, or local reference change meaning? | Fix the approved locale script and re-render only the cell. |
-| Pronunciation | Are names, numbers, units, and acronyms spoken as intended? | Add a clear reading/spelling decision and re-render that line/segment. |
-| Register | Does it sound like the intended local audience, not a translated memo? | Return the cell to locale-copy review; do not disguise a copy problem as a voice setting. |
-| Voice fit | Does the voice sound appropriate and demonstrate locale support? | Recast and re-pilot this locale before other cells expand. |
-| Delivery | Do pace, pause, tone, format, and approximate duration fit the destination? | Adjust one control at a time and re-render only the affected cell. |
-| Series consistency | Does this market retain its accepted voice and terminology across segments? | Restore the agreed locale direction; do not change accepted neighboring cells. |
-
-Do not promise identical timing across languages. If a downstream edit needs a
-precise duration, report the returned duration for review and let the user
-decide whether a text, pace, or production change is appropriate.
-
-## Useful production notes
-
-- Keep a locale-specific pronunciation glossary inside the conversation or
-  production brief. It records the intended spoken form, not an invented
-  universal spelling rule.
-- A local voice can be a better choice than a single shared voice. Explain the
-  trade-off as audience fit versus cross-market brand continuity.
-- If the local script needs a substantive change, obtain fresh approval before
-  paying for the altered render.
-- A qualified reviewer is a human role outside this tool graph. Never label a
-  cell “native reviewed” unless the user supplied that fact.
+- Run free `beatra.speech.validate` (`estimated_duration_seconds`, compatibility)
+  before every `beatra.speech.synthesize`.
+- Pass `subtitle_enable: true` (NEVER `subtitles`) on `speech.synthesize` when
+  aligned `SRT`/`VTT` output helps downstream localization timing.
+- Normalize cross-locale track volume via serialized `beatra.audio.process`
+  (`operation: "normalize_loudness"`, **`source`** field, `<= 60 min`, `<= 300 MB`,
+  `>= 1 s` output, `50` calls/day) checked via `{"capability": "audio_process"}`.
+  Never present this step as a mastering service or free. Revise only affected
+  locale cells under new cards and new `client_request_id` values.

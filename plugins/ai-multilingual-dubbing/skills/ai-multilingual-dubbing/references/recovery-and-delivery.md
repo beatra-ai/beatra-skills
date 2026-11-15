@@ -1,52 +1,29 @@
-# Recovery and delivery
+# Recovery and Delivery
 
-## One cell, one paid operation
+Recover uncertain dubbing cells without duplicating charges and deliver accurate
+per-market outputs.
 
-Every approved locale/segment is one logical speech operation. Create one
-stable `client_request_id`, submit `beatra.speech.synthesize` exactly once,
-and retain the matrix entry that links the operation to its locale and segment.
-Use that same ID only if the identical payload must be retried after the
-submission response was lost. Any text, voice, language tag, model, speed,
-format, pitch, volume, sample rate, or emotion change creates a new operation,
-new ID, and needs explicit user approval.
+## Reconciliation and balance handling
 
-## Poll before retrying
+1. Store `client_request_id`, capability, payload, and later `task_id` in the
+   local matrix before each call.
+2. Poll known tasks with `beatra.tasks.get` (cap active waiting at 30 minutes
+   when `deadline_at` is absent).
+3. If `task_id` was not captured, paginate `beatra.tasks.list` for the relevant
+   capability across every `next_cursor` and verify candidates with
+   `beatra.tasks.get`. Never duplicate an active queued/running task.
+4. On `insufficient_balance`, relay Beatra's message and exact `topup_url`
+   verbatim, stop until the user confirms topping up, and replay the field-for-field
+   identical JSON with the same `client_request_id`. Never ask the user to
+   pre-confirm wallet sufficiency or make `beatra.wallet.get` a mandatory gate;
+   only call `beatra.wallet.get` / `beatra.wallet.ledger` when explicitly asked,
+   and relay `top_up` tiers in returned order verbatim.
+5. Any change to text, language, voice, model, speed, or target LUFS requires a
+   new production card, approval, and `client_request_id`. Cancel only when asked.
 
-After acceptance, use `beatra.tasks.get` until the task is terminal. Do not
-submit a duplicate because it is queued or running. If the Agent lost the task
-ID, call `beatra.tasks.list` for recent work with the `text_to_speech`
-capability, call `beatra.tasks.get` for every plausible candidate, and compare
-its complete `task.input`, resolved model, and timing with the saved matrix cell
-before a new paid submission. A list item does not contain enough input detail
-to identify the original request. A missing exact match is not proof of a safe
-retry unless the previous attempt and matrix record have been checked.
+## Locale delivery ledger
 
-If the user asks to stop a known queued/running task, call
-`beatra.tasks.cancel`. A cancellation conflict means the remote work may still
-be progressing; return to polling the same task. Do not treat a cancel request
-as a completed cancellation.
-
-## Terminal outcomes
-
-- **Succeeded:** attach `task.output.audio.url` and its returned artifact ID to
-  the locale/segment delivery record, then report MIME type, size, sample rate
-  when present, `task.output.audio.duration_seconds`, task identity, and actual
-  billing. Run the listening checklist only when the host can actually play the
-  audio; otherwise label listening review incomplete instead of inventing it.
-- **Failed:** explain the actual returned error in user language and offer the
-  smallest recovery that fits it. Never invent a reason, a refund guarantee,
-  or a provider workaround.
-- **Canceled:** keep already accepted cells untouched. A new request is only
-  made when the user decides to resume and confirms its changed or resumed
-  scope.
-
-## Delivery format
-
-Present results grouped first by locale, then in segment order. For every
-locale, summarize its audience direction, cast voice, delivery choice, and
-which segments are accepted, awaiting review, or need a focused correction.
-Include each task ID as a compact recovery handle, but omit raw request payloads,
-client request IDs, and polling diagnostics unless the user asks to debug or
-integrate the call. Do not claim video synchronization, captions, audio mixing,
-translation, or exact duration matching; those are outside this package's
-text-to-speech workflow.
+Deliver actual `audio.url`, `artifact_id`, `mime_type`, `size_bytes`,
+`sample_rate` (when returned), `duration_seconds`, optional `subtitles`,
+resolved `model`, `task_id`, and `billing.net_charged_credits` grouped by locale
+and segment. State openly if playback review was not performed on the host.

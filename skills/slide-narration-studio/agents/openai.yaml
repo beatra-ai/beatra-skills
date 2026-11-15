@@ -1,0 +1,8 @@
+interface:
+  display_name: "Slide Narration Studio"
+  short_description: "A spoken script and narration for every slide, in the teacher's own voice or a chosen narrator, as audio per slide or a narrated slide video."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.svg"
+  default_prompt: "Use $slide-narration-studio to narrate my slide deck page by page, one MP3 per slide. Deck attached."
+policy:
+  allow_implicit_invocation: true

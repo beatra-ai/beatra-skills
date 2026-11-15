@@ -2,7 +2,7 @@
   "name": "ai-audiobook-narration",
   "displayName": "AI Audiobook Generator",
   "description": "Turn final manuscript or course text into ordered chapter audio with one narrator, a representative sample, clear pricing, and focused refinements.",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": {
     "name": "Beatra AI"
   },

@@ -7,7 +7,7 @@ extend rules unchanged), and show the video admission card before creating
 `beatra.videos.animate`, `beatra.videos.interpolate`,
 `beatra.videos.generate_from_references`, `beatra.videos.edit`, or
 `beatra.videos.extend`. The card must include route, tool, duration, resolution
-if set, provisional estimate, the fact that the 600-credit signup gift usually
+if set, provisional estimate, the fact that the signup gift usually
 cannot start this video, and what happens if the balance is short. “Make the
 clip” is not approval. Example `duration` and `resolution` values below are
 placeholders; replace them with the shortest admitted duration and lowest

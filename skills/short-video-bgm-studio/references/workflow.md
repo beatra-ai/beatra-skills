@@ -173,6 +173,33 @@ original cannot be identified.
 Cancel only at the user's request. Call `beatra.tasks.cancel` once and confirm a
 terminal state with `beatra.tasks.get`. On `409`, keep polling the same task.
 
+## Sound effects, transitions, and ambient beds
+
+Use `beatra.audio.generate_sfx` when the video needs cut transitions (whooshes, risers, reveal hits), stingers, or `loop: true` ambient room tone/beds alongside the instrumental score. Read live rates before quoting anything:
+
+```bash
+python3 scripts/mcp_client.py call beatra.models.list
+```
+
+```json
+{"capability": "sound_effects"}
+```
+
+Keep `model: "auto"` (or omit `model`; never hardcode an internal sound-effect model ID). Duration accepts `0.5` to `30.0` seconds (omit for the ~5-second default); `prompt_influence` ranges from `0.0` to `1.0` (default `0.3`); `format` supports `mp3`, `wav`, `opus`, or `pcm` (default `mp3`). Pass `loop: true` for seamless background ambience, and extend beds longer than 30 seconds with `beatra.audio.process` (`operation: "loop"`) on its own paid `audio_process` line. Deliver SFX files separately — Beatra does not mix SFX onto the music track.
+
+```json
+{
+  "prompt": "Warm rainy cafe morning ambience, distant ceramic clinks, soft window rain, seamless background bed",
+  "duration_seconds": 15,
+  "loop": true,
+  "prompt_influence": 0.35,
+  "format": "mp3",
+  "client_request_id": "opaque-sfx-ambience-01"
+}
+```
+
+Pass the JSON on standard input to `python3 scripts/mcp_client.py call beatra.audio.generate_sfx`, poll `beatra.tasks.get`, and reconcile lost SFX task IDs under `capability: "sound_effects"`.
+
 ## Deliver and review real results
 
 Deliver every returned clip in order. Include the returned title when present
