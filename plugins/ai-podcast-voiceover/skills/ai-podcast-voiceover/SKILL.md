@@ -25,12 +25,12 @@ facts together when the show will continue.
   `beatra.speech.validate`).
 - **Multi-host or guest conversations**: use native
   `beatra.speech.synthesize_dialogue` (with free
-  `beatra.speech.validate_dialogue`) for cohesive scenes of `2–50` turns and
-  `<= 2,000` characters across up to `10` voices with
-  `capabilities.supports_dialogue == true` (`<= 4` ready clones). Chunk longer
-  episodes scene-by-scene passing `previous_text` and `next_text` across scene
-  boundaries, or fall back to segmented `beatra.speech.synthesize` per turn when
-  speakers exceed limits or require unsupported dialects.
+  `beatra.speech.validate_dialogue`) for cohesive scenes with voices whose
+  `capabilities.supports_dialogue == true`. If a dialogue request is refused as
+  too long, split it at scene or turn boundaries as the refusal message says,
+  passing `previous_text` and `next_text` across the boundaries. Fall back to
+  segmented `beatra.speech.synthesize` per turn when the cast is refused or
+  needs unsupported dialects.
 
 Route a manuscript or chapter-led course narration to
 `ai-audiobook-narration`; a standalone short social, ad, or promo read to
@@ -222,9 +222,11 @@ first paid step, show a clear production card stating all six fields:
 On a first solo episode or after a host/control/language change, begin with a
 small paid sample card (opener plus hardest passage). Sample approval never
 authorizes the episode; speech never authorizes music/SFX/finishing; and
-music/SFX/finishing never authorize speech. A script above 50,000 characters
-(single-speaker) or above `2,000` characters / `50` turns (multi-host dialogue)
-is split at natural section/scene boundaries with every chunk listed upfront.
+music/SFX/finishing never authorize speech. If `beatra.speech.validate` or
+synthesis refuses the text as too long, follow the refusal message: split at
+natural section or scene boundaries, list every part upfront, and submit the
+parts in order. If a dialogue request is refused as too long, split it at scene
+or turn boundaries as the refusal message says.
 
 ## Create, deliver, and record
 

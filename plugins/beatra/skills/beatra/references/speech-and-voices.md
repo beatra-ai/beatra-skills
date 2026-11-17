@@ -56,7 +56,7 @@ python3 scripts/mcp_client.py call beatra.speech.synthesize
 }
 ```
 
-Deliver the returned audio URL or artifact ID with duration, MIME type, size, `speech_start_seconds`, `speech_end_seconds`, `integrated_loudness_lufs`, and free `output.subtitles` (JSON/SRT/VTT) when present. Speech billing uses weighted characters (each Han ideograph counts as 2, every other character counts as 1), linear per 1,000 weighted characters without rounding up below 1,000; failed tasks are refunded.
+Deliver the returned audio link with its duration, format, and size in plain words, and the free subtitle files (JSON/SRT/VTT) when present. Keep the artifact ID, MIME type, `speech_start_seconds`, `speech_end_seconds`, and `integrated_loudness_lufs` in your notes for the next step. Speech billing uses weighted characters (each Han ideograph counts as 2, every other character counts as 1), linear per 1,000 weighted characters without rounding up below 1,000; failed tasks are refunded.
 
 ## Native multi-speaker dialogue (`beatra.speech.synthesize_dialogue`)
 

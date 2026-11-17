@@ -158,9 +158,9 @@ give the user the brief to check against. A confident review of a file the host
 never opened is the most expensive error in this package, because the user
 publishes it.
 
-Report the `task_id`, terminal status, every returned result, the resolved model
-for generation, and `billing.net_charged_credits`. Include gross charge and
-refund only when present.
+Report the terminal status, every returned result, and the credits charged in
+plain words; give the `task_id` and resolved model when the user asks. Include
+gross charge and refund only when present.
 
 ## Anti-patterns
 

@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds Smart Voice Director script preparation, native multi-host dialogue (up to 2,000 characters per scene with scene chunking), aligned subtitles for chapter timing, voice previews, optional voice cloning with owner-consent safeguards and noisy-sample cleanup, transition stingers/ambient beds, and loudness/trim/fade finishing.",
+  "changelog": "Episodes and multi-host scenes longer than the chosen voice can read in one pass are now divided at natural section, scene, or sentence breaks and voiced in order.",
   "display_name": "AI Podcast Voiceover",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
@@ -72,5 +72,5 @@
   },
   "name": "ai-podcast-voiceover",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

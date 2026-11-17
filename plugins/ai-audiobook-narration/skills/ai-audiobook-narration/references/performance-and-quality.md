@@ -97,12 +97,13 @@ smallest change to speed, punctuation, or segment text that preserves meaning;
 the changed request needs a new production card, confirmation, and request ID.
 
 If the user asks for multiple voices inside chapter dialogue scenes, first check
-whether `beatra.speech.synthesize_dialogue` fits (`2–50` turns per call,
-`<= 2,000` chars chunked with `previous_text`/`next_text`, `<= 10`
-`supports_dialogue=true` voices, `<= 4` ready clones) after running free
+whether `beatra.speech.synthesize_dialogue` fits (`supports_dialogue=true` voices;
+a dialogue refused as too long is split at scene or turn boundaries with
+`previous_text`/`next_text`) after running free
 `beatra.speech.validate_dialogue`, or clarify whether one narrator performing
-dialogue is preferred. If > 10 speakers, specialty dialects, or true
-multi-track voice+music DAW mixing or M4B packaging are required, preserve that
+dialogue is preferred. If `beatra.speech.validate_dialogue` refuses the cast, or
+specialty dialects, true multi-track voice+music DAW mixing, or M4B packaging are
+required, preserve that
 requirement cleanly (using segmented `beatra.speech.synthesize` clips for editor
 assembly or routing DAW/M4B mastering out). Do not present unmixed tracks or a
 single-voice read as mixed multi-cast audio.

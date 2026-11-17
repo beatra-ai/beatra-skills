@@ -32,9 +32,10 @@ of looked-up results is another `execute`, not a page token on the same call.
 ## Confirmation and identity
 
 A direct, well-specified request to look up authorizes that exact paid
-`execute` once. Otherwise show the `operation_key` and the credit price
-returned by `tools.get` before execution. Do not show `schema_hash`. Do not
-ask for a model. Public social lookup has no `model` field.
+`execute` once. Otherwise name the lookup in plain words (for example, a
+TikTok account's latest posts) and show the credit price returned by
+`tools.get` before execution. Keep `operation_key` and `schema_hash` in your
+notes. Do not ask for a model. Public social lookup has no `model` field.
 
 Create `client_request_id` only after the execute payload is final. An
 identical retry keeps the same ID and the exact `operation_key`,
@@ -43,9 +44,10 @@ confirmation.
 
 ## Delivery and recovery
 
-The result is inline JSON or a JSON artifact. Deliver the returned payload,
-`task_id`, terminal status, and `billing.net_charged_credits`. Do not look
-for a resolved model or a generated media file.
+The result is inline JSON or a JSON artifact. Deliver what the lookup
+returned, its terminal status, and the credits charged, in plain words; give
+the `task_id` when the user asks. Do not look for a resolved model or a
+generated media file.
 
 If the task ID is lost, list plausible tasks and compare each detailed
 `operation_key`, arguments, and `schema_hash` with the saved payload.

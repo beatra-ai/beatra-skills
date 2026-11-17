@@ -37,9 +37,10 @@ workflow](references/workflow.md) for script preparation, timing, casting,
 pricing, recovery, and handoff.
 
 Never hand-strip `/` pause markers or invent bracketed vocal-effect cues. By default,
-prepare one logical short read (`<= 50,000` characters); do not invent extra
-hooks, alternate takes, or A/B variants unless the user approves each separate
-variant and count in the production card.
+prepare one logical short read; do not invent extra hooks, alternate takes, or A/B
+variants unless the user approves each separate variant and count in the production
+card. If `beatra.speech.validate` or synthesis refuses the text as too long, follow
+the refusal message: split at natural sentence boundaries and submit the parts in order.
 
 ## Cast free, validate free, and freeze a viable model path
 

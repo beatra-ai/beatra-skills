@@ -144,18 +144,18 @@ Build a pronunciation list for proper nouns, foreign words, acronyms, and
 polyphonic characters. Record each written term and the spoken form the user
 confirms, then carry it forward in the show profile.
 
-Keep one single-speaker synthesis input at or below `50,000` characters, and
-keep one native multi-host `beatra.speech.synthesize_dialogue` scene at `2–50`
-turns and at or below `2,000` characters. Split longer material or multi-host
-episodes only at natural topic or scene boundaries; never split mid-sentence or
-force a listener through an abrupt cut.
+If `beatra.speech.validate` or synthesis refuses the text as too long, follow the
+refusal message: split at natural topic or section boundaries and submit the parts
+in order. If a dialogue request is refused as too long, split it at scene or turn
+boundaries as the refusal message says. Never split mid-sentence or force a
+listener through an abrupt cut.
 
 ## Smart Voice Director and free aligned subtitles
 
 When natural phrasing, pause holds, dramatic beats, or pronunciation
 compilation needs active performance direction, run paid
 `beatra.speech.prepare_script` (`{"capability": "speech_script"}`) on plain
-spoken text plus `instructions` (`<= 2,000` chars) rather than guessing or
+spoken text plus `instructions` rather than guessing or
 hand-writing braced performance markup (never invent braced tags). Smart Voice
 Director preserves spoken words untouched and returns `directed` plus
 `scripts[]`; verify every ready `scripts[].synthesis` payload with free

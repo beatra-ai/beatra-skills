@@ -8,7 +8,7 @@ description: "Create AI images, videos, music, and voice, look up public social 
 **What you end up with.** Per run, one of:
 
 - **Images** — one to four, one by default.
-- **Video** — a generated, animated, edited, extended, or composed clip, plus a separate last-frame still you can ask for on the models that offer one.
+- **Video** — a generated, animated, edited, extended, or composed clip, plus a separate last-frame still you can ask for on the models that offer one. Several clips made as one piece arrive joined into one video.
 - **Music** — a song or instrumental, delivered as every clip the model returns.
 - **Speech & dialogue** — single-speaker narration or multi-speaker dialogue audio with optional free aligned subtitles (`output.subtitles`), converted speech, or generated sound effects.
 - **Transcripts & subtitles** — timestamped text, speaker labels, audio event tags, and JSON/SRT/VTT files.
@@ -132,8 +132,9 @@ fill the gap with another tool or service.
   `"authorized_other"`). Prepare and validate narration cleanly (`beatra.speech.prepare_script`
   when helpful, then free `beatra.speech.validate`, then `beatra.speech.synthesize`),
   then animate a portrait with `beatra.videos.animate`, passing that narration
-  as `driving_audio` (and use `beatra.videos.compose` on its own card when
-  joining multiple clips, ducked music, and subtitles). The video
+  as `driving_audio` (and join several clips, ducked music, and subtitles with
+  `beatra.videos.compose` on the same card, per
+  [deliver one file](references/deliver-one-file.md)). The video
   card's admitted formats and durations both constrain what you synthesize, so
   read `{"capability":"image_to_video"}` and `{"capability":"text_to_speech"}`
   before the speech call. Those two free reads surface every conflict this route
@@ -261,6 +262,21 @@ image via `beatra.avatars.save` also requires explicit user agreement and
 portrait consent (`consent_attested: true`, `consent_subject`: `"self"` or
 `"authorized_other"`). See [uploads](references/uploads.md).
 
+## Finish as one file
+
+When this job needs more than one clip, or a video with its own music or
+narration, the deliverable is one joined file, not the parts. Read
+[deliver one file](references/deliver-one-file.md) before the first paid call.
+When the job takes more than 3 paid calls, or one kind of paid call leads to
+another (narration that drives a video, clips that are joined, music or
+narration laid under clips), read
+[price a whole job](references/price-a-whole-job.md) first. Its one card covers
+every call of the job, including image, music, and speech calls that a direct
+request would otherwise run on their own, and music made for the video is
+requested at the video's length ([music](references/music.md)). A text-led
+video's keyframe or enhanced prompt keeps its own first step; the video's card
+follows once the user accepts it.
+
 ## Keep the paid boundary clear
 
 Creative planning, authorization, upload preparation, voice browsing/audition,
@@ -288,7 +304,10 @@ after completion (never starting media generation), and charge nothing when
 A direct, well-specified request to create or look up authorizes that exact
 paid request once for image, music generation (`beatra.music.generate`),
 single-speaker speech (`beatra.speech.synthesize`), social execute, or a
-gift-sized video-prompt or keyframe stage. It does not authorize
+gift-sized video-prompt or keyframe stage, unless that call is part of a whole
+job (see Finish as one file), where it goes on the job's card; a text-led
+video's opening keyframe or prompt still keeps its own first step. It does not
+authorize
 `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
 `beatra.videos.edit`, `beatra.videos.extend`, `beatra.videos.compose`,
@@ -298,19 +317,21 @@ gift-sized video-prompt or keyframe stage. It does not authorize
 `beatra.audio.process`. Before any of those paid calls, show the production card
 and wait for the user's answer:
 
-1. Work — what will be made, in the user's own words, and which call makes it.
+1. Work — what will be made, in the user's own words, and what kind of step
+   makes it (an image, a video clip, a song, a join).
 2. Credits — the provisional estimate from the live card just read, never a
    remembered number.
 3. Count — how many paid calls this turn. A retry with changed arguments is
    another one.
 4. Identity — one new opaque `client_request_id` per call, minted only once
-   that call's payload is final.
+   that call's payload is final, and kept in your notes. Do not show the raw
+   ID to the user.
 5. If the user stops here — name what they already hold and keep, such as an
    accepted opening frame, a synthesized narration, or an enhanced prompt. When
    this is the run's first paid call, say plainly that nothing has been paid
    for yet, rather than naming an artifact that does not exist.
-6. If the balance is insufficient — relay the returned message and its top-up
-   URL exactly, and wait.
+6. If the balance is insufficient — relay the returned message in the user's
+   language with its top-up URL exactly, and wait.
 
 For video calls, show the route's live-card duration, resolution, and aspect
 beside the estimate, taking the shortest admitted duration and lowest admitted
@@ -323,9 +344,10 @@ or submit before they approve.
 Public social lookup is never folded into a video or clone production card. When it needs
 confirmation, it gets its own card. For it, copy the `schema_hash` from
 `beatra.social.tools.get` into execute with
-`operation_key`, `arguments`, and one `client_request_id`. Show the
-`operation_key` and the credit price returned by `tools.get`. Do not show
-`schema_hash` to the user and do not ask for a model. Voice cloning always
+`operation_key`, `arguments`, and one `client_request_id`. Name the lookup in
+plain words (for example, a TikTok account's latest posts) and show the credit
+price returned by `tools.get`. Keep `operation_key` and `schema_hash` in your
+notes, and do not ask for a model. Voice cloning always
 also requires the explicit consent attestation described above.
 
 Create one stable 1..128-character `client_request_id` only after the validated
@@ -378,25 +400,27 @@ keep the same ID and the same payload. Do not suggest changing a model.
 Lead the reply with the result and format the user asked for; the production
 card, route choice, and cost notes follow it and never replace it.
 
-While a task is still queued or running, report the `stage` that
-`task.progress` actually returns instead of narrating an invented pace. Treat
+While a task is still queued or running, describe in plain words the `stage`
+that `task.progress` actually returns instead of narrating an invented pace. Treat
 its `percent` as a phase marker rather than a completion fraction: it moves on
 fixed server steps, holds one value for the whole generation wait, and must never
 be handed to the user as a share of the work finished. An unchanged stage or
 percent is not evidence that the task is stuck. When a response carries no
 progress at all, say the task is still running and leave it there.
 
-On completion, report the `task_id`, terminal status, every returned result,
-and actual usage. For media generation, also report the resolved model. For
-artifacts, include every returned link or ID plus dimensions, duration, MIME
-type or format, and size when present. For public social lookup, deliver the
+On completion, report the terminal status, every returned result, and actual
+usage in plain words. For artifacts, include every returned link plus
+dimensions, duration, format, and size when present (“MP4 video, 15 seconds,
+3.2 MB”). Keep the `task_id`, artifact IDs, MIME strings, and the resolved
+model in your notes; name the model when the user chose it or asks, and give
+IDs when the user asks for them. For public social lookup, deliver the
 inline JSON or JSON artifact; do not look for a resolved model or a generated
-media file. Deliver non-artifact results such as an activated cloned `voice_id`, saved
-avatar record, Smart Voice Director script output, transcript text, audio
-loudness/timing bounds (`speech_start_seconds`, `speech_end_seconds`,
-`integrated_loudness_lufs`), or free aligned `output.subtitles` (JSON/SRT/VTT)
-when returned. Report `billing.net_charged_credits`; include gross charge and
-refund only when present. Use the exact returned `task.links.assets`
+media file. When returned, also deliver a cloned voice or saved avatar by its
+name, a Smart Voice Director script, transcript text, or the free subtitle
+files (JSON/SRT/VTT). Keep `voice_id`, `speech_start_seconds`,
+`speech_end_seconds`, and `integrated_loudness_lufs` in your notes for the
+next step. Report the credits charged (`billing.net_charged_credits`) in plain
+words; include gross charge and refund only when present. Use the exact returned `task.links.assets`
 destination for asset management.
 
 Never infer completion, file URLs, quality, usage, refunds, or credit totals.

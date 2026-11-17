@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "beatra",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Create AI images, videos, music, and voice, look up public social data, edit supported visual results, and keep returned files and credit use easy to track through one shared connection.",
   "author": {
     "name": "Beatra AI",

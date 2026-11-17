@@ -2,23 +2,26 @@
 
 ## Presenting a completed result
 
-Lead with every returned `task.output.clips` entry in order, including the
-returned title or lyrics when present and the factual `clip.audio` URL,
-artifact ID, duration, MIME type, and size. Then state:
+Lead with every returned `task.output.clips` entry in order, as version 1,
+version 2, and so on, including the returned title or lyrics when present and the
+factual `clip.audio` URL, duration, format, and size in plain words. Keep
+artifact IDs, MIME strings, and the task ID in your notes. Then state:
 
-- the realized direction in one sentence;
-- resolved model and returned clip count;
+- the realized direction in one sentence, in the user's language rather than
+  the returned style tags;
+- how many versions came back;
 - any important soft request that should be checked by ear, such as Cantonese
   pronunciation, regional wording, bilingual switching, duet role assignment,
   or ending behavior;
-- actual `billing.net_charged_credits` returned by the task; and
+- the credits charged, in plain words, as the task's billing shows; and
 - the exact `task.links.assets` destination when returned, without inventing a
   generic asset URL.
 
 Do not bury the audio under request diagnostics. Offer two or three specific
 next refinements, not a generic “try again.”
 
-Include the task ID as a compact recovery handle. Unless the user asks to debug
+Give the task ID only when the user asks for it, or when you stop polling
+while the task is still running. Unless the user asks to debug
 or integrate the call, do not show raw payloads, client request IDs, polling
 mechanics, or schema limits. Translate necessary constraints into ordinary
 creative language, such as “the track came out a little shorter than the 30
@@ -28,7 +31,8 @@ seconds you asked for.”
 
 Evaluate the artifact against the approved brief only when the host can play
 the audio. Otherwise label listening review incomplete and limit the delivery
-to factual task and artifact fields.
+to what the task returned (the versions, their length and format, and the
+credits charged), in plain words.
 
 1. **Composition** — hook strength, melody shape, harmony, pacing.
 2. **Lyrics** — clarity, prosody, rhyme, emotional progression, language
@@ -56,7 +60,8 @@ Before another billable generation:
 - name the two or three most important changes;
 - preserve what already works;
 - show material lyric changes to the user;
-- get approval when the user did not already request another version;
+- show that revision's card and wait for approval, even when the user asked
+  for another version;
 - use a new `client_request_id` only for that newly approved generation;
 - give each revision call its own card: a section fix or an extension is its own
   paid call with the live price for that step, and a song is never extended

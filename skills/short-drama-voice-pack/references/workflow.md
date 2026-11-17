@@ -43,10 +43,10 @@ free `beatra.speech.validate` before `beatra.speech.synthesize`.
 ## 3. Native multi-speaker scenes vs editor line clips
 
 - **Native scene dialogue (`beatra.speech.validate_dialogue` -> `beatra.speech.synthesize_dialogue`, `{"capability":"text_to_dialogue"}`)**:
-  best for fast back-and-forth scenes (`2`–`50` turns, `<= 2,000` characters per
-  call, `<= 10` `supports_dialogue=true` voices, `<= 4` ready clones). Split
-  longer scenes into `<= 2,000`-char chunks (`previous_text` / `next_text`
-  continuity where supported):
+  best for fast back-and-forth scenes with `supports_dialogue=true` voices. If a
+  dialogue request is refused as too long, split it at scene or turn boundaries as
+  the refusal message says (`previous_text` / `next_text` continuity where
+  supported):
 
 ```json
 {
@@ -61,8 +61,8 @@ free `beatra.speech.validate` before `beatra.speech.synthesize`.
 
 - **Per-line labeled clips (`beatra.speech.validate` -> `beatra.speech.synthesize`, `{"capability":"text_to_speech"}`)**:
   best when video editors place separate files (`ep12_lin_014.mp3`), when a
-  role voice lacks `supports_dialogue`, or when > `4` clones appear in an
-  episode:
+  role voice lacks `supports_dialogue`, or when a dialogue request is refused
+  for the number of cloned voices it uses:
 
 ```json
 {

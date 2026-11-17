@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "music-generation-studio",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Turn a theme, lyric, scene, or reference audio into reviewable songs, instrumentals, BGM, and soundtracks with a clear creative direction and focused revisions.",
   "author": {
     "name": "Beatra AI",

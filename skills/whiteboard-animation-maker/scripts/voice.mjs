@@ -335,7 +335,6 @@ function readSpeakable(draft) {
   if (!fs.existsSync(scriptPath)) die(`missing ${scriptPath}`);
   const input = speakableFromScript(fs.readFileSync(scriptPath, "utf8"));
   if (!input) die("script.txt has no spoken lines");
-  if (input.length > 50000) die("script exceeds 50000 characters; split the draft");
   return input;
 }
 

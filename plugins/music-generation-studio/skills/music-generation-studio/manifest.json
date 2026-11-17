@@ -1,5 +1,5 @@
 {
-  "changelog": "Looping a bed to a longer length is now planned with the bed when you ask for both together.",
+  "changelog": "Fewer questions before your song: genre, vocals, and structure are proposed for you to adjust, and each generation usually returns two versions, shown as version 1 and version 2, to choose from.",
   "display_name": "Music Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/music-generation-studio",
@@ -75,5 +75,5 @@
   },
   "name": "music-generation-studio",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

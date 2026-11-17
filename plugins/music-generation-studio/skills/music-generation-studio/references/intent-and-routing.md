@@ -27,8 +27,9 @@ Identify the musical job before writing a payload.
 
 ## Minimum useful brief
 
-Infer obvious details from context, but ask a compact question when a missing
-answer would change the song:
+Settle these before generation. Only the theme or lyrics and the use are hard
+inputs: ask for whichever is missing. Infer the rest from context, or propose it
+on the production card for the user to accept or change in one message:
 
 - purpose and audience;
 - vocal or instrumental;

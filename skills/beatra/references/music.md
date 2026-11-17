@@ -67,6 +67,17 @@ python3 scripts/mcp_client.py call beatra.music.generate
 }
 ```
 
+Music for a video or a fixed slot is requested at that length. Without
+`duration_seconds` a track runs about three minutes, and a join under a
+15-second clip keeps only its opening. Send `duration_seconds` near the video's
+length: an instrumental bed for a 15-second ad takes `15` with
+`duration_fit: "exact"`; a sung track takes 30 or more that its lyrics fit,
+so under a video shorter than 30 seconds only its opening plays: say so, or
+suggest an instrumental. The
+join already fades music out at the video's end, so a slightly longer bed is
+fine. The rules and limits are in the length section of
+[music editing and audio](music-editing-and-audio.md).
+
 An instrumental sets `instrumental` and sends no lyrics; a title stays welcome
 when the user named one. Lyrics and `instrumental: true` exclude each other, and
 a request carrying both is rejected.
@@ -94,8 +105,10 @@ the same task. An identical retry preserves every validated generation
 argument; any accepted change is new paid work with a new identity and
 confirmation.
 
-On success, deliver every returned clip in order. Include returned title and
-lyrics when present plus each audio URL or artifact ID, duration, MIME type,
-and size when returned. Report the resolved model, actual usage, and terminal
-billing. Do not claim to have reviewed composition, vocals, pronunciation, or
+On success, deliver every returned clip in order; one generation usually
+returns two versions of the same song, so say that the user can pick one. Include
+returned title and lyrics when present plus each audio link, duration, format,
+and size when returned, in plain words. Report the credits charged in plain
+words; keep artifact IDs, MIME strings, and the resolved model in your notes
+unless the user asks. Do not claim to have reviewed composition, vocals, pronunciation, or
 mix when the host cannot play the audio.

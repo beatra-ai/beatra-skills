@@ -21,9 +21,11 @@ re-arrangement of an existing recording to `ai-song-cover-studio`, a gift or
 occasion song to `personalized-song-maker`, and a short loopable instrumental
 for picture to `short-video-bgm-studio`.
 
-The hard inputs are a theme or lyrics plus the intended use. If purpose,
-genre, or vocal route is empty, gather them first; do not fill the gap with a
-default pop brief.
+The hard inputs are a theme or lyrics plus the intended use. Ask only for the
+one of those that is missing. When both are there, propose the genre, vocal
+route, and structure that fit that use on the production card, in one message
+the user can accept or change, instead of asking for each first. Do not fall
+back to a default pop brief that ignores the use.
 
 Use the bundled `scripts/mcp_client.py` for every Beatra operation. Do not
 configure or use a host Beatra Connector. Never use REST/OpenAPI as a fallback.
@@ -36,9 +38,10 @@ bundled path needs diagnosis.
 ## Shape the direction first
 
 Reuse every settled choice in the conversation. Infer ordinary creative details
-from the destination when that is safe. Ask only when a missing answer changes
-the lyrics, reference direction, vocal or instrumental route, exact paid payload,
-or another high-impact user choice.
+from the destination when that is safe. Ask only when a missing answer would
+change the lyrics or the reference direction, or another high-impact choice the
+intended use does not settle; propose the genre, vocal route, and structure on
+the production card.
 
 Before generation, prepare one compact production card:
 
@@ -128,6 +131,21 @@ Describe what should carry over and what should change. A reference guides a
 new creative result; after generation, review melody, vocal character, energy,
 instrumentation, and arrangement against that direction.
 
+Before uploading, ask where the reference comes from when it is not clear. A
+released commercial recording (a song from a streaming app, a film, or a
+show) is usually refused as a match for a copyrighted recording. A good
+reference is the user's own recording, humming, or demo, or a track they hold
+the rights to. When the user only has a released song, offer to describe its
+qualities in words and generate without a reference.
+
+When a reference-guided task ends `safety_rejected` with reason
+`provider_catalog_match`, do not send the same file again: the result will not
+change. Say in plain words that the reference sounds too close to a released
+recording, tell the user in plain words what the attempt cost, as the task's
+billing shows, and offer two ways on:
+another reference the user owns, or the same direction in words without one.
+Either is a new request with a new card and a new `client_request_id`.
+
 ## Confirm the paid boundary once
 
 Even a direct, well-specified request gets the production card below first.
@@ -137,16 +155,19 @@ or “do not generate yet” is not approval.
 
 Show one current production card and wait:
 
-1. Work — what will be made in the user's words, a `beatra.music.generate` call,
-   plus any finishing step the user asked for with it.
+1. Work — what will be made in the user's words (one song generation), plus
+   any finishing step the user asked for with it. One generation usually
+   returns two versions of the same song for the user to choose from; say so.
 2. Credits — the live price of the chosen model (`suno-6` by default) just
    read from `beatra.models.list`, per slot and in total, with each finishing
    step as its own line at its live `audio_process` price; the total includes
    every line on the card. Never a remembered number.
 3. Count — one paid call for this generation, plus one per finishing line on
    this card. A later revision is another slot.
-4. Identity — one new opaque `client_request_id` per line listed on the card. Any changed prompt, lyrics,
-   file, model, or control mints a new ID.
+4. Identity — one new opaque `client_request_id` per line listed on the card,
+   minted once that line's payload is final, kept in your notes, and not
+   shown to the user. Any changed prompt,
+   lyrics, file, model, or control mints a new ID.
 5. If we stop here — the production card and lyrics remain usable.
 6. If the balance is insufficient — relay the official message and its top-up
    URL exactly. Translate the prose; keep the URL. Do not retry until the user
@@ -190,10 +211,13 @@ response was lost or a task is slow. See
 
 ## Deliver and review the music
 
-On success, present every `task.output.clips` entry in returned order. Include
-the returned title and lyrics when present plus `clip.audio.url`, artifact ID,
-duration, MIME type, and size. Report factual task identity and
-`billing.net_charged_credits`. When the task returns `task.links.assets`, use
+On success, present every `task.output.clips` entry in returned order, as
+version 1, version 2, and so on. Include the returned title and lyrics when present plus
+`clip.audio.url`, duration, format, and size, and the credits charged
+(`billing.net_charged_credits`), in plain words: “MP3, 31 seconds, 1.2 MB”.
+Describe the style in the user's language instead of pasting the returned
+style tags. Keep the task ID, artifact IDs, and MIME strings in your notes and
+give them only when the user asks. When the task returns `task.links.assets`, use
 that exact destination for asset management; do not invent a generic URL.
 
 Review composition, lyrics, vocal performance, pronunciation, role assignment,
@@ -210,8 +234,13 @@ automatically or repeatedly. Follow
 
 When the user asks how many credits remain, call `beatra.wallet.get`. When they
 ask what was charged, call `beatra.wallet.ledger`. Both are read-only. Do not
-invent an account-balance or top-up tool. Do not make `wallet.get` a required
-step before every paid submit.
+invent an account-balance or top-up tool. A card with only the song needs no
+balance read. When the card also lists a finishing step, read
+`beatra.wallet.get` once before showing it and say whether the balance covers
+every line. If it covers only the song, give its `topup_url` and ask whether to
+top up first or make only the song. After a balance refusal, once the user says
+they have topped up, read `beatra.wallet.get` once before retrying; it lifts the
+bundled client's balance hold.
 
 ## References by task
 

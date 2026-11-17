@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds Smart Voice Director expressive pacing, preflight script validation and voice auditions, aligned SRT/VTT captions for short-form edits, and broadcast loudness normalization to -14 LUFS.",
+  "changelog": "Scripts longer than the chosen voice can read in one pass are now divided at sentence breaks and voiced in order.",
   "display_name": "AI Voiceover for Short Videos",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-form-voiceover-audio",
@@ -75,5 +75,5 @@
   },
   "name": "short-form-voiceover-audio",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

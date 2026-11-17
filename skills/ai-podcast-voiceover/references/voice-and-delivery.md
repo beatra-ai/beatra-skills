@@ -75,8 +75,9 @@ step 1, and tokenless `voices.activate` quote refresh cost **zero credits**.
 `beatra.music.generate`, `beatra.audio.generate_sfx`, and `beatra.audio.process`
 are **paid** and must never be described as free.
 
-- **Smart Voice Director (`beatra.speech.prepare_script`)**: pass plain `input`
-  (1–50,000 chars), optional `instructions` (`<= 2,000` chars), target `voice`
+- **Smart Voice Director (`beatra.speech.prepare_script`)**: pass the plain `input`
+  in one piece (the Smart Voice Director splits it for the voice when it is too
+  long), optional `instructions`, target `voice`
   and `model`, `language`, optional `context`, and `client_request_id`. Words
   are never rewritten. Inspect `directed` and `scripts[]`: if any `synthesis` is
   `null`, adjust via `warnings`; pass ready `scripts[].synthesis` unchanged +
@@ -88,9 +89,9 @@ are **paid** and must never be described as free.
   - Single-speaker: call `beatra.speech.validate` (`valid`,
     `weighted_characters`, `estimated_duration_seconds`, live `price_credits`,
     `execution`, `warnings`).
-  - Multi-host dialogue: call `beatra.speech.validate_dialogue` (`2–50` turns,
-    `<= 2,000` chars per call, `<= 10` `supports_dialogue=true` voices, `<= 4`
-    ready clones, `estimated_credits`, `estimated_duration_seconds`, `warnings`).
+  - Multi-host dialogue: call `beatra.speech.validate_dialogue` with
+    `supports_dialogue=true` voices (`estimated_credits`,
+    `estimated_duration_seconds`, `warnings`).
 - **Offline counter rule**: when checking `beatra_weighted_characters` locally
   (two per Han ideograph, one per other character), use only the integer printed
   by the exact script below on plain frozen synthesis text (never hand-count):
@@ -159,10 +160,10 @@ Single-speaker example (`beatra.speech.synthesize`):
 }
 ```
 
-Multi-host scene (`beatra.speech.synthesize_dialogue`, `2–50` turns, `<= 2,000`
-chars, all voices `supports_dialogue=true`, `<= 10` voices, `<= 4` clones; pass
-`previous_text` / `next_text` when chunking scenes across calls, or fall back to
-segmented `beatra.speech.synthesize` if cast exceeds limits):
+Multi-host scene (`beatra.speech.synthesize_dialogue`, all voices
+`supports_dialogue=true`; pass `previous_text` / `next_text` when splitting scenes
+across calls, or fall back to segmented `beatra.speech.synthesize` if the cast is
+refused):
 
 ```json
 {
@@ -220,9 +221,9 @@ candidates with `beatra.tasks.get`; never claim a remote task proved a local ID.
   24-hour quote via `beatra.voices.activate` (`voice_id` + `client_request_id`,
   omitting `confirmation_token`), confirm credits/terms, then activate.
 - `voice_model_incompatible` / `voice_not_found` / dialogue bounds exceeded: run
-  `beatra.speech.validate_dialogue`, keep `supports_dialogue=true` voices
-  (`<= 10`, `<= 4` clones), chunk `<= 2,000` chars per scene, or fall back to
-  segmented `beatra.speech.synthesize`.
+  `beatra.speech.validate_dialogue`, keep `supports_dialogue=true` voices, split
+  the scene as the refusal message says, or fall back to segmented
+  `beatra.speech.synthesize`.
 - `request_in_progress` / `daily_limit`: poll the existing task rather than
   resending; on `daily_limit`, wait until `00:00 UTC` (`08:00` Beijing time).
 - Cancel only on user request (`beatra.tasks.cancel` once, then poll to terminal).

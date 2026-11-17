@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds Smart Voice Director pacing without altering your words, aligned subtitles for narration and dialogue, multi-speaker dialogue, voice audition, cloning activation, and management, expressive voice conversion, noisy-recording voice isolation, sound effects and loopable ambience, long-form speech transcription with subtitles, saved presenter portraits, and combining video clips, narration, music, and subtitles into a finished MP4.",
+  "changelog": "Videos built from several clips, narration, or music now arrive as one finished file, with music made to the video's length and one set of subtitles for the whole video.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "3.0.2"
+  "version": "3.0.3"
 }

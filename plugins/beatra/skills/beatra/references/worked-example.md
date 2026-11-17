@@ -84,41 +84,41 @@ For this brief the order is fixed by what constrains what:
    user asked for a format the video route rejects, say so now, before any paid
    call.
 3. **Synthesize the narration** — `beatra.speech.synthesize`, written to fit the
-   admitted duration and in the agreed format. Paid, and authorized by the
-   direct request. Hand the user the audio with its real duration, MIME type,
-   and size, and a chance to reject it before the video stage; a script preview
+   admitted duration and in the agreed format. Paid, and listed on the
+   whole-job card shown before this step
+   ([price a whole job](price-a-whole-job.md)). Hand the user the audio with
+   its real duration, format, and size, and a chance to reject it before the video stage; a script preview
    is not an audio review. Say plainly when the host cannot play the file, and
    do not block on a review it cannot render.
 4. **Compose the 9:16 opening frame** — the founder portrait uploaded through
    the bundled client, then one `beatra.images.transform` to the vertical
-   canvas. Paid, and authorized by the direct request.
+   canvas. Paid, and on the same card.
 5. **Compose the square page still** — an independent branch from the product
-   photograph, with its own square canvas. Paid, and authorized by the direct
-   request.
+   photograph, with its own square canvas. Paid, and on the same card.
 6. **Animate** — `beatra.videos.animate` with the accepted 9:16 frame as
    `image` and the narration as `driving_audio`, handling `aspect_ratio` the way
-   video recipes step 5 says this model requires. Paid, and **not** authorized by the
-   direct request: this is where the production card comes first. Note that
+   video recipes step 5 says this model requires. Paid, and covered by the
+   same card; if the user rejected the narration or the opening frame, stop
+   before this call and ask. Note that
    `driving_audio` is truncated to the video's duration and audio shorter than
    the clip leaves silence, which is another reason step 1 precedes step 3.
-7. **Deliver** — every artifact, the resolved models, and the actual charges.
+7. **Deliver** — the finished clip first, then the page still and the
+   narration, with the actual charges in plain words.
 
 Music, if the brand wanted a bed as well, would slot beside step 3 as an
 independent branch: it depends on nothing the video decides except total length.
 
 ## Where the paid boundary actually falls
 
-Steps 1, 2, and the uploads are free. Steps 3, 4, and 5 are single paid calls
-that a direct, well-specified request authorizes once each. Step 6 is the one
-that needs the production card — the six fields in the main instructions,
-carrying this route's tool name, the live-card duration, resolution and aspect,
-and the provisional estimate.
+Steps 1, 2, and the uploads are free. Steps 3 to 6 are four paid calls, and
+the narration leads to the video, so this is a whole job: one production card
+before step 3 lists all four with their live prices, the estimated total, and
+the video's live-card duration, resolution, and aspect
+([price a whole job](price-a-whole-job.md)).
 
-The useful habit is to say this shape out loud before step 3, not before step 6:
-the user learns that three small charges are coming and one larger one needs
-their go-ahead, while there is still time to drop a deliverable. Discovering the
-video gate after the narration and both stills are paid for is a worse
-conversation.
+The user learns the whole price while there is still time to drop a
+deliverable. Discovering the video price after the narration and both stills
+are paid for is a worse conversation.
 
 ## What carries between steps, and what must not
 

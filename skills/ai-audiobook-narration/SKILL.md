@@ -35,10 +35,12 @@ inputs that are still missing:
 Ask for a missing hard input rather than inventing it. Create a
 chapter-and-segment ledger. Preserve intended listening order, label every
 segment, and split at chapter, section, scene, paragraph, or sentence
-boundaries. Never split mid-sentence: keep single-speaker `input` at or below
-`50,000` characters, and chunk native multi-character chapter dialogue scenes
-at or below `2,000` characters and `2–50` turns. Remove only page-only material
-the user does not want spoken. Follow
+boundaries. Never split mid-sentence. If `beatra.speech.validate` or synthesis
+refuses the text as too long, follow the refusal message: split at natural
+chapter, section, or sentence boundaries and submit the parts in order. If a
+dialogue request is refused as too long, split it at scene or turn boundaries as
+the refusal message says. Remove only page-only material the user does not want
+spoken. Follow
 [chapter production](references/chapter-production.md) for text preparation,
 dialogue scenes inside chapters, casting, and the pilot boundary.
 
@@ -104,7 +106,7 @@ nonfiction or courses. See
 
 - **Smart Voice Director (`beatra.speech.prepare_script`, `{"capability": "speech_script"}`)**:
   compile long-form pauses, narrative beats, and pronunciation cues from plain
-  manuscript text + `instructions` (`<= 2,000` chars) without changing spoken
+  manuscript text + `instructions` without changing spoken
   manuscript wording and without hand-writing braced tags. Inspect `directed`
   and `scripts[]` (fix via `warnings` if `synthesis` is `null`), then pass
   ready `scripts[].synthesis` unchanged + fresh `client_request_id`. Respect max
@@ -112,14 +114,14 @@ nonfiction or courses. See
   language/context, calling `prepare_script` again changing only `voice` (and
   `model`) reuses direction at zero cost (balance must cover admission).
 - **Dialog scenes inside chapters (`beatra.speech.synthesize_dialogue`)**: when
-  fiction or dialogue chapters use `2–10` voices with
-  `capabilities.supports_dialogue == true` (`<= 4` ready clones) and scenes fit
-  `2–50` turns and `<= 2,000` characters per call, run free
+  fiction or dialogue chapters use several voices with
+  `capabilities.supports_dialogue == true`, run free
   `beatra.speech.validate_dialogue` and generate cohesive multi-cast scenes
-  with `beatra.speech.synthesize_dialogue` (chunking longer dialogues cleanly
-  with `previous_text` / `next_text`). Keep single-narrator continuity if
-  preferred, or fall back to segmented `beatra.speech.synthesize` when > 10
-  voices, > 4 clones, or specialty dialects apply.
+  with `beatra.speech.synthesize_dialogue` (when the refusal message says a
+  dialogue is too long, split it at scene or turn boundaries with
+  `previous_text` / `next_text`). Keep single-narrator continuity if
+  preferred, or fall back to segmented `beatra.speech.synthesize` when the cast
+  is refused or specialty dialects apply.
 
 ## Golden path
 

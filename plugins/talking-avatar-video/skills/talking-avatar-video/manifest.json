@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds Smart Voice Director script pacing that preserves your exact wording, voice auditioning before narration, pre-synthesis duration fit checks for talking-avatar clips, and aligned JSON, SRT, and VTT subtitles with speech timing bounds.",
+  "changelog": "Longer scripts now become one finished talking-avatar video of up to about two minutes, with one set of subtitles for the whole video, and a presenter you like can be saved and reused for the next video.",
   "display_name": "Talking Avatar & AI Presenter Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/talking-avatar-video",
@@ -45,7 +45,7 @@
       "title": "トーキングアバター・AIプレゼンター動画"
     },
     "zh": {
-      "description": "用一张人像和一段短脚本或语音，制作有明确讲述内容的数字人口播视频。可使用现成录音，也可以先选择音色，把脚本生成旁白，让画面中的人物随声音完成稳定、自然的口播。适合 AI 主播、虚拟主播视频、数字人讲解、让照片说话、照片说话视频、产品讲解视频、数字人培训视频、公告和社交口播，并在交付后检查人物一致性、声音清晰度、口型同步和动作稳定性。一节课的讲解也能做成课程口播。",
+      "description": "用一张人像和一段短脚本或语音，制作有明确讲述内容的数字人口播视频。可使用现成录音，也可以先选择音色，把脚本生成旁白，让画面中的人物随声音完成稳定、自然的口播。适合 AI 主播、虚拟主播视频、数字人讲解、让照片说话、照片说话视频、产品讲解视频、数字人培训视频、公告和社交口播，并在交付后检查人物一致性、声音清晰度、口型同步和动作稳定性。也适合两分钟以内的课程讲解短片。",
       "display_name": "AI数字人口播与虚拟主播视频",
       "summary": "把一张人像和短脚本或语音，制作成适合讲解、公告、课程和产品介绍的数字人口播视频。",
       "tags": [
@@ -73,5 +73,5 @@
   },
   "name": "talking-avatar-video",
   "schema_version": 1,
-  "version": "0.3.5"
+  "version": "0.3.6"
 }

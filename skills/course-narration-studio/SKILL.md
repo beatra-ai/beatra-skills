@@ -54,9 +54,10 @@ via `preview_url` or `beatra.voices.preview`.
 
 Defaults: `model: "auto"` only when every voice-compatible live card supports
 any supplied normalized BCP-47 language (`nb` -> `no`, `tl` -> `fil`),
-`format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`. Keep each synthesis
-`input` `<= 50,000` characters, split cleanly at lesson/section/sentence
-boundaries, never invent a words-per-minute control, and optionally run Smart
+`format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`. If `beatra.speech.validate`
+or synthesis refuses the text as too long, follow the refusal message: split at
+natural lesson, section, or sentence boundaries and submit the parts in order.
+Never invent a words-per-minute control, and optionally run Smart
 Voice Director (`beatra.speech.prepare_script`) when teaching cadence or pauses
 need coaching.
 

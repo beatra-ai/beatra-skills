@@ -20,14 +20,14 @@ Maintain one ordered ledger with:
 
 ## Prepare text for speech
 
-Keep each single-speaker `beatra.speech.synthesize` `input` at or below
-`50,000` characters, and keep each native multi-cast
-`beatra.speech.synthesize_dialogue` chapter scene at `2–50` turns and
-`<= 2,000` characters (chunk longer chapter dialogues scene-by-scene passing
-`previous_text` / `next_text` across boundaries). Split large chapters at
-natural chapter, section, scene, paragraph, or sentence boundaries, never
-mid-sentence. Use stable labels such as `01-opening`, `02-chapter-one-a`, and
-`02-chapter-one-b` so audio restores to listening order.
+If `beatra.speech.validate` or synthesis refuses a chapter as too long, follow
+the refusal message: split at natural chapter, section, scene, paragraph, or
+sentence boundaries, never mid-sentence, and submit the parts in order. If a
+native multi-cast `beatra.speech.synthesize_dialogue` scene is refused as too
+long, split it at scene or turn boundaries as the refusal message says, passing
+`previous_text` / `next_text` across boundaries. Use stable labels such as
+`01-opening`, `02-chapter-one-a`, and `02-chapter-one-b` so audio restores to
+listening order.
 
 Keep spoken text clean: remove only citations, URLs, stage notes, or headings
 the user does not want spoken, and never manually write braced performance

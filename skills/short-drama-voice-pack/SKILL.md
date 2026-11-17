@@ -36,15 +36,15 @@ Defaults:
 - `subtitle_enable: true` when captions or timed dialogue scripts are wanted
   (never send `subtitles`; returns free aligned `output.subtitles` plus
   per-turn `segments[]`);
-- choose between native multi-speaker scenes (`beatra.speech.synthesize_dialogue`,
-  `2`–`50` turns, `<= 2,000` characters per segment, `<= 10` dialogue-capable
-  voices, `<= 4` ready clones) and per-line block clips (`beatra.speech.synthesize`)
+- choose between native multi-speaker scenes (`beatra.speech.synthesize_dialogue`
+  with dialogue-capable voices) and per-line block clips (`beatra.speech.synthesize`)
   when editors request separate per-line files or a role needs non-dialogue /
   isolated retakes.
 
-Keep each single-speaker `input` at or below `50,000` characters and each
-native dialogue segment at or below `2,000` characters. Split on scene,
-turn, or sentence boundaries, never mid-sentence.
+If `beatra.speech.validate` or synthesis refuses a line as too long, follow the
+refusal message: split at natural scene or sentence boundaries and submit the
+parts in order. If a dialogue request is refused as too long, split it at scene or
+turn boundaries as the refusal message says. Never split mid-sentence.
 
 Planning, casting, voice previews (`beatra.voices.preview` / `preview_url`),
 and pre-checks (`beatra.speech.validate`, `beatra.speech.validate_dialogue`)
@@ -128,12 +128,12 @@ configure a host Beatra Connector. Do not use REST/OpenAPI as a fallback.
    re-calling `prepare_script` changing only `voice`/`model` re-compiles at
    zero extra charge when balance covers admission).
 4. Price every speech job before showing the production card:
-   - For native multi-character scenes (`2`–`50` turns, `<= 2,000` chars per
-     segment, `<= 10` `supports_dialogue=true` voices, `<= 4` ready clones),
+   - For native multi-character scenes (`supports_dialogue=true` voices),
      validate each `turns[]` segment free with
      `beatra.speech.validate_dialogue` against live
-     `{"capability": "text_to_dialogue"}` pricing (splitting long scenes at
-     scene beats with `previous_text` / `next_text` continuity where supported).
+     `{"capability": "text_to_dialogue"}` pricing (when the refusal message says
+     a scene is too long, split it at scene beats with `previous_text` /
+     `next_text` continuity where supported).
    - For per-line labeled clips (`ep12_lin_014.mp3`) or roles without dialogue
      support, validate each block free with `beatra.speech.validate` against
      live `{"capability": "text_to_speech"}` pricing.

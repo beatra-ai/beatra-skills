@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds Smart Voice Director pacing while keeping script lines unchanged, native multi-character episode scenes, voice audition and activation or delete controls, aligned dialogue subtitles, dramatic sound effects and room tone, and audio loudness matching, trimming, and fades.",
+  "changelog": "Episode scripts and dialogue scenes longer than the chosen voice can read in one pass are now divided at natural scene or sentence breaks and voiced in order.",
   "display_name": "Short Drama Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-voice-pack",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-voice-pack",
   "schema_version": 1,
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

@@ -98,3 +98,22 @@ python3 scripts/mcp_client.py call beatra.videos.compose
   "client_request_id": "compose-opaque-1"
 }
 ```
+
+Muted clips with a voice-over and a music bed:
+
+```json
+{
+  "clips": [
+    {"source": {"type": "artifact", "artifact_id": "art_clip_1"}},
+    {"source": {"type": "artifact", "artifact_id": "art_clip_2"}, "start": 0.5, "end": 5}
+  ],
+  "narration": {"type": "artifact", "artifact_id": "art_voice_1"},
+  "music": {"source": {"type": "artifact", "artifact_id": "art_song_1"}, "volume": 0.2},
+  "canvas": "9:16",
+  "client_request_id": "compose-opaque-2"
+}
+```
+
+Music dips under the voice by itself and fades out at the video's end. Narration
+may not run longer than the clips. Joining and its card follow
+[deliver one file](deliver-one-file.md).

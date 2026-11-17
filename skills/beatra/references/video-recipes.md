@@ -100,8 +100,9 @@ about to pay for.
    actual duration, MIME type, and size rather than the requested ones. Hand
    the user the audio with those real facts and a chance to reject it before the
    video stage; a script preview is not an audio review. Say plainly when the
-   host cannot play the file, and do not block on a review it cannot render —
-   the production card that follows is the user's decision point either way.
+   host cannot play the file, and do not block on a review it cannot render.
+   The whole-job card shown before this step already covers the video; if the
+   user rejects the narration, stop before the video call.
 4. Re-read the `image_to_video` cards against those real audio facts, and
    re-check the portrait facts against the current card at the same time. The audio
    must clear the live minimum and must fit a duration the route can contain.
