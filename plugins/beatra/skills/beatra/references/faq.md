@@ -65,11 +65,13 @@ keyframe stage. It does not authorize `beatra.videos.generate`, `animate`,
 `beatra.videos.compose`, `beatra.voices.clone`, `beatra.voices.activate`,
 `beatra.speech.prepare_script`, `beatra.speech.synthesize_dialogue`,
 `beatra.speech.convert`, `beatra.audio.transcribe`, `beatra.audio.generate_sfx`,
+`beatra.music.personas.create_from_song`, `beatra.music.personas.verify_voice`,
 or any `beatra.music.edit` or `beatra.audio.process` step (only read-only/free
 tools such as `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
 `beatra.voices.list`, `beatra.voices.preview`, `beatra.voices.update`,
-`beatra.voices.delete`, `beatra.avatars.list`, and `beatra.avatars.save` run
-without charging credits).
+`beatra.voices.delete`, `beatra.music.personas.list`,
+`beatra.music.personas.enroll_voice`, `beatra.avatars.list`, and
+`beatra.avatars.save` run without charging credits).
 
 Those need the six-field production card in the main instructions first,
 carrying that route's tool name, its live-card duration, resolution and aspect,
@@ -82,7 +84,8 @@ reports the balance itself.
 
 Relay the returned public message and keep its top-up URL exact, translating
 the rest. That message is the authority on where to add credits; do not
-substitute a remembered address.
+substitute a remembered address. When the refusal also names another way
+forward, present it with the top-up option.
 Say that nothing was charged only when the error itself says so. Retry the same
 frozen `client_request_id` with the same payload once the user says they have
 topped up — a new ID here would be new paid work.
@@ -140,8 +143,8 @@ explicit confirmation that the user owns the voice or has the owner's
 permission, optionally propose paid `beatra.audio.process`
 `operation="isolate_voice"` cleanup if the sample is noisy, show the production
 card, and only then set `consent_attested: true` on `beatra.voices.clone`. If
-the clone returns `status="pending_activation"`, show the activation quote and
-terms first and run `beatra.voices.activate` only after explicit approval. Never
+the clone returns `status="pending_activation"`, show the live activation price
+first and run `beatra.voices.activate` once, only after explicit approval. Never
 chain both steps of `beatra.voices.delete` without explicit confirmation of the
 returned warning and 15-minute `confirmation_token`. Ordinary media upload has
 no clone rights gate, while saving a presenter portrait via `beatra.avatars.save`

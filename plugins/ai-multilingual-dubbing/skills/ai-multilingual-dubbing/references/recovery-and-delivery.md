@@ -14,7 +14,9 @@ per-market outputs.
    `beatra.tasks.get`. Never duplicate an active queued/running task.
 4. On `insufficient_balance`, relay Beatra's message and exact `topup_url`
    verbatim, stop until the user confirms topping up, and replay the field-for-field
-   identical JSON with the same `client_request_id`. Never ask the user to
+   identical JSON with the same `client_request_id`. If the refusal names another
+   way forward, present it too and follow [billing, errors, and
+   recovery](billing-errors-and-recovery.md). Never ask the user to
    pre-confirm wallet sufficiency or make `beatra.wallet.get` a mandatory gate;
    only call `beatra.wallet.get` / `beatra.wallet.ledger` when explicitly asked,
    and relay `top_up` tiers in returned order verbatim.

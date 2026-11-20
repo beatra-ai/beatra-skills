@@ -2,7 +2,7 @@
   "name": "beatra",
   "displayName": "AI Media Generator",
   "description": "Create AI images, videos, music, and voice, look up public social data, edit supported visual results, and keep returned files and credit use easy to track through one shared connection.",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "author": {
     "name": "Beatra AI"
   },

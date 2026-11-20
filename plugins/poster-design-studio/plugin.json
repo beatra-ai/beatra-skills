@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "poster-design-studio",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Turn a topic description, a product photo, or brand references into a scroll-stopping event poster, promotional banner, or social media graphic with strong visual hierarchy, category-matched styling, and text-safe zones.",
   "author": {
     "name": "Beatra AI",

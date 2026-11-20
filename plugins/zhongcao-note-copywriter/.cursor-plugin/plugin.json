@@ -2,7 +2,7 @@
   "name": "zhongcao-note-copywriter",
   "displayName": "小红书文案",
   "description": "Turn a product, experience, topic, or audience brief into Xiaohongshu title options, a readable note body, cover text, hashtags, and a natural comment starter.",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": {
     "name": "Beatra AI"
   },

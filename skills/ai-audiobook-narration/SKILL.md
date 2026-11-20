@@ -60,25 +60,25 @@ When a narrator or character sample is supplied, do not default to cloning
 without explicit user intent and full confirmation discipline from
 [speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
 
-1. **Sample noise clean (paid)**: if the sample has background music or noise,
-   offer paid `beatra.audio.process` (`operation="isolate_voice"`, `source`,
-   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
-   its own card first.
-2. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
+1. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
    user confirmation in the current conversation of voice ownership or
    permission before uploading (`scripts/mcp_client.py upload`). Access to a file
    is never consent.
-3. **Query 3 cloning routes live**: call `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` — fast
-   `auto` immediate clone, 10-language expressive/dialogue/S2S clone, or
-   free-trial precision training returning `status="pending_activation"`.
-4. **Confirmation #2 — Trial activation (`beatra.voices.activate`)**: if
-   `beatra.voices.clone` returns `status="pending_activation"`, show
-   `activation.quote` (or refresh free with `voice_id` + `client_request_id`
-   omitting `confirmation_token` after 24-hour expiry), obtain explicit credit
-   and terms approval, then call `beatra.voices.activate` with `voice_id`,
-   `confirmation_token`, exact `confirm_credits` matching `activation.quote`,
-   and a fresh `client_request_id`.
+2. **Sample noise clean (paid)**: if the sample has background music or noise,
+   offer paid `beatra.audio.process` (`operation="isolate_voice"`, `source`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
+   its own card first.
+3. **Clone model choice**: select the clone model as described in
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   §5. When a cloned voice will speak in a multi-character dialogue scene,
+   select the clone card that states multi-speaker dialogue; a single-narrator
+   book keeps the default. Then show the production card with the live clone
+   price; after the user approves it, submit once and handle any refusal per
+   [billing, errors, and recovery](references/billing-errors-and-recovery.md).
+4. **Confirmation #2 — Activation (`beatra.voices.activate`)**: when a clone
+   result or a listed voice has status `pending_activation`, follow §5 Step E of
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   before using the voice.
 5. **Confirmation #3 — Two-step permanent deletion (`beatra.voices.delete`)**:
    when deleting a clone, call step 1 (`voice_id` only), display
    `paid_slot_warning`, `irreversible_notice`, and 15-minute expiry, wait for
@@ -141,8 +141,8 @@ calls.
 
 Free tools: `beatra.voices.list`, `beatra.voices.preview`, `beatra.voices.update`,
 `beatra.models.list`, `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
-`beatra.voices.delete` step 1, tokenless `beatra.voices.activate` quote
-refresh, `beatra.tasks.get`, `beatra.tasks.list`, `beatra.wallet.get`, and
+`beatra.voices.delete` step 1, `beatra.tasks.get`, `beatra.tasks.list`,
+`beatra.wallet.get`, and
 `beatra.wallet.ledger`. Keep `wallet.get` and `wallet.ledger` strictly optional
 read-only lookups when the user asks about balance or charges — never make
 `wallet.get` a mandatory gate before submit, and never ask users to verify they
@@ -150,7 +150,7 @@ have enough credits first.
 
 Paid tools (`beatra.speech.prepare_script`, `beatra.speech.synthesize`,
 `beatra.speech.synthesize_dialogue`, `beatra.voices.clone`,
-`beatra.voices.activate` with `confirmation_token`, `beatra.images.generate`,
+`beatra.voices.activate`, `beatra.images.generate`,
 `beatra.audio.generate_sfx`, `beatra.audio.process`) require live pricing and
 never reuse remembered credit figures or hardcoded numbers. Count weighted
 characters per live card (`beatra_weighted_characters`: Han = 2, others = 1),

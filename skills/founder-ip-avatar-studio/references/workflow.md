@@ -7,7 +7,7 @@ Step-by-step execution guide, exact MCP JSON payloads, voice cloning safety gate
 Check relevant capabilities before planning any founder clone or weekly episode:
 
 ```json
-{"capability": "voice_clone", "include_activation_required": true}
+{"capability": "voice_clone"}
 ```
 
 ```json
@@ -38,7 +38,7 @@ Check balance only when answering a customer balance or charge question (`beatra
 
 ## 2. Inspect, Audition & Pin Existing Founder Voices
 
-List existing cloned voices (including pending trial clones):
+List existing cloned voices (including voices pending activation):
 
 ```json
 {
@@ -80,13 +80,13 @@ If the founder's sample recording (`4.6 s - 5 min`, `<= 100 MB`) contains music,
 }
 ```
 
-Wait for **Mandatory Confirmation #1** (verifiable ownership/authorization + anti-impersonation commitment) before calling `beatra.voices.clone` (`consent_attested: true`):
+Wait for **Mandatory Confirmation #1** (verifiable ownership/authorization + anti-impersonation commitment) before calling `beatra.voices.clone` (`consent_attested: true`). Select the clone model as described in [Speech, Voices, and Audio Finishing](speech-and-audio.md) §5 (`"model": "auto"` is the default), show the production card with the live clone price, submit once, and handle any refusal per [Billing errors and recovery](billing-errors-and-recovery.md):
 
 ```json
 {
   "sample": {"type": "artifact", "artifact_id": "<clean_sample_artifact_id>"},
   "display_name": "Founder IP Voice",
-  "model": "<selected model from voice_clone card or auto>",
+  "model": "auto",
   "language": "zh-CN",
   "gender": "male",
   "age_group": "adult",
@@ -97,22 +97,9 @@ Wait for **Mandatory Confirmation #1** (verifiable ownership/authorization + ant
 }
 ```
 
-If `beatra.voices.clone` returns `status="pending_activation"` (**Mandatory Confirmation #2**):
-1. Read its embedded `activation.quote` (`price_credits` / `confirm_credits`, activation terms, audition URL, and **24-hour expiry** on `confirmation_token`), or for an existing `pending_activation` voice fetch a quote by calling `beatra.voices.activate` with `voice_id` + `client_request_id` (omitting `confirmation_token` — never omit `client_request_id`).
-2. Wait for explicit confirmation of both credits and terms, then call `beatra.voices.activate`:
+**Mandatory Confirmation #2**: When a clone result or a listed voice has status `pending_activation`, follow §5 Step E of [Speech, Voices, and Audio Finishing](speech-and-audio.md) before using the voice.
 
-```json
-{
-  "voice_id": "<pending_voice_id>",
-  "confirmation_token": "<token_from_quote_or_clone>",
-  "confirm_credits": 100,
-  "client_request_id": "6d4a2f18-9c03-4e77-b120-5e8c3a9d4f71"
-}
-```
-
-If the 24-hour token is missing or expired (`price_confirmation_required`), re-fetch a free quote and token by calling `beatra.voices.activate` with `{"voice_id": "<pending_voice_id>", "client_request_id": "<fresh_uuid>"}` (omitting `confirmation_token`), confirm again with the user, then activate with a fresh `client_request_id`. Replace `100` in the template above strictly with the live `price_credits` returned by Beatra.
-
-Also remind the user when managing founder clones (**Mandatory Confirmation #3**): clones occupy persistent slots, and permanent deletion (`voices.delete` via voice management) always requires two-step confirmation with `paid_slot_warning` and `irreversible_notice`.
+Also remind the user when managing founder clones (**Mandatory Confirmation #3**): permanent deletion (`voices.delete` via voice management) always requires two-step confirmation with `paid_slot_warning` and `irreversible_notice`.
 
 ## 4. Smart Voice Director (`prepare_script`, PAID) & Free Duration Check (`validate`)
 
@@ -192,9 +179,8 @@ Check final driving audio duration, MIME type, and size against `image_to_video`
 
 Explain any error to the customer in plain words without exposing tool names, field names, or raw codes:
 
-- **`voice_pending_activation`**: Read embedded `activation.quote` or fetch quote (`beatra.voices.activate` with `voice_id` + `client_request_id`, omitting `confirmation_token`), obtain Mandatory Confirmation #2, and activate with `confirmation_token` + exact `confirm_credits`.
-- **`price_confirmation_required` (expired activation token)**: Re-fetch a free activation quote (`voice_id` + `client_request_id`, no `confirmation_token`), present new 24-hour expiry and credits, confirm again.
+- **`voice_pending_activation`**: Follow §5 Step E of [Speech, Voices, and Audio Finishing](speech-and-audio.md) (Mandatory Confirmation #2) before using the voice.
 - **Noisy sample quality failure**: Offer paid `isolate_voice` (`beatra.audio.process`) or ask for a cleaner dry recording before re-cloning.
-- **`insufficient_balance`**: Relay Beatra's official message and exact verbatim top-up URL; wait for the customer to confirm top-up before retrying with the same `client_request_id`.
+- **`insufficient_balance`**: Relay Beatra's official message and exact verbatim top-up URL; wait for the customer to confirm top-up before retrying with the same `client_request_id`. If the refusal names another way forward, present it too and follow [Billing errors and recovery](billing-errors-and-recovery.md).
 - **`idempotency_conflict` / `request_in_progress` / timeout**: Check `beatra.tasks.list` first; reuse the same `client_request_id` only for an identical payload, or generate a new ID if any field changed.
 - **Animation fails after speech succeeds**: Reuse verified speech/normalized audio artifact and subtitles without re-paying for TTS or cloning.

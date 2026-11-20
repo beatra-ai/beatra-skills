@@ -22,22 +22,24 @@ them without guessing.
 ## Optional narrator clone & voice maintenance
 
 Confirm plain speaker consent BEFORE `scripts/mcp_client.py upload` (possession
-is not consent). Check live limits via `beatra.models.list` with
-`{"capability": "voice_clone", "include_activation_required": true}` without
-naming upstream vendors or internal IDs.
+is not consent).
 
 - If the sample has café noise or background buzz, offer paid pre-clean via
   `beatra.audio.process` (`operation: "isolate_voice"`, **`source`** field,
   `4.6 s–5 min`, `<= 100 MB`, priced via `{"capability": "audio_voice_isolation"}`)
   on its own six-field card first.
-- Choose an immediate-ready cloning route (`auto` or expressive multilingual)
-  directly here, or route trial-first `pending_activation` activation
-  (`voices.activate`) or slot deletion (`voices.delete`) to
-  `voice-cloning-studio` / `beatra-ai-voice-studio` (`scripts/mcp_client.py tools`
-  is authoritative).
-- Present the six-field clone card (`If stop` states kept free deliverables at
-  zero charge—never hardcoding credit counts or asking users to pre-confirm
-  sufficient credits) before generating a clone `client_request_id`.
+- Select the clone model as described in [Speech and audio
+  guide](speech-and-audio.md) §5. Route a permanent voice deletion
+  (`voices.delete`) to `voice-cloning-studio` / `beatra-ai-voice-studio`
+  (`scripts/mcp_client.py tools` is authoritative).
+- Present the six-field clone card with the live clone price (`If stop` states
+  kept free deliverables at zero charge—never hardcoding credit counts or asking
+  users to pre-confirm sufficient credits) before generating a clone
+  `client_request_id`, submit once, and handle any refusal per [Billing, errors,
+  and recovery](billing-errors-and-recovery.md).
+- When a clone result or a listed voice has status `pending_activation`, follow
+  §5 Step E of [Speech and audio guide](speech-and-audio.md) before using the
+  voice.
 - Once ready, maintain display metadata or set default with non-billable
   `beatra.voices.update` (`make_default: true`), and audition candidates free
   with `preview_url` or `beatra.voices.preview` (`{"voice_id": "..."}`).

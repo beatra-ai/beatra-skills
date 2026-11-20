@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "voiceover-narration-studio",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice.",
   "author": {
     "name": "Beatra AI",

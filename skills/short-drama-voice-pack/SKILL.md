@@ -65,17 +65,20 @@ Clone a role voice only when the user asks:
    (`{"capability": "audio_voice_isolation"}`) and confirm a separate paid
    `beatra.audio.process` (`operation: "isolate_voice"`, `source`, `4.6` s–`5`
    min, `<= 100` MB) line before cloning.
-3. Upload a clean `10` s–`5` min (`<= 20` MiB) single-speaker sample via
-   `scripts/mcp_client.py upload "<file>" --mime-type <type>`, then call
-   `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` to match
-   one of the three live clone routes (fast `model: "auto"`, 10-language
-   dialogue/speech-to-speech route, or free-trial training + paid activation
-   precision clone).
+3. Upload a clean single-speaker sample within the length and size limits on the `voice_clone` card via
+   `scripts/mcp_client.py upload "<file>" --mime-type <type>`, then select the
+   clone model as described in [Speech, voices, cloning, and audio
+   finishing](references/speech-and-audio.md) §5. When a cloned voice will
+   speak in a native multi-character dialogue scene, select the clone card that
+   states multi-speaker dialogue; a role voiced only in per-line clips keeps
+   the default. When a role needs expressive delivery, select the clone card
+   that states it and lists the role's language.
 4. Show the Clone production card (route `voice_clone`, tool
    `beatra.voices.clone`, live price, provisional estimate, distinct
    `client_request_id`, stop/insufficient-balance terms — never require
-   `wallet.get` before quoting). Submit `beatra.voices.clone` once and poll
+   `wallet.get` before quoting). Submit `beatra.voices.clone` once, handle any
+   refusal per [Billing, errors, and
+   recovery](references/billing-errors-and-recovery.md), and poll
    `beatra.tasks.get`:
 
 ```json
@@ -88,15 +91,11 @@ Clone a role voice only when the user asks:
 }
 ```
 
-5. **Mandatory Confirmation #2 (`beatra.voices.activate`)**: if
-   `beatra.voices.clone` returns `status: "pending_activation"`, show the
-   returned `activation.quote` (`confirm_credits` / `price_credits`, terms, and
-   `24`-hour `confirmation_token`) on its own Activation card and wait before
-   calling `beatra.voices.activate` with `voice_id`, `confirm_credits`,
-   `confirmation_token`, and a fresh `client_request_id` (if expired, refresh
-   free with `voice_id` + `client_request_id` omitting `confirmation_token`;
-   never charge when `status` is already `"ready"`). Freeze the activated
-   role's `voice_id`.
+5. **Mandatory Confirmation #2 (`beatra.voices.activate`)**: When a clone
+   result or a listed voice has status `pending_activation`, follow §5 Step E of
+   [Speech, voices, cloning, and audio
+   finishing](references/speech-and-audio.md) before using the voice. Freeze
+   the role's `voice_id` once the voice is ready.
 6. **Mandatory Confirmation #3 (`beatra.voices.delete`)**: removing a role
    clone runs in two steps — call once with `voice_id` only first (`confirmation_token`
    omitted), show `paid_slot_warning`, `irreversible_notice`, and 15-minute
@@ -173,7 +172,9 @@ new ID. If `task_id` is lost, check `beatra.tasks.list` and `beatra.tasks.get`
 before any resend. Cancel only at the user's request. On `409`, keep polling
 the same task. On `insufficient_balance`, keep the top-up URL inside the
 balance error exact and retry the same frozen ID only after the user says they
-have topped up.
+have topped up. If the refusal names another way forward, present it too and
+follow [Billing, errors, and
+recovery](references/billing-errors-and-recovery.md).
 
 ## Account balance
 

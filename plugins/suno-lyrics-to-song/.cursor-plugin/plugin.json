@@ -2,7 +2,7 @@
   "name": "suno-lyrics-to-song",
   "displayName": "Lyrics to Song",
   "description": "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal direction.",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": {
     "name": "Beatra AI"
   },

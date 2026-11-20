@@ -160,6 +160,14 @@ fill the gap with another tool or service.
   account has it (the `tools` command lists it). Each of these steps is paid and
   has its own card. Follow
   [music editing and audio](references/music-editing-and-audio.md).
+- For a singer that carries across songs, or songs in the user's own voice, use
+  `beatra.music.personas.list`, `beatra.music.personas.create_from_song`,
+  `beatra.music.personas.enroll_voice`, and `beatra.music.personas.verify_voice`
+  when this account has them (the `tools` command lists them). Each paid step
+  has its own card. When the user asks for a song in their own voice, use the
+  singer already made from their voice; if there is none, create one first.
+  Follow [music](references/music.md) and
+  [music editing and audio](references/music-editing-and-audio.md).
 - To trim, loop, fade, set loudness, convert the format, split a song into stems,
   or isolate a voice, use `beatra.audio.process` when this account has it (the
   `tools` command lists it). Each of these steps is paid and has its own card,
@@ -197,14 +205,15 @@ fill the gap with another tool or service.
     speech-to-speech performance transfer (1 s – 5 min,
     `supports_speech_to_speech=true`), use `beatra.speech.convert`.
   - Before `beatra.voices.clone`, optionally propose paid `isolate_voice`
-    cleanup for noisy samples, obtain explicit owner consent
-    (`consent_attested: true`), query `{"capability": "voice_clone", "include_activation_required": true}`
-    to choose among the 3 capability routes strictly by capability, show the
-    production card, and — when `status="pending_activation"` returns — obtain
-    explicit approval of the activation quote and terms before calling
-    `beatra.voices.activate`. Follow
-    [speech and voices](references/speech-and-voices.md) and
-    [speech and audio](references/speech-and-audio.md).
+    cleanup for noisy samples and obtain explicit owner consent
+    (`consent_attested: true`). Select the clone model as described in
+    [speech and audio](references/speech-and-audio.md) §5, show the production
+    card with the live clone price, submit once, and handle any refusal per
+    [billing, errors, and recovery](references/billing-errors-and-recovery.md).
+    When a clone result or a listed voice has status `pending_activation`,
+    follow §5 Step E of [speech and audio](references/speech-and-audio.md)
+    before using the voice. Follow
+    [speech and voices](references/speech-and-voices.md).
 - When model selection, compatibility, supported controls, or an estimate
   matters for image, video, music, or speech, copy an exact
   `{"capability":"..."}` payload from [models](references/models.md) and treat
@@ -257,7 +266,7 @@ the 100 MB general ceiling and any lower limit returned for the selected model.
 Ordinary media upload has no generic rights-attestation step. A sample for
 `beatra.voices.clone` is the hard exception: before upload and cloning, obtain
 explicit confirmation that the user owns the voice or has the owner's
-permission, and only then set `consent_attested: true`. Saving a presenter
+permission, and only then set `consent_attested: true`; a singing recording for `beatra.music.personas.enroll_voice` must be the user's own voice, confirmed the same way. Saving a presenter
 image via `beatra.avatars.save` also requires explicit user agreement and
 portrait consent (`consent_attested: true`, `consent_subject`: `"self"` or
 `"authorized_other"`). See [uploads](references/uploads.md).
@@ -283,14 +292,18 @@ Creative planning, authorization, upload preparation, voice browsing/audition,
 voice metadata updates, two-step voice deletion, saved avatar list/save, speech
 and dialogue preflight validation (`beatra.speech.validate`,
 `beatra.speech.validate_dialogue`), model discovery, public social tool search
-and inspection, recent-task listing, credit-balance and ledger reads, and
-tokenless `beatra.voices.activate` activation re-quotes (`voice_id` +
-`client_request_id`, omitting `confirmation_token`) are non-billable. Image,
-video, music (including every `beatra.music.edit` and `beatra.audio.process`
-step), speech, Smart Voice Director (`beatra.speech.prepare_script`), native
+and inspection, recent-task listing, credit-balance and ledger reads, saved
+singer listing (`beatra.music.personas.list`), and the verification phrase
+from `beatra.music.personas.enroll_voice` are non-billable.
+Image, video, music
+(including every
+`beatra.music.edit` and `beatra.audio.process` step,
+`beatra.music.personas.create_from_song`, and
+`beatra.music.personas.verify_voice`), speech, Smart Voice Director
+(`beatra.speech.prepare_script`), native
 dialogue (`beatra.speech.synthesize_dialogue`), speech conversion
 (`beatra.speech.convert`), voice cloning, clone activation
-(`beatra.voices.activate` with `confirmation_token` and `confirm_credits`),
+(`beatra.voices.activate`),
 transcription (`beatra.audio.transcribe`), sound effects
 (`beatra.audio.generate_sfx`), video composition (`beatra.videos.compose`),
 video-prompt-enhancement, and public social execute consume credits and return
@@ -313,9 +326,10 @@ authorize
 `beatra.videos.edit`, `beatra.videos.extend`, `beatra.videos.compose`,
 `beatra.voices.clone`, `beatra.voices.activate`, `beatra.speech.prepare_script`,
 `beatra.speech.synthesize_dialogue`, `beatra.speech.convert`,
-`beatra.audio.transcribe`, `beatra.audio.generate_sfx`, `beatra.music.edit`, or
-`beatra.audio.process`. Before any of those paid calls, show the production card
-and wait for the user's answer:
+`beatra.audio.transcribe`, `beatra.audio.generate_sfx`, `beatra.music.edit`,
+`beatra.music.personas.create_from_song`, `beatra.music.personas.verify_voice`,
+or `beatra.audio.process`. Before any of those paid calls, show the production
+card and wait for the user's answer:
 
 1. Work — what will be made, in the user's own words, and what kind of step
    makes it (an image, a video clip, a song, a join).
@@ -444,7 +458,7 @@ and the third only when something needs diagnosis or recovery.
 - Video route selection, controls, and request patterns: [videos](references/videos.md), [video controls](references/video-controls.md), and [video recipes](references/video-recipes.md)
 - Songs, instrumentals, references, and music delivery: [music](references/music.md); revising, finishing, or splitting a song: [music editing and audio](references/music-editing-and-audio.md)
 - Narration, dialogue, voice discovery/audition/management, and consent-gated voice cloning: [speech and voices](references/speech-and-voices.md)
-- Speech, Smart Voice Director, dialogue, 3 cloning routes, speech conversion, transcription, sound effects, and audio finishing: [speech and audio](references/speech-and-audio.md)
+- Speech, Smart Voice Director, dialogue, voice cloning, speech conversion, transcription, sound effects, and audio finishing: [speech and audio](references/speech-and-audio.md)
 - Local image, video, or audio preparation: [uploads](references/uploads.md)
 - Current model compatibility, controls, and estimates: [models](references/models.md)
 

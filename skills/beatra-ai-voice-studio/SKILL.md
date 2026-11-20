@@ -7,8 +7,8 @@ description: "Use Beatra AI Voice Studio as an AI voice generator, text-to-speec
 
 Choose the smallest voice or audio workflow that delivers the user's goal:
 single voiceover, Smart Voice Director pacing, multi-speaker dialogue,
-speech-to-speech conversion, ordered long-form or multilingual tracks, three-route
-voice cloning and slot lifecycle, speech transcription, sound effects, stem
+speech-to-speech conversion, ordered long-form or multilingual tracks, voice
+cloning and its lifecycle, speech transcription, sound effects, stem
 separation, voice isolation, or broadcast loudness normalization. Keep this
 flagship Studio as the coordinating hub across mixed audio workflows.
 
@@ -166,23 +166,23 @@ finishing or processing step free.
     `dimensions` param on `models.list`; read `pricing[].dimensions.stem_mode`),
     `<= 10 min`, `<= 100 MB`, `20` calls/day.
 
-## Three-route cloning and mandatory confirmations
+## Voice cloning and mandatory confirmations
 
 1. **Mandatory Confirmation 1 (`beatra.voices.clone`)**: confirm plain consent
-   before any sample upload; inspect live
-   `{"capability": "voice_clone", "include_activation_required": true}` cards
-   without vendor names or internal IDs (fast everyday `auto` ready at once;
-   10-language expressive ready at once; or two-step trial-then-activate ending
-   in `pending_activation`); offer paid `isolate_voice` pre-clean if noisy;
-   approve the six-field card before `voices.clone`. Spoken proof is always a
-   separate validated TTS workflow.
-2. **Mandatory Confirmation 2 (`beatra.voices.activate`)**: when
-   `status == "pending_activation"`, inspect returned `activation.quote` (or
-   tokenless re-quote passing BOTH `voice_id` and `client_request_id` without
-   `confirmation_token`), present the six-field activation card, wait for
-   explicit confirmation, then submit `confirmation_token`, `confirm_credits`,
-   and `client_request_id`. On 24-hour expiry (`price_confirmation_required`),
-   re-quote free before re-confirming.
+   before any sample upload and offer paid `isolate_voice` pre-clean if the
+   sample is noisy. Select the clone model as described in
+   [Speech and audio guide](references/speech-and-audio.md) §5. When the
+   cloned voice will speak in multi-speaker dialogue, be the target of
+   speech-to-speech conversion, or carry expressive reads, select the clone card
+   that states it and lists the job's language; other work keeps the default. Then show the
+   production card with the live clone price; after the user approves it,
+   submit once and handle any refusal per
+   [Billing, errors, and recovery](references/billing-errors-and-recovery.md).
+   Spoken proof is always a separate validated TTS workflow.
+2. **Mandatory Confirmation 2 (`beatra.voices.activate`)**: when a clone result
+   or a listed voice has status `pending_activation`, follow §5 Step E of
+   [Speech and audio guide](references/speech-and-audio.md) before using the
+   voice.
 3. **Mandatory Confirmation 3 (`beatra.voices.delete`)**: confirm explicit
    intent first, call tokenless `{"voice_id": "..."}`, relay Beatra's warning
    verbatim with `confirmation_token`, and execute only on explicit final
@@ -204,16 +204,17 @@ when asked about balance/fit and `beatra.wallet.ledger` when asked what was
 charged; relay `top_up` tiers in returned order verbatim. On
 `insufficient_balance`, relay Beatra's message and exact `topup_url` verbatim,
 stop until the user confirms topping up, and replay the identical payload with
-the same `client_request_id`. Recover lost task IDs via paginated
-`beatra.tasks.list` (`next_cursor`) plus `beatra.tasks.get`; any changed text,
-voice, language, model, or control requires a new card, approval, and
-`client_request_id`.
+the same `client_request_id`. If the refusal names another way forward, present
+it too and follow [Billing, errors, and recovery](references/billing-errors-and-recovery.md).
+Recover lost task IDs via paginated `beatra.tasks.list` (`next_cursor`) plus
+`beatra.tasks.get`; any changed text, voice, language, model, or control
+requires a new card, approval, and `client_request_id`.
 
 ## References by task
 
 - Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
   limits, exact tool field contracts (`audio` vs `source`, `subtitle_enable` vs
-  `subtitles`), 3 cloning routes, and 6-field production cards.
+  `subtitles`), clone model choice, and 6-field production cards.
 - Read [intent and routing](references/intent-and-routing.md) for the routing
   matrix, minimum inputs, free planning, and confirmation boundaries.
 - Read [voice casting and delivery](references/voice-casting-and-delivery.md)
@@ -223,7 +224,7 @@ voice, language, model, or control requires a new card, approval, and
 - Read [long-form and multilingual production](references/long-form-and-multilingual.md)
   for route ledgers, pilots, ordered batches, and interruption recovery.
 - Read [voice cloning and review](references/voice-cloning-and-review.md) for
-  consent, `isolate_voice` pre-clean, 3-route cloning, `voices.activate`,
+  consent, `isolate_voice` pre-clean, clone model choice, `voices.activate`,
   `voices.update`, `voices.delete`, and separate spoken proof.
 - Read [bundled MCP Client diagnostics](references/mcp-connection.md) only for
   bundled-client verification and transport troubleshooting.

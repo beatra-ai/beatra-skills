@@ -37,16 +37,14 @@ requests a concrete model. A concrete model is never silently replaced. Before
 `beatra.videos.generate`, `beatra.videos.animate`,
 `beatra.videos.interpolate`, `beatra.videos.generate_from_references`,
 `beatra.videos.edit`, or `beatra.videos.extend`, show the admission card:
-route, tool, duration, resolution, aspect, provisional estimate, the fact that
-the signup gift usually cannot start this video, and what happens
-if the balance is short. Planning, comparison, or “make the clip” is not
-approval. Do not create `client_request_id` or submit until the user confirms
-they have topped up or already have enough credits for this estimate. Any
-change to the model, media, instruction, prompt, resolution, ratio, duration,
-or optional control creates a new logical request, a new admission card, and a
-new `client_request_id`. On `insufficient_balance`, relay the returned
-message, keep the URL exact, and retry the same frozen ID only after the user
-says they have topped up.
+route, tool, duration, resolution, aspect, provisional estimate, and what
+happens if the balance is short. Planning, comparison, or “make the clip” is
+not approval. Do not create `client_request_id` or submit until the user
+approves the card. Any change to the model, media, instruction, prompt,
+resolution, ratio, duration, or optional control creates a new logical request,
+a new admission card, and a new `client_request_id`. On `insufficient_balance`,
+relay the returned message, keep the URL exact, and retry the same frozen ID
+only after the user says they have topped up.
 
 When a create call is rejected, preserve the complete structured error. Use `param` to
 locate the field and `details.candidate_failures[].code` to distinguish resolution,

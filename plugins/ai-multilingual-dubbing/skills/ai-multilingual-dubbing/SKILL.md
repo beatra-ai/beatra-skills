@@ -62,16 +62,17 @@ and audition free with `preview_url` or `beatra.voices.preview`
   background noise or music, offer paid pre-cleaning first via
   `beatra.audio.process` (`operation: "isolate_voice"`, **`source`** field,
   4.6 s–5 min, <= 100 MB, checked via `{"capability": "audio_voice_isolation"}`).
-  Inspect
-  `beatra.models.list({"capability": "voice_clone", "include_activation_required": true})`
-  and choose by capability only—never
-  mention upstream vendor names or internal IDs. Use immediate-ready routes
-  (`auto` or expressive multilingual) directly here; if the user picks a
-  two-step trial-then-activate route (`pending_activation`) or wants to edit or
-  delete slots (`voices.activate`, `voices.update`, `voices.delete`), verify
-  `scripts/mcp_client.py tools` and hand that slot lifecycle step to
-  `voice-cloning-studio` or `beatra-ai-voice-studio`. Show the six-field clone
-  card before calling `voices.clone`.
+  Select the clone model as described in [speech and audio
+  guide](references/speech-and-audio.md) §5. When the cloned voice will be the
+  target of speech-to-speech conversion, select the `voice_clone` model card that states it.
+  Then show the six-field clone card with the live clone price, describing the clone by what it does for the dub and naming no model ID or provider; after the user
+  approves it, submit once and handle any refusal per [billing, errors, and
+  recovery](references/billing-errors-and-recovery.md). When a clone result or a
+  listed voice has status `pending_activation`, follow §5 Step E of [speech and
+  audio guide](references/speech-and-audio.md) before using the voice. When the user
+  wants to edit or delete a cloned voice (`voices.update`, `voices.delete`),
+  verify `scripts/mcp_client.py tools` and hand that step to
+  `voice-cloning-studio` or `beatra-ai-voice-studio`.
 - **Speech-to-speech delivery transfer (`beatra.speech.convert`)**: when
   preserving source delivery timing and cadence across a target voice, confirm
   rights to transform the source recording, check
@@ -129,7 +130,9 @@ when asked about balance/fit and `beatra.wallet.ledger` when asked what was
 charged; relay `top_up` tiers in returned order verbatim. On
 `insufficient_balance`, relay Beatra's message and exact `topup_url` verbatim,
 wait until the user confirms topping up, and replay the exact frozen payload
-with the same `client_request_id`.
+with the same `client_request_id`. If the refusal names another way forward,
+present it too and follow [billing, errors, and
+recovery](references/billing-errors-and-recovery.md).
 
 If a task ID is lost, paginate `beatra.tasks.list` across `next_cursor` and
 inspect candidates via `beatra.tasks.get`. Any changed text, voice, language,
@@ -141,7 +144,7 @@ unless verified. See [recovery and delivery](references/recovery-and-delivery.md
 
 ## References by task
 
-- Cross-tool limits, 3-route cloning, Smart Voice Director, and field truth: [speech and audio guide](references/speech-and-audio.md)
+- Cross-tool limits, voice cloning, Smart Voice Director, and field truth: [speech and audio guide](references/speech-and-audio.md)
 - Matrix, segmentation, casting, defaults, and pilots: [matrix design](references/matrix-design.md)
 - Source transcription draft rules, STS, subtitle/loudness finishing, and quality: [locale readiness and quality](references/locale-readiness-and-quality.md)
 - Exact retry, cancellation, terminal results, and delivery: [recovery and delivery](references/recovery-and-delivery.md)

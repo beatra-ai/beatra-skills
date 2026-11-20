@@ -74,7 +74,7 @@ python3 scripts/mcp_client.py call beatra.models.list
 {"capability": "text_to_speech"}
 ```
 
-Also query `{"capability": "voice_clone", "include_activation_required": true}`,
+Also query `{"capability": "voice_clone"}`,
 `{"capability": "speech_script"}`, or `{"capability": "audio_process"}` when
 those capabilities are selected. Never quote remembered credit figures; when a
 card carries a `top_up` block, relay its tiers in returned order verbatim.
@@ -193,19 +193,18 @@ whose task ends `failed` or `canceled` (see Narration payload). Report
 progress as the slides finish. On `insufficient_balance` stop the loop at
 once: nothing else is submitted, the finished slides stay recorded, relay
 that error's message and URL, and after the user says they topped up, `next`
-resumes exactly where it stopped.
+resumes exactly where it stopped. If the refusal names another way forward,
+present it too and follow [Billing, errors, and
+recovery](billing-errors-and-recovery.md).
 
 ## The teacher's own voice
 
 When the teacher wants their own voice from the start, clone it before the
 first slides so nothing is narrated twice. Consent first: the teacher says the
 sample is their own voice, or that the speaker authorized this use. A suitable
-sample is currently about 10 to 300 seconds, no larger than 20 MiB, clean
-single-speaker speech. Query
-`{"capability": "voice_clone", "include_activation_required": true}` without
-exposing upstream vendor names or internal model IDs; use an immediate-ready
-route (`auto` or expressive multilingual) directly here, or hand noisy-sample
-`isolate_voice`, two-step `pending_activation` (`voices.activate`), and slot
+sample is clean single-speaker speech within the length and size limits on
+the `voice_clone` card. Select the clone model as described in [speech and audio
+guide](speech-and-audio.md) §5; hand noisy-sample `isolate_voice` and voice
 deletion (`voices.delete`) cleanly to `voice-cloning-studio` /
 `beatra-ai-voice-studio` (`scripts/mcp_client.py tools` is authoritative). Upload
 only after consent:
@@ -214,7 +213,9 @@ only after consent:
 python3 scripts/mcp_client.py upload ./teacher-sample.wav --mime-type audio/wav
 ```
 
-Show the clone card, then submit `beatra.voices.clone` once:
+Show the clone card with the live clone price, submit `beatra.voices.clone`
+once, and handle any refusal per [Billing, errors, and
+recovery](billing-errors-and-recovery.md):
 
 ```json
 {
@@ -226,8 +227,10 @@ Show the clone card, then submit `beatra.voices.clone` once:
 }
 ```
 
-Poll to terminal, save the final result to `tasks/clone.json`, and write the
-returned `voice_id` into `voice.voice_id`. Every slide already narrated with
+Poll to terminal and save the final result to `tasks/clone.json`. When a clone
+result or a listed voice has status `pending_activation`, follow §5 Step E of
+[speech and audio guide](speech-and-audio.md) before using the voice. Then write
+the returned `voice_id` into `voice.voice_id`. Every slide already narrated with
 another voice then goes back in `next` with a new ID, and `plan` refuses it
 until it is narrated again, so the whole deck ends up in one voice. Tell the
 teacher and put those slides on the next card.

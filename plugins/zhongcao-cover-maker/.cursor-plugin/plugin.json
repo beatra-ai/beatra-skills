@@ -2,7 +2,7 @@
   "name": "zhongcao-cover-maker",
   "displayName": "小红书封面制作",
   "description": "Turn a photo or a topic idea into a scroll-stopping vertical 3:4 Xiaohongshu cover with clean backgrounds, bold focal composition, and text-safe areas for beauty, food, fashion, and lifestyle notes.",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "author": {
     "name": "Beatra AI"
   },

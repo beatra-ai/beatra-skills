@@ -29,7 +29,10 @@ At the studio entrance, split first: original song, cover, gift song, or
 instrumental BGM. This package defaults to an original song. Route a cover or
 re-arrangement of an existing recording to `ai-song-cover-studio`, a gift or
 occasion song to `personalized-song-maker`, and pure instrumental BGM to
-`short-video-bgm-studio`.
+`short-video-bgm-studio`. When the user asks for a song in their own voice,
+use the singer already made from their voice (see "Saved singers" in
+[music editing and audio](references/music-editing-and-audio.md)); if there is
+none, create one first ("A singer from the user's own voice").
 
 Reuse every settled choice in the conversation. Infer ordinary creative details
 from the destination when that is safe. The hard inputs are a theme or lyrics

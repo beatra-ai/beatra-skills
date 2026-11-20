@@ -38,7 +38,10 @@ opening frame, keeps its own card.
 8. Keep within `concurrent_task_limit`. Send the next call when one finishes.
 9. The first `insufficient_balance` stops the whole job. Report which items
    finished and which did not, and relay the returned message in the user's
-   language with its top-up URL unchanged.
+   language with its top-up URL unchanged. If the message names another way
+   forward, present it too, as [Billing, errors, and recovery](billing-errors-and-recovery.md)
+   describes.
 10. Resume only the unfinished items after the user says they have topped up,
     without a new card. A refused item keeps its `client_request_id` and
-    arguments.
+    arguments. An item the user replaced by choosing the other way forward is
+    not resumed.

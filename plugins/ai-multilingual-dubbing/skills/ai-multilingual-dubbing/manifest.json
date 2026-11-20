@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds speech transcription with timestamps, speech-to-speech voice conversion, noisy sample voice isolation, three-route custom voice cloning, Smart Voice Director pacing, preflight script checks and voice auditions, aligned SRT/VTT captions, and broadcast loudness normalization across languages.",
+  "changelog": "Voice cloning now matches the voice model to your project, including speech conversion and expressive reads.",
   "display_name": "AI Multilingual Dubbing",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-multilingual-dubbing",
@@ -75,5 +75,5 @@
   },
   "name": "ai-multilingual-dubbing",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

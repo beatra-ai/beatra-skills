@@ -58,20 +58,28 @@ synthesis price, call `beatra.models.list`:
 {"capability": "text_to_speech"}
 ```
 
-Before quoting a clone price, inspect capability options without upstream
-vendor names or internal IDs:
+Before quoting a clone price, call `beatra.models.list`:
 
 ```json
-{"capability": "voice_clone", "include_activation_required": true}
+{"capability": "voice_clone"}
 ```
 
-Use immediate-ready cloning (`auto` or expressive multilingual) via
-`voice.mjs clone-submit --consent` here; route noisy-sample `isolate_voice`,
-two-step `pending_activation` activation (`voices.activate`), or deletion
-(`voices.delete`) to `voice-cloning-studio` / `beatra-ai-voice-studio`
-(`scripts/mcp_client.py tools` is authoritative). Never quote a remembered
-number. `voice.mjs estimate` prints character counts only; it is not the live
-credit figure.
+Select the clone model as described in [the speech and audio
+guide](speech-and-audio.md) §5 (the guarded `voice.mjs clone-submit --consent`
+subcommand submits `model: "auto"`, the default), show the clone card with the
+live clone price, submit once, and handle any refusal per [billing, errors, and
+recovery](billing-errors-and-recovery.md). When a refused clone's message offers
+a free clone preview and the user chooses it, call `beatra.voices.clone` once through
+`scripts/mcp_client.py` with the same sample, `display_name`,
+`consent_attested: true`, `preview_first: true` and a new `client_request_id`;
+then follow §5 Step E of [the speech and audio guide](speech-and-audio.md)
+before using the voice. When a clone result or a listed voice has status
+`pending_activation`, follow §5 Step E of [the speech and audio
+guide](speech-and-audio.md) before using the voice. Route noisy-sample
+`isolate_voice` or deletion (`voices.delete`) to `voice-cloning-studio` /
+`beatra-ai-voice-studio` (`scripts/mcp_client.py tools` is authoritative). Never
+quote a remembered number. `voice.mjs estimate` prints character counts only; it
+is not the live credit figure.
 
 For broadcast volume consistency (e.g. `-14 LUFS`) before muxing
 `voice/narration.mp3`, inspect `{"capability": "audio_process"}`, approve its

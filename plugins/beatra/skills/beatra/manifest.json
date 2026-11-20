@@ -1,5 +1,5 @@
 {
-  "changelog": "Videos built from several clips, narration, or music now arrive as one finished file, with music made to the video's length and one set of subtitles for the whole video.",
+  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue, speech conversion and expressive reads. Create a singer from your own singing voice and use it in new songs.",
   "display_name": "Beatra",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/install",
@@ -95,5 +95,5 @@
     "billable": false,
     "tool": "beatra.tasks.list"
   },
-  "version": "3.0.3"
+  "version": "3.0.4"
 }

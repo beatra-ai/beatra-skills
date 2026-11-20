@@ -1,47 +1,31 @@
 # Clone execution and recovery
 
-## Discover all three cloning capability routes
+## Select the clone model
 
-Query `beatra.models.list` with `include_activation_required: true`:
+Select the clone model as described in
+[Speech, voices, cloning, and audio finishing](speech-and-audio.md) §5.
 
-```bash
-python3 scripts/mcp_client.py call beatra.models.list
-```
-
-```json
-{"capability": "voice_clone", "include_activation_required": true}
-```
-
-Never name upstream providers or expose internal model IDs. Explain routes by
-their live capabilities:
-
-1. **Fast everyday clone (`model: "auto"`):** Immediate `status: "ready"`,
-   supports optional `prompt` (`sample` < 8 s + verbatim `text`) and profile
-   metadata (`gender`, `age_group`, `use_case`, `persona`).
-2. **10-language expressive, dialogue, and speech-to-speech clone:** Chosen
-   from the live `{"capability": "voice_clone"}` cards when the user needs
-   10-language expressive output, `supports_dialogue: true`, or
-   `supports_speech_to_speech: true` (`beatra.speech.convert`). Immediate
-   `status: "ready"`.
-3. **Free-trial training + paid activation precision clone:** Surfaced when
-   `include_activation_required: true`. Creates `status: "pending_activation"`
-   so the user can preview the trained voice before deciding whether to confirm
-   and pay for permanent activation via `beatra.voices.activate`.
+Never name upstream providers or expose internal model IDs; describe the choice
+by what it does for the job. When the cloned voice will speak in multi-speaker
+dialogue, be the target of speech-to-speech conversion, or carry expressive
+reads, select the clone card that states it and lists the job's language;
+other work keeps the default.
 
 Use live pricing metadata (`meter`, `unit`, `billing_basis`, `unit_price_credits`,
-`scale`, `estimate_formula`, or activation quote fields). Never hardcode credit
+`scale`, `estimate_formula`, or activation price fields). Never hardcode credit
 numbers, treat promotional balances as guaranteed sufficient, or quote remembered prices.
 
 ## Freeze and approve one six-field clone card
 
 Before creating `client_request_id` or submitting `beatra.voices.clone`, show
-the six-field production card:
+the six-field production card with the live clone price:
 
-1. **Work:** chosen cloning capability route, `beatra.voices.clone`, sample
-   reference, `display_name`, and optional profile metadata.
-2. **Credits:** live `beatra.models.list` estimate (or free-trial training +
-   activation quote terms for route 3). Keep `beatra.wallet.get` optional for
-   balance Q&A; never require balance pre-confirmation as a mandatory gate.
+1. **Work:** the voice being cloned, described by what the selected clone does
+   for the job (no model ID), `beatra.voices.clone`, sample reference,
+   `display_name`, and optional profile metadata.
+2. **Credits:** live `beatra.models.list` estimate. Keep `beatra.wallet.get`
+   optional for balance Q&A; never require balance pre-confirmation as a
+   mandatory gate.
 3. **Count:** one cloning request (`quantity: 1`).
 4. **Identity:** fresh opaque local `client_request_id` minted once final.
 5. **If stop:** state what free work remains usable at zero extra charge (consent
@@ -56,8 +40,9 @@ after seeing live pricing.
 
 ## Submit one exact request
 
-After approval, create one new, opaque, locally stored `client_request_id` and
-invoke `beatra.voices.clone`:
+After approval, create one new, opaque, locally stored `client_request_id`,
+invoke `beatra.voices.clone` once, and handle any refusal per
+[Billing, errors, and recovery](billing-errors-and-recovery.md):
 
 ```bash
 python3 scripts/mcp_client.py call beatra.voices.clone
@@ -78,19 +63,12 @@ Include optional `prompt`, `gender`, `age_group`, `use_case`, or `persona` only
 when agreed in the card; omit unknown `language`. Store the returned `task_id`
 immediately and poll with `beatra.tasks.get`.
 
-## Mandatory confirmation: Activate a pending trial clone (`beatra.voices.activate`)
+## Mandatory confirmation: Activate a pending clone (`beatra.voices.activate`)
 
-If `beatra.voices.clone` returns `status: "pending_activation"`:
-
-1. Read embedded `activation.quote` (`price_credits` / `confirm_credits`, terms,
-   `preview_url`, and 24-hour `confirmation_token` expiry). If expired
-   (`price_confirmation_required`) or missing, call `beatra.voices.activate` with
-   `voice_id` and a `client_request_id` (**omit `confirmation_token`**) for a
-   **free** refreshed quote and token.
-2. Present the quote and terms to the user and wait for explicit approval of both
-   the credit amount and terms.
-3. Call `beatra.voices.activate` with `voice_id`, `confirmation_token`,
-   `confirm_credits`, and a fresh `client_request_id`:
+When a clone result or a listed voice has status `pending_activation`, follow §5
+Step E of [Speech, voices, cloning, and audio finishing](speech-and-audio.md)
+before using the voice. After the user approves the live activation price, a
+single activation call takes this shape:
 
 ```bash
 python3 scripts/mcp_client.py call beatra.voices.activate
@@ -99,18 +77,14 @@ python3 scripts/mcp_client.py call beatra.voices.activate
 ```json
 {
   "voice_id": "voice_...",
-  "confirmation_token": "tok_...",
-  "confirm_credits": 1,
   "client_request_id": "new-local-activate-id"
 }
 ```
 
-(Pass the exact live quoted `confirm_credits`, never a remembered figure.)
-
 ## Mandatory confirmation: Two-step permanent deletion (`beatra.voices.delete`)
 
-Deleting a voice permanently removes it (`deleted: true` cannot be reversed) and
-relinquishes an active cloned voice slot:
+Deleting a cloned voice permanently removes it (`deleted: true` cannot be
+reversed; using that voice again means cloning it again):
 
 1. Call `beatra.voices.delete` with `voice_id` only (**omit `confirmation_token`**).
 2. Present `voice`, `paid_slot_warning`, `irreversible_notice`, and the 15-minute

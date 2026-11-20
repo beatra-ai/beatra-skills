@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds Smart Voice Director script direction, preflight script validation and voice auditions, voice metadata updates, aligned SRT/VTT subtitles, noisy sample voice isolation, and broadcast loudness normalization.",
+  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
   "display_name": "Voiceover & Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
@@ -80,5 +80,5 @@
   },
   "name": "voiceover-narration-studio",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

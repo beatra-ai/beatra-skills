@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds 11-dimension voice filtering and voice audition before generation, optional Smart Voice Director pacing and pronunciation cues, pre-synthesis duration checks, aligned JSON, SRT, and VTT subtitles included with speech synthesis, and optional background music trimming, fade, and loudness normalization.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Spoken Seeding Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/oral-seeding-video-maker",
@@ -76,5 +76,5 @@
   },
   "name": "oral-seeding-video-maker",
   "schema_version": 1,
-  "version": "0.3.2"
+  "version": "0.3.3"
 }

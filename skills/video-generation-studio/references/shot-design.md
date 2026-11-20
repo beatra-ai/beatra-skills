@@ -51,4 +51,4 @@ Seek a decision before:
 - changing the number of paid clips or stages;
 - altering a frozen payload after approval.
 
-Shot planning and critique are free. A request to make the clip is not approval. Video confirmation is the admission card plus top-up or sufficient-credit confirmation, immediately before the frozen paid video stage. A keyframe image card is a separate earlier stop and does not authorize video.
+Shot planning and critique are free. A request to make the clip is not approval. Video confirmation is the admission card and the user's approval of it, immediately before the frozen paid video stage. A keyframe image card is a separate earlier stop and does not authorize video.

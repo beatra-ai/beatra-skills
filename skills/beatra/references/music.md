@@ -112,3 +112,23 @@ and size when returned, in plain words. Report the credits charged in plain
 words; keep artifact IDs, MIME strings, and the resolved model in your notes
 unless the user asks. Do not claim to have reviewed composition, vocals, pronunciation, or
 mix when the host cannot play the audio.
+
+## Singers
+
+Four tools carry one singer across songs. They exist only when the bundled
+client's `tools` command lists them.
+
+- `beatra.music.personas.list` lists the singers saved on this account with
+  their `persona_id` values.
+- `beatra.music.personas.create_from_song` saves the singer of a song Beatra
+  generated as a reusable singer (paid, on its own card).
+- `beatra.music.personas.enroll_voice` takes the user's own a cappella recording
+  and returns the verification phrase the user records (free).
+- `beatra.music.personas.verify_voice` checks the user's recording of that
+  phrase and activates a singer in the user's own voice (paid, on its own card).
+
+When the user asks for a song in their own voice, use the singer already made
+from their voice (see "Saved singers" in
+[music editing and audio](music-editing-and-audio.md)); if there is none,
+create one first ("A singer from the user's own voice"). Those sections also
+cover how a singer's `persona_id` reaches `beatra.music.generate`.

@@ -38,40 +38,40 @@ Unless the user or show profile requires another supported setting, use
 
 Use `beatra.voices.clone` only when the user wants a custom host or guest voice:
 
-1. **Sample noise clean (paid)**: if the recording has music, street noise, or
-   room echo, propose **paid** `beatra.audio.process`
-   (`operation="isolate_voice"`, `source`, `{"capability": "audio_voice_isolation"}`,
-   `4.6 s – 5 min`, `<= 100 MB`, default `wav`) on its own card before cloning.
-2. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
+1. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
    confirmation in this conversation that the user owns the voice or holds
    permission to clone it before uploading with
    `scripts/mcp_client.py upload`. Access to a file or public video is never
    consent.
-3. **Query 3 routes live**: call `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` — fast
-   `auto` clone (`status="ready"` immediately), 10-language expressive/dialogue/
-   S2S clone (`supports_dialogue=true`), or free-trial precision training
-   (`status="pending_activation"`).
+2. **Sample noise clean (paid)**: if the recording has music, street noise, or
+   room echo, propose **paid** `beatra.audio.process`
+   (`operation="isolate_voice"`, `source`, `{"capability": "audio_voice_isolation"}`,
+   `4.6 s – 5 min`, `<= 100 MB`, default `wav`) on its own card before cloning.
+3. **Clone model choice**: select the clone model as described in
+   [speech, voices, cloning, and audio finishing](speech-and-audio.md) §5. When
+   a cloned voice will speak in a two-host or guest dialogue scene, select the
+   clone card that states multi-speaker dialogue; a solo episode keeps the
+   default. Then show the production card with the live clone price; after the
+   user approves it, submit once and handle any refusal per
+   [billing, errors, and recovery](billing-errors-and-recovery.md).
 4. **Confirmation #2 — Activation (`beatra.voices.activate`)**: when a clone
-   returns `status="pending_activation"`, show the live activation quote
-   (`activation.quote`, or refresh free with `voice_id` and `client_request_id`
-   omitting `confirmation_token`), obtain explicit approval of credits and terms,
-   then call `beatra.voices.activate` with `voice_id`, `confirmation_token`
-   (24-hour expiry), `confirm_credits`, and a fresh `client_request_id`.
+   result or a listed voice has status `pending_activation`, follow §5 Step E of
+   [speech, voices, cloning, and audio finishing](speech-and-audio.md) before
+   using the voice.
 5. **Confirmation #3 — Two-step deletion (`beatra.voices.delete`)**: deleting a
-   clone permanently forfeits its slot. First call `beatra.voices.delete` with
-   `voice_id` only, present `paid_slot_warning`, `irreversible_notice`, and
-   `token_expires_at` (`15` min), wait for explicit confirmation, then submit
-   step 2 with `voice_id` and `confirmation_token`.
+   clone is permanent, and using that voice again means cloning it again. First
+   call `beatra.voices.delete` with `voice_id` only, present `paid_slot_warning`,
+   `irreversible_notice`, and `token_expires_at` (`15` min), wait for explicit
+   confirmation, then submit step 2 with `voice_id` and `confirmation_token`.
 
 ## Free preflight, weighted characters, and Smart Voice Director
 
 Planning, script drafting, voice listing, voice previews, model discovery,
-`beatra.speech.validate`, `beatra.speech.validate_dialogue`, `voices.delete`
-step 1, and tokenless `voices.activate` quote refresh cost **zero credits**.
+`beatra.speech.validate`, `beatra.speech.validate_dialogue`, and `voices.delete`
+step 1 cost **zero credits**.
 `beatra.speech.prepare_script`, `beatra.speech.synthesize`,
 `beatra.speech.synthesize_dialogue`, `beatra.voices.clone`,
-`beatra.voices.activate` (with `confirmation_token` + `confirm_credits`),
+`beatra.voices.activate`,
 `beatra.music.generate`, `beatra.audio.generate_sfx`, and `beatra.audio.process`
 are **paid** and must never be described as free.
 
@@ -216,10 +216,12 @@ candidates with `beatra.tasks.get`; never claim a remote task proved a local ID.
   replayed under the same `client_request_id`. Any parameter change requires a
   new card and new ID. Never auto-retry paid steps.
 - `insufficient_balance`: relay official message + verbatim `topup_url`, wait
-  until user confirms top-up, then replay identical payload + ID.
-- `voice_pending_activation` / `price_confirmation_required`: fetch or refresh
-  24-hour quote via `beatra.voices.activate` (`voice_id` + `client_request_id`,
-  omitting `confirmation_token`), confirm credits/terms, then activate.
+  until user confirms top-up, then replay identical payload + ID. If the refusal
+  names another way forward, present it too and follow
+  [billing, errors, and recovery](billing-errors-and-recovery.md).
+- `voice_pending_activation`: activate per §5 Step E of the speech guide (live
+  price on the card, then one `beatra.voices.activate` call after the user
+  approves).
 - `voice_model_incompatible` / `voice_not_found` / dialogue bounds exceeded: run
   `beatra.speech.validate_dialogue`, keep `supports_dialogue=true` voices, split
   the scene as the refusal message says, or fall back to segmented

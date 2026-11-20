@@ -90,12 +90,17 @@ free `beatra.speech.validate` before `beatra.speech.synthesize`.
 2. If noisy, clean first via paid `beatra.audio.process`
    (`operation: "isolate_voice"`, `source`, `4.6` s–`5` min, `<= 100` MB,
    `{"capability":"audio_voice_isolation"}`).
-3. Query `beatra.models.list` with
-   `{"capability":"voice_clone","include_activation_required":true}`, confirm
-   the Clone card (never gate behind `wallet.get` or remembered credit figures),
-   and submit `beatra.voices.clone` once.
-4. If `status == "pending_activation"`, show `activation.quote` and confirm
-   before calling `beatra.voices.activate` (`24` h token; free tokenless
-   refresh). Never charge when already `status == "ready"`.
+3. Select the clone model as described in [Speech, voices, cloning, and audio
+   finishing](speech-and-audio.md) §5: when a cloned voice will speak in a
+   native multi-character dialogue scene, select the clone card that states
+   multi-speaker dialogue; a role voiced only in per-line clips keeps the
+   default; when a role needs expressive delivery, select the clone card that
+   states it and lists the role's language. Then confirm the Clone card with the
+   live clone price (never gate behind `wallet.get` or remembered credit figures),
+   submit `beatra.voices.clone` once, and handle any refusal per [Billing,
+   errors, and recovery](billing-errors-and-recovery.md).
+4. When a clone result or a listed voice has status `pending_activation`,
+   follow §5 Step E of [Speech, voices, cloning, and audio
+   finishing](speech-and-audio.md) before using the voice.
 5. Voice removal requires two-step `beatra.voices.delete` (`voice_id` only
    first for warning + 15-minute token, then step 2).

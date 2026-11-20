@@ -1,5 +1,5 @@
 {
-  "changelog": "Supports Smart Voice Director script preparation, preflight speech duration checks, 11-dimension voice search and auditions, noisy-sample voice isolation, three cloning paths including trial-then-activate precision cloning, profile editing, safe voice removal, speech-to-speech voice conversion, speech transcription, aligned SRT/VTT subtitles, and loudness normalization.",
+  "changelog": "Voice cloning now matches the voice model to your project, including speech conversion and expressive reads.",
   "display_name": "AI Voice Cloning Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voice-cloning-studio",
@@ -71,5 +71,5 @@
   },
   "name": "voice-cloning-studio",
   "schema_version": 1,
-  "version": "0.3.2"
+  "version": "0.3.3"
 }

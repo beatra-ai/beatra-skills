@@ -1,5 +1,5 @@
 {
-  "changelog": "Song edits and audio touch-ups such as trims, loops and fades are now each laid out as their own step.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Suno Lyrics to Song",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/suno-lyrics-to-song",
@@ -74,5 +74,5 @@
   },
   "name": "suno-lyrics-to-song",
   "schema_version": 1,
-  "version": "0.3.3"
+  "version": "0.3.4"
 }

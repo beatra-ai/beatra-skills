@@ -5,7 +5,7 @@ description: "Clone one voice you own and keep using it for a series of episodes
 
 # Voice Clone Series Studio
 
-Create one authorized reusable voice (or freeze an existing slot), manage its
+Create one authorized reusable voice (or freeze an existing voice), manage its
 metadata and lifecycle safely, and synthesize every recurring episode at steady
 broadcast loudness in that same voice. The clone is the setup. The series
 ledger is the product.
@@ -34,8 +34,7 @@ The hard inputs are:
 - the first or next episode script, or permission to prepare a speakable version
   and show it before paid work.
 
-Check live `voice_clone` constraints from `beatra.models.list` (typical single-speaker
-sample: roughly 10–300 s, up to 20 MiB). Use restrained defaults
+Check live `voice_clone` constraints from `beatra.models.list`. Use restrained defaults
 (`model: "auto"`, `format: "mp3"`, `speed: 1.0`, `volume: 1.0`, `pitch: 0`),
 preserve original simplified/traditional characters and dialect wording, and
 never hand-strip `/` markers or invent custom bracketed vocal-effect tags. Reuse the saved
@@ -53,13 +52,13 @@ own production card and `client_request_id`—never part of clone approval.
      `supports_direction`, `supports_performance_tags`, `supports_dialogue`,
      `supports_speech_to_speech`) and audition free with `preview_url` or
      `beatra.voices.preview` (`{"voice_id": "..."}`) before jumping to episodes.
-   - Never pass a display name in `voice`. If retiring an older series slot, run
+   - Never pass a display name in `voice`. If retiring an older series voice, run
      **Mandatory Confirmation 3 (`beatra.voices.delete`)**: confirm explicit user
      intent, request a tokenless check with `voice_id`, relay the warning verbatim
      with `confirmation_token`, and only submit the permanent deletion after
      explicit confirmation.
-2. **Pre-clean noisy samples & inspect three cloning capability routes** (when
-   creating a new series clone):
+2. **Pre-clean noisy samples & select the clone model** (when creating a new
+   series clone):
    - Confirm explicit speaker consent BEFORE uploading via
      `python3 scripts/mcp_client.py upload ./voice-sample.wav --mime-type audio/wav`.
    - If background noise or music hurts clarity, offer paid pre-clean using
@@ -67,33 +66,26 @@ own production card and `client_request_id`—never part of clone approval.
      4.6 s–5 min, <= 100 MB), priced live from
      `beatra.models.list` (`{"capability": "audio_voice_isolation"}`) on its own
      six-field production card before calling `isolate_voice`.
-   - Query `beatra.models.list` with
-     `{"capability": "voice_clone", "include_activation_required": true}` and
-     choose solely by capabilities (never vendor names or internal IDs):
-     - **Fast everyday cloning (`auto`)**: fast creation, broad languages,
-       immediately `ready`.
-     - **Expressive multilingual cloning**: richer emotional range across major
-       languages, immediately `ready`.
-     - **Two-step trial-then-activate cloning**: low-cost trial voice in
-       `pending_activation` that lets the series audition before locking in
-       permanent activation.
+   - Select the clone model as described in
+     [Speech and audio guide](references/speech-and-audio.md) §5. Never name
+     vendors or internal IDs.
    - Show the six-field production card (Route & Model, Exact Scope,
      Price & Basis, Duration / Quantity, Pay Mode & Call Count, and If stop
-     naming free assets kept at zero extra charge) before creating a clone
-     `client_request_id` or calling `beatra.voices.clone` (**Mandatory
-     Confirmation 1**). Never hardcode credit numbers, never ask the user to
-     confirm they have enough credits, and never offer a free clone.
-3. **Activate trial clones & pin series defaults**:
-   - Submit `beatra.voices.clone` once with `consent_attested: true` and poll
-     `beatra.tasks.get`. If `status == "ready"`, move on.
-   - If `status == "pending_activation"`, follow **Mandatory Confirmation 2
-     (`beatra.voices.activate`)**: inspect the returned `activation.quote` (or
-     fetch a fresh quote via `beatra.voices.activate` passing `voice_id` and a
-     `client_request_id` without `confirmation_token`), show its six-field
-     activation card, obtain explicit confirmation, then submit
-     `confirmation_token`, `confirm_credits` matching the quote, and
-     `client_request_id`. On 24-hour expiry (`price_confirmation_required`),
-     re-quote free before re-asking.
+     naming free assets kept at zero extra charge) with the live clone price
+     before creating a clone `client_request_id` or calling
+     `beatra.voices.clone` (**Mandatory Confirmation 1**). Never hardcode credit
+     numbers and never ask the user to confirm they have enough credits. Offer the
+     free clone preview only when the user asks to hear the voice before paying, or
+     when a paid clone is refused and the refusal offers it.
+3. **Activate a pending clone & pin series defaults**:
+   - After the user approves the card, submit `beatra.voices.clone` once with
+     `consent_attested: true`, handle any refusal per
+     [Billing, errors, and recovery](references/billing-errors-and-recovery.md),
+     and poll `beatra.tasks.get`. If `status == "ready"`, move on.
+   - When a clone result or a listed voice has status `pending_activation`
+     (**Mandatory Confirmation 2**), follow §5 Step E of
+     [Speech and audio guide](references/speech-and-audio.md) before using the
+     voice.
    - Once ready, use non-billable `beatra.voices.update` (`voice_id`,
      `display_name`, `persona`, `use_case`, `make_default: true`) so future
      episodes stay pinned to this host voice cleanly.
@@ -131,8 +123,8 @@ configure or call a host Beatra Connector. Never use REST/OpenAPI as a fallback.
 
 ## Decisions that require confirmation
 
-Speaker consent + six-field card for `voices.clone`, two-step `voices.activate`
-token + `confirm_credits`, two-step `voices.delete` token, Smart Voice Director
+Speaker consent + six-field card for `voices.clone`, the live activation price
+for `voices.activate`, two-step `voices.delete` token, Smart Voice Director
 `prepare_script` cards, noisy sample `isolate_voice` cards, episode synthesis
 block lists, and `normalize_loudness` finishing cards all require explicit
 approval. Any changed sample, voice, text, model, or target LUFS is new paid
@@ -148,14 +140,17 @@ verbatim in returned order without ranking or picking one.
 
 On `insufficient_balance`, relay Beatra's official message and exact `topup_url`
 verbatim, pause until the user says they have topped up, and replay the exact
-frozen payload with the same `client_request_id`. Recover lost tasks through
-paginated `beatra.tasks.list` (`next_cursor`) plus `beatra.tasks.get`; never
-resubmit a changed payload under an old `client_request_id`.
+frozen payload with the same `client_request_id`. If the refusal names another
+way forward, present it too and follow
+[Billing, errors, and recovery](references/billing-errors-and-recovery.md).
+Recover lost tasks through paginated `beatra.tasks.list` (`next_cursor`) plus
+`beatra.tasks.get`; never resubmit a changed payload under an old
+`client_request_id`.
 
 ## References by task
 
 - Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
-  limits, 3 cloning routes, Smart Voice Director, and mandatory confirmations.
+  limits, clone model choice, Smart Voice Director, and mandatory confirmations.
 - Read [Series voice workflow](references/workflow.md) for series ledger fields,
   JSON payloads for `isolate_voice`, `voices.clone`, `voices.activate`,
   `prepare_script`, `validate`, `synthesize`, and `normalize_loudness`.

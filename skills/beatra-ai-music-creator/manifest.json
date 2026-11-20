@@ -1,5 +1,5 @@
 {
-  "changelog": "Looping a bed to a longer length is now planned with the bed when you ask for both together.",
+  "changelog": "Create a singer from your own singing voice and use it in new songs.",
   "display_name": "AI Music Creator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-music-creator",
@@ -75,5 +75,5 @@
   },
   "name": "beatra-ai-music-creator",
   "schema_version": 1,
-  "version": "1.4.9"
+  "version": "1.5.0"
 }

@@ -134,23 +134,25 @@ Terminal usage and billing are the final truth.
 Use `beatra.voices.clone` only when the user explicitly confirms ownership or
 permission for the sample:
 
-1. **Noisy sample check (paid)**: if music, noise, or echo is present, propose
-   paid `beatra.audio.process` (`operation="isolate_voice"`, `source`,
-   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`,
-   default `wav`) on its own card before cloning.
-2. **Confirmation #1 — Consent**: confirm ownership or speaker permission in the
+1. **Confirmation #1 — Consent**: confirm ownership or speaker permission in the
    current conversation before running
    `python3 scripts/mcp_client.py upload <path> --mime-type <type>`. Possession
    is never consent.
-3. **Query 3 clone routes & present six-field clone card**: call
-   `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` to inspect
-   fast `auto` immediate clone, 10-language expressive/dialogue/S2S clone
-   (`supports_dialogue=true`), or free-trial precision training
-   (`status="pending_activation"`). Show the six-field clone card (Work, live
-   Credits, Count, Identity, If we stop here, If balance short — do not make
-   `wallet.get` a mandatory gate or ask user to confirm sufficient credits), then
-   set `consent_attested: true` and call `beatra.voices.clone` once:
+2. **Noisy sample check (paid)**: if music, noise, or echo is present, propose
+   paid `beatra.audio.process` (`operation="isolate_voice"`, `source`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`,
+   default `wav`) on its own card before cloning.
+3. **Select the clone model & present the six-field clone card**: select the
+   clone model as described in
+   [speech, voices, cloning, and audio finishing](speech-and-audio.md) §5. When a
+   role speaks in a multi-character dialogue scene or needs expressive delivery,
+   select the clone card that states it; otherwise keep the default. Show the
+   six-field clone card with the live clone price (Work, live Credits, Count,
+   Identity, If we stop here, If balance short — do not make `wallet.get` a
+   mandatory gate or ask user to confirm sufficient credits). After the user
+   approves it, set `consent_attested: true`, call `beatra.voices.clone` once,
+   and handle any refusal per
+   [billing, errors, and recovery](billing-errors-and-recovery.md):
 
    ```json
    {
@@ -161,14 +163,11 @@ permission for the sample:
    }
    ```
 
-4. **Poll and check status**: poll `beatra.tasks.get`. Only if `status="ready"`
-   immediately is it ready to cast; if `status="pending_activation"`, execute
-   **Confirmation #2 (`beatra.voices.activate`)** by presenting `activation.quote`
-   (or calling tokenless `beatra.voices.activate` with `voice_id` +
-   `client_request_id` omitting `confirmation_token` for a free refreshed 24h
-   quote), waiting for explicit credit/terms approval, and calling
-   `beatra.voices.activate` (`voice_id`, `confirmation_token`, `confirm_credits`,
-   fresh `client_request_id`).
+4. **Poll and check status**: poll `beatra.tasks.get`. A voice with
+   `status="ready"` is ready to cast. When a clone result or a listed voice has
+   status `pending_activation`, follow §5 Step E of
+   [speech, voices, cloning, and audio finishing](speech-and-audio.md) before
+   using the voice (**Confirmation #2**, `beatra.voices.activate`).
 5. **Confirmation #3 — Two-step deletion (`beatra.voices.delete`)**: first call
    `beatra.voices.delete` with `voice_id` only, show `paid_slot_warning`,
    `irreversible_notice`, and 15-minute `token_expires_at`, wait for approval,
@@ -186,7 +185,9 @@ and terminal result. `queued` and `running` mean wait via `beatra.tasks.get`.
   every `next_cursor`) and verify candidates with `beatra.tasks.get`. Stop if
   ambiguous or if `client_request_id` itself is lost.
 - `insufficient_balance`: relay official message + verbatim `topup_url`, wait
-  for user top-up confirmation, then replay identical payload + ID.
+  for user top-up confirmation, then replay identical payload + ID. If the
+  refusal names another way forward, present it too and follow
+  [billing, errors, and recovery](billing-errors-and-recovery.md).
 - `voice_model_incompatible` / `voice_not_found` / dialogue bounds exceeded: run
   `beatra.speech.validate_dialogue`, keep `<= 10` `supports_dialogue=true`
   voices (`<= 4` clones), chunk `<= 2,000` chars per scene, or fall back to

@@ -2,7 +2,7 @@
   "name": "wechat-cover-maker",
   "displayName": "公众号封面生成",
   "description": "Turn an article title, topic, or reference image into a WeChat Official Account cover, article hero image, post cover, or supporting article visual with headline-safe space and focused refinement.",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": {
     "name": "Beatra AI"
   },

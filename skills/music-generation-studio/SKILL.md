@@ -19,7 +19,10 @@ Lock genre, structure, and vocal or instrumental route before generation. A
 “surprise me” random song is not this package's default. Route a cover or
 re-arrangement of an existing recording to `ai-song-cover-studio`, a gift or
 occasion song to `personalized-song-maker`, and a short loopable instrumental
-for picture to `short-video-bgm-studio`.
+for picture to `short-video-bgm-studio`. When the user asks for a song in their
+own voice, use the singer already made from their voice (see "Saved singers" in
+[music editing and audio](references/music-editing-and-audio.md)); if there is
+none, create one first ("A singer from the user's own voice").
 
 The hard inputs are a theme or lyrics plus the intended use. Ask only for the
 one of those that is missing. When both are there, propose the genre, vocal

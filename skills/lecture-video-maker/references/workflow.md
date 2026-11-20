@@ -129,8 +129,7 @@ for free without a production card, and call `beatra.wallet.get` /
 charges (never as a mandatory pre-submit gate).
 
 The initial signup gift covers a pilot of about three minutes of slides
-and voice. Cloning a voice and on-camera clips usually need a top-up; say so
-on their cards. When a card carries a `top_up` block, relay its tiers as
+and voice. When a card carries a `top_up` block, relay its tiers as
 listed.
 
 ## Narration payload
@@ -257,14 +256,11 @@ resumes exactly where it stopped.
 
 ## The teacher's own voice
 
-Before any sample upload or `consent_attested: true`, confirm all three voice
-safety gates with the user: (1) explicit ownership or rightsholder permission
-and attestation against impersonation or fraud (access to a file or public video
-is not consent), (2) any live clone activation fee/quote awareness if a route
-surfaces `pending_activation`, and (3) permanent voice-slot usage and the
-irreversible two-step warning if a voice is later deleted. A suitable sample is
-10 to 300 seconds, no larger than 20 MB, clean single-speaker speech (checked
-against the live `voice_clone` card). If the recording has background noise or
+Before any sample upload or `consent_attested: true`, confirm explicit ownership
+or rightsholder authorization and attestation against impersonation or fraud (a
+file in hand, a public recording, or a public figure's footage is not consent).
+A suitable sample is clean single-speaker speech. Sample length and size limits
+come from the live `voice_clone` card. If the recording has background noise or
 level swings, clean it first under its own paid card via `beatra.audio.process`:
 `isolate_voice` (`{"capability": "audio_voice_isolation"}`, **paid**, `4.6 s –
 5 min`, `<= 100 MB`), and match clip or lesson levels with `normalize_loudness`
@@ -275,7 +271,11 @@ output `>= 1 s`, max **50 calls/day**, run one at a time). Upload the clean samp
 python3 scripts/mcp_client.py upload ./teacher-sample.wav --mime-type audio/wav
 ```
 
-Show the clone card, then submit `beatra.voices.clone` once:
+Select the clone model as described in [Speech, Voices, and Audio
+Processing](speech-and-audio.md) §5 (`"model": "auto"` is the default), show the
+clone card with the live clone price, submit `beatra.voices.clone` once, and
+handle any refusal per [Billing, errors, and
+recovery](billing-errors-and-recovery.md):
 
 ```json
 {
@@ -287,9 +287,11 @@ Show the clone card, then submit `beatra.voices.clone` once:
 }
 ```
 
-Poll to terminal, audition the ready voice for free with
-`beatra.voices.preview` (and tune saved metadata/defaults for free with
-`beatra.voices.update`), then write the returned `voice_id` into
+Poll to terminal. When a clone result or a listed voice has status
+`pending_activation`, follow §5 Step E of [Speech, Voices, and Audio
+Processing](speech-and-audio.md) before using the voice. Audition the ready
+voice for free with `beatra.voices.preview` (and tune saved metadata/defaults
+for free with `beatra.voices.update`), then write the returned `voice_id` into
 `voice.voice_id`. Every
 page already narrated with another voice then goes back in `next` with a new
 ID, and `plan` refuses it until it is narrated again, so the whole course

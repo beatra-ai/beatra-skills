@@ -25,14 +25,16 @@ quoting price. Confirm the pack estimate, then submit each line once. A
 revision is one line.
 
 Optional character clones require consent first. Access to a file is not
-consent. A suitable sample is currently about 10 to 300 seconds, no
-larger than 20 MiB, and clean single-speaker speech. Only after consent,
+consent. A suitable sample is clean single-speaker speech within the
+length and size limits on the `voice_clone` card. Only after consent,
 upload a local sample through the bundled client. Show the clone
 admission card before creating a clone request ID: route `voice_clone`,
-tool `beatra.voices.clone`, live price for one successful activated
-voice, the provisional estimate, the 600-credit gift usually cannot
-start this clone, and what happens if the balance is short. Do not
-create `client_request_id` until the user confirms they have topped up
-or already have enough credits. Submit `beatra.voices.clone` exactly
-once with `consent_attested: true`. Poll with `beatra.tasks.get` until
-terminal, then freeze that character's `voice_id`.
+tool `beatra.voices.clone`, live price for one successful clone, the
+provisional estimate, and what happens if the balance is short. Create the
+clone's `client_request_id` only after the user approves this card, then submit
+`beatra.voices.clone` exactly once with `consent_attested: true` and handle any
+refusal per [Billing, errors, and recovery](billing-errors-and-recovery.md).
+Poll with `beatra.tasks.get` until terminal, then freeze that character's
+`voice_id`. If the result has status `pending_activation`, present the preview
+and the live activation price, and call `beatra.voices.activate` once after the
+user agrees.

@@ -24,12 +24,12 @@ python3 scripts/mcp_client.py call beatra.models.list
 ```
 
 ```json
-{"capability": "voice_clone", "include_activation_required": true}
+{"capability": "voice_clone"}
 ```
 
 Clean, natural, single-speaker speech without music, background noise, or heavy
-echo works best; honor each route's duration and byte bounds from the live card
-(for voice isolation pre-clean via `beatra.audio.process`, `4.6 s – 5 min` and
+echo works best; honor the selected clone card's duration and byte bounds (for
+voice isolation pre-clean via `beatra.audio.process`, `4.6 s – 5 min` and
 `<= 100 MB`). If the host cannot inspect or play the sample, state honestly
 that listening verification was not performed and let the user decide whether
 to run paid voice isolation or supply a known-clean recording.

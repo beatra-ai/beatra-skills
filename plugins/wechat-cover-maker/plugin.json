@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "wechat-cover-maker",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Turn an article title, topic, or reference image into a WeChat Official Account cover, article hero image, post cover, or supporting article visual with headline-safe space and focused refinement.",
   "author": {
     "name": "Beatra AI",

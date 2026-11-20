@@ -64,7 +64,7 @@ Treat each shot as a separate output and select its route independently. A usefu
 - must-keeps and continuity anchors;
 - paid request count and execution order.
 
-A text-led shot with no usable still still needs its gift-sized prompt or keyframe card first. One combined confirmation of the plan does not authorize any video stage. Each generate, animate, interpolate, reference, edit, or extend call still needs its own admission card and top-up or balance confirmation. Every stage still receives its own stable request ID. Run dependencies in order and review each delivered artifact before it becomes a downstream source. If the artifact changes a later shot's payload or makes it unsuitable, pause and show a new admission card for the revised stage.
+A text-led shot with no usable still still needs its gift-sized prompt or keyframe card first. One combined confirmation of the plan does not authorize any video stage. Each generate, animate, interpolate, reference, edit, or extend call still needs its own admission card and approval. Every stage still receives its own stable request ID. Run dependencies in order and review each delivered artifact before it becomes a downstream source. If the artifact changes a later shot's payload or makes it unsuitable, pause and show a new admission card for the revised stage.
 
 Deliver the outputs as separate clips. A returned last-frame artifact can anchor a following animate request when the current model supports `return_last_frame`, but that improves visual continuity rather than assembling a timeline. Do not claim transitions, captions, narration, music, or one completed long video unless the corresponding delivered artifacts and separate assembly workflow actually exist.
 

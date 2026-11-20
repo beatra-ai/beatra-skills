@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "suno-lyrics-to-song",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Turn complete lyrics, rough drafts, loose lines, or a hook into a structured Suno song with custom lyrics, clear sections, style, mood, arrangement, and vocal direction.",
   "author": {
     "name": "Beatra AI",

@@ -14,13 +14,12 @@ and keep mixed, recurring, or audio-finished voiceover jobs here:
 | Full audiobook or chaptered long-form manuscript | `ai-audiobook-narration` |
 | Single-host podcast episode | `ai-podcast-voiceover` |
 | Supplied multi-language scripts for localization | `ai-multilingual-dubbing` |
-| Standalone cloning, trial-first activation (`pending_activation`), or deleting a voice slot | `voice-cloning-studio` |
+| Standalone cloning or deleting a voice | `voice-cloning-studio` |
 | Multi-speaker dialogue, speech conversion, transcription, SFX, or stem separation | `beatra-ai-voice-studio` |
-| Combined cloning (`ready` route) + narration, noisy sample `isolate_voice`, `prepare_script`, `voices.update`, or `normalize_loudness` | Stay in `voiceover-narration-studio` |
+| Combined cloning + narration, noisy sample `isolate_voice`, `prepare_script`, `voices.update`, or `normalize_loudness` | Stay in `voiceover-narration-studio` |
 
 Never pretend an unlisted tool exists inside this package. If the user asks to
-activate a `pending_activation` voice or delete an old custom slot and
-`beatra.voices.activate` / `beatra.voices.delete` are absent from
+delete a voice and `beatra.voices.delete` is absent from
 `scripts/mcp_client.py tools`, hand that step off to `voice-cloning-studio` or
 `beatra-ai-voice-studio`.
 

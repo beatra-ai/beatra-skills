@@ -2,7 +2,7 @@
   "name": "ai-image-realism",
   "displayName": "AI Image Realism",
   "description": "Make existing AI portraits, product images, and marketing visuals look more natural by fixing plastic skin, malformed hands and faces, repeated textures, and inconsistent lighting.",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "author": {
     "name": "Beatra AI"
   },

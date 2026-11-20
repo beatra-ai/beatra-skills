@@ -22,6 +22,11 @@ need them, and keep the length as direction in the prompt. Only when the user
 asked for something these steps would deliver, say in one sentence that this
 option is not available yet. Everything else in this Skill works as before.
 
+The singer tools (`beatra.music.personas.list`, `create_from_song`,
+`enroll_voice`, `verify_voice`) exist only when `tools` lists them; when they
+are not listed, skip the steps that call them. `create_persona` in
+`beatra.music.edit` works as before.
+
 ## Prices and confirmation
 
 Read each price from `beatra.models.list` right before the production card,
@@ -39,7 +44,9 @@ with the capability of the step:
 | `music.edit` `deliverable` `kind=wav` | `music_wav` | per task |
 | `audio.process` `separate_stems` | `audio_stem_separation` | per task, by `mode` (below) |
 | `audio.process` `isolate_voice` | `audio_voice_isolation` | per started minute of input |
-| `music.edit` `create_persona` | `music_persona` | per task |
+| `music.edit` `create_persona` (or `beatra.music.personas.create_from_song`) | `music_persona` | per task |
+| `beatra.music.personas.enroll_voice` | `music_voice_enrollment` | free |
+| `beatra.music.personas.verify_voice` | `music_voice_persona` | per task |
 | `music.edit` `deliverable` `kind=cover_image` | `music_cover_image` | per task |
 | `audio.process` `trim`, `loop`, `fade`, `normalize_loudness`, `convert_format` | `audio_process` | per task |
 
@@ -120,19 +127,49 @@ or artifact ID, and `billing.net_charged_credits`.
   artifact), `persona_name`,
   `persona_description` (what the singer sounds like), optionally
   `persona_style`, and optionally a
-  10–30 second vocal window (`vocal_start_ms`, `vocal_end_ms`; default: the
-  first 30 seconds, which can be an intro without singing). Take the window
-  from the song's lyric timing when one exists; otherwise ask the user where
-  the singing starts.
+  10–30 second vocal window (`vocal_start_ms`, `vocal_end_ms`). Without a
+  window, Beatra picks the part where the singer is singing.
 - The result's `persona_id` goes into the next `beatra.music.generate` calls as
-  `persona_id`, so later songs aim for the same singer. The voice stays close,
-  not identical: ask the user to listen across the set. Keep the ID in the
-  conversation.
+  `persona_id`, so later songs aim for the same singer. A singer saved from a
+  song stays close to that song's voice, not identical: ask the user to listen
+  across the set. Keep the ID in the conversation.
 - A persona can be saved only from a track Beatra generated from text: not from
   a cover of uploaded audio, a track made from audio or video `references`, or
   a track built on an uploaded file. Such a source is refused with
   `persona_source_from_upload`.
 - `persona_id` cannot be combined with `references`.
+
+## Saved singers
+
+- `beatra.music.personas.create_from_song` and `beatra.music.edit` with
+  `operation: "create_persona"` are one paid operation; call only one of them.
+- When the user asks for a singer saved in an earlier conversation, call
+  `beatra.music.personas.list` to find it rather than relying on a remembered
+  `persona_id`.
+- Pass `persona_id` only to a `beatra.music.generate` model whose card lists
+  `persona_id` in `controls`.
+
+## A singer from the user's own voice
+
+When the user asks for songs in their own voice, use the singer already made
+from their voice when `beatra.music.personas.list` shows one; otherwise create
+one:
+
+1. Only the user's own singing voice is accepted, not another person's, even
+   with permission. Confirm this before any upload and send
+   `consent_attested: true`.
+2. `beatra.music.personas.enroll_voice` (free) takes the user's a cappella
+   recording and returns a verification phrase. Present the phrase exactly as
+   returned; the user records it in their own voice.
+3. `beatra.music.personas.verify_voice` (paid) activates the singer. Show the
+   production card with the live `music_voice_persona` price first. If
+   verification fails, the charge is refunded: get a new phrase with the same
+   `enrollment_id` and ask the user to record it; each new verification is its
+   own paid submission on a new card. When the result carries a sample song,
+   present it.
+4. Durations, attempt counts and singer limits come from the
+   `music_voice_enrollment` and `music_voice_persona` cards and from each
+   result.
 
 ## Revising a track: `beatra.music.edit`
 

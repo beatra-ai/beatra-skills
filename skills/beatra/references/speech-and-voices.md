@@ -1,6 +1,6 @@
 # Speech, dialogue, voices, cloning, and audio tools
 
-Use this reference alongside [speech and audio](speech-and-audio.md) for spoken narration, Smart Voice Director preparation, native multi-speaker dialogue, voice discovery/audition/management, 3-route voice cloning, speech conversion, transcription, and sound effects.
+Use this reference alongside [speech and audio](speech-and-audio.md) for spoken narration, Smart Voice Director preparation, native multi-speaker dialogue, voice discovery/audition/management, voice cloning, speech conversion, transcription, and sound effects.
 
 ## Voice discovery, audition, updates, and deletion
 
@@ -96,12 +96,9 @@ Possession of an audio file is not consent:
 
 1. **Optional paid cleanup**: if the recording contains noise, echo, or music, confirm credits via `{"capability": "audio_voice_isolation"}` and run `beatra.audio.process` (`operation: "isolate_voice"`, 4.6 s – 5 min, <= 100 MB) on its own card before cloning.
 2. **Mandatory Confirmation #1 (`consent_attested: true`)**: obtain explicit confirmation that the user owns the voice or holds the owner's authorization before uploading or calling `beatra.voices.clone`.
-3. **Discover the 3 capability routes**: query `beatra.models.list` with `{"capability": "voice_clone", "include_activation_required": true}`. Match purely by live capability (never hardcode vendor names or concrete model IDs):
-   - **Fast everyday clone** (`model: "auto"` default): rapid one-step `status="ready"` clone.
-   - **10-language expressive, dialogue & speech-to-speech clone**: capability-matched route supporting 10 languages, `supports_dialogue=true`, and `supports_speech_to_speech=true`.
-   - **Free-trial training + paid activation precision clone**: initially creates a `pending_activation` slot so the user can review before paying to activate.
-4. Show the six-field production card for `beatra.voices.clone` before minting `client_request_id`, then poll with `beatra.tasks.get`.
-5. **Mandatory Confirmation #2 (`beatra.voices.activate`)**: if `beatra.voices.clone` returns `status="pending_activation"`, read the embedded `activation.quote` (`price_credits` / `confirm_credits`, terms, 24-hour `confirmation_token` expiry). If the token is missing or older than 24 hours, call `beatra.voices.activate` with `voice_id` and a `client_request_id` (**omit `confirmation_token`**) for a **free** refreshed quote. Only after the customer explicitly approves both credits and terms, call `beatra.voices.activate` with `voice_id`, `confirmation_token`, `confirm_credits`, and a fresh `client_request_id`, then poll `beatra.tasks.get`.
+3. **Select the clone model** as described in [speech and audio](speech-and-audio.md) §5. The `voice_clone` cards from `beatra.models.list` carry each model's price, constraints, and limits.
+4. Show the six-field production card for `beatra.voices.clone` with the live clone price before minting `client_request_id`, submit once, then poll with `beatra.tasks.get`. Handle any refusal per [billing, errors, and recovery](billing-errors-and-recovery.md).
+5. **Mandatory Confirmation #2 (`beatra.voices.activate`)**: when a clone result or a listed voice has status `pending_activation`, follow §5 Step E of [speech and audio](speech-and-audio.md) before using the voice.
 
 ## Speech conversion, transcription, SFX, and audio finishing
 

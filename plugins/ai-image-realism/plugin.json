@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-image-realism",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Make existing AI portraits, product images, and marketing visuals look more natural by fixing plastic skin, malformed hands and faces, repeated textures, and inconsistent lighting.",
   "author": {
     "name": "Beatra AI",

@@ -106,7 +106,7 @@ gap with another tool or service.
   art, a song video (MP4), a WAV version), use `beatra.music.edit` when this
   account has it (the `tools` command lists it). Each of these steps is paid and
   has its own card. Follow
-  [music editing and audio](references/music-editing-and-audio.md).
+  [music editing and audio](references/music-editing-and-audio.md). When the user asks for a song in their own voice, use the singer already made from their voice, or create one first (see "A singer from the user's own voice" in [music editing and audio](references/music-editing-and-audio.md)).
 - To trim, loop, fade, set loudness, convert the format, split a song into stems,
   or isolate a voice, use `beatra.audio.process` when this account has it (the
   `tools` command lists it). Each of these steps is paid and has its own card. Follow
@@ -124,8 +124,7 @@ gap with another tool or service.
   `speech_script`, `text_to_dialogue`, or `sound_effects`), one paid call, one
   new `client_request_id`, what the user keeps if they stop, and that a short
   balance is relayed with the returned message and its top-up link exactly, then
-  the agent waits. It has no signup-gift line and asks for no balance
-  confirmation.
+  the agent waits.
 - For narration, dialogue, voice auditions, or sound effects: browse candidate
   voices with free `beatra.voices.list` and audition candidates at zero credits
   with `beatra.voices.preview` (`{"voice_id": "..."}`). Without a live result,
@@ -209,11 +208,10 @@ by its own production card above). Before those video or clone calls, show the
 admission card: route and MCP tool name,
 live-card duration, resolution, and aspect (shortest admitted duration and
 lowest admitted resolution unless the user named a higher tier; audio-led and
-extend rules unchanged), provisional live estimate, the fact that the
-signup gift usually cannot start this video or clone, and what
+extend rules unchanged), provisional live estimate, and what
 happens if the balance is short. Planning, comparison, or “make the clip” is
 not approval. Do not create `client_request_id` or submit until the user
-confirms they have topped up or already have enough credits for this estimate.
+approves the card.
 Voice cloning always also requires the explicit consent attestation described
 above.
 
@@ -243,11 +241,13 @@ replacement because a response was lost or a task is still queued or running.
 
 On `insufficient_balance`, relay the returned public message, keep the top-up
 URL inside the balance error exact, translate the rest, and retry the same
-frozen `client_request_id` only after the user says they have topped up. State
-that nothing was charged only when the error says so. Do not invent a top-up
-operation or an account mutation. Use the `topup_url` from `beatra.wallet.get`
-or the URL inside the 402 message. Connection revocation belongs in the Beatra
-Console.
+frozen `client_request_id` only after the user says they have topped up. If the
+refusal names another way forward, present it too and follow
+[billing, errors, and recovery](references/billing-errors-and-recovery.md).
+State that nothing was charged only when the error says so. Do not invent a
+top-up operation or an account mutation. Use the `topup_url` from
+`beatra.wallet.get` or the URL inside the 402 message. Connection revocation
+belongs in the Beatra Console.
 
 ## Deliver returned truth
 

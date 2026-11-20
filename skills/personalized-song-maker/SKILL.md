@@ -9,7 +9,7 @@ Transform a person's story, occasion, and must-include details into original lyr
 
 ## Scope and adjacent routes
 
-The normal route is one story brief, one approved lyric draft, and one finished original song. Route a finished lyric that only needs a song to a lyrics-to-song workflow; a reference song recording that needs reinterpretation to the ai-song-cover-studio workflow; and finished music that needs visuals to the music-video-clip workflow. Keep this route focused on story-to-lyrics-to-song. The broad music creator remains the fallback for mixed or uncertain music requests.
+The normal route is one story brief, one approved lyric draft, and one finished original song. Route a finished lyric that only needs a song to a lyrics-to-song workflow; a reference song recording that needs reinterpretation to the ai-song-cover-studio workflow; and finished music that needs visuals to the music-video-clip workflow. Keep this route focused on story-to-lyrics-to-song. The broad music creator remains the fallback for mixed or uncertain music requests. When the user asks for a song in their own voice, use the singer already made from their voice (see "Saved singers" in [Music editing and audio](references/music-editing-and-audio.md)); if there is none, create one first ("A singer from the user's own voice"). Upload a local recording with `python3 scripts/mcp_client.py upload "<file>" --mime-type <type>`.
 
 ## Inputs and defaults
 

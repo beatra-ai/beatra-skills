@@ -39,6 +39,8 @@ Because `beatra.tasks.list` and `beatra.tasks.get` do not query by
    verify matching jobs with `beatra.tasks.get`.
 3. Replay an identical payload with the same `client_request_id` ONLY when no
    matching job exists or after the user confirms topping up an
-   `insufficient_balance` error (keep Beatra's `topup_url` verbatim).
+   `insufficient_balance` error (keep Beatra's `topup_url` verbatim). If the
+   refusal names another way forward, present it too and follow
+   [Billing, errors, and recovery](billing-errors-and-recovery.md).
 4. Any changed parameter (higher speed, different voice, edited text, new LUFS
    target) requires a fresh card, approval, and new `client_request_id`.

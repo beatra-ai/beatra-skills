@@ -106,7 +106,9 @@ Slides are read, drafted, and assembled on this computer with
    paying to synthesize or animate (`beatra.videos.animate`; each clip gets two cards of its own: its
    narration, then the clip). On `insufficient_balance` at any paid step, stop
    the whole run, relay Beatra's official message and verbatim top-up URL
-   without altering it, and resume only after the user says they topped up.
+   without altering it, and resume only after the user says they topped up. If
+   the refusal names another way forward, present it too and follow
+   [Billing, errors, and recovery](references/billing-errors-and-recovery.md).
 5. **Deliver** the MP4 with its subtitles on screen and its SRT beside it,
    the length, and the summed `billing.net_charged_credits`. The video
    carries the AI badge and metadata. For audio only, deliver the tagged
@@ -124,13 +126,11 @@ Slides are read, drafted, and assembled on this computer with
 - **3 mandatory voice safety rules** (when cloning the teacher's voice):
   (1) obtain explicit user confirmation in the conversation that likeness and
   voice belong to the user/authorized teacher with zero impersonation, fraud,
-  or unlawful use before passing `consent_attested: true`; (2) query
-  `{"capability": "voice_clone"}` to keep immediately `ready` clones (any
-  `pending_activation` voice requires separate quote/token/exact-credit
-  activation approval per [Speech, Voices, and Audio Finishing](references/speech-and-audio.md));
-  (3) cloned voices occupy persistent slots and permanent removal
-  (`voices.delete`) requires two-step `paid_slot_warning` +
-  `irreversible_notice` confirmation.
+  or unlawful use before passing `consent_attested: true`; (2) select the
+  clone model as described in [Speech, Voices, and Audio Finishing](references/speech-and-audio.md)
+  §5 and follow its Step E for any voice with status `pending_activation`;
+  (3) deleting a cloned voice is permanent and requires the two-step
+  `paid_slot_warning` + `irreversible_notice` confirmation.
 - A changed script is new narration for that slide only, on its own card; a
   changed reading applies to the whole lesson and is new narration for every
   narrated slide that contains the term, so run `estimate` first and quote how

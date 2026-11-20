@@ -3,22 +3,22 @@
 Run every recurring series setup, cloning confirmation, episode validation,
 script direction, synthesis, and loudness normalization through this exact order.
 
-## Consent, sample isolation, and 3-route clone admission
+## Consent, sample isolation, and clone admission
 
 1. Obtain explicit spoken or written confirmation that the recording is the user's
    own voice or that the speaker explicitly authorized cloning before running
    `python3 scripts/mcp_client.py upload`. Possession of a file is never consent.
-2. Check live limits via `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}`. Do not
-   expose upstream vendor names or internal model IDs when comparing fast
-   everyday (`auto`), expressive multilingual, and two-step trial-then-activate
-   routes.
-3. If the recording contains room noise or background music, offer paid
+2. If the recording contains room noise or background music, offer paid
    pre-cleaning via `beatra.audio.process` (`operation: "isolate_voice"`, `source`
    field, 4.6 s–5 min, <= 100 MB) priced live from `{"capability": "audio_voice_isolation"}`
    on its own six-field card first.
-4. Show the six-field production card before `beatra.voices.clone` (never
-   hardcoding credit numbers or asking the user to pre-confirm balance):
+3. Select the clone model as described in
+   [Speech and audio guide](speech-and-audio.md) §5. Do not expose upstream
+   vendor names or internal model IDs when describing the choice.
+4. Show the six-field production card with the live clone price before
+   `beatra.voices.clone` (never hardcoding credit numbers or asking the user to
+   pre-confirm balance). After the user approves it, submit once and handle any
+   refusal per [Billing, errors, and recovery](billing-errors-and-recovery.md):
 
 ```json
 {
@@ -30,25 +30,20 @@ script direction, synthesis, and loudness normalization through this exact order
 }
 ```
 
-## Two-step activation, metadata pinning, and retirement
+## Activation, metadata pinning, and retirement
 
-- If `beatra.voices.clone` finishes with `status == "pending_activation"`, show
-  the six-field activation card using `activation.quote` (or fetch a fresh
-  quote by calling `beatra.voices.activate` with `voice_id` and
-  `client_request_id` omitting `confirmation_token`), then submit after
-  explicit confirmation:
+- When a clone result or a listed voice has status `pending_activation`, follow
+  §5 Step E of [Speech and audio guide](speech-and-audio.md) before using the
+  voice. After the user approves the live activation price, call once with a
+  new `client_request_id`:
 
 ```json
 {
   "voice_id": "voice_pending_01",
-  "confirmation_token": "tok_returned_by_quote",
-  "confirm_credits": 1200,
   "client_request_id": "opaque-activate-01"
 }
 ```
 
-  If a quote expires after 24 hours (`price_confirmation_required`), re-quote
-  at zero cost before re-confirming.
 - Once `ready`, pin series identity with non-billable `beatra.voices.update`
   (`voice_id`, `display_name`, `persona`, `use_case`, `make_default: true`).
   Use free `beatra.voices.preview` (`{"voice_id": "..."}`) to audition candidates.

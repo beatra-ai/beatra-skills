@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds voice previews, Smart Voice Director pacing and pronunciation prep, multi-speaker dialogue turns, aligned speech and dialogue subtitles, and standalone or loopable sound effects.",
+  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue and expressive reads. Starting a video or a voice clone takes fewer steps. Create a singer from your own singing voice and use it in new songs.",
   "display_name": "AI Video, Image & Music Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-video-image-music-studio",
@@ -76,5 +76,5 @@
   },
   "name": "ai-video-image-music-studio",
   "schema_version": 1,
-  "version": "0.3.3"
+  "version": "0.3.4"
 }

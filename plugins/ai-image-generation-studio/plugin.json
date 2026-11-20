@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-image-generation-studio",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Generate, compose, and edit product images, brand visuals, posters, social graphics, illustrations, and photo variations.",
   "author": {
     "name": "Beatra AI",

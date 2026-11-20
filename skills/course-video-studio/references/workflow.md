@@ -66,20 +66,20 @@ If cloning a noisy classroom or office recording (`4.6 s - 5 min`, `<= 100 MB`),
 }
 ```
 
-After Mandatory Confirmation #1 (verifiable authorization + anti-impersonation declaration), clone with `consent_attested: true`:
+After Mandatory Confirmation #1 (verifiable authorization + anti-impersonation declaration), select the clone model as described in [Speech, Voices, and Audio Finishing](speech-and-audio.md) §5 (`"model": "auto"` is the default), show the production card with the live clone price, submit once, and handle any refusal per [Billing errors and recovery](billing-errors-and-recovery.md); clone with `consent_attested: true`:
 
 ```json
 {
   "sample": {"type": "artifact", "artifact_id": "<clean_sample_artifact_id>"},
   "display_name": "Instructor Voice",
-  "model": "<selected model from voice_clone card or auto>",
+  "model": "auto",
   "language": "zh-CN",
   "consent_attested": true,
   "client_request_id": "4a1e7b90-8c34-4f21-b9e5-2d6f1a8c3b47"
 }
 ```
 
-Note Mandatory Confirmations #2 and #3: immediately-ready `voice_clone` routes are preferred here since activation/deletion require dedicated flows documented in [Speech, Voices, and Audio Finishing](speech-and-audio.md).
+Note Mandatory Confirmations #2 and #3: when a clone result or a listed voice has status `pending_activation`, follow §5 Step E of [Speech, Voices, and Audio Finishing](speech-and-audio.md) before using the voice; deletion requires its own two-step flow documented there.
 
 ## 3. Smart Voice Director (`prepare_script`, PAID) & Free Clip-Fit Check (`validate`)
 
@@ -160,6 +160,6 @@ Confirm driving audio matches live `image_to_video` limits and submit `beatra.vi
 Explain any error to the customer in plain words without exposing tool names, field names, or raw codes:
 
 - **Segment duration exceeds clip ceiling**: Caught free at `beatra.speech.validate`; split into clean segments before paying.
-- **`insufficient_balance`**: Relay Beatra's official message and exact verbatim top-up URL; wait until customer confirms top-up before retrying with the same `client_request_id`.
+- **`insufficient_balance`**: Relay Beatra's official message and exact verbatim top-up URL; wait until customer confirms top-up before retrying with the same `client_request_id`. If the refusal names another way forward, present it too and follow [Billing errors and recovery](billing-errors-and-recovery.md).
 - **Noisy sample rejected by clone**: Propose paid `isolate_voice` pre-clean before re-cloning.
 - **Transport drop or partial lesson failure**: Check `beatra.tasks.list` first (`idempotency_conflict` / `request_in_progress`: reuse same ID only for identical payload); reuse completed speech/normalized artifacts without re-paying for narration when retrying a failed video animation.

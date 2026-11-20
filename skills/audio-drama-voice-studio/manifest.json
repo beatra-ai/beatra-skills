@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds native multi-speaker dialogue scenes (up to 2,000 characters and 2-50 turns with scene chunking), Smart Voice Director script preparation, voice previews and aligned subtitles, voice cloning with owner-consent safeguards and noisy-sample isolation, sound effects/ambience beds, and loudness/trim/fade finishing.",
+  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue and expressive reads.",
   "display_name": "Audio Drama Voice Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/audio-drama-voice-studio",
@@ -97,5 +97,5 @@
   },
   "name": "audio-drama-voice-studio",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

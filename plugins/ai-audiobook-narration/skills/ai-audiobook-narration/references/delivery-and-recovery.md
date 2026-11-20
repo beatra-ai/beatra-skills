@@ -32,13 +32,14 @@ Only when transport or task creation left the original outcome genuinely
 unknown may the original `client_request_id` be replayed, and only with JSON
 that is identical field for field. On `insufficient_balance`, relay the
 returned message and verbatim `topup_url`, wait until the user confirms top-up,
-and replay the same frozen ID. On `price_confirmation_required` (expired 24h
-activation token), refresh free via `beatra.voices.activate` (`voice_id` +
-`client_request_id`, omitting `confirmation_token`). A text, voice, model,
-language, format, sample-rate, speed, volume, pitch, or emotion change creates
-a new paid request that requires a new ID and explicit confirmation. Slow
-polling, authorization failure, client update failure, or a known terminal
-task never authorizes an automatic retry.
+and replay the same frozen ID. If the refusal names another way forward,
+present it too and follow
+[billing, errors, and recovery](billing-errors-and-recovery.md). A text, voice,
+model, language, format, sample-rate, speed, volume, pitch, or emotion change
+creates a new paid request that
+requires a new ID and explicit confirmation. Slow polling, authorization
+failure, client update failure, or a known terminal task never authorizes an
+automatic retry.
 
 ## Report terminal facts without filling gaps
 

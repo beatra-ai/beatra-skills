@@ -27,16 +27,16 @@ standalone request to the narrower or specialized package when it is available:
 | An audiobook or other ordered long-form narration | `ai-audiobook-narration` |
 | A single-host podcast episode or recurring show | `ai-podcast-voiceover` |
 | Multilingual dubbing with target-language scripts already supplied | `ai-multilingual-dubbing` |
-| Dedicated cloning, trial-first activation, or saved slot deletion | `voice-cloning-studio` |
+| Dedicated cloning or voice deletion | `voice-cloning-studio` |
 | Multi-speaker dialogue, voice conversion, transcription, sound effects, or stem separation | `beatra-ai-voice-studio` |
 | Long narration, multilingual reads, brand cloning, sample isolation, or loudness normalization | Continue here and maintain one production ledger |
 
-This Studio creates speech from approved text, clones authorized voices with
-immediate readiness, pre-cleans noisy clone samples (`isolate_voice`), and runs
-loudness normalization (`normalize_loudness`). It does not make finished video,
+This Studio creates speech from approved text, clones authorized voices,
+pre-cleans noisy clone samples (`isolate_voice`), and runs loudness
+normalization (`normalize_loudness`). It does not make finished video,
 lip-sync speakers, or run operations outside `scripts/mcp_client.py tools`
 (such as multi-speaker dialogue, speech-to-speech conversion, transcription,
-sound effects, stem separation, trial-first activation, or permanent deletion).
+sound effects, stem separation, or voice deletion).
 
 Read [intent and routing](references/intent-and-routing.md) and the shared
 [speech and audio guide](references/speech-and-audio.md) when planning routes or
@@ -129,27 +129,25 @@ Never configure or call a host Beatra Connector. Never use REST/OpenAPI as a
 fallback, never imitate the upload protocol, and never claim a paid step
 (`prepare_script`, `isolate_voice`, `normalize_loudness`) is free.
 
-## Voice cloning routes and consent
-
-Query `beatra.models.list` with `{"capability": "voice_clone", "include_activation_required": true}`
-and explain options by capability rather than vendor names or internal IDs:
-
-- Fast everyday cloning (`auto`) or expressive multilingual cloning creates an
-  immediately `ready` slot suited directly to narration work here.
-- Two-step trial-first cloning creates a `pending_activation` slot requiring
-  separate permanent activation; because `beatra.voices.activate` and
-  `beatra.voices.delete` belong to `voice-cloning-studio` / `beatra-ai-voice-studio`
-  (check `scripts/mcp_client.py tools`), choose an immediate-ready route here
-  or hand off to `voice-cloning-studio` when the user wants a trial-then-activate
-  flow or permanent slot deletion.
+## Voice cloning and consent
 
 Mandatory consent gate before any local sample upload: obtain plain confirmation
 that the audio is the user's own voice or explicitly authorized by the speaker.
 If a sample carries background noise, offer paid pre-cleaning via
 `beatra.audio.process` (`operation: "isolate_voice"`, `source` field, 4.6 s to
-5 min, <= 100 MB, priced against `{"capability": "audio_voice_isolation"}`). Show
-the six-field production card before `voices.clone`, and keep any spoken test
-reading as a separate synthesis card after cloning succeeds.
+5 min, <= 100 MB, priced against `{"capability": "audio_voice_isolation"}`).
+
+Then select the clone model as described in
+[speech and audio guide](references/speech-and-audio.md) §5; never mention
+vendor names or internal IDs. Show the six-field production card with the live
+clone price before `voices.clone`; after the user approves it, submit once and
+handle any refusal per
+[billing, errors, and recovery](references/billing-errors-and-recovery.md).
+
+When a clone result or a listed voice has status `pending_activation`, follow §5
+Step E of [speech and audio guide](references/speech-and-audio.md) before using
+the voice. Keep any spoken test reading as a separate synthesis card after
+cloning succeeds.
 
 ## Recovery and balance rules
 
@@ -162,15 +160,18 @@ ranking or picking one.
 
 On `insufficient_balance`, relay Beatra's official message and exact `topup_url`
 verbatim, stop until the user confirms topping up, and then replay the exact
-frozen payload with the same `client_request_id`. Recover uncertain/lost tasks
-through paginated `beatra.tasks.list` (`next_cursor`) plus `beatra.tasks.get`;
-any changed text, voice, language, model, or finishing parameter requires a new
-card, approval, and `client_request_id`.
+frozen payload with the same `client_request_id`. If the refusal names another
+way forward, present it too and follow
+[billing, errors, and recovery](references/billing-errors-and-recovery.md).
+Recover uncertain/lost tasks through paginated `beatra.tasks.list`
+(`next_cursor`) plus `beatra.tasks.get`; any changed text, voice, language,
+model, or finishing parameter requires a new card, approval, and
+`client_request_id`.
 
 ## References by task
 
 - Read [speech and audio guide](references/speech-and-audio.md) for cross-tool
-  limits, Smart Voice Director payloads, 3-route cloning details, and card rules.
+  limits, Smart Voice Director payloads, clone model choice, and card rules.
 - Read [intent and routing](references/intent-and-routing.md) for the Studio
   matrix, minimum inputs, free planning, and paid pilot boundaries.
 - Read [voice casting and delivery](references/voice-casting-and-delivery.md)

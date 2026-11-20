@@ -20,9 +20,11 @@ charged, call read-only `beatra.wallet.ledger`. Never require `wallet.get`
 before quoting or submitting, and never ask the user to confirm sufficient
 credits. Use the `topup_url` returned inside an `insufficient_balance` error
 (or `wallet.get` if requested), and relay any `top_up` tiers verbatim in
-returned order. Live voice/audio prices come from `beatra.models.list`
+returned order. If the refusal names another way forward, present it too and
+follow [billing, errors, and recovery](billing-errors-and-recovery.md). Live
+voice/audio prices come from `beatra.models.list`
 (`{"capability": "text_to_speech"}`, `"speech_script"`, `"audio_process"`, or
-`{"capability": "voice_clone", "include_activation_required": true}`); lookup
+`{"capability": "voice_clone"}`); lookup
 prices from `beatra.social.tools.get`. Never from ledger rows or remembered numbers.
 
 ## Inputs

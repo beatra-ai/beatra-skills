@@ -2,7 +2,7 @@
   "name": "product-photo-studio",
   "displayName": "AI Product Photography",
   "description": "Transform a real product photo into a studio-quality ecommerce image, lifestyle scene, or marketplace-ready hero shot with clean backgrounds, professional lighting, and composition guided by confirmed product details.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "Beatra AI"
   },

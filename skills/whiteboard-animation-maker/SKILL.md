@@ -166,20 +166,23 @@ output `>= 1 s`, `50` calls/day). Never label finishing free or "loudness
 mastering."
 
 Before cloning, call `beatra.models.list` with
-`{"capability": "voice_clone", "include_activation_required": true}`:
+`{"capability": "voice_clone"}`:
 
 ```json
-{"capability": "voice_clone", "include_activation_required": true}
+{"capability": "voice_clone"}
 ```
 
-Compare routes by capability only—never expose upstream vendor names or internal
-model IDs. Immediate-ready routes (`auto` or expressive multilingual) run
-directly through the guarded `voice.mjs clone-submit --consent` subcommand; if a
-sample needs noisy `isolate_voice` cleanup, trial-first `pending_activation`
-(`voices.activate`), or deletion (`voices.delete`), route that step to
-`voice-cloning-studio` / `beatra-ai-voice-studio` (`scripts/mcp_client.py tools`
-is authoritative). Clone only after plain speaker consent BEFORE sample upload.
-Show the six-field clone card and wait:
+Clone with the default model as [the speech and audio
+guide](references/speech-and-audio.md) §5 describes for narration (the guarded
+`voice.mjs clone-submit --consent` subcommand submits `model: "auto"`, the
+default). When a clone
+result or a listed voice has status `pending_activation`, follow §5 Step E of
+[the speech and audio guide](references/speech-and-audio.md) before using the
+voice. If a sample needs noisy `isolate_voice` cleanup or deletion
+(`voices.delete`), route that step to `voice-cloning-studio` /
+`beatra-ai-voice-studio` (`scripts/mcp_client.py tools` is authoritative). Clone
+only after plain speaker consent BEFORE sample upload. Show the six-field clone
+card with the live clone price and wait:
 
 1. Work — one authorized voice sample (`beatra.voices.clone`).
 2. Credits — the live `voice_clone` price just read. Do not reuse a
@@ -191,6 +194,9 @@ Show the six-field clone card and wait:
 6. If the balance is insufficient — relay the official message and its
    top-up URL exactly. Translate the prose; keep the URL. Do not retry
    until the user says they have topped up.
+
+After the user agrees, submit once and handle any refusal per [billing, errors,
+and recovery](references/billing-errors-and-recovery.md).
 
 Benchmark lookup (`beatra.social.execute`) is a separate card. Show, then
 wait:
@@ -216,7 +222,9 @@ the returned id. Never attach an arbitrary task to the draft.
 
 If the tool returns insufficient credits: give the user the tool message in
 full. Do not change the URL. You may translate the other words. Do not replace
-it with your own top-up copy. Point the user to pay using that message.
+it with your own top-up copy. Point the user to pay using that message. If the
+refusal names another way forward, present it too and follow [billing, errors,
+and recovery](references/billing-errors-and-recovery.md).
 
 ## Account balance
 
@@ -227,7 +235,7 @@ mandatory gate before submitting or ask users to confirm sufficient credits;
 when a model card returns `top_up`, relay tiers verbatim in returned order. Live
 synthesis, script direction, loudness normalization, and clone prices come from
 `beatra.models.list` with `{"capability": "text_to_speech"}`, `"speech_script"`,
-`"audio_process"`, or `{"capability": "voice_clone", "include_activation_required": true}`;
+`"audio_process"`, or `{"capability": "voice_clone"}`;
 lookup prices from `beatra.social.tools.get`. Never quote prices from ledger rows.
 
 ## References by task

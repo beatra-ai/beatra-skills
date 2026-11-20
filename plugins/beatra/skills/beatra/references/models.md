@@ -31,8 +31,7 @@ Map the next tool to `capability`:
 - `beatra.speech.prepare_script` → `speech_script`
 - `beatra.speech.synthesize` → `text_to_speech`
 - `beatra.speech.synthesize_dialogue` → `text_to_dialogue`
-- `beatra.voices.clone` → `voice_clone` (also pass `"include_activation_required": true`
-  when inspecting free-trial training + paid activation cloning)
+- `beatra.voices.clone` → `voice_clone`
 - `beatra.speech.convert` → `speech_to_speech`
 - `beatra.audio.transcribe` → `speech_to_text`
 - `beatra.audio.generate_sfx` → `sound_effects`
@@ -87,10 +86,8 @@ contract remains asynchronous while Beatra performs automatic execution
 routing internally. The exact TTS model card's `constraints.supported_languages` is the source of truth
 for the public BCP-47 `language` field; see [speech and voices](speech-and-voices.md)
 and [speech and audio](speech-and-audio.md). For voice cloning, pass
-`{"capability": "voice_clone", "include_activation_required": true}`: direct
-one-step routes charge on completion, while free-trial training + paid activation
-precision clones create a `pending_activation` voice first and charge only when
-explicitly confirmed and run with `beatra.voices.activate`. Read live rates from
+`{"capability": "voice_clone"}` and select the clone model as described in
+[speech and audio](speech-and-audio.md) §5. Read live rates from
 `beatra.models.list`; do not reuse remembered model or price data.
 
 For a preflight estimate, use the returned price options for the relevant

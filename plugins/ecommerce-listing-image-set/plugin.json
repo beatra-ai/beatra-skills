@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ecommerce-listing-image-set",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Turn verified SKU facts and product photos into a cohesive ecommerce image set with a hero image, feature visuals, lifestyle scenes, size views, and in-box images.",
   "author": {
     "name": "Beatra AI",

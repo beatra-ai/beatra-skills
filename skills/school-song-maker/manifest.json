@@ -1,5 +1,5 @@
 {
-  "changelog": "Extra cover art is now offered as its own step beside the lyric timing files.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "School Song Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/school-song-maker",
@@ -69,5 +69,5 @@
   },
   "name": "school-song-maker",
   "schema_version": 1,
-  "version": "0.1.9"
+  "version": "0.2.0"
 }

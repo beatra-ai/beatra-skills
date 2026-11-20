@@ -50,9 +50,9 @@ timeline mixing and SFX layering stay in the user's editor.
 
 Casting, script drafting, `beatra.voices.list`, `beatra.voices.preview`,
 `beatra.models.list`, `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
-`beatra.voices.delete` step 1, and tokenless `beatra.voices.activate` quote
-refreshes are free. Smart Voice Director (`beatra.speech.prepare_script`),
-synthesis, dialogue synthesis, cloning, trial activation, SFX, and
+and `beatra.voices.delete` step 1 are free. Smart Voice Director
+(`beatra.speech.prepare_script`),
+synthesis, dialogue synthesis, cloning, activation, SFX, and
 `beatra.audio.process` are paid steps.
 
 ## Scope and routing
@@ -172,35 +172,35 @@ authorizes cloning, SFX, or finishing steps not listed on that card.
 Follow the full consent and activation flow in
 [speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
 
-1. **Noisy sample check (paid)**: if a recording has music, street noise, or
-   room echo, propose paid `beatra.audio.process` (`operation="isolate_voice"`,
-   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
-   its own card first.
-2. **Confirmation #1 — Consent (`consent_attested: true`)**: obtain explicit
+1. **Confirmation #1 — Consent (`consent_attested: true`)**: obtain explicit
    confirmation in this conversation that the user owns the voice or holds the
    speaker's permission before uploading via `scripts/mcp_client.py upload`.
    Possession of an audio file is never consent.
-3. **Inspect all 3 cloning routes live**: call `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` (fast
-   `auto` ready immediately, 10-language expressive/dialogue/S2S clone, or
-   free-trial training returning `status="pending_activation"`). Present the
-   six-field clone card and wait before calling `beatra.voices.clone`.
-4. **Confirmation #2 — Trial activation (`beatra.voices.activate`)**: a clone is
-   NOT guaranteed to be immediately activated — if `beatra.voices.clone` returns
-   `status="pending_activation"`, show the live activation quote
-   (`activation.quote`, or refresh free using `voice_id` + `client_request_id`
-   omitting `confirmation_token` if the 24-hour token expires), obtain explicit
-   user approval of both credits and terms, then call `beatra.voices.activate`
-   with `voice_id`, `confirmation_token`, `confirm_credits`, and a fresh
-   `client_request_id`.
+2. **Noisy sample check (paid)**: if a recording has music, street noise, or
+   room echo, propose paid `beatra.audio.process` (`operation="isolate_voice"`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
+   its own card first.
+3. **Clone model choice**: select the clone model as described in
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   §5. When a role speaks in a multi-character dialogue scene or needs
+   expressive delivery, select the `voice_clone` model card that states it; otherwise keep the
+   default. Then present the six-field clone card with the live clone price;
+   after the user approves it, submit `beatra.voices.clone` once and handle any
+   refusal per
+   [billing, errors, and recovery](references/billing-errors-and-recovery.md).
+4. **Confirmation #2 — Activation (`beatra.voices.activate`)**: when a clone
+   result or a listed voice has status `pending_activation`, follow §5 Step E of
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   before using the voice.
 5. **Confirmation #3 — Two-step permanent deletion (`beatra.voices.delete`)**:
    when deleting a clone, first call `beatra.voices.delete` with `voice_id`
    only, display `paid_slot_warning`, `irreversible_notice`, and 15-minute
    `token_expires_at`, wait for explicit confirmation, then call step 2 with
    `voice_id` and `confirmation_token`.
 
-Do not offer a free clone or a free sample that replaces a paid clone. Detailed
-payloads and sample bounds live in [the audio drama workflow](references/workflow.md).
+Offer the free clone preview only when the user asks to hear the voice before paying, or
+when a paid clone is refused and the refusal offers it. Detailed payloads and
+sample bounds live in [the audio drama workflow](references/workflow.md).
 
 ## Account balance
 
@@ -235,7 +235,7 @@ the original task. Recover only failed or missing segments while keeping valid
 delivered clips untouched. See
 [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
 for exact structured error handling (`voice_model_incompatible`,
-`price_confirmation_required`, `daily_limit`, `insufficient_balance`).
+`daily_limit`, `insufficient_balance`).
 
 ## References by task
 

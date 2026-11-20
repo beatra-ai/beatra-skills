@@ -82,21 +82,25 @@ owner's permission. Possession of an audio file is not consent.
    returned artifact. An already returned artifact or supported direct HTTPS
    media value does not need another upload.
 3. Call `beatra.models.list` for the voice-clone capability, admit the sample,
-   and show the clone admission card before any `client_request_id`: route,
-   tool `beatra.voices.clone`, provisional estimate, the fact that the
-   signup gift usually cannot start this clone, and what happens if
-   the balance is short. Do not submit until the user confirms they have topped
-   up or already have enough credits for this estimate.
+   select the clone model as described in
+   [speech and audio](speech-and-audio.md) §5, and show the clone admission
+   card with the live clone price before any `client_request_id`: route, tool
+   `beatra.voices.clone`, provisional estimate, and what happens if the balance
+   is short. Do not submit until the user approves the card.
 4. Set `consent_attested: true` only after confirmation. Include the requested
    display name and one new stable `client_request_id`.
 5. Submit exactly once and poll the same task with `beatra.tasks.get`. Do not
    create another clone while it is queued or running. On
    `insufficient_balance`, keep the URL exact and retry the same frozen ID only
-   after the user says they have topped up.
+   after the user says they have topped up. If the refusal names another way
+   forward, present it too and follow
+   [billing, errors, and recovery](billing-errors-and-recovery.md).
 
-A successful result is a successful activated voice: it is already activated.
-Deliver the returned
-`voice_id`, display name, and any other returned voice fields. Voice cloning has
-one fixed charge on successful activation, including activation; later speech
-usage is separate. Failed tasks are refunded. Use `beatra.models.list` with the
-voice-clone capability for current constraints and price.
+A one-step clone is ready for use as soon as its task succeeds. When a clone
+result or a listed voice has status `pending_activation`, follow §5 Step E of
+[speech and audio](speech-and-audio.md) before using the voice. Deliver the
+returned `voice_id`, display name, and any other returned voice fields. Voice
+cloning is charged once: when a one-step clone succeeds, or when a previewed
+voice is activated. Later speech usage is separate. Failed tasks are refunded.
+Use `beatra.models.list` with the voice-clone capability for current constraints
+and price.

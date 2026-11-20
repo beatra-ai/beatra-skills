@@ -1,5 +1,5 @@
 {
-  "changelog": "Lesson scripts longer than the chosen voice can read in one pass are now divided at natural lesson, section, or sentence breaks and voiced in order.",
+  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
   "display_name": "Course Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-narration-studio",
@@ -66,5 +66,5 @@
   },
   "name": "course-narration-studio",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

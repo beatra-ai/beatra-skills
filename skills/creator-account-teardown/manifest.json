@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds optional benchmark clip transcription with speaker separation and sound-event tags, Smart Voice Director for paced script reading without changing text, voice audition previews, and balance/spend checks.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Creator Account Teardown",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/creator-account-teardown",
@@ -85,5 +85,5 @@
   },
   "name": "creator-account-teardown",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

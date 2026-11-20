@@ -2,7 +2,7 @@
   "name": "talking-avatar-video",
   "displayName": "Talking Avatar Video",
   "description": "Turn one portrait and a short script or speech track into a directed talking-avatar video for explainers, announcements, lessons, and product messages.",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "author": {
     "name": "Beatra AI"
   },

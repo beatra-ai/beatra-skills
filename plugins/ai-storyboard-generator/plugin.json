@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-storyboard-generator",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Turn a script, scene, or ad brief into a practical shot list and one to four storyboard key-frame images.",
   "author": {
     "name": "Beatra AI",

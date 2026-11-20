@@ -36,16 +36,16 @@ Defaults:
 Casting is free. Each synthesis block is paid. Clone a character voice
 only when the user asks. Confirm consent first: the user must state this
 is their voice or that the speaker authorized this cloning use. Access to
-a file is not consent. A suitable sample is currently about 10 to 300
-seconds, no larger than 20 MiB, and clean single-speaker speech. Only
+a file is not consent. A suitable sample is clean single-speaker speech
+within the length and size limits on the `voice_clone` card. Only
 after consent, inspect the sample and upload it through the bundled
 client. Show the live `voice_clone` admission card before any clone
 `client_request_id`: route `voice_clone`, tool `beatra.voices.clone`, live
-price for one successful activated voice, the provisional estimate, the
-600-credit gift usually cannot start this clone, and what happens if the
-balance is short. Do not offer a free clone. Do not create
-`client_request_id` until the user confirms they have topped up or already
-have enough credits. Submit `beatra.voices.clone` exactly once:
+price for one successful clone, the provisional estimate, and what happens if
+the balance is short. Create the clone's `client_request_id` only after the
+user approves this card, then submit `beatra.voices.clone` exactly once and
+handle any refusal per
+[Billing, errors, and recovery](references/billing-errors-and-recovery.md):
 
 ```json
 {
@@ -58,7 +58,10 @@ have enough credits. Submit `beatra.voices.clone` exactly once:
 ```
 
 Poll with `beatra.tasks.get` until terminal, then freeze that
-character's `voice_id`.
+character's `voice_id`. Offer the free clone preview only when the user asks to hear the
+voice before paying, or when a paid clone is refused and the refusal offers it.
+If the result has status `pending_activation`, present the preview and the
+live activation price, and call `beatra.voices.activate` once after the user agrees.
 
 ## Golden path
 
@@ -92,7 +95,9 @@ and ID. Recover a lost task ID through `beatra.tasks.list` and
 `beatra.tasks.get`. Cancel only at the user's request. On
 `insufficient_balance` for clone or TTS, keep the top-up URL inside the
 balance error exact and retry the same frozen ID only after the user
-says they have topped up.
+says they have topped up. If the refusal names another way forward, present
+it too and follow
+[Billing, errors, and recovery](references/billing-errors-and-recovery.md).
 
 ## Account balance
 

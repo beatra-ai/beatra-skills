@@ -139,9 +139,8 @@ and, before a clone or a clip, `{"capability": "voice_clone"}` or
 `{"capability": "image_to_video"}` the same way.
 
 The initial signup gift covers the first part of a micro-lesson in slides
-and voice, about three minutes. A whole 10-minute lesson, cloning a voice, and
-the on-camera opening usually need a top-up; say so on their cards. When a
-card carries a `top_up` block, relay its tiers as listed.
+and voice, about three minutes. When a card carries a `top_up` block, relay its
+tiers as listed.
 
 ## Narration payload
 
@@ -289,14 +288,14 @@ subtitles on screen, and `out/L01.srt` beside it.
 When the teacher wants their own voice from the start, clone it before the
 first part so nothing is narrated twice. Consent first: the teacher says the
 sample is their own voice, or that the speaker authorized this use. A
-suitable sample is currently about 10 to 300 seconds, no larger than 20 MiB,
-clean single-speaker speech. Upload it:
+suitable sample is clean single-speaker speech within the length and size
+limits on the `voice_clone` card. Upload it:
 
 ```text
 python3 scripts/mcp_client.py upload ./teacher-sample.wav --mime-type audio/wav
 ```
 
-Show the clone card after explicit user rights/anti-impersonation confirmation (Mandatory Confirmation #1) and note Mandatory Confirmations #2 (using `{"capability": "voice_clone"}` immediate-ready models; any `pending_activation` clone requires separate quote/token/exact-credit activation) and #3 (persistent slot permanence and two-step irreversible deletion in [Speech, Voices, and Audio Finishing](speech-and-audio.md)), then submit `beatra.voices.clone` once:
+After explicit user rights/anti-impersonation confirmation (Mandatory Confirmation #1), select the clone model as described in §5 of [Speech, Voices, and Audio Finishing](speech-and-audio.md) and show the clone card with the live clone price. Any voice with status `pending_activation` follows its Step E (Mandatory Confirmation #2); deleting a cloned voice stays two-step and irreversible (Mandatory Confirmation #3). After the user approves the clone card, submit `beatra.voices.clone` once:
 
 ```json
 {

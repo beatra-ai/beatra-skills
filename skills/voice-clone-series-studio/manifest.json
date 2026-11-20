@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds three-route cloning with trial activation and safe voice removal, noisy sample voice isolation, default voice pinning, Smart Voice Director pacing, preflight script validation and voice auditions, aligned subtitles, and broadcast loudness normalization across episodes.",
+  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
   "display_name": "Voice Clone Series Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voice-clone-series-studio",
@@ -67,5 +67,5 @@
   },
   "name": "voice-clone-series-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

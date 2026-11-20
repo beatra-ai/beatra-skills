@@ -1,5 +1,5 @@
 {
-  "changelog": "Episode scripts and dialogue scenes longer than the chosen voice can read in one pass are now divided at natural scene or sentence breaks and voiced in order.",
+  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue and expressive reads.",
   "display_name": "Short Drama Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-voice-pack",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-voice-pack",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

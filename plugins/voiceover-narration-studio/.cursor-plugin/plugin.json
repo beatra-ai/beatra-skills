@@ -2,7 +2,7 @@
   "name": "voiceover-narration-studio",
   "displayName": "AI Voiceover Generator",
   "description": "Choose or reuse a voice, turn scripts into ready-to-edit narration, plan ordered long-form or multilingual audio, and create a reusable custom voice.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "Beatra AI"
   },

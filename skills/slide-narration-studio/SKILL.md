@@ -38,10 +38,10 @@ another Skill with the install message in
 [Narration workflow](references/workflow.md#pointing-to-another-skill)
 and install it only after the user asks.
 
-For noisy clone sample isolation (`isolate_voice`), two-step trial clone
-activation (`voices.activate`), slot deletion (`voices.delete`), or
-multi-speaker dialogue or SFX production beyond `scripts/mcp_client.py tools`,
-route to `voice-cloning-studio` or `beatra-ai-voice-studio`.
+For noisy clone sample isolation (`isolate_voice`), voice deletion
+(`voices.delete`), or multi-speaker dialogue or SFX production beyond
+`scripts/mcp_client.py tools`, route to `voice-cloning-studio` or
+`beatra-ai-voice-studio`.
 
 ## Inputs and defaults
 
@@ -78,10 +78,14 @@ limits and payload details; slides are read and videos assembled locally with
    `supports_performance_tags`, `supports_dialogue`, `supports_speech_to_speech`)
    and audition free via `preview_url` or `beatra.voices.preview`
    (`{"voice_id": "..."}`). For the teacher's voice, obtain plain consent BEFORE
-   upload, inspect `{"capability": "voice_clone", "include_activation_required": true}`
-   without vendor names or internal IDs (choosing an immediate-ready route here,
-   or routing noisy isolation / trial activation / deletion to `voice-cloning-studio`),
-   and clone on its own six-field card before any slide synthesis.
+   upload, select the clone model as described in [speech and audio
+   guide](references/speech-and-audio.md) §5, clone on its own six-field card
+   with the live clone price before any slide synthesis, submit once, and
+   handle any refusal per [Billing, errors, and
+   recovery](references/billing-errors-and-recovery.md). When a clone result or
+   a listed voice has status `pending_activation`, follow §5 Step E of [speech
+   and audio guide](references/speech-and-audio.md) before using the voice.
+   Route noisy isolation or deletion to `voice-cloning-studio`.
 4. **Narrate the first slides (3–6 pilot pages)** after reading live
    `{"capability": "text_to_speech"}` cards (never hardcoded credit numbers),
    estimating `--pages`, validating each slide free via `beatra.speech.validate`
@@ -93,7 +97,9 @@ limits and payload details; slides are read and videos assembled locally with
 5. **Narrate the rest and optionally normalize loudness**: approve one six-field
    card for remaining slides page by page (`insufficient_balance` stops the run,
    relays Beatra's message and exact `topup_url` verbatim, and resumes only
-   after user top-up confirmation with identical IDs). If unifying audio volume
+   after user top-up confirmation with identical IDs). If the refusal names
+   another way forward, present it too and follow [Billing, errors, and
+   recovery](references/billing-errors-and-recovery.md). If unifying audio volume
    across slides (`-14 LUFS`), inspect `{"capability": "audio_process"}`,
    approve its finishing card, and run serialized `beatra.audio.process`
    (`operation: "normalize_loudness"`, **`source`** field, `<= 60 min` /
@@ -133,7 +139,7 @@ its tiers verbatim in returned order without ranking or picking one.
 ## References by task
 
 - Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
-  limits, 3 cloning routes, Smart Voice Director, and production-card standards.
+  limits, voice cloning, Smart Voice Director, and production-card standards.
 - Read [Narration workflow](references/workflow.md) for production cards,
   payloads (`prepare_script`, `validate`, `synthesize`, `normalize_loudness`),
   PowerPoint/WPS placement, cloning, and delivery.

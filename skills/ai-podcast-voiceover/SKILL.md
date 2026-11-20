@@ -120,25 +120,25 @@ If the user wants to clone a host or guest voice for this show, follow the three
 mandatory confirmations in
 [speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
 
-1. **Sample noise check**: if the sample has background music or room/street
-   noise, propose **paid** `beatra.audio.process` (`operation="isolate_voice"`,
-   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
-   its own production card before cloning.
-2. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
+1. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
    user confirmation in the current conversation that they own the voice or hold
    permission to clone it before uploading (`scripts/mcp_client.py upload`).
    Access to a file or public recording is never consent.
-3. **Choose among the 3 cloning routes live**: call `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` — fast
-   `auto` clone (`status="ready"` immediately), 10-language expressive/dialogue/
-   conversion clone, or free-trial precision training (`status="pending_activation"`).
-4. **Confirmation #2 — Trial activation (`beatra.voices.activate`)**: if
-   `beatra.voices.clone` returns `status="pending_activation"`, show the live
-   quote (`activation.quote`, or refresh free with `voice_id` and
-   `client_request_id` omitting `confirmation_token` if the 24-hour token
-   expires), obtain explicit credit and terms approval, and call
-   `beatra.voices.activate` with `voice_id`, `confirmation_token`,
-   `confirm_credits`, and a fresh `client_request_id`.
+2. **Sample noise check**: if the sample has background music or room/street
+   noise, propose **paid** `beatra.audio.process` (`operation="isolate_voice"`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
+   its own production card before cloning.
+3. **Clone model choice**: select the clone model as described in
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   §5. When a cloned voice will speak in a two-host or guest dialogue scene,
+   select the clone card that states multi-speaker dialogue; a solo episode
+   keeps the default. Then show the production card with the live clone price;
+   after the user approves it, submit once and handle any refusal per
+   [billing, errors, and recovery](references/billing-errors-and-recovery.md).
+4. **Confirmation #2 — Activation (`beatra.voices.activate`)**: when a clone
+   result or a listed voice has status `pending_activation`, follow §5 Step E of
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   before using the voice.
 5. **Confirmation #3 — Two-step deletion (`beatra.voices.delete`)**: to delete a
    cloned voice later, first call `beatra.voices.delete` with `voice_id` only
    (no `confirmation_token`), show the returned `paid_slot_warning`,
@@ -186,7 +186,7 @@ after it. Do not fill the gap with another tool or service.
 
 Free tools cost zero credits: `beatra.voices.list`, `beatra.voices.preview`,
 `beatra.models.list`, `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
-`beatra.voices.delete` step 1, tokenless `beatra.voices.activate` quote refresh,
+`beatra.voices.delete` step 1,
 `beatra.tasks.get`, `beatra.tasks.list`, `beatra.wallet.get`, and
 `beatra.wallet.ledger`. Keep `beatra.wallet.get` and `beatra.wallet.ledger` as
 optional read-only lookups when the user asks about balance or charges — never
@@ -195,7 +195,7 @@ to confirm they have enough credits.
 
 Every call to `beatra.speech.prepare_script`, `beatra.speech.synthesize`,
 `beatra.speech.synthesize_dialogue`, `beatra.voices.clone`,
-`beatra.voices.activate` (with `confirmation_token` and `confirm_credits`),
+`beatra.voices.activate`,
 `beatra.music.generate`, `beatra.audio.generate_sfx`, and `beatra.audio.process`
 is paid (never quote hardcoded prices or call finishing steps free). Before the
 first paid step, show a clear production card stating all six fields:

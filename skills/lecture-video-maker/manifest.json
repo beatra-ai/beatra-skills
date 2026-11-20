@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds noisy teacher-sample voice isolation, voice audition and default naming, Smart Voice Director pacing preparation, pre-synthesis duration checks for digital-teacher openings and closings, audio loudness normalization, and aligned SRT and VTT subtitles alongside local course rendering.",
+  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
   "display_name": "Lecture Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/lecture-video-maker",
@@ -58,5 +58,5 @@
   },
   "name": "lecture-video-maker",
   "schema_version": 1,
-  "version": "0.2.0"
+  "version": "0.2.1"
 }

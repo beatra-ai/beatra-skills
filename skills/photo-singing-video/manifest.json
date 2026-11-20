@@ -1,5 +1,5 @@
 {
-  "changelog": "Before animating a portrait, you can now trim a full song down to the chorus excerpt and isolate singing vocals from backing tracks.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Photo Singing Video",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/photo-singing-video",
@@ -71,5 +71,5 @@
   },
   "name": "photo-singing-video",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

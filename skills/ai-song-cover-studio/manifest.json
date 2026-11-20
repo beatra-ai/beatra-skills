@@ -1,5 +1,5 @@
 {
-  "changelog": "Song edits and audio touch-ups such as trims, loops and fades are now each laid out as their own step.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "AI Song Cover Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-song-cover-studio",
@@ -71,5 +71,5 @@
   },
   "name": "ai-song-cover-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

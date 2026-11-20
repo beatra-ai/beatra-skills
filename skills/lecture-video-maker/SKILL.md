@@ -103,19 +103,25 @@ scripts in [Deck files](references/deck-files.md) and
    the user agrees, narrate those pages one at a time, record each, render only
    those pages locally (`plan --pages`), and deliver the pilot. From lecture text
    alone, the pilot is those pages' audio files.
-4. **Settle the voice and the presence.** Offer, each as its own paid card:
-   cleaning noisy teacher samples (`isolate_voice` via `beatra.audio.process`,
-   **paid** under `{"capability": "audio_voice_isolation"}`, 4.6 s – 5 min,
-   <= 100 MB), loudness normalization across tracks (`normalize_loudness` via
-   `beatra.audio.process`, **paid** under `{"capability": "audio_process"}`, up
-   to 60 min / 300 MB, min >= 1 s, 50/day, one at a time), cloning the
-   teacher's voice (`beatra.voices.clone` after confirming the three mandatory
-   voice safety checks: explicit ownership/rightsholder consent and
-   anti-impersonation/fraud attestation before `consent_attested: true`, live
-   slot/activation quote awareness, and permanent slot/irreversible deletion
-   notice; tune saved profile later with free `beatra.voices.update`), and
-   on-camera openings and closings from one authorized photo. Before paying to
-   synthesize or animate any on-camera opening/closing clip, run free
+4. **Settle the voice and the presence.** Before any sample upload or
+   `consent_attested: true`, confirm explicit ownership or rightsholder
+   authorization and attestation against impersonation or fraud (a file in hand,
+   a public recording, or a public figure's footage is not consent). Offer, each
+   as its own paid card: cleaning noisy teacher samples (`isolate_voice` via
+   `beatra.audio.process`, **paid** under `{"capability": "audio_voice_isolation"}`,
+   4.6 s – 5 min, <= 100 MB), loudness normalization across tracks
+   (`normalize_loudness` via `beatra.audio.process`, **paid** under
+   `{"capability": "audio_process"}`, up to 60 min / 300 MB, min >= 1 s, 50/day,
+   one at a time), cloning the teacher's voice (`beatra.voices.clone`; tune
+   saved profile later with free `beatra.voices.update`), and on-camera openings
+   and closings from one authorized photo. Select the clone model as described
+   in [Speech, Voices, and Audio Processing](references/speech-and-audio.md) §5,
+   show the clone card with the live clone price, submit once, and handle any
+   refusal per [Billing, errors, and recovery](references/billing-errors-and-recovery.md).
+   When a clone result or a listed voice has status `pending_activation`, follow
+   §5 Step E of [Speech, Voices, and Audio Processing](references/speech-and-audio.md)
+   before using the voice. Before
+   paying to synthesize or animate any on-camera opening/closing clip, run free
    `beatra.speech.validate` so `estimated_duration_seconds` fits the live
    `image_to_video` clip limit first! The corner photo needs no card. Pages
    already narrated in another voice are narrated again in the new one.
@@ -126,7 +132,9 @@ scripts in [Deck files](references/deck-files.md) and
    page, render each finished lesson, and report progress per lesson. On
    `insufficient_balance`, stop the whole batch, relay that error's official
    message and verbatim `topup_url` without changing the URL, and resume at the
-   next page without narration only after the user says they topped up.
+   next page without narration only after the user says they topped up. If the
+   refusal names another way forward, present it too and follow [Billing,
+   errors, and recovery](references/billing-errors-and-recovery.md).
 6. **Deliver.** One MP4 per lesson in teaching order, its subtitles on screen
    and its SRT beside it, plus the course list,
    the actual durations, and the summed `billing.net_charged_credits`. Every

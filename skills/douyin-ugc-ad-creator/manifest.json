@@ -1,5 +1,5 @@
 {
-  "changelog": "Adds guided voice script pacing without altering your words, voice audition and duration preflight before synthesis, and aligned JSON, SRT, and VTT subtitles included with voiceover audio.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Douyin UGC Ad Creator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/douyin-ugc-ad-creator",
@@ -69,5 +69,5 @@
   },
   "name": "douyin-ugc-ad-creator",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

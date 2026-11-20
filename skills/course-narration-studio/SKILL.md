@@ -23,10 +23,10 @@ Route a literary book or long manuscript to `ai-audiobook-narration`. Route a
 cloned-voice podcast series with recurring episodes to
 `voice-clone-series-studio`. Route a talking-head lecture video to
 `course-video-studio`. Route a single short voiceover to
-`short-form-voiceover-audio` or `voiceover-narration-studio`. Route trial-first
-clone activation (`voices.activate`) or permanent deletion (`voices.delete`) to
-`voice-cloning-studio`, and dialogue/transcription/SFX/stems to
-`beatra-ai-voice-studio` (`scripts/mcp_client.py tools` is authoritative).
+`short-form-voiceover-audio` or `voiceover-narration-studio`. Route permanent
+voice deletion (`voices.delete`) to `voice-cloning-studio`, and
+dialogue/transcription/SFX/stems to `beatra-ai-voice-studio`
+(`scripts/mcp_client.py tools` is authoritative).
 
 When the teacher wants slides narrated slide by slide directly from the deck
 into PowerPoint or WPS, point to Slide Narration Studio
@@ -80,9 +80,7 @@ configure or call a host Beatra Connector. Do not use REST/OpenAPI as a fallback
    recompiles still require initial balance cover and <= 2 concurrent tasks.
 2. If the user brings a narrator sample, confirm plain consent BEFORE any local
    upload (speaker owns the voice or authorized cloning; file access is not
-   consent). Check live `voice_clone` limits via
-   `{"capability": "voice_clone", "include_activation_required": true}` without
-   exposing vendor names or internal IDs; if noisy, offer paid pre-clean via
+   consent). If the sample is noisy, offer paid pre-clean via
    `beatra.audio.process` (`operation: "isolate_voice"`, **`source`** field,
    4.6 s–5 min, <= 100 MB, checked via `{"capability": "audio_voice_isolation"}`).
    Upload via:
@@ -91,12 +89,13 @@ configure or call a host Beatra Connector. Do not use REST/OpenAPI as a fallback
    python3 scripts/mcp_client.py upload ./narrator-sample.wav --mime-type audio/wav
    ```
 
-   Choose an immediate-ready cloning route here (`auto` or expressive
-   multilingual; hand `pending_activation` activation or slot deletion to
-   `voice-cloning-studio`), show the six-field production card (Route & Model,
-   Exact Scope, Price & Basis, Duration / Quantity, Pay Mode & Call Count,
-   If stop noting free deliverables kept at zero cost—never hardcode credit
-   figures or ask the user to pre-confirm sufficient credits), and submit once:
+   Select the clone model as described in [Speech and audio
+   guide](references/speech-and-audio.md) §5, show the six-field production card
+   (Route & Model, Exact Scope, Price & Basis, Duration / Quantity, Pay Mode &
+   Call Count, If stop noting free deliverables kept at zero cost—never hardcode
+   credit figures or ask the user to pre-confirm sufficient credits) with the
+   live clone price, describing the clone by what it does for the course and naming no model ID or provider, submit once, and handle any refusal per [Billing, errors,
+   and recovery](references/billing-errors-and-recovery.md):
 
    ```json
    {
@@ -108,8 +107,11 @@ configure or call a host Beatra Connector. Do not use REST/OpenAPI as a fallback
    }
    ```
 
-   Poll with `beatra.tasks.get` until terminal, then pin the voice cleanly with
-   non-billable `beatra.voices.update` (`make_default: true`, `use_case`).
+   Poll with `beatra.tasks.get` until terminal. When a clone result or a listed
+   voice has status `pending_activation`, follow §5 Step E of [Speech and audio
+   guide](references/speech-and-audio.md) before using the voice. Then pin the
+   voice cleanly with non-billable `beatra.voices.update` (`make_default: true`,
+   `use_case`).
 3. Without a sample, filter `beatra.voices.list` across its 11 dimensions
    (`category`, `language`, `gender`, `age_group`, `use_case`, `emotion`,
    `supports_context`, `supports_direction`, `supports_performance_tags`,
@@ -150,6 +152,8 @@ and `client_request_id` after checking paginated `beatra.tasks.list`
 (`next_cursor`) plus `beatra.tasks.get`. Cancel only when asked. On
 `insufficient_balance`, relay Beatra's message and exact `topup_url` verbatim,
 stop until the user confirms topping up, and replay the exact frozen request.
+If the refusal names another way forward, present it too and follow [Billing,
+errors, and recovery](references/billing-errors-and-recovery.md).
 
 ## Account balance
 
@@ -162,7 +166,7 @@ returned order verbatim without ranking or picking one.
 ## References by task
 
 - Read [Speech and audio guide](references/speech-and-audio.md) for cross-tool
-  limits, 3 cloning routes, Smart Voice Director, and six-field cards.
+  limits, voice cloning, Smart Voice Director, and six-field cards.
 - Read [Course narration workflow](references/workflow.md) for ledgers, pilots,
   `isolate_voice`, `prepare_script`, `validate`, `synthesize`, and
   `normalize_loudness` payloads plus cross-skill install links.

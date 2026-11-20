@@ -2,8 +2,8 @@
 
 Beatra AI Voice Studio is the flagship full-suite voice and audio hub covering
 script direction, TTS synthesis, multi-speaker dialogue, speech-to-speech,
-three-route cloning & voice slot lifecycle, transcription, SFX, voice isolation,
-stem separation, and loudness normalization.
+voice cloning and its lifecycle, transcription, SFX, voice isolation, stem
+separation, and loudness normalization.
 
 ## Route selection table
 
@@ -27,8 +27,7 @@ Non-billable steps:
   `speech_to_speech`, `voice_clone`, `speech_to_text`, `sound_effects`,
   `audio_voice_isolation`, `audio_process`, `audio_stem_separation`)
 - `beatra.speech.validate` and `beatra.speech.validate_dialogue`
-- Free `beatra.voices.activate` re-quotes and `beatra.voices.delete` step-1
-  warning check
+- `beatra.voices.delete` step-1 warning check
 - Optional read-only `beatra.wallet.get` and `beatra.wallet.ledger`
 
 Paid tools requiring a live model lookup and a six-field production card:
@@ -40,7 +39,7 @@ Paid tools requiring a live model lookup and a six-field production card:
 - `beatra.speech.synthesize` and `beatra.speech.synthesize_dialogue` (aligned
   SRT/VTT captions via `subtitle_enable: true` add zero fee)
 - `beatra.speech.convert` (speech-to-speech conversion)
-- `beatra.voices.clone` and final confirmed `beatra.voices.activate`
+- `beatra.voices.clone` and `beatra.voices.activate`
 - `beatra.audio.transcribe`, `beatra.audio.generate_sfx`
 - `beatra.audio.process` (`isolate_voice`, `normalize_loudness`, `trim`,
   `loop`, `fade`, `convert_format`, `separate_stems`)

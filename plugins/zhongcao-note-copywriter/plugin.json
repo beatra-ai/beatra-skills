@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "zhongcao-note-copywriter",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Turn a product, experience, topic, or audience brief into Xiaohongshu title options, a readable note body, cover text, hashtags, and a natural comment starter.",
   "author": {
     "name": "Beatra AI",
