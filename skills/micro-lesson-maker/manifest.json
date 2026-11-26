@@ -1,9 +1,9 @@
 {
-  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Micro-Lesson Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/micro-lesson-maker",
-  "icon": "https://beatra.ai/textures/icons/micro-lesson-maker-0.1.8.png",
+  "icon": "https://beatra.ai/textures/icons/micro-lesson-maker-0.2.2.png",
   "localized": {
     "en": {
       "description": "Make a micro-lesson video from one lesson's slides or a single topic. When there are no slides it drafts them first, then writes the script page by page and adds narration, subtitles, and the teacher's photo or a digital-human opening, delivering a 5-to-10-minute lesson video. For micro-lesson contests, demo lesson recordings, flipped classroom video, review lessons, and short explainer video for students.",
@@ -58,5 +58,5 @@
   },
   "name": "micro-lesson-maker",
   "schema_version": 1,
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

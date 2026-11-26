@@ -25,7 +25,8 @@ per-market outputs.
 
 ## Locale delivery ledger
 
-Deliver actual `audio.url`, `artifact_id`, `mime_type`, `size_bytes`,
-`sample_rate` (when returned), `duration_seconds`, optional `subtitles`,
-resolved `model`, `task_id`, and `billing.net_charged_credits` grouped by locale
-and segment. State openly if playback review was not performed on the host.
+Deliver actual `audio.url`, plain-word format, `duration_seconds`, optional
+`subtitles`, and `billing.net_charged_credits` grouped by locale and segment
+(keeping raw `task_id`, `artifact_id`, `mime_type`, `size_bytes`, `sample_rate`,
+and resolved `model` IDs in the Agent's local matrix unless the user asks for
+them). State openly if playback review was not performed on the host.

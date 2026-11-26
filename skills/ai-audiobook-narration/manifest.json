@@ -1,9 +1,9 @@
 {
-  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue and expressive reads.",
+  "changelog": "Sound-effect descriptions now stay within the length the sound-effects model accepts.",
   "display_name": "AI Audiobook Narration",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
-  "icon": "https://beatra.ai/textures/icons/ai-audiobook-narration-0.3.1.png",
+  "icon": "https://beatra.ai/textures/icons/ai-audiobook-narration-0.3.6.png",
   "localized": {
     "en": {
       "description": "Turn final manuscript or course text into an audiobook with one consistent narrator. This AI audiobook generator and AI audiobook narration workflow organizes chapters, settles names and specialist pronunciations, shapes long-form pacing, helps choose a suitable audiobook narrator, and creates a representative sample before the remaining book. Use it for manuscript-to-audiobook production, chapter-by-chapter audiobooks, course narration, long-text-to-speech, and sample chapters, with up-to-date price estimates, ordered audio delivery, consistent narrator voice, and focused passage refinements.",
@@ -64,5 +64,5 @@
   },
   "name": "ai-audiobook-narration",
   "schema_version": 1,
-  "version": "0.3.6"
+  "version": "0.3.7"
 }

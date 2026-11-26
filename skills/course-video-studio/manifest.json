@@ -1,9 +1,9 @@
 {
-  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
+  "changelog": "Clearer first-time setup, verbatim lecture wording protection, and segment duration checks before lesson video creation.",
   "display_name": "Course Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/course-video-studio",
-  "icon": "https://beatra.ai/textures/icons/course-video-studio-0.2.7.png",
+  "icon": "https://beatra.ai/textures/icons/course-video-studio-0.3.1.png",
   "localized": {
     "en": {
       "description": "Turn finished lecture scripts into presenter-led course videos with lecture narration. This course video studio prepares the spoken narration for each lesson, then records a digital-teacher delivery, so enablement teams get ready-to-publish lecture videos and training presenter clips.",
@@ -66,5 +66,5 @@
   },
   "name": "course-video-studio",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.3"
 }

@@ -1,9 +1,9 @@
 {
-  "changelog": "Voice cloning now matches the voice model to your project, including expressive reads.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Voiceover & Narration Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/voiceover-narration-studio",
-  "icon": "https://beatra.ai/textures/icons/voiceover-narration-studio-0.2.8.png",
+  "icon": "https://beatra.ai/textures/icons/voiceover-narration-studio-0.3.1.png",
   "localized": {
     "en": {
       "description": "Use Voiceover & Narration Studio as an AI voice generator, text-to-speech workspace, and AI voiceover generator. Choose from the current voice library, turn scripts into ready-to-edit AI narration and voiceover, or create and reuse a custom brand voice through voice cloning. It supports short-video voiceover, script-to-voiceover, course narration, ordered audiobook narration, supplied multilingual text to speech, Cantonese text to speech, and recurring brand audio, with current price estimates, clear output planning, and delivery organized by chapter, language, and use case.",
@@ -80,5 +80,5 @@
   },
   "name": "voiceover-narration-studio",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

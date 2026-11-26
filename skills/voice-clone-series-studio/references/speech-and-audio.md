@@ -206,7 +206,7 @@ When a clone result or a listed voice has `status="pending_activation"`:
 ### Sound Effects & Seamless Ambience (`beatra.audio.generate_sfx`)
 
 - `{"capability": "sound_effects"}`
-- Generates foley, stingers, UI/transition sounds, or environmental ambience from descriptive `prompt` (`1–2,000` chars) for **`duration_seconds` 0.5 – 30.0 s**.
+- Generates foley, stingers, UI/transition sounds, or environmental ambience from descriptive `prompt` (`1–450` chars) for **`duration_seconds` 0.5 – 30.0 s**.
 - Set **`loop=true`** for seamless looping beds (café ambience, rain, room tone, office hum) suitable for background mixing or repeating cleanly via `beatra.audio.process`. Adjust `prompt_influence` (`0.0–1.0`, default `0.3`) and `format` (`mp3`/`wav`/`opus`/`pcm`).
 
 ### Audio Finishing & Processing (`beatra.audio.process`)

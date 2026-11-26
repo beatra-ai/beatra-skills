@@ -30,8 +30,8 @@ Track these columns for every planned segment and locale:
 4. When cloning an authorized brand narrator (`beatra.voices.clone`): confirm
    plain consent before `scripts/mcp_client.py upload`, offer paid
    `isolate_voice` (`4.6 s–5 min`, `<= 100 MB`, `source` field, checked via
-   `audio_voice_isolation`) if the sample has noise/music, and select the clone
-   model as described in [speech and audio guide](speech-and-audio.md) §5. When
+   `beatra.models.list` with `{"capability": "audio_voice_isolation"}`) if the sample has noise/music, and select the clone
+   model from `beatra.models.list` (`{"capability": "voice_clone"}`) as described in [speech and audio guide](speech-and-audio.md) §5. When
    the cloned voice will be the target of speech-to-speech conversion, select the
    clone card that states it. Then show the six-field card with the live clone
    price; after the user approves it, submit once and handle any refusal per
@@ -43,8 +43,9 @@ Track these columns for every planned segment and locale:
 
 ## Live price estimation
 
-Inspect `beatra.models.list` for each active capability (`speech_script`,
-`text_to_speech`, `speech_to_speech`, `voice_clone`, `speech_to_text`,
-`audio_voice_isolation`, `audio_process`) and apply the returned live formula.
-Count text dynamically with `beatra_weighted_characters` (Han = 2, others = 1).
+Inspect `beatra.models.list` for each active capability (`{"capability": "speech_script"}`,
+`{"capability": "text_to_speech"}`, `{"capability": "speech_to_speech"}`,
+`{"capability": "voice_clone"}`, `{"capability": "speech_to_text"}`,
+`{"capability": "audio_voice_isolation"}`, `{"capability": "audio_process"}`) and apply the returned live formula.
+Count text dynamically with `beatra_weighted_characters` (Han = 2, every other character = 1; reconstruct the full spoken sentence per locale without truncating at unquoted CSV commas before counting).
 Never cite hardcoded credit figures or force `beatra.wallet.get` before quoting.

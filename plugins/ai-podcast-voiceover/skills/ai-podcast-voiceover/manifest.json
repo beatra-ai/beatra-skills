@@ -1,9 +1,9 @@
 {
-  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue and expressive reads.",
+  "changelog": "Sound-effect descriptions now stay within the length the sound-effects model accepts.",
   "display_name": "AI Podcast Voiceover",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-podcast-voiceover",
-  "icon": "https://beatra.ai/textures/icons/ai-podcast-voiceover-0.2.6.png",
+  "icon": "https://beatra.ai/textures/icons/ai-podcast-voiceover-0.3.1.png",
   "localized": {
     "en": {
       "description": "Turn an article, notes, or a finished script into a listener-ready solo podcast episode with a consistent host voice. This AI podcast voice generator and AI podcast narration service adapts supplied material into a speakable podcast script, sets names and specialist terms for clear pronunciation, and creates MP3 podcast audio with natural pacing. Use this podcast voiceover AI and text-to-speech podcast service for article-to-podcast audio, news briefings, expert commentary, and knowledge shows, then carry the host direction into the next episode.",
@@ -72,5 +72,5 @@
   },
   "name": "ai-podcast-voiceover",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }

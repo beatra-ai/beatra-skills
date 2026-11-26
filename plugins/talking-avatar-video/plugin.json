@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "talking-avatar-video",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Turn one portrait and a short script or speech track into a directed talking-avatar video for explainers, announcements, lessons, and product messages.",
   "author": {
     "name": "Beatra AI",

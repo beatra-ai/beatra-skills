@@ -182,7 +182,7 @@ Optional stingers, seamless ambience, and audio finishing (each on its own
 approved paid line/card):
 
 - `beatra.audio.generate_sfx` (`{"capability": "sound_effects"}`): `"prompt"`
-  (`1–2,000` chars), `"duration_seconds"` (`0.5–30.0`), `"loop": true` for beds,
+  (`1–450` chars), `"duration_seconds"` (`0.5–30.0`), `"loop": true` for beds,
   `"prompt_influence"` (`0.0–1.0`, default `0.3`), `"format"`, `"model": "auto"`.
 - `beatra.audio.process` (`{"capability": "audio_process"}`): `operation` in
   `"normalize_loudness"` (`loudness_lufs` `-30` to `-9`, default `-14`,

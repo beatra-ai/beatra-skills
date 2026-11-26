@@ -4,7 +4,7 @@ Detailed step sequence, JSON request templates, and recovery guidance for `cours
 
 ## 1. Live Models & Wallet Discovery
 
-Check capabilities before drafting production cards:
+Call `beatra.models.list` for each active capability before drafting production cards:
 
 ```json
 {"capability": "image_to_video"}
@@ -30,7 +30,7 @@ Check capabilities before drafting production cards:
 {"capability": "audio_process"}
 ```
 
-Check balance only when answering a customer balance or charge question (`beatra.wallet.get`):
+Check balance or deduction history only when answering a customer balance or charge question (`beatra.wallet.get` / `beatra.wallet.ledger`):
 
 ```json
 {}
@@ -81,9 +81,26 @@ After Mandatory Confirmation #1 (verifiable authorization + anti-impersonation d
 
 Note Mandatory Confirmations #2 and #3: when a clone result or a listed voice has status `pending_activation`, follow §5 Step E of [Speech, Voices, and Audio Finishing](speech-and-audio.md) before using the voice; deletion requires its own two-step flow documented there.
 
-## 3. Smart Voice Director (`prepare_script`, PAID) & Free Clip-Fit Check (`validate`)
+## 3. Free Clip-Fit Check (`validate`), 6-Field Lesson Card & Smart Voice Director (`prepare_script`, PAID)
 
-Prepare teaching rhythm and natural pauses without changing any lecture words (`beatra.speech.prepare_script`, max 2 concurrent). Inspect `directed` and `scripts[]` (`synthesis`, `summary`, `warnings`), resolving `synthesis: null` via `warnings` and passing `scripts[].synthesis` unchanged + fresh `client_request_id` when calling `beatra.speech.synthesize`:
+Run free **`beatra.speech.validate`** (free, NO `client_request_id`) BEFORE showing the lesson production card or spending credits on `prepare_script`, `speech.synthesize`, or `videos.animate`:
+
+```json
+{
+  "voice": "<instructor_voice_id>",
+  "input": "<prepared segment script>",
+  "model": "auto",
+  "language": "zh-CN",
+  "format": "mp3",
+  "subtitle_enable": true
+}
+```
+
+Verify `estimated_duration_seconds` fits inside the live `image_to_video` max clip duration before paying. If longer, segment the lecture script into smaller teaching beats cleanly first and re-run free `speech.validate` on every sub-segment until all fit.
+
+Present the 6-field lesson production card (**Work**, **Credits**, **Count**, **Identity**, **If stop**, **If balance short**) and wait for explicit approval before calling paid `beatra.speech.prepare_script`, `beatra.speech.synthesize`, `beatra.audio.process`, or `beatra.videos.animate`.
+
+Once approved, optionally prepare teaching rhythm and natural pauses without changing any lecture words (`beatra.speech.prepare_script`, max 2 concurrent). Inspect `directed` and `scripts[]` (`synthesis`, `summary`, `warnings`), resolving `synthesis: null` via `warnings`, re-checking `scripts[].synthesis` with free `beatra.speech.validate` so added pauses still fit the clip ceiling, and passing `scripts[].synthesis` unchanged + fresh `client_request_id` when calling `beatra.speech.synthesize`:
 
 ```json
 {
@@ -97,21 +114,6 @@ Prepare teaching rhythm and natural pauses without changing any lecture words (`
 ```
 
 To try another voice within 48 hours for identical wording, instructions, language, and context, call `beatra.speech.prepare_script` again changing only `voice` (and `model` if needed) at no extra charge (balance must cover the initial estimate).
-
-Run free **`beatra.speech.validate`** (free, NO `client_request_id`) BEFORE paid synthesis or video generation:
-
-```json
-{
-  "voice": "<instructor_voice_id>",
-  "input": "<prepared segment script>",
-  "model": "auto",
-  "language": "zh-CN",
-  "format": "mp3",
-  "subtitle_enable": true
-}
-```
-
-Verify `estimated_duration_seconds` fits inside the live `image_to_video` max clip duration before paying. If longer, segment the lecture script into smaller teaching beats cleanly first and re-run free `speech.validate`.
 
 ## 4. Synthesize (`output.subtitles`), Normalize Loudness (PAID) & Animate
 

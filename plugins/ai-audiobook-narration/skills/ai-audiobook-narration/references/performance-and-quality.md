@@ -15,7 +15,7 @@ and warnings before confirmation.
 
 - If chapters call for transition chimes, subtle scene stingers, or looping
   room tone, quote paid `beatra.audio.generate_sfx` (`{"capability": "sound_effects"}`,
-  `prompt` `1–2,000` chars, `duration_seconds` `0.5–30.0`, optional `loop=true`,
+  `prompt` `1–450` chars, `duration_seconds` `0.5–30.0`, optional `loop=true`,
   `model: "auto"`) on its own itemized paid line/card.
 - If chapters need uniform listening loudness across sessions, quote paid
   `beatra.audio.process` (`{"capability": "audio_process"}`,

@@ -110,7 +110,7 @@ ambience, or broadcast loudness calibration — each approved on its own itemize
 paid card/line and **never** called free:
 
 - **Foley & ambience (`beatra.audio.generate_sfx`)**: read `beatra.models.list`
-  with `{"capability": "sound_effects"}`, pass descriptive `"prompt"` (`1–2,000`
+  with `{"capability": "sound_effects"}`, pass descriptive `"prompt"` (`1–450`
   chars), `"duration_seconds"` (`0.5–30.0`), optional `"loop": true` for
   seamless ambient beds, `"prompt_influence"` (`0.0–1.0`), `"format"`, and
   `"model": "auto"`.

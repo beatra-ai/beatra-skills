@@ -62,7 +62,7 @@ and audition free with `preview_url` or `beatra.voices.preview`
   background noise or music, offer paid pre-cleaning first via
   `beatra.audio.process` (`operation: "isolate_voice"`, **`source`** field,
   4.6 s–5 min, <= 100 MB, checked via `{"capability": "audio_voice_isolation"}`).
-  Select the clone model as described in [speech and audio
+  Select the clone model from `beatra.models.list` (`{"capability": "voice_clone"}`) as described in [speech and audio
   guide](references/speech-and-audio.md) §5. When the cloned voice will be the
   target of speech-to-speech conversion, select the `voice_clone` model card that states it.
   Then show the six-field clone card with the live clone price, describing the clone by what it does for the dub and naming no model ID or provider; after the user
@@ -85,7 +85,9 @@ voice-compatible candidate supports the normalized BCP-47 primary tag, mapping
 `nb` -> `no`, `tl` -> `fil`), speed `1.0`, `mp3` (or `wav`/`flac` for studio
 editing), no emotion, and unchanged pitch/volume/sample rate. Call
 `beatra.models.list` (`{"capability": "text_to_speech"}`) before deciding models
-or estimating `beatra_weighted_characters` (Han = 2, others = 1). Never
+or estimating `beatra_weighted_characters` (Han = 2, every other character = 1;
+when reading CSV or tabular scripts, reconstruct the full spoken sentence per
+locale without truncating at unquoted commas before counting). Never
 hardcode credit figures. Always run free `beatra.speech.validate`
 (`estimated_duration_seconds`) before each paid `beatra.speech.synthesize`. Use
 `subtitle_enable: true` (NEVER `subtitles`) when free aligned `SRT` / `VTT`
@@ -95,10 +97,14 @@ captions are needed for editing or lip-sync alignment.
 
 Planning, copy drafting, voice search, `voices.preview`, `speech.validate`, and
 estimates are free. Before any paid step (`audio.transcribe`, `prepare_script`,
-`isolate_voice`, `voices.clone`, `speech.convert`, `speech.synthesize`, or
-`normalize_loudness`), present its six-field production card: Route & Model,
-Exact Scope, Price & Basis, Duration / Quantity, Pay Mode & Call Count, and
-If stop (stating clearly what free assets stay usable at zero extra cost).
+`isolate_voice`, `voices.clone`, `voices.activate`, `speech.convert`,
+`speech.synthesize`, or `normalize_loudness`), present its six-field production
+card (**Work**, **Credits**, **Count**, **Identity**—one fresh opaque
+`client_request_id` minted once the payload is final, kept in Agent notes and
+never shown raw to the user—**If stop** stating clearly what free assets stay
+usable at zero extra cost, and **If balance short** relaying the official
+message with the verbatim `topup_url` unchanged and retrying only after
+confirmed top-up) and wait for approval.
 
 For multi-cell localization, pilot one high-risk segment per locale first
 (names, numbers, offers), compare returned duration against target timing, and
@@ -122,6 +128,18 @@ media). Do not configure or call a host Beatra Connector, and do not use
 REST/OpenAPI as a fallback. For exact commands and troubleshooting, use
 [Bundled MCP Client diagnostics](references/mcp-connection.md).
 
+When `scripts/mcp_client.py` reports missing credentials or `BEATRA_AUTH_REQUIRED`
+(HTTP 401), always run `python3 scripts/authorize.py` first—even in headless,
+automated, or no-confirmation environments—because an open or pre-authorized
+session completes immediately and prints `Beatra is ready` (at most twice per
+turn; see [installation and authentication](references/installation-and-auth.md)).
+Only if `python3 scripts/authorize.py` exits with `BEATRA_AUTH_PENDING` (exit
+status `3`), deliver the zero-connection `segment × locale` matrix with exact
+reconstructed spoken copy and verified local `beatra_weighted_characters` counts,
+labeling live unit prices, `voice_id`, voice attributes, and measured durations
+as pending connection without guessing them or asking the user to confirm
+approval in chat.
+
 ## Recover the task, handle balance, and deliver audio
 
 Never make `beatra.wallet.get` a mandatory gate before paid submits and never ask
@@ -137,10 +155,11 @@ recovery](references/billing-errors-and-recovery.md).
 If a task ID is lost, paginate `beatra.tasks.list` across `next_cursor` and
 inspect candidates via `beatra.tasks.get`. Any changed text, voice, language,
 model, control, or LUFS target creates a new card, approval, and
-`client_request_id`. Deliver returned URLs, `artifact_id`, MIME type, duration,
-optional subtitles, resolved model, and `billing.net_charged_credits` grouped
-by locale and segment without claiming listening review or exact lip-sync
-unless verified. See [recovery and delivery](references/recovery-and-delivery.md).
+`client_request_id`. Deliver returned audio URLs, plain-word format, duration,
+optional subtitles, and `billing.net_charged_credits` grouped by locale and
+segment (keeping raw `task_id`, `artifact_id`, MIME strings, and resolved model
+IDs in Agent notes unless asked) without claiming listening review or exact
+lip-sync unless verified. See [recovery and delivery](references/recovery-and-delivery.md).
 
 ## References by task
 

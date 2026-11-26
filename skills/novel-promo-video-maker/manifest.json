@@ -3,7 +3,7 @@
   "display_name": "Novel Promo Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/novel-promo-video-maker",
-  "icon": "https://beatra.ai/textures/icons/novel-promo-video-maker-0.2.5.png",
+  "icon": "https://beatra.ai/textures/icons/novel-promo-video-maker-0.3.0.png",
   "localized": {
     "en": {
       "description": "Turn a novel chapter, web-novel excerpt, or story script into narrated vertical short video scenes with illustrated shots that keep every character looking the same from beat to beat. This AI story video maker pulls the hook and the beats out of your text, draws one shot for each, records the narration in a voice you choose, and sets each clip to its own narration, so a chapter arrives as an ordered set of scenes for story channels, book trailers, web-novel promotion, chapter recaps, and faceless storytelling accounts.",
@@ -75,5 +75,5 @@
   },
   "name": "novel-promo-video-maker",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

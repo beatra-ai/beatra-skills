@@ -1,9 +1,9 @@
 {
-  "changelog": "Voice cloning now matches the voice model to your project, including two-voice dialogue and expressive reads.",
+  "changelog": "Shared guidance refreshed across Beatra Skills.",
   "display_name": "Short Drama Voice Pack",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/short-drama-voice-pack",
-  "icon": "https://beatra.ai/textures/icons/short-drama-voice-pack-0.2.2.png",
+  "icon": "https://beatra.ai/textures/icons/short-drama-voice-pack-0.2.6.png",
   "localized": {
     "en": {
       "description": "Turn a vertical short-drama episode script into a labeled short drama voiceover pack with one consistent voice per role. This short drama dialogue studio and vertical short drama voiceover shop casts the episode, records every spoken line as labeled clips, and keeps those character voices through the episode so editors can place AI short drama voice and multi-character voiceover without recasting. Use it for short drama voice acting, episode dialogue audio, vertical drama TTS, micro drama voiceover, and serialized short-drama line clips.",
@@ -62,5 +62,5 @@
   },
   "name": "short-drama-voice-pack",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }
