@@ -20,7 +20,7 @@ python3 scripts/mcp_client.py upload ./approved-anchor.png --mime-type image/png
 
 Keep existing HTTPS URLs or Beatra artifact references as typed media inputs. Never send a local path to a remote generation tool, and do not treat upload as visual inspection.
 
-Before a paid image call, use `beatra.models.list` for `text_to_image`, `image_to_image`, or `image_edit` as appropriate whenever current availability, input admission, canvas, model, control, output count, or price matters. Compare every actual input fact with the selected live card. Keep `model: "auto"` unless the user selected an eligible concrete model.
+Before a paid image call, call `beatra.models.list` with `{"capability":"text_to_image"}`, `{"capability":"image_to_image"}`, or `{"capability":"image_edit"}` whenever current availability, input admission, canvas, model, control, output count, or price matters. Compare every actual input fact with the selected live card. Keep `model: "auto"` unless the user selected an eligible concrete model.
 
 ## Separate still design from motion direction
 
@@ -43,7 +43,7 @@ Do not copy a long still prompt unchanged into video. Direct the approved frame 
 
 ## Paid sequence and approval
 
-Image, prompt-enhancement, and video generation are separate paid tasks. Before the gift-sized first win, show that stage's own card: route, tool, what it controls, canvas or target duration if set, output count when relevant, and provisional live estimate. After the text or still is delivered, show the video admission card — route and MCP tool name, shortest admitted duration, resolution, provisional estimate, and what happens if the balance is short — and wait for the user's approval. One confirmation of the plan, or a request to make the clip, does not authorize the video call.
+Image, prompt-enhancement, and video generation are separate paid tasks. Before the gift-sized first win, show that stage's six-field production card (**Work**, **Credits** from the live card, **Count**, **Identity** kept in Agent notes and never shown raw, **If they stop** keeping the free shot brief usable, and **If balance fails** relaying Beatra's message and verbatim top-up URL) and wait for approval. After the text or still is delivered, show the six-field video admission card — **Work** (route, MCP tool name, and unit-labeled shortest admitted duration, resolution, and aspect), **Credits** (provisional live estimate), **Count**, **Identity** (kept in Agent notes), **If they stop** (the delivered text or still stays usable at zero extra charge), and **If balance fails** (relay Beatra's message and verbatim top-up URL) — and wait for the user's approval. One confirmation of the plan, or a request to make the clip, does not authorize the video call.
 
 Use one stable request ID for the gift stage and a different stable ID for the video stage. Submit each once. Poll the gift task to terminal, deliver and inspect the actual text or still, then decide whether the downstream payload still matches the plan. If the still changes a material video input or direction, re-plan and show a new video admission card rather than silently continuing.
 

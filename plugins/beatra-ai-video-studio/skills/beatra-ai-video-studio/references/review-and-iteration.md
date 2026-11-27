@@ -4,7 +4,7 @@ Review the terminal artifact before recommending more paid work. A successful ta
 
 ## Deliver actual results
 
-Present every returned video and optional last-frame artifact or link. Report only facts returned by the task: terminal status, resolved model, actual dimensions, duration, usage, and `billing.net_charged_credits`. Do not infer output properties from requested settings or an earlier estimate.
+Present every returned video and optional last-frame link or file. Report the real format, actual dimensions, duration, and `billing.net_charged_credits` in plain words, keeping raw `task_id`, `artifact_id`, MIME strings, and resolved model IDs in Agent notes unless the user asks for them. Do not infer output properties or final charges from requested settings or an earlier estimate.
 
 State the host Agent's review boundary. If it can watch the full clip and hear its audio, say what was inspected. If it can inspect only frames, metadata, or no playable media, report that limitation and ask the user to review the real asset. Never describe an upload, task record, prompt, or thumbnail as full video inspection.
 

@@ -1,9 +1,9 @@
 {
-  "changelog": "Starting a video takes fewer steps.",
+  "changelog": "Clearer shot-planning notes when Beatra is connecting for the first time.",
   "display_name": "Beatra AI Video Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/beatra-ai-video-studio",
-  "icon": "https://beatra.ai/textures/icons/beatra-ai-video-studio-1.3.6.png",
+  "icon": "https://beatra.ai/textures/icons/beatra-ai-video-studio-1.3.8.png",
   "localized": {
     "en": {
       "description": "Plan and create short AI videos from a written shot, a supplied image, exact first and last frames, multimodal references, or existing footage. Beatra AI Video Studio supports text-to-video, image-to-video, reference-guided generation, AI video editing, and AI video extension for product videos, ad creative, social clips, b-roll, transitions, reveals, and cinematic concepts. Review each delivered clip for action, subject stability, camera, continuity, audio when requested or returned, and destination fit, then choose the smallest useful edit, extension, or new render.",
@@ -75,5 +75,5 @@
   },
   "name": "beatra-ai-video-studio",
   "schema_version": 1,
-  "version": "1.3.8"
+  "version": "1.3.9"
 }

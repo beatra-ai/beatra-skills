@@ -22,17 +22,17 @@ Use only this bundled client. Do not configure or use a host Beatra Connector an
 
 ## Live model and media admission
 
-Map the route to one exact capability:
+Map the route to one exact capability JSON payload for `beatra.models.list`:
 
-- `beatra.videos.enhance_prompt` → `video_prompt_enhancement`
-- `beatra.videos.generate` → `text_to_video`
-- `beatra.videos.animate` → `image_to_video`
-- `beatra.videos.interpolate` → `frames_to_video`
-- `beatra.videos.generate_from_references` → `reference_to_video`
-- `beatra.videos.edit` → `video_edit`
-- `beatra.videos.extend` → `video_extend`
+- `beatra.videos.enhance_prompt` → `{"capability":"video_prompt_enhancement"}`
+- `beatra.videos.generate` → `{"capability":"text_to_video"}`
+- `beatra.videos.animate` → `{"capability":"image_to_video"}`
+- `beatra.videos.interpolate` → `{"capability":"frames_to_video"}`
+- `beatra.videos.generate_from_references` → `{"capability":"reference_to_video"}`
+- `beatra.videos.edit` → `{"capability":"video_edit"}`
+- `beatra.videos.extend` → `{"capability":"video_extend"}`
 
-Call `beatra.models.list` for that capability. Choose only a current card whose input combination accepts the complete payload. Compare, as applicable:
+Call `beatra.models.list` with that exact `{"capability":"<enum>"}` object (when missing credentials or HTTP 401, run `python3 scripts/authorize.py` first—at most twice per turn—before falling back to `BEATRA_AUTH_PENDING` offline delivery; never use web search or memory to guess model names, supported duration/resolution ceilings, or per-second credit rates). Choose only a current card whose input combination accepts the complete payload. Compare, as applicable:
 
 - media kind and exact input role;
 - MIME type and byte size;
@@ -183,7 +183,7 @@ Request `return_last_frame: true` only when a current card supports it and a rev
 
 ## Estimate, admit, and submit once
 
-Use current card pricing to show a provisional estimate based on the frozen model, duration, resolution, and any billable input-video quantity. Before any `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, `beatra.videos.generate_from_references`, `beatra.videos.edit`, or `beatra.videos.extend` call, show the admission card with route, MCP tool name, live-card duration, resolution, and aspect, the provisional estimate, and what happens if the balance is short. The terminal `billing.net_charged_credits` is final. Planning, comparison, or “make the clip” is not approval. Do not create `client_request_id` or submit until the user approves the card.
+Use current card pricing to show a provisional estimate based on the frozen model, duration, resolution, and any billable input-video quantity. Before any `beatra.videos.generate`, `beatra.videos.animate`, `beatra.videos.interpolate`, `beatra.videos.generate_from_references`, `beatra.videos.edit`, or `beatra.videos.extend` call, show the six-field video admission card: **Work** (route, MCP tool name, and unit-labeled live-card duration, resolution, and aspect), **Credits** (provisional live estimate just read), **Count** (one charge for this video slot), **Identity** (one fresh opaque `client_request_id` minted after approval, kept in Agent notes, and never shown raw to the user), **If they stop** (the free shot brief and any already-delivered prompt or still stay usable at zero extra charge), and **If balance fails** (relay Beatra's official message with the top-up URL unchanged and retry only after confirmed top-up). When `python3 scripts/authorize.py` is still `BEATRA_AUTH_PENDING`, fill those same six fields with unit-labeled requested target parameters marked pending live `beatra.models.list` check and `0 credits charged now; live credit estimate pending beatra.models.list after Beatra is ready`, plus the exact `scripts/mcp_client.py` command sequence ready to run after Allow. The terminal `billing.net_charged_credits` is final. Planning, comparison, or “make the clip” is not approval. Do not create `client_request_id` or submit until the user approves the live card.
 
 Create one opaque stable `client_request_id` only after that approval. Record the tool and complete payload in a private ledger, submit once, and record the returned task ID immediately. A changed media item, reference order, model, instruction, prompt, direction, duration, ratio, resolution, or optional control creates a new request with a new ID and a new admission card. On `insufficient_balance`, relay the returned public message, keep the top-up URL inside the balance error exact, and retry the same frozen ID only after the user says they have topped up.
 
@@ -195,8 +195,8 @@ Poll the exact task:
 printf '%s' '{"task_id":"task_video"}' | python3 scripts/mcp_client.py call beatra.tasks.get
 ```
 
-Continue through queued and running states. On success, deliver actual artifacts and terminal facts. On failure, report the actual error and billing/refund outcome.
+Continue through queued and running states. On success, deliver actual returned links/files, real format, dimensions, duration, and `billing.net_charged_credits` in plain words while keeping raw `task_id`, `artifact_id`, MIME strings, and resolved model IDs in Agent notes unless asked. On failure, report the actual error and billing/refund outcome.
 
-If the create response was lost, repeat only the identical frozen call with the same request ID. If the task ID was lost, list tasks for the route capability, inspect plausible candidates with `beatra.tasks.get`, and match exact ledger facts before any identical retry. Never submit a changed request as recovery.
+If the create response was lost, repeat only the identical frozen call with the same request ID. If the task ID was lost or the user asks about an earlier clip, paginate `beatra.tasks.list` for the route capability (omitting `cursor` on page 1 and passing non-empty `next_cursor`), inspect plausible candidates with `beatra.tasks.get`, and match exact ledger facts before any identical retry; if connection is `BEATRA_AUTH_PENDING`, never guess task state—provide those exact `beatra.tasks.list` and `beatra.tasks.get` commands and candidate-matching fields to run after Allow. Never submit a changed request as recovery.
 
 Use `beatra.tasks.cancel` only after the user asks. Invoke it once and poll the same task to terminal. A 409 response means cancellation was not confirmed.
