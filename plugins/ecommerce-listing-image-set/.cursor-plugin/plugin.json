@@ -2,7 +2,7 @@
   "name": "ecommerce-listing-image-set",
   "displayName": "Ecommerce Product Images",
   "description": "Turn verified SKU facts and product photos into a cohesive ecommerce image set with a hero image, feature visuals, lifestyle scenes, size views, and in-box images.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "Beatra AI"
   },

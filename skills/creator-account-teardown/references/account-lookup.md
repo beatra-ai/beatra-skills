@@ -130,6 +130,9 @@ State, before the call:
 - the credit price `beatra.social.tools.get` just returned;
 - how many lookups the plan contains, counting the profile, each page of posts, and each
   page of comments as separate charges;
+- what happens if the balance is short: relay the official message in the user's
+  language with its top-up link unchanged, and run the lookup only after the user says
+  they have topped up;
 - that the whole teardown, template, and first-post plan can be built at no cost from
   what the user pastes.
 

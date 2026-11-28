@@ -2,7 +2,7 @@
   "name": "ai-storyboard-generator",
   "displayName": "AI Storyboard Generator",
   "description": "Turn a script, scene, or ad brief into a practical shot list and one to four storyboard key-frame images.",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "author": {
     "name": "Beatra AI"
   },

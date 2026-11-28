@@ -72,6 +72,9 @@ State, before the call:
   are searching — together with the `operation_key` it maps to;
 - the credit price `beatra.social.tools.get` just returned;
 - how many lookups the plan contains, counting each page as one;
+- what happens if the balance is short: relay the official message in the user's
+  language with its top-up link unchanged, and run the lookup only after the user says
+  they have topped up;
 - that the angles can be produced from what the user already gave, at no cost.
 
 When the user asks for "whatever is trending" without naming a platform, offer the

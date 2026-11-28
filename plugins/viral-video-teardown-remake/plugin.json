@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "viral-video-teardown-remake",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Paste the link or bring the file, break a short video that worked into its hook, beats, and call to action, then rebuild that structure around your own subject as a shot list, beat frames, and narration — delivered as one vertical clip animated from your opening frame, or, when the reference cuts too fast or runs too long for a single take, as segmented sources with captions and a timecoded edit list.",
   "author": {
     "name": "Beatra AI",
@@ -32,7 +32,7 @@
       "interface": {
         "displayName": "Viral Video Remake",
         "shortDescription": "Remake short videos that work",
-        "longDescription": "Turn a short video that already worked into your own version. Paste the link and this viral video teardown and short-video remake workflow reads the reference itself on TikTok, Douyin, Xiaohongshu, Instagram, YouTube, or X — caption, author, visible metrics, comments, and on YouTube the full transcript — or work from a file, screenshots, or your own description instead. It breaks the clip into its hook, body beats, and call to action, names the script pattern behind it, scores what carried the performance, then rewrites that structure around your product or topic — delivering a shot list with visuals and narration kept apart, reference frames from your own assets before any are generated, a narration track, and either an animated clip or segmented sources with a timecoded edit list. Use it to study a competitor's viral short, borrow a proven structure for Reels, Shorts, or WeChat Channels, rebuild a benchmark video under your own brand, or turn a saved reference into a content formula you can run again.",
+        "longDescription": "Turn a short video that already worked into your own version. Paste the link and this viral video teardown and short-video remake workflow reads the reference itself on TikTok, Douyin, Instagram, YouTube, or X — caption, author, visible metrics, comments, and on YouTube the full transcript — or work from a file, screenshots, or your own description instead. It breaks the clip into its hook, body beats, and call to action, names the script pattern behind it, scores what carried the performance, then rewrites that structure around your product or topic — delivering a shot list with visuals and narration kept apart, reference frames from your own assets before any are generated, a narration track, and either an animated clip or segmented sources with a timecoded edit list. Use it to study a competitor's viral short, borrow a proven structure for Reels, Shorts, or WeChat Channels, rebuild a benchmark video under your own brand, or turn a saved reference into a content formula you can run again.",
         "developerName": "Beatra AI",
         "category": "Creativity",
         "websiteURL": "https://beatra.ai/skills/viral-video-teardown-remake",

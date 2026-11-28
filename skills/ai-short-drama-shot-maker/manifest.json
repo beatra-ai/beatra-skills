@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name.",
   "display_name": "AI Short Drama Shot Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-short-drama-shot-maker",
-  "icon": "https://beatra.ai/textures/icons/ai-short-drama-shot-maker-0.2.5.png",
+  "icon": "https://beatra.ai/textures/icons/ai-short-drama-shot-maker-0.2.9.png",
   "localized": {
     "en": {
       "description": "Generate one cinematic vertical micro-drama shot from a frozen dramatic beat, actor and scene references, and camera direction. This AI short drama shot maker and vertical micro-drama generator creates a live-action or cinematic shot from text alone, animates an approved opening image, interpolates motion between strict opening and ending images, or combines loose actor, location, and prop references into a new drama shot. Use it for romantic conflict, suspense reveal, reaction shot, dialogue close-up, establishing shot, period drama, emotional confrontation, and cinematic product-story moments, with frozen shot cards, shot-by-shot identity continuity, and honest review of each finished shot.",
@@ -43,7 +43,7 @@
     },
     "zh": {
       "description": "用一个定稿的戏剧节拍、演员和场景参考以及镜头方向，为短剧视频生成一个电影感的竖屏微短剧镜头。这个 AI 短剧镜头生成与竖屏微短剧制作工作流可以仅凭文本生成真人或电影感镜头，把确认的开场图变成动态镜头，在严格的首尾两张图之间生成过渡动作，或把松散的演员、场景、道具参考组合成全新的短剧镜头。适合情感冲突、悬疑反转、反应镜头、对话特写、建立镜头、古装短剧、情绪对峙和电影感产品故事镜头，每个镜头都冻结镜头卡、逐镜保持人物特征连续性，并如实复盘每个完成的镜头。",
-      "display_name": "短剧镜头生成",
+      "display_name": "短剧镜头生成·AI短剧",
       "summary": "从一个定稿的戏剧节拍和参考素材，生成一个电影感的竖屏短剧镜头——纯文本、确认的开场图、首尾两张图，或松散的演员和场景参考均可。",
       "tags": [
         "AI短剧",
@@ -71,5 +71,5 @@
   },
   "name": "ai-short-drama-shot-maker",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

@@ -1,12 +1,12 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Refreshed the listing description; updated the Chinese name and keywords.",
   "display_name": "Creator Account Teardown",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/creator-account-teardown",
   "icon": "https://beatra.ai/textures/icons/creator-account-teardown-0.2.9.png",
   "localized": {
     "en": {
-      "description": "Take apart a creator account and walk away with your own version of it. Bring what you can see — profile screenshots, the bio, a pasted list of recent posts with their counts, a few captions — or hand it the handle: it reads profiles and recent posts on Douyin, TikTok, Xiaohongshu, Instagram, YouTube and X, and comments on the first three. This account teardown and account diagnosis workflow reads the positioning, the audience it speaks to, the content matrix behind the grid, the hook and structure pattern its best posts repeat, and the posting cadence, then turns it into a build template for your own account: a positioning line, a bio, content pillars with formats and cadence, a viral formula, and an opening plan — finishing with your first post produced, its cover rendered and its script voiced. Use it for competitor account analysis, account benchmarking and comment analysis, for a new account or a stalled one.",
+      "description": "Take apart a creator account and walk away with your own version of it. Bring what you can see — profile screenshots, the bio, a pasted list of recent posts with their counts, a few captions — or hand it the handle: it reads profiles and recent posts on Douyin, TikTok, Instagram, YouTube and X, and the comments on Douyin and TikTok. This account teardown and account diagnosis workflow reads the positioning, the audience it speaks to, the content matrix behind the grid, the hook and structure pattern its best posts repeat, and the posting cadence, then turns it into a build template for your own account: a positioning line, a bio, content pillars with formats and cadence, a viral formula, and an opening plan — finishing with your first post produced, its cover rendered and its script voiced. Use it for competitor account analysis, account benchmarking and comment analysis, for a new account or a stalled one.",
       "display_name": "Creator Account Teardown",
       "summary": "Read a creator account from a handle, or from the screenshots, bio, captions, and visible post metrics you have, diagnose its positioning, audience, content matrix, hook pattern, and cadence, then turn all of it into your own positioning, pillars, hook formula, opening plan, and a first post produced with its cover rendered and its script voiced.",
       "tags": [
@@ -28,7 +28,7 @@
       "title": "Creator Account Teardown: Diagnose an Account, Then Build Your Own"
     },
     "ja": {
-      "description": "アカウントを分解し、自分のアカウントを立ち上げるための設計図として持ち帰ります。手元にあるもので構いません——プロフィールのスクリーンショット、自己紹介文、直近投稿の一覧と表示・いいね・コメントの数、いくつかのキャプション。そこからアカウントの立ち位置、実際に語りかけている視聴者層、投稿群を支えるコンテンツ設計、伸びた投稿が繰り返している冒頭フックと構成、そして投稿頻度を読み解き、あなた自身の設計へ落とし込みます。ポジショニングの一文、プロフィール文、テーマ別のコンテンツマトリクスと投稿ペース、繰り返し使える型、立ち上げ用の十本の投稿リスト。最後に一本目の投稿まで仕上げ、サムネイル画像を生成し、台本にナレーションを載せてお渡しします。競合アカウント分析、ベンチマーク調査、新規アカウントの立ち上げ、伸び悩んだアカウントの立て直しに。TikTok・抖音・Instagram リール・YouTube ショート・小紅書に対応します。アカウントのリンクやハンドルを渡すだけでも始められます。TikTok・抖音・小紅書・Instagram・YouTube・X ならプロフィールと直近投稿の公開数値を直接読み取れます。TikTok・抖音・小紅書ではコメント分析も行えるので、アカウント調査を手入力なしで進められます。公開数値を読み取れないプラットフォームは、これまでどおり貼り付けた内容から読み取ります。",
+      "description": "アカウントを分解し、自分のアカウントを立ち上げるための設計図として持ち帰ります。手元にあるもので構いません——プロフィールのスクリーンショット、自己紹介文、直近投稿の一覧と表示・いいね・コメントの数、いくつかのキャプション。そこからアカウントの立ち位置、実際に語りかけている視聴者層、投稿群を支えるコンテンツ設計、伸びた投稿が繰り返している冒頭フックと構成、そして投稿頻度を読み解き、あなた自身の設計へ落とし込みます。ポジショニングの一文、プロフィール文、テーマ別のコンテンツマトリクスと投稿ペース、繰り返し使える型、立ち上げ用の十本の投稿リスト。最後に一本目の投稿まで仕上げ、サムネイル画像を生成し、台本にナレーションを載せてお渡しします。競合アカウント分析、ベンチマーク調査、新規アカウントの立ち上げ、伸び悩んだアカウントの立て直しに。TikTok・抖音・Instagram リール・YouTube ショートに対応します。アカウントのリンクやハンドルを渡すだけでも始められます。TikTok・抖音・Instagram・YouTube・X ならプロフィールと直近投稿の公開数値を直接読み取れます。TikTok・抖音ではコメント分析も行えるので、アカウント調査を手入力なしで進められます。",
       "display_name": "アカウント分析・立ち上げ設計",
       "summary": "ハンドル一つ、あるいはプロフィールのスクリーンショット、自己紹介文、直近投稿の一覧と表示・いいね・コメント数、いくつかのキャプション——見える情報から立ち位置・視聴者層・コンテンツ設計・伸びる型・投稿頻度を読み解き、あなた自身の設計と一本目の投稿（サムネイル生成・台本のナレーション付き）まで仕上げます。",
       "tags": [
@@ -51,8 +51,8 @@
       "title": "競合アカウント分析と診断：一つ分解して、自分の立ち上げ設計を持ち帰る"
     },
     "zh": {
-      "description": "把一个账号拆开，拿走一套能照着起号的模板。你手上有什么就给什么——主页截图、简介、复制过来的近期作品列表和它们的播放、点赞、评论数、几条文案——账号拆解与账号诊断工作流借助 AI 读出它的账号定位、真正在对话的人群、内容矩阵、爆款作品反复复用的开头钩子与结构，以及更新节奏，再把这些整理成你自己的起号模板：一句账号定位、一版简介、按内容支柱和形式排布的内容矩阵与更新节奏、一条可复用的爆款公式，还有开局十条的选题清单——最后把第一条作品直接做出来，封面图渲染好，口播配好音。适合对标账号研究、对标拆解、竞品账号分析、视频号账号拆解、抖音账号诊断和账号运营诊断，也适合从零起号或把一个停滞的号重新拉起来。拿一个小红书对标账号，就能做小红书数据分析、小红书爆款拆解，再写成自己做小红书运营的起号模板。也可以直接给主页链接或 @：抖音、TikTok、小红书、Instagram、YouTube、X 上的主页资料、近期作品和它们的公开数据都能直接读到；抖音、TikTok、小红书还能做评论区分析，看观众到底在说什么。对标账号分析和账号数据都不用再一条条手抄。",
-      "display_name": "起号",
+      "description": "把一个账号拆开，拿走一套能照着起号的模板。你手上有什么就给什么——主页截图、简介、复制过来的近期作品列表和它们的播放、点赞、评论数、几条文案——账号拆解与账号诊断工作流借助 AI 读出它的账号定位、真正在对话的人群、内容矩阵、爆款作品反复复用的开头钩子与结构，以及更新节奏，再把这些整理成你自己的起号模板：一句账号定位、一版简介、按内容支柱和形式排布的内容矩阵与更新节奏、一条可复用的爆款公式，还有开局十条的选题清单——最后把第一条作品直接做出来，封面图渲染好，口播配好音。适合对标账号研究、对标拆解、竞品账号分析、视频号账号拆解、抖音账号诊断和账号运营诊断，也适合从零起号或把一个停滞的号重新拉起来。拿一个对标账号，就能做数据分析和爆款拆解，再写成你自己做内容运营的起号模板。也可以直接给主页链接或 @：抖音、TikTok、Instagram、YouTube、X 上的主页资料、近期作品和它们的公开数据都能直接读到；抖音和 TikTok 还能做评论区分析，看观众到底在说什么。对标账号分析和账号数据都不用再一条条手抄。",
+      "display_name": "运营起号·账号拆解",
       "summary": "给一个主页链接，或者你能看到的东西——主页截图、简介、复制来的作品列表和它们的播放点赞评论数、几条文案——拆出对方的账号定位、人群、内容矩阵、爆款公式和更新节奏，再变成你自己的定位、内容矩阵、起号模板和第一条作品：封面图渲染好，口播配好音。",
       "tags": [
         "账号拆解",
@@ -71,7 +71,8 @@
         "对标账号分析",
         "账号数据",
         "评论区分析",
-        "主页链接"
+        "主页链接",
+        "运营"
       ],
       "title": "账号拆解与账号诊断：拆完一个号，拿走一套起号模板"
     }
@@ -85,5 +86,5 @@
   },
   "name": "creator-account-teardown",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.2"
 }

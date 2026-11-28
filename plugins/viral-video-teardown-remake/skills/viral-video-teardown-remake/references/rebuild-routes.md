@@ -44,7 +44,7 @@ At a scene change, **keep the hard cut** and start from a fresh reference frame.
 
 R2's first four steps, plus the platform stitching the units into one finished cut.
 
-**This route cannot run today** — the platform has no compose capability. When a user asks for a single publishable file, say plainly what is available instead: R2's segments and edit list. Do not blur this into a promise the platform cannot keep.
+**This package does not run this route** — it does not join units into one file. When a user asks for a single publishable file, say plainly what this package delivers instead: R2's segments and edit list. Do not blur this into a promise this package cannot keep.
 
 ## R2 is not a lesser R3
 

@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name, description and keywords.",
   "display_name": "Taobao Product Main Image Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/taobao-main-video-maker",
-  "icon": "https://beatra.ai/textures/icons/taobao-main-video-maker-0.2.5.png",
+  "icon": "https://beatra.ai/textures/icons/taobao-main-video-maker-0.2.8.png",
   "localized": {
     "en": {
       "description": "Create a Taobao product main-image video or Tmall product main-image video from product photos, selling points, and brand references. This AI product video maker builds a product-led opening, detail or use moment, and clean finish for Taobao product listings, Tmall product pages, ecommerce product listing videos, new-product launches, and seasonal campaigns.",
@@ -42,8 +42,8 @@
       "title": "Taobao（淘宝）・Tmall（天猫）商品ページ用動画メーカー"
     },
     "zh": {
-      "description": "商品图转视频：使用 AI 将商品图、商品卖点和品牌素材制作成淘宝主图视频、天猫主图视频、商品主图视频、宝贝主图视频和商品展示视频。围绕淘宝商品详情页、天猫商品页、电商主图视频、新品上架和大促活动，呈现商品主体、细节或使用场景和干净收尾，打造适合商品浏览的电商商品视频。",
-      "display_name": "淘宝天猫主图视频制作器",
+      "description": "商品图转视频：使用 AI 将商品图、商品卖点和品牌素材制作成淘宝主图视频、天猫主图视频、商品主图视频、宝贝主图视频和商品展示视频。围绕淘宝商品详情页、天猫商品页、电商主图视频、新品上架和大促活动，呈现商品主体、细节或使用场景和干净收尾，打造适合商品浏览的电商商品视频。上传商品图，就能完成淘宝主图视频制作。",
+      "display_name": "淘宝天猫商品主图视频制作器",
       "summary": "把商品图、卖点和品牌素材制作成淘宝或天猫主图视频，清晰呈现商品开场、细节或使用场景和干净收尾。",
       "tags": [
         "淘宝主图视频",
@@ -57,7 +57,8 @@
         "商品图转视频",
         "商品展示视频",
         "商品视频制作",
-        "AI商品视频"
+        "AI商品视频",
+        "商品主图"
       ],
       "title": "淘宝主图视频制作：淘宝天猫商品主图视频生成"
     }
@@ -71,5 +72,5 @@
   },
   "name": "taobao-main-video-maker",
   "schema_version": 1,
-  "version": "0.2.8"
+  "version": "0.2.9"
 }

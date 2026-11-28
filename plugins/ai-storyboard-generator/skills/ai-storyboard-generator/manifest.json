@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name.",
   "display_name": "AI Storyboard Generator",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-storyboard-generator",
-  "icon": "https://beatra.ai/textures/icons/ai-storyboard-generator-0.2.6.png",
+  "icon": "https://beatra.ai/textures/icons/ai-storyboard-generator-0.2.9.png",
   "localized": {
     "en": {
       "description": "Turn a script, scene, or ad brief into a structured AI storyboard plan with a practical shot list and one to four storyboard key-frame images. Plan shot types, camera angles and movement, action, timing, dialogue, and sound for short films, ads, animation, social video, motion comics, and creative pitches.",
@@ -43,7 +43,7 @@
     },
     "zh": {
       "description": "这款 AI分镜生成器把剧本、场景或广告创意转为可执行的 AI 分镜方案，也就是一份可直接评审的故事板：输出分镜头脚本、镜头表和一至四张用作关键帧的关键分镜图。规划景别、构图、机位、运镜、动作、时长、台词和声音提示，适用于短片、广告、动画、短视频、微短剧、动态漫画和创意提案。",
-      "display_name": "分镜生成器",
+      "display_name": "分镜生成器·故事板",
       "summary": "将剧本、场景或广告创意说明拆成可执行的分镜表，并制作一至四张关键分镜图。",
       "tags": [
         "AI分镜生成器",
@@ -70,5 +70,5 @@
   },
   "name": "ai-storyboard-generator",
   "schema_version": 1,
-  "version": "0.2.9"
+  "version": "0.3.0"
 }

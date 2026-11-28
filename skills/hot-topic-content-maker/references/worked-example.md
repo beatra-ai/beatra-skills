@@ -102,11 +102,11 @@ The card then freezes, in one message: the chosen angle and cover wording, the
 would use — with the warning that changing the ratio later means paying for
 every artifact again, the caption and hashtags as written below, whether a clip
 is included, the live per-image price read from the model card, the number of
-paid calls and the stable request ID each will carry, the statement that cover
+paid calls (each call's stable request ID stays in the agent's notes, not on the card), the statement that cover
 text is generated artwork and will be read back against the approved wording,
 that the angle, caption, and hashtags stay the user's if they stop here, what
 happens if the balance is short (the official message and top-up URL relayed,
-and the same request ID retried only after they top up), and the resulting
+and the same call retried only after they top up), and the resulting
 total. In this run the user asked for the cover and copy only, so the card names one paid image call. For a Xiaohongshu post the default set is the image set — the cover plus inner cards — and the sections after delivery show what that, and a video, would have added.
 
 ## Production, and what came back
@@ -140,7 +140,7 @@ posts. That is 1 / 3 / 1, inside the documented range.
 
 ## What the full image set adds
 
-Illustrative: this run stopped at the cover. The default image set adds inner cards, planned free with the cover and listed on the same gate-1 card, each with its own request ID and price, under one estimated total.
+Illustrative: this run stopped at the cover. The default image set adds inner cards, planned free with the cover and listed on the same gate-1 card, each with its own price, under one estimated total.
 
 Each block is one card: a short headline, then at most three short lines.
 
@@ -186,7 +186,7 @@ Say the narration comes back at 18.9 seconds. The four spoken lines are 21, 22, 
 
 Had the narration come in at 15 seconds or under, it would have been one take: the opening still animated with the narration as its driving audio, and the other stills delivered as stills. The join would then add the music and the subtitles to that one take, keeping its sound.
 
-**Gate 2 is its own card**, after the stills, narration, and music were reviewed: each video call with its still, the motion, the model, the duration, and the provisional estimate, whether the card's first-video offer applies to any of them, and what happens if the balance runs out partway. Approving gate 1 does not authorize it: the cheap, reversible work is approved separately from the expensive work. The video's estimate was already part of the gate-1 total; gate 2 prices each call again from the live card, now that the real narration length is known. The card ends with the join, listed with its live price and its own request ID and counted in the card's total, so it needs no approval of its own.
+**Gate 2 is its own card**, after the stills, narration, and music were reviewed: each video call with its still, the motion, the model, the duration, and the provisional estimate, whether the card's first-video offer applies to any of them, and what happens if the balance runs out partway. Approving gate 1 does not authorize it: the cheap, reversible work is approved separately from the expensive work. The video's estimate was already part of the gate-1 total; gate 2 prices each call again from the live card, now that the real narration length is known. The card ends with the join, listed with its live price and counted in the card's total, so it needs no approval of its own.
 
 ## A news angle as a presenter video
 

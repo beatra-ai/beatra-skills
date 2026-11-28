@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name and keywords.",
   "display_name": "AI Product-on-Model Locale Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/product-on-model-locale-studio",
-  "icon": "https://beatra.ai/textures/icons/product-on-model-locale-studio-0.2.3.png",
+  "icon": "https://beatra.ai/textures/icons/product-on-model-locale-studio-0.2.5.png",
   "localized": {
     "en": {
       "description": "Create AI product-on-model images and clothing try-on presentations from apparel and wearable-accessory product photos for localized ecommerce campaigns. Plan one fashion-model visual per market with market-specific casting, styling, pose, and shopping scene, then prepare product-on-model photography for fashion listings, apparel ads, Shopify storefronts, Amazon Fashion pages, and social commerce launches.",
@@ -47,7 +47,7 @@
     },
     "zh": {
       "description": "基于服装、鞋帽、包袋、珠宝等可穿戴商品照片，制作AI模特上身图、服装上身图和电商模特图。为不同销售市场规划独立的模特形象、穿搭、姿势和购物场景，生成多地区模特图、AI模特换装与AI试穿图，适用于服装上架图、品牌广告、Shopify 店铺、亚马逊时尚页面和社交电商推广。",
-      "display_name": "AI多地区模特上身图工作室",
+      "display_name": "AI模特上身图·多地区服装模特",
       "summary": "基于服装与可穿戴商品照片，为每个销售市场制作一张AI模特上身图与地区化电商视觉。",
       "tags": [
         "AI模特上身图",
@@ -61,7 +61,9 @@
         "Shopify服装图片",
         "亚马逊时尚图片",
         "服装场景图",
-        "可穿戴商品图"
+        "可穿戴商品图",
+        "AI模特",
+        "服装模特"
       ],
       "title": "AI模特上身图：多地区电商服装视觉"
     }
@@ -75,5 +77,5 @@
   },
   "name": "product-on-model-locale-studio",
   "schema_version": 1,
-  "version": "0.2.5"
+  "version": "0.2.6"
 }

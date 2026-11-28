@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name and keywords.",
   "display_name": "AI Image Generation Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-image-generation-studio",
-  "icon": "https://beatra.ai/textures/icons/ai-image-generation-studio-0.2.4.png",
+  "icon": "https://beatra.ai/textures/icons/ai-image-generation-studio-0.2.7.png",
   "localized": {
     "en": {
       "description": "Create and refine images from a written brief, one to four ordered reference images, or an existing base image. AI Image Generation Studio supports text-to-image generation, reference-guided composition, and focused AI image editing for product photos, ad creative, brand visuals, posters, social graphics, illustrations, concept art, and photo background changes. Review each generated image for message, subject fidelity, composition, style, text, and destination fit, then choose the smallest useful edit, new composition, or new generation.",
@@ -47,7 +47,7 @@
     },
     "zh": {
       "description": "从文字描述、按顺序提供的一至四张参考图，或一张需要修改的原图出发，做 AI图片生成与图像完善。本工作室支持文生图、参考图创作和围绕指定部分进行的 AI图片编辑，可用于 AI海报制作、产品图、广告创意、品牌视觉、海报、社交媒体配图、AI插画、概念图和照片背景修改。看到结果后，检查信息表达、主体是否符合要求、构图、风格、文字与发布场景，再选择最小有效的局部修改、重新构图或重新生成。",
-      "display_name": "文生图与图片生成工作室",
+      "display_name": "图片生成·文生图工作室",
       "summary": "生成、合成并编辑产品图、品牌视觉、海报、社交媒体配图、插画和照片的不同版本。",
       "tags": [
         "AI图片生成",
@@ -61,7 +61,8 @@
         "AI插画生成",
         "概念图生成",
         "照片背景编辑",
-        "AI图像工作室"
+        "AI图像工作室",
+        "图片生成"
       ],
       "title": "文生图与图片生成工作室：AI图片生成、参考图创作与图片编辑"
     }
@@ -75,5 +76,5 @@
   },
   "name": "ai-image-generation-studio",
   "schema_version": 1,
-  "version": "0.2.7"
+  "version": "0.2.8"
 }

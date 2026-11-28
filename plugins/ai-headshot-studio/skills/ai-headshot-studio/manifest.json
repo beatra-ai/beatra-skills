@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name, description and keywords.",
   "display_name": "AI Headshot Studio",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-headshot-studio",
-  "icon": "https://beatra.ai/textures/icons/ai-headshot-studio-0.2.3.png",
+  "icon": "https://beatra.ai/textures/icons/ai-headshot-studio-0.2.6.png",
   "localized": {
     "en": {
       "description": "Transform a casual selfie into a studio-quality professional headshot for LinkedIn, resume, company website, business card, or social media. This AI headshot generator creates polished professional portraits with new backgrounds, professional attire, and studio lighting while preserving the person's identity. Generate corporate headshots, tech startup portraits, academic profile photos, medical professional images, and creative industry portraits from one selfie. Specify a professional style and industry, pair with a desired background or setting, or refine an accepted headshot toward a publish-ready result.",
@@ -46,8 +46,8 @@
       "title": "AI ヘッドショットスタジオ：AI プロフェッショナル証明写真＆ポートレートジェネレーター"
     },
     "zh": {
-      "description": "将一张日常自拍转化为影棚级专业形象照，AI头像生成适用于 LinkedIn头像、简历、公司官网、商务名片或社交媒体。这款 AI 形象照生成器制作精致的专业人像，替换全新背景、职业着装和影棚光效，同时保持人物面部特征不变。从一张自拍生成企业形象照、科技公司人像、学术证件照、医疗专业照片和创意行业形象照。指定职业风格和行业，搭配期望的背景或场景，或在已认可形象照上做定向精修，完成可发布的成品。",
-      "display_name": "AI形象照工作室",
+      "description": "将一张日常自拍转化为影棚级专业形象照，AI头像生成适用于 LinkedIn头像、简历、公司官网、商务名片或社交媒体。这款 AI 形象照生成器制作精致的专业人像，替换全新背景、职业着装和影棚光效，同时保持人物面部特征不变。从一张自拍生成企业形象照、AI西装照、科技公司人像、学术证件照、医疗专业照片和创意行业形象照。指定职业风格和行业，搭配期望的背景或场景，或在已认可形象照上做定向精修，完成可发布的成品。",
+      "display_name": "AI写真·形象照与头像",
       "summary": "将一张日常自拍转化为影棚级专业形象照，搭配全新背景、职业着装和影棚光效，适用于 LinkedIn、简历、公司官网和社交媒体。",
       "tags": [
         "AI证件照",
@@ -61,7 +61,9 @@
         "AI西装照",
         "企业形象照",
         "LinkedIn头像",
-        "AI证件照换背景"
+        "AI证件照换背景",
+        "AI写真",
+        "头像"
       ],
       "title": "AI 形象照工作室：AI 专业证件照与人像生成器"
     }
@@ -75,5 +77,5 @@
   },
   "name": "ai-headshot-studio",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

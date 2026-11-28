@@ -1,6 +1,6 @@
 ---
 name: "whiteboard-animation-maker"
-description: "Turn a concept, a finished voiceover script, or a benchmark social video into a 1080×1920 black-and-white hand-drawn whiteboard explainer film. This whiteboard animation maker writes Chinese and English words stroke by stroke or animates flow cards and diagrams, narrates through text-to-speech or a cloned voice, and learns from benchmark Xiaohongshu, Douyin, TikTok, YouTube, Instagram, or X videos before drafting. Use it for whiteboard animation, hand-drawn explainer videos, doodle videos, concept explainers, what-is-X shorts, vertical explainers, spoken narration, TTS voiceover, and cloned narration for knowledge shorts."
+description: "Turn a concept, a finished voiceover script, or a benchmark social video into a 1080×1920 black-and-white hand-drawn whiteboard explainer film. This whiteboard animation maker writes Chinese and English words stroke by stroke or animates flow cards and diagrams, narrates through text-to-speech or a cloned voice, and learns from benchmark Douyin, TikTok, YouTube, Instagram, or X videos before drafting. Use it for whiteboard animation, hand-drawn explainer videos, doodle videos, concept explainers, what-is-X shorts, vertical explainers, spoken narration, TTS voiceover, and cloned narration for knowledge shorts."
 ---
 
 # Whiteboard Animation Maker

@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name, description and keywords.",
   "display_name": "AI Photo Restyler",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-photo-restyler",
-  "icon": "https://beatra.ai/textures/icons/ai-photo-restyler-0.2.3.png",
+  "icon": "https://beatra.ai/textures/icons/ai-photo-restyler-0.2.6.png",
   "localized": {
     "en": {
       "description": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the person, pet, or product stays recognisable. This AI photo restyler works as a photo-to-anime converter and AI cartoonizer you can steer: apply a style like a filter over your own picture, or add style samples to steer the palette, line weight, and shading. A selfie, portrait, pet photo, product shot, or travel picture becomes illustration-style art for social avatars, profile pictures, sticker sets, posters, merchandise, and content series, with one chosen look repeated across a whole batch.",
@@ -46,8 +46,8 @@
       "title": "AI写真イラスト化：写真をアニメ風・漫画風・カートゥーンに変換"
     },
     "zh": {
-      "description": "把一张照片转成漫画风、动漫风、卡通化、水彩、手绘、黏土或 3D 角色画风，同时保住人物、宠物或商品的辨识度。这个 AI 照片转绘、照片转漫画工具从你自己的图出发，加一张画风参考图做风格迁移，配色、线条和上色方式都照着走，让自拍、人像、宠物照、商品图或旅行照变成二次元插画风作品，用在社交头像、朋友圈配图、表情包素材、海报和周边上，第一张满意之后整批照片都按同一画风出。",
-      "display_name": "照片转绘",
+      "description": "把一张照片转成漫画风、动漫风、卡通化、水彩、手绘、黏土或 3D 角色画风，同时保住人物、宠物或商品的辨识度。这个 AI转绘工具做照片转绘、照片转漫画和图片转漫画，从你自己的图出发，加一张画风参考图做风格迁移，配色、线条和上色方式都照着走，让自拍、人像、宠物照、商品图或旅行照变成二次元插画风作品，用在社交头像、朋友圈配图、表情包素材、海报和周边上，第一张满意之后整批照片都按同一画风出。",
+      "display_name": "表情包与头像·照片转绘",
       "summary": "把照片转成漫画风、动漫风、卡通、水彩、黏土或 3D 角色画风，保住人物、宠物和商品的辨识度，同一套画风还能批量复用。",
       "tags": [
         "照片转漫画",
@@ -61,7 +61,8 @@
         "照片变插画",
         "表情包",
         "风格迁移",
-        "手绘风"
+        "手绘风",
+        "头像"
       ],
       "title": "照片转绘：照片转漫画风、动漫风与卡通头像"
     }
@@ -75,5 +76,5 @@
   },
   "name": "ai-photo-restyler",
   "schema_version": 1,
-  "version": "0.2.6"
+  "version": "0.2.7"
 }

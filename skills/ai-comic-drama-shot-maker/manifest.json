@@ -1,9 +1,9 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name and keywords.",
   "display_name": "AI Comic Drama Shot Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/ai-comic-drama-shot-maker",
-  "icon": "https://beatra.ai/textures/icons/ai-comic-drama-shot-maker-0.2.6.png",
+  "icon": "https://beatra.ai/textures/icons/ai-comic-drama-shot-maker-0.3.0.png",
   "localized": {
     "en": {
       "description": "Turn a comic panel, character sheet, webtoon frame, or frozen story beat into one dynamic comic-drama shot. This AI comic drama generator and motion comic maker animates an approved comic panel or manga frame into a short live shot, interpolates motion between a first and last comic panel, combines loose character, style, and scene references into a new comic-drama shot, or creates an original comic first frame and brings it to life. Use it for web-novel comic shots, motion comics, webtoon to video, manga panel animation, character entrances, emotional close-ups, action panels, dialogue reactions, and serialized creator workflows, with frozen character identity, approved art direction, and honest review of each independently generated shot.",
@@ -43,7 +43,7 @@
     },
     "zh": {
       "description": "漫剧生成器用一张漫画分镜、人物设定或定稿的故事画面，制作一个动态的漫剧镜头。这个 AI 漫剧镜头生成与动态漫制作工作流可以把单张漫画分镜或漫画页变成一段动态镜头，在首尾两张漫画分镜之间生成过渡动作，把多张人物、画风、场景参考组合成全新的漫剧镜头，也可以先生成并确认一张原创漫画起始帧再让它动起来。适合小说转漫剧、动态漫画、漫画分镜转视频、漫画人物出场、情绪特写、打斗镜头、对话反应镜头和连载创作者工作流，每个镜头都冻结人物特征、确认画风方向，并独立生成和如实复盘。",
-      "display_name": "漫剧镜头生成",
+      "display_name": "漫剧镜头生成·AI漫剧制作",
       "summary": "上传一张漫画分镜、人物设定或故事画面，把它变成一个动态的漫剧镜头——单张漫画动起来、首尾分镜过渡，或多张参考组合成全新的漫剧镜头。",
       "tags": [
         "AI漫剧",
@@ -57,7 +57,8 @@
         "漫剧人物出场",
         "漫剧对话镜头",
         "国漫镜头生成",
-        "二次元短片生成"
+        "二次元短片生成",
+        "漫剧制作"
       ],
       "title": "漫剧镜头生成：漫画转视频、动态漫制作工具"
     }
@@ -71,5 +72,5 @@
   },
   "name": "ai-comic-drama-shot-maker",
   "schema_version": 1,
-  "version": "0.3.0"
+  "version": "0.3.1"
 }

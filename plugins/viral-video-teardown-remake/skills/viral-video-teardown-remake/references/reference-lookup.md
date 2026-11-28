@@ -155,6 +155,9 @@ State, before the call:
 - the credit price `beatra.social.tools.get` just returned;
 - how many lookups the plan contains, counting the post, the comments, and the
   transcript as separate charges, and each extra page as one more;
+- what happens if the balance is short: relay the official message in the user's
+  language with its top-up link unchanged, and run the lookup only after the user says
+  they have topped up;
 - that the teardown can run on screenshots or a description at no cost.
 
 Offer the post on its own first. Comments and a transcript are worth their price when

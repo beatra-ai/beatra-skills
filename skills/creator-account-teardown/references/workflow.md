@@ -49,13 +49,15 @@ Show the selected route in one block, then freeze:
 - whether the cover is a fresh render or an edit of the user's uploaded image;
 - the 9:16 canvas, **with the statement that changing the ratio later means producing the cover again**;
 - the ready voice ID, language, speech model behaviour, and the approved script (plus optional confirmed **Smart Voice Director** `beatra.speech.prepare_script` line item at live `speech_script` price — re-calling within 48 hours with the same `input`, `instructions`, `language`, and `context` changing only `voice`/`model` carries zero extra charge, max 2 concurrent, balance still covers initial estimate; never hand-author braced markup);
-- every paid call in production, each with its current maximum price (from `beatra.models.list` / `beatra.speech.validate` / `beatra.speech.prepare_script`) and stable request ID. See [speech and audio](speech-and-audio.md).
+- every paid call in production, each with its current maximum price (from `beatra.models.list` / `beatra.speech.validate` / `beatra.speech.prepare_script`). See [speech and audio](speech-and-audio.md);
+- that the diagnosis, the template, and the first-post plan stay theirs at no charge if they stop here;
+- what happens if the balance is short: the call returns `insufficient_balance` without producing anything; relay its official message in the user's language with the top-up link unchanged, and resubmit under the same request ID only after the user says they have topped up.
 
 A clear instruction to proceed counts as approval. Planning, comparing options, or an unresolved voice choice does not.
 
 ## The paid calls
 
-One `beatra.images.generate` call for the cover, optional confirmed `beatra.speech.prepare_script` (inspect `directed` and `scripts[]`; follow `warnings` if `synthesis` is `null`), free `beatra.speech.validate`, and one `beatra.speech.synthesize` call for the script with `subtitle_enable: true` (so free aligned JSON/SRT/VTT `output.subtitles` return alongside the audio). Give each paid call its own stable opaque `client_request_id` and submit it exactly once. They are independent; either order is fine.
+One `beatra.images.generate` call for the cover, optional confirmed `beatra.speech.prepare_script` (inspect `directed` and `scripts[]`; follow `warnings` if `synthesis` is `null`), free `beatra.speech.validate`, and one `beatra.speech.synthesize` call for the script with `subtitle_enable: true` (so free aligned JSON/SRT/VTT `output.subtitles` return alongside the audio). Give each paid call its own stable opaque `client_request_id`, minted once its payload is final and kept in your own notes, never on the card, and submit it exactly once. They are independent; either order is fine.
 
 ```json
 {

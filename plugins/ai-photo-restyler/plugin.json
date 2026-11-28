@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-photo-restyler",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Turn a photo into anime, manga, comic, cartoon, watercolor, clay, or 3D character art while the subject stays recognisable, and repeat the same look across a whole set.",
   "author": {
     "name": "Beatra AI",

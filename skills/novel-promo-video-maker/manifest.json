@@ -1,5 +1,5 @@
 {
-  "changelog": "Shared guidance refreshed across Beatra Skills.",
+  "changelog": "Updated the Chinese name and keywords.",
   "display_name": "Novel Promo Video Maker",
   "entry": "SKILL.md",
   "homepage": "https://beatra.ai/skills/novel-promo-video-maker",
@@ -47,7 +47,7 @@
     },
     "zh": {
       "description": "把一章小说、网文片段或故事脚本改编成一组按顺序排好的带旁白竖屏推文视频片段：借助 AI 自动拆出钩子和分镜、每个分镜配一张插画、用你选的音色录旁白，再让每段画面跟着自己的旁白动起来，同一个角色在每个镜头里长得一样。适合小说转视频、文转视频、小说推文、网文推文、小说解说、故事号日更、书评短片、图文成片和故事成片，一章文字直接成片，按分镜顺序交付一组可直接发布的竖屏故事视频片段。",
-      "display_name": "小说推文视频生成",
+      "display_name": "解说视频·小说推文生成",
       "summary": "把一章小说或故事脚本改编成一组按顺序排好的带旁白竖屏推文视频片段，自动拆分镜、配插画、录旁白，同一个角色在每个镜头里长得一样。",
       "tags": [
         "小说推文",
@@ -61,7 +61,8 @@
         "小说改编视频",
         "竖屏故事视频",
         "小说配音视频",
-        "故事成片"
+        "故事成片",
+        "解说视频"
       ],
       "title": "小说推文视频生成：一章文字直接出一组竖屏视频片段"
     }
@@ -75,5 +76,5 @@
   },
   "name": "novel-promo-video-maker",
   "schema_version": 1,
-  "version": "0.3.1"
+  "version": "0.3.2"
 }
